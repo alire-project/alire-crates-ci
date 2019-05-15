@@ -10,7 +10,7 @@ set -o nounset
 git clone --recurse-submodules https://github.com/alire-project/alire
 pushd alire
 git checkout $BRANCH
-git branch -v > ../alire-commit.txt
+commit=`git log --pretty=oneline -1 | cut -c1-8`
 gprbuild -j0 -p -P alr_env
 export PATH+=:`pwd`/bin
 popd
@@ -20,7 +20,7 @@ testdir=alrtest
 # Check crates
 mkdir $testdir
 pushd $testdir
-alr test --newest hello
+alr test --newest --full
 cp *.xml ../shippable/testresults 
 popd
 
@@ -35,5 +35,5 @@ fi
 
 git pull
 git add $dst.md alire-commit.txt
-git commit -m "release build results for $dst [skip ci]" 
+git commit -m "$dst alire@$commit [skip ci]" 
 git push git@github.com:alire-project/alire-crates-ci.git
