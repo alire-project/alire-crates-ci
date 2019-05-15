@@ -10,6 +10,7 @@ set -o nounset
 git clone --recurse-submodules https://github.com/alire-project/alire
 pushd alire
 git checkout $BRANCH
+git branch -v > ../alire-commit.txt
 gprbuild -j0 -p -P alr_env
 export PATH+=:`pwd`/bin
 popd
@@ -33,6 +34,6 @@ else
 fi
 
 git pull
-git add $dst.md
-git commit -m "alr test results for $dst [skip ci]" 
+git add $dst.md alire-commit.txt
+git commit -m "release build results for $dst [skip ci]" 
 git push git@github.com:alire-project/alire-crates-ci.git
