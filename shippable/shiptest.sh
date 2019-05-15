@@ -32,6 +32,7 @@ else
     echo "alr test failed to run in $dst" > $dst.md
 fi
 
+git pull
 git add $dst.md
 git commit -m "alr test results for $dst [skip ci]" 
 git push git@github.com:alire-project/alire-crates-ci.git

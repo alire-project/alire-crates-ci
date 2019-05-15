@@ -1,4 +1,4 @@
-master: [![Run Status](https://api.shippable.com/projects/5cdbf0c29bbe6e00074ac61b/badge?branch=master)](https://app.shippable.com/github/alire-project/alire-crates-ci/dashboard)
+![branch-master](https://badgen.net/badge//master/lightgrey)[![Run Status](https://api.shippable.com/projects/5cdbf0c29bbe6e00074ac61b/badge?branch=master)](https://app.shippable.com/github/alire-project/alire-crates-ci/dashboard)
 stable: [![Run Status](https://api.shippable.com/projects/5cdbf0c29bbe6e00074ac61b/badge?branch=stable)](https://app.shippable.com/github/alire-project/alire-crates-ci/dashboard)
 
 
