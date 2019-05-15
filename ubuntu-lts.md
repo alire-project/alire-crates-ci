@@ -2,4 +2,4 @@
 
 | Status | Project | Version | Build time |
 | --- | --- | --- | --- |
-|![green](https://placehold.it/8/00aa00/000000?text=+) pass | hello | 1.0.1 |  1.05 s |
+|![green](https://placehold.it/8/00aa00/000000?text=+) pass | hello | 1.0.1 |  1.22 s |
