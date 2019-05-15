@@ -1,5 +1,6 @@
-master: [![Run Status](https://api.shippable.com/projects/5ac50b3494f2af07000852d9/badge?branch=master)](https://app.shippable.com/github/alire-project/alire/dashboard)
-stable: [![Run Status](https://api.shippable.com/projects/5ac50b3494f2af07000852d9/badge?branch=stable)](https://app.shippable.com/github/alire-project/alire/dashboard)
+master: [![Run Status](https://api.shippable.com/projects/5cdbf0c29bbe6e00074ac61b/badge?branch=master)](https://app.shippable.com/github/alire-project/alire-crates-ci/dashboard))
+stable: [![Run Status](https://api.shippable.com/projects/5cdbf0c29bbe6e00074ac61b/badge?branch=stable)](https://app.shippable.com/github/alire-project/alire-crates-ci/dashboard)
+
 
 # CRATE BUILD TESTS
 
