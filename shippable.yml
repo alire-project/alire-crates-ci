@@ -33,11 +33,19 @@ build:
 ### JOBS ###
 
 jobs:
-    - name: assembly-test
+    - name: alr-changed
       type: runSh
       triggerMode: serial
       steps:
         - IN: alire_runCI
+        - TASK:
+            script:
+                - shippable/shipcheck.sh
+    - name: index-changed
+      type: runSh
+      triggerMode: serial
+      steps:
+        - IN: alire-index_ciRepo
         - TASK:
             script:
                 - shippable/shipcheck.sh
