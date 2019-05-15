@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# Script is run after a commit to this repo
+# It checks out latest alr and tests all crates
+
 trap 'echo "ERROR at line ${LINENO} (code: $?)" >&2' ERR 
 trap 'echo "Interrupted" >&2 ; exit 1' INT 
 

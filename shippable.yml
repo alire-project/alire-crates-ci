@@ -33,11 +33,11 @@ build:
 ### JOBS ###
 
 jobs:
-    - name: crates-ci
+    - name: assembly-test
       type: runSh
       triggerMode: serial
       steps:
         - IN: alire_runCI
         - TASK:
             script:
-                - echo "CRATE TEST START"
+                - shippable/shipcheck.sh
