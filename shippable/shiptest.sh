@@ -18,7 +18,7 @@ testdir=alrtest
 # Check crates
 mkdir $testdir
 pushd $testdir
-alr test --latest hello
+alr test --newest hello
 cp *.xml ../shippable/testresults 
 popd
 
