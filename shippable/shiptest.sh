@@ -7,7 +7,7 @@ set -o errexit
 set -o nounset
 
 # Get alire
-git clone https://github.com/alire-project/alire
+git clone --recurse-submodules https://github.com/alire-project/alire
 pushd alire
 gprbuild -j0 -p -P alr_env
 export PATH+=:`pwd`/bin
