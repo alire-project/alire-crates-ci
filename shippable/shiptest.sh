@@ -34,6 +34,6 @@ else
 fi
 
 git pull
-git add $dst.md alire-commit.txt
+git add $dst.md
 git commit -m "$dst alire@$commit [skip ci]" 
 git push git@github.com:alire-project/alire-crates-ci.git
