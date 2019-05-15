@@ -29,3 +29,15 @@ build:
         pull: true
     ci:
         - shippable/shiptest.sh
+
+### JOBS ###
+
+jobs:
+    - name: crates-ci
+      type: runSh
+      triggerMode: serial
+      steps:
+        - IN: alire_runCI
+        - TASK: trig
+            script:
+                - echo "CRATE TEST START"
