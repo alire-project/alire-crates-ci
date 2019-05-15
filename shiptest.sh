@@ -6,30 +6,30 @@ trap 'echo "Interrupted" >&2 ; exit 1' INT
 set -o errexit
 set -o nounset
 
-# Check compilation in all cases
+# Get alire
+git clone https://github.com/alire-project/alire
+pushd alire
 gprbuild -j0 -p -P alr_env
-
 export PATH+=:`pwd`/bin
+popd
+
+testdir=alrtest
 
 # Check crates
-mkdir $cratedir
-pushd $cratedir
+mkdir $testdir
+pushd $testdir
 alr test --latest hello
 cp *.xml ../shippable/testresults 
 popd
-#!/usr/bin/env bash
 
-source scripts/shipcommon
-
+# Generate MD result file
 dst=`basename $IMAGE_TAG`
-if [ "`find $cratedir -name '*.md' | wc -l`" -gt 0 ]; then
+if [ "`find $testdir -name '*.md' | wc -l`" -gt 0 ]; then
     echo "Storing crate test results for image tagged as $dst"
-    cp -fv $cratedir/*.md status/$dst.md
+    cp -fv $testdir/*.md $dst.md
 else
-    echo "alr test failed to run in $dst" > status/$dst.md
+    echo "alr test failed to run in $dst" > $dst.md
 fi
 
-git checkout -B crates-ci
-git add status
-git commit -m "alr test results for $dst [skip ci]"
-git push -f git@github.com:alire-project/alr.git
+git commit -a -m "alr test results for $dst [skip ci]"
+git push
