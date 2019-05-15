@@ -20,12 +20,13 @@ testdir=alrtest
 # Check crates
 mkdir $testdir
 pushd $testdir
-alr test --newest hello
+alr test --newest --full
 cp *.xml ../shippable/testresults 
 popd
 
 # Generate .md result file
-dst=`basename $IMAGE_TAG`
+dst=status-`basename $IMAGE_TAG`
+
 if [ "`find $testdir -name '*.md' | wc -l`" -gt 0 ]; then
     echo "Storing crate test results for image tagged as $dst"
     cp -fv $testdir/*.md $dst.md
@@ -33,6 +34,7 @@ else
     echo "alr test failed to run in $dst" > $dst.md
 fi
 
+# Push results
 git pull
 git add $dst.md
 git commit -m "alire@$commit [skip ci]" 

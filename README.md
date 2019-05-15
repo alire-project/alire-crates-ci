@@ -5,7 +5,7 @@
 
 # CRATE BUILD TESTS
 
-These files reflect the build results of releases during the continuous integration check.
+These `status-*.md`files reflect the build status of releases during the continuous integration check.
 
 Branches master/stable reflect the results after a commit to the respective branches in https://github.com/alire-project/alire (once tests have completed)
 
