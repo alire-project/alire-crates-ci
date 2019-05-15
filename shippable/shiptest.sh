@@ -23,7 +23,7 @@ alr test --newest hello
 cp *.xml ../shippable/testresults 
 popd
 
-# Generate MD result file
+# Generate .md result file
 dst=`basename $IMAGE_TAG`
 if [ "`find $testdir -name '*.md' | wc -l`" -gt 0 ]; then
     echo "Storing crate test results for image tagged as $dst"
@@ -34,4 +34,4 @@ fi
 
 git add $dst.md
 git commit -m "alr test results for $dst [skip ci]" 
-git push git@github.com/alire-project/alire-crates-ci
+git push git@github.com:alire-project/alire-crates-ci.git
