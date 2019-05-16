@@ -6,6 +6,11 @@ trap 'echo "Interrupted" >&2 ; exit 1' INT
 set -o errexit
 set -o nounset
 
+# This script is triggered after a commit/PR to alire or alire-index
+# It checks that the trigger is not a PR but a real commit
+# This can probably be done through shippable resources,
+#   although I'm unsure if the added complexity is worth it.
+
 # Get alire
 git clone https://github.com/alire-project/alire
 pushd alire
