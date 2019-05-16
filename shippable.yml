@@ -41,6 +41,8 @@ jobs:
         - TASK:
             script:
                 - if [ "$BRANCH" == "none" ]; then exit 0; fi
+                - if [ "$BRANCH" != "master" ] && [ "$BRANCH" != "stable" ]; then exit 0; fi
                 - git clone git@github.com:alire-project/alire-crates-ci.git
                 - cd alire-crates-ci
+                - git checkout $BRANCH
                 - shippable/shipcheck.sh
