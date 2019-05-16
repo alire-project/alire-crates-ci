@@ -37,10 +37,10 @@ jobs:
       type: runSh
       triggerMode: serial
       steps:
-        - IN: alire_runCI
-        - IN: alire-index_ciRepo
+        - IN: branchInfo
         - TASK:
             script:
+                - if [ "$BRANCH" == "none" ]; then exit 0; fi
                 - git clone git@github.com:alire-project/alire-crates-ci.git
                 - cd alire-crates-ci
                 - shippable/shipcheck.sh
