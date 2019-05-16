@@ -25,16 +25,18 @@ oldcommit=`cat shippable/$BRANCH.txt`
 if [ "$commit" == "$oldcommit" ]; then
     echo Commit unchanged, stopping now.
     exit 0
+else
+    echo "Testing crates because of alire@$BRANCH changes:"
+    echo "Old commit: $oldcommit"
+    echo "New commit: $commit"
 fi
 
 # Force testing by committing to ourselves
 # We do this instead of running shiptest.sh because this way unit tests are managed by shippable automatically
+git config --global user.email "shippable@alire-crates-ci"
+git config --global user.name "Shippable"
 git pull
 date -u > last-commit
 git add last-commit
 git commit -m "alire@$BRANCH triggered"
 git push git@github.com:alire-project/alire-crates-ci.git
-
-echo "Testing crates because of alire@$BRANCH changes:"
-echo "Old commit: $oldcommit"
-echo "New commit: $commit"
