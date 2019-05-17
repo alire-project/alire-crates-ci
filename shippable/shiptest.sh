@@ -20,6 +20,9 @@ popd
 
 testdir=alrtest
 
+# Ensure native package index is up to date
+apt-get update
+
 # Check crates
 mkdir $testdir
 pushd $testdir
