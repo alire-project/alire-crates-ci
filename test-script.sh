@@ -12,7 +12,6 @@ set -o nounset
 # Get alire
 git clone --recurse-submodules https://github.com/alire-project/alire
 pushd alire
-git checkout $BRANCH
 commit=`git log --pretty=oneline -1 | cut -c1-8`
 gprbuild -j0 -p -P alr_env
 export PATH+=:`pwd`/bin
@@ -20,18 +19,14 @@ popd
 
 testdir=alrtest
 
-# Ensure native package index is up to date
-apt-get update
-
 # Check crates
 mkdir $testdir
 pushd $testdir
-alr test --newest --full
-cp *.xml ../shippable/testresults 
+alr -n test --newest --full
 popd
 
 # Generate .md result file
-dst=status-`basename $IMAGE_TAG`
+dst=status-$SETUP_NAME
 
 if [ "`find $testdir -name '*.md' | wc -l`" -gt 0 ]; then
     echo "Storing crate test results for image tagged as $dst"
@@ -40,8 +35,15 @@ else
     echo "alr test failed to run in $dst" > $dst.md
 fi
 
-# Push results
-git pull
+# push to publishing branch
+remote_repo="https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+remote_branch="master"
+git config user.name "${GITHUB_ACTOR}"
+git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+git remote rm origin || true
+git remote add origin "${remote_repo}"
 git add $dst.md
-git commit -m "alire@$commit [skip ci]" 
-git push git@github.com:alire-project/alire-crates-ci.git
+git commit -m "Automated deployment: $(date -u) ${GITHUB_SHA}"
+git checkout -b to_publish
+git pull --rebase origin ${remote_branch}
+git push origin "to_publish:${remote_branch}"
