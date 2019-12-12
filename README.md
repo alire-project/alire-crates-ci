@@ -1,8 +1,3 @@
-![branch-master](https://badgen.net/badge/branch/master/blue)[![Run Status](https://api.shippable.com/projects/5cdbf0c29bbe6e00074ac61b/badge?branch=master)](https://app.shippable.com/github/alire-project/alire-crates-ci/dashboard) 
-❦
-![branch-master](https://badgen.net/badge/branch/stable/blue)[![Run Status](https://api.shippable.com/projects/5cdbf0c29bbe6e00074ac61b/badge?branch=stable)](https://app.shippable.com/github/alire-project/alire-crates-ci/dashboard)
-
-
 # CRATE BUILD TESTS
 
 These `status-*.md`files reflect the build status of releases during the continuous integration check.
