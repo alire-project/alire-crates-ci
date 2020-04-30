@@ -36,6 +36,24 @@ else
     echo "alr test failed to run in $dst" > $dst.md
 fi
 
+# SYNC BARRIER To avoid conflicts when pushing results, we allow each setup to
+# only do so at a specific minute. The root of this problem is at GH not
+# allowing using "needs:" on matrix jobs.
+
+declare -A minute=(['centos-latest-community-2019']='0'
+                   ['community-current']='1'
+                   ['debian-stable']='2'
+                   ['ubuntu-lts']='3'
+                   ['windows-latest']='4'
+                   ['macos-latest']='5') 
+
+while ! [[ "$(date +%M)" =~ .${minute[$SETUP_NAME]} ]]; do
+    echo Waiting for slot ${minute[$SETUP_NAME]} at $(date)
+    sleep 30s
+done
+
+echo Barrier left behind at $(date)
+
 # push to publishing branch
 remote_repo="https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
 remote_branch="master"
