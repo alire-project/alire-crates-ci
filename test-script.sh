@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
-# Script is run after a commit to this repo
-# It checks out latest alr and tests all crates
+# Build all crates and generate a report in .md format
 
 trap 'echo "ERROR at line ${LINENO} (code: $?)" >&2' ERR 
 trap 'echo "Interrupted" >&2 ; exit 1' INT 
@@ -22,7 +21,7 @@ testdir=alrtest
 # Check crates
 mkdir $testdir
 pushd $testdir
-alr -n test --newest --full || true
+alr -n test --newest hello || true
 # alr will exit with error if some crate didn't test out properly
 popd
 
