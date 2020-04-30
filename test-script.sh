@@ -22,7 +22,8 @@ testdir=alrtest
 # Check crates
 mkdir $testdir
 pushd $testdir
-alr -n test --newest --full
+alr -n test --newest --full || true
+# alr will exit with error if some crate didn't test out properly
 popd
 
 # Generate .md result file
