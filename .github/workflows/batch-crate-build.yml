@@ -1,15 +1,14 @@
 name: Crate Status
 
 on:
-#  schedule:
-#    - cron:  '0 0 * * *' # One run every day
-  push: [ fake ]
+  push:
+    branches:
+      - master
+      - 'fix/batch'
 
-env:
-  alire_index: ""
-  # Empty index: test with master of community index
-  # Otherwise: test with particular commit/branch
-  # e.g.: index: "git+https://github.com/alire-project/alire-index@deadbeef"
+defaults:
+  run:
+    shell: bash
 
 jobs:
 
@@ -76,20 +75,17 @@ jobs:
         SETUP_NAME: ${{ matrix.tag }}
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: >
-        docker run -v${PWD}:/alire -w /alire 
-        -e "SETUP_NAME=${{ matrix.tag }}"
-        -e "INDEX=${{ env.alire_index }}"
-        -e "GITHUB_TOKEN=${{ secrets.GITHUB_TOKEN }}"
-        -e GITHUB_ACTOR
-        -e GITHUB_REPOSITORY
-        -e GITHUB_SHA
-        alire/gnat:${{ matrix.tag }} ./test-script.sh
+        docker run 
+        -v${PWD}:/work -w /work
+        -e "TAG=${{ matrix.tag }}"
+        alire/gnat:${{ matrix.tag }} 
+        ./scripts/test-oldest.bash
 
     - name: Run test script (Windows/MacOS)
       if: matrix.os != 'ubuntu-latest'
-      run: ./test-script.sh
-      shell: bash
+      run: ./scripts/test-oldest.bash
       env:
         SETUP_NAME: ${{ matrix.os }}
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+    # Commit changes (unimplemented)
