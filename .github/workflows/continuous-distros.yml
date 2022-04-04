@@ -1,0 +1,45 @@
+name: CI with Distro compilers
+
+on:
+  schedule:
+    - cron: '44 * * * *'
+
+jobs:
+
+  build:
+    name: Test on ${{ matrix.tag }}
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        tag: # Those are our dockerhub alire/gnat:tag machines
+            - centos-latest-community-latest # Test with unsupported package manager
+            - debian-stable                  # Test current stable Debian compiler
+            - fedora-latest                  # Test current Fedora compiler
+            - ubuntu-lts                     # Test current LTS Ubuntu compiler
+            - arch-rolling                   # Test Arch compiler (closest to FSF?)
+
+    steps:
+    - name: Check out repository
+      uses: actions/checkout@v2
+
+    - name: Set up stable `alr`
+      uses: alire-project/setup-alire@v1
+      with:
+        toolchain: --disable-assistant
+        # We want to use the externally provided toolchain in the docker image
+
+    - name: Run docker
+      uses: mosteo-actions/docker-run@v1
+      with:
+        image: alire/gnat:${{ matrix.tag }}
+        command: scripts/run-tests.sh
+        params: >
+          -e BRANCH_NAME=${{ github.head_ref || github.ref_name }}
+          -e DISTRO=${{ matrix.tag }}
+          -e GITHUB_TOKEN=${{ secrets.GITHUB_TOKEN }}
+          -e GNAT_EXTERNAL=True
+          -e CI=True
+          -e BADGE=1
+          -v ${{ github.workspace }}/alire_install/bin/alr:/usr/bin/alr
