@@ -1,0 +1,102 @@
+Test ran at 2022-05-30 04:34:31.021855+00:00
+
+SOLUTION:
+wikiada=1.2.0: Wiki Engine with parser and renderer for several wiki syntaxes
+Origin: source archive 1.2.0.tar.gz at https://github.com/stcarrez/ada-wiki/archive/1.2.0.tar.gz with hash sha512:a57d94178f711de0f9a9d708168b5bf38f20213e609a9b0c5124f25dc294ba4d9d524e1a945c393f516eb2ffbce9f0c808083578804e69515214b1c1115208ff
+Properties:
+   Post_Fetch run: ${CRATE_DIR}/./rm -f config.gpr
+   Description: Wiki Engine with parser and renderer for several wiki syntaxes
+   GPR Scenario: BUILD := distrib | debug | optimize | profile | coverage
+   GPR Scenario: WIKI_LIBRARY_TYPE := relocatable | static | static-pic
+   License: Apache-2.0
+   Maintainer: Stephane.Carrez@gmail.com
+   Maintainers_Logins: stcarrez
+   Name: wikiada
+   Project_File: .alire/wikiada.gpr
+   Version: 1.2.0
+Dependencies (direct):
+   utilada^2.0.0
+Dependencies (solution):
+   utilada=2.1.0
+Dependencies (graph):
+   wikiada=1.2.0 --> utilada=2.1.0 (^2.0.0)
+
+
+LOG:
+Note: Deploying release wikiada=1.2.0...
+#=#=#                                                                         
+##O#- #                                                                       
+##O=#  #                                                                      
+#-#O=#  #                                                                     
+Note: Deploying release utilada=2.1.0...
+#=#=#                                                                         
+##O#- #                                                                       
+
+##                                                                         4.0%
+##############                                                            20.6%
+######################################################################## 100.0%
+Note: Running post_fetch actions for wikiada=1.2.0...
+Setup
+   [mkdir]        object directory for project UtilAda_Core
+   [mkdir]        library directory for project UtilAda_Core
+   [mkdir]        object directory for project WikiAda
+   [mkdir]        library directory for project WikiAda
+Compile
+   [Ada]          util-texts-formats.adb
+   [Ada]          util-texts.ads
+   [Ada]          util-texts-builders.adb
+   [Ada]          util-texts-tokenizers.adb
+   [Ada]          util-texts-transforms.adb
+   [Ada]          util-strings-maps.ads
+   [Ada]          util-strings-builders.ads
+   [Ada]          util-strings-sets.ads
+   [Ada]          util-strings-builders-transforms.ads
+   [Ada]          util-strings-vectors.ads
+   [Ada]          util-strings.adb
+   [Ada]          util-strings-transforms.adb
+   [Ada]          util-strings-tokenizers.ads
+   [Ada]          util-listeners-lifecycles.adb
+   [Ada]          util-listeners-observers.adb
+   [Ada]          util-listeners.ads
+   [Ada]          util-concurrent-counters.adb
+   [Ada]          util-concurrent-sequence_queues.adb
+   [Ada]          util-concurrent-locks.adb
+   [Ada]          util-concurrent.ads
+   [Ada]          util-concurrent-arrays.adb
+   [Ada]          util-concurrent-pools.adb
+   [Ada]          util-concurrent-fifos.adb
+   [Ada]          util-concurrent-copies.adb
+   [Ada]          util-executors.adb
+   [Ada]          util-refs.adb
+   [Ada]          util.ads
+   [Ada]          util-nullables.ads
+   [Ada]          util-locales.adb
+   [Ada]          util-stacks.adb
+   [Ada]          util-algorithms.ads
+   [Ada]          wiki-helpers.adb
+   [Ada]          wiki-strings.ads
+   [Ada]          wiki.adb
+   [Ada]          wiki-streams-html.adb
+   [Ada]          wiki-streams-builders.adb
+   [Ada]          wiki-plugins-templates.adb
+   [Ada]          wiki-filters-html.adb
+   [Ada]          wiki-helpers-parser.adb
+   [Ada]          wiki-streams-html-text_io.adb
+   [Ada]          wiki-parsers-html.adb
+   [Ada]          wiki-streams.ads
+   [Ada]          wiki-render-html.adb
+   [Ada]          wiki-nodes-lists.adb
+wiki-nodes-lists.ads:24:04: instantiation error at util-refs.adb:142
+wiki-nodes-lists.ads:24:04: access discriminant in return aggregate would be a dangling reference
+
+   compilation of wiki-nodes-lists.adb failed
+
+gprbuild: *** compilation phase failed
+stderr: Command ["gprbuild", "-gnatwU", "-j0", "-p", "-P", ".alire/wikiada.gpr"] exited with code 4
+ERROR: Command ["gprbuild", "-gnatwU", "-j0", "-p", "-P", ".alire/wikiada.gpr"] exited with code 4
+
+Warning: wikiada=1.2.0 successfully retrieved but its build failed.
+Dependencies were solved as follows:
+
+   + utilada 2.1.0 (new)
+ERROR: Build ended with errors

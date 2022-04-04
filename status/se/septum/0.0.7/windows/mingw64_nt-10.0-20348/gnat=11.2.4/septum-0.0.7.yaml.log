@@ -1,0 +1,153 @@
+Test ran at 2022-06-26 12:35:29.033131+00:00
+
+SOLUTION:
+septum=0.0.7: An interactive context-based text search tool for large codebases.
+Origin: commit 88e658cae59bbaad518f7e5ba8a55f92b569ed87 from https://github.com/pyjarrett/septum.git
+Properties:
+   Author: Paul Jarrett
+   Description: An interactive context-based text search tool for large codebases.
+   Executable: septum
+   case OS is
+      when Linux => GPR External: Septum_Platform := linux
+      when Macos => GPR External: Septum_Platform := macos
+      when Windows => GPR External: Septum_Platform := windows
+   License: Apache-2.0
+   Maintainer: Paul Jarrett <jarrett.paul.young@gmail.com>
+   Maintainers_Logins: pyjarrett
+   Name: septum
+   Tag: search
+   Tag: code
+   Tag: text
+   Version: 0.0.7
+   Website: https://github.com/pyjarrett/septum
+Dependencies (direct):
+   atomic~0.3.0
+   dir_iterators~0.0.3
+   progress_indicators~0.0.1
+   trendy_terminal~0.0.5
+Dependencies (solution):
+   ansiada=0.1.0
+   atomic=0.3.0
+   dir_iterators=0.0.3
+   progress_indicators=0.0.1
+   trendy_terminal=0.0.5
+Dependencies (graph):
+   progress_indicators=0.0.1 --> ansiada=0.1.0 (~0.1.0)            
+   septum=0.0.7              --> atomic=0.3.0 (~0.3.0)             
+   septum=0.0.7              --> dir_iterators=0.0.3 (~0.0.3)      
+   septum=0.0.7              --> progress_indicators=0.0.1 (~0.0.1)
+   septum=0.0.7              --> trendy_terminal=0.0.5 (~0.0.5)    
+
+
+LOG:
+Note: Deploying septum=0.0.7...
+Note: Deploying ansiada=0.1.0...
+Note: Deploying atomic=0.3.0...
+Note: Deploying dir_iterators=0.0.3...
+Note: Deploying trendy_terminal=0.0.5...
+Note: Deploying progress_indicators=0.0.1...
+Note: Building ansiada/ansi.gpr...
+Setup
+   [mkdir]        object directory for project ANSI
+   [mkdir]        exec directory for project ANSI
+Compile
+   [Ada]          ansi-demo.adb
+   [Ada]          ansi.ads
+Bind
+   [gprbind]      ansi-demo.bexch
+   [Ada]          ansi-demo.ali
+Link
+   [link]         ansi-demo.adb
+Note: Building septum/septum.gpr...
+Setup
+   [mkdir]        object directory for project Atomic
+   [mkdir]        library directory for project Atomic
+   [mkdir]        object directory for project Dir_Iterators
+   [mkdir]        library directory for project Dir_Iterators
+   [mkdir]        object directory for project Progress_Indicators
+   [mkdir]        library directory for project Progress_Indicators
+   [mkdir]        object directory for project Trendy_Terminal
+   [mkdir]        library directory for project Trendy_Terminal
+   [mkdir]        object directory for project Septum
+   [mkdir]        exec directory for project Septum
+Compile
+   [Ada]          septum.adb
+   [Ada]          trendy_terminal-windows.ads
+   [Ada]          trendy_terminal-platform.adb
+   [Ada]          trendy_terminal.ads
+   [Ada]          trendy_terminal-vt100.adb
+   [Ada]          trendy_terminal-string_vectors.ads
+   [Ada]          trendy_terminal-maps.adb
+   [Ada]          trendy_terminal-lines.adb
+   [Ada]          trendy_terminal-lines-line_vectors.ads
+   [Ada]          trendy_terminal-io.adb
+   [Ada]          trendy_terminal-io-line_editors.adb
+   [Ada]          trendy_terminal-histories.adb
+   [Ada]          trendy_terminal-environments.adb
+   [Ada]          trendy_terminal-completions.adb
+   [Ada]          progress_indicators.ads
+   [Ada]          progress_indicators-work_trackers.adb
+   [Ada]          progress_indicators-spinners.adb
+   [Ada]          progress_indicators-bars.adb
+   [Ada]          dir_iterators.ads
+   [Ada]          dir_iterators-recursive.adb
+   [Ada]          dir_iterators-ancestor.adb
+   [Ada]          atomic.adb
+   [Ada]          atomic-unsigned_8.ads
+   [Ada]          atomic-unsigned_32.ads
+   [Ada]          atomic-unsigned_16.ads
+   [Ada]          atomic-unsigned.adb
+   [Ada]          atomic-signed_8.ads
+   [Ada]          atomic-signed_32.ads
+   [Ada]          atomic-signed_16.ads
+   [Ada]          atomic-signed.adb
+   [Ada]          sp.ads
+   [Ada]          sp-config.adb
+   [Ada]          sp-interactive.adb
+   [Ada]          ansi.ads
+   [Ada]          sp-file_system.adb
+sp-interactive.adb:17:09: warning: unit "Ada.IO_Exceptions" is not referenced
+sp-interactive.adb:26:08: warning: unit "SP.Platform" is not referenced
+   [Ada]          sp-platform.adb
+   [Ada]          sp-strings.adb
+   [Ada]          sp-commands.adb
+   [Ada]          sp-filters.adb
+sp-commands.adb:18:20: warning: unit "Ada.Containers.Vectors" is not referenced
+   [Ada]          sp-searches.adb
+   [Ada]          sp-terminal.adb
+sp-terminal.ads:20:06: warning: unit "System" is not referenced
+   [Ada]          sp-contexts.adb
+sp-searches.ads:29:05: warning: use clause for type "Ada.Containers.Count_Type" has no effect
+   [Ada]          sp-memory.adb
+   [Ada]          sp-progress.adb
+   [Ada]          sp-cache.adb
+sp-cache.adb:20:09: warning: unit "Ada.Task_Identification" is not referenced
+sp-cache.adb:34:14: warning: function "+" is not referenced
+Build Libraries
+   [gprlib]       Atomic.lexch
+   [gprlib]       Dir_Iterators.lexch
+   [gprlib]       Progress_Indicators.lexch
+   [archive]      libAtomic.a
+   [archive]      libDir_Iterators.a
+   [index]        libAtomic.a
+   [index]        libDir_Iterators.a
+   [gprlib]       Trendy_Terminal.lexch
+   [archive]      libProgress_Indicators.a
+   [archive]      libTrendy_Terminal.a
+   [index]        libProgress_Indicators.a
+   [index]        libTrendy_Terminal.a
+Bind
+   [gprbind]      septum.bexch
+   [Ada]          septum.ali
+Link
+   [link]         septum.adb
+Build finished successfully in 21.71 seconds.
+
+septum=0.0.7 successfully retrieved and built.
+Dependencies were solved as follows:
+
+   + ansiada             0.1.0 (new,indirect)
+   + atomic              0.3.0 (new)         
+   + dir_iterators       0.0.3 (new)         
+   + progress_indicators 0.0.1 (new)         
+   + trendy_terminal     0.0.5 (new)         

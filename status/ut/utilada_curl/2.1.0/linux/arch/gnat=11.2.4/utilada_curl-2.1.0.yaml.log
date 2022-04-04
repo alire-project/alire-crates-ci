@@ -1,0 +1,92 @@
+Test ran at 2022-05-31 11:35:57.995567+00:00
+
+SOLUTION:
+utilada_curl=2.1.0: Utility Library REST support on top of CURL
+Origin: source archive 2.1.0.tar.gz at https://github.com/stcarrez/ada-util/archive/2.1.0.tar.gz with hash sha512:56b450911111eef4ff0675021781e79c7be7c4063868c01a773a7bf5193202a58da3c5285924d2723c07f4d95df93b74f6fe3fb4d32ad718274ff3bce25601d3
+Properties:
+   Author: Stephane.Carrez@gmail.com
+   Description: Utility Library REST support on top of CURL
+   GPR Scenario: BUILD := distrib | debug | optimize | profile | coverage
+   GPR Scenario: UTIL_LIBRARY_TYPE := relocatable | static | static-pic
+   License: Apache-2.0
+   Long_Description: 
+[![Build Status](https://img.shields.io/jenkins/s/https/jenkins.vacs.fr/Ada-Util.svg)](https://jenkins.vacs.fr/job/Ada-Util/)
+[![Test Status](https://img.shields.io/jenkins/t/https/jenkins.vacs.fr/Ada-Util.svg)](https://jenkins.vacs.fr/job/Ada-Util/)
+[![codecov](https://codecov.io/gh/stcarrez/ada-util/branch/master/graph/badge.svg)](https://codecov.io/gh/stcarrez/ada-util)
+
+
+This small library provides an HTTP backend on top of CURL.
+It is can be used by the `Util.Http` package.
+
+An alternate HTTP backend is provided by AWS with utilada_aws.
+
+
+   Maintainer: Stephane.Carrez@gmail.com
+   Maintainers_Logins: stcarrez
+   Name: utilada_curl
+   Project_File: utilada_curl.gpr
+   Tag: web
+   Tag: http
+   Version: 2.1.0
+Dependencies (direct):
+   utilada^2.1.0
+Dependencies (solution):
+   utilada=2.1.0
+Dependencies (graph):
+   utilada_curl=2.1.0 --> utilada=2.1.0 (^2.1.0)
+
+
+LOG:
+Note: Deploying release utilada_curl=2.1.0...
+#=#=#                                                                         
+##O#- #                                                                       
+##O=#  #                                                                      
+#-#O=#  #                                                                     
+ #-#O=#   #                                                                   
+Note: Deploying release utilada=2.1.0...
+#=#=#                                                                         
+##O#- #                                                                       
+##O=#  #                                                                      
+#-#O=#  #                                                                     
+Setup
+   [mkdir]        object directory for project UtilAda_Core
+   [mkdir]        library directory for project UtilAda_Core
+   [mkdir]        object directory for project UtilAda_Sys
+   [mkdir]        library directory for project UtilAda_Sys
+   [mkdir]        object directory for project UtilAda_Curl
+   [mkdir]        library directory for project UtilAda_Curl
+Compile
+   [Ada]          util-properties-basic.adb
+   [Ada]          util-properties-bundles.adb
+   [Ada]          util-properties-discrete.adb
+   [Ada]          util-properties.adb
+util-properties.adb:518:07: warning: variable "Old_Shared" is never read and never assigned
+   [Ada]          util-log-loggers.adb
+   [Ada]          util-log-locations.adb
+   [Ada]          util-log.adb
+   [Ada]          util-log-appenders.adb
+   [Ada]          util-files.adb
+   [Ada]          util-events.adb
+   [Ada]          util-events-channels.adb
+   [Ada]          util-events-timers.adb
+   [Ada]          util-dates-iso8601.adb
+   [Ada]          util-dates-formats.adb
+   [Ada]          util-dates-rfc7231.adb
+   [Ada]          util-dates.adb
+   [Ada]          util-commands-parsers.adb
+   [Ada]          util-commands-parsers-gnat_parser.adb
+   [Ada]          util-commands-consoles.adb
+util-commands-parsers-gnat_parser.ads:38:04: instantiation error at util-commands-parsers.ads:37
+util-commands-parsers-gnat_parser.ads:38:04: "not null" required for parameter "Process" at line 28
+
+   compilation of util-commands-parsers-gnat_parser.adb failed
+
+gprbuild: *** compilation phase failed
+stderr: Command ["gprbuild", "-gnatwU", "-j0", "-p", "-P", "utilada_curl.gpr"] exited with code 4
+ERROR: Command ["gprbuild", "-gnatwU", "-j0", "-p", "-P", "utilada_curl.gpr"] exited with code 4
+
+Warning: utilada_curl=2.1.0 successfully retrieved but its build failed.
+Dependencies were solved as follows:
+
+   + utilada 2.1.0 (new)
+ERROR: Build ended with errors

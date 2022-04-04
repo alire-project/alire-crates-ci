@@ -1,0 +1,91 @@
+Test ran at 2022-06-17 13:12:35.537207+00:00
+
+SOLUTION:
+lace_c_math=0.1.0: A binding to the C math code used by box2d & bullet bindings.
+Origin: source archive lace_c_math-0.1.0.tgz at https://github.com/charlie5/lace-alire/releases/download/v0.1.0/lace_c_math-0.1.0.tgz with hashes sha256:e47df28c1422a9e75c430d0386c6f4ae89f049853e6cc902ec1fb8dfd7fe21be, sha512:5188f8bafe18fd1b04ad2dd5f915d4974c07ff99987aca3b5161970a7c3e6231b4710f32adc4c70fbef015128b0feff7ef138c96b8dd46d346f5cdd0826359ef
+Properties:
+   Author: Rod Kay
+   Description: A binding to the C math code used by box2d & bullet bindings.
+   License: ISC
+   Maintainer: Rod Kay <rodakay5@gmail.com>
+   Maintainers_Logins: charlie5
+   Name: lace_c_math
+   Project_File: library/c_math_thin.gpr
+   Version: 0.1.0
+Dependencies (direct):
+   lace_math~0.1
+   lace_swig~0.1
+Dependencies (solution):
+   lace_math=0.1.0
+   lace_shared=0.1.0
+   lace_swig=0.1.0
+Dependencies (graph):
+   lace_c_math=0.1.0 --> lace_math=0.1.0 (~0.1)  
+   lace_c_math=0.1.0 --> lace_swig=0.1.0 (~0.1)  
+   lace_math=0.1.0   --> lace_shared=0.1.0 (~0.1)
+
+
+LOG:
+Note: Deploying lace_c_math=0.1.0...
+#=#=#                                                                         
+
+######################################################################## 100.0%
+Note: Deploying lace_shared=0.1.0...
+#=#=#                                                                         
+
+######################################################################## 100.0%
+Note: Deploying lace_swig=0.1.0...
+#=#=#                                                                         
+
+######################################################################## 100.0%
+Note: Deploying lace_math=0.1.0...
+#=#=#                                                                         
+
+######################################################################## 100.0%
+Note: Building lace_c_math/library/c_math_thin.gpr...
+gprconfig: can't find a native toolchain for language 'c++'
+gprconfig: can't find a native toolchain for language 'c++'
+Setup
+   [mkdir]        object directory for project c_Math_Thin_C
+   [mkdir]        object directory for project Swig
+   [mkdir]        object directory for project Math
+c_math_thin_c.gpr:5:09: no compiler for language "c++", cannot compile "c_math.cpp"
+gprbuild: *** compilation phase failed
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/9aaddadb-7cbc-417d-bd3b-5293a9e993ce/lace_c_math_0.1.0_e47df28c/library/c_math_thin.gpr"] exited with code 4
+ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/9aaddadb-7cbc-417d-bd3b-5293a9e993ce/lace_c_math_0.1.0_e47df28c/library/c_math_thin.gpr"] exited with code 4
+stderr: ALIRE.CHECKED_ERROR
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/9aaddadb-7cbc-417d-bd3b-5293a9e993ce/lace_c_math_0.1.0_e47df28c/library/c_math_thin.gpr"] exited with code 4
+stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
+[/usr/bin/alr]
+0xd65c78 Alire.Raise_Checked_Error at alire.adb:251
+0xa2f08f Alire.Os_Lib.Subprocess.Checked_Spawn at alire-os_lib-subprocess.adb:110
+0xc49318 Alire.Spawn.Command at alire-spawn.adb:21
+0xc49a46 Alire.Spawn.Gprbuild at alire-spawn.adb:41
+0xbada9c Alire.Roots.Build.Build_Single_Release.Call_Gprbuild at alire-roots.adb:140
+0xbac0fb Alire.Roots.Build.Build_Single_Release at alire-roots.adb:171
+0xbc7eaa Alire.Roots.Traverse.Traverse_Wrap at alire-roots.adb:1364
+0xc11fbb Alire.Solutions.Traverse.Visit at alire-solutions.adb:1434
+0xc10bd2 Alire.Solutions.Traverse at alire-solutions.adb:1509
+0xbc7ff8 Alire.Roots.Traverse at alire-roots.adb:1368
+0xbac48c Alire.Roots.Build at alire-roots.adb:196
+0x48f1e4 Alr.Commands.Build.Execute at alr-commands-build.adb:58
+0x49f50a Alr.Commands.Get.Retrieve at alr-commands-get.adb:187
+0x4a3d27 Alr.Commands.Get.Execute at alr-commands-get.adb:348
+0x52aa2e Alr.Commands.Sub_Cmd.Execute at clic-subcommand-instance.adb:742
+0x53641f Alr.Commands.Execute at alr-commands.adb:492
+0x42b9ca Alr.Main at alr-main.adb:10
+0x42e297 Main at b__alr-main.adb:2132
+[/lib64/libc.so.6]
+0x7f5dd401c1a0
+[/usr/bin/alr]
+0x42b8a8 _start at ???
+0xfffffffffffffffe
+
+
+Warning: lace_c_math=0.1.0 successfully retrieved but its build failed.
+Dependencies were solved as follows:
+
+   + lace_math   0.1.0 (new)         
+   + lace_shared 0.1.0 (new,indirect)
+   + lace_swig   0.1.0 (new)         
+ERROR: Build ended with errors

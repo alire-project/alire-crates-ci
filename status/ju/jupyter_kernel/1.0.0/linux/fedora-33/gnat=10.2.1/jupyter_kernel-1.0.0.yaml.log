@@ -1,0 +1,832 @@
+Test ran at 2022-06-03 01:17:01.611080+00:00
+
+SOLUTION:
+jupyter_kernel=1.0.0: Jupyter Kernel for Ada
+Origin: commit 8c987c134f1b92978aa4c4a528309685925f4bd9 from https://github.com/reznikmm/jupyter.git
+Available when: (case OS is Linux => True, Macos => True, others => False)
+Properties:
+   Author: Max Reznik
+   Description: Jupyter Kernel for Ada
+   GPR External: LIBRARY_TYPE := relocatable
+   License: BSD-3-Clause
+   Long_Description: # Jupyter Kernel for Ada
+
+To run this kernel with Jupyter Notebook:
+    alr get --build jupyter_kernel
+    cd jupyter_kernel*
+    ln -s ./alire/build/.objs .
+    PATH=$PATH:$PWD/alire/build/.objs/driver JUPYTER_PATH=$PWD jupyter-notebook --debug
+
+   Maintainer: Max Reznik <reznikmm@gmail.com>
+   Maintainers_Logins: reznikmm
+   Name: jupyter_kernel
+   Project_File: gnat/jupyter_ada_kernel.gpr
+   Project_File: gnat/jupyter_ada_driver.gpr
+   Tag: jupyter
+   Tag: notebook
+   Tag: kernel
+   Version: 1.0.0
+   Website: https://github.com/reznikmm/jupyter/
+Dependencies (direct):
+   matreshka_league*
+   spawn*
+   zeromq_ada*
+Dependencies (solution):
+   libzmq=4.3.4
+   make=4.3.0
+   matreshka_league=21.0.0
+   spawn=22.0.0
+   zeromq_ada=4.1.5
+Dependencies (graph):
+   jupyter_kernel=1.0.0    --> matreshka_league=21.0.0 (*)
+   jupyter_kernel=1.0.0    --> spawn=22.0.0 (*)           
+   jupyter_kernel=1.0.0    --> zeromq_ada=4.1.5 (*)       
+   matreshka_league=21.0.0 --> make=4.3.0 (*)             
+   zeromq_ada=4.1.5        --> libzmq=4.3.4 (*)           
+
+
+LOG:
+Note: Deploying release jupyter_kernel=1.0.0...
+Cloning into '/home/runner/work/alire-crates-ci/alire-crates-ci/test/5daff821-8cf0-4509-9e79-d3fc2092883a/alr-gnti.tmp'...
+remote: Enumerating objects: 380, done.        
+remote: Counting objects:   1% (1/79)        
+remote: Counting objects:   2% (2/79)        
+remote: Counting objects:   3% (3/79)        
+remote: Counting objects:   5% (4/79)        
+remote: Counting objects:   6% (5/79)        
+remote: Counting objects:   7% (6/79)        
+remote: Counting objects:   8% (7/79)        
+remote: Counting objects:  10% (8/79)        
+remote: Counting objects:  11% (9/79)        
+remote: Counting objects:  12% (10/79)        
+remote: Counting objects:  13% (11/79)        
+remote: Counting objects:  15% (12/79)        
+remote: Counting objects:  16% (13/79)        
+remote: Counting objects:  17% (14/79)        
+remote: Counting objects:  18% (15/79)        
+remote: Counting objects:  20% (16/79)        
+remote: Counting objects:  21% (17/79)        
+remote: Counting objects:  22% (18/79)        
+remote: Counting objects:  24% (19/79)        
+remote: Counting objects:  25% (20/79)        
+remote: Counting objects:  26% (21/79)        
+remote: Counting objects:  27% (22/79)        
+remote: Counting objects:  29% (23/79)        
+remote: Counting objects:  30% (24/79)        
+remote: Counting objects:  31% (25/79)        
+remote: Counting objects:  32% (26/79)        
+remote: Counting objects:  34% (27/79)        
+remote: Counting objects:  35% (28/79)        
+remote: Counting objects:  36% (29/79)        
+remote: Counting objects:  37% (30/79)        
+remote: Counting objects:  39% (31/79)        
+remote: Counting objects:  40% (32/79)        
+remote: Counting objects:  41% (33/79)        
+remote: Counting objects:  43% (34/79)        
+remote: Counting objects:  44% (35/79)        
+remote: Counting objects:  45% (36/79)        
+remote: Counting objects:  46% (37/79)        
+remote: Counting objects:  48% (38/79)        
+remote: Counting objects:  49% (39/79)        
+remote: Counting objects:  50% (40/79)        
+remote: Counting objects:  51% (41/79)        
+remote: Counting objects:  53% (42/79)        
+remote: Counting objects:  54% (43/79)        
+remote: Counting objects:  55% (44/79)        
+remote: Counting objects:  56% (45/79)        
+remote: Counting objects:  58% (46/79)        
+remote: Counting objects:  59% (47/79)        
+remote: Counting objects:  60% (48/79)        
+remote: Counting objects:  62% (49/79)        
+remote: Counting objects:  63% (50/79)        
+remote: Counting objects:  64% (51/79)        
+remote: Counting objects:  65% (52/79)        
+remote: Counting objects:  67% (53/79)        
+remote: Counting objects:  68% (54/79)        
+remote: Counting objects:  69% (55/79)        
+remote: Counting objects:  70% (56/79)        
+remote: Counting objects:  72% (57/79)        
+remote: Counting objects:  73% (58/79)        
+remote: Counting objects:  74% (59/79)        
+remote: Counting objects:  75% (60/79)        
+remote: Counting objects:  77% (61/79)        
+remote: Counting objects:  78% (62/79)        
+remote: Counting objects:  79% (63/79)        
+remote: Counting objects:  81% (64/79)        
+remote: Counting objects:  82% (65/79)        
+remote: Counting objects:  83% (66/79)        
+remote: Counting objects:  84% (67/79)        
+remote: Counting objects:  86% (68/79)        
+remote: Counting objects:  87% (69/79)        
+remote: Counting objects:  88% (70/79)        
+remote: Counting objects:  89% (71/79)        
+remote: Counting objects:  91% (72/79)        
+remote: Counting objects:  92% (73/79)        
+remote: Counting objects:  93% (74/79)        
+remote: Counting objects:  94% (75/79)        
+remote: Counting objects:  96% (76/79)        
+remote: Counting objects:  97% (77/79)        
+remote: Counting objects:  98% (78/79)        
+remote: Counting objects: 100% (79/79)        
+remote: Counting objects: 100% (79/79), done.        
+remote: Compressing objects:   2% (1/49)        
+remote: Compressing objects:   4% (2/49)        
+remote: Compressing objects:   6% (3/49)        
+remote: Compressing objects:   8% (4/49)        
+remote: Compressing objects:  10% (5/49)        
+remote: Compressing objects:  12% (6/49)        
+remote: Compressing objects:  14% (7/49)        
+remote: Compressing objects:  16% (8/49)        
+remote: Compressing objects:  18% (9/49)        
+remote: Compressing objects:  20% (10/49)        
+remote: Compressing objects:  22% (11/49)        
+remote: Compressing objects:  24% (12/49)        
+remote: Compressing objects:  26% (13/49)        
+remote: Compressing objects:  28% (14/49)        
+remote: Compressing objects:  30% (15/49)        
+remote: Compressing objects:  32% (16/49)        
+remote: Compressing objects:  34% (17/49)        
+remote: Compressing objects:  36% (18/49)        
+remote: Compressing objects:  38% (19/49)        
+remote: Compressing objects:  40% (20/49)        
+remote: Compressing objects:  42% (21/49)        
+remote: Compressing objects:  44% (22/49)        
+remote: Compressing objects:  46% (23/49)        
+remote: Compressing objects:  48% (24/49)        
+remote: Compressing objects:  51% (25/49)        
+remote: Compressing objects:  53% (26/49)        
+remote: Compressing objects:  55% (27/49)        
+remote: Compressing objects:  57% (28/49)        
+remote: Compressing objects:  59% (29/49)        
+remote: Compressing objects:  61% (30/49)        
+remote: Compressing objects:  63% (31/49)        
+remote: Compressing objects:  65% (32/49)        
+remote: Compressing objects:  67% (33/49)        
+remote: Compressing objects:  69% (34/49)        
+remote: Compressing objects:  71% (35/49)        
+remote: Compressing objects:  73% (36/49)        
+remote: Compressing objects:  75% (37/49)        
+remote: Compressing objects:  77% (38/49)        
+remote: Compressing objects:  79% (39/49)        
+remote: Compressing objects:  81% (40/49)        
+remote: Compressing objects:  83% (41/49)        
+remote: Compressing objects:  85% (42/49)        
+remote: Compressing objects:  87% (43/49)        
+remote: Compressing objects:  89% (44/49)        
+remote: Compressing objects:  91% (45/49)        
+remote: Compressing objects:  93% (46/49)        
+remote: Compressing objects:  95% (47/49)        
+remote: Compressing objects:  97% (48/49)        
+remote: Compressing objects: 100% (49/49)        
+remote: Compressing objects: 100% (49/49), done.        
+Receiving objects:   0% (1/380)
+Receiving objects:   1% (4/380)
+Receiving objects:   2% (8/380)
+Receiving objects:   3% (12/380)
+Receiving objects:   4% (16/380)
+Receiving objects:   5% (19/380)
+Receiving objects:   6% (23/380)
+Receiving objects:   7% (27/380)
+Receiving objects:   8% (31/380)
+Receiving objects:   9% (35/380)
+Receiving objects:  10% (38/380)
+Receiving objects:  11% (42/380)
+Receiving objects:  12% (46/380)
+Receiving objects:  13% (50/380)
+Receiving objects:  14% (54/380)
+Receiving objects:  15% (57/380)
+Receiving objects:  16% (61/380)
+Receiving objects:  17% (65/380)
+Receiving objects:  18% (69/380)
+Receiving objects:  19% (73/380)
+Receiving objects:  20% (76/380)
+Receiving objects:  21% (80/380)
+Receiving objects:  22% (84/380)
+Receiving objects:  23% (88/380)
+Receiving objects:  24% (92/380)
+Receiving objects:  25% (95/380)
+Receiving objects:  26% (99/380)
+Receiving objects:  27% (103/380)
+Receiving objects:  28% (107/380)
+Receiving objects:  29% (111/380)
+Receiving objects:  30% (114/380)
+Receiving objects:  31% (118/380)
+Receiving objects:  32% (122/380)
+Receiving objects:  33% (126/380)
+Receiving objects:  34% (130/380)
+Receiving objects:  35% (133/380)
+Receiving objects:  36% (137/380)
+Receiving objects:  37% (141/380)
+Receiving objects:  38% (145/380)
+Receiving objects:  39% (149/380)
+Receiving objects:  40% (152/380)
+Receiving objects:  41% (156/380)
+Receiving objects:  42% (160/380)
+Receiving objects:  43% (164/380)
+Receiving objects:  44% (168/380)
+Receiving objects:  45% (171/380)
+Receiving objects:  46% (175/380)
+Receiving objects:  47% (179/380)
+Receiving objects:  48% (183/380)
+Receiving objects:  49% (187/380)
+Receiving objects:  50% (190/380)
+Receiving objects:  51% (194/380)
+Receiving objects:  52% (198/380)
+Receiving objects:  53% (202/380)
+Receiving objects:  54% (206/380)
+Receiving objects:  55% (209/380)
+Receiving objects:  56% (213/380)
+Receiving objects:  57% (217/380)
+Receiving objects:  58% (221/380)
+Receiving objects:  59% (225/380)
+Receiving objects:  60% (228/380)
+Receiving objects:  61% (232/380)
+Receiving objects:  62% (236/380)
+Receiving objects:  63% (240/380)
+Receiving objects:  64% (244/380)
+Receiving objects:  65% (247/380)
+Receiving objects:  66% (251/380)
+Receiving objects:  67% (255/380)
+Receiving objects:  68% (259/380)
+Receiving objects:  69% (263/380)
+Receiving objects:  70% (266/380)
+Receiving objects:  71% (270/380)
+Receiving objects:  72% (274/380)
+Receiving objects:  73% (278/380)
+Receiving objects:  74% (282/380)
+Receiving objects:  75% (285/380)
+Receiving objects:  76% (289/380)
+Receiving objects:  77% (293/380)
+Receiving objects:  78% (297/380)
+Receiving objects:  79% (301/380)
+Receiving objects:  80% (304/380)
+Receiving objects:  81% (308/380)
+Receiving objects:  82% (312/380)
+Receiving objects:  83% (316/380)
+Receiving objects:  84% (320/380)
+Receiving objects:  85% (323/380)
+Receiving objects:  86% (327/380)
+Receiving objects:  87% (331/380)
+Receiving objects:  88% (335/380)
+Receiving objects:  89% (339/380)
+Receiving objects:  90% (342/380)
+Receiving objects:  91% (346/380)
+Receiving objects:  92% (350/380)
+Receiving objects:  93% (354/380)
+Receiving objects:  94% (358/380)
+remote: Total 380 (delta 36), reused 45 (delta 28), pack-reused 301        
+Receiving objects:  95% (361/380)
+Receiving objects:  96% (365/380)
+Receiving objects:  97% (369/380)
+Receiving objects:  98% (373/380)
+Receiving objects:  99% (377/380)
+Receiving objects: 100% (380/380)
+Receiving objects: 100% (380/380), 88.83 KiB | 2.47 MiB/s, done.
+Resolving deltas:   0% (0/190)
+Resolving deltas:   1% (2/190)
+Resolving deltas:   2% (4/190)
+Resolving deltas:   3% (6/190)
+Resolving deltas:   4% (8/190)
+Resolving deltas:   5% (10/190)
+Resolving deltas:   6% (12/190)
+Resolving deltas:   7% (14/190)
+Resolving deltas:   8% (16/190)
+Resolving deltas:   9% (18/190)
+Resolving deltas:  10% (19/190)
+Resolving deltas:  11% (21/190)
+Resolving deltas:  12% (23/190)
+Resolving deltas:  13% (25/190)
+Resolving deltas:  14% (27/190)
+Resolving deltas:  15% (29/190)
+Resolving deltas:  16% (31/190)
+Resolving deltas:  17% (33/190)
+Resolving deltas:  18% (35/190)
+Resolving deltas:  19% (37/190)
+Resolving deltas:  20% (38/190)
+Resolving deltas:  21% (40/190)
+Resolving deltas:  22% (42/190)
+Resolving deltas:  23% (44/190)
+Resolving deltas:  24% (46/190)
+Resolving deltas:  25% (48/190)
+Resolving deltas:  26% (50/190)
+Resolving deltas:  27% (52/190)
+Resolving deltas:  28% (54/190)
+Resolving deltas:  29% (56/190)
+Resolving deltas:  30% (57/190)
+Resolving deltas:  31% (59/190)
+Resolving deltas:  32% (61/190)
+Resolving deltas:  33% (63/190)
+Resolving deltas:  34% (65/190)
+Resolving deltas:  35% (67/190)
+Resolving deltas:  36% (69/190)
+Resolving deltas:  37% (71/190)
+Resolving deltas:  38% (73/190)
+Resolving deltas:  39% (75/190)
+Resolving deltas:  40% (76/190)
+Resolving deltas:  41% (78/190)
+Resolving deltas:  42% (80/190)
+Resolving deltas:  43% (82/190)
+Resolving deltas:  44% (84/190)
+Resolving deltas:  45% (86/190)
+Resolving deltas:  46% (88/190)
+Resolving deltas:  47% (90/190)
+Resolving deltas:  48% (92/190)
+Resolving deltas:  49% (94/190)
+Resolving deltas:  50% (95/190)
+Resolving deltas:  51% (97/190)
+Resolving deltas:  52% (99/190)
+Resolving deltas:  53% (101/190)
+Resolving deltas:  54% (103/190)
+Resolving deltas:  55% (105/190)
+Resolving deltas:  56% (107/190)
+Resolving deltas:  57% (109/190)
+Resolving deltas:  58% (111/190)
+Resolving deltas:  59% (113/190)
+Resolving deltas:  60% (114/190)
+Resolving deltas:  61% (116/190)
+Resolving deltas:  62% (118/190)
+Resolving deltas:  63% (120/190)
+Resolving deltas:  64% (122/190)
+Resolving deltas:  65% (124/190)
+Resolving deltas:  66% (126/190)
+Resolving deltas:  67% (128/190)
+Resolving deltas:  68% (130/190)
+Resolving deltas:  69% (132/190)
+Resolving deltas:  70% (133/190)
+Resolving deltas:  71% (135/190)
+Resolving deltas:  72% (137/190)
+Resolving deltas:  73% (139/190)
+Resolving deltas:  74% (141/190)
+Resolving deltas:  75% (143/190)
+Resolving deltas:  76% (145/190)
+Resolving deltas:  77% (147/190)
+Resolving deltas:  78% (149/190)
+Resolving deltas:  79% (151/190)
+Resolving deltas:  80% (152/190)
+Resolving deltas:  81% (154/190)
+Resolving deltas:  82% (156/190)
+Resolving deltas:  83% (158/190)
+Resolving deltas:  84% (160/190)
+Resolving deltas:  85% (162/190)
+Resolving deltas:  86% (164/190)
+Resolving deltas:  87% (166/190)
+Resolving deltas:  88% (168/190)
+Resolving deltas:  89% (170/190)
+Resolving deltas:  90% (171/190)
+Resolving deltas:  91% (173/190)
+Resolving deltas:  92% (175/190)
+Resolving deltas:  93% (177/190)
+Resolving deltas:  94% (179/190)
+Resolving deltas:  95% (181/190)
+Resolving deltas:  96% (183/190)
+Resolving deltas:  97% (185/190)
+Resolving deltas:  98% (187/190)
+Resolving deltas:  99% (189/190)
+Resolving deltas: 100% (190/190)
+Resolving deltas: 100% (190/190), done.
+Note: Deploying release libzmq=4.3.4...
+The system package 'libzmq3-dev' is about to be installed.
+This action might require admin privileges and impact your system installation.
+Do you want Alire to install this system package?
+Using default: Yes
+debconf: delaying package configuration, since apt-utils is not installed
+(Reading database ... 
+(Reading database ... 5%
+(Reading database ... 10%
+(Reading database ... 15%
+(Reading database ... 20%
+(Reading database ... 25%
+(Reading database ... 30%
+(Reading database ... 35%
+(Reading database ... 40%
+(Reading database ... 45%
+(Reading database ... 50%
+(Reading database ... 55%
+(Reading database ... 60%
+(Reading database ... 65%
+(Reading database ... 70%
+(Reading database ... 75%
+(Reading database ... 80%
+(Reading database ... 85%
+(Reading database ... 90%
+(Reading database ... 95%
+(Reading database ... 100%
+(Reading database ... 22393 files and directories currently installed.)
+Preparing to unpack .../libk5crypto3_1.18.3-6+deb11u1_amd64.deb ...
+Unpacking libk5crypto3:amd64 (1.18.3-6+deb11u1) over (1.18.3-6) ...
+Setting up libk5crypto3:amd64 (1.18.3-6+deb11u1) ...
+(Reading database ... 
+(Reading database ... 5%
+(Reading database ... 10%
+(Reading database ... 15%
+(Reading database ... 20%
+(Reading database ... 25%
+(Reading database ... 30%
+(Reading database ... 35%
+(Reading database ... 40%
+(Reading database ... 45%
+(Reading database ... 50%
+(Reading database ... 55%
+(Reading database ... 60%
+(Reading database ... 65%
+(Reading database ... 70%
+(Reading database ... 75%
+(Reading database ... 80%
+(Reading database ... 85%
+(Reading database ... 90%
+(Reading database ... 95%
+(Reading database ... 100%
+(Reading database ... 22393 files and directories currently installed.)
+Preparing to unpack .../libkrb5support0_1.18.3-6+deb11u1_amd64.deb ...
+Unpacking libkrb5support0:amd64 (1.18.3-6+deb11u1) over (1.18.3-6) ...
+Setting up libkrb5support0:amd64 (1.18.3-6+deb11u1) ...
+(Reading database ... 
+(Reading database ... 5%
+(Reading database ... 10%
+(Reading database ... 15%
+(Reading database ... 20%
+(Reading database ... 25%
+(Reading database ... 30%
+(Reading database ... 35%
+(Reading database ... 40%
+(Reading database ... 45%
+(Reading database ... 50%
+(Reading database ... 55%
+(Reading database ... 60%
+(Reading database ... 65%
+(Reading database ... 70%
+(Reading database ... 75%
+(Reading database ... 80%
+(Reading database ... 85%
+(Reading database ... 90%
+(Reading database ... 95%
+(Reading database ... 100%
+(Reading database ... 22393 files and directories currently installed.)
+Preparing to unpack .../libkrb5-3_1.18.3-6+deb11u1_amd64.deb ...
+Unpacking libkrb5-3:amd64 (1.18.3-6+deb11u1) over (1.18.3-6) ...
+Setting up libkrb5-3:amd64 (1.18.3-6+deb11u1) ...
+(Reading database ... 
+(Reading database ... 5%
+(Reading database ... 10%
+(Reading database ... 15%
+(Reading database ... 20%
+(Reading database ... 25%
+(Reading database ... 30%
+(Reading database ... 35%
+(Reading database ... 40%
+(Reading database ... 45%
+(Reading database ... 50%
+(Reading database ... 55%
+(Reading database ... 60%
+(Reading database ... 65%
+(Reading database ... 70%
+(Reading database ... 75%
+(Reading database ... 80%
+(Reading database ... 85%
+(Reading database ... 90%
+(Reading database ... 95%
+(Reading database ... 100%
+(Reading database ... 22393 files and directories currently installed.)
+Preparing to unpack .../libgssapi-krb5-2_1.18.3-6+deb11u1_amd64.deb ...
+Unpacking libgssapi-krb5-2:amd64 (1.18.3-6+deb11u1) over (1.18.3-6) ...
+Setting up libgssapi-krb5-2:amd64 (1.18.3-6+deb11u1) ...
+Selecting previously unselected package comerr-dev:amd64.
+(Reading database ... 
+(Reading database ... 5%
+(Reading database ... 10%
+(Reading database ... 15%
+(Reading database ... 20%
+(Reading database ... 25%
+(Reading database ... 30%
+(Reading database ... 35%
+(Reading database ... 40%
+(Reading database ... 45%
+(Reading database ... 50%
+(Reading database ... 55%
+(Reading database ... 60%
+(Reading database ... 65%
+(Reading database ... 70%
+(Reading database ... 75%
+(Reading database ... 80%
+(Reading database ... 85%
+(Reading database ... 90%
+(Reading database ... 95%
+(Reading database ... 100%
+(Reading database ... 22393 files and directories currently installed.)
+Preparing to unpack .../00-comerr-dev_2.1-1.46.2-2_amd64.deb ...
+Unpacking comerr-dev:amd64 (2.1-1.46.2-2) ...
+Selecting previously unselected package libicu67:amd64.
+Preparing to unpack .../01-libicu67_67.1-7_amd64.deb ...
+Unpacking libicu67:amd64 (67.1-7) ...
+Selecting previously unselected package icu-devtools.
+Preparing to unpack .../02-icu-devtools_67.1-7_amd64.deb ...
+Unpacking icu-devtools (67.1-7) ...
+Selecting previously unselected package libgssrpc4:amd64.
+Preparing to unpack .../03-libgssrpc4_1.18.3-6+deb11u1_amd64.deb ...
+Unpacking libgssrpc4:amd64 (1.18.3-6+deb11u1) ...
+Selecting previously unselected package libkdb5-10:amd64.
+Preparing to unpack .../04-libkdb5-10_1.18.3-6+deb11u1_amd64.deb ...
+Unpacking libkdb5-10:amd64 (1.18.3-6+deb11u1) ...
+Selecting previously unselected package libkadm5srv-mit12:amd64.
+Preparing to unpack .../05-libkadm5srv-mit12_1.18.3-6+deb11u1_amd64.deb ...
+Unpacking libkadm5srv-mit12:amd64 (1.18.3-6+deb11u1) ...
+Selecting previously unselected package libkadm5clnt-mit12:amd64.
+Preparing to unpack .../06-libkadm5clnt-mit12_1.18.3-6+deb11u1_amd64.deb ...
+Unpacking libkadm5clnt-mit12:amd64 (1.18.3-6+deb11u1) ...
+Selecting previously unselected package krb5-multidev:amd64.
+Preparing to unpack .../07-krb5-multidev_1.18.3-6+deb11u1_amd64.deb ...
+Unpacking krb5-multidev:amd64 (1.18.3-6+deb11u1) ...
+Selecting previously unselected package libmd-dev:amd64.
+Preparing to unpack .../08-libmd-dev_1.0.3-3_amd64.deb ...
+Unpacking libmd-dev:amd64 (1.0.3-3) ...
+Selecting previously unselected package libbsd-dev:amd64.
+Preparing to unpack .../09-libbsd-dev_0.11.3-1_amd64.deb ...
+Unpacking libbsd-dev:amd64 (0.11.3-1) ...
+Selecting previously unselected package libicu-dev:amd64.
+Preparing to unpack .../10-libicu-dev_67.1-7_amd64.deb ...
+Unpacking libicu-dev:amd64 (67.1-7) ...
+Selecting previously unselected package libkrb5-dev:amd64.
+Preparing to unpack .../11-libkrb5-dev_1.18.3-6+deb11u1_amd64.deb ...
+Unpacking libkrb5-dev:amd64 (1.18.3-6+deb11u1) ...
+Selecting previously unselected package libnorm1:amd64.
+Preparing to unpack .../12-libnorm1_1.5.9+dfsg-2_amd64.deb ...
+Unpacking libnorm1:amd64 (1.5.9+dfsg-2) ...
+Selecting previously unselected package libxml2:amd64.
+Preparing to unpack .../13-libxml2_2.9.10+dfsg-6.7+deb11u2_amd64.deb ...
+Unpacking libxml2:amd64 (2.9.10+dfsg-6.7+deb11u2) ...
+Selecting previously unselected package libxml2-dev:amd64.
+Preparing to unpack .../14-libxml2-dev_2.9.10+dfsg-6.7+deb11u2_amd64.deb ...
+Unpacking libxml2-dev:amd64 (2.9.10+dfsg-6.7+deb11u2) ...
+Selecting previously unselected package libnorm-dev:amd64.
+Preparing to unpack .../15-libnorm-dev_1.5.9+dfsg-2_amd64.deb ...
+Unpacking libnorm-dev:amd64 (1.5.9+dfsg-2) ...
+Selecting previously unselected package libpgm-5.3-0:amd64.
+Preparing to unpack .../16-libpgm-5.3-0_5.3.128~dfsg-2_amd64.deb ...
+Unpacking libpgm-5.3-0:amd64 (5.3.128~dfsg-2) ...
+Selecting previously unselected package libpgm-dev:amd64.
+Preparing to unpack .../17-libpgm-dev_5.3.128~dfsg-2_amd64.deb ...
+Unpacking libpgm-dev:amd64 (5.3.128~dfsg-2) ...
+Selecting previously unselected package libsodium23:amd64.
+Preparing to unpack .../18-libsodium23_1.0.18-1_amd64.deb ...
+Unpacking libsodium23:amd64 (1.0.18-1) ...
+Selecting previously unselected package libsodium-dev:amd64.
+Preparing to unpack .../19-libsodium-dev_1.0.18-1_amd64.deb ...
+Unpacking libsodium-dev:amd64 (1.0.18-1) ...
+Selecting previously unselected package libzmq5:amd64.
+Preparing to unpack .../20-libzmq5_4.3.4-1_amd64.deb ...
+Unpacking libzmq5:amd64 (4.3.4-1) ...
+Selecting previously unselected package libzmq3-dev:amd64.
+Preparing to unpack .../21-libzmq3-dev_4.3.4-1_amd64.deb ...
+Unpacking libzmq3-dev:amd64 (4.3.4-1) ...
+Setting up libsodium23:amd64 (1.0.18-1) ...
+Setting up libicu67:amd64 (67.1-7) ...
+Setting up libpgm-5.3-0:amd64 (5.3.128~dfsg-2) ...
+Setting up libnorm1:amd64 (1.5.9+dfsg-2) ...
+Setting up libgssrpc4:amd64 (1.18.3-6+deb11u1) ...
+Setting up libpgm-dev:amd64 (5.3.128~dfsg-2) ...
+Setting up comerr-dev:amd64 (2.1-1.46.2-2) ...
+Setting up icu-devtools (67.1-7) ...
+Setting up libsodium-dev:amd64 (1.0.18-1) ...
+Setting up libmd-dev:amd64 (1.0.3-3) ...
+Setting up libicu-dev:amd64 (67.1-7) ...
+Setting up libxml2:amd64 (2.9.10+dfsg-6.7+deb11u2) ...
+Setting up libbsd-dev:amd64 (0.11.3-1) ...
+Setting up libkadm5clnt-mit12:amd64 (1.18.3-6+deb11u1) ...
+Setting up libkdb5-10:amd64 (1.18.3-6+deb11u1) ...
+Setting up libzmq5:amd64 (4.3.4-1) ...
+Setting up libxml2-dev:amd64 (2.9.10+dfsg-6.7+deb11u2) ...
+Setting up libkadm5srv-mit12:amd64 (1.18.3-6+deb11u1) ...
+Setting up krb5-multidev:amd64 (1.18.3-6+deb11u1) ...
+Setting up libnorm-dev:amd64 (1.5.9+dfsg-2) ...
+Setting up libkrb5-dev:amd64 (1.18.3-6+deb11u1) ...
+Setting up libzmq3-dev:amd64 (4.3.4-1) ...
+Processing triggers for libc-bin (2.31-13) ...
+Note: Deploying release make=4.3.0...
+Note: Deploying release spawn=22.0.0...
+#=#=#                                                                         
+##O#-#                                                                        
+Note: Deploying release matreshka_league=21.0.0...
+#=#=#                                                                         
+
+                                                                           0.0%
+                                                                           0.1%
+                                                                           0.2%
+                                                                           0.3%
+                                                                           0.7%
+                                                                           1.3%
+#                                                                          2.3%
+##                                                                         3.4%
+###                                                                        4.5%
+####                                                                       5.7%
+####                                                                       6.9%
+#####                                                                      8.2%
+######                                                                     9.6%
+#######                                                                   11.0%
+#########                                                                 12.5%
+##########                                                                14.1%
+###########                                                               15.3%
+############                                                              17.3%
+#############                                                             18.5%
+##############                                                            19.7%
+###############                                                           20.9%
+###############                                                           22.2%
+################                                                          23.5%
+#################                                                         24.9%
+##################                                                        26.2%
+###################                                                       27.6%
+####################                                                      29.1%
+#####################                                                     30.5%
+#######################                                                   32.0%
+########################                                                  33.5%
+#########################                                                 35.0%
+#########################                                                 35.9%
+###########################                                               37.8%
+###########################                                               38.9%
+############################                                              39.9%
+#############################                                             41.0%
+##############################                                            42.2%
+###############################                                           43.3%
+################################                                          44.5%
+################################                                          45.7%
+#################################                                         46.8%
+##################################                                        48.0%
+###################################                                       49.4%
+####################################                                      50.5%
+#####################################                                     51.9%
+######################################                                    53.0%
+#######################################                                   54.2%
+#######################################                                   55.5%
+########################################                                  56.7%
+#########################################                                 58.0%
+##########################################                                58.6%
+##########################################                                59.3%
+###########################################                               60.6%
+############################################                              61.9%
+#############################################                             63.2%
+##############################################                            64.5%
+###############################################                           65.8%
+################################################                          67.1%
+#################################################                         68.4%
+#################################################                         69.4%
+##################################################                        69.7%
+###################################################                       71.0%
+###################################################                       72.0%
+####################################################                      73.4%
+#####################################################                     74.4%
+######################################################                    75.3%
+######################################################                    76.2%
+#######################################################                   77.2%
+########################################################                  78.2%
+#########################################################                 79.3%
+#########################################################                 80.3%
+##########################################################                80.8%
+###########################################################               82.2%
+###########################################################               83.0%
+############################################################              83.8%
+############################################################              84.6%
+#############################################################             85.4%
+##############################################################            86.2%
+##############################################################            87.1%
+###############################################################           87.9%
+###############################################################           88.7%
+################################################################          89.6%
+#################################################################         90.5%
+#################################################################         91.4%
+##################################################################        92.2%
+###################################################################       93.1%
+###################################################################       94.0%
+####################################################################      94.9%
+####################################################################      95.3%
+#####################################################################     95.8%
+#####################################################################     96.7%
+#####################################################################     97.1%
+######################################################################    97.7%
+######################################################################    98.6%
+#######################################################################   99.5%
+#######################################################################   99.8%
+######################################################################## 100.0%
+Note: Running post_fetch actions for matreshka_league=21.0.0...
+gnatmake -p -j0  -Pgnat/tools_configure.gpr
+Setup
+   [mkdir]        object directory for project Tools_Configure
+Compile
+   [Ada]          configure-driver.adb
+   [Ada]          configure.adb
+   [Ada]          configure-architecture.adb
+   [Ada]          configure-instantiate.adb
+   [Ada]          configure-internals.adb
+   [Ada]          configure-rtl_version.adb
+   [Ada]          configure-tests.ads
+   [Ada]          configure-tests-asis.adb
+   [Ada]          configure-tests-aws.adb
+   [Ada]          configure-tests-firebird.adb
+   [Ada]          configure-tests-gprbuild.adb
+   [Ada]          configure-tests-install.adb
+   [Ada]          configure-tests-installation_directories.adb
+   [Ada]          configure-tests-modules.ads
+   [Ada]          configure-tests-modules-amf.adb
+   [Ada]          configure-tests-mysql.adb
+   [Ada]          configure-tests-oci.adb
+   [Ada]          configure-tests-operating_system.adb
+   [Ada]          configure-tests-postgresql.adb
+   [Ada]          configure-tests-sqlite3.adb
+   [Ada]          configure-tests-valgrind.adb
+   [Ada]          configure-version.adb
+   [Ada]          configure-builder.adb
+   [Ada]          configure-abstract_tests.adb
+   [Ada]          configure-pkg_config.adb
+   [Ada]          configure-component_switches.adb
+Bind
+   [gprbind]      configure-driver.bexch
+   [Ada]          configure-driver.ali
+Link
+   [link]         configure-driver.adb
+./configure
+[os        ] detecting target operating system...: POSIX
+[gprbuild  ] looking for GPRbuild...: /usr/bin/gprbuild
+[gprbuild  ] checking GPRbuild version...: ok
+[gprbuild  ] looking for GPRinstall...: /usr/bin/gprinstall
+[asis      ] checking whether ASIS library is available...: no
+[aws       ] checking whether AWS library is available...: no
+[modules   ] checking whether to build AMF module...: yes
+[mysql     ] checking whether to build MySQL module...: no (mysql_config not found)
+configure: (info) MySQL driver module is disabled
+[oci       ] checking whether to build Oracle module...: no (not found)
+configure: (info) Oracle driver module is disabled
+[postgresql] checking whether to build PostgreSQL module...: no (pg_config not found)
+configure: (info) PostgreSQL driver module is disabled
+[sqlite3   ] checking whether to build SQLite3 module...: no (pkg-config not found)
+configure: (info) SQLite3 driver module is disabled
+[firebird  ] checking whether to build Firebird module...: yes (try default)
+[firebird  ] checking whether Firebird library is usable...: no
+configure: (info) Firebird driver module is disabled
+configure: VALGRIND => 
+configure: HAS_FIREBIRD => 
+configure: MYSQL_LIBRARY_OPTIONS => 
+configure: HAS_GPRINSTALL => true
+configure: INSTALL => /usr/bin/install
+configure: GPRDIR => /usr/local/lib/gnat
+configure: GPRBUILD => /usr/bin/gprbuild
+configure: HAS_SQLITE3 => 
+configure: OPERATING_SYSTEM => POSIX
+configure: FIREBIRD_LIBRARY_OPTIONS => 
+configure: HAS_MYSQL => 
+configure: VERSION => 20.0
+configure: ARCHITECTURE => x86_64
+configure: BINDIR => /usr/local/bin
+configure: LIBDIR => /usr/local/lib
+configure: HAS_ASIS => 
+configure: HAS_GPRBUILD2014 => 
+configure: HAS_POSTGRESQL => 
+configure: OCI_LIBRARY_OPTIONS => 
+configure: HAS_OCI => 
+configure: PREFIX => /usr/local
+configure: POSTGRESQL_LIBRARY_OPTIONS => 
+configure: GPRINSTALL => /usr/bin/gprinstall
+configure: HAS_VALGRIND => 
+configure: HAS_AWS => 
+configure: SQLITE3_LIBRARY_OPTIONS => 
+configure: HAS_WORKING_MYSQL_SERVER => 
+configure: RTL_VERSION_SUFFIX => -10.2
+configure: ENABLE_AMF => true
+configure: creating Makefile.config
+configure: creating gnat/install/matreshka_config.gpr
+configure: creating gnat/matreshka_config.gpr
+configure: creating source/league/matreshka-config.ads
+Note: Deploying release zeromq_ada=4.1.5...
+#=#=#                                                                         
+##O#-#                                                                        
+Note: Running post_fetch actions for zeromq_ada=4.1.5...
+Setup
+   [mkdir]        object directory for project ZMQ
+   [mkdir]        library directory for project ZMQ
+   [mkdir]        object directory for project Matreshka_League
+   [mkdir]        library directory for project Matreshka_League
+   [mkdir]        library ALI directory for project Matreshka_League
+   [mkdir]        object directory for project Jupyter
+   [mkdir]        library directory for project Jupyter
+   [mkdir]        library ALI directory for project Jupyter
+   [mkdir]        object directory for project Spawn
+   [mkdir]        library directory for project Spawn
+   [mkdir]        object directory for project Jupyter_Ada_Kernel
+Compile
+   [Ada]          ada_kernel.adb
+   [c]            posix_const.c
+   [Ada]          spawn-string_vectors.ads
+ada_kernels.ads:75:15: subprogram "Finished" is not overriding
+
+   compilation of ada_kernel.adb failed
+
+gprbuild: *** compilation phase failed
+stderr: Command ["gprbuild", "-gnatwU", "-j0", "-p", "-P", "gnat/jupyter_ada_kernel.gpr"] exited with code 4
+ERROR: Command ["gprbuild", "-gnatwU", "-j0", "-p", "-P", "gnat/jupyter_ada_kernel.gpr"] exited with code 4
+
+Warning: jupyter_kernel=1.0.0 successfully retrieved but its build failed.
+Dependencies were solved as follows:
+
+   + libzmq           4.3.4  (new,indirect)
+   + make             4.3.0  (new,indirect)
+   + matreshka_league 21.0.0 (new)         
+   + spawn            22.0.0 (new)         
+   + zeromq_ada       4.1.5  (new)         
+ERROR: Build ended with errors

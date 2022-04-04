@@ -1,0 +1,39 @@
+Test ran at 2022-05-29 08:58:26.483049+00:00
+
+SOLUTION:
+basalt=0.2.0: Collection of formally verified building blocks
+Origin: source archive v0.2.0.tar.gz at https://github.com/Componolit/basalt/archive/v0.2.0.tar.gz with hash sha512:ecc31fff5a413913a7d6f3ae67107c465bf39772497f15fd7444affa9a7816c4fd7808806ee9630ad4703f1a11613bed1d802f10435d1a850154342549b7dabc
+Properties:
+   Description: Collection of formally verified building blocks
+   License: AGPL-3.0-only
+   Maintainer: kliemann@componolit.com
+   Maintainers_Logins: jklmnn
+   Name: basalt
+   Version: 0.2.0
+
+
+LOG:
+Note: Deploying release basalt=0.2.0...
+#=#=#                                                                         
+##O#- #                                                                       
+##O=#  #                                                                      
+#=#=-#  #                                                                     
+Setup
+   [mkdir]        object directory for project Basalt
+   [mkdir]        library directory for project Basalt
+Compile
+   [Ada]          basalt-strings_generic.adb
+   [Ada]          basalt-queue.adb
+basalt-queue.ads:118:04: info: "Context" is frozen here, (RM 13.1.1 (13/3))
+basalt-queue.ads:123:07: visibility of aspect for "Context" changes after freeze point
+basalt-queue.ads:125:69: Meaning of "Long_Positive" differs because of declaration at line 116
+
+   compilation of basalt-queue.adb failed
+
+gprbuild: *** compilation phase failed
+stderr: Command ["gprbuild", "-gnatwU", "-j0", "-p", "-P", "basalt.gpr"] exited with code 4
+ERROR: Command ["gprbuild", "-gnatwU", "-j0", "-p", "-P", "basalt.gpr"] exited with code 4
+
+Warning: basalt=0.2.0 successfully retrieved but its build failed.
+There are no dependencies.
+ERROR: Build ended with errors
