@@ -28,6 +28,11 @@ for test in tests:
     test.duration_log = math.log10(1.0 + test.duration)
     test.log = None  # Logs are taken from their individual files, no need in this collection
 
+if not os.path.isdir("_badges"):
+    os.mkdir("_badges")
+if not os.path.isdir("_data"):
+    os.mkdir("_data")
+
 with open(os.path.join("_data", "tests.yaml"), "wt") as file:
     yaml.dump(tests, file)
 
