@@ -23,9 +23,10 @@ def color(success : int, missing : int, fail : int, total : int):
 
 tests = db.load(populate_if_empty=False, all_platforms=True, online=False)
 
-# Compute some extra info
+# Compute some extra info and remove logs, which cause the file to exceed the GH 100 MB limit
 for test in tests:
     test.duration_log = math.log10(1.0 + test.duration)
+    test.log = None  # Logs are taken from their individual files, no need in this collection
 
 with open(os.path.join("_data", "tests.yaml"), "wt") as file:
     yaml.dump(tests, file)
@@ -76,6 +77,8 @@ layout: badge
 crate: {crate}
 total: {total}
 success: {success}
+fail: {fail}
+missing: {missing}
 color: {color(success=success, missing=missing, fail=fail, total=total)}
 ---
         """)

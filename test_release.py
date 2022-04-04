@@ -128,10 +128,11 @@ def commit(crate : db.Test):
         print(f"RUN check: {args}")
         print(check_output(args).decode())
 
-    def git_run(args):
+    def git_run(args, log : bool=True):
         print(f"RUN nochk: {args}")
         out = run(args, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
-        print(out.stdout.decode())
+        if log:
+            print(out.stdout.decode())
         return out
 
     if os.path.isdir("alire_install"):
@@ -175,7 +176,7 @@ def commit(crate : db.Test):
 
         if squash:
             commit_args += ["--amend"]
-        out = git_run(commit_args)
+        out = git_run(commit_args, log=False)
         if out.returncode != 0:
             print("WARNING: git commit failed: " + out.stdout.decode())
 
