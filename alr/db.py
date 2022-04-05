@@ -158,6 +158,9 @@ class Test:
                 data = yaml.load(file, Loader=yaml.FullLoader)
                 for key in data.keys():
                     self.__dict__[key] = data[key]
+            if "creation_timestamp" not in data.keys():
+                #  Mark as too old our existing tests
+                self.creation_timestamp = time.time() - PRUNE_AFTER_SECONDS - 1
             if "gnat_version" in vars(self).keys() and self.gnat_version and not self.gnat:
                 self.gnat = self.gnat_version
                 del self.__dict__["gnat_version"]
