@@ -119,7 +119,7 @@ class Test:
 
         if on_disk:
             reason = "given-path" if path else "built-path"
-            print(f"TEST at {self.filename()} was loaded because of {reason}")
+            # print(f"TEST at {self.filename()} was loaded because of {reason}")
         else:
             print(f"TEST at {self.filename()} was generated from scratch")
             if not self.gnat:
