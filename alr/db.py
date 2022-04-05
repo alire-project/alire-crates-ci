@@ -133,6 +133,11 @@ class Test:
             self.platform, self.distro, f"gnat={self.gnat}",
             f"{self.crate}-{self.version}.yaml")
 
+    def delete(self):
+        if os.path.isfile(self.filename()):
+            print(f"DELETING {self.filename()}")
+            os.remove(self.filename())
+
     def ok(self) -> bool:
         return (self.status in BUILD_UNTESTED) or (self.status in BUILD_SUCCESS)
 

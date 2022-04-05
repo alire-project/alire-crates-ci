@@ -59,7 +59,12 @@ def pick(crates : Iterable[db.Test]):
 def test_one(crate):
     # crate : Test
     milestone = f"{crate.crate}={crate.version}"
-    print(f"TEST {milestone} (nudged by {round(crate.nudge(), 2)}) (gnat={gnat_version(crate=crate.crate)})")
+    gnat_now = gnat_version(crate=crate.crate)
+    print(f"TEST {milestone} (prio {crate.urgency()} nudged by {round(crate.nudge(), 2)}) (gnat={gnat_now})")
+
+    # If the gnat version has changed from what is on disk, delete the original file, as it won't ever be updated:
+    if gnat_now != crate.gnat:
+        crate.delete()
 
     if not os.path.isdir("test"):
         os.mkdir("test")
