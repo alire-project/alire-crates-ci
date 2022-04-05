@@ -195,6 +195,11 @@ class Test:
         return round(min(age/week, 10))
 
     def urgency(self):
+        # If our compiler differs from the one in the environment, do not consider ourselves fit for test:
+        # Crates requiring a cross-compiler will still be tested when it matches the version of the native
+        # in environment.
+        if self.gnat != gnat_version():
+            return 0
 
         # Return a positive, proportional to the urgency to test this crate:
         if self.status == BUILD_UNTESTED:
