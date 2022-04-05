@@ -2,6 +2,7 @@ from asyncore import write
 from tabnanny import check
 import distro
 import glob
+import operator
 import os
 import platform
 import random
@@ -352,7 +353,11 @@ def load(populate_if_empty : bool=True, all_platforms : bool=False, online : boo
         else:
             kept += [test]
 
+    # Keep and sort. Python's sort is stable hence we can sort by minor-major field
     crates = kept
+    crates.sort(key=operator.itemgetter("gnat"))
+    crates.sort(key=operator.itemgetter("distro"))
+    crates.sort(key=operator.itemgetter("platform"))
 
     print(f"Loaded {len(crates)} releases and pruned {pruned} old unrun tests")
     return crates
