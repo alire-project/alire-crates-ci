@@ -17,6 +17,8 @@ from typing import *
 DEBUG_MAX_CRATES = 999999  # Let's hope ha!
 # DEBUG_MAX_CRATES = 10
 
+PRUNE_AFTER_SECONDS = 7*24*60*60  # One week
+
 DB = "status"
 BUILD_UNTESTED = "untested"
 BUILD_SUCCESS = "success"
@@ -100,6 +102,7 @@ class Test:
         self.status = BUILD_UNTESTED
         self.duration = 0.0
         self.last_attempt = "never"
+        self.creation_timestamp = time.time()
         self.log = ["no log available"]
 
         # Autodetect of reuse
@@ -331,10 +334,22 @@ def load(populate_if_empty : bool=True, all_platforms : bool=False, online : boo
                             for final_path in glob.iglob(join(gnat_path, "*.yaml")):
                                 crates += [Test(name, version, path=final_path)]
                                 tests += 1
+
             print(f"Loaded {name} ({tests} tests)")
             if len(crates) > DEBUG_MAX_CRATES:
                 breaking = True
                 break
 
-    print(f"Loaded {len(crates)} releases")
+    pruned = 0
+    kept = []
+    for test in crates:
+        if test.status == BUILD_UNTESTED and time.time() - test.creation_timestamp > PRUNE_AFTER_SECONDS:
+            test.delete()
+            pruned += 1
+        else:
+            kept += [test]
+
+    crates = kept
+
+    print(f"Loaded {len(crates)} releases and pruned {pruned} old unrun tests")
     return crates
