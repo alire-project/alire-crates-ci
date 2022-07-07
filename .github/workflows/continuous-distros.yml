@@ -2,7 +2,7 @@ name: CI with Distro compilers
 
 on:
   schedule:
-    - cron: '44 * * * *'
+    - cron: '44 */12 * * *'
 
 jobs:
 
@@ -14,11 +14,11 @@ jobs:
     strategy:
       matrix:
         tag: # Those are our dockerhub alire/gnat:tag machines
-            - centos-latest-community-latest # Test with unsupported package manager
-            - debian-stable                  # Test current stable Debian compiler
-            - fedora-latest                  # Test current Fedora compiler
-            - ubuntu-lts                     # Test current LTS Ubuntu compiler
-            - arch-rolling                   # Test Arch compiler (closest to FSF?)
+            - arch-rolling             # Test Arch compiler (closest to FSF?)
+            - centos-stream-fsf-latest # Test with unsupported package manager
+            - debian-stable            # Test current stable Debian compiler
+            - fedora-latest            # Test current Fedora compiler
+            - ubuntu-lts               # Test current LTS Ubuntu compiler
 
     steps:
     - name: Check out repository

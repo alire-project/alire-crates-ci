@@ -2,6 +2,7 @@ from asyncore import write
 from tabnanny import check
 import distro
 import glob
+import operator
 import os
 import platform
 import random
@@ -16,6 +17,8 @@ from typing import *
 
 DEBUG_MAX_CRATES = 999999  # Let's hope ha!
 # DEBUG_MAX_CRATES = 10
+
+PRUNE_AFTER_SECONDS = 7*24*60*60  # One week
 
 DB = "status"
 BUILD_UNTESTED = "untested"
@@ -100,6 +103,7 @@ class Test:
         self.status = BUILD_UNTESTED
         self.duration = 0.0
         self.last_attempt = "never"
+        self.creation_timestamp = time.time()
         self.log = ["no log available"]
 
         # Autodetect of reuse
@@ -119,7 +123,7 @@ class Test:
 
         if on_disk:
             reason = "given-path" if path else "built-path"
-            print(f"TEST at {self.filename()} was loaded because of {reason}")
+            # print(f"TEST at {self.filename()} was loaded because of {reason}")
         else:
             print(f"TEST at {self.filename()} was generated from scratch")
             if not self.gnat:
@@ -132,6 +136,11 @@ class Test:
             self.crate[0:2], self.crate, self.version,
             self.platform, self.distro, f"gnat={self.gnat}",
             f"{self.crate}-{self.version}.yaml")
+
+    def delete(self):
+        if os.path.isfile(self.filename()):
+            print(f"DELETING {self.filename()}")
+            os.remove(self.filename())
 
     def ok(self) -> bool:
         return (self.status in BUILD_UNTESTED) or (self.status in BUILD_SUCCESS)
@@ -150,6 +159,9 @@ class Test:
                 data = yaml.load(file, Loader=yaml.FullLoader)
                 for key in data.keys():
                     self.__dict__[key] = data[key]
+            if "creation_timestamp" not in data.keys():
+                #  Mark as too old our existing tests
+                self.creation_timestamp = time.time() - PRUNE_AFTER_SECONDS - 1
             if "gnat_version" in vars(self).keys() and self.gnat_version and not self.gnat:
                 self.gnat = self.gnat_version
                 del self.__dict__["gnat_version"]
@@ -190,6 +202,11 @@ class Test:
         return round(min(age/week, 10))
 
     def urgency(self):
+        # If our compiler differs from the one in the environment, do not consider ourselves fit for test:
+        # Crates requiring a cross-compiler will still be tested when it matches the version of the native
+        # in environment.
+        if self.gnat != gnat_version():
+            return 0
 
         # Return a positive, proportional to the urgency to test this crate:
         if self.status == BUILD_UNTESTED:
@@ -321,10 +338,27 @@ def load(populate_if_empty : bool=True, all_platforms : bool=False, online : boo
                             for final_path in glob.iglob(join(gnat_path, "*.yaml")):
                                 crates += [Test(name, version, path=final_path)]
                                 tests += 1
+
             print(f"Loaded {name} ({tests} tests)")
             if len(crates) > DEBUG_MAX_CRATES:
                 breaking = True
                 break
 
-    print(f"Loaded {len(crates)} releases")
+    pruned = 0
+    kept = []
+    for test in crates:
+        if test.status == BUILD_UNTESTED and time.time() - test.creation_timestamp > PRUNE_AFTER_SECONDS:
+            test.delete()
+            pruned += 1
+        else:
+            kept += [test]
+
+    # Keep and sort. Python's sort is stable hence we can sort by minor-major field
+    crates = kept
+    crates.sort(key=operator.attrgetter("gnat"))
+    crates.sort(key=operator.attrgetter("distro"))
+    crates.sort(key=operator.attrgetter("platform"))
+    crates.sort(key=operator.attrgetter("crate"))
+
+    print(f"Loaded {len(crates)} releases and pruned {pruned} old unrun tests")
     return crates
