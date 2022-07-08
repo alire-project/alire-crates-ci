@@ -1,0 +1,99 @@
+Test ran at 2026-08-06 01:12:24.013092+00:00
+
+SOLUTION:
+automate=3.0.0: Ada finite-state machine generator
+Origin: commit b83dfb7701b9f27aaa2c6b40467c99c55f1ee92f from https://github.com/Blady-Com/Automate.git
+Properties:
+   Author: Pascal Pignard
+   Description: Ada finite-state machine generator
+   Executable: genauto
+   case OS is
+      when Macos => GPR External: GENAUTO_LINKER_FLAGS := -Wl,-no_pie
+   License: CECILL-2.1
+   Maintainer: Pascal Pignard <blady.net@orange.fr>
+   Maintainers_Logins: Blady-Com
+   Name: automate
+   Tag: automaton
+   Tag: generator
+   Version: 3.0.0
+   Website: https://github.com/Blady-Com/Automate
+Dependencies (direct):
+   uxstrings>=0.6
+Dependencies (solution):
+   gnat=14.2.1 (gnat_native)
+   libgnutls=3.8.13+_2
+   simple_components=4.81.0
+   unixodbc=2.3.14
+   uxstrings=0.9.4+alpha-20260718
+Dependencies (graph):
+   automate=3.0.0                 --> uxstrings=0.9.4+alpha-20260718 (>=0.6)
+   simple_components=4.81.0       --> libgnutls=3.8.13+_2 (^3.7)
+   simple_components=4.81.0       --> unixodbc=2.3.14 (^2.3)
+   uxstrings=0.9.4+alpha-20260718 --> gnat=14.2.1 (gnat_native) (>=13)
+   uxstrings=0.9.4+alpha-20260718 --> simple_components=4.81.0 (^4.62)
+
+
+LOG:
+[alr test] Testing automate=3.0.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get automate=3.0.0
+Note: Deploying automate=3.0.0...
+Note: Deploying unixodbc=2.3.14...
+The system package 'unixodbc' is about to be installed.
+This action might require admin privileges and impact your system installation.
+Do you want Alire to install this system package?
+Using default: Yes
+::warning::The following taps are not trusted:%0A  aws/tap%0A%0AHomebrew is currently ignoring formulae, casks and commands from these taps because tap trust is required.%0A%0AUntap them with:%0A  brew untap aws/tap%0ATrust specific formulae, casks and commands with:%0A  brew trust --formula <user>/<tap>/<formula>%0A  brew trust --cask <user>/<tap>/<cask>%0A  brew trust --command <user>/<tap>/<command>%0AWhole-tap trust is broader and includes all current and future formulae,%0Acasks and commands from the listed taps. Trust whole taps with:%0A  brew trust aws/tap%0ATo disable trust checks:%0A  export HOMEBREW_NO_REQUIRE_TAP_TRUST=1%0AThis is not recommended and will be removed in a later release.%0AFor more information, see:%0A  https://docs.brew.sh/Tap-Trust
+[34m==>[0m [1mWould install 1 formula:[0m
+unixodbc
+[34m==>[0m [1mDownloading https://ghcr.io/v2/homebrew/core/unixodbc/manifests/2.3.14[0m
+[34m==>[0m [1mWould install 2 dependencies for unixodbc:[0m
+m4
+libtool
+[32m==>[0m [1mFetching downloads for: [32munixodbc[39m[0m
+✔︎ Bottle Manifest m4 (1.4.21)
+✔︎ Bottle Manifest libtool (2.6.2)
+✔︎ Bottle m4 (1.4.21)
+✔︎ Bottle unixodbc (2.3.14)
+✔︎ Bottle libtool (2.6.2)
+[32m==>[0m [1mInstalling dependencies for unixodbc:[0m [32mm4[39m and [32mlibtool[39m[0m
+[32m==>[0m [1mInstalling unixodbc dependency: [32mm4[39m[0m
+[34m==>[0m [1mPouring m4--1.4.21.arm64_tahoe.bottle.tar.gz[0m
+🍺  /opt/homebrew/Cellar/m4/1.4.21: 14 files, 815.7KB
+[32m==>[0m [1mInstalling unixodbc dependency: [32mlibtool[39m[0m
+[34m==>[0m [1mPouring libtool--2.6.2.arm64_tahoe.bottle.tar.gz[0m
+🍺  /opt/homebrew/Cellar/libtool/2.6.2: 78 files, 4.2MB
+[32m==>[0m [1mInstalling [32munixodbc[39m[0m
+[34m==>[0m [1mPouring unixodbc--2.3.14.arm64_tahoe.bottle.tar.gz[0m
+🍺  /opt/homebrew/Cellar/unixodbc/2.3.14: 48 files, 2.2MB
+Note: Deploying simple_components=4.81.0...
+Note: Deploying uxstrings=0.9.4+alpha-20260718...
+
+automate=3.0.0 successfully retrieved.
+Dependencies were solved as follows:
+
+   +b gnat              14.2.1               (new,gnat_native,indirect,binary)
+   +b libgnutls         3.8.13+_2            (new,indirect,system package)
+   +  simple_components 4.81.0               (new,indirect)
+   +b unixodbc          2.3.14               (new,indirect,system package)
+   +  uxstrings         0.9.4+alpha-20260718 (new)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building automate=3.0.0/automate.gpr...
+automate.gpr:1:06: imported project file "lib_uxstrings3.gpr" not found
+gprbuild: "/Users/runner/work/alire-crates-ci/alire-crates-ci/test/1e3e93f2-1f29-4bed-8183-99759e5b3a14/automate_3.0.0_b83dfb77/automate.gpr" processing failed
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/Users/runner/work/alire-crates-ci/alire-crates-ci/test/1e3e93f2-1f29-4bed-8183-99759e5b3a14/automate_3.0.0_b83dfb77/automate.gpr", "-cargs:Ada", "-gnatwn"] exited with code 5
+ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/Users/runner/work/alire-crates-ci/alire-crates-ci/test/1e3e93f2-1f29-4bed-8183-99759e5b3a14/automate_3.0.0_b83dfb77/automate.gpr", "-cargs:Ada", "-gnatwn"] exited with code 5
+stderr: ALIRE.CHECKED_ERROR
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/Users/runner/work/alire-crates-ci/alire-crates-ci/test/1e3e93f2-1f29-4bed-8183-99759e5b3a14/automate_3.0.0_b83dfb77/automate.gpr", "-cargs:Ada", "-gnatwn"] exited with code 5
+stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
+Load address: 0x104e38000
+Call stack traceback locations:
+0x105b440cc 0x105b4412c 0x10589866c 0x1054dd568 0x105762594 0x1057634f4 0x1056a133c 0x10569fb08 0x1056c378c 0x10572356c 0x10572299c 0x1056c3868 0x1056c3950 0x1056a000c 0x1056a0174 0x104ea9730 0x104ea9070 0x104ea91e4 0x104f46b38 0x104f51c78 0x104e3a9f8 0x104e3fa2c
+
+stderr: ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED
+stderr: alire-roots.adb:202
+stderr: raised ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED : alire-roots.adb:202
+Load address: 0x104e38000
+Call stack traceback locations:
+0x105b440cc 0x105b4412c 0x1056a1640 0x10569fb08 0x1056c378c 0x10572356c 0x10572299c 0x1056c3868 0x1056c3950 0x1056a000c 0x1056a0174 0x104ea9730 0x104ea9070 0x104ea91e4 0x104f46b38 0x104f51c78 0x104e3a9f8 0x104e3fa2c
+
+ERROR: Compilation failed.

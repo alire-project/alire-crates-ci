@@ -1,0 +1,135 @@
+Test ran at 2026-11-28 00:49:08.440342+00:00
+
+SOLUTION:
+adacl_sar=8.2.2: AdaCL desktop: Search and replace with wide and wide-wide text
+Origin: source archive adacl_sar-8.2.2.tgz at https://sourceforge.net/projects/adacl/files/Alire/adacl_sar-8.2.2.tgz with hashes sha256:9947faf94849c691cc01325b4239496a406b55dc5155590a8a4bb979f4dcde62, sha512:845415a70b7fc0e432a6fd68ec37225e1f621254069d113d7fa3683579a6a167d7a2812b305dbc3dc3129bba561cc48d83eafc0ce9a2f9ea12c28948883f5486
+Properties:
+   case OS is
+      when Linux => Test run: /bin/bash ci-verify.sh (from ${CRATE_ROOT}/.)
+      when Macos => Test run: /bin/bash ci-verify.sh (from ${CRATE_ROOT}/.)
+      when Windows => Test run: powershell -ExecutionPolicy Bypass -File ci-verify.ps1 (from ${CRATE_ROOT}/.)
+      when others => (empty)
+   Author: Martin Krischik <krischik@users.sourceforge.net>
+   Build Switches: 
+   Description: AdaCL desktop: Search and replace with wide and wide-wide text
+   License: GPL-3.0-or-later
+   Long_Description: Powerful search-and-replace library for Ada 2022, developed by Martin Krischik, with
+wide and wide-wide character support.
+
+Features:
+- Load, transform, and store text
+- Vector-based text transformations for efficient processing
+- Supports standard, wide, and wide-wide characters for internationalisation
+- Embedded transformations for internal text processing
+- Extensible transformations via tagged types for complex operations
+- Integrates with the Ada Class Library (AdaCL) for robust text handling
+
+Licensed under GPL-3.0-or-later. Integrates with the Ada Class Library (AdaCL).
+
+Source: [SourceForge](https://sourceforge.net/p/adacl/git/ci/master/tree/adacl_sar/)
+Documentation:	[Overview](https://adacl.sourceforge.net/adacl-sar/) and
+[GNATdoc](https://adacl.sourceforge.net/gnatdoc/index.html)
+
+   Maintainer: Martin Krischik <krischik@users.sourceforge.net>
+   Maintainers_Logins: krischik
+   Name: adacl_sar
+   Notes: # Version 8.2.2:
+
+* Change AdaCL.Serial_IO to propper tagged type to enable inheritance
+* Cleanup test and prove to be more reliable on github
+
+# Version 8.2.1:
+
+* Cleanup build to be more reliable on github
+
+# Version 8.2.0:
+
+* Updated AdaCL.Trace for better wide-string support
+* Added a new line-insert filter to AdaCL.SAR that can insert multiple lines and/or only at the first matched location
+* AdaCL.Serial now generates the macOS serial communication layer on the fly
+
+   Tag: library
+   Tag: strings
+   Tag: search
+   Tag: replace
+   Tag: ada2022
+   Version: 8.2.2
+   Website: https://sourceforge.net/projects/adacl/
+Dependencies (direct):
+   adacl_desktop^8.2
+Dependencies (solution):
+   adacl=8.2.2
+   adacl_desktop=8.2.2
+Dependencies (graph):
+   adacl_desktop=8.2.2 --> adacl=8.2.2 (^8.2)
+   adacl_sar=8.2.2     --> adacl_desktop=8.2.2 (^8.2)
+
+
+LOG:
+=== Ada CI Verification ===
+=== adacl_sar_test ===
+Directory: test
+Updating dependencies...
+Dependencies automatically updated as follows:
+
+   +  adacl         8.2.2  (new)
+   +  adacl_aunit   8.2.2  (new)
+   +  adacl_desktop 8.2.2  (new,indirect)
+   +. adacl_sar     8.2.2  (new,path=..)
+   +  aunit         26.0.0 (new,indirect)
+Note: Deploying aunit=26.0.0...
+
+#=#=#                                                                          
+######################################################################## 100.0%
+Note: Deploying adacl_aunit=8.2.2...
+
+######################################################################## 100.0%
+######################################################################## 100.0%
+######################################################################## 100.0%
+######################################################################## 100.0%
+#=#=#                                                                          
+##=#=#                                                                         
+##=O#- #                                                                       
+#############################################################             85.1%
+######################################################################## 100.0%
+Building with validation...
+Note: Building adacl_sar_test=8.2.2/adacl_sar_test.gpr...
+Setup
+   [mkdir]        object directory for project AdaCL
+   [mkdir]        library directory for project AdaCL
+   [mkdir]        object directory for project AdaCL_Desktop
+   [mkdir]        library directory for project AdaCL_Desktop
+   [mkdir]        object directory for project AUnit
+   [mkdir]        library directory for project AUnit
+   [mkdir]        object directory for project AdaCL_AUnit
+   [mkdir]        library directory for project AdaCL_AUnit
+   [mkdir]        object directory for project AdaCL_SAR
+   [mkdir]        library directory for project AdaCL_SAR
+   [mkdir]        object directory for project AdaCL_SAR_Test
+   [mkdir]        exec directory for project AdaCL_SAR_Test
+Compile
+   [Ada]          adacl_sar_test-main.adb
+   [Ada]          adacl_sar_config.ads
+   [Ada]          adacl-wide_wide_sar-line.ads
+   [Ada]          adacl-wide_sar-filter-filter_line.adb
+gnat1: invalid switch: -gnat2022
+gnat1: invalid switch: -gnat2022
+gnat1: invalid switch: -gnat2022
+gnat1: invalid switch: -gnat2022
+
+   compilation of adacl_sar_test-main.adb failed
+   compilation of adacl-wide_sar-filter-filter_line.adb failed
+   compilation of adacl-wide_wide_sar-line.ads failed
+   compilation of adacl_sar_config.ads failed
+
+gprbuild: *** compilation phase failed
+ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/83e88c69-7827-4650-9544-1d4b7d7dd281/adacl_sar_8.2.2_9947faf9/test/adacl_sar_test.gpr"] exited with code 4
+ERROR: Compilation failed.
+Running tests...
+ERROR: Local test of adacl_sar_test=8.2.2 failed:
+ERROR:    Check alire/alr_test_local.log for details.
+Note: AdaCL log at /home/runner/work/alire-crates-ci/alire-crates-ci/test/83e88c69-7827-4650-9544-1d4b7d7dd281/adacl_sar_8.2.2_9947faf9/test/alire/adacl_sar_test-trace.log
+SUCCESS: adacl_sar_test
+--------------------------------------------------
+All steps completed.
+[alr test] Test completed SUCCESSFULLY

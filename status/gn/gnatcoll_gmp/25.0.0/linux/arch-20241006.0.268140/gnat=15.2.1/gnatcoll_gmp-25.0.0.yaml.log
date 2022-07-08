@@ -1,0 +1,86 @@
+Test ran at 2025-11-17 01:21:00.374141+00:00
+
+SOLUTION:
+gnatcoll_gmp=25.0.0: GNAT Components Collection - GNU Multiple Precision Arithmetic binding
+Origin: source archive gnatcoll-bindings-25.0.0.zip at https://github.com/adacore/gnatcoll-bindings/archive/v25.0.0/gnatcoll-bindings-25.0.0.zip with hash sha512:0848cc59092c9ef66645f113762beb049554fa58371e062a90a2a432e6a1d6d08c8f3f162b1de1033d77fb62c0f85257fe96abb8129feef67967f6eb6b52f1ce
+Properties:
+   Author: AdaCore
+   Configuration: no modifiers
+   Description: GNAT Components Collection - GNU Multiple Precision Arithmetic binding
+   GPR Scenario: GNATCOLL_BUILD_MODE := DEBUG | PROD
+   GPR Scenario: LIBRARY_TYPE := static | relocatable | static-pic
+   License: GPL-3.0-or-later WITH GCC-exception-3.1
+   Maintainer: chouteau@adacore.com
+   Maintainers_Logins: Fabien-Chouteau
+   Name: gnatcoll_gmp
+   Project_File: gmp/gnatcoll_gmp.gpr
+   Tag: gnatcoll
+   Tag: bindings
+   Tag: gmp
+   Tag: arbitrary
+   Tag: precision
+   Tag: arithmetic
+   Version: 25.0.0
+   Website: https://github.com/adacore/gnatcoll-bindings
+Dependencies (direct):
+   gnatcoll~25.0.0
+   libgmp*
+Dependencies (solution):
+   gnat=15.2.1 (gnat_native)
+   gnatcoll=25.0.0
+   libgmp=6.3.0
+   libgpr=25.0.0
+   xmlada=25.0.0
+Dependencies (graph):
+   gnatcoll=25.0.0     --> gnat=15.2.1 (gnat_native) (>=13)
+   gnatcoll=25.0.0     --> libgpr=25.0.0 (~25.0.0)
+   gnatcoll_gmp=25.0.0 --> gnatcoll=25.0.0 (~25.0.0)
+   gnatcoll_gmp=25.0.0 --> libgmp=6.3.0 (*)
+   libgpr=25.0.0       --> gnat=15.2.1 (gnat_native) (/=2020)
+   libgpr=25.0.0       --> xmlada=25.0.0 (~25.0.0)
+   xmlada=25.0.0       --> gnat=15.2.1 (gnat_native) (>=11)
+
+
+LOG:
+[alr test] Testing gnatcoll_gmp=25.0.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get gnatcoll_gmp=25.0.0
+Note: Deploying gnatcoll_gmp=25.0.0...
+
+#=#=#                                                                          
+##O#-#                                                                         
+
+gnatcoll_gmp=25.0.0 successfully retrieved.
+Dependencies were solved as follows:
+
+   +b gnat     15.2.1 (new,gnat_native,indirect,binary)
+   +  gnatcoll 25.0.0 (new)
+   +b libgmp   6.3.0  (new,system package)
+   +  libgpr   25.0.0 (new,indirect)
+   +  xmlada   25.0.0 (new,indirect)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building gnatcoll_gmp=25.0.0/gmp/gnatcoll_gmp.gpr...
+Setup
+   [mkdir]        object directory for project GnatColl_GMP
+   [mkdir]        library directory for project GnatColl_GMP
+Compile
+   [C]            gmp_support.c
+   [C]            gnatcoll-gmp-mpz_odd_p.c
+   [C]            gnatcoll-gmp-mpz_sign.c
+   [C]            gnatcoll-gmp-mpz_even_p.c
+   [Ada]          gnatcoll-gmp-integers-root_extraction.adb
+   [Ada]          gnatcoll-gmp-lib.ads
+   [Ada]          gnatcoll-gmp-integers-random.adb
+   [Ada]          gnatcoll-gmp-integers-io.adb
+   [Ada]          gnatcoll-gmp-random_state.adb
+   [Ada]          gnatcoll-gmp-integers-misc.adb
+   [Ada]          gnatcoll-gmp-integers-number_theoretic.adb
+   [Ada]          gnatcoll-gmp-rational_numbers.adb
+   [Ada]          gnatcoll-gmp-integers.adb
+   [Ada]          gnatcoll-gmp.ads
+Build Libraries
+   [gprlib]       gnatcoll_gmp.lexch
+   [archive]      libgnatcoll_gmp.a
+   [index]        libgnatcoll_gmp.a
+Success: Build finished successfully in 1.60 seconds.
+Found declared GPR file: gmp/gnatcoll_gmp.gpr
+[alr test] Test completed SUCCESSFULLY

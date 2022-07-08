@@ -1,0 +1,118 @@
+Test ran at 2025-08-27 12:37:21.145894+00:00
+
+SOLUTION:
+whitakers_words=0.20240801.0: William Whitaker's WORDS, a Latin dictionary
+Origin: commit bbf5d50cf4026c17d35f07ce85771954b95c6af9 from https://github.com/mosteo/whitakers-words.git
+Available when: (case OS is Windows => False)
+Properties:
+   Post_Fetch run: make (from ${CRATE_ROOT}/.)
+   Author: William A. Whitaker
+   Author: Martin Keegan
+   Configuration: no modifiers
+   Description: William Whitaker's WORDS, a Latin dictionary
+   Executable: words
+   License: Custom-Public-Domain
+   Maintainer: alejandro@mosteo.com
+   Maintainers_Logins: mosteo
+   Name: whitakers_words
+   Project_File: commands.gpr
+   Version: 0.20240801.0
+   Website: https://bitbucket.org/ben-crowell/whitakers-words/
+Dependencies (direct):
+   gnat/=7.3
+   make*
+Dependencies (solution):
+   gnat=15.1.2 (gnat_native)
+   make=4.4.1
+Dependencies (graph):
+   whitakers_words=0.20240801.0 --> gnat=15.1.2 (gnat_native) (/=7.3)
+   whitakers_words=0.20240801.0 --> make=4.4.1 (*)
+
+
+LOG:
+[alr test] Testing whitakers_words=0.20240801.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get whitakers_words=0.20240801.0
+Note: Deploying whitakers_words=0.20240801.0...
+Note: Deploying make=4.4.1...
+The system package 'make' is about to be installed.
+This action might require admin privileges and impact your system installation.
+Do you want Alire to install this system package?
+Using default: Yes
+[32m==>[0m [1mFetching downloads for: [32mmake[39m[0m
+[34m==>[0m [1mDownloading https://ghcr.io/v2/homebrew/core/make/manifests/4.4.1-1[0m
+[32m==>[0m [1mFetching [32mmake[39m[0m
+[34m==>[0m [1mDownloading https://ghcr.io/v2/homebrew/core/make/blobs/sha256:f361639a5ec1a9355e12f985c511dd6631b6790452a52057032a3a07a690ca4e[0m
+[34m==>[0m [1mPouring make--4.4.1.arm64_sequoia.bottle.1.tar.gz[0m
+[34m==>[0m [1mCaveats[0m
+GNU "make" has been installed as "gmake".
+If you need to use it as "make", you can add a "gnubin" directory
+to your PATH from your bashrc like:
+
+    PATH="/opt/homebrew/opt/make/libexec/gnubin:$PATH"
+[34m==>[0m [1mSummary[0m
+🍺  /opt/homebrew/Cellar/make/4.4.1: 17 files, 1.3MB
+[34m==>[0m [1mNo outdated dependents to upgrade![0m
+
+whitakers_words=0.20240801.0 successfully retrieved.
+Dependencies were solved as follows:
+
+   +b gnat 15.1.2 (new,gnat_native,binary)
+   +b make 4.4.1  (new,system package)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Running post-fetch actions for whitakers_words=0.20240801.0...
+sed 's|@datadir@|.|' src/latin_utils/latin_utils-config.adb.in > src/latin_utils/latin_utils-config.adb
+gprbuild -p -j4 commands.gpr
+Setup
+   [mkdir]        object directory for project Latin_Utils
+   [mkdir]        library directory for project Latin_Utils
+   [mkdir]        object directory for project Support_Utils
+   [mkdir]        library directory for project Support_Utils
+   [mkdir]        object directory for project Words_Engine
+   [mkdir]        library directory for project Words_Engine
+   [mkdir]        exec directory for project Commands
+Compile
+   [Ada]          makedict.adb
+   [Ada]          makeefil.adb
+   [Ada]          makeewds.adb
+   [Ada]          makeinfl.adb
+   [Ada]          makestem.adb
+   [Ada]          meanings.adb
+   [Ada]          wakedict.adb
+   [Ada]          words.adb
+   [Ada]          latin_utils-strings_package.adb
+   [Ada]          latin_utils-dictionary_package.adb
+   [Ada]          latin_utils-config.adb
+   [Ada]          latin_utils.ads
+   [Ada]          latin_utils-inflections_package.adb
+   [Ada]          latin_utils-latin_file_names.ads
+   [Ada]          latin_utils-general.adb
+   [Ada]          latin_utils-preface.adb
+   [Ada]          support_utils.ads
+   [Ada]          support_utils-dictionary_form.adb
+   [Ada]          support_utils-word_support_package.adb
+   [Ada]          support_utils-uniques_package.ads
+   [Ada]          support_utils-developer_parameters.adb
+   [Ada]          support_utils-line_stuff.adb
+   [Ada]          support_utils-addons_package.adb
+   [Ada]          support_utils-char_utils.adb
+   [Ada]          support_utils-word_parameters.adb
+   [Ada]          words_engine-list_package.adb
+support_utils-word_parameters.adb:481:09: (style) redundant parentheses [-gnatyx]
+words_engine-list_package.adb:870:39: (style) redundant parentheses [-gnatyx]
+
+   compilation of support_utils-word_parameters.adb failed
+   compilation of words_engine-list_package.adb failed
+
+gprbuild: *** compilation phase failed
+make: *** [commands] Error 4
+Warning: Execution failed for action: Post_Fetch run: make (from ${CRATE_ROOT}/.)
+Warning: Exit code: 2
+Warning: Action output not captured, check it above.
+stderr: ALIRE.PROPERTIES.ACTIONS.ACTION_FAILED
+stderr: Action failed with exit code 2
+stderr: raised ALIRE.PROPERTIES.ACTIONS.ACTION_FAILED : Action failed with exit code 2
+Load address: 0x1000e4000
+Call stack traceback locations:
+0x100df00cc 0x100df012c 0x100793fe4 0x100792788 0x10094b9c0 0x10096f78c 0x1009cf56c 0x1009ce99c 0x10096f868 0x10096f950 0x10094c00c 0x10094c174 0x100155730 0x100155070 0x1001551e4 0x1001f2b38 0x1001fdc78 0x1000e69f8 0x1000eba2c
+
+ERROR: Compilation failed.

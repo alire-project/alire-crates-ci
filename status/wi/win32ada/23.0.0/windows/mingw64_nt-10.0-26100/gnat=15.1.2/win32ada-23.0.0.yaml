@@ -1,0 +1,1467 @@
+badge: false
+crate: win32ada
+creation_timestamp: 1760445305.1764762
+distro: mingw64_nt-10.0-26100
+duration: 3.5470000000000255
+gnat: 15.1.2
+last_attempt: 2025-10-17 12:50:15.958665+00:00
+log:
+- 'Test ran at 2025-10-17 12:50:15.958665+00:00
+
+
+  '
+- 'SOLUTION:
+
+  '
+- 'win32ada=23.0.0: Ada API to the Windows library
+
+  '
+- 'Origin: source archive win32ada-23.0.0.zip at https://github.com/AdaCore/win32ada/archive/v23.0.0/win32ada-23.0.0.zip
+  with hash sha512:680108e6097837aa85403e0a7c9045380eb979187faf4400f1537502d3e224edf7a6f9e1f351783901e1b7d815c61b5cfcb7df8b1bf93c1670df280b32ca41a1
+
+  '
+- 'Available when: (case OS is Windows => True, others => False)
+
+  '
+- 'Properties:
+
+  '
+- '   Author: Intermetrics
+
+  '
+- '   Author: AdaCore
+
+  '
+- '   Configuration: no modifiers
+
+  '
+- '   Description: Ada API to the Windows library
+
+  '
+- '   GPR Scenario: PRJ_BUILD := Debug | Release
+
+  '
+- '   GPR Scenario: PRJ_TARGET := Win32 | Win64
+
+  '
+- '   GPR External: PRJ_BUILD := Release
+
+  '
+- '   GPR External: PRJ_TARGET := Win64
+
+  '
+- '   GPR External: TARGET := Win64
+
+  '
+- '   Long_Description: Due to a subpar integration of Win32Ada in Alire, any project
+  using Win32Ada
+
+  '
+- "specs must also have the Win32Ada pre-processing switches. \n"
+- '
+
+  '
+- 'Do this edit your GPR project file to:
+
+  '
+- '1. With the "shared" project from Win32Ada: `with "shared.gpr";`
+
+  '
+- '2. Add the following switches for Ada: `(Shared.Prep, "-gnateG");`
+
+  '
+- '
+
+  '
+- 'Here''s what it looks like in an example project:
+
+  '
+- '```ada
+
+  '
+- 'with "config/test_win32_config.gpr";
+
+  '
+- '
+
+  '
+- 'with "shared.gpr";
+
+  '
+- '
+
+  '
+- 'project Test_Win32 is
+
+  '
+- '
+
+  '
+- '   for Source_Dirs use ("src/", "config/");
+
+  '
+- '   for Object_Dir use "obj/" & Test_Win32_Config.Build_Profile;
+
+  '
+- '   for Create_Missing_Dirs use "True";
+
+  '
+- '   for Exec_Dir use "bin";
+
+  '
+- '   for Main use ("test_win32.adb");
+
+  '
+- '
+
+  '
+- '   package Compiler is
+
+  '
+- '      for Default_Switches ("Ada") use
+
+  '
+- '        Test_Win32_Config.Ada_Compiler_Switches &
+
+  '
+- '        (Shared.Prep, "-gnateG"); -- See this line here
+
+  '
+- '   end Compiler;
+
+  '
+- '
+
+  '
+- '   package Binder is
+
+  '
+- '      for Switches ("Ada") use ("-Es");
+
+  '
+- '   end Binder;
+
+  '
+- '
+
+  '
+- '   package Install is
+
+  '
+- '      for Artifacts (".") use ("share");
+
+  '
+- '   end Install;
+
+  '
+- '
+
+  '
+- 'end Test_Win32;
+
+  '
+- '```
+
+  '
+- '
+
+  '
+- '
+
+  '
+- '   Maintainer: chouteau@adacore.com
+
+  '
+- '   Maintainers_Logins: Fabien-Chouteau
+
+  '
+- '   Name: win32ada
+
+  '
+- '   Tag: windows
+
+  '
+- '   Tag: api
+
+  '
+- '   Version: 23.0.0
+
+  '
+- '   Website: https://github.com/adacore/win32ada
+
+  '
+- '
+
+  '
+- '
+
+  LOG:
+
+  '
+- '[alr test] Testing win32ada=23.0.0
+
+  '
+- '[alr test] Spawning retrieval for remote crate: alr -d -n get win32ada=23.0.0
+
+  '
+- 'Note: Deploying win32ada=23.0.0...
+
+  '
+- '
+
+  '
+- "#=#=#                                                                         \
+  \ \n"
+- "##O#-#                                                                        \
+  \ \n"
+- '
+
+  '
+- 'win32ada=23.0.0 successfully retrieved.
+
+  '
+- 'There are no dependencies.
+
+  '
+- '[alr test] Spawning default test for remote crate: alr -d -n build --release --
+  -cargs:Ada -gnatwn
+
+  '
+- 'Note: Building win32ada=23.0.0/win32ada.gpr...
+
+  '
+- 'Setup
+
+  '
+- '   [mkdir]        object directory for project Win32Ada
+
+  '
+- '   [mkdir]        library directory for project Win32Ada
+
+  '
+- 'Compile
+
+  '
+- '   [C]            wrappers.c
+
+  '
+- '   [C]            var.c
+
+  '
+- '   [C]            stdlib_wrapper.c
+
+  '
+- '   [Ada]          win32.adb
+
+  '
+- '   [Ada]          win32-wtypes.ads
+
+  '
+- '   [Ada]          win32-wsnwlink.ads
+
+  '
+- 'D:\a\alire-crates-ci\alire-crates-ci\test\226849aa-283b-4a40-9833-3306f449e049\win32ada_23.0.0_680108e6\src\var.c:
+  In function ''do_varargs'':
+
+  '
+- 'D:\a\alire-crates-ci\alire-crates-ci\test\226849aa-283b-4a40-9833-3306f449e049\win32ada_23.0.0_680108e6\src\var.c:108:18:
+  error: too many arguments to function ''func''; expected 0, have 1
+
+  '
+- '  108 |  case 1: return (*func)(list1(p));      \
+
+  '
+- '      |                 ~^~~~~~
+
+  '
+- 'D:\a\alire-crates-ci\alire-crates-ci\test\226849aa-283b-4a40-9833-3306f449e049\win32ada_23.0.0_680108e6\src\var.c:186:9:
+  note: in expansion of macro ''cases''
+
+  '
+- '  186 |         cases(func, p);
+
+  '
+- '      |         ^~~~~
+
+  '
+- 'D:\a\alire-crates-ci\alire-crates-ci\test\226849aa-283b-4a40-9833-3306f449e049\win32ada_23.0.0_680108e6\src\var.c:109:18:
+  error: too many arguments to function ''func''; expected 0, have 2
+
+  '
+- '  109 |  case 2: return (*func)(list2(p));      \
+
+  '
+- '      |                 ~^~~~~~
+
+  '
+- 'D:\a\alire-crates-ci\alire-crates-ci\test\226849aa-283b-4a40-9833-3306f449e049\win32ada_23.0.0_680108e6\src\var.c:186:9:
+  note: in expansion of macro ''cases''
+
+  '
+- '  186 |         cases(func, p);
+
+  '
+- '      |         ^~~~~
+
+  '
+- 'D:\a\alire-crates-ci\alire-crates-ci\test\226849aa-283b-4a40-9833-3306f449e049\win32ada_23.0.0_680108e6\src\var.c:110:18:
+  error: too many arguments to function ''func''; expected 0, have 3
+
+  '
+- '  110 |  case 3: return (*func)(list3(p));      \
+
+  '
+- '      |                 ~^~~~~~
+
+  '
+- 'D:\a\alire-crates-ci\alire-crates-ci\test\226849aa-283b-4a40-9833-3306f449e049\win32ada_23.0.0_680108e6\src\var.c:186:9:
+  note: in expansion of macro ''cases''
+
+  '
+- '  186 |         cases(func, p);
+
+  '
+- '      |         ^~~~~
+
+  '
+- 'D:\a\alire-crates-ci\alire-crates-ci\test\226849aa-283b-4a40-9833-3306f449e049\win32ada_23.0.0_680108e6\src\var.c:111:18:
+  error: too many arguments to function ''func''; expected 0, have 4
+
+  '
+- '  111 |  case 4: return (*func)(list4(p));      \
+
+  '
+- '      |                 ~^~~~~~
+
+  '
+- 'D:\a\alire-crates-ci\alire-crates-ci\test\226849aa-283b-4a40-9833-3306f449e049\win32ada_23.0.0_680108e6\src\var.c:186:9:
+  note: in expansion of macro ''cases''
+
+  '
+- '  186 |         cases(func, p);
+
+  '
+- '      |         ^~~~~
+
+  '
+- 'D:\a\alire-crates-ci\alire-crates-ci\test\226849aa-283b-4a40-9833-3306f449e049\win32ada_23.0.0_680108e6\src\var.c:112:18:
+  error: too many arguments to function ''func''; expected 0, have 5
+
+  '
+- '  112 |  case 5: return (*func)(list5(p));      \
+
+  '
+- '      |                 ~^~~~~~
+
+  '
+- 'D:\a\alire-crates-ci\alire-crates-ci\test\226849aa-283b-4a40-9833-3306f449e049\win32ada_23.0.0_680108e6\src\var.c:186:9:
+  note: in expansion of macro ''cases''
+
+  '
+- '  186 |         cases(func, p);
+
+  '
+- '      |         ^~~~~
+
+  '
+- 'D:\a\alire-crates-ci\alire-crates-ci\test\226849aa-283b-4a40-9833-3306f449e049\win32ada_23.0.0_680108e6\src\var.c:113:18:
+  error: too many arguments to function ''func''; expected 0, have 6
+
+  '
+- '  113 |  case 6: return (*func)(list6(p));      \
+
+  '
+- '      |                 ~^~~~~~
+
+  '
+- 'D:\a\alire-crates-ci\alire-crates-ci\test\226849aa-283b-4a40-9833-3306f449e049\win32ada_23.0.0_680108e6\src\var.c:186:9:
+  note: in expansion of macro ''cases''
+
+  '
+- '  186 |         cases(func, p);
+
+  '
+- '      |         ^~~~~
+
+  '
+- 'D:\a\alire-crates-ci\alire-crates-ci\test\226849aa-283b-4a40-9833-3306f449e049\win32ada_23.0.0_680108e6\src\var.c:114:18:
+  error: too many arguments to function ''func''; expected 0, have 7
+
+  '
+- '  114 |  case 7: return (*func)(list7(p));      \
+
+  '
+- '      |                 ~^~~~~~
+
+  '
+- 'D:\a\alire-crates-ci\alire-crates-ci\test\226849aa-283b-4a40-9833-3306f449e049\win32ada_23.0.0_680108e6\src\var.c:186:9:
+  note: in expansion of macro ''cases''
+
+  '
+- '  186 |         cases(func, p);
+
+  '
+- '      |         ^~~~~
+
+  '
+- 'D:\a\alire-crates-ci\alire-crates-ci\test\226849aa-283b-4a40-9833-3306f449e049\win32ada_23.0.0_680108e6\src\var.c:115:18:
+  error: too many arguments to function ''func''; expected 0, have 8
+
+  '
+- '  115 |  case 8: return (*func)(list8(p));      \
+
+  '
+- '      |                 ~^~~~~~
+
+  '
+- 'D:\a\alire-crates-ci\alire-crates-ci\test\226849aa-283b-4a40-9833-3306f449e049\win32ada_23.0.0_680108e6\src\var.c:186:9:
+  note: in expansion of macro ''cases''
+
+  '
+- '  186 |         cases(func, p);
+
+  '
+- '      |         ^~~~~
+
+  '
+- 'D:\a\alire-crates-ci\alire-crates-ci\test\226849aa-283b-4a40-9833-3306f449e049\win32ada_23.0.0_680108e6\src\var.c:116:18:
+  error: too many arguments to function ''func''; expected 0, have 9
+
+  '
+- '  116 |  case 9: return (*func)(list9(p));      \
+
+  '
+- '      |                 ~^~~~~~
+
+  '
+- 'D:\a\alire-crates-ci\alire-crates-ci\test\226849aa-283b-4a40-9833-3306f449e049\win32ada_23.0.0_680108e6\src\var.c:186:9:
+  note: in expansion of macro ''cases''
+
+  '
+- '  186 |         cases(func, p);
+
+  '
+- '      |         ^~~~~
+
+  '
+- 'D:\a\alire-crates-ci\alire-crates-ci\test\226849aa-283b-4a40-9833-3306f449e049\win32ada_23.0.0_680108e6\src\var.c:117:19:
+  error: too many arguments to function ''func''; expected 0, have 10
+
+  '
+- '  117 |  case 10: return (*func)(list10(p));    \
+
+  '
+- '      |                  ~^~~~~~
+
+  '
+- 'D:\a\alire-crates-ci\alire-crates-ci\test\226849aa-283b-4a40-9833-3306f449e049\win32ada_23.0.0_680108e6\src\var.c:186:9:
+  note: in expansion of macro ''cases''
+
+  '
+- '  186 |         cases(func, p);
+
+  '
+- '      |         ^~~~~
+
+  '
+- 'D:\a\alire-crates-ci\alire-crates-ci\test\226849aa-283b-4a40-9833-3306f449e049\win32ada_23.0.0_680108e6\src\var.c:118:19:
+  error: too many arguments to function ''func''; expected 0, have 11
+
+  '
+- '  118 |  case 11: return (*func)(list11(p));    \
+
+  '
+- '      |                  ~^~~~~~
+
+  '
+- 'D:\a\alire-crates-ci\alire-crates-ci\test\226849aa-283b-4a40-9833-3306f449e049\win32ada_23.0.0_680108e6\src\var.c:186:9:
+  note: in expansion of macro ''cases''
+
+  '
+- '  186 |         cases(func, p);
+
+  '
+- '      |         ^~~~~
+
+  '
+- 'D:\a\alire-crates-ci\alire-crates-ci\test\226849aa-283b-4a40-9833-3306f449e049\win32ada_23.0.0_680108e6\src\var.c:119:19:
+  error: too many arguments to function ''func''; expected 0, have 12
+
+  '
+- '  119 |  case 12: return (*func)(list12(p));    \
+
+  '
+- '      |                  ~^~~~~~
+
+  '
+- 'D:\a\alire-crates-ci\alire-crates-ci\test\226849aa-283b-4a40-9833-3306f449e049\win32ada_23.0.0_680108e6\src\var.c:186:9:
+  note: in expansion of macro ''cases''
+
+  '
+- '  186 |         cases(func, p);
+
+  '
+- '      |         ^~~~~
+
+  '
+- 'D:\a\alire-crates-ci\alire-crates-ci\test\226849aa-283b-4a40-9833-3306f449e049\win32ada_23.0.0_680108e6\src\var.c:120:19:
+  error: too many arguments to function ''func''; expected 0, have 13
+
+  '
+- '  120 |  case 13: return (*func)(list13(p));    \
+
+  '
+- '      |                  ~^~~~~~
+
+  '
+- 'D:\a\alire-crates-ci\alire-crates-ci\test\226849aa-283b-4a40-9833-3306f449e049\win32ada_23.0.0_680108e6\src\var.c:186:9:
+  note: in expansion of macro ''cases''
+
+  '
+- '  186 |         cases(func, p);
+
+  '
+- '      |         ^~~~~
+
+  '
+- 'D:\a\alire-crates-ci\alire-crates-ci\test\226849aa-283b-4a40-9833-3306f449e049\win32ada_23.0.0_680108e6\src\var.c:121:19:
+  error: too many arguments to function ''func''; expected 0, have 14
+
+  '
+- '  121 |  case 14: return (*func)(list14(p));    \
+
+  '
+- '      |                  ~^~~~~~
+
+  '
+- 'D:\a\alire-crates-ci\alire-crates-ci\test\226849aa-283b-4a40-9833-3306f449e049\win32ada_23.0.0_680108e6\src\var.c:186:9:
+  note: in expansion of macro ''cases''
+
+  '
+- '  186 |         cases(func, p);
+
+  '
+- '      |         ^~~~~
+
+  '
+- 'D:\a\alire-crates-ci\alire-crates-ci\test\226849aa-283b-4a40-9833-3306f449e049\win32ada_23.0.0_680108e6\src\var.c:122:19:
+  error: too many arguments to function ''func''; expected 0, have 15
+
+  '
+- '  122 |  case 15: return (*func)(list15(p));    \
+
+  '
+- '      |                  ~^~~~~~
+
+  '
+- 'D:\a\alire-crates-ci\alire-crates-ci\test\226849aa-283b-4a40-9833-3306f449e049\win32ada_23.0.0_680108e6\src\var.c:186:9:
+  note: in expansion of macro ''cases''
+
+  '
+- '  186 |         cases(func, p);
+
+  '
+- '      |         ^~~~~
+
+  '
+- 'D:\a\alire-crates-ci\alire-crates-ci\test\226849aa-283b-4a40-9833-3306f449e049\win32ada_23.0.0_680108e6\src\var.c:123:19:
+  error: too many arguments to function ''func''; expected 0, have 16
+
+  '
+- '  123 |  case 16: return (*func)(list16(p));    \
+
+  '
+- '      |                  ~^~~~~~
+
+  '
+- 'D:\a\alire-crates-ci\alire-crates-ci\test\226849aa-283b-4a40-9833-3306f449e049\win32ada_23.0.0_680108e6\src\var.c:186:9:
+  note: in expansion of macro ''cases''
+
+  '
+- '  186 |         cases(func, p);
+
+  '
+- '      |         ^~~~~
+
+  '
+- 'D:\a\alire-crates-ci\alire-crates-ci\test\226849aa-283b-4a40-9833-3306f449e049\win32ada_23.0.0_680108e6\src\var.c:124:19:
+  error: too many arguments to function ''func''; expected 0, have 17
+
+  '
+- '  124 |  case 17: return (*func)(list17(p));    \
+
+  '
+- '      |                  ~^~~~~~
+
+  '
+- 'D:\a\alire-crates-ci\alire-crates-ci\test\226849aa-283b-4a40-9833-3306f449e049\win32ada_23.0.0_680108e6\src\var.c:186:9:
+  note: in expansion of macro ''cases''
+
+  '
+- '  186 |         cases(func, p);
+
+  '
+- '      |         ^~~~~
+
+  '
+- 'D:\a\alire-crates-ci\alire-crates-ci\test\226849aa-283b-4a40-9833-3306f449e049\win32ada_23.0.0_680108e6\src\var.c:125:19:
+  error: too many arguments to function ''func''; expected 0, have 18
+
+  '
+- '  125 |  case 18: return (*func)(list18(p));    \
+
+  '
+- '      |                  ~^~~~~~
+
+  '
+- 'D:\a\alire-crates-ci\alire-crates-ci\test\226849aa-283b-4a40-9833-3306f449e049\win32ada_23.0.0_680108e6\src\var.c:186:9:
+  note: in expansion of macro ''cases''
+
+  '
+- '  186 |         cases(func, p);
+
+  '
+- '      |         ^~~~~
+
+  '
+- 'D:\a\alire-crates-ci\alire-crates-ci\test\226849aa-283b-4a40-9833-3306f449e049\win32ada_23.0.0_680108e6\src\var.c:126:19:
+  error: too many arguments to function ''func''; expected 0, have 19
+
+  '
+- '  126 |  case 19: return (*func)(list19(p));    \
+
+  '
+- '      |                  ~^~~~~~
+
+  '
+- 'D:\a\alire-crates-ci\alire-crates-ci\test\226849aa-283b-4a40-9833-3306f449e049\win32ada_23.0.0_680108e6\src\var.c:186:9:
+  note: in expansion of macro ''cases''
+
+  '
+- '  186 |         cases(func, p);
+
+  '
+- '      |         ^~~~~
+
+  '
+- 'D:\a\alire-crates-ci\alire-crates-ci\test\226849aa-283b-4a40-9833-3306f449e049\win32ada_23.0.0_680108e6\src\var.c:127:19:
+  error: too many arguments to function ''func''; expected 0, have 20
+
+  '
+- '  127 |  case 20: return (*func)(list20(p));    \
+
+  '
+- '      |                  ~^~~~~~
+
+  '
+- 'D:\a\alire-crates-ci\alire-crates-ci\test\226849aa-283b-4a40-9833-3306f449e049\win32ada_23.0.0_680108e6\src\var.c:186:9:
+  note: in expansion of macro ''cases''
+
+  '
+- '  186 |         cases(func, p);
+
+  '
+- '      |         ^~~~~
+
+  '
+- 'D:\a\alire-crates-ci\alire-crates-ci\test\226849aa-283b-4a40-9833-3306f449e049\win32ada_23.0.0_680108e6\src\var.c:128:19:
+  error: too many arguments to function ''func''; expected 0, have 21
+
+  '
+- '  128 |  case 21: return (*func)(list21(p));    \
+
+  '
+- '      |                  ~^~~~~~
+
+  '
+- 'D:\a\alire-crates-ci\alire-crates-ci\test\226849aa-283b-4a40-9833-3306f449e049\win32ada_23.0.0_680108e6\src\var.c:186:9:
+  note: in expansion of macro ''cases''
+
+  '
+- '  186 |         cases(func, p);
+
+  '
+- '      |         ^~~~~
+
+  '
+- 'D:\a\alire-crates-ci\alire-crates-ci\test\226849aa-283b-4a40-9833-3306f449e049\win32ada_23.0.0_680108e6\src\var.c:129:19:
+  error: too many arguments to function ''func''; expected 0, have 22
+
+  '
+- '  129 |  case 22: return (*func)(list22(p));    \
+
+  '
+- '      |                  ~^~~~~~
+
+  '
+- 'D:\a\alire-crates-ci\alire-crates-ci\test\226849aa-283b-4a40-9833-3306f449e049\win32ada_23.0.0_680108e6\src\var.c:186:9:
+  note: in expansion of macro ''cases''
+
+  '
+- '  186 |         cases(func, p);
+
+  '
+- '      |         ^~~~~
+
+  '
+- 'D:\a\alire-crates-ci\alire-crates-ci\test\226849aa-283b-4a40-9833-3306f449e049\win32ada_23.0.0_680108e6\src\var.c:130:19:
+  error: too many arguments to function ''func''; expected 0, have 23
+
+  '
+- '  130 |  case 23: return (*func)(list23(p));    \
+
+  '
+- '      |                  ~^~~~~~
+
+  '
+- 'D:\a\alire-crates-ci\alire-crates-ci\test\226849aa-283b-4a40-9833-3306f449e049\win32ada_23.0.0_680108e6\src\var.c:186:9:
+  note: in expansion of macro ''cases''
+
+  '
+- '  186 |         cases(func, p);
+
+  '
+- '      |         ^~~~~
+
+  '
+- 'D:\a\alire-crates-ci\alire-crates-ci\test\226849aa-283b-4a40-9833-3306f449e049\win32ada_23.0.0_680108e6\src\var.c:131:19:
+  error: too many arguments to function ''func''; expected 0, have 24
+
+  '
+- '  131 |  case 24: return (*func)(list24(p));    \
+
+  '
+- '      |                  ~^~~~~~
+
+  '
+- 'D:\a\alire-crates-ci\alire-crates-ci\test\226849aa-283b-4a40-9833-3306f449e049\win32ada_23.0.0_680108e6\src\var.c:186:9:
+  note: in expansion of macro ''cases''
+
+  '
+- '  186 |         cases(func, p);
+
+  '
+- '      |         ^~~~~
+
+  '
+- 'D:\a\alire-crates-ci\alire-crates-ci\test\226849aa-283b-4a40-9833-3306f449e049\win32ada_23.0.0_680108e6\src\var.c:132:19:
+  error: too many arguments to function ''func''; expected 0, have 25
+
+  '
+- '  132 |  case 25: return (*func)(list25(p));    \
+
+  '
+- '      |                  ~^~~~~~
+
+  '
+- 'D:\a\alire-crates-ci\alire-crates-ci\test\226849aa-283b-4a40-9833-3306f449e049\win32ada_23.0.0_680108e6\src\var.c:186:9:
+  note: in expansion of macro ''cases''
+
+  '
+- '  186 |         cases(func, p);
+
+  '
+- '      |         ^~~~~
+
+  '
+- 'D:\a\alire-crates-ci\alire-crates-ci\test\226849aa-283b-4a40-9833-3306f449e049\win32ada_23.0.0_680108e6\src\var.c:133:19:
+  error: too many arguments to function ''func''; expected 0, have 26
+
+  '
+- '  133 |  case 26: return (*func)(list26(p));    \
+
+  '
+- '      |                  ~^~~~~~
+
+  '
+- 'D:\a\alire-crates-ci\alire-crates-ci\test\226849aa-283b-4a40-9833-3306f449e049\win32ada_23.0.0_680108e6\src\var.c:186:9:
+  note: in expansion of macro ''cases''
+
+  '
+- '  186 |         cases(func, p);
+
+  '
+- '      |         ^~~~~
+
+  '
+- 'D:\a\alire-crates-ci\alire-crates-ci\test\226849aa-283b-4a40-9833-3306f449e049\win32ada_23.0.0_680108e6\src\var.c:134:19:
+  error: too many arguments to function ''func''; expected 0, have 27
+
+  '
+- '  134 |  case 27: return (*func)(list27(p));    \
+
+  '
+- '      |                  ~^~~~~~
+
+  '
+- 'D:\a\alire-crates-ci\alire-crates-ci\test\226849aa-283b-4a40-9833-3306f449e049\win32ada_23.0.0_680108e6\src\var.c:186:9:
+  note: in expansion of macro ''cases''
+
+  '
+- '  186 |         cases(func, p);
+
+  '
+- '      |         ^~~~~
+
+  '
+- 'D:\a\alire-crates-ci\alire-crates-ci\test\226849aa-283b-4a40-9833-3306f449e049\win32ada_23.0.0_680108e6\src\var.c:135:19:
+  error: too many arguments to function ''func''; expected 0, have 28
+
+  '
+- '  135 |  case 28: return (*func)(list28(p));    \
+
+  '
+- '      |                  ~^~~~~~
+
+  '
+- 'D:\a\alire-crates-ci\alire-crates-ci\test\226849aa-283b-4a40-9833-3306f449e049\win32ada_23.0.0_680108e6\src\var.c:186:9:
+  note: in expansion of macro ''cases''
+
+  '
+- '  186 |         cases(func, p);
+
+  '
+- '      |         ^~~~~
+
+  '
+- 'D:\a\alire-crates-ci\alire-crates-ci\test\226849aa-283b-4a40-9833-3306f449e049\win32ada_23.0.0_680108e6\src\var.c:136:19:
+  error: too many arguments to function ''func''; expected 0, have 29
+
+  '
+- '  136 |  case 29: return (*func)(list29(p));    \
+
+  '
+- '      |                  ~^~~~~~
+
+  '
+- 'D:\a\alire-crates-ci\alire-crates-ci\test\226849aa-283b-4a40-9833-3306f449e049\win32ada_23.0.0_680108e6\src\var.c:186:9:
+  note: in expansion of macro ''cases''
+
+  '
+- '  186 |         cases(func, p);
+
+  '
+- '      |         ^~~~~
+
+  '
+- 'D:\a\alire-crates-ci\alire-crates-ci\test\226849aa-283b-4a40-9833-3306f449e049\win32ada_23.0.0_680108e6\src\var.c:137:19:
+  error: too many arguments to function ''func''; expected 0, have 30
+
+  '
+- '  137 |  case 30: return (*func)(list30(p));    \
+
+  '
+- '      |                  ~^~~~~~
+
+  '
+- 'D:\a\alire-crates-ci\alire-crates-ci\test\226849aa-283b-4a40-9833-3306f449e049\win32ada_23.0.0_680108e6\src\var.c:186:9:
+  note: in expansion of macro ''cases''
+
+  '
+- '  186 |         cases(func, p);
+
+  '
+- '      |         ^~~~~
+
+  '
+- 'D:\a\alire-crates-ci\alire-crates-ci\test\226849aa-283b-4a40-9833-3306f449e049\win32ada_23.0.0_680108e6\src\var.c:138:19:
+  error: too many arguments to function ''func''; expected 0, have 31
+
+  '
+- '  138 |  case 31: return (*func)(list31(p));    \
+
+  '
+- '      |                  ~^~~~~~
+
+  '
+- 'D:\a\alire-crates-ci\alire-crates-ci\test\226849aa-283b-4a40-9833-3306f449e049\win32ada_23.0.0_680108e6\src\var.c:186:9:
+  note: in expansion of macro ''cases''
+
+  '
+- '  186 |         cases(func, p);
+
+  '
+- '      |         ^~~~~
+
+  '
+- 'D:\a\alire-crates-ci\alire-crates-ci\test\226849aa-283b-4a40-9833-3306f449e049\win32ada_23.0.0_680108e6\src\var.c:139:19:
+  error: too many arguments to function ''func''; expected 0, have 32
+
+  '
+- '  139 |  case 32: return (*func)(list32(p));    \
+
+  '
+- '      |                  ~^~~~~~
+
+  '
+- 'D:\a\alire-crates-ci\alire-crates-ci\test\226849aa-283b-4a40-9833-3306f449e049\win32ada_23.0.0_680108e6\src\var.c:186:9:
+  note: in expansion of macro ''cases''
+
+  '
+- '  186 |         cases(func, p);
+
+  '
+- '      |         ^~~~~
+
+  '
+- 'D:\a\alire-crates-ci\alire-crates-ci\test\226849aa-283b-4a40-9833-3306f449e049\win32ada_23.0.0_680108e6\src\var.c:140:19:
+  error: too many arguments to function ''func''; expected 0, have 33
+
+  '
+- '  140 |  case 33: return (*func)(list33(p));    \
+
+  '
+- '      |                  ~^~~~~~
+
+  '
+- 'D:\a\alire-crates-ci\alire-crates-ci\test\226849aa-283b-4a40-9833-3306f449e049\win32ada_23.0.0_680108e6\src\var.c:186:9:
+  note: in expansion of macro ''cases''
+
+  '
+- '  186 |         cases(func, p);
+
+  '
+- '      |         ^~~~~
+
+  '
+- 'D:\a\alire-crates-ci\alire-crates-ci\test\226849aa-283b-4a40-9833-3306f449e049\win32ada_23.0.0_680108e6\src\var.c:141:19:
+  error: too many arguments to function ''func''; expected 0, have 34
+
+  '
+- '  141 |  case 34: return (*func)(list34(p));    \
+
+  '
+- '      |                  ~^~~~~~
+
+  '
+- 'D:\a\alire-crates-ci\alire-crates-ci\test\226849aa-283b-4a40-9833-3306f449e049\win32ada_23.0.0_680108e6\src\var.c:186:9:
+  note: in expansion of macro ''cases''
+
+  '
+- '  186 |         cases(func, p);
+
+  '
+- '      |         ^~~~~
+
+  '
+- 'D:\a\alire-crates-ci\alire-crates-ci\test\226849aa-283b-4a40-9833-3306f449e049\win32ada_23.0.0_680108e6\src\var.c:142:19:
+  error: too many arguments to function ''func''; expected 0, have 35
+
+  '
+- '  142 |  case 35: return (*func)(list35(p));    \
+
+  '
+- '      |                  ~^~~~~~
+
+  '
+- 'D:\a\alire-crates-ci\alire-crates-ci\test\226849aa-283b-4a40-9833-3306f449e049\win32ada_23.0.0_680108e6\src\var.c:186:9:
+  note: in expansion of macro ''cases''
+
+  '
+- '  186 |         cases(func, p);
+
+  '
+- '      |         ^~~~~
+
+  '
+- 'D:\a\alire-crates-ci\alire-crates-ci\test\226849aa-283b-4a40-9833-3306f449e049\win32ada_23.0.0_680108e6\src\var.c:143:19:
+  error: too many arguments to function ''func''; expected 0, have 36
+
+  '
+- '  143 |  case 36: return (*func)(list36(p));    \
+
+  '
+- '      |                  ~^~~~~~
+
+  '
+- 'D:\a\alire-crates-ci\alire-crates-ci\test\226849aa-283b-4a40-9833-3306f449e049\win32ada_23.0.0_680108e6\src\var.c:186:9:
+  note: in expansion of macro ''cases''
+
+  '
+- '  186 |         cases(func, p);
+
+  '
+- '      |         ^~~~~
+
+  '
+- 'D:\a\alire-crates-ci\alire-crates-ci\test\226849aa-283b-4a40-9833-3306f449e049\win32ada_23.0.0_680108e6\src\var.c:144:19:
+  error: too many arguments to function ''func''; expected 0, have 37
+
+  '
+- '  144 |  case 37: return (*func)(list37(p));    \
+
+  '
+- '      |                  ~^~~~~~
+
+  '
+- 'D:\a\alire-crates-ci\alire-crates-ci\test\226849aa-283b-4a40-9833-3306f449e049\win32ada_23.0.0_680108e6\src\var.c:186:9:
+  note: in expansion of macro ''cases''
+
+  '
+- '  186 |         cases(func, p);
+
+  '
+- '      |         ^~~~~
+
+  '
+- 'D:\a\alire-crates-ci\alire-crates-ci\test\226849aa-283b-4a40-9833-3306f449e049\win32ada_23.0.0_680108e6\src\var.c:145:19:
+  error: too many arguments to function ''func''; expected 0, have 38
+
+  '
+- '  145 |  case 38: return (*func)(list38(p));    \
+
+  '
+- '      |                  ~^~~~~~
+
+  '
+- 'D:\a\alire-crates-ci\alire-crates-ci\test\226849aa-283b-4a40-9833-3306f449e049\win32ada_23.0.0_680108e6\src\var.c:186:9:
+  note: in expansion of macro ''cases''
+
+  '
+- '  186 |         cases(func, p);
+
+  '
+- '      |         ^~~~~
+
+  '
+- 'D:\a\alire-crates-ci\alire-crates-ci\test\226849aa-283b-4a40-9833-3306f449e049\win32ada_23.0.0_680108e6\src\var.c:146:19:
+  error: too many arguments to function ''func''; expected 0, have 39
+
+  '
+- '  146 |  case 39: return (*func)(list39(p));    \
+
+  '
+- '      |                  ~^~~~~~
+
+  '
+- 'D:\a\alire-crates-ci\alire-crates-ci\test\226849aa-283b-4a40-9833-3306f449e049\win32ada_23.0.0_680108e6\src\var.c:186:9:
+  note: in expansion of macro ''cases''
+
+  '
+- '  186 |         cases(func, p);
+
+  '
+- '      |         ^~~~~
+
+  '
+- 'D:\a\alire-crates-ci\alire-crates-ci\test\226849aa-283b-4a40-9833-3306f449e049\win32ada_23.0.0_680108e6\src\var.c:147:19:
+  error: too many arguments to function ''func''; expected 0, have 40
+
+  '
+- '  147 |  case 40: return (*func)(list40(p));    \
+
+  '
+- '      |                  ~^~~~~~
+
+  '
+- 'D:\a\alire-crates-ci\alire-crates-ci\test\226849aa-283b-4a40-9833-3306f449e049\win32ada_23.0.0_680108e6\src\var.c:186:9:
+  note: in expansion of macro ''cases''
+
+  '
+- '  186 |         cases(func, p);
+
+  '
+- '      |         ^~~~~
+
+  '
+- 'D:\a\alire-crates-ci\alire-crates-ci\test\226849aa-283b-4a40-9833-3306f449e049\win32ada_23.0.0_680108e6\src\var.c:148:19:
+  error: too many arguments to function ''func''; expected 0, have 41
+
+  '
+- '  148 |  case 41: return (*func)(list41(p));    \
+
+  '
+- '      |                  ~^~~~~~
+
+  '
+- 'D:\a\alire-crates-ci\alire-crates-ci\test\226849aa-283b-4a40-9833-3306f449e049\win32ada_23.0.0_680108e6\src\var.c:186:9:
+  note: in expansion of macro ''cases''
+
+  '
+- '  186 |         cases(func, p);
+
+  '
+- '      |         ^~~~~
+
+  '
+- 'D:\a\alire-crates-ci\alire-crates-ci\test\226849aa-283b-4a40-9833-3306f449e049\win32ada_23.0.0_680108e6\src\var.c:149:19:
+  error: too many arguments to function ''func''; expected 0, have 42
+
+  '
+- '  149 |  case 42: return (*func)(list42(p));    \
+
+  '
+- '      |                  ~^~~~~~
+
+  '
+- 'D:\a\alire-crates-ci\alire-crates-ci\test\226849aa-283b-4a40-9833-3306f449e049\win32ada_23.0.0_680108e6\src\var.c:186:9:
+  note: in expansion of macro ''cases''
+
+  '
+- '  186 |         cases(func, p);
+
+  '
+- '      |         ^~~~~
+
+  '
+- 'D:\a\alire-crates-ci\alire-crates-ci\test\226849aa-283b-4a40-9833-3306f449e049\win32ada_23.0.0_680108e6\src\var.c:150:19:
+  error: too many arguments to function ''func''; expected 0, have 43
+
+  '
+- '  150 |  case 43: return (*func)(list43(p));    \
+
+  '
+- '      |                  ~^~~~~~
+
+  '
+- 'D:\a\alire-crates-ci\alire-crates-ci\test\226849aa-283b-4a40-9833-3306f449e049\win32ada_23.0.0_680108e6\src\var.c:186:9:
+  note: in expansion of macro ''cases''
+
+  '
+- '  186 |         cases(func, p);
+
+  '
+- '      |         ^~~~~
+
+  '
+- 'D:\a\alire-crates-ci\alire-crates-ci\test\226849aa-283b-4a40-9833-3306f449e049\win32ada_23.0.0_680108e6\src\var.c:151:19:
+  error: too many arguments to function ''func''; expected 0, have 44
+
+  '
+- '  151 |  case 44: return (*func)(list44(p));    \
+
+  '
+- '      |                  ~^~~~~~
+
+  '
+- 'D:\a\alire-crates-ci\alire-crates-ci\test\226849aa-283b-4a40-9833-3306f449e049\win32ada_23.0.0_680108e6\src\var.c:186:9:
+  note: in expansion of macro ''cases''
+
+  '
+- '  186 |         cases(func, p);
+
+  '
+- '      |         ^~~~~
+
+  '
+- 'D:\a\alire-crates-ci\alire-crates-ci\test\226849aa-283b-4a40-9833-3306f449e049\win32ada_23.0.0_680108e6\src\var.c:152:19:
+  error: too many arguments to function ''func''; expected 0, have 45
+
+  '
+- '  152 |  case 45: return (*func)(list45(p));    \
+
+  '
+- '      |                  ~^~~~~~
+
+  '
+- 'D:\a\alire-crates-ci\alire-crates-ci\test\226849aa-283b-4a40-9833-3306f449e049\win32ada_23.0.0_680108e6\src\var.c:186:9:
+  note: in expansion of macro ''cases''
+
+  '
+- '  186 |         cases(func, p);
+
+  '
+- '      |         ^~~~~
+
+  '
+- 'D:\a\alire-crates-ci\alire-crates-ci\test\226849aa-283b-4a40-9833-3306f449e049\win32ada_23.0.0_680108e6\src\var.c:153:19:
+  error: too many arguments to function ''func''; expected 0, have 46
+
+  '
+- '  153 |  case 46: return (*func)(list46(p));    \
+
+  '
+- '      |                  ~^~~~~~
+
+  '
+- 'D:\a\alire-crates-ci\alire-crates-ci\test\226849aa-283b-4a40-9833-3306f449e049\win32ada_23.0.0_680108e6\src\var.c:186:9:
+  note: in expansion of macro ''cases''
+
+  '
+- '  186 |         cases(func, p);
+
+  '
+- '      |         ^~~~~
+
+  '
+- 'D:\a\alire-crates-ci\alire-crates-ci\test\226849aa-283b-4a40-9833-3306f449e049\win32ada_23.0.0_680108e6\src\var.c:154:19:
+  error: too many arguments to function ''func''; expected 0, have 47
+
+  '
+- '  154 |  case 47: return (*func)(list47(p));    \
+
+  '
+- '      |                  ~^~~~~~
+
+  '
+- 'D:\a\alire-crates-ci\alire-crates-ci\test\226849aa-283b-4a40-9833-3306f449e049\win32ada_23.0.0_680108e6\src\var.c:186:9:
+  note: in expansion of macro ''cases''
+
+  '
+- '  186 |         cases(func, p);
+
+  '
+- '      |         ^~~~~
+
+  '
+- 'D:\a\alire-crates-ci\alire-crates-ci\test\226849aa-283b-4a40-9833-3306f449e049\win32ada_23.0.0_680108e6\src\var.c:155:19:
+  error: too many arguments to function ''func''; expected 0, have 48
+
+  '
+- '  155 |  case 48: return (*func)(list48(p));    \
+
+  '
+- '      |                  ~^~~~~~
+
+  '
+- 'D:\a\alire-crates-ci\alire-crates-ci\test\226849aa-283b-4a40-9833-3306f449e049\win32ada_23.0.0_680108e6\src\var.c:186:9:
+  note: in expansion of macro ''cases''
+
+  '
+- '  186 |         cases(func, p);
+
+  '
+- '      |         ^~~~~
+
+  '
+- 'D:\a\alire-crates-ci\alire-crates-ci\test\226849aa-283b-4a40-9833-3306f449e049\win32ada_23.0.0_680108e6\src\var.c:156:19:
+  error: too many arguments to function ''func''; expected 0, have 49
+
+  '
+- '  156 |  case 49: return (*func)(list49(p));    \
+
+  '
+- '      |                  ~^~~~~~
+
+  '
+- 'D:\a\alire-crates-ci\alire-crates-ci\test\226849aa-283b-4a40-9833-3306f449e049\win32ada_23.0.0_680108e6\src\var.c:186:9:
+  note: in expansion of macro ''cases''
+
+  '
+- '  186 |         cases(func, p);
+
+  '
+- '      |         ^~~~~
+
+  '
+- 'D:\a\alire-crates-ci\alire-crates-ci\test\226849aa-283b-4a40-9833-3306f449e049\win32ada_23.0.0_680108e6\src\var.c:157:19:
+  error: too many arguments to function ''func''; expected 0, have 50
+
+  '
+- '  157 |  case 50: return (*func)(list50(p))
+
+  '
+- '      |                  ~^~~~~~
+
+  '
+- 'D:\a\alire-crates-ci\alire-crates-ci\test\226849aa-283b-4a40-9833-3306f449e049\win32ada_23.0.0_680108e6\src\var.c:186:9:
+  note: in expansion of macro ''cases''
+
+  '
+- '  186 |         cases(func, p);
+
+  '
+- '      |         ^~~~~
+
+  '
+- '
+
+  '
+- '   compilation of var.c failed
+
+  '
+- '
+
+  '
+- 'gprbuild: *** compilation phase failed
+
+  '
+- 'stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "D:\a\alire-crates-ci\alire-crates-ci\test\226849aa-283b-4a40-9833-3306f449e049\win32ada_23.0.0_680108e6\win32ada.gpr",
+  "-cargs:Ada", "-gnatwn"] exited with code 4
+
+  '
+- 'ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "D:\a\alire-crates-ci\alire-crates-ci\test\226849aa-283b-4a40-9833-3306f449e049\win32ada_23.0.0_680108e6\win32ada.gpr",
+  "-cargs:Ada", "-gnatwn"] exited with code 4
+
+  '
+- 'stderr: ALIRE.CHECKED_ERROR
+
+  '
+- 'stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "D:\a\alire-crates-ci\alire-crates-ci\test\226849aa-283b-4a40-9833-3306f449e049\win32ada_23.0.0_680108e6\win32ada.gpr",
+  "-cargs:Ada", "-gnatwn"] exited with code 4
+
+  '
+- 'stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
+
+  '
+- '[D:\a\alire-crates-ci\alire-crates-ci\alire_install\bin\alr.exe]
+
+  '
+- '0x7ff68223da2a Semantic_Versioning.Basic.Restrictions.First_Index at alire.adb:284
+
+  '
+- '0x7ff681e3595b Semantic_Versioning.Basic.Restrictions.First_Index at alire-os_lib-subprocess.adb:111
+
+  '
+- '0x7ff6820ecba1 Semantic_Versioning.Basic.Restrictions.First_Index at alire-spawn.adb:22
+
+  '
+- '0x7ff6820edd5d Semantic_Versioning.Basic.Restrictions.First_Index at alire-spawn.adb:68
+
+  '
+- '0x7ff682012d64 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:189
+
+  '
+- '0x7ff6820111da Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:255
+
+  '
+- '0x7ff68203912d Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2143
+
+  '
+- '0x7ff6820a82f9 Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1472
+
+  '
+- '0x7ff6820a7424 Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1555
+
+  '
+- '0x7ff68203922c Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2147
+
+  '
+- '0x7ff6820392fa Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2127
+
+  '
+- '0x7ff6820117a7 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:286
+
+  '
+- '0x7ff682011912 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:114
+
+  '
+- '0x7ff681783baa Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:145
+
+  '
+- '0x7ff68178341e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:113
+
+  '
+- '0x7ff6817835ba Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:54
+
+  '
+- '0x7ff681835dea Semantic_Versioning.Basic.Restrictions.First_Index at clic-subcommand-instance.adb:749
+
+  '
+- '0x7ff681842b0e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands.adb:632
+
+  '
+- '0x7ff6817116a0 Alr.Main at alr-main.adb:13
+
+  '
+- '0x7ff681715270 Main at b__alr-main.adb:2454
+
+  '
+- '0x7ff68171133e __tmainCRTStartup at ???
+
+  '
+- '0x7ff681711144 mainCRTStartup at ???
+
+  '
+- '[C:\Windows\System32\KERNEL32.DLL]
+
+  '
+- '0x7ffb1209e8d5
+
+  '
+- '[C:\Windows\SYSTEM32\ntdll.dll]
+
+  '
+- '0x7ffb1322c53a
+
+  '
+- '
+
+  '
+- 'stderr: ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED
+
+  '
+- 'stderr: alire-roots.adb:202
+
+  '
+- 'stderr: raised ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED : alire-roots.adb:202
+
+  '
+- '[D:\a\alire-crates-ci\alire-crates-ci\alire_install\bin\alr.exe]
+
+  '
+- '0x7ff68201313c Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:202
+
+  '
+- '0x7ff6820111da Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:255
+
+  '
+- '0x7ff68203912d Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2143
+
+  '
+- '0x7ff6820a82f9 Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1472
+
+  '
+- '0x7ff6820a7424 Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1555
+
+  '
+- '0x7ff68203922c Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2147
+
+  '
+- '0x7ff6820392fa Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2127
+
+  '
+- '0x7ff6820117a7 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:286
+
+  '
+- '0x7ff682011912 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:114
+
+  '
+- '0x7ff681783baa Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:145
+
+  '
+- '0x7ff68178341e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:113
+
+  '
+- '0x7ff6817835ba Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:54
+
+  '
+- '0x7ff681835dea Semantic_Versioning.Basic.Restrictions.First_Index at clic-subcommand-instance.adb:749
+
+  '
+- '0x7ff681842b0e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands.adb:632
+
+  '
+- '0x7ff6817116a0 Alr.Main at alr-main.adb:13
+
+  '
+- '0x7ff681715270 Main at b__alr-main.adb:2454
+
+  '
+- '0x7ff68171133e __tmainCRTStartup at ???
+
+  '
+- '0x7ff681711144 mainCRTStartup at ???
+
+  '
+- '[C:\Windows\System32\KERNEL32.DLL]
+
+  '
+- '0x7ffb1209e8d5
+
+  '
+- '[C:\Windows\SYSTEM32\ntdll.dll]
+
+  '
+- '0x7ffb1322c53a
+
+  '
+- '
+
+  '
+- 'ERROR: Compilation failed.
+
+  '
+platform: windows
+status: failing
+version: 23.0.0

@@ -1,0 +1,167 @@
+Test ran at 2026-10-27 13:00:02.469159+00:00
+
+SOLUTION:
+mavlink_common=3.0.0: MAVLink -- Micro Air Vehicle Message Marshalling Library.
+Origin: commit e73009fd7c7a74f5f4537698e123b50229f10c59 from https://github.com/reznikmm/mavlink_common.git
+Properties:
+   Author: Fil Andrii
+   Author: Max Reznik
+   Build Switches: 
+   Description: MAVLink -- Micro Air Vehicle Message Marshalling Library.
+   License: MIT
+   Long_Description: # MAVLink -- Common Dialect (Ada Bindings)
+
+This crate provides an Ada binding for the [MAVLink](https://mavlink.io)
+**`common`** dialect: the shared, vendor-neutral set of messages, enums
+and commands that most other MAVLink dialects (ArduPilot, PX4, ...)
+build on top of.
+
+The code is **generated**, not hand-written. It comes straight from the
+official [MAVLink XML message definitions](https://github.com/mavlink/mavlink)
+via [pymavlink](https://github.com/ArduPilot/pymavlink)'s `mavgen` tool
+with its Ada backend, then lightly post-processed. This keeps the
+binding faithful to the upstream specification and makes it
+straightforward to refresh whenever `common.xml` changes.
+
+## What you get
+
+- Strongly typed Ada records for every `common` message, with fields,
+  arrays, enums and bitmasks represented as proper Ada types instead of
+  raw bytes.
+- Marshalling/unmarshalling subprograms for each message, plus the
+  frame header and CRC handling needed to talk MAVLink on the wire.
+- `pragma Pure`, bareboard-friendly packages, suitable for embedded
+  targets (e.g. STM32) as well as desktop ground control software.
+
+## Wire protocol version
+
+This crate targets the **MAVLink 1.0** wire protocol. If you need the
+MAVLink 2.0 wire format (extended message IDs, message signing,
+extension fields), use the sibling crate
+[`mavlink_common_v2`](https://alire.ada.dev/crates/mavlink_common_v2)
+instead -- it exposes the same `common` dialect messages, packed
+differently on the wire.
+
+## Related crates
+
+- [`mavlink_shared`](https://alire.ada.dev/crates/mavlink_shared) --
+  code shared by all the generated dialect crates (CRC, low-level
+  float/byte helpers, etc.). Pulled in automatically as a dependency;
+  you normally don't need to depend on it directly.
+- [`mavlink_ardupilotmega`](https://alire.ada.dev/crates/mavlink_ardupilotmega) --
+  the ArduPilot-specific `ardupilotmega` dialect, which *extends*
+  `common` with vendor messages. Depend on it instead of on this crate
+  if you're talking to ArduPilot/PX4 vehicles and need their custom
+  messages in addition to the standard ones.
+- [`mavlink_common_v2`](https://alire.ada.dev/crates/mavlink_common_v2) --
+  same dialect, MAVLink 2.0 wire protocol.
+
+   Maintainer: Fil Andrii <root.fi36@gmail.com>
+   Maintainer: Max Reznik <reznikmm@gmail.com>
+   Maintainers_Logins: python36
+   Maintainers_Logins: reznikmm
+   Name: mavlink_common
+   Project_File: gnat/mavlink_common.gpr
+   Tag: embedded
+   Tag: network
+   Tag: drone
+   Version: 3.0.0
+   Website: https://mavlink.io
+Dependencies (direct):
+   mavlink_shared^1.0
+Dependencies (solution):
+   mavlink_shared=1.0.0
+Dependencies (graph):
+   mavlink_common=3.0.0 --> mavlink_shared=1.0.0 (^1.0)
+
+
+LOG:
+[alr test] Testing mavlink_common=3.0.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get mavlink_common=3.0.0
+Note: Deploying mavlink_common=3.0.0...
+Note: Deploying mavlink_shared=1.0.0...
+
+mavlink_common=3.0.0 successfully retrieved.
+Dependencies were solved as follows:
+
+   + mavlink_shared 1.0.0 (new)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building mavlink_common=3.0.0/gnat/mavlink_common.gpr...
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\mavlink_shared_1.0.0_31d662d1\f74ca5036dd7b6731fc34c78b4b5bbe09e4eb59bf9b9676b6f7bc36074565764\obj\release" created
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\mavlink_shared_1.0.0_31d662d1\f74ca5036dd7b6731fc34c78b4b5bbe09e4eb59bf9b9676b6f7bc36074565764\lib" created
+"..\obj\release" created
+"..\lib" created
+[Ada Compile]     mavlink-raw_floats.ads
+[Ada Compile]     mavlink-raw_long_floats.ads
+[Ada Compile]     mavlink-x25crc.adb
+[Ada Compile]     mavlink.ads
+mavlink-raw_floats.ads:2:08: warning: unrecognized pragma "Ada_2022"
+[Ada Compile]     mavlink-v1-common-actuator_control_targets.adb
+mavlink.ads:4:08: warning: unrecognized pragma "Ada_2022"
+[Ada Compile]     mavlink-v1-common-adsb_vehicles.adb
+gnat1: invalid switch: -gnat2022
+mavlink_common.gpr: error: [Ada Compile] mavlink-v1-common-actuator_control_targets.adb (mavlink_common.gpr) failed with status 1
+mavlink-raw_long_floats.ads:2:08: warning: unrecognized pragma "Ada_2022"
+gnat1: invalid switch: -gnat2022
+mavlink_common.gpr: error: [Ada Compile] mavlink-v1-common-adsb_vehicles.adb (mavlink_common.gpr) failed with status 1
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "D:\a\alire-crates-ci\alire-crates-ci\test\40b666b5-1618-434b-930b-5bd6abd2e7a8\mavlink_common_3.0.0_e73009fd\gnat/mavlink_common.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "D:\a\alire-crates-ci\alire-crates-ci\test\40b666b5-1618-434b-930b-5bd6abd2e7a8\mavlink_common_3.0.0_e73009fd\gnat/mavlink_common.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+stderr: ALIRE.CHECKED_ERROR
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "D:\a\alire-crates-ci\alire-crates-ci\test\40b666b5-1618-434b-930b-5bd6abd2e7a8\mavlink_common_3.0.0_e73009fd\gnat/mavlink_common.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
+[D:\a\alire-crates-ci\alire-crates-ci\alire_install\bin\alr.exe]
+0x7ff7a8bfda2a Semantic_Versioning.Basic.Restrictions.First_Index at alire.adb:284
+0x7ff7a87f595b Semantic_Versioning.Basic.Restrictions.First_Index at alire-os_lib-subprocess.adb:111
+0x7ff7a8aacba1 Semantic_Versioning.Basic.Restrictions.First_Index at alire-spawn.adb:22
+0x7ff7a8aadd5d Semantic_Versioning.Basic.Restrictions.First_Index at alire-spawn.adb:68
+0x7ff7a89d2d64 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:189
+0x7ff7a89d11da Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:255
+0x7ff7a89f912d Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2143
+0x7ff7a8a682f9 Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1472
+0x7ff7a8a67424 Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1555
+0x7ff7a89f922c Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2147
+0x7ff7a89f92fa Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2127
+0x7ff7a89d17a7 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:286
+0x7ff7a89d1912 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:114
+0x7ff7a8143baa Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:145
+0x7ff7a814341e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:113
+0x7ff7a81435ba Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:54
+0x7ff7a81f5dea Semantic_Versioning.Basic.Restrictions.First_Index at clic-subcommand-instance.adb:749
+0x7ff7a8202b0e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands.adb:632
+0x7ff7a80d16a0 Alr.Main at alr-main.adb:13
+0x7ff7a80d5270 Main at b__alr-main.adb:2454
+0x7ff7a80d133e __tmainCRTStartup at ???
+0x7ff7a80d1144 mainCRTStartup at ???
+[C:\Windows\System32\KERNEL32.DLL]
+0x7ff93d61dd35
+[C:\Windows\SYSTEM32\ntdll.dll]
+0x7ff93d95f2ba
+
+stderr: ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED
+stderr: alire-roots.adb:202
+stderr: raised ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED : alire-roots.adb:202
+[D:\a\alire-crates-ci\alire-crates-ci\alire_install\bin\alr.exe]
+0x7ff7a89d313c Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:202
+0x7ff7a89d11da Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:255
+0x7ff7a89f912d Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2143
+0x7ff7a8a682f9 Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1472
+0x7ff7a8a67424 Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1555
+0x7ff7a89f922c Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2147
+0x7ff7a89f92fa Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2127
+0x7ff7a89d17a7 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:286
+0x7ff7a89d1912 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:114
+0x7ff7a8143baa Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:145
+0x7ff7a814341e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:113
+0x7ff7a81435ba Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:54
+0x7ff7a81f5dea Semantic_Versioning.Basic.Restrictions.First_Index at clic-subcommand-instance.adb:749
+0x7ff7a8202b0e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands.adb:632
+0x7ff7a80d16a0 Alr.Main at alr-main.adb:13
+0x7ff7a80d5270 Main at b__alr-main.adb:2454
+0x7ff7a80d133e __tmainCRTStartup at ???
+0x7ff7a80d1144 mainCRTStartup at ???
+[C:\Windows\System32\KERNEL32.DLL]
+0x7ff93d61dd35
+[C:\Windows\SYSTEM32\ntdll.dll]
+0x7ff93d95f2ba
+
+ERROR: Compilation failed.

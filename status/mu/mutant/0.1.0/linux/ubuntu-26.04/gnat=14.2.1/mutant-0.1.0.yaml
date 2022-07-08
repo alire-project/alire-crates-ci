@@ -1,0 +1,298 @@
+badge: false
+crate: mutant
+creation_timestamp: 1795134972.4827044
+distro: ubuntu-26.04
+duration: 10.691599792000034
+gnat: 14.2.1
+last_attempt: 2026-11-25 00:46:37.279127+00:00
+log:
+- 'Test ran at 2026-11-25 00:46:37.279099+00:00
+
+
+  '
+- 'SOLUTION:
+
+  '
+- 'mutant=0.1.0: AdaMutant: mutation testing for Ada and SPARK (Stryker.NET-style)
+
+  '
+- 'Origin: commit 22c0fcb60cd22fe93133d38efa289f70d1249bdc from https://github.com/gomurin0428/AdaMutant.git
+
+  '
+- 'Properties:
+
+  '
+- '   Author: Go Komura
+
+  '
+- '   Configuration: no modifiers
+
+  '
+- '   Description: AdaMutant: mutation testing for Ada and SPARK (Stryker.NET-style)
+
+  '
+- '   Executable: adamutant
+
+  '
+- '   GPR External: ADAMUTANT_WARNINGS_AS_ERRORS := false
+
+  '
+- '   License: Apache-2.0
+
+  '
+- '   Long_Description: AdaMutant is a mutation testing tool for Ada and SPARK, in
+  the spirit of
+
+  '
+- 'Stryker.NET. It makes small changes (mutants) to the sources, checks whether
+
+  '
+- 'the tests or the GNATprove proofs detect each change, and reports the
+
+  '
+- 'mutation score.
+
+  '
+- '
+
+  '
+- 'It has its own lexer for Ada up to Ada 2022 and does not depend on
+
+  '
+- 'libadalang. A mutant is killed by a failing test or, for SPARK, by a failing
+
+  '
+- 'proof. Where it can, AdaMutant builds all the mutants once (mutant schemata)
+
+  '
+- 'and switches the active mutant with an environment variable while the tests
+
+  '
+- 'run; the other mutants are built one at a time. Mutants run in parallel in
+
+  '
+- 'copies of the project, with a time limit and an optional memory limit for
+
+  '
+- 'the tests.
+
+  '
+- '
+
+  '
+- 'The mutators cover arithmetic, relational, logical, unary and membership
+
+  '
+- 'operators, Boolean, numeric and string literals, conditions, and statement
+
+  '
+- 'deletion. Comments in the source can disable them, and `--since` limits a
+
+  '
+- 'run to the lines changed since a git revision.
+
+  '
+- '
+
+  '
+- 'The reports are a console table, a self-contained HTML file and JSON in
+
+  '
+- 'mutation-testing-report-schema v2. AdaMutant runs on Linux, macOS and
+
+  '
+- 'Windows.
+
+  '
+- '
+
+  '
+- '   Maintainer: Go Komura <contact@comcomponent.com>
+
+  '
+- '   Maintainers_Logins: gomurin0428
+
+  '
+- '   Name: mutant
+
+  '
+- '   Project_File: adamutant.gpr
+
+  '
+- '   Tag: mutation
+
+  '
+- '   Tag: testing
+
+  '
+- '   Tag: spark
+
+  '
+- '   Tag: verification
+
+  '
+- '   Tag: tool
+
+  '
+- '   Version: 0.1.0
+
+  '
+- '   Website: https://github.com/gomurin0428/AdaMutant
+
+  '
+- 'Dependencies (direct):
+
+  '
+- '   gnat>=14
+
+  '
+- 'Dependencies (solution):
+
+  '
+- '   gnat=14.2.1 (gnat_native)
+
+  '
+- 'Dependencies (graph):
+
+  '
+- '   mutant=0.1.0 --> gnat=14.2.1 (gnat_native) (>=14)
+
+  '
+- '
+
+  '
+- '
+
+  LOG:
+
+  '
+- '[alr test] Testing mutant=0.1.0
+
+  '
+- '[alr test] Spawning retrieval for remote crate: alr -d -n get mutant=0.1.0
+
+  '
+- 'Note: Deploying mutant=0.1.0...
+
+  '
+- '
+
+  '
+- 'mutant=0.1.0 successfully retrieved.
+
+  '
+- 'Dependencies were solved as follows:
+
+  '
+- '
+
+  '
+- '   +b gnat 14.2.1 (new,gnat_native,binary)
+
+  '
+- '[alr test] Spawning default test for remote crate: alr -d -n build --release --
+  -cargs:Ada -gnatwn
+
+  '
+- 'Note: Building mutant=0.1.0/adamutant.gpr...
+
+  '
+- 'Setup
+
+  '
+- '   [mkdir]        object directory for project AdaMutant_Core
+
+  '
+- '   [mkdir]        library directory for project AdaMutant_Core
+
+  '
+- '   [mkdir]        object directory for project AdaMutant
+
+  '
+- '   [mkdir]        exec directory for project AdaMutant
+
+  '
+- 'Compile
+
+  '
+- '   [Ada]          adamutant_main.adb
+
+  '
+- '   [C]            adamutant_process.c
+
+  '
+- '   [Ada]          adamutant-mutators.adb
+
+  '
+- '   [Ada]          adamutant-processes.adb
+
+  '
+- '   [Ada]          adamutant-lexer.adb
+
+  '
+- '   [Ada]          adamutant-files.adb
+
+  '
+- '   [Ada]          adamutant-schemata.adb
+
+  '
+- '   [Ada]          adamutant-positions.adb
+
+  '
+- '   [Ada]          adamutant-results.adb
+
+  '
+- '   [Ada]          adamutant-config.adb
+
+  '
+- '   [Ada]          adamutant-changes.adb
+
+  '
+- '   [Ada]          adamutant-runner.adb
+
+  '
+- '   [Ada]          adamutant-reports.adb
+
+  '
+- '   [Ada]          adamutant.ads
+
+  '
+- 'Build Libraries
+
+  '
+- '   [gprlib]       adamutant.lexch
+
+  '
+- '   [archive]      libadamutant.a
+
+  '
+- '   [index]        libadamutant.a
+
+  '
+- 'Bind
+
+  '
+- '   [gprbind]      adamutant_main.bexch
+
+  '
+- '   [Ada]          adamutant_main.ali
+
+  '
+- 'Link
+
+  '
+- '   [link]         adamutant_main.adb
+
+  '
+- 'Success: Build finished successfully in 9.40 seconds.
+
+  '
+- 'Found declared GPR file: adamutant.gpr
+
+  '
+- '[alr test] Test completed SUCCESSFULLY
+
+  '
+platform: linux
+status: success
+version: 0.1.0

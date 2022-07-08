@@ -1,0 +1,74 @@
+Test ran at 2026-10-31 00:43:25.294476+00:00
+
+SOLUTION:
+a0b_buffers=0.2.0: A0B: Data Buffers
+Origin: commit 9a0de493a73d200f0f7cbfbe34aa2be1e191aceb from https://github.com/godunko/a0b-buffers.git
+Properties:
+   Author: Vadim Godunko
+   Configuration: no modifiers
+   Description: A0B: Data Buffers
+   License: Apache-2.0 WITH LLVM-exception
+   Long_Description: Provides memory-safe data buffer abstractions with customizable allocation strategies (fixed and dynamic capacity), optimized for I/O handling and serialization builders.
+
+   Maintainer: Vadim Godunko <vgodunko@gmail.com>
+   Maintainers_Logins: godunko
+   Name: a0b_buffers
+   Tag: a0b
+   Tag: buffers
+   Version: 0.2.0
+   Website: https://github.com/godunko/a0b-buffers
+Dependencies (direct):
+   a0b_base^0.6.0
+Dependencies (solution):
+   a0b_base=0.6.0
+   gnat=16.1.0 (gnat_native)
+Dependencies (graph):
+   a0b_base=0.6.0    --> gnat=16.1.0 (gnat_native) (>16)
+   a0b_buffers=0.2.0 --> a0b_base=0.6.0 (^0.6.0)
+
+
+LOG:
+[alr test] Testing a0b_buffers=0.2.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get a0b_buffers=0.2.0
+Note: Deploying a0b_buffers=0.2.0...
+Note: Deploying a0b_base=0.6.0...
+Warning: Possible tilde intended instead of caret for a 0.x version.
+   Alire does not change the meaning of caret and tilde for pre/post-1.0 versions.
+   The suspicious dependency is: a0b_base^0.6.0
+   You can disable this warning by setting the option warning.caret to false.
+
+a0b_buffers=0.2.0 successfully retrieved.
+Dependencies were solved as follows:
+
+   +  a0b_base 0.6.0  (new)
+   +b gnat     16.1.0 (new,gnat_native,indirect,binary)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building a0b_buffers=0.2.0/a0b_buffers.gpr...
+Setup
+   [mkdir]        object directory for project A0B_Base
+   [mkdir]        library directory for project A0B_Base
+   [mkdir]        object directory for project A0B_Buffers
+   [mkdir]        library directory for project A0B_Buffers
+Compile
+   [Ada]          a0b-storage.ads
+   [Ada]          a0b-storage-address_to_access_conversions.ads
+   [Ada]          a0b-types-gcc_builtins.ads
+   [Ada]          a0b.ads
+   [Ada]          a0b-types-enumerable.ads
+   [Ada]          a0b-types.ads
+   [Ada]          a0b-peripherals.ads
+   [Ada]          a0b-types-svd.ads
+   [Ada]          a0b-types-big_endian.adb
+   [Ada]          a0b-types-arrays.ads
+   [Ada]          a0b-buffers.ads
+   [Ada]          a0b-buffers-static.adb
+Build Libraries
+   [gprlib]       a0b_base.lexch
+   [gprlib]       a0b_buffers.lexch
+   [archive]      liba0b_base.a
+   [index]        liba0b_base.a
+   [archive]      liba0b_buffers.a
+   [index]        liba0b_buffers.a
+Success: Build finished successfully in 0.52 seconds.
+Found declared GPR file: a0b_buffers.gpr
+[alr test] Test completed SUCCESSFULLY

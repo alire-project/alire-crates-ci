@@ -1,0 +1,125 @@
+Test ran at 2026-09-04 12:39:12.509122+00:00
+
+SOLUTION:
+opencv_core=0.1.0: Thick Ada binding to OpenCV Core Library
+Origin: commit 7788f7da8457d74a7e6fe8da9312ccf863cdae3d from https://github.com/zackboll/opencv_core_ada.git
+Properties:
+   Pre_Build run: sh scripts/configure_opencv.sh (from ${CRATE_ROOT}/.)
+   Test run: alr run (from ${CRATE_ROOT}/tests)
+   Author: Zack Boll
+   Description: Thick Ada binding to OpenCV Core Library
+   case Distribution is
+      when Msys2 => Environment: PATH=${CRATE_ROOT}/lib:${PATH}
+   License: Apache-2.0
+   Maintainer: Zack Boll <zackboll@gmail.com>
+   Maintainers_Logins: zackboll
+   Name: opencv_core
+   Tag: opencv
+   Tag: computer-vision
+   Tag: binding
+   Tag: ada
+   Version: 0.1.0
+   Website: https://github.com/zackboll/opencv_core_ada
+Dependencies (direct):
+   case OS is
+      when Windows => mingw_w64_gcc*
+   opencv*
+   pkg_config*
+Dependencies (solution):
+   opencv=4.6.0
+   pkg_config=1.8.1
+Dependencies (graph):
+   opencv_core=0.1.0 --> opencv=4.6.0 (*)
+   opencv_core=0.1.0 --> pkg_config=1.8.1 (*)
+
+
+LOG:
+Note: Synchronizing workspace...
+Dependencies automatically updated as follows:
+
+   +  aunit       26.0.0 (new)
+   +b gnatcov     26.2.1 (new,binary)
+   +b gnatprove   16.1.0 (new,binary)
+   +b opencv      4.6.0  (new,indirect,system package)
+   +. opencv_core 0.1.0  (new,path=..)
+   +b pkg_config  1.8.1  (new,indirect,system package)
+Note: Deploying aunit=26.0.0...
+#=#=#                                                                          
+##O#-#                                                                         
+##O=#  #                                                                       
+#=#=-#  #                                                                      
+Note: Deploying gnatcov=26.2.1...
+#=#=#                                                                          
+##O#-#                                                                         
+
+                                                                           0.0%
+                                                                           0.5%
+##                                                                         4.0%
+###########                                                               15.6%
+################                                                          23.5%
+#########################                                                 35.2%
+#################################                                         47.1%
+##########################################                                58.4%
+##################################################                        70.2%
+###########################################################               82.3%
+###################################################################       93.7%
+######################################################################## 100.0%
+Note: Deploying gnatprove=16.1.0...
+#=#=#                                                                          
+##O#-#                                                                         
+
+                                                                           0.0%
+                                                                           0.3%
+##                                                                         2.9%
+######                                                                     9.5%
+###########                                                               16.1%
+################                                                          23.0%
+##################                                                        26.3%
+########################                                                  34.0%
+#############################                                             40.6%
+#################################                                         46.1%
+#####################################                                     52.3%
+##########################################                                58.8%
+##############################################                            64.4%
+###################################################                       71.5%
+########################################################                  78.8%
+#############################################################             85.5%
+##################################################################        92.8%
+######################################################################## 100.0%
+
+Note: Running pre-build actions for opencv_core=0.1.0...
+Note: Building tests=0.1.0/tests.gpr...
+Setup
+   [mkdir]        object directory for project AUnit
+   [mkdir]        library directory for project AUnit
+   [mkdir]        object directory for project OpenCV_Core_Shim
+   [mkdir]        library directory for project OpenCV_Core_Shim
+   [mkdir]        object directory for project OpenCV_Core
+   [mkdir]        object directory for project Tests
+   [mkdir]        exec directory for project Tests
+Compile
+   [Ada]          tests.adb
+   [C++]          opencv_core_shim.cpp
+   [Ada]          opencv_core_config.ads
+   [Ada]          opencv-core-internal-row_data.adb
+   [Ada]          opencv-core-internal-typed_external_mat_view.adb
+   [Ada]          opencv-internal-c_api.adb
+   [Ada]          opencv-core-internal-typed_continuous_borrowing.adb
+   [Ada]          opencv-core-internal.ads
+   [Ada]          opencv-internal-safe_arithmetic.adb
+   [Ada]          opencv-internal.ads
+   [Ada]          opencv-core-internal-typed_row_borrowing.adb
+   [Ada]          opencv-core-internal-typed_access.adb
+   [Ada]          opencv-core-uint8_access.adb
+   [Ada]          opencv-core-uint8_vec3_row_access.adb
+   [Ada]          opencv-core-float32_vec3_access.adb
+opencv-core-uint8_vec3_row_access.adb:22:49: error: condition is not known at compile time
+opencv-core-uint8_vec3_row_access.adb:30:04: error: instantiation error at opencv-core-internal-typed_row_borrowing.adb:25
+opencv-core-uint8_vec3_row_access.adb:30:04: error: condition is not known at compile time
+
+   compilation of opencv-core-uint8_vec3_row_access.adb failed
+
+gprbuild: *** compilation phase failed
+ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/13412340-f7d2-4207-9ba4-a6d7bf5d9de3/opencv_core_0.1.0_7788f7da/tests/tests.gpr"] exited with code 4
+ERROR: Build failed
+[alr test] Test action exited with error code 1

@@ -1,0 +1,747 @@
+Test ran at 2026-10-20 12:45:52.146930+00:00
+
+SOLUTION:
+matreshka_fastcgi=21.0.0: FastCGI implementation (demo)
+Origin: commit 20fa445356c12b414c5500fddf59d55bf9c08c97 from https://github.com/reznikmm/matreshka-alire
+Properties:
+   Author: Vadim Godunko
+   Description: FastCGI implementation (demo)
+   License: BSD-3-Clause
+   Maintainer: Vadim Godunko <vgodunko@gmail.com>
+   Maintainer: Maxim Reznik <reznikmm@gmail.com>
+   Maintainers_Logins: godunko
+   Maintainers_Logins: reznikmm
+   Name: matreshka_fastcgi
+   Project_File: build_matreshka_fastcgi.gpr
+   Tag: web
+   Tag: cgi
+   Tag: http
+   Version: 21.0.0
+   Website: https://github.com/godunko/matreshka
+Dependencies (direct):
+   matreshka_league21.0.0
+Dependencies (solution):
+   gnat=15.3.1 (gnat_native)
+   make=4.4.1
+   matreshka_league=21.0.0
+Dependencies (graph):
+   matreshka_fastcgi=21.0.0 --> matreshka_league=21.0.0 (21.0.0)
+   matreshka_league=21.0.0  --> gnat=15.3.1 (gnat_native) (<2000)
+   matreshka_league=21.0.0  --> make=4.4.1 (*)
+
+
+LOG:
+[alr test] Testing matreshka_fastcgi=21.0.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get matreshka_fastcgi=21.0.0
+Note: Deploying matreshka_fastcgi=21.0.0...
+Note: Deploying make=4.4.1...
+The system package 'make' is about to be installed.
+This action might require admin privileges and impact your system installation.
+Do you want Alire to install this system package?
+Using default: Yes
+[32m==>[0m [1mDownloading bottle manifests[0m
+✔︎ Bottle Manifest make (4.4.1)
+[32m==>[0m [1mFetching downloads for: [32mmake[39m[0m
+✔︎ Bottle make (4.4.1)
+[34m==>[0m [1mPouring make--4.4.1.arm64_tahoe.bottle.1.tar.gz[0m
+🍺  /opt/homebrew/Cellar/make/4.4.1: 17 files, 1.3MB
+[32m==>[0m [1mCaveats[0m
+[34m==>[0m [1mmake[0m
+GNU "make" has been installed as "gmake".
+If you need to use it as "make", you can add a "gnubin" directory
+to your PATH from your bashrc like:
+
+    PATH="/opt/homebrew/opt/make/libexec/gnubin:$PATH"
+Note: Deploying matreshka_league=21.0.0...
+#=#=#                                                                          
+
+                                                                           0.5%
+###########                                                               16.2%
+########################                                                  34.0%
+##############################                                            42.7%
+##########################################                                58.7%
+############################################                              61.4%
+#############################################################             85.0%
+##################################################################        92.4%
+####################################################################      94.6%
+#######################################################################   99.3%
+######################################################################## 100.0%
+
+matreshka_fastcgi=21.0.0 successfully retrieved.
+Dependencies were solved as follows:
+
+   +b gnat             15.3.1 (new,gnat_native,indirect,binary)
+   +b make             4.4.1  (new,indirect,system package)
+   +  matreshka_league 21.0.0 (new)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Running post-fetch actions for matreshka_league=21.0.0...
+gnatmake -p -j0  -Pgnat/tools_configure.gpr
+Setup
+   [mkdir]        object directory for project Tools_Configure
+Compile
+   [Ada]          configure-driver.adb
+   [Ada]          configure.adb
+   [Ada]          configure-architecture.adb
+   [Ada]          configure-instantiate.adb
+   [Ada]          configure-internals.adb
+   [Ada]          configure-rtl_version.adb
+   [Ada]          configure-tests.ads
+   [Ada]          configure-tests-asis.adb
+   [Ada]          configure-tests-aws.adb
+   [Ada]          configure-tests-firebird.adb
+   [Ada]          configure-tests-gprbuild.adb
+   [Ada]          configure-tests-install.adb
+   [Ada]          configure-tests-installation_directories.adb
+   [Ada]          configure-tests-modules.ads
+   [Ada]          configure-tests-modules-amf.adb
+   [Ada]          configure-tests-mysql.adb
+   [Ada]          configure-tests-oci.adb
+   [Ada]          configure-tests-operating_system.adb
+   [Ada]          configure-tests-postgresql.adb
+   [Ada]          configure-tests-sqlite3.adb
+   [Ada]          configure-tests-valgrind.adb
+   [Ada]          configure-version.adb
+   [Ada]          configure-builder.adb
+   [Ada]          configure-abstract_tests.adb
+   [Ada]          configure-pkg_config.adb
+   [Ada]          configure-component_switches.adb
+Bind
+   [gprbind]      configure-driver.bexch
+   [Ada]          configure-driver.ali
+Link
+   [link]         configure-driver.adb
+ld: warning: ignoring file /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/lib/libSystem.tbd, malformed file
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/lib/libSystem.tbd:4:20: error: unknown architecture
+                   arm64e.x1-macos, arm64e.x1-maccatalyst ]
+                   ^~~~~~~~~~~~~~~
+
+Undefined symbols for architecture arm64:
+  "__Unwind_Backtrace", referenced from:
+      ___gnat_backtrace in libgnat.a(tracebak.o)
+  "__Unwind_DeleteException", referenced from:
+      ___gnat_end_handler_v1 in libgnat.a(a-except.o)
+      ___gnat_end_handler in libgnat.a(a-except.o)
+  "__Unwind_ForcedUnwind", referenced from:
+      ___gnat_Unwind_ForcedUnwind in libgnat.a(raise-gcc.o)
+  "__Unwind_GetDataRelBase", referenced from:
+      _base_of_encoded_value in libgnat.a(raise-gcc.o)
+  "__Unwind_GetIP", referenced from:
+      _trace_callback in libgnat.a(tracebak.o)
+  "__Unwind_GetIPInfo", referenced from:
+      ___gnat_personality_v0 in libgnat.a(raise-gcc.o)
+  "__Unwind_GetLanguageSpecificData", referenced from:
+      ___gnat_personality_v0 in libgnat.a(raise-gcc.o)
+  "__Unwind_GetRegionStart", referenced from:
+      _base_of_encoded_value in libgnat.a(raise-gcc.o)
+      ___gnat_personality_v0 in libgnat.a(raise-gcc.o)
+  "__Unwind_GetTextRelBase", referenced from:
+      _base_of_encoded_value in libgnat.a(raise-gcc.o)
+  "__Unwind_RaiseException", referenced from:
+      ___gnat_Unwind_RaiseException in libgnat.a(raise-gcc.o)
+  "__Unwind_Resume", referenced from:
+      _configure__driver__help_output___finalizer.4 in configure-driver.o
+      _configure__driver__help_output.3 in configure-driver.o
+      __ada_configure__driver in configure-driver.o
+      _configure__driver__is_help_requested.5 in configure-driver.o
+      _configure__driver__B91b___finalizer.9 in configure-driver.o
+      _configure__driver__B103b___finalizer.10 in configure-driver.o
+      _configure__driver__B115b___finalizer.11 in configure-driver.o
+      ...
+  "__Unwind_SetGR", referenced from:
+      ___gnat_personality_v0 in libgnat.a(raise-gcc.o)
+  "__Unwind_SetIP", referenced from:
+      ___gnat_personality_v0 in libgnat.a(raise-gcc.o)
+  "___darwin_check_fd_set_overflow", referenced from:
+      ___gnat_expect_poll in libgnat.a(expect.o)
+  "___error", referenced from:
+      ___get_errno in libgnat.a(errno.o)
+      ___set_errno in libgnat.a(errno.o)
+      ___gnat_try_lock in libgnat.a(adaint.o)
+      ___gnat_stat_to_attr in libgnat.a(adaint.o)
+      ___gnat_stat in libgnat.a(adaint.o)
+  "___sprintf_chk", referenced from:
+      ___gnat_try_lock in libgnat.a(adaint.o)
+  "___stderrp", referenced from:
+      _db in libgnat.a(raise-gcc.o)
+      ___gnat_constant_stderr in libgnat.a(cstreams.o)
+      _put_int_stderr in libgnat.a(cio.o)
+      _put_char_stderr in libgnat.a(cio.o)
+  "___stdinp", referenced from:
+      ___gnat_constant_stdin in libgnat.a(cstreams.o)
+  "___stdoutp", referenced from:
+      ___gnat_constant_stdout in libgnat.a(cstreams.o)
+      _put_int in libgnat.a(cio.o)
+  "__dyld_get_image_header", referenced from:
+      ___gnat_get_executable_load_address in libgnat.a(adaint.o)
+  "__exit", referenced from:
+      ___gnat_portable_spawn in libgnat.a(adaint.o)
+      ___gnat_portable_no_block_spawn in libgnat.a(adaint.o)
+      ___gnat_expect_portable_execvp in libgnat.a(expect.o)
+     (maybe you meant: _system__task_primitives__operations__exit_task)
+  "_abort", referenced from:
+      ___gcc_nested_func_ptr_created in libheapt_w.a(heap-trampoline_s.o)
+      ___gcc_nested_func_ptr_deleted in libheapt_w.a(heap-trampoline_s.o)
+      _read_encoded_value_with_base in libgnat.a(raise-gcc.o)
+      _base_of_encoded_value in libgnat.a(raise-gcc.o)
+      ___gnat_personality_v0 in libgnat.a(raise-gcc.o)
+      _emutls_init in libemutls_w.a(emutls_s.o)
+      ___emutls_get_address in libemutls_w.a(emutls_s.o)
+      ...
+     (maybe you meant: _system__task_primitives__operations__abort_handler_installed, _system__soft_links__abort_undefer_nt , _system__tasking__initialization__defer_abort , _system__soft_links__abort_defer , _system__standard_library__abort_undefer_direct , _system__soft_links__check_abort_status_nt , _system__tasking__level_no_pending_abort , _system__tasking__initialization__defer_abort_nestable , _system__parameters__no_abort , _system__task_primitives__operations__abort_task , _system__soft_links__abort_defer_nt , _system__interrupt_management__abort_task_interrupt , _system__soft_links__abort_undefer , _ada__exceptions__triggered_by_abort , _system__soft_links__check_abort_status , _system__tasking__initialization__check_abort_status , _system__tasking__initialization__undefer_abort_nestable , _system__soft_links__abort_handler , _system__tasking__initialization__undefer_abort , __abort_signal , _system__task_primitives__operations__abort_handler , _system__standard_library__abort_signal_name , _system__soft_links__abort_handler_nt , _system__tasking__initialization__locked_abort_to_level )
+  "_access", referenced from:
+      ___gnat_is_read_accessible_file in libgnat.a(adaint.o)
+      ___gnat_is_write_accessible_file in libgnat.a(adaint.o)
+     (maybe you meant: ___gnat_is_write_accessible_file, _gnat__expect__process_descriptor_accessFC , _gnat__expect__process_descriptor_accessFCMN , _configure__maps__node_accessFCMN , _configure__string_vectors__get_element_access , _configure__maps__node_accessFC , _configure__unbounded_string_vectors__element_accessFCMN , _system__os_lib__is_write_accessible_file , _configure__unbounded_string_vectors__elements_accessFC , ___gnat_is_read_accessible_file , _system__put_images__put_image_access_prot_subp , _ada__directories__directory_vectors__get_element_accessXn , _system__put_images__put_image_access_subp , _system__os_lib__is_read_accessible_file , _configure__unbounded_string_vectors__element_accessFC , _configure__unbounded_string_vectors__elements_accessFCMN , _configure__unbounded_string_vectors__get_element_access , _configure__maps__get_element_access )
+  "_atoi", referenced from:
+      _db in libgnat.a(raise-gcc.o)
+      ___gnat_personality_v0 in libgnat.a(raise-gcc.o)
+  "_calloc", referenced from:
+      ___emutls_get_address in libemutls_w.a(emutls_s.o)
+  "_chdir", referenced from:
+      ___gnat_chdir in libgnat.a(adaint.o)
+     (maybe you meant: ___gnat_chdir)
+  "_chmod", referenced from:
+      ___gnat_set_writable in libgnat.a(adaint.o)
+      ___gnat_set_executable in libgnat.a(adaint.o)
+      ___gnat_set_non_writable in libgnat.a(adaint.o)
+      ___gnat_set_readable in libgnat.a(adaint.o)
+      ___gnat_set_non_readable in libgnat.a(adaint.o)
+      ___gnat_copy_attribs in libgnat.a(adaint.o)
+  "_clearerr", referenced from:
+      _system__file_io__raise_device_error in libgnat.a(s-fileio.o)
+      _system__file_io__end_of_file in libgnat.a(s-fileio.o)
+  "_clock_get_attributes", referenced from:
+      ___gnat_clock_get_res in libgnarl.a(thread.o)
+  "_close", referenced from:
+      _system__os_lib__copy_file__copy.1 in libgnat.a(s-os_lib.o)
+      _system__os_lib__close__2 in libgnat.a(s-os_lib.o)
+      _system__os_lib__close in libgnat.a(s-os_lib.o)
+      _system__os_lib__non_blocking_spawn__2 in libgnat.a(s-os_lib.o)
+      _system__os_lib__non_blocking_spawn__3 in libgnat.a(s-os_lib.o)
+      _system__os_lib__non_blocking_spawn__4 in libgnat.a(s-os_lib.o)
+      _system__os_lib__spawn__3 in libgnat.a(s-os_lib.o)
+      ...
+     (maybe you meant: _system__os_lib__close__2, _system__os_lib__set_close_on_exec , _gnat__expect__close_input , _system__file_io__close , _ada__text_io__close , _gnat__expect__close , _configure__internals__close_log_file , _ada__text_io__afcb_close__2 , ___gnat_set_close_on_exec , _system__os_lib__close , ___gnat_closedir , _gnat__expect__close__2 )
+  "_closedir", referenced from:
+      ___gnat_closedir in libgnat.a(adaint.o)
+     (maybe you meant: ___gnat_closedir)
+  "_dup", referenced from:
+      ___gnat_dup in libgnat.a(adaint.o)
+     (maybe you meant: ___gnat_dup2, ___gnat_dup )
+  "_dup2", referenced from:
+      _gnat__expect__set_up_child_communications in libgnat.a(g-expect.o)
+      ___gnat_dup2 in libgnat.a(adaint.o)
+     (maybe you meant: ___gnat_dup2)
+  "_environ", referenced from:
+      ___gnat_environ in libgnat.a(env.o)
+      ___gnat_clearenv in libgnat.a(env.o)
+     (maybe you meant: _ada__environment_variables__clear__2, _system__task_primitives__operations__environment_task_id , _ada__environment_variables__value__2 , _ada__environment_variablesS , _system__task_primitives__operations__environment_task , ___gnat_environ , _ada__environment_variables_E , _ada__environment_variablesB , _ada__environment_variables__iterate , _ada__environment_variables__set , _ada__environment_variables__clear , _ada__environment_variables__exists , ___gnat_environment_char , _system__tasking__environment_task_level , _ada__environment_variables__value )
+  "_execv", referenced from:
+      ___gnat_portable_spawn in libgnat.a(adaint.o)
+      ___gnat_portable_no_block_spawn in libgnat.a(adaint.o)
+      ___gnat_expect_portable_execvp in libgnat.a(expect.o)
+     (maybe you meant: ___gnat_expect_portable_execvp)
+  "_exit", referenced from:
+      ___gnat_os_exit in libgnat.a(adaint.o)
+     (maybe you meant: _system__os_lib__os_exit, ___gnat_set_exit_status , _system__task_primitives__operations__exit_task , ___gnat_os_exit , _system__os_lib__os_exit_ptr , _system__task_primitives__operations__check_exit , _system__os_lib__os_exit_default , _gnat_exit_status )
+  "_fclose", referenced from:
+      _system__file_io__close in libgnat.a(s-fileio.o)
+  "_fcntl", referenced from:
+      ___gnat_set_close_on_exec in libgnat.a(adaint.o)
+  "_feof", referenced from:
+      ___gnat_feof in libgnat.a(cstreams.o)
+      _getc_immediate_common in libgnat.a(sysdep.o)
+     (maybe you meant: ___gnat_feof)
+  "_ferror", referenced from:
+      ___gnat_ferror in libgnat.a(cstreams.o)
+     (maybe you meant: ___gnat_ferror)
+  "_fflush", referenced from:
+      _ada__text_io__write__2 in libgnat.a(a-textio.o)
+      _system__file_io__flush in libgnat.a(s-fileio.o)
+  "_fgetc", referenced from:
+      _ada__text_io__get_upper_half_char__in_char.7 in libgnat.a(a-textio.o)
+      _ada__text_io__end_of_line in libgnat.a(a-textio.o)
+      _ada__text_io__end_of_line__2 in libgnat.a(a-textio.o)
+      _ada__text_io__get in libgnat.a(a-textio.o)
+      _ada__text_io__get__3 in libgnat.a(a-textio.o)
+      _ada__text_io__get_line in libgnat.a(a-textio.o)
+      _ada__text_io__get_upper_half_char in libgnat.a(a-textio.o)
+      ...
+  "_fgets", referenced from:
+      _ada__text_io__get_line__get_chunk.1 in libgnat.a(a-textio.o)
+  "_fileno", referenced from:
+      ___gnat_fileno in libgnat.a(cstreams.o)
+      _getc_immediate_common in libgnat.a(sysdep.o)
+     (maybe you meant: ___gnat_fileno)
+  "_fopen", referenced from:
+      ___gnat_fopen in libgnat.a(adaint.o)
+     (maybe you meant: ___gnat_fopen)
+  "_fork", referenced from:
+      ___gnat_portable_spawn in libgnat.a(adaint.o)
+      ___gnat_portable_no_block_spawn in libgnat.a(adaint.o)
+      ___gnat_expect_fork in libgnat.a(expect.o)
+     (maybe you meant: ___gnat_expect_fork, ___gnat_in_child_after_fork )
+  "_fprintf", referenced from:
+      _db in libgnat.a(raise-gcc.o)
+      _put_int in libgnat.a(cio.o)
+      _put_int_stderr in libgnat.a(cio.o)
+  "_fputc", referenced from:
+      _ada__text_io__new_line in libgnat.a(a-textio.o)
+      _ada__text_io__new_page in libgnat.a(a-textio.o)
+      _ada__text_io__new_page__2 in libgnat.a(a-textio.o)
+      _ada__text_io__put in libgnat.a(a-textio.o)
+      _ada__text_io__put_encoded in libgnat.a(a-textio.o)
+      _ada__text_io__putc in libgnat.a(a-textio.o)
+      _ada__text_io__set_line in libgnat.a(a-textio.o)
+      ...
+  "_fread", referenced from:
+      _interfaces__c_streams__fread in libgnat.a(i-cstrea.o)
+      _interfaces__c_streams__fread__2 in libgnat.a(i-cstrea.o)
+     (maybe you meant: _interfaces__c_streams__fread__2, _interfaces__c_streams__fread )
+  "_free", referenced from:
+      ___gcc_nested_func_ptr_deleted in libheapt_w.a(heap-trampoline_s.o)
+      ___gnat_free in libgnat.a(s-memory.o)
+      _system__os_lib__locate_regular_file__2 in libgnat.a(s-os_lib.o)
+      _system__os_lib__locate_exec_on_path in libgnat.a(s-os_lib.o)
+      _emutls_destroy in libemutls_w.a(emutls_s.o)
+      ___gnat_clearenv in libgnat.a(env.o)
+     (maybe you meant: _system__secondary_stack__ss_free, _ada__text_io__afcb_free__2 , _system__task_primitives__operations__atcb_allocation__free_atcb , _configure__maps__ht_ops__free_hash_tableXn , _configure__maps__key_ops__delete_key_sans_freeXn , _gnat__expect__free , _configure__maps__free , ___gnat_to_canonical_file_list_free , _configure__maps__ht_ops__free_bucketsXn , _configure__maps__ht_ops__delete_node_sans_freeXn , _interfaces__c__strings__free , _ada__strings__unbounded__free , ___gnat_free , _system__secondary_stack__has_enough_free_memory )
+  "_freopen", referenced from:
+      ___gnat_freopen in libgnat.a(adaint.o)
+     (maybe you meant: ___gnat_freopen)
+  "_fseek", referenced from:
+      _system__file_io__append_set in libgnat.a(s-fileio.o)
+      _system__file_io__open__record_afcb.3 in libgnat.a(s-fileio.o)
+      _system__file_io__reset in libgnat.a(s-fileio.o)
+     (maybe you meant: ___gnat_fseek64)
+  "_fseeko", referenced from:
+      ___gnat_fseek64 in libgnat.a(cstreams.o)
+  "_fstat", referenced from:
+      ___gnat_stat_to_attr in libgnat.a(adaint.o)
+      ___gnat_is_regular_file_fd in libgnat.a(adaint.o)
+  "_ftello", referenced from:
+      ___gnat_ftell64 in libgnat.a(cstreams.o)
+  "_fwrite", referenced from:
+      _interfaces__c_streams__fwrite in libgnat.a(i-cstrea.o)
+     (maybe you meant: _interfaces__c_streams__fwrite)
+  "_getchar", referenced from:
+      _get_char in libgnat.a(cio.o)
+  "_getcwd", referenced from:
+      ___gnat_get_current_dir in libgnat.a(adaint.o)
+      ___gnat_full_name in libgnat.a(cstreams.o)
+  "_getenv", referenced from:
+      _db in libgnat.a(raise-gcc.o)
+      ___gnat_personality_v0 in libgnat.a(raise-gcc.o)
+      ___gnat_get_file_names_case_sensitive in libgnat.a(adaint.o)
+      ___gnat_locate_exec_on_path in libgnat.a(adaint.o)
+      ___gnat_getenv in libgnat.a(env.o)
+     (maybe you meant: ___gnat_getenv, _system__os_lib__getenv )
+  "_getpagesize", referenced from:
+      _get_trampolines_per_page in libheapt_w.a(heap-trampoline_s.o)
+      _allocate_trampoline_page in libheapt_w.a(heap-trampoline_s.o)
+      _allocate_tramp_ctrl in libheapt_w.a(heap-trampoline_s.o)
+      ___gcc_nested_func_ptr_created in libheapt_w.a(heap-trampoline_s.o)
+      ___gcc_nested_func_ptr_deleted in libheapt_w.a(heap-trampoline_s.o)
+      _system__task_primitives__operations__create_task in libgnarl.a(s-taprop.o)
+  "_getpid", referenced from:
+      ___gnat_try_lock in libgnat.a(adaint.o)
+      ___gnat_current_process_id in libgnat.a(adaint.o)
+      ___gnat_expect_portable_execvp in libgnat.a(expect.o)
+  "_getppid", referenced from:
+      ___gnat_try_lock in libgnat.a(adaint.o)
+  "_gettimeofday", referenced from:
+      _system__os_primitives__clock in libgnat.a(s-osprim.o)
+      _system__os_primitives__timed_delay in libgnat.a(s-osprim.o)
+      _system__os_interface__clock_gettime in libgnarl.a(s-osinte.o)
+  "_gmtime", referenced from:
+      ___gnat_to_gm_time in libgnat.a(adaint.o)
+  "_host_get_clock_service", referenced from:
+      ___gnat_clock_get_res in libgnarl.a(thread.o)
+  "_isatty", referenced from:
+      _getc_immediate_common in libgnat.a(sysdep.o)
+  "_kill", referenced from:
+      ___gnat_kill in libgnat.a(adaint.o)
+      ___gnat_killprocesstree in libgnat.a(adaint.o)
+     (maybe you meant: ___gnat_kill, _system__os_lib__kill , _system__os_lib__kill_process_tree , ___gnat_killprocesstree )
+  "_link", referenced from:
+      ___gnat_try_lock in libgnat.a(adaint.o)
+     (maybe you meant: _system__soft_links___elabs, _system__soft_links__set_sec_stack , _system__soft_links__initialize___elabb , _system__soft_links__current_master , _system__soft_links__get_gnat_exception , _system__soft_links__get_current_excep_nt , _system__soft_links__tasking_E , _system__soft_links__initialize_E , _system__os_lib__is_symbolic_link__2 , _system__soft_links__abort_undefer_nt , _system__soft_links__save_library_occurrence , _system__soft_links__set_sec_stack_soft , _system__soft_links__current_master_nt , _system__soft_links__abort_defer , _system__soft_links__nt_tsd , _system__soft_links__task_name_nt , _system__soft_links__library_exception_set , _system__soft_links__acquire_rts_lock , _system__soft_links__set_sec_stack_nt , _system__soft_links__complete_master , _system__soft_links__unlock_task , _system__soft_links__get_jmpbuf_address_nt , _system__soft_links__finalize_rts_lock , _system__soft_links__create_tsd , _system__soft_links__check_abort_status_nt , _system__soft_links__destroy_tsd , ___gnat_is_symbolic_link_attr , _ada__tags__htable_subprograms__get_ht_linkXn , _system__soft_links__release_rts_lock , _system__soft_links__task_termination_nt , _ada__tags__htable_subprograms__set_ht_linkXn , _system__soft_links__get_stack_info , _system__soft_links__enter_master , _system__soft_links__abort_defer_nt , _system__soft_links__get_jmpbuf_address , _system__soft_links__get_jmpbuf_address_soft , _system__os_lib__is_symbolic_link , _system__soft_links__dummy_communication_blockIP , _system__soft_links__adafinal , _system__soft_links__lock_task , _system__soft_links__task_unlock_nt , _system__soft_links__abort_undefer , _system__soft_links__initializeB , _system__soft_links__initialize_rts_lock , _system__soft_links__get_stack_info_nt , _system__soft_links__library_exception , _system__soft_links__traceback_decorator_wrapper , _system__soft_links__adafinal_nt , _system__soft_links__null_set_address , _system__soft_links__get_sec_stack , _system__soft_links__task_name , _system__soft_links__check_abort_status , _system__soft_links__get_sec_stack_soft , _system__soft_links__tsdIP , _system__soft_links__initializeS , _system__parameters__c_malloc_linkname , _system__soft_links__get_sec_stack_nt , _system__soft_links__task_termination_handler , _system__soft_links__set_jmpbuf_address_nt , _system__soft_links_E , _system__soft_links__get_current_excep , _system__soft_linksB , _system__soft_linksS , _system__soft_links__abort_handler , _system__soft_links__set_jmpbuf_address , _system__soft_links__set_jmpbuf_address_soft , _system__soft_links__tasking__init_tasking_soft_links , _system__soft_links__complete_master_nt , _system__soft_links__abort_handler_nt , ___gnat_is_symbolic_link , _system__soft_links__enter_master_nt , _system__soft_links__timed_delay , _system__soft_links__task_lock_nt )
+  "_localtime", referenced from:
+      ___gnat_current_time_string in libgnat.a(adaint.o)
+      ___gnat_set_file_time_name in libgnat.a(adaint.o)
+     (maybe you meant: ___gnat_localtime_tzoff)
+  "_localtime_r", referenced from:
+      ___gnat_localtime_tzoff in libgnat.a(sysdep.o)
+  "_lseek", referenced from:
+      ___gnat_lseek in libgnat.a(adaint.o)
+     (maybe you meant: ___gnat_lseek)
+  "_lstat", referenced from:
+      ___gnat_is_symbolic_link_attr in libgnat.a(adaint.o)
+      ___gnat_is_symbolic_link in libgnat.a(adaint.o)
+  "_mach_host_self", referenced from:
+      ___gnat_clock_get_res in libgnarl.a(thread.o)
+  "_mach_thread_self", referenced from:
+      ___gnat_lwp_self in libgnat.a(adaint.o)
+  "_malloc", referenced from:
+      _allocate_tramp_ctrl in libheapt_w.a(heap-trampoline_s.o)
+      ___gnat_malloc in libgnat.a(s-memory.o)
+      ___emutls_get_address in libemutls_w.a(emutls_s.o)
+      ___gnat_get_libraries_from_registry in libgnat.a(adaint.o)
+      ___gnat_locate_file_with_predicate in libgnat.a(adaint.o)
+      ___gnat_clearenv in libgnat.a(env.o)
+     (maybe you meant: ___gnat_malloc, _system__parameters__c_malloc_linkname )
+  "_memchr", referenced from:
+      _ada__text_io__get_line__get_chunk.1 in libgnat.a(a-textio.o)
+  "_memcmp", referenced from:
+      _configure__driver__is_help_requested.5 in configure-driver.o
+      _configure__string_vectors__Oeq__2 in configure.o
+      _configure__string_vectors__find in configure.o
+      _configure__string_vectors__find_index in configure.o
+      _configure__string_vectors__reverse_find in configure.o
+      _configure__string_vectors__reverse_find_index in configure.o
+      _configure__has_parameter in configure.o
+      ...
+  "_memcpy", referenced from:
+      _configure__string_vectors__adjust__2 in configure.o
+      _configure__string_vectors__append__3 in configure.o
+      _configure__string_vectors__element in configure.o
+      _configure__string_vectors__element__2 in configure.o
+      _configure__string_vectors__first_element in configure.o
+      _configure__string_vectors__insert__4 in configure.o
+      _configure__string_vectors__insert_vector in configure.o
+      ...
+  "_memmove", referenced from:
+      _configure__string_vectors__delete in configure.o
+      _configure__string_vectors__insert__4 in configure.o
+      _configure__string_vectors__insert_space in configure.o
+      _configure__string_vectors__reserve_capacity in configure.o
+      _configure__abstract_tests__report_check in configure-abstract_tests.o
+      _ada__exceptions__exception_data__append_info_stringXn in libgnat.a(a-except.o)
+      _ada__exceptions__exception_data__set_exception_msgXn in libgnat.a(a-except.o)
+      ...
+  "_memset", referenced from:
+      _ada__exceptions___elabs in libgnat.a(a-except.o)
+      _ada__strings__fixed__Omultiply in libgnat.a(a-strfix.o)
+      _ada__strings__fixed__head in libgnat.a(a-strfix.o)
+      _ada__strings__fixed__move in libgnat.a(a-strfix.o)
+      _ada__strings__fixed__tail in libgnat.a(a-strfix.o)
+      _ada__strings__unbounded__Omultiply in libgnat.a(a-strunb.o)
+      _ada__strings__unbounded__head__2 in libgnat.a(a-strunb.o)
+      ...
+  "_mkdir", referenced from:
+      ___gnat_mkdir in libgnat.a(mkdir.o)
+     (maybe you meant: ___gnat_mkdir)
+  "_mktemp", referenced from:
+      ___gnat_open_new_temp in libgnat.a(adaint.o)
+  "_mktime", referenced from:
+      ___gnat_to_os_time in libgnat.a(adaint.o)
+      ___gnat_set_file_time_name in libgnat.a(adaint.o)
+  "_mmap", referenced from:
+      _allocate_trampoline_page in libheapt_w.a(heap-trampoline_s.o)
+      _allocate_tramp_ctrl in libheapt_w.a(heap-trampoline_s.o)
+  "_munmap", referenced from:
+      ___gcc_nested_func_ptr_deleted in libheapt_w.a(heap-trampoline_s.o)
+  "_nanosleep", referenced from:
+      _system__os_primitives__timed_delay in libgnat.a(s-osprim.o)
+  "_open", referenced from:
+      ___gnat_try_lock in libgnat.a(adaint.o)
+      ___gnat_open_read in libgnat.a(adaint.o)
+      ___gnat_open_rw in libgnat.a(adaint.o)
+      ___gnat_open_create in libgnat.a(adaint.o)
+      ___gnat_create_output_file in libgnat.a(adaint.o)
+      ___gnat_create_output_file_new in libgnat.a(adaint.o)
+      ___gnat_open_append in libgnat.a(adaint.o)
+      ...
+     (maybe you meant: ___gnat_open_read, ___gnat_open_append , _system__os_lib__open_append__2 , ___gnat_open_new_temp , _ada__text_io__is_open , _system__os_lib__open_read_write , ___gnat_opendir , _system__os_lib__open_read , _system__file_io__open , _ada__text_io__open , _system__file_io__open_files , ___gnat_open_create , ___gnat_open , _system__os_lib__open_read__2 , ___gnat_open_new , _system__file_io__check_file_open , _system__os_lib__open_read_write__2 , ___gnat_open_rw , _system__file_io__is_open , _system__os_lib__open_append )
+  "_opendir", referenced from:
+      ___gnat_opendir in libgnat.a(adaint.o)
+     (maybe you meant: ___gnat_opendir)
+  "_pipe", referenced from:
+      ___gnat_pipe in libgnat.a(expect.o)
+     (maybe you meant: _gnat__expect__pipe_typeIP, ___gnat_pipe )
+  "_pthread_attr_destroy", referenced from:
+      _system__task_primitives__operations__create_task in libgnarl.a(s-taprop.o)
+  "_pthread_attr_init", referenced from:
+      _system__task_primitives__operations__create_task in libgnarl.a(s-taprop.o)
+  "_pthread_attr_setdetachstate", referenced from:
+      _system__task_primitives__operations__create_task in libgnarl.a(s-taprop.o)
+  "_pthread_attr_setscope", referenced from:
+      _system__task_primitives__operations__create_task in libgnarl.a(s-taprop.o)
+  "_pthread_attr_setstacksize", referenced from:
+      _system__task_primitives__operations__create_task in libgnarl.a(s-taprop.o)
+  "_pthread_cond_destroy", referenced from:
+      _system__task_primitives__operations__finalize_tcb in libgnarl.a(s-taprop.o)
+      _system__task_primitives__operations__finalize in libgnarl.a(s-taprop.o)
+  "_pthread_cond_init", referenced from:
+      _system__task_primitives__operations__initialize_tcb in libgnarl.a(s-taprop.o)
+      _system__task_primitives__operations__initialize__2 in libgnarl.a(s-taprop.o)
+  "_pthread_cond_signal", referenced from:
+      _system__task_primitives__operations__wakeup in libgnarl.a(s-taprop.o)
+      _system__task_primitives__operations__set_true in libgnarl.a(s-taprop.o)
+  "_pthread_cond_timedwait", referenced from:
+      _system__task_primitives__operations__monotonic__timed_sleepXnn in libgnarl.a(s-taprop.o)
+      _system__task_primitives__operations__monotonic__timed_delayXnn in libgnarl.a(s-taprop.o)
+  "_pthread_cond_wait", referenced from:
+      _system__task_primitives__operations__sleep in libgnarl.a(s-taprop.o)
+      _system__task_primitives__operations__suspend_until_true in libgnarl.a(s-taprop.o)
+  "_pthread_condattr_destroy", referenced from:
+      _system__task_primitives__operations__initialize_tcb in libgnarl.a(s-taprop.o)
+      _system__task_primitives__operations__initialize__2 in libgnarl.a(s-taprop.o)
+  "_pthread_condattr_init", referenced from:
+      _system__task_primitives__operations__initialize_tcb in libgnarl.a(s-taprop.o)
+      _system__task_primitives__operations__initialize__2 in libgnarl.a(s-taprop.o)
+  "_pthread_create", referenced from:
+      _system__task_primitives__operations__create_task in libgnarl.a(s-taprop.o)
+  "_pthread_getspecific", referenced from:
+      ___emutls_get_address in libemutls_w.a(emutls_s.o)
+      _system__task_primitives__operations__specific__is_valid_taskXnn in libgnarl.a(s-taprop.o)
+      _system__task_primitives__operations__is_valid_task in libgnarl.a(s-taprop.o)
+      _system__task_primitives__operations__register_foreign_thread in libgnarl.a(s-taprop.o)
+      _system__task_primitives__operations__specific__selfXnn in libgnarl.a(s-taprop.o)
+      _system__task_primitives__operations__abort_handler in libgnarl.a(s-taprop.o)
+      _system__task_primitives__operations__atcb_allocation__free_atcb in libgnarl.a(s-taprop.o)
+      ...
+  "_pthread_jit_write_protect_np", referenced from:
+      ___gcc_nested_func_ptr_created in libheapt_w.a(heap-trampoline_s.o)
+  "_pthread_key_create", referenced from:
+      _emutls_init in libemutls_w.a(emutls_s.o)
+      _system__task_primitives__operations__specific__initializeXnn in libgnarl.a(s-taprop.o)
+      _system__task_primitives__operations__initialize in libgnarl.a(s-taprop.o)
+  "_pthread_kill", referenced from:
+      _system__task_primitives__operations__abort_task in libgnarl.a(s-taprop.o)
+  "_pthread_mutex_destroy", referenced from:
+      _system__task_primitives__operations__finalize_lock in libgnarl.a(s-taprop.o)
+      _system__task_primitives__operations__finalize_lock__2 in libgnarl.a(s-taprop.o)
+      _system__task_primitives__operations__initialize_tcb in libgnarl.a(s-taprop.o)
+      _system__task_primitives__operations__finalize_tcb in libgnarl.a(s-taprop.o)
+      _system__task_primitives__operations__initialize__2 in libgnarl.a(s-taprop.o)
+      _system__task_primitives__operations__finalize in libgnarl.a(s-taprop.o)
+  "_pthread_mutex_init", referenced from:
+      _system__task_primitives__operations__initialize_lock__3 in libgnarl.a(s-taprop.o)
+      _system__task_primitives__operations__initialize_tcb in libgnarl.a(s-taprop.o)
+      _system__task_primitives__operations__initialize__2 in libgnarl.a(s-taprop.o)
+  "_pthread_mutex_lock", referenced from:
+      ___emutls_get_address in libemutls_w.a(emutls_s.o)
+      _system__task_primitives__operations__monotonic__timed_delayXnn in libgnarl.a(s-taprop.o)
+      _system__task_primitives__operations__register_foreign_thread__2 in libgnarl.a(s-taprop.o)
+      _system__task_primitives__operations__write_lock in libgnarl.a(s-taprop.o)
+      _system__task_primitives__operations__write_lock__2 in libgnarl.a(s-taprop.o)
+      _system__task_primitives__operations__write_lock__3 in libgnarl.a(s-taprop.o)
+      _system__task_primitives__operations__read_lock in libgnarl.a(s-taprop.o)
+      ...
+  "_pthread_mutex_unlock", referenced from:
+      ___emutls_get_address in libemutls_w.a(emutls_s.o)
+      _system__task_primitives__operations__monotonic__timed_delayXnn in libgnarl.a(s-taprop.o)
+      _system__task_primitives__operations__register_foreign_thread__2 in libgnarl.a(s-taprop.o)
+      _system__task_primitives__operations__unlock in libgnarl.a(s-taprop.o)
+      _system__task_primitives__operations__unlock__2 in libgnarl.a(s-taprop.o)
+      _system__task_primitives__operations__unlock__3 in libgnarl.a(s-taprop.o)
+      _system__task_primitives__operations__set_false in libgnarl.a(s-taprop.o)
+      ...
+  "_pthread_mutexattr_destroy", referenced from:
+      _system__task_primitives__operations__initialize_lock__3 in libgnarl.a(s-taprop.o)
+      _system__task_primitives__operations__initialize_tcb in libgnarl.a(s-taprop.o)
+      _system__task_primitives__operations__initialize__2 in libgnarl.a(s-taprop.o)
+  "_pthread_mutexattr_init", referenced from:
+      _system__task_primitives__operations__initialize_lock__3 in libgnarl.a(s-taprop.o)
+      _system__task_primitives__operations__initialize_tcb in libgnarl.a(s-taprop.o)
+      _system__task_primitives__operations__initialize__2 in libgnarl.a(s-taprop.o)
+  "_pthread_mutexattr_setprioceiling", referenced from:
+      _system__task_primitives__operations__initialize_lock__3 in libgnarl.a(s-taprop.o)
+      _system__task_primitives__operations__initialize_tcb in libgnarl.a(s-taprop.o)
+  "_pthread_mutexattr_setprotocol", referenced from:
+      _system__task_primitives__operations__initialize_lock__3 in libgnarl.a(s-taprop.o)
+      _system__task_primitives__operations__initialize_tcb in libgnarl.a(s-taprop.o)
+  "_pthread_once", referenced from:
+      ___emutls_get_address in libemutls_w.a(emutls_s.o)
+     (maybe you meant: _system__os_interface__pthread_once_tIP)
+  "_pthread_self", referenced from:
+      _system__task_primitives__operations__register_foreign_thread in libgnarl.a(s-taprop.o)
+      _system__task_primitives__operations__initialize in libgnarl.a(s-taprop.o)
+  "_pthread_setschedparam", referenced from:
+      _system__task_primitives__operations__set_priority in libgnarl.a(s-taprop.o)
+      _system__task_primitives__operations__create_task in libgnarl.a(s-taprop.o)
+  "_pthread_setspecific", referenced from:
+      ___emutls_get_address in libemutls_w.a(emutls_s.o)
+      _system__task_primitives__operations__atcb_allocation__free_atcb.part.0 in libgnarl.a(s-taprop.o)
+      _system__task_primitives__operations__specific__setXnn in libgnarl.a(s-taprop.o)
+      _system__task_primitives__operations__register_foreign_thread__2 in libgnarl.a(s-taprop.o)
+      _system__task_primitives__operations__enter_task in libgnarl.a(s-taprop.o)
+      _system__task_primitives__operations__exit_task in libgnarl.a(s-taprop.o)
+      _system__task_primitives__operations__initialize in libgnarl.a(s-taprop.o)
+      ...
+  "_pthread_yield_np", referenced from:
+      _system__os_interface__sched_yield in libgnarl.a(s-osinte.o)
+  "_putchar", referenced from:
+      _put_char in libgnat.a(cio.o)
+  "_read", referenced from:
+      _system__os_lib__copy_file__copy.1 in libgnat.a(s-os_lib.o)
+      _system__os_lib__read in libgnat.a(s-os_lib.o)
+      _getc_immediate_common in libgnat.a(sysdep.o)
+     (maybe you meant: _system__strings__stream_ops__wide_wide_string_read, ___gnat_set_readable , ___gnat_open_read , _system__os_lib__set_readable , _system__os_lib__read , _system__file_io__read_buf , _ada__directories__directory_vectors__readXn , _system__strings__stream_ops__storage_array_read_blk_io , _system__strings__stream_ops__wide_string_read_blk_io , ___gnat_is_readable_file_attr , _configure__string_vectors__read__4 , _configure__unbounded_string_vectors__readE3495s , _configure__maps__readE4357s , _system__os_lib__open_read_write , _configure__unbounded_string_vectors__read__3 , _system__task_primitives__operations__read_lock , _ada__directories__directory_vectors__read__2Xn , _configure__maps__read__4 , _system__strings__stream_ops__wide_wide_string_read_blk_io , _configure__unbounded_string_vectors__read__4 , _system__os_lib__open_read , _configure__maps__read_node , _configure__unbounded_string_vectors__read__2 , _system__strings__stream_ops__string_read_blk_io , _system__os_lib__is_owner_readable_file , _configure__string_vectors__read__3 , ___gnat_readdir , _ada__text_io__read__2 , _system__strings__stream_ops__storage_array_read , _ada__directories__directory_vectors__read__3Xn , ___gnat_set_non_readable , _system__strings__stream_ops__string_read , _configure__string_vectors__read , _system__os_lib__open_read__2 , _configure__string_vectors__readE5400s , _configure__maps__read_nodes , ___gnat_is_read_accessible_file , ___gnat_is_readable_file , _system__strings__stream_ops__stream_element_array_read_blk_io , _ada__directories__directory_vectors__read__4Xn , ___gnat_readdir_is_thread_safe , _system__os_lib__open_read_write__2 , _system__os_lib__is_owner_readable_file__2 , _system__regpat__read_natural , _system__os_lib__set_non_readable , _system__file_io__read_buf__2 , _ada__streams__read_sea , _system__os_lib__is_read_accessible_file , _configure__maps__read , _configure__string_vectors__read__2 , _configure__unbounded_string_vectors__read , _configure__maps__read__3 , _system__strings__stream_ops__stream_element_array_read , _system__file_io__check_read_status , ___gnat_readlink , _configure__maps__read__2 , _system__strings__stream_ops__wide_string_read )
+  "_readdir", referenced from:
+      ___gnat_readdir in libgnat.a(adaint.o)
+     (maybe you meant: ___gnat_readdir, ___gnat_readdir_is_thread_safe )
+  "_readlink", referenced from:
+      ___gnat_readlink in libgnat.a(adaint.o)
+     (maybe you meant: ___gnat_readlink)
+  "_realloc", referenced from:
+      ___gnat_realloc in libgnat.a(s-memory.o)
+      ___emutls_get_address in libemutls_w.a(emutls_s.o)
+     (maybe you meant: ___gnat_realloc)
+  "_rename", referenced from:
+      ___gnat_rename in libgnat.a(adaint.o)
+     (maybe you meant: ___gnat_rename, _system__os_lib__rename_file__2 , _ada__directories__rename , _system__os_lib__rename_file )
+  "_rewind", referenced from:
+      _system__file_io__reset in libgnat.a(s-fileio.o)
+  "_rmdir", referenced from:
+      ___gnat_rmdir in libgnat.a(adaint.o)
+     (maybe you meant: ___gnat_rmdir)
+  "_scanf", referenced from:
+      _get_int in libgnat.a(cio.o)
+  "_select", referenced from:
+      ___gnat_expect_poll in libgnat.a(expect.o)
+     (maybe you meant: _system__tasking__max_select, _system__tasking__select_modesS , _ada__tags__select_specific_data_elementIP , _system__tasking__select_modesN , _ada__tags__select_specific_data_arrayIP , _system__tasking__select_modesH , _ada__tags__select_specific_dataIP )
+  "_setenv", referenced from:
+      ___gnat_setenv in libgnat.a(env.o)
+     (maybe you meant: _system__os_lib__setenv, ___gnat_setenv )
+  "_setvbuf", referenced from:
+      _interfaces__c_streams__setvbuf in libgnat.a(i-cstrea.o)
+     (maybe you meant: _interfaces__c_streams__setvbuf)
+  "_sigaction", referenced from:
+      ___gnat_install_handler in libgnat.a(init.o)
+      _system__task_primitives__operations__initialize in libgnarl.a(s-taprop.o)
+     (maybe you meant: _system__os_interface__struct_sigactionIP)
+  "_sigaddset", referenced from:
+      _system__task_primitives__operations__initialize in libgnarl.a(s-taprop.o)
+  "_sigaltstack", referenced from:
+      ___gnat_install_handler in libgnat.a(init.o)
+      _system__task_primitives__operations__register_foreign_thread__2 in libgnarl.a(s-taprop.o)
+      _system__task_primitives__operations__enter_task in libgnarl.a(s-taprop.o)
+      _system__task_primitives__operations__initialize in libgnarl.a(s-taprop.o)
+  "_sigemptyset", referenced from:
+      _system__task_primitives__operations__initialize in libgnarl.a(s-taprop.o)
+  "_stat", referenced from:
+      ___gnat_try_lock in libgnat.a(adaint.o)
+      ___gnat_stat_to_attr in libgnat.a(adaint.o)
+      ___gnat_file_time in libgnat.a(adaint.o)
+      ___gnat_stat in libgnat.a(adaint.o)
+      ___gnat_set_writable in libgnat.a(adaint.o)
+      ___gnat_set_executable in libgnat.a(adaint.o)
+      ___gnat_set_non_writable in libgnat.a(adaint.o)
+      ...
+     (maybe you meant: _system__tasking__debug__set_user_state, _ada__directories__search_stateR2086b , ___gnat_stat_to_attr , _ada__io_exceptions__status_errorE , _system__file_io__check_write_status , _ada__directories__status_error , ___gnat_set_exit_status , _system__file_control_block__shared_status_typeS , _system__tasking__entry_call_stateN , _system__tasking__task_statesN , _system__tasking__debug__get_user_state , ___gnat_get_interrupt_state , _system__task_primitives__operations__current_state , _system__soft_links__check_abort_status_nt , _system__file_control_block__shared_status_typeN , ___gnat_stat , _ada__io_exceptions__status_error , _ada__directories__search_stateE2084b , ___gl_interrupt_states , _ada__text_io__status_error , _system__secondary_stack__allocate_static , _ada__directories__search_stateP , _system__soft_links__check_abort_status , _system__tasking__task_statesS , _system__tasking__initialization__check_abort_status , _system__tasking__task_statesH , _system__tasking__entry_call_stateS , _ada__directories__search_stateH2085b , _configure__abstract_tests__report_status , _system__tasking__entry_call_stateH , _ada__directories__search_stateB2088b , _gnat_exit_status , ___gl_num_interrupt_states , _ada__directories__search_stateIP , _ada__directories__search_stateT , _ada__directories__search_stateY , _ada__directories__search_stateR2086b___UNC , _system__file_io__check_read_status )
+  "_stpcpy", referenced from:
+      ___gnat_readdir in libgnat.a(adaint.o)
+      ___gnat_locate_file_with_predicate in libgnat.a(adaint.o)
+  "_strcat", referenced from:
+      ___gnat_full_name in libgnat.a(cstreams.o)
+  "_strcmp", referenced from:
+      _gnat__cpp__std__type_info__before in libgnat.a(g-cstyin.o)
+      _gnat__cpp__std__type_info__equals in libgnat.a(g-cstyin.o)
+      ___gnat_convert_caught_object in libgnat.a(g-cstyin.o)
+  "_strcpy", referenced from:
+      ___gnat_os_filename in libgnat.a(adaint.o)
+      ___gnat_locate_file_with_predicate in libgnat.a(adaint.o)
+      ___gnat_locate_exec_on_path in libgnat.a(adaint.o)
+      ___gnat_full_name in libgnat.a(cstreams.o)
+  "_strerror", referenced from:
+      _system__os_lib__errno_message in libgnat.a(s-os_lib.o)
+  "_strftime", referenced from:
+      ___gnat_current_time_string in libgnat.a(adaint.o)
+  "_strlen", referenced from:
+      _ada__tags__htable_subprograms__hashXn in libgnat.a(a-tags.o)
+      _ada__tags__expanded_name in libgnat.a(a-tags.o)
+      _ada__tags__external_tag in libgnat.a(a-tags.o)
+      _ada__tags__length in libgnat.a(a-tags.o)
+      ___gnat_len_arg in libgnat.a(argv.o)
+      ___gnat_fill_arg in libgnat.a(argv.o)
+      ___gnat_len_env in libgnat.a(argv.o)
+      ...
+     (maybe you meant: _interfaces__c__strings__strlen)
+  "_strncpy", referenced from:
+      _ada__environment_variables__value in libgnat.a(a-envvar.o)
+      _system__os_lib__get_debuggable_suffix in libgnat.a(s-os_lib.o)
+      _system__os_lib__get_executable_suffix in libgnat.a(s-os_lib.o)
+      _system__os_lib__get_object_suffix in libgnat.a(s-os_lib.o)
+      _system__os_lib__get_target_debuggable_suffix in libgnat.a(s-os_lib.o)
+      _system__os_lib__get_target_executable_suffix in libgnat.a(s-os_lib.o)
+      _system__os_lib__get_target_object_suffix in libgnat.a(s-os_lib.o)
+      ...
+  "_symlink", referenced from:
+      ___gnat_symlink in libgnat.a(adaint.o)
+     (maybe you meant: ___gnat_symlink)
+  "_sys_icache_invalidate", referenced from:
+      ___clear_cache in libgcc.a(_clear_cache.o)
+  "_syscall", referenced from:
+      ___gnat_map_signal in libgnat.a(init.o)
+  "_sysconf", referenced from:
+      ___gnat_number_of_cpus in libgnat.a(adaint.o)
+  "_tcgetattr", referenced from:
+      _getc_immediate_common in libgnat.a(sysdep.o)
+  "_tcsetattr", referenced from:
+      _getc_immediate_common in libgnat.a(sysdep.o)
+  "_thread_info", referenced from:
+      ___gnat_lwp_self in libgnat.a(adaint.o)
+  "_time", referenced from:
+      ___gnat_current_time in libgnat.a(adaint.o)
+      ___gnat_current_time_string in libgnat.a(adaint.o)
+      ___gnat_set_file_time_name in libgnat.a(adaint.o)
+     (maybe you meant: _gnat__expect__expect_timeout, _system__os_primitives__timed_delay , _ada__calendar__time_zones___elabs , _system__os_primitives__timespecIP , ___gnat_file_time_name_attr , _system__os_interface__time_slice_supported , ___gnat_current_time_string , _ada__calendar__conversion_operations__to_struct_timespec_64 , _system__os_interface__to_timespec , _ada__calendar__time_errorE , _system__os_primitives__struct_timezoneIP , _ada__calendar__time_zonesB , _ada__calendar__conversion_operations__to_unix_time , _ada__calendar__end_of_time , ___gnat_file_time , _ada__calendar__check_within_time_bounds , _system__task_primitives__operations__timed_sleep , _ada__directories__modification_time__2 , _ada__calendar__conversion_operations__to_unix_time_64 , ___gnat_file_time_fd , _system__os_lib__gm_time_of , _ada__calendar__conversion_operations__to_struct_timespec , _system__task_primitives__operations__timed_delay , _ada__directories__invalid_time , _ada__calendar__time_error , _ada__calendar__time_zones__local_time_offset , _ada__calendar__conversion_operations__to_ada_time__2 , _ada__calendar__time_zones_operations__utc_time_offset , _ada__calendar__leap_second_times , _system__task_primitives__operations__monotonic__timed_sleepXnn , ___gl_time_slice_val , _ada__calendar__time_zones__unknown_zone_errorE , _ada__calendar__start_of_time , _system__task_primitives__operations__monotonic__timed_delayXnn , ___gnat_file_time_fd_attr , _ada__calendar__time_of , _ada__calendar__conversion_operations__to_ada_time , ___gnat_set_file_time_name , _system__os_lib__file_time_stamp , _system__os_lib__file_time_stamp__3 , ___gnat_to_os_time , ___gnat_timeval_to_duration , ___gnat_time_of , ___gnat_duration_to_timeval , _ada__calendar__formatting__time_of__2 , ___gnat_to_gm_time , _system__os_lib__copy_time_stamps , _system__os_interface__timespecIP , _ada__calendar__time_zones__unknown_zone_error , _ada__calendar__conversion_operations__to_ada_time_64 , _system__os_primitives__struct_timevalIP , _system__os_lib__file_time_stamp__2 , _ada__directories__modification_time , _system__os_lib__invalid_time , _ada__calendar__time_zones_E , ___gnat_file_time_name , _system__os_lib__set_file_last_modify_time_stamp , _system__os_lib__current_time_string , _ada__calendar__formatting__time_of , ___gnat_current_time , _system__soft_links__timed_delay , _system__os_lib__copy_time_stamps__2 , _ada__calendar__time_zonesS )
+  "_tmpnam", referenced from:
+      ___gnat_tmp_name in libgnat.a(adaint.o)
+     (maybe you meant: ___gnat_constant_l_tmpnam)
+  "_ttyname", referenced from:
+      ___gnat_ttyname in libgnat.a(sysdep.o)
+     (maybe you meant: ___gnat_ttyname)
+  "_ungetc", referenced from:
+      _ada__text_io__read__2 in libgnat.a(a-textio.o)
+      _ada__text_io__end_of_line in libgnat.a(a-textio.o)
+      _ada__text_io__end_of_line__2 in libgnat.a(a-textio.o)
+      _ada__text_io__get_line in libgnat.a(a-textio.o)
+      _ada__text_io__look_ahead in libgnat.a(a-textio.o)
+      _ada__text_io__nextc in libgnat.a(a-textio.o)
+      _ada__text_io__end_of_file in libgnat.a(a-textio.o)
+      ...
+     (maybe you meant: _ada__text_io__ungetc)
+  "_unlink", referenced from:
+      ___gnat_try_lock in libgnat.a(adaint.o)
+      ___gnat_unlink in libgnat.a(adaint.o)
+     (maybe you meant: ___gnat_unlink, _interfaces__c_streams__unlink )
+  "_unsetenv", referenced from:
+      ___gnat_unsetenv in libgnat.a(env.o)
+      ___gnat_clearenv in libgnat.a(env.o)
+     (maybe you meant: ___gnat_unsetenv)
+  "_utime", referenced from:
+      ___gnat_set_file_time_name in libgnat.a(adaint.o)
+  "_utimes", referenced from:
+      ___gnat_copy_attribs in libgnat.a(adaint.o)
+  "_vfprintf", referenced from:
+      _db in libgnat.a(raise-gcc.o)
+  "_waitpid", referenced from:
+      ___gnat_portable_spawn in libgnat.a(adaint.o)
+      ___gnat_portable_wait in libgnat.a(adaint.o)
+      ___gnat_portable_no_block_wait in libgnat.a(adaint.o)
+      ___gnat_waitpid in libgnat.a(expect.o)
+     (maybe you meant: ___gnat_waitpid)
+  "_write", referenced from:
+      _system__os_lib__copy_file__copy.1 in libgnat.a(s-os_lib.o)
+      _system__os_lib__write in libgnat.a(s-os_lib.o)
+      _system__tasking__debug__write in libgnarl.a(s-tasdeb.o)
+     (maybe you meant: _system__strings__stream_ops__wide_wide_string_write, ___gnat_is_write_accessible_file , _ada__streams__write_sea , _system__strings__stream_ops__wide_string_write , _ada__text_io__write__2 , _configure__maps__write__2 , _system__file_io__check_write_status , _system__strings__stream_ops__string_write_blk_io , _system__file_io__write_buf , _system__os_lib__write , _ada__directories__directory_vectors__writeXn , _configure__maps__writeE4510s , _configure__string_vectors__write__2 , _configure__unbounded_string_vectors__write , _configure__maps__write_node , _system__task_primitives__operations__write_lock , _configure__unbounded_string_vectors__write__4 , _configure__maps__write__3 , _configure__string_vectors__write__3 , _system__os_lib__open_read_write , _system__strings__stream_ops__wide_string_write_blk_io , _configure__maps__write_nodes , _ada__directories__directory_vectors__write__3Xn , _system__strings__stream_ops__stream_element_array_write , _system__strings__stream_ops__wide_wide_string_write_blk_io , _system__os_lib__is_write_accessible_file , _system__task_primitives__operations__write_lock__2 , _configure__unbounded_string_vectors__writeE3946s , _configure__string_vectors__write , _system__strings__stream_ops__storage_array_write , _configure__unbounded_string_vectors__write__3 , _system__strings__stream_ops__stream_element_array_write_blk_io , _system__strings__stream_ops__storage_array_write_blk_io , _configure__maps__write__4 , _system__strings__stream_ops__string_write , _configure__unbounded_string_vectors__write__2 , _ada__directories__directory_vectors__write__2Xn , _configure__string_vectors__writeE5730s , _configure__string_vectors__write__4 , _system__os_lib__open_read_write__2 , _configure__maps__write , _ada__directories__directory_vectors__write__4Xn , _system__task_primitives__operations__write_lock__3 )
+ld: symbol(s) not found for architecture arm64
+collect2: error: ld returned 1 exit status
+gprbuild: link of configure-driver.adb failed
+gprbuild: failed command was: /users/runner/.local/share/alire/toolchains/gnat_native_15.3.1_36dc7314/bin/gcc configure-driver.o b__configure-driver.o /Users/runner/.local/share/alire/builds/matreshka_league_21.0.0_0c8f4d47/3cbee22cdff53e171c537097ebbe077a7e1122ff02a75352c86bf1fd2f108564/.objs/configure/configure.o /Users/runner/.local/share/alire/builds/matreshka_league_21.0.0_0c8f4d47/3cbee22cdff53e171c537097ebbe077a7e1122ff02a75352c86bf1fd2f108564/.objs/configure/configure-component_switches.o /Users/runner/.local/share/alire/builds/matreshka_league_21.0.0_0c8f4d47/3cbee22cdff53e171c537097ebbe077a7e1122ff02a75352c86bf1fd2f108564/.objs/configure/configure-instantiate.o /Users/runner/.local/share/alire/builds/matreshka_league_21.0.0_0c8f4d47/3cbee22cdff53e171c537097ebbe077a7e1122ff02a75352c86bf1fd2f108564/.objs/configure/configure-internals.o /Users/runner/.local/share/alire/builds/matreshka_league_21.0.0_0c8f4d47/3cbee22cdff53e171c537097ebbe077a7e1122ff02a75352c86bf1fd2f108564/.objs/configure/configure-abstract_tests.o /Users/runner/.local/share/alire/builds/matreshka_league_21.0.0_0c8f4d47/3cbee22cdff53e171c537097ebbe077a7e1122ff02a75352c86bf1fd2f108564/.objs/configure/configure-builder.o /Users/runner/.local/share/alire/builds/matreshka_league_21.0.0_0c8f4d47/3cbee22cdff53e171c537097ebbe077a7e1122ff02a75352c86bf1fd2f108564/.objs/configure/configure-architecture.o /Users/runner/.local/share/alire/builds/matreshka_league_21.0.0_0c8f4d47/3cbee22cdff53e171c537097ebbe077a7e1122ff02a75352c86bf1fd2f108564/.objs/configure/configure-pkg_config.o /Users/runner/.local/share/alire/builds/matreshka_league_21.0.0_0c8f4d47/3cbee22cdff53e171c537097ebbe077a7e1122ff02a75352c86bf1fd2f108564/.objs/configure/configure-rtl_version.o /Users/runner/.local/share/alire/builds/matreshka_league_21.0.0_0c8f4d47/3cbee22cdff53e171c537097ebbe077a7e1122ff02a75352c86bf1fd2f108564/.objs/configure/configure-tests.o /Users/runner/.local/share/alire/builds/matreshka_league_21.0.0_0c8f4d47/3cbee22cdff53e171c537097ebbe077a7e1122ff02a75352c86bf1fd2f108564/.objs/configure/configure-tests-asis.o /Users/runner/.local/share/alire/builds/matreshka_league_21.0.0_0c8f4d47/3cbee22cdff53e171c537097ebbe077a7e1122ff02a75352c86bf1fd2f108564/.objs/configure/configure-tests-aws.o /Users/runner/.local/share/alire/builds/matreshka_league_21.0.0_0c8f4d47/3cbee22cdff53e171c537097ebbe077a7e1122ff02a75352c86bf1fd2f108564/.objs/configure/configure-tests-firebird.o /Users/runner/.local/share/alire/builds/matreshka_league_21.0.0_0c8f4d47/3cbee22cdff53e171c537097ebbe077a7e1122ff02a75352c86bf1fd2f108564/.objs/configure/configure-tests-gprbuild.o /Users/runner/.local/share/alire/builds/matreshka_league_21.0.0_0c8f4d47/3cbee22cdff53e171c537097ebbe077a7e1122ff02a75352c86bf1fd2f108564/.objs/configure/configure-tests-install.o /Users/runner/.local/share/alire/builds/matreshka_league_21.0.0_0c8f4d47/3cbee22cdff53e171c537097ebbe077a7e1122ff02a75352c86bf1fd2f108564/.objs/configure/configure-tests-installation_directories.o /Users/runner/.local/share/alire/builds/matreshka_league_21.0.0_0c8f4d47/3cbee22cdff53e171c537097ebbe077a7e1122ff02a75352c86bf1fd2f108564/.objs/configure/configure-tests-modules.o /Users/runner/.local/share/alire/builds/matreshka_league_21.0.0_0c8f4d47/3cbee22cdff53e171c537097ebbe077a7e1122ff02a75352c86bf1fd2f108564/.objs/configure/configure-tests-mysql.o /Users/runner/.local/share/alire/builds/matreshka_league_21.0.0_0c8f4d47/3cbee22cdff53e171c537097ebbe077a7e1122ff02a75352c86bf1fd2f108564/.objs/configure/configure-tests-operating_system.o /Users/runner/.local/share/alire/builds/matreshka_league_21.0.0_0c8f4d47/3cbee22cdff53e171c537097ebbe077a7e1122ff02a75352c86bf1fd2f108564/.objs/configure/configure-tests-modules-amf.o /Users/runner/.local/share/alire/builds/matreshka_league_21.0.0_0c8f4d47/3cbee22cdff53e171c537097ebbe077a7e1122ff02a75352c86bf1fd2f108564/.objs/configure/configure-tests-oci.o /Users/runner/.local/share/alire/builds/matreshka_league_21.0.0_0c8f4d47/3cbee22cdff53e171c537097ebbe077a7e1122ff02a75352c86bf1fd2f108564/.objs/configure/configure-tests-postgresql.o /Users/runner/.local/share/alire/builds/matreshka_league_21.0.0_0c8f4d47/3cbee22cdff53e171c537097ebbe077a7e1122ff02a75352c86bf1fd2f108564/.objs/configure/configure-tests-sqlite3.o /Users/runner/.local/share/alire/builds/matreshka_league_21.0.0_0c8f4d47/3cbee22cdff53e171c537097ebbe077a7e1122ff02a75352c86bf1fd2f108564/.objs/configure/configure-tests-valgrind.o /Users/runner/.local/share/alire/builds/matreshka_league_21.0.0_0c8f4d47/3cbee22cdff53e171c537097ebbe077a7e1122ff02a75352c86bf1fd2f108564/.objs/configure/configure-version.o -L/Users/runner/.local/share/alire/builds/matreshka_league_21.0.0_0c8f4d47/3cbee22cdff53e171c537097ebbe077a7e1122ff02a75352c86bf1fd2f108564/.objs/configure/ -L/Users/runner/.local/share/alire/builds/matreshka_league_21.0.0_0c8f4d47/3cbee22cdff53e171c537097ebbe077a7e1122ff02a75352c86bf1fd2f108564/.objs/configure/ -L/users/runner/.local/share/alire/toolchains/gnat_native_15.3.1_36dc7314/lib/gcc/aarch64-apple-darwin24.6.0/15.3.0/adalib/ -static-libgcc /users/runner/.local/share/alire/toolchains/gnat_native_15.3.1_36dc7314/lib/gcc/aarch64-apple-darwin24.6.0/15.3.0/adalib/libgnarl.a /users/runner/.local/share/alire/toolchains/gnat_native_15.3.1_36dc7314/lib/gcc/aarch64-apple-darwin24.6.0/15.3.0/adalib/libgnat.a -Wl,-rpath,@loader_path//.objs/configure -Wl,-rpath,@loader_path/../../..//toolchains/gnat_native_15.3.1_36dc7314/lib/gcc/aarch64-apple-darwin24.6.0/15.3.0/adalib -o /Users/runner/.local/share/alire/builds/matreshka_league_21.0.0_0c8f4d47/3cbee22cdff53e171c537097ebbe077a7e1122ff02a75352c86bf1fd2f108564//configure
+make: *** [config] Error 5
+Warning: Execution failed for action: Post_Fetch run: make reconfig (from ${CRATE_ROOT}/.)
+Warning: Exit code: 2
+Warning: Action output not captured, check it above.
+stderr: ALIRE.PROPERTIES.ACTIONS.ACTION_FAILED
+stderr: Action failed with exit code 2
+stderr: raised ALIRE.PROPERTIES.ACTIONS.ACTION_FAILED : Action failed with exit code 2
+Load address: 0x104cc0000
+Call stack traceback locations:
+0x1059cc0cc 0x1059cc12c 0x10536ffe4 0x10536e788 0x1055279c0 0x10554b78c 0x1055ab56c 0x1055aa2a8 0x10554b868 0x10554b950 0x10552800c 0x105528174 0x104d31730 0x104d31070 0x104d311e4 0x104dceb38 0x104dd9c78 0x104cc29f8 0x104cc7a2c
+
+ERROR: Compilation failed.

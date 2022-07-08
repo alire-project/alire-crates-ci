@@ -1,0 +1,1358 @@
+Test ran at 2026-08-28 16:30:54.213607+00:00
+
+SOLUTION:
+adacl_embedded=7.2.1: Ada Embedded Library
+Origin: source archive adacl_embedded-7.2.1.tgz at https://sourceforge.net/projects/adacl/files/Alire/adacl_embedded-7.2.1.tgz with hashes sha256:8becc52664f1477b089ae46099bd46df8b56e62f334ebfbb0b85d6b610d28daa, sha512:7d51088fea3931a5829b05beb9f2a73bb155fc520b9f00c9dcb9581c94d0c71933dacc347f6095b3cc53c4363e372874ac6089b5d5edf2924ffd949e45317f14
+Properties:
+   case OS is
+      when Linux => Test run: /bin/bash ci-verify.sh (from ${CRATE_ROOT}/.)
+      when Macos => Test run: /bin/bash ci-verify.sh (from ${CRATE_ROOT}/.)
+      when Windows => Test run: powershell -ExecutionPolicy Bypass -File ci-verify.ps1 (from ${CRATE_ROOT}/.)
+      when others => (empty)
+   Author: Martin Krischik <krischik@users.sourceforge.net>
+   Build Switches: 
+   Config type: Event_Log_Buffer_Length : Integer range 1 .. 1024 default: '200'
+   Config type: Event_Log_Buffer_Size : Integer range 0 .. 1024 default: '0'
+   Config type: Variant : Enum (tasking, no_tasking) default: 'no_tasking'
+   Configuration: no modifiers
+   Description: Ada Embedded Library
+   License: GPL-3.0-or-later
+   Long_Description: AdaCL Embedded - Lightweight Embedded Ada Library
+
+AdaCL-Embedded focuses on embedded and real-time programming on the Raspberry Pi and similar platforms.
+
+It favours predictability, minimal runtime overhead, and static data structures. Object-oriented programming, unbounded
+strings, and wide strings are avoided or kept to an absolute minimum.
+
+### Current Features
+
+* **AdaCL.Embedded.Trace** - Interrupt-safe, lightweight tracing facility using a ring buffer.
+* **AdaCL.Embedded.Text_IO** - Extended Ada.Text_IO.
+
+### Configuration Options
+
+* `Variant`
+  * `no_tasking`  - for the lightest runtimes (no protected objects). Also works well with interrupt-driven runtimes.
+  * `tasking`	  - for runtimes with tasking support.
+* `Event_Log_Buffer_Length` - maximum length of each trace line (default: 200, min: 1, max: 1024)
+* `Event_Log_Buffer_Size`   - number of entries in the ring buffer (default: 0, max: 1024, min: 0 (buffer disabled))
+
+A text length of 200 is the standart minimum used in the Ada Standart (i.E. `Ada.Text_IO.Get_Line`, exception messages,
+etc.pp).
+
+Memory needed is approximately `(Event_Log_Buffer_Length + 4) * Event_Log_Buffer_Size` bytes, plus some overhead for the
+buffer management. For example: 1024 buffer size with 200 line lenght is about the maximum size that can be used with
+the static memory of Raspberry Pi Pico. The buffer size can be set to 0 to disable the trace buffer and the related code
+completely.
+
+Source: [SourceForge](https://sourceforge.net/p/adacl/git/ci/master/tree/adacl-embedded/src/)
+Documentation: [GNATdoc](https://adacl-embedded.sourceforge.net/gnatdoc/adael/index.html)
+
+   Maintainer: Martin Krischik <krischik@users.sourceforge.net>
+   Maintainers_Logins: krischik
+   Name: adacl_embedded
+   Tag: library
+   Tag: embedded
+   Tag: trace
+   Tag: logging
+   Tag: spark
+   Tag: ada2022
+   Version: 7.2.1
+   Website: https://sourceforge.net/projects/adacl/
+
+
+LOG:
+=== Ada CI Verification ===
+=== Prove Log Off ===
+Directory: prove_log_off
+Updating dependencies...
+Dependencies automatically updated as follows:
+
+   +. adacl_embedded 7.2.1  (new,path=..)
+   +b gnat_arm_elf   15.3.1 (new,indirect,binary)
+   +b gnatprove      16.1.0 (new,binary)
+   +  light_rp2040   15.4.0 (new)
+   
+   i  The solution requires a toolchain that is
+      not yet installed. Accepting the solution
+      will download and install this toolchain.
+Note: Deploying gnat_arm_elf=15.3.1...
+#=#=#                                                                          
+
+                                                                           0.2%
+                                                                           1.3%
+#                                                                          2.1%
+##                                                                         4.1%
+###                                                                        5.0%
+####                                                                       6.0%
+####                                                                       6.5%
+#####                                                                      8.2%
+#######                                                                   10.3%
+########                                                                  11.2%
+########                                                                  12.1%
+#########                                                                 12.7%
+#########                                                                 13.5%
+##########                                                                14.7%
+###########                                                               16.6%
+############                                                              17.6%
+#############                                                             18.4%
+#############                                                             18.8%
+##############                                                            20.1%
+##############                                                            20.6%
+################                                                          22.3%
+################                                                          23.1%
+#################                                                         23.8%
+#################                                                         24.7%
+##################                                                        25.3%
+##################                                                        26.3%
+###################                                                       26.8%
+####################                                                      28.1%
+####################                                                      28.8%
+####################                                                      28.9%
+####################                                                      29.1%
+#####################                                                     29.6%
+######################                                                    30.9%
+#######################                                                   32.9%
+########################                                                  34.2%
+#########################                                                 35.0%
+##########################                                                37.0%
+###########################                                               37.8%
+###########################                                               38.4%
+############################                                              39.1%
+############################                                              40.2%
+##############################                                            42.3%
+###############################                                           43.2%
+###############################                                           43.7%
+################################                                          45.2%
+#################################                                         45.9%
+#################################                                         47.1%
+##################################                                        48.4%
+###################################                                       49.4%
+#####################################                                     51.5%
+######################################                                    53.1%
+#######################################                                   54.3%
+#######################################                                   55.6%
+########################################                                  56.8%
+#########################################                                 57.6%
+##########################################                                58.5%
+##########################################                                59.1%
+##########################################                                59.7%
+############################################                              61.4%
+############################################                              62.1%
+#############################################                             63.1%
+#############################################                             63.8%
+#############################################                             63.8%
+##############################################                            64.0%
+##############################################                            64.4%
+###############################################                           65.8%
+###############################################                           66.3%
+################################################                          67.5%
+################################################                          68.0%
+##################################################                        70.0%
+###################################################                       71.9%
+####################################################                      72.4%
+####################################################                      73.4%
+#####################################################                     74.1%
+######################################################                    75.1%
+######################################################                    76.1%
+#######################################################                   77.5%
+########################################################                  78.2%
+#########################################################                 80.0%
+##########################################################                80.7%
+##########################################################                81.5%
+###########################################################               82.3%
+############################################################              83.9%
+############################################################              84.4%
+##############################################################            86.1%
+##############################################################            86.5%
+##############################################################            87.2%
+###############################################################           88.2%
+###############################################################           88.5%
+################################################################          89.5%
+#################################################################         90.5%
+#################################################################         91.4%
+##################################################################        92.3%
+##################################################################        92.6%
+####################################################################      94.6%
+####################################################################      95.3%
+####################################################################      95.8%
+#####################################################################     96.4%
+#####################################################################     96.7%
+######################################################################    97.4%
+######################################################################    98.1%
+######################################################################    98.5%
+#######################################################################   98.9%
+#######################################################################   99.9%
+######################################################################## 100.0%
+Note: gnat_arm_elf=15.3.1 installed successfully.
+Note: Deploying gnatprove=16.1.0...
+#=#=#                                                                          
+
+                                                                           0.4%
+#                                                                          2.2%
+###                                                                        4.5%
+###                                                                        4.8%
+###                                                                        4.8%
+###                                                                        5.3%
+####                                                                       6.7%
+######                                                                     8.9%
+########                                                                  11.5%
+#########                                                                 13.8%
+###########                                                               16.3%
+#############                                                             19.2%
+###############                                                           21.5%
+#################                                                         24.2%
+###################                                                       26.4%
+####################                                                      28.8%
+######################                                                    31.0%
+#######################                                                   33.3%
+#########################                                                 35.5%
+###########################                                               38.7%
+#############################                                             41.3%
+###############################                                           43.2%
+################################                                          44.5%
+#################################                                         47.2%
+###################################                                       49.4%
+######################################                                    53.2%
+#######################################                                   55.5%
+#########################################                                 58.1%
+##########################################                                59.3%
+############################################                              61.8%
+#############################################                             63.8%
+###############################################                           66.0%
+#################################################                         68.3%
+##################################################                        70.8%
+####################################################                      73.0%
+######################################################                    75.7%
+########################################################                  77.8%
+#########################################################                 79.8%
+###########################################################               82.3%
+#############################################################             84.9%
+##############################################################            87.3%
+###############################################################           88.8%
+#################################################################         90.9%
+###################################################################       93.5%
+####################################################################      95.4%
+######################################################################    97.6%
+#######################################################################   99.8%
+######################################################################## 100.0%
+Note: Deploying light_rp2040=15.4.0...
+#=#=#                                                                          
+
+######################################################################## 100.0%
+Building with validation...
+Note: Building adacl_embedded_prove_log_off=7.2.1/adacl_embedded_prove_log_off.gpr...
+Setup
+   [mkdir]        object directory for project AdaCL_Embedded
+   [mkdir]        library directory for project AdaCL_Embedded
+   [mkdir]        object directory for project Runtime_Build
+   [mkdir]        library directory for project Runtime_Build
+   [mkdir]        object directory for project AdaCl_Embedded_Prove_Log_Off
+   [mkdir]        exec directory for project AdaCl_Embedded_Prove_Log_Off
+Compile
+   [Ada]          dummy-main.adb
+   [Asm_Cpp]      start-rom.S
+   [Asm_Cpp]      boot2-w25qxx.S
+   [Ada]          s-pack36.adb
+   [Ada]          s-atocou.adb
+   [Ada]          s-bytswa.ads
+   [Ada]          gnat.ads
+   [Ada]          s-pack44.adb
+   [Ada]          s-widint.ads
+   [Ada]          s-vaen16.ads
+   [Ada]          s-textio.adb
+   [Ada]          s-pack58.adb
+   [Ada]          g-io.adb
+   [Ada]          a-strsup.adb
+   [Ada]          s-spcuop.adb
+   [Ada]          s-gcmain.adb
+   [Ada]          s-vade64.ads
+   [Ada]          s-imgcha.adb
+   [Ada]          s-widuns.ads
+   [Ada]          s-arit32.adb
+   [Ada]          a-tags.adb
+   [Ada]          s-valuen.adb
+   [Ada]          s-imageu.adb
+   [Ada]          s-pack33.adb
+   [Ada]          s-exnllf.ads
+   [Ada]          s-vallli.ads
+   [Ada]          s-pack09.adb
+   [Ada]          s-geveop.adb
+   [Ada]          s-flocon.adb
+   [Ada]          s-vaenu8.ads
+   [Ada]          s-imagew.adb
+   [Ada]          s-imen32.ads
+   [Ada]          a-nubinu.ads
+   [Ada]          s-pack25.adb
+   [Ada]          s-dourea.adb
+   [Ada]          a-strfix.adb
+   [Ada]          ada.ads
+   [Ada]          s-valint.ads
+   [Ada]          s-imgint.ads
+   [Ada]          i-cstrin.adb
+   [Ada]          s-expuns.ads
+   [Ada]          a-numaux.ads
+   [Ada]          s-assert.adb
+   [Ada]          s-exnint.ads
+   [Ada]          a-nbnbig.adb
+   [Ada]          s-sssita.adb
+   [Ada]          s-expint.ads
+   [Ada]          s-valueu.adb
+   [Ada]          s-lisisq.adb
+   [Ada]          a-nselfu.ads
+   [Ada]          s-pack57.adb
+   [Ada]          s-exnlfl.ads
+   [Ada]          a-strmap.adb
+   [Ada]          s-vs_llu.ads
+   [Ada]          a-assert.adb
+   [Ada]          s-imagei.adb
+   [Ada]          s-pack63.adb
+   [Ada]          s-spark.ads
+   [Ada]          s-exponn.adb
+   [Ada]          s-imglfl.ads
+   [Ada]          a-chahan.adb
+   [Ada]          s-pack50.adb
+   [Ada]          s-pack37.adb
+   [Ada]          s-vs_int.ads
+   [Ada]          a-numeri.ads
+   [Ada]          s-maccod.ads
+   [Ada]          s-imfi32.ads
+   [Ada]          s-valuti.adb
+   [Ada]          s-vector.ads
+   [Ada]          s-widlli.ads
+   [Ada]          s-bbbopa.ads
+   [Ada]          s-pack29.adb
+   [Ada]          s-vauspe.adb
+   [Ada]          s-vs_uns.ads
+   [Ada]          s-pack31.adb
+   [Ada]          g-debuti.adb
+   [Ada]          s-stoele.adb
+   [Ada]          s-pack34.adb
+   [Ada]          s-imde64.ads
+   [Ada]          s-pack22.adb
+   [Ada]          g-sestin.ads
+   [Ada]          s-caun16.adb
+   [Ada]          s-imagen.adb
+   [Ada]          s-imgllf.ads
+   [Ada]          s-powflt.ads
+   [Ada]          s-libm.adb
+   [Ada]          s-pack23.adb
+   [Ada]          a-ngelfu.adb
+   [Ada]          s-valuns.ads
+   [Ada]          s-arit64.adb
+   [Ada]          s-atopri.adb
+   [Ada]          s-libdou.adb
+   [Ada]          a-textio.adb
+   [Ada]          s-fatllf.ads
+   [Ada]          s-casi32.adb
+   [Ada]          a-nlelfu.ads
+   [Ada]          s-pack12.adb
+   [Ada]          a-charac.ads
+   [Ada]          setup_clocks.adb
+   [Ada]          s-imfi64.ads
+   [Ada]          s-pack20.adb
+   [Ada]          s-valboo.adb
+   [Ada]          s-pack11.adb
+   [Ada]          s-pack30.adb
+   [Ada]          s-expmod.adb
+   [Ada]          s-bootro.adb
+   [Ada]          machcode.ads
+   [Ada]          s-exponu.adb
+   [Ada]          s-pack41.adb
+   [Ada]          s-vallfl.ads
+   [Ada]          s-pack39.adb
+   [Ada]          s-imguti.adb
+   [Ada]          s-vaen32.ads
+   [Ada]          s-widthi.adb
+   [Ada]          s-fatgen.adb
+   [Ada]          s-exnflt.ads
+   [Ada]          s-bbmcpa.ads
+   [Ada]          s-pack42.adb
+   [Ada]          s-pack05.adb
+   [Ada]          s-vs_lli.ads
+   [Ada]          s-casuti.adb
+   [Ada]          unchdeal.ads
+   [Ada]          s-fatlfl.ads
+   [Ada]          s-imagef.adb
+   [Ada]          unchconv.ads
+   [Ada]          s-imaged.adb
+   [Ada]          s-casi16.adb
+   [Ada]          s-imgboo.adb
+   [Ada]          s-pack47.adb
+   [Ada]          s-pack27.adb
+   [Ada]          a-nllefu.ads
+   [Ada]          s-expont.adb
+   [Ada]          s-bbpara.ads
+   [Ada]          s-parame.ads
+   [Ada]          a-unccon.ads
+   [Ada]          s-pack28.adb
+   [Ada]          s-pack49.adb
+   [Ada]          s-casi64.adb
+   [Ada]          s-valspe.adb
+   [Ada]          s-pack53.adb
+   [Ada]          s-imen16.ads
+   [Ada]          a-chlat1.ads
+   [Ada]          s-pack45.adb
+   [Ada]          a-strsea.adb
+   [Ada]          s-libpre.ads
+   [Ada]          s-pack13.adb
+   [Ada]          s-bb.ads
+   [Ada]          s-imglli.ads
+   [Ada]          s-explli.ads
+   [Ada]          s-vafi32.ads
+   [Ada]          i-cpoint.adb
+   [Ada]          s-pack60.adb
+   [Ada]          s-pack38.adb
+   [Ada]          s-veboop.adb
+   [Ada]          s-valuer.adb
+   [Ada]          s-fatflt.ads
+   [Ada]          i-c.adb
+   [Ada]          s-caun64.adb
+   [Ada]          a-uncdea.ads
+   [Ada]          s-memcom.adb
+   [Ada]          s-pack26.adb
+   [Ada]          s-pack06.adb
+   [Ada]          s-valllu.ads
+   [Ada]          s-memory.adb
+   [Ada]          s-pack18.adb
+   [Ada]          a-nuelfu.ads
+   [Ada]          s-aridou.adb
+   [Ada]          s-boarop.ads
+   [Ada]          s-pack14.adb
+   [Ada]          a-except.adb
+   [Ada]          s-pack52.adb
+   [Ada]          s-pack35.adb
+   [Ada]          s-valrea.adb
+   [Ada]          s-imguns.ads
+   [Ada]          s-bbarat.adb
+   [Ada]          s-stache.adb
+   [Ada]          s-exponr.adb
+   [Ada]          s-pack61.adb
+   [Ada]          s-pack51.adb
+   [Ada]          a-strbou.adb
+   [Ada]          s-vade32.ads
+   [Ada]          s-atacco.adb
+   [Ada]          s-expllu.ads
+   [Ada]          i-cexten.ads
+   [Ada]          s-secsta.adb
+   [Ada]          s-retsta.ads
+   [Ada]          s-valllf.ads
+   [Ada]          s-bitops.adb
+   [Ada]          s-valcha.adb
+   [Ada]          s-vaispe.adb
+   [Ada]          a-stmaco.ads
+   [Ada]          s-addope.adb
+   [Ada]          s-pack54.adb
+   [Ada]          s-pack55.adb
+   [Ada]          s-unstyp.ads
+   [Ada]          s-valflt.ads
+   [Ada]          s-memcop.adb
+   [Ada]          s-widllu.ads
+   [Ada]          s-macres.adb
+   [Ada]          s-exnlli.ads
+   [Ada]          s-pack21.adb
+   [Ada]          s-imgllw.ads
+   [Ada]          s-pack03.adb
+   [Ada]          s-imager.adb
+   [Ada]          g-souinf.ads
+   [Ada]          s-valued.adb
+   [Ada]          s-pack17.adb
+   [Ada]          s-imenu8.ads
+   [Ada]          s-pack07.adb
+   [Ada]          a-elchha.adb
+   [Ada]          s-vafi64.ads
+   [Ada]          s-pack19.adb
+   [Ada]          s-pack59.adb
+   [Ada]          s-carsi8.adb
+   [Ada]          s-pack62.adb
+   [Ada]          s-memmov.adb
+   [Ada]          s-pack46.adb
+   [Ada]          s-memtyp.ads
+   [Ada]          s-powlfl.ads
+   [Ada]          s-imgllu.ads
+   [Ada]          s-imde32.ads
+   [Ada]          a-string.ads
+   [Ada]          s-widthu.adb
+   [Ada]          s-pack43.adb
+   [Ada]          s-valuei.adb
+   [Ada]          s-powllf.ads
+   [Ada]          s-pack10.adb
+   [Ada]          s-carun8.adb
+   [Ada]          s-bbrpat.adb
+   [Ada]          s-imgflt.ads
+   [Ada]          s-caun32.adb
+   [Ada]          text_io.ads
+   [Ada]          s-valuef.adb
+   [Ada]          system.ads
+   [Ada]          s-lidosq.adb
+   [Ada]          s-semiho.adb
+   [Ada]          s-imgwiu.ads
+   [Ada]          interfac.ads
+   [Ada]          s-memset.adb
+   [Ada]          s-pack15.adb
+   [Ada]          s-libsin.adb
+   [Ada]          light_rp2040_config.ads
+   [Ada]          rp2040_runtime_config.ads
+   [Ada]          i-rp2040.ads
+   [Ada]          i-rp2040-clocks.ads
+   [Ada]          i-rp2040-pll_sys.ads
+   [Ada]          i-rp2040-psm.ads
+   [Ada]          i-rp2040-resets.ads
+   [Ada]          i-rp2040-rosc.ads
+   [Ada]          i-rp2040-sio.ads
+   [Ada]          i-rp2040-timer.ads
+   [Ada]          i-rp2040-watchdog.ads
+   [Ada]          i-rp2040-xosc.ads
+   [Ada]          adacl_embedded_config.ads
+   [Ada]          adacl-trace_buffer.adb
+   [Ada]          adacl-text_io.adb
+   [Ada]          adacl.ads
+   [Ada]          dummy.adb
+Build Libraries
+   [gprlib]       AdaCL_Embedded.lexch
+   [gprlib]       gnat.lexch
+   [archive]      libAdaCL_Embedded.a
+   [index]        libAdaCL_Embedded.a
+   [archive]      libgnat.a
+   [index]        libgnat.a
+Bind
+   [gprbind]      dummy-main.bexch
+   [Ada]          dummy-main.ali
+Link
+   [link]         dummy-main.adb
+Success: Build finished successfully in 8.18 seconds.
+Running GNATprove...
+Phase 1 of 3: generation of data representation information ...
+Phase 2 of 3: generation of Global contracts ...
+Phase 3 of 3: flow analysis and proof ...
+Summary logged in /home/runner/work/alire-crates-ci/alire-crates-ci/test/6689b6de-9fef-4440-9442-f3d5aa744d91/adacl_embedded_7.2.1_8becc526/prove_log_off/obj/validation/gnatprove/gnatprove.out
+SUCCESS: Prove Log Off
+--------------------------------------------------
+=== Prove No Tasking ===
+Directory: prove_no_tasking
+Updating dependencies...
+Dependencies automatically updated as follows:
+
+   +. adacl_embedded       7.2.1  (new,path=..)
+   +b gnat_arm_elf         15.3.1 (new,indirect,binary)
+   +b gnatprove            16.1.0 (new,binary)
+   +  light_tasking_rp2040 15.4.0 (new)
+Note: Deploying light_tasking_rp2040=15.4.0...
+#=#=#                                                                          
+
+######################################################################## 100.0%
+Building with validation...
+Note: Building adacl_embedded_prove_no_tasking=7.2.1/adacl_embedded_prove_no_tasking.gpr...
+Setup
+   [mkdir]        object directory for project Runtime_Build
+   [mkdir]        library directory for project Runtime_Build
+   [mkdir]        object directory for project AdaCl_Embedded_Prove_No_Tasking
+   [mkdir]        exec directory for project AdaCl_Embedded_Prove_No_Tasking
+Compile
+   [Ada]          dummy-main.adb
+   [Asm_Cpp]      start-rom.S
+   [Asm_Cpp]      boot2-w25qxx.S
+   [Ada]          s-pack36.adb
+   [Ada]          s-atocou.adb
+   [Ada]          s-bytswa.ads
+   [Ada]          gnat.ads
+   [Ada]          s-pack44.adb
+   [Ada]          s-widint.ads
+   [Ada]          s-vaen16.ads
+   [Ada]          s-textio.adb
+   [Ada]          s-pack58.adb
+   [Ada]          g-io.adb
+   [Ada]          a-strsup.adb
+   [Ada]          s-spcuop.adb
+   [Ada]          s-gcmain.adb
+   [Ada]          s-vade64.ads
+   [Ada]          s-imgcha.adb
+   [Ada]          s-widuns.ads
+   [Ada]          s-arit32.adb
+   [Ada]          a-tags.adb
+   [Ada]          s-valuen.adb
+   [Ada]          s-imageu.adb
+   [Ada]          s-pack33.adb
+   [Ada]          s-exnllf.ads
+   [Ada]          s-vallli.ads
+   [Ada]          s-pack09.adb
+   [Ada]          s-geveop.adb
+   [Ada]          s-flocon.adb
+   [Ada]          s-vaenu8.ads
+   [Ada]          s-imagew.adb
+   [Ada]          s-imen32.ads
+   [Ada]          a-nubinu.ads
+   [Ada]          s-pack25.adb
+   [Ada]          s-dourea.adb
+   [Ada]          a-strfix.adb
+   [Ada]          ada.ads
+   [Ada]          s-valint.ads
+   [Ada]          s-imgint.ads
+   [Ada]          i-cstrin.adb
+   [Ada]          s-expuns.ads
+   [Ada]          a-numaux.ads
+   [Ada]          s-assert.adb
+   [Ada]          s-exnint.ads
+   [Ada]          a-nbnbig.adb
+   [Ada]          s-sssita.adb
+   [Ada]          s-expint.ads
+   [Ada]          s-valueu.adb
+   [Ada]          s-lisisq.adb
+   [Ada]          a-nselfu.ads
+   [Ada]          s-pack57.adb
+   [Ada]          s-exnlfl.ads
+   [Ada]          a-strmap.adb
+   [Ada]          s-vs_llu.ads
+   [Ada]          a-assert.adb
+   [Ada]          s-imagei.adb
+   [Ada]          s-pack63.adb
+   [Ada]          s-spark.ads
+   [Ada]          s-exponn.adb
+   [Ada]          s-imglfl.ads
+   [Ada]          a-chahan.adb
+   [Ada]          s-pack50.adb
+   [Ada]          s-pack37.adb
+   [Ada]          s-vs_int.ads
+   [Ada]          a-numeri.ads
+   [Ada]          s-maccod.ads
+   [Ada]          s-imfi32.ads
+   [Ada]          s-valuti.adb
+   [Ada]          s-vector.ads
+   [Ada]          s-widlli.ads
+   [Ada]          s-bbbopa.ads
+   [Ada]          s-pack29.adb
+   [Ada]          s-vauspe.adb
+   [Ada]          s-vs_uns.ads
+   [Ada]          s-pack31.adb
+   [Ada]          g-debuti.adb
+   [Ada]          s-stoele.adb
+   [Ada]          s-pack34.adb
+   [Ada]          s-imde64.ads
+   [Ada]          s-pack22.adb
+   [Ada]          g-sestin.ads
+   [Ada]          s-caun16.adb
+   [Ada]          s-imagen.adb
+   [Ada]          s-imgllf.ads
+   [Ada]          s-powflt.ads
+   [Ada]          s-libm.adb
+   [Ada]          s-pack23.adb
+   [Ada]          a-ngelfu.adb
+   [Ada]          s-valuns.ads
+   [Ada]          s-arit64.adb
+   [Ada]          s-atopri.adb
+   [Ada]          s-libdou.adb
+   [Ada]          a-textio.adb
+   [Ada]          s-fatllf.ads
+   [Ada]          s-casi32.adb
+   [Ada]          a-nlelfu.ads
+   [Ada]          s-pack12.adb
+   [Ada]          a-charac.ads
+   [Ada]          setup_clocks.adb
+   [Ada]          s-imfi64.ads
+   [Ada]          s-pack20.adb
+   [Ada]          s-valboo.adb
+   [Ada]          s-pack11.adb
+   [Ada]          s-pack30.adb
+   [Ada]          s-expmod.adb
+   [Ada]          s-bootro.adb
+   [Ada]          machcode.ads
+   [Ada]          s-exponu.adb
+   [Ada]          s-pack41.adb
+   [Ada]          s-vallfl.ads
+   [Ada]          s-pack39.adb
+   [Ada]          s-imguti.adb
+   [Ada]          s-vaen32.ads
+   [Ada]          s-widthi.adb
+   [Ada]          s-fatgen.adb
+   [Ada]          s-exnflt.ads
+   [Ada]          s-bbmcpa.ads
+   [Ada]          s-pack42.adb
+   [Ada]          s-pack05.adb
+   [Ada]          s-vs_lli.ads
+   [Ada]          s-parame.adb
+   [Ada]          s-casuti.adb
+   [Ada]          unchdeal.ads
+   [Ada]          s-fatlfl.ads
+   [Ada]          s-imagef.adb
+   [Ada]          unchconv.ads
+   [Ada]          s-imaged.adb
+   [Ada]          s-casi16.adb
+   [Ada]          s-imgboo.adb
+   [Ada]          s-pack47.adb
+   [Ada]          s-pack27.adb
+   [Ada]          a-nllefu.ads
+   [Ada]          s-expont.adb
+   [Ada]          s-bbpara.ads
+   [Ada]          a-unccon.ads
+   [Ada]          s-pack28.adb
+   [Ada]          s-pack49.adb
+   [Ada]          s-casi64.adb
+   [Ada]          s-valspe.adb
+   [Ada]          s-pack53.adb
+   [Ada]          s-imen16.ads
+   [Ada]          a-chlat1.ads
+   [Ada]          s-pack45.adb
+   [Ada]          a-strsea.adb
+   [Ada]          s-libpre.ads
+   [Ada]          s-pack13.adb
+   [Ada]          s-bb.ads
+   [Ada]          s-imglli.ads
+   [Ada]          s-explli.ads
+   [Ada]          s-vafi32.ads
+   [Ada]          i-cpoint.adb
+   [Ada]          s-pack60.adb
+   [Ada]          s-pack38.adb
+   [Ada]          s-veboop.adb
+   [Ada]          s-valuer.adb
+   [Ada]          s-fatflt.ads
+   [Ada]          i-c.adb
+   [Ada]          s-caun64.adb
+   [Ada]          a-uncdea.ads
+   [Ada]          s-memcom.adb
+   [Ada]          s-pack26.adb
+   [Ada]          s-pack06.adb
+   [Ada]          s-valllu.ads
+   [Ada]          s-memory.adb
+   [Ada]          s-pack18.adb
+   [Ada]          a-nuelfu.ads
+   [Ada]          s-aridou.adb
+   [Ada]          s-boarop.ads
+   [Ada]          s-pack14.adb
+   [Ada]          a-except.adb
+   [Ada]          s-pack52.adb
+   [Ada]          s-pack35.adb
+   [Ada]          s-valrea.adb
+   [Ada]          s-imguns.ads
+   [Ada]          s-bbarat.adb
+   [Ada]          s-stache.adb
+   [Ada]          s-exponr.adb
+   [Ada]          s-pack61.adb
+   [Ada]          s-pack51.adb
+   [Ada]          a-strbou.adb
+   [Ada]          s-vade32.ads
+   [Ada]          s-atacco.adb
+   [Ada]          s-expllu.ads
+   [Ada]          i-cexten.ads
+   [Ada]          s-secsta.adb
+   [Ada]          s-retsta.ads
+   [Ada]          s-valllf.ads
+   [Ada]          s-bitops.adb
+   [Ada]          s-valcha.adb
+   [Ada]          s-vaispe.adb
+   [Ada]          a-stmaco.ads
+   [Ada]          s-addope.adb
+   [Ada]          s-pack54.adb
+   [Ada]          s-pack55.adb
+   [Ada]          s-unstyp.ads
+   [Ada]          s-valflt.ads
+   [Ada]          s-memcop.adb
+   [Ada]          s-widllu.ads
+   [Ada]          s-macres.adb
+   [Ada]          s-exnlli.ads
+   [Ada]          s-pack21.adb
+   [Ada]          s-imgllw.ads
+   [Ada]          s-pack03.adb
+   [Ada]          s-imager.adb
+   [Ada]          g-souinf.ads
+   [Ada]          s-valued.adb
+   [Ada]          s-pack17.adb
+   [Ada]          s-imenu8.ads
+   [Ada]          s-pack07.adb
+   [Ada]          a-elchha.adb
+   [Ada]          s-vafi64.ads
+   [Ada]          s-pack19.adb
+   [Ada]          s-pack59.adb
+   [Ada]          s-carsi8.adb
+   [Ada]          s-pack62.adb
+   [Ada]          s-memmov.adb
+   [Ada]          s-pack46.adb
+   [Ada]          s-memtyp.ads
+   [Ada]          s-powlfl.ads
+   [Ada]          s-imgllu.ads
+   [Ada]          s-imde32.ads
+   [Ada]          a-string.ads
+   [Ada]          s-widthu.adb
+   [Ada]          s-pack43.adb
+   [Ada]          s-valuei.adb
+   [Ada]          s-powllf.ads
+   [Ada]          s-pack10.adb
+   [Ada]          s-carun8.adb
+   [Ada]          s-bbrpat.adb
+   [Ada]          s-imgflt.ads
+   [Ada]          s-caun32.adb
+   [Ada]          text_io.ads
+   [Ada]          s-valuef.adb
+   [Ada]          system.ads
+   [Ada]          s-lidosq.adb
+   [Ada]          s-semiho.adb
+   [Ada]          s-imgwiu.ads
+   [Ada]          interfac.ads
+   [Ada]          s-memset.adb
+   [Ada]          s-pack15.adb
+   [Ada]          s-libsin.adb
+   [Ada]          light_tasking_rp2040_config.ads
+   [Ada]          rp2040_runtime_config.ads
+   [Ada]          i-rp2040.ads
+   [Ada]          i-rp2040-clocks.ads
+   [Ada]          i-rp2040-pll_sys.ads
+   [Ada]          i-rp2040-psm.ads
+   [Ada]          i-rp2040-resets.ads
+   [Ada]          i-rp2040-rosc.ads
+   [Ada]          i-rp2040-sio.ads
+   [Ada]          i-rp2040-timer.ads
+   [Ada]          i-rp2040-watchdog.ads
+   [Ada]          i-rp2040-xosc.ads
+   [Ada]          a-synbar.adb
+   [Ada]          s-taprop.adb
+   [Ada]          s-tposen.adb
+   [Ada]          s-bbthqu.adb
+   [Ada]          s-bbcppr.adb
+   [Ada]          s-bbthre.adb
+   [Ada]          s-bbinte.adb
+   [Ada]          s-bbprot.adb
+   [Ada]          a-extiin.adb
+   [Ada]          a-taster.adb
+   [Ada]          s-tpobmu.adb
+   [Ada]          a-retide.adb
+   [Ada]          a-interr.adb
+   [Ada]          s-bcpcst.adb
+   [Ada]          a-rttiev.adb
+   [Ada]          s-taprob.adb
+   [Ada]          s-rident.ads
+   [Ada]          s-tpobop.adb
+   [Ada]          s-interr.adb
+   [Ada]          s-restri.adb
+   [Ada]          s-reldel.adb
+   [Ada]          s-bbbosu.adb
+   [Ada]          s-tpoben.adb
+   [Ada]          s-bbtiev.adb
+   [Ada]          s-osinte.ads
+   [Ada]          s-taskin.adb
+   [Ada]          s-bcprmu.adb
+   [Ada]          s-bbtime.adb
+   [Ada]          s-bbcpsp.ads
+   [Ada]          s-tarest.adb
+   [Ada]          s-tasinf.adb
+   [Ada]          s-tasres.ads
+   [Ada]          s-musplo.adb
+   [Ada]          s-tasdeb.adb
+   [Ada]          s-taspri.ads
+   [Ada]          a-exetim.adb
+   [Ada]          s-mufalo.adb
+   [Ada]          a-taside.adb
+   [Ada]          s-multip.adb
+   [Ada]          s-tasque.adb
+   [Ada]          s-bbexti.adb
+   [Ada]          a-sytaco.adb
+   [Ada]          a-reatim.adb
+   [Ada]          a-intnam-2.ads
+   [Ada]          adacl_embedded_config.ads
+   [Ada]          adacl-trace_buffer.adb
+   [Ada]          adacl-text_io.adb
+   [Ada]          adacl.ads
+   [Ada]          dummy.adb
+Build Libraries
+   [gprlib]       AdaCL_Embedded.lexch
+   [gprlib]       gnat.lexch
+   [archive]      libAdaCL_Embedded.a
+   [gprlib]       gnarl.lexch
+   [index]        libAdaCL_Embedded.a
+   [archive]      libgnat.a
+   [index]        libgnat.a
+   [archive]      libgnarl.a
+   [index]        libgnarl.a
+Bind
+   [gprbind]      dummy-main.bexch
+   [Ada]          dummy-main.ali
+Link
+   [link]         dummy-main.adb
+Success: Build finished successfully in 9.68 seconds.
+Running GNATprove...
+Phase 1 of 3: generation of data representation information ...
+Phase 2 of 3: generation of Global contracts ...
+Phase 3 of 3: flow analysis and proof ...
+Summary logged in /home/runner/work/alire-crates-ci/alire-crates-ci/test/6689b6de-9fef-4440-9442-f3d5aa744d91/adacl_embedded_7.2.1_8becc526/prove_no_tasking/obj/validation/gnatprove/gnatprove.out
+SUCCESS: Prove No Tasking
+--------------------------------------------------
+=== Prove Tasking ===
+Directory: prove_tasking
+Updating dependencies...
+Dependencies automatically updated as follows:
+
+   +. adacl_embedded       7.2.1  (new,path=..)
+   +b gnat_arm_elf         15.3.1 (new,indirect,binary)
+   +b gnatprove            16.1.0 (new,binary)
+   +  light_tasking_rp2040 15.4.0 (new)
+Building with validation...
+Note: Building adacl_embedded_prove_tasking=7.2.1/adacl_embedded_prove_tasking.gpr...
+Setup
+   [mkdir]        object directory for project AdaCl_Embedded_Prove_Tasking
+   [mkdir]        exec directory for project AdaCl_Embedded_Prove_Tasking
+Compile
+   [Ada]          dummy-main.adb
+   [Asm_Cpp]      start-rom.S
+   [Ada]          s-pack36.adb
+   [Ada]          s-atocou.adb
+   [Ada]          s-bytswa.ads
+   [Ada]          gnat.ads
+   [Ada]          s-pack44.adb
+   [Ada]          s-widint.ads
+   [Ada]          s-vaen16.ads
+   [Ada]          s-textio.adb
+   [Ada]          s-pack58.adb
+   [Ada]          g-io.adb
+   [Ada]          a-strsup.adb
+   [Ada]          s-spcuop.adb
+   [Ada]          s-gcmain.adb
+   [Ada]          s-vade64.ads
+   [Ada]          s-imgcha.adb
+   [Ada]          s-widuns.ads
+   [Ada]          s-arit32.adb
+   [Ada]          a-tags.adb
+   [Ada]          s-valuen.adb
+   [Ada]          s-imageu.adb
+   [Ada]          s-pack33.adb
+   [Ada]          s-exnllf.ads
+   [Ada]          s-vallli.ads
+   [Ada]          s-pack09.adb
+   [Ada]          s-geveop.adb
+   [Ada]          s-flocon.adb
+   [Ada]          s-vaenu8.ads
+   [Ada]          s-imagew.adb
+   [Ada]          s-imen32.ads
+   [Ada]          a-nubinu.ads
+   [Ada]          s-pack25.adb
+   [Ada]          s-dourea.adb
+   [Ada]          a-strfix.adb
+   [Ada]          ada.ads
+   [Ada]          s-valint.ads
+   [Ada]          s-imgint.ads
+   [Ada]          i-cstrin.adb
+   [Ada]          s-expuns.ads
+   [Ada]          a-numaux.ads
+   [Ada]          s-assert.adb
+   [Ada]          s-exnint.ads
+   [Ada]          a-nbnbig.adb
+   [Ada]          s-sssita.adb
+   [Ada]          s-expint.ads
+   [Ada]          s-valueu.adb
+   [Ada]          s-lisisq.adb
+   [Ada]          a-nselfu.ads
+   [Ada]          s-pack57.adb
+   [Ada]          s-exnlfl.ads
+   [Ada]          a-strmap.adb
+   [Ada]          s-vs_llu.ads
+   [Ada]          a-assert.adb
+   [Ada]          s-imagei.adb
+   [Ada]          s-pack63.adb
+   [Ada]          s-spark.ads
+   [Ada]          s-exponn.adb
+   [Ada]          s-imglfl.ads
+   [Ada]          a-chahan.adb
+   [Ada]          s-pack50.adb
+   [Ada]          s-pack37.adb
+   [Ada]          s-vs_int.ads
+   [Ada]          a-numeri.ads
+   [Ada]          s-maccod.ads
+   [Ada]          s-imfi32.ads
+   [Ada]          s-valuti.adb
+   [Ada]          s-vector.ads
+   [Ada]          s-widlli.ads
+   [Ada]          s-bbbopa.ads
+   [Ada]          s-pack29.adb
+   [Ada]          s-vauspe.adb
+   [Ada]          s-vs_uns.ads
+   [Ada]          s-pack31.adb
+   [Ada]          g-debuti.adb
+   [Ada]          s-stoele.adb
+   [Ada]          s-pack34.adb
+   [Ada]          s-imde64.ads
+   [Ada]          s-pack22.adb
+   [Ada]          g-sestin.ads
+   [Ada]          s-caun16.adb
+   [Ada]          s-imagen.adb
+   [Ada]          s-imgllf.ads
+   [Ada]          s-powflt.ads
+   [Ada]          s-libm.adb
+   [Ada]          s-pack23.adb
+   [Ada]          a-ngelfu.adb
+   [Ada]          s-valuns.ads
+   [Ada]          s-arit64.adb
+   [Ada]          s-atopri.adb
+   [Ada]          s-libdou.adb
+   [Ada]          a-textio.adb
+   [Ada]          s-fatllf.ads
+   [Ada]          s-casi32.adb
+   [Ada]          a-nlelfu.ads
+   [Ada]          s-pack12.adb
+   [Ada]          a-charac.ads
+   [Ada]          setup_clocks.adb
+   [Ada]          s-imfi64.ads
+   [Ada]          s-pack20.adb
+   [Ada]          s-valboo.adb
+   [Ada]          s-pack11.adb
+   [Ada]          s-pack30.adb
+   [Ada]          s-expmod.adb
+   [Ada]          s-bootro.adb
+   [Ada]          machcode.ads
+   [Ada]          s-exponu.adb
+   [Ada]          s-pack41.adb
+   [Ada]          s-vallfl.ads
+   [Ada]          s-pack39.adb
+   [Ada]          s-imguti.adb
+   [Ada]          s-vaen32.ads
+   [Ada]          s-widthi.adb
+   [Ada]          s-fatgen.adb
+   [Ada]          s-exnflt.ads
+   [Ada]          s-bbmcpa.ads
+   [Ada]          s-pack42.adb
+   [Ada]          s-pack05.adb
+   [Ada]          s-vs_lli.ads
+   [Ada]          s-parame.adb
+   [Ada]          s-casuti.adb
+   [Ada]          unchdeal.ads
+   [Ada]          s-fatlfl.ads
+   [Ada]          s-imagef.adb
+   [Ada]          unchconv.ads
+   [Ada]          s-imaged.adb
+   [Ada]          s-casi16.adb
+   [Ada]          s-imgboo.adb
+   [Ada]          s-pack47.adb
+   [Ada]          s-pack27.adb
+   [Ada]          a-nllefu.ads
+   [Ada]          s-expont.adb
+   [Ada]          s-bbpara.ads
+   [Ada]          a-unccon.ads
+   [Ada]          s-pack28.adb
+   [Ada]          s-pack49.adb
+   [Ada]          s-casi64.adb
+   [Ada]          s-valspe.adb
+   [Ada]          s-pack53.adb
+   [Ada]          s-imen16.ads
+   [Ada]          a-chlat1.ads
+   [Ada]          s-pack45.adb
+   [Ada]          a-strsea.adb
+   [Ada]          s-libpre.ads
+   [Ada]          s-pack13.adb
+   [Ada]          s-bb.ads
+   [Ada]          s-imglli.ads
+   [Ada]          s-explli.ads
+   [Ada]          s-vafi32.ads
+   [Ada]          i-cpoint.adb
+   [Ada]          s-pack60.adb
+   [Ada]          s-pack38.adb
+   [Ada]          s-veboop.adb
+   [Ada]          s-valuer.adb
+   [Ada]          s-fatflt.ads
+   [Ada]          i-c.adb
+   [Ada]          s-caun64.adb
+   [Ada]          a-uncdea.ads
+   [Ada]          s-memcom.adb
+   [Ada]          s-pack26.adb
+   [Ada]          s-pack06.adb
+   [Ada]          s-valllu.ads
+   [Ada]          s-memory.adb
+   [Ada]          s-pack18.adb
+   [Ada]          a-nuelfu.ads
+   [Ada]          s-aridou.adb
+   [Ada]          s-boarop.ads
+   [Ada]          s-pack14.adb
+   [Ada]          a-except.adb
+   [Ada]          s-pack52.adb
+   [Ada]          s-pack35.adb
+   [Ada]          s-valrea.adb
+   [Ada]          s-imguns.ads
+   [Ada]          s-bbarat.adb
+   [Ada]          s-stache.adb
+   [Ada]          s-exponr.adb
+   [Ada]          s-pack61.adb
+   [Ada]          s-pack51.adb
+   [Ada]          a-strbou.adb
+   [Ada]          s-vade32.ads
+   [Ada]          s-atacco.adb
+   [Ada]          s-expllu.ads
+   [Ada]          i-cexten.ads
+   [Ada]          s-secsta.adb
+   [Ada]          s-retsta.ads
+   [Ada]          s-valllf.ads
+   [Ada]          s-bitops.adb
+   [Ada]          s-valcha.adb
+   [Ada]          s-vaispe.adb
+   [Ada]          a-stmaco.ads
+   [Ada]          s-addope.adb
+   [Ada]          s-pack54.adb
+   [Ada]          s-pack55.adb
+   [Ada]          s-unstyp.ads
+   [Ada]          s-valflt.ads
+   [Ada]          s-memcop.adb
+   [Ada]          s-widllu.ads
+   [Ada]          s-macres.adb
+   [Ada]          s-exnlli.ads
+   [Ada]          s-pack21.adb
+   [Ada]          s-imgllw.ads
+   [Ada]          s-pack03.adb
+   [Ada]          s-imager.adb
+   [Ada]          g-souinf.ads
+   [Ada]          s-valued.adb
+   [Ada]          s-pack17.adb
+   [Ada]          s-imenu8.ads
+   [Ada]          s-pack07.adb
+   [Ada]          a-elchha.adb
+   [Ada]          s-vafi64.ads
+   [Ada]          s-pack19.adb
+   [Ada]          s-pack59.adb
+   [Ada]          s-carsi8.adb
+   [Ada]          s-pack62.adb
+   [Ada]          s-memmov.adb
+   [Ada]          s-pack46.adb
+   [Ada]          s-memtyp.ads
+   [Ada]          s-powlfl.ads
+   [Ada]          s-imgllu.ads
+   [Ada]          s-imde32.ads
+   [Ada]          a-string.ads
+   [Ada]          s-widthu.adb
+   [Ada]          s-pack43.adb
+   [Ada]          s-valuei.adb
+   [Ada]          s-powllf.ads
+   [Ada]          s-pack10.adb
+   [Ada]          s-carun8.adb
+   [Ada]          s-bbrpat.adb
+   [Ada]          s-imgflt.ads
+   [Ada]          s-caun32.adb
+   [Ada]          text_io.ads
+   [Ada]          s-valuef.adb
+   [Ada]          system.ads
+   [Ada]          s-lidosq.adb
+   [Ada]          s-semiho.adb
+   [Ada]          s-imgwiu.ads
+   [Ada]          interfac.ads
+   [Ada]          s-memset.adb
+   [Ada]          s-pack15.adb
+   [Ada]          s-libsin.adb
+   [Ada]          light_tasking_rp2040_config.ads
+   [Ada]          rp2040_runtime_config.ads
+   [Ada]          i-rp2040.ads
+   [Ada]          i-rp2040-clocks.ads
+   [Ada]          i-rp2040-pll_sys.ads
+   [Ada]          i-rp2040-psm.ads
+   [Ada]          i-rp2040-resets.ads
+   [Ada]          i-rp2040-rosc.ads
+   [Ada]          i-rp2040-sio.ads
+   [Ada]          i-rp2040-timer.ads
+   [Ada]          i-rp2040-watchdog.ads
+   [Ada]          i-rp2040-xosc.ads
+   [Ada]          a-synbar.adb
+   [Ada]          s-taprop.adb
+   [Ada]          s-tposen.adb
+   [Ada]          s-bbthqu.adb
+   [Ada]          s-bbcppr.adb
+   [Ada]          s-bbthre.adb
+   [Ada]          s-bbinte.adb
+   [Ada]          s-bbprot.adb
+   [Ada]          a-extiin.adb
+   [Ada]          a-taster.adb
+   [Ada]          s-tpobmu.adb
+   [Ada]          a-retide.adb
+   [Ada]          a-interr.adb
+   [Ada]          s-bcpcst.adb
+   [Ada]          a-rttiev.adb
+   [Ada]          s-taprob.adb
+   [Ada]          s-rident.ads
+   [Ada]          s-tpobop.adb
+   [Ada]          s-interr.adb
+   [Ada]          s-restri.adb
+   [Ada]          s-reldel.adb
+   [Ada]          s-bbbosu.adb
+   [Ada]          s-tpoben.adb
+   [Ada]          s-bbtiev.adb
+   [Ada]          s-osinte.ads
+   [Ada]          s-taskin.adb
+   [Ada]          s-bcprmu.adb
+   [Ada]          s-bbtime.adb
+   [Ada]          s-bbcpsp.ads
+   [Ada]          s-tarest.adb
+   [Ada]          s-tasinf.adb
+   [Ada]          s-tasres.ads
+   [Ada]          s-musplo.adb
+   [Ada]          s-tasdeb.adb
+   [Ada]          s-taspri.ads
+   [Ada]          a-exetim.adb
+   [Ada]          s-mufalo.adb
+   [Ada]          a-taside.adb
+   [Ada]          s-multip.adb
+   [Ada]          s-tasque.adb
+   [Ada]          s-bbexti.adb
+   [Ada]          a-sytaco.adb
+   [Ada]          a-reatim.adb
+   [Ada]          a-intnam-2.ads
+   [Ada]          adacl_embedded_config.ads
+   [Ada]          adacl-trace_buffer.adb
+   [Ada]          adacl-text_io.adb
+   [Ada]          adacl.ads
+   [Ada]          dummy.adb
+Build Libraries
+   [gprlib]       AdaCL_Embedded.lexch
+   [gprlib]       gnat.lexch
+   [gprlib]       gnarl.lexch
+   [archive]      libAdaCL_Embedded.a
+   [index]        libAdaCL_Embedded.a
+   [archive]      libgnat.a
+   [index]        libgnat.a
+   [archive]      libgnarl.a
+   [index]        libgnarl.a
+Bind
+   [gprbind]      dummy-main.bexch
+   [Ada]          dummy-main.ali
+Link
+   [link]         dummy-main.adb
+Success: Build finished successfully in 10.47 seconds.
+Running GNATprove...
+Phase 1 of 3: generation of data representation information ...
+Phase 2 of 3: generation of Global contracts ...
+Phase 3 of 3: flow analysis and proof ...
+Summary logged in /home/runner/work/alire-crates-ci/alire-crates-ci/test/6689b6de-9fef-4440-9442-f3d5aa744d91/adacl_embedded_7.2.1_8becc526/prove_tasking/obj/validation/gnatprove/gnatprove.out
+SUCCESS: Prove Tasking
+--------------------------------------------------
+=== Test Log Off ===
+Directory: test_log_off
+Updating dependencies...
+Dependencies automatically updated as follows:
+
+   +. adacl_embedded 7.2.1  (new,path=..)
+   +  aunit          26.0.0 (new)
+Building with validation...
+Note: Building adacl_embedded_test_log_off=7.2.1/adacl_embedded_test_log_off.gpr...
+Setup
+   [mkdir]        object directory for project Adacl_Embedded_Test_Log_Off
+   [mkdir]        exec directory for project Adacl_Embedded_Test_Log_Off
+Compile
+   [Ada]          adacl_embedded_test-main.adb
+   [Ada]          adacl_embedded_config.ads
+   [Ada]          adacl-trace_buffer.adb
+   [Ada]          adacl-text_io.adb
+   [Ada]          adacl.ads
+/home/runner/work/alire-crates-ci/alire-crates-ci/test/6689b6de-9fef-4440-9442-f3d5aa744d91/adacl_embedded_7.2.1_8becc526/src/adacl-text_io.ads:61:47: warning: "Side_Effects" is not a valid aspect identifier [enabled by default]
+   [Ada]          adacl_embedded_test.ads
+   [Ada]          adacl_embedded_test-suite.adb
+   [Ada]          adacl-trace_buffer-test.adb
+Build Libraries
+   [gprlib]       AdaCL_Embedded.lexch
+   [archive]      libAdaCL_Embedded.a
+   [index]        libAdaCL_Embedded.a
+Bind
+   [gprbind]      adacl_embedded_test-main.bexch
+   [Ada]          adacl_embedded_test-main.ali
+Link
+   [link]         adacl_embedded_test-main.adb
+Success: Build finished successfully in 0.97 seconds.
+Running tests...
+Note: Building adacl_embedded_test_log_off=7.2.1/adacl_embedded_test_log_off.gpr...
+gprbuild: "adacl_embedded_test-main" up to date
+Success: Build finished successfully in 0.49 seconds.
+
+OK AdaCL.Trace_Buffer : Test_Put_Line_01 : put one line.
+OK AdaCL.Trace_Buffer : Test_Get_Line_01 : get one line.
+OK AdaCL.Trace_Buffer : Test_Buffer_Line_01 : buffer one line.
+OK AdaCL.Trace_Buffer : Test_Buffer_Line_02 : buffer seven lines.
+OK AdaCL.Trace_Buffer : Test_Buffer_Line_03 : async buffer seven lines.
+
+Total Tests Run:   5
+Successful Tests:  5
+Failed Assertions: 0
+Unexpected Errors: 0
+SUCCESS: Test Log Off
+--------------------------------------------------
+=== Test No Tasking ===
+Directory: test_no_tasking
+Updating dependencies...
+Dependencies automatically updated as follows:
+
+   +. adacl_embedded 7.2.1  (new,path=..)
+   +  aunit          26.0.0 (new)
+Building with validation...
+Note: Building adacl_embedded_test_no_tasking=7.2.1/adacl_embedded_test_no_tasking.gpr...
+Setup
+   [mkdir]        object directory for project Adacl_Embedded_Test_No_Tasking
+   [mkdir]        exec directory for project Adacl_Embedded_Test_No_Tasking
+Compile
+   [Ada]          adacl_embedded_test-main.adb
+   [Ada]          adacl_embedded_config.ads
+   [Ada]          adacl-trace_buffer.adb
+   [Ada]          adacl_embedded_test.ads
+   [Ada]          adacl_embedded_test-suite.adb
+   [Ada]          adacl-trace_buffer-test.adb
+Build Libraries
+   [gprlib]       AdaCL_Embedded.lexch
+   [archive]      libAdaCL_Embedded.a
+   [index]        libAdaCL_Embedded.a
+Bind
+   [gprbind]      adacl_embedded_test-main.bexch
+   [Ada]          adacl_embedded_test-main.ali
+Link
+   [link]         adacl_embedded_test-main.adb
+Success: Build finished successfully in 0.99 seconds.
+Running tests...
+Note: Building adacl_embedded_test_no_tasking=7.2.1/adacl_embedded_test_no_tasking.gpr...
+gprbuild: "adacl_embedded_test-main" up to date
+Success: Build finished successfully in 0.49 seconds.
+
+OK AdaCL.Trace_Buffer : Test_Put_Line_01 : put one line.
+OK AdaCL.Trace_Buffer : Test_Get_Line_01 : get one line.
+OK AdaCL.Trace_Buffer : Test_Buffer_Line_01 : buffer one line.
+OK AdaCL.Trace_Buffer : Test_Buffer_Line_02 : buffer seven lines.
+OK AdaCL.Trace_Buffer : Test_Buffer_Line_03 : async buffer seven lines.
+
+Total Tests Run:   5
+Successful Tests:  5
+Failed Assertions: 0
+Unexpected Errors: 0
+SUCCESS: Test No Tasking
+--------------------------------------------------
+=== Test Tasking ===
+Directory: test_tasking
+Updating dependencies...
+Dependencies automatically updated as follows:
+
+   +. adacl_embedded 7.2.1  (new,path=..)
+   +  aunit          26.0.0 (new)
+Building with validation...
+Note: Building adacl_embedded_test_tasking=7.2.1/adacl_embedded_test_tasking.gpr...
+Setup
+   [mkdir]        object directory for project Adacl_Embedded_Test_Tasking
+   [mkdir]        exec directory for project Adacl_Embedded_Test_Tasking
+Compile
+   [Ada]          adacl_embedded_test-main.adb
+   [Ada]          adacl_embedded_config.ads
+   [Ada]          adacl-trace_buffer.adb
+   [Ada]          adacl_embedded_test.ads
+   [Ada]          adacl_embedded_test-suite.adb
+   [Ada]          adacl-trace_buffer-test.adb
+Build Libraries
+   [gprlib]       AdaCL_Embedded.lexch
+   [archive]      libAdaCL_Embedded.a
+   [index]        libAdaCL_Embedded.a
+Bind
+   [gprbind]      adacl_embedded_test-main.bexch
+   [Ada]          adacl_embedded_test-main.ali
+Link
+   [link]         adacl_embedded_test-main.adb
+Success: Build finished successfully in 1.01 seconds.
+Running tests...
+Note: Building adacl_embedded_test_tasking=7.2.1/adacl_embedded_test_tasking.gpr...
+gprbuild: "adacl_embedded_test-main" up to date
+Success: Build finished successfully in 0.49 seconds.
+
+OK AdaCL.Trace_Buffer : Test_Put_Line_01 : put one line.
+OK AdaCL.Trace_Buffer : Test_Get_Line_01 : get one line.
+OK AdaCL.Trace_Buffer : Test_Buffer_Line_01 : buffer one line.
+OK AdaCL.Trace_Buffer : Test_Buffer_Line_02 : buffer seven lines.
+OK AdaCL.Trace_Buffer : Test_Buffer_Line_03 : async buffer seven lines.
+
+Total Tests Run:   5
+Successful Tests:  5
+Failed Assertions: 0
+Unexpected Errors: 0
+SUCCESS: Test Tasking
+--------------------------------------------------
+All steps completed.
+[alr test] Test completed SUCCESSFULLY

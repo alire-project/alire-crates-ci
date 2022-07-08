@@ -1,0 +1,72 @@
+Test ran at 2026-11-05 12:50:53.820016+00:00
+
+SOLUTION:
+gnatcoll_iconv=26.0.0: GNAT Components Collection - iconv binding
+Origin: source archive v26.0.0.zip at https://github.com/AdaCore/gnatcoll-bindings/archive/refs/tags/v26.0.0.zip with hash sha512:dacec6f3f87c5ba7b197db9d3df4f7547019583d0c440c9cd572a458a736e1a59c165df6148848fd574bef16cf69a7fb19b66f46d963addfc343c3ff10bf649b
+Properties:
+   Author: AdaCore
+   Configuration: no modifiers
+   Description: GNAT Components Collection - iconv binding
+   GPR Scenario: GNATCOLL_BUILD_MODE := DEBUG | PROD
+   GPR Scenario: LIBRARY_TYPE := static | relocatable | static-pic
+   case OS is
+      when Linux => GPR External: GNATCOLL_ICONV_OPT := -v
+   License: GPL-3.0-or-later WITH GCC-exception-3.1
+   Maintainer: chouteau@adacore.com
+   Maintainer: sagaert@adacore.com
+   Maintainers_Logins: Fabien-Chouteau
+   Maintainers_Logins: AldanTanneo
+   Name: gnatcoll_iconv
+   Project_File: iconv/gnatcoll_iconv.gpr
+   Tag: gnatcoll
+   Tag: bindings
+   Tag: iconv
+   Tag: i18n
+   Version: 26.0.0
+   Website: https://github.com/adacore/gnatcoll-bindings
+Dependencies (direct):
+   case OS is
+      when Windows => libiconv*
+   gnatcoll~26.0.0
+Dependencies (solution):
+   gnat=16.1.0 (gnat_native)
+   gnatcoll=26.0.0
+   gnatcoll_minimal=26.0.0
+   libiconv=1.19.1
+Dependencies (graph):
+   gnatcoll=26.0.0         --> gnat=16.1.0 (gnat_native) (>=14)
+   gnatcoll=26.0.0         --> gnatcoll_minimal=26.0.0 (~26.0.0)
+   gnatcoll_iconv=26.0.0   --> gnatcoll=26.0.0 (~26.0.0)
+   gnatcoll_iconv=26.0.0   --> libiconv=1.19.1 (*)
+   gnatcoll_minimal=26.0.0 --> gnat=16.1.0 (gnat_native) (>=14)
+
+
+LOG:
+[alr test] Testing gnatcoll_iconv=26.0.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get gnatcoll_iconv=26.0.0
+Note: Deploying gnatcoll_iconv=26.0.0...
+
+#=#=#                                                                          
+##O#-#                                                                         
+
+gnatcoll_iconv=26.0.0 successfully retrieved.
+Dependencies were solved as follows:
+
+   +b gnat             16.1.0 (new,gnat_native,indirect,binary)
+   +  gnatcoll         26.0.0 (new)
+   +  gnatcoll_minimal 26.0.0 (new,indirect)
+   +b libiconv         1.19.1 (new,system package)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building gnatcoll_iconv=26.0.0/iconv/gnatcoll_iconv.gpr...
+"obj\static" created
+"lib\static" created
+gnatcoll-refcount.ads:90:04: warning: in instantiation at gnatcoll-storage_pools-headers.adb:57 [enabled by default]
+gnatcoll-refcount.ads:90:04: warning: possible aliasing problem for type "Header_Access" [enabled by default]
+gnatcoll-refcount.ads:90:04: warning: use -fno-strict-aliasing switch for references [enabled by default]
+gnatcoll-refcount.ads:90:04: warning: or use "pragma No_Strict_Aliasing (Header_Access);" [enabled by default]
+[Ada Compile]     gnatcoll-iconv.adb
+[C Compile]       iconv_support.c
+[Archive]         libgnatcoll_iconv.a
+Success: Build finished successfully in 1.93 seconds.
+Found declared GPR file: iconv/gnatcoll_iconv.gpr
+[alr test] Test completed SUCCESSFULLY

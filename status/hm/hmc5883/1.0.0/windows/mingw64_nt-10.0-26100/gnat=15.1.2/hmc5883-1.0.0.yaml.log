@@ -1,0 +1,80 @@
+Test ran at 2026-07-16 13:13:20.091744+00:00
+
+SOLUTION:
+hmc5883=1.0.0: Driver for HMC5883L magnetic sensor
+Origin: commit acd90287298323b2dbd08a2f0551e2afa1e39cfa from https://github.com/reznikmm/hmc5883.git
+Properties:
+   Author: Max Reznik
+   Build Switches: 
+   Configuration: no modifiers
+   Description: Driver for HMC5883L magnetic sensor
+   License: Apache-2.0 WITH LLVM-exception
+   Maintainer: Max Reznik <reznikmm@gmail.com>
+   Maintainers_Logins: reznikmm
+   Name: hmc5883
+   Project_File: gnat/hmc5883.gpr
+   Tag: sensor
+   Tag: magnetometer
+   Tag: driver
+   Version: 1.0.0
+   Website: https://github.com/reznikmm/hmc5883
+Dependencies (direct):
+   gnat>=11 & <2000
+   hal~0.3.0
+Dependencies (solution):
+   gnat=15.1.2 (gnat_native)
+   hal=0.3.1
+Dependencies (graph):
+   hmc5883=1.0.0 --> gnat=15.1.2 (gnat_native) (>=11 & <2000)
+   hmc5883=1.0.0 --> hal=0.3.1 (~0.3.0)
+
+
+LOG:
+[alr test] Testing hmc5883=1.0.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get hmc5883=1.0.0
+Note: Deploying hmc5883=1.0.0...
+Note: Deploying hal=0.3.1...
+
+hmc5883=1.0.0 successfully retrieved.
+Dependencies were solved as follows:
+
+   +b gnat 15.1.2 (new,gnat_native,binary)
+   +  hal  0.3.1  (new)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building hmc5883=1.0.0/gnat/hmc5883.gpr...
+Setup
+   [mkdir]        object directory for project HAL
+   [mkdir]        library directory for project HAL
+   [mkdir]        object directory for project HMC5883
+   [mkdir]        library directory for project HMC5883
+Compile
+   [Ada]          hal.ads
+   [Ada]          hal-uart.ads
+   [Ada]          hal-touch_panel.ads
+   [Ada]          hal-time.ads
+   [Ada]          hal-spi.ads
+   [Ada]          hal-sdmmc.adb
+   [Ada]          hal-real_time_clock.ads
+   [Ada]          hal-i2c.ads
+   [Ada]          hal-gpio.ads
+   [Ada]          hal-framebuffer.ads
+   [Ada]          hal-flash.ads
+   [Ada]          hal-filesystem.ads
+   [Ada]          hal-dsi.ads
+   [Ada]          hal-block_drivers.ads
+   [Ada]          hal-bitmap.ads
+   [Ada]          hal-audio.ads
+   [Ada]          hmc5883-sensors.adb
+   [Ada]          hmc5883-sensor.adb
+   [Ada]          hmc5883-internal.adb
+   [Ada]          hmc5883.ads
+Build Libraries
+   [gprlib]       hal.lexch
+   [gprlib]       hmc5883.lexch
+   [archive]      libhal.a
+   [index]        libhal.a
+   [archive]      libhmc5883.a
+   [index]        libhmc5883.a
+Success: Build finished successfully in 2.24 seconds.
+Found declared GPR file: gnat/hmc5883.gpr
+[alr test] Test completed SUCCESSFULLY

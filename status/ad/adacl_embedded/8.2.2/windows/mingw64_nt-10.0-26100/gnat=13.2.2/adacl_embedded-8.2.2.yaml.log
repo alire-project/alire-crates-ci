@@ -1,0 +1,151 @@
+Test ran at 2026-11-27 01:01:41.021590+00:00
+
+SOLUTION:
+adacl_embedded=8.2.2: AdaCL bare-metal: Interrupt-safe trace and Text_IO, static buffers
+Origin: source archive adacl_embedded-8.2.2.tgz at https://sourceforge.net/projects/adacl/files/Alire/adacl_embedded-8.2.2.tgz with hashes sha256:f90c3009956d0fd748cf61964d2193bd0130b9e77788b382bd13575e29486779, sha512:9138d0e87366dc4568a2356640f4525ea05d5e9430a863b5c8e8b0ef777558d1b72ea11381d77bc7170f597f6468b54b7c8da0d3672a098843068ce241e9cfac
+Properties:
+   case OS is
+      when Linux => Test run: /bin/bash ci-verify.sh (from ${CRATE_ROOT}/.)
+      when Macos => Test run: /bin/bash ci-verify.sh (from ${CRATE_ROOT}/.)
+      when Windows => Test run: powershell -ExecutionPolicy Bypass -File ci-verify.ps1 (from ${CRATE_ROOT}/.)
+      when others => (empty)
+   Author: Martin Krischik <krischik@users.sourceforge.net>
+   Build Switches: 
+   Config type: Event_Log_Buffer_Length : Integer range 1 .. 1024 default: '200'
+   Config type: Event_Log_Buffer_Size : Integer range 0 .. 1024 default: '0'
+   Config type: Variant : Enum (tasking, no_tasking) default: 'no_tasking'
+   Configuration: no modifiers
+   Description: AdaCL bare-metal: Interrupt-safe trace and Text_IO, static buffers
+   License: GPL-3.0-or-later
+   Long_Description: AdaCL Embedded - Lightweight Embedded Ada Library
+
+AdaCL-Embedded focuses on embedded and real-time programming on the Raspberry Pi and similar platforms.
+
+It favours predictability, minimal runtime overhead, and static data structures. Object-oriented programming, unbounded
+strings, and wide strings are avoided or kept to an absolute minimum.
+
+### Current Features
+
+* **AdaCL.Embedded.Trace** - Interrupt-safe, lightweight tracing facility using a ring buffer.
+* **AdaCL.Embedded.Text_IO** - Extended Ada.Text_IO.
+
+### Configuration Options
+
+* `Variant`
+  * `no_tasking`  - for the lightest runtimes (no protected objects). Also works well with interrupt-driven runtimes.
+  * `tasking`	  - for runtimes with tasking support.
+* `Event_Log_Buffer_Length` - maximum length of each trace line (default: 200, min: 1, max: 1024)
+* `Event_Log_Buffer_Size`   - number of entries in the ring buffer (default: 0, max: 1024, min: 0 (buffer disabled))
+
+A text length of 200 is the standart minimum used in the Ada Standart (i.E. `Ada.Text_IO.Get_Line`, exception messages,
+etc.pp).
+
+Memory needed is approximately `(Event_Log_Buffer_Length + 4) * Event_Log_Buffer_Size` bytes, plus some overhead for the
+buffer management. For example: 1024 buffer size with 200 line lenght is about the maximum size that can be used with
+the static memory of Raspberry Pi Pico. The buffer size can be set to 0 to disable the trace buffer and the related code
+completely.
+
+Source: [SourceForge](https://sourceforge.net/p/adacl/git/ci/master/tree/adacl_embedded/)
+Documentation:	[Overview](https://adacl.sourceforge.net/adacl-embedded/) and
+[GNATdoc](https://adacl-embedded.sourceforge.net/gnatdoc/index.html)
+
+   Maintainer: Martin Krischik <krischik@users.sourceforge.net>
+   Maintainers_Logins: krischik
+   Name: adacl_embedded
+   Notes: # Version 8.2.2:
+
+* Change AdaCL.Serial_IO to propper tagged type to enable inheritance
+* Cleanup test and prove to be more reliable on github
+
+# Version 8.2.1:
+
+* Cleanup build to be more reliable on github
+
+# Version 8.2.0:
+
+* Updated AdaCL.Trace for better wide-string support
+* Added a new line-insert filter to AdaCL.SAR that can insert multiple lines and/or only at the first matched location
+* AdaCL.Serial now generates the macOS serial communication layer on the fly
+
+   Tag: library
+   Tag: embedded
+   Tag: trace
+   Tag: logging
+   Tag: spark
+   Tag: ada2022
+   Version: 8.2.2
+   Website: https://sourceforge.net/projects/adacl/
+Dependencies (direct):
+   adacl^8.2
+Dependencies (solution):
+   adacl=8.2.2
+Dependencies (graph):
+   adacl_embedded=8.2.2 --> adacl=8.2.2 (^8.2)
+
+
+LOG:
+[alr test] Testing adacl_embedded=8.2.2
+Spawning: alr -d -n get adacl_embedded=8.2.2
+Note: Deploying adacl_embedded=8.2.2...
+
+######################################################################## 100.0%
+######################################################################## 100.0%
+######################################################################## 100.0%
+######################################################################## 100.0%curl: (28) Failed to connect to pilotfiber.dl.sourceforge.net:443 after 21026 ms: Could not connect to server
+
+stderr: Command ["curl", "https://sourceforge.net/projects/adacl/files/Alire/adacl_embedded-8.2.2.tgz", "-L", "--progress-bar", "-o", "D:\a\alire-crates-ci\alire-crates-ci\test\eb7abfb8-1c0b-4235-9375-5b6a960cd71a\alr-qeqv.tmp\adacl_embedded-8.2.2.tgz"] exited with code 28
+stderr: Generating Outcome_Failure with message: Command ["curl", "https://sourceforge.net/projects/adacl/files/Alire/adacl_embedded-8.2.2.tgz", "-L", "--progress-bar", "-o", "D:\a\alire-crates-ci\alire-crates-ci\test\eb7abfb8-1c0b-4235-9375-5b6a960cd71a\alr-qeqv.tmp\adacl_embedded-8.2.2.tgz"] exited with code 28
+stderr: Generating Outcome_Failure with call stack:
+stderr: raised AAA.DEBUG.STACK_TRACE.DEBUG_EXCEPTION : aaa-debug.adb:44
+[D:\a\alire-crates-ci\alire-crates-ci\alire_install\bin\alr.exe]
+0x7ff6a6ad2307 Semantic_Versioning.Basic.Restrictions.First_Index at aaa-debug.adb:44
+0x7ff6a688c118 Semantic_Versioning.Basic.Restrictions.First_Index at alire.adb:226
+0x7ff6a688c994 Semantic_Versioning.Basic.Restrictions.First_Index at alire.adb:223
+0x7ff6a61af374 Semantic_Versioning.Basic.Restrictions.First_Index at alire-errors.adb:106
+0x7ff6a61af441 Semantic_Versioning.Basic.Restrictions.First_Index at alire-errors.adb:104
+0x7ff6a63a49b0 Semantic_Versioning.Basic.Restrictions.First_Index at alire-origins-deployers-source_archive.adb:176
+0x7ff6a63a5045 Semantic_Versioning.Basic.Restrictions.First_Index at alire-origins-deployers-source_archive.adb:202
+0x7ff6a63cd885 Semantic_Versioning.Basic.Restrictions.First_Index at alire-origins-deployers.adb:111
+0x7ff6a63cf275 Semantic_Versioning.Basic.Restrictions.First_Index at alire-origins-deployers.adb:170
+0x7ff6a663095e Semantic_Versioning.Basic.Restrictions.First_Index at alire-releases.adb:341
+0x7ff6a666c4ab Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:723
+0x7ff6a666cafa Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:714
+0x7ff6a5de5fe3 Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-get.adb:134
+0x7ff6a5dea1c2 Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-get.adb:380
+0x7ff6a5dea37e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-get.adb:256
+0x7ff6a5e85dea Semantic_Versioning.Basic.Restrictions.First_Index at clic-subcommand-instance.adb:749
+0x7ff6a5e92b0e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands.adb:632
+0x7ff6a5d616a0 Alr.Main at alr-main.adb:13
+0x7ff6a5d65270 Main at b__alr-main.adb:2454
+0x7ff6a5d6133e __tmainCRTStartup at ???
+0x7ff6a5d61144 mainCRTStartup at ???
+[C:\Windows\System32\KERNEL32.DLL]
+0x7ffaec2add35
+[C:\Windows\SYSTEM32\ntdll.dll]
+0x7ffaedeff2ba
+
+File not found - D:\a\alire-crates-ci\alire-crates-ci\test\eb7abfb8-1c0b-4235-9375-5b6a960cd71a\alr-qeqv.tmp\*
+File not found - D:\a\alire-crates-ci\alire-crates-ci\test\eb7abfb8-1c0b-4235-9375-5b6a960cd71a\alr-qeqv.tmp\*
+stderr: ALIRE.CHECKED_ERROR
+stderr: Command ["curl", "https://sourceforge.net/projects/adacl/files/Alire/adacl_embedded-8.2.2.tgz", "-L", "--progress-bar", "-o", "D:\a\alire-crates-ci\alire-crates-ci\test\eb7abfb8-1c0b-4235-9375-5b6a960cd71a\alr-qeqv.tmp\adacl_embedded-8.2.2.tgz"] exited with code 28
+stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:2
+[D:\a\alire-crates-ci\alire-crates-ci\alire_install\bin\alr.exe]
+0x7ff6a688a8da Semantic_Versioning.Basic.Restrictions.First_Index at alire.adb:158
+0x7ff6a6630986 Semantic_Versioning.Basic.Restrictions.First_Index at alire-releases.adb:341
+0x7ff6a666c4ab Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:723
+0x7ff6a666cafa Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:714
+0x7ff6a5de5fe3 Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-get.adb:134
+0x7ff6a5dea1c2 Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-get.adb:380
+0x7ff6a5dea37e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-get.adb:256
+0x7ff6a5e85dea Semantic_Versioning.Basic.Restrictions.First_Index at clic-subcommand-instance.adb:749
+0x7ff6a5e92b0e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands.adb:632
+0x7ff6a5d616a0 Alr.Main at alr-main.adb:13
+0x7ff6a5d65270 Main at b__alr-main.adb:2454
+0x7ff6a5d6133e __tmainCRTStartup at ???
+0x7ff6a5d61144 mainCRTStartup at ???
+[C:\Windows\System32\KERNEL32.DLL]
+0x7ffaec2add35
+[C:\Windows\SYSTEM32\ntdll.dll]
+0x7ffaedeff2ba
+
+ERROR: Command ["curl", "https://sourceforge.net/projects/adacl/files/Alire/adacl_embedded-8.2.2.tgz", "-L", "--progress-bar", "-o", "D:\a\alire-crates-ci\alire-crates-ci\test\eb7abfb8-1c0b-4235-9375-5b6a960cd71a\alr-qeqv.tmp\adacl_embedded-8.2.2.tgz"] exited with code 28

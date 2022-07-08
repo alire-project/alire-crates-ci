@@ -1,0 +1,58 @@
+Test ran at 2025-01-16 13:27:05.540795+00:00
+
+SOLUTION:
+spoon=1.0.1: Use posix_spawn() to spawn processes without forking
+Origin: commit c07167a55d5fa2ebbfa7ff4689959e08128e8a69 from https://github.com/onox/spoon.git
+Available when: (case OS is Linux => True, Macos => True, others => False)
+Properties:
+   Author: onox
+   Build Switches: 
+   Description: Use posix_spawn() to spawn processes without forking
+   License: Apache-2.0
+   Maintainer: onox <denkpadje@gmail.com>
+   Maintainers_Logins: onox
+   Name: spoon
+   Tag: posix
+   Tag: spawn
+   Tag: process
+   Version: 1.0.1
+   Website: https://github.com/onox/spoon
+
+
+LOG:
+Note: Deploying spoon=1.0.1...
+Note: Building spoon/spoon.gpr...
+Setup
+   [mkdir]        object directory for project Spoon
+   [mkdir]        library directory for project Spoon
+Compile
+   [C]            knife.c
+   [Ada]          spoon.adb
+   [Ada]          spoon-api.ads
+   [Ada]          spoon-output.adb
+   [Ada]          spoon-pipes.adb
+In file included from /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/spawn.h:32,
+                 from /Users/runner/work/alire-crates-ci/alire-crates-ci/test/42130863-1060-472b-9be6-b5da6605c4d4/spoon_1.0.1_c07167a5/src/knife.c:17:
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/sys/cdefs.h:567:30: error: missing ')' after "__has_attribute"
+  567 | #if __has_cpp_attribute(clang::unsafe_buffer_usage)
+      |                              ^~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/sys/cdefs.h:567:32: error: missing binary operator before token "unsafe_buffer_usage"
+  567 | #if __has_cpp_attribute(clang::unsafe_buffer_usage)
+      |                                ^~~~~~~~~~~~~~~~~~~
+
+   compilation of knife.c failed
+
+gprbuild: *** compilation phase failed
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/Users/runner/work/alire-crates-ci/alire-crates-ci/test/42130863-1060-472b-9be6-b5da6605c4d4/spoon_1.0.1_c07167a5/spoon.gpr"] exited with code 4
+ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/Users/runner/work/alire-crates-ci/alire-crates-ci/test/42130863-1060-472b-9be6-b5da6605c4d4/spoon_1.0.1_c07167a5/spoon.gpr"] exited with code 4
+stderr: ALIRE.CHECKED_ERROR
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/Users/runner/work/alire-crates-ci/alire-crates-ci/test/42130863-1060-472b-9be6-b5da6605c4d4/spoon_1.0.1_c07167a5/spoon.gpr"] exited with code 4
+stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
+Load address: 0x102fe7000
+Call stack traceback locations:
+0x1038ef415 0x1035c2e83 0x1037d5df9 0x1037d6581 0x103736ac3 0x103734f99 0x103751873 0x10379ddc1 0x10379c81a 0x1037519b8 0x103735349 0x1030469c1 0x103057578 0x10305c01c 0x1030e205c 0x1030ed3b8 0x102fe8605 0x102feb914
+
+
+Warning: spoon=1.0.1 successfully retrieved but its build failed.
+There are no dependencies.
+ERROR: Build ended with errors

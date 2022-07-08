@@ -1,0 +1,248 @@
+Test ran at 2026-10-23 13:13:21.087884+00:00
+
+SOLUTION:
+utilada=2.9.0: Utility Library with streams, processes, logs, serialization, encoders
+Origin: commit bd635f55729b99ca1d2633fb487fe17f935e7d6b from https://gitlab.com/stcarrez/ada-util.git
+Properties:
+   Author: Stephane.Carrez@gmail.com
+   Configuration: no modifiers
+   Description: Utility Library with streams, processes, logs, serialization, encoders
+   Environment: DYNAMO_BUNDLE_PATH=${CRATE_ROOT}/bundles:${DYNAMO_BUNDLE_PATH}
+   GPR Scenario: UTIL_BUILD := distrib | debug | optimize | profile | coverage
+   GPR Scenario: UTIL_HAS_TIME_64 := yes | no
+   GPR Scenario: UTIL_LIBRARY_TYPE := relocatable | static | static-pic
+   GPR Scenario: UTIL_OS := win32 | win64 | linux32 | linux64 | macos64 | netbsd32 | netbsd64 | freebsd32 | freebsd64 | openbsd32 | openbsd64
+   case OS is
+      when Freebsd => (case Word_Size is Bits_32 => GPR External: UTIL_OS := freebsd32, Bits_64 => GPR External: UTIL_OS := freebsd64)
+      when Linux => (case Word_Size is Bits_32 => GPR External: UTIL_OS := linux32, Bits_64 => GPR External: UTIL_OS := linux64)
+      when Macos => GPR External: UTIL_OS := macos64
+      when Openbsd => (case Word_Size is Bits_32 => GPR External: UTIL_OS := openbsd32, Bits_64 => GPR External: UTIL_OS := openbsd64)
+      when Windows => (case Word_Size is Bits_32 => GPR External: UTIL_OS := win32, Bits_64 => GPR External: UTIL_OS := win64)
+   License: Apache-2.0
+   Long_Description: [![Build Status](https://img.shields.io/endpoint?url=https://porion.vacs.fr/porion/api/v1/projects/ada-util/badges/build.json)](https://porion.vacs.fr/porion/projects/view/ada-util/summary)
+[![Test Status](https://img.shields.io/endpoint?url=https://porion.vacs.fr/porion/api/v1/projects/ada-util/badges/tests.json)](https://porion.vacs.fr/porion/projects/view/ada-util/xunits)
+[![Coverage](https://img.shields.io/endpoint?url=https://porion.vacs.fr/porion/api/v1/projects/ada-util/badges/coverage.json)](https://porion.vacs.fr/porion/projects/view/ada-util/summary)
+[![Documentation Status](https://readthedocs.org/projects/ada-util/badge/?version=latest)](https://ada-util.readthedocs.io/en/latest/?badge=latest)
+
+This Ada library contains various utility packages for building
+Ada applications.  This includes:
+
+* A logging framework close to Java log4j framework,
+* Support for INI and property files,
+* A serialization/deserialization framework for XML, JSON, CSV, Forms
+* Ada beans framework,
+* Encoding/decoding framework (Base16, Base32, Base64, SHA, HMAC-SHA, AES-256),
+* A composing stream framework (raw, files, buffers, pipes, sockets, encryption, decryption, LZMA compression, LZMA decompression),
+* Several concurrency tools (reference counters, counters, pools, fifos, arrays),
+* Process creation and pipes,
+* Support for loading shared libraries (on Windows or Unix),
+* HTTP client library on top of CURL or AWS.
+
+# Documentation
+
+* [Ada Utility Library Programmer's Guide](https://ada-util.readthedocs.io/en/latest/) [PDF](https://github.com/stcarrez/ada-util/blob/master/docs/utilada-book.pdf)
+* [IO stream composition and serialization with Ada Utility Library](https://blog.vacs.fr/vacs/blogs/post.html?post=2022/03/05/IO-stream-composition-and-serialization-with-Ada-Utility-Library)
+* [Easy reading and writing files with Ada Utility Library](https://blog.vacs.fr/vacs/blogs/post.html?post=2020/08/09/Easy-reading-and-writing-files-with-Ada-Utility-Library)
+* [Process creation in Java and Ada](https://blog.vacs.fr/vacs/blogs/post.html?post=2012/03/16/Process-creation-in-Java-and-Ada)
+
+
+   Maintainer: Stephane.Carrez@gmail.com
+   Maintainers_Logins: stcarrez
+   Name: utilada
+   Project_File: utilada_conf.gpr
+   Project_File: utilada_core.gpr
+   Project_File: utilada_base.gpr
+   Project_File: utilada_sys.gpr
+   Tag: logging
+   Tag: processes
+   Tag: streams
+   Tag: json
+   Tag: beans
+   Tag: encoders
+   Tag: decoders
+   Version: 2.9.0
+   Website: https://gitlab.com/stcarrez/ada-util
+
+
+LOG:
+[alr test] Testing utilada=2.9.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get utilada=2.9.0
+Note: Deploying utilada=2.9.0...
+
+utilada=2.9.0 successfully retrieved.
+There are no dependencies.
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building utilada=2.9.0/utilada_conf.gpr (1/4)...
+Note: Building utilada=2.9.0/utilada_core.gpr (2/4)...
+"obj\utilada_core\static" created
+"lib\utilada_core\static" created
+[Ada Compile]     util-algorithms.ads
+[Ada Compile]     util-blobs.adb
+[Ada Compile]     util-concurrent-arrays.adb
+[Ada Compile]     util-concurrent-copies.adb
+[Ada Compile]     util-concurrent-counters.adb
+[Ada Compile]     util-concurrent-fifos.adb
+[Ada Compile]     util-concurrent-locks.adb
+[Ada Compile]     util-concurrent-pools.adb
+[Ada Compile]     util-concurrent-sequence_queues.adb
+[Ada Compile]     util-concurrent.ads
+[Ada Compile]     util-executors.adb
+[Ada Compile]     util-listeners-lifecycles.adb
+[Ada Compile]     util-listeners-observers.adb
+[Ada Compile]     util-listeners.ads
+[Ada Compile]     util-locales.adb
+[Ada Compile]     util-named_lists.adb
+[Ada Compile]     util-nullables.ads
+[Ada Compile]     util-refs.adb
+[Ada Compile]     util-stacks.adb
+[Ada Compile]     util-strings-builders-transforms.ads
+[Ada Compile]     util-strings-builders.ads
+[Ada Compile]     util-strings-formats.adb
+[Ada Compile]     util-strings-maps.ads
+[Ada Compile]     util-strings-maps_incensitive.ads
+[Ada Compile]     util-strings-sets.ads
+[Ada Compile]     util-strings-tokenizers.ads
+[Ada Compile]     util-strings-transforms.adb
+[Ada Compile]     util-strings-vectors.ads
+[Ada Compile]     util-strings.adb
+[Ada Compile]     util-texts-builders.adb
+[Ada Compile]     util-texts-formats.adb
+[Ada Compile]     util-texts-tokenizers.adb
+[Ada Compile]     util-texts-transforms.adb
+[Ada Compile]     util-texts.ads
+[Ada Compile]     util.ads
+[Archive]         libutilada_core.a
+Note: Building utilada=2.9.0/utilada_base.gpr (3/4)...
+[Ada Compile]     util-beans-basic-lists.adb
+[Ada Compile]     util-beans-basic-ranges.adb
+[Ada Compile]     util-beans-basic.ads
+[Ada Compile]     util-beans-factory.adb
+[Ada Compile]     util-beans-lists-strings.adb
+[Ada Compile]     util-beans-lists.ads
+[Ada Compile]     util-beans-methods.ads
+[Ada Compile]     util-beans-objects-datasets.adb
+[Ada Compile]     util-beans-objects-enums.adb
+[Ada Compile]     util-beans-objects-hash.adb
+[Ada Compile]     util-beans-objects-iterators.adb
+[Ada Compile]     util-beans-objects-lists.adb
+[Ada Compile]     util-beans-objects-maps.adb
+[Ada Compile]     util-beans-objects-pairs.adb
+[Ada Compile]     util-beans-objects-records.adb
+[Ada Compile]     util-beans-objects-time.adb
+[Ada Compile]     util-beans-objects-to_access.adb
+[Ada Compile]     util-beans-objects-vectors.adb
+[Ada Compile]     util-beans-objects.adb
+[Ada Compile]     util-beans-ranges.ads
+[Ada Compile]     util-beans.ads
+[Ada Compile]     util-commands-consoles-text.adb
+[Ada Compile]     util-commands-consoles.adb
+[Ada Compile]     util-commands-drivers.adb
+[Ada Compile]     util-commands-parsers-gnat_parser.adb
+[Ada Compile]     util-commands-parsers.adb
+[Ada Compile]     util-commands-raw_io.ads
+[Ada Compile]     util-commands-text_io.ads
+[Ada Compile]     util-commands.adb
+[Ada Compile]     util-dates-formats.adb
+[Ada Compile]     util-dates-iso8601.adb
+[Ada Compile]     util-dates-rfc7231.adb
+[Ada Compile]     util-dates-simple_format.adb
+[Ada Compile]     util-dates.adb
+[Ada Compile]     util-events-channels.adb
+[Ada Compile]     util-events-timers.adb
+[Ada Compile]     util-events.adb
+[Ada Compile]     util-files-filters.adb
+[Ada Compile]     util-files-rolling.adb
+[Ada Compile]     util-files-walk.adb
+[Ada Compile]     util-files.adb
+[Ada Compile]     util-log-appenders-consoles.adb
+[Ada Compile]     util-log-appenders-factories.adb
+[Ada Compile]     util-log-appenders-files.adb
+[Ada Compile]     util-log-appenders-formatter.adb
+[Ada Compile]     util-log-appenders-rolling_files.adb
+[Ada Compile]     util-log-appenders.adb
+[Ada Compile]     util-log-formatters-factories.adb
+[Ada Compile]     util-log-formatters.adb
+[Ada Compile]     util-log-locations.adb
+[Ada Compile]     util-log-loggers.adb
+[Ada Compile]     util-log.adb
+[Ada Compile]     util-properties-basic.adb
+[Ada Compile]     util-properties-bundles.adb
+[Ada Compile]     util-properties-discrete.adb
+[Ada Compile]     util-properties.adb
+[Ada Compile]     util-systems-constants.ads
+[Ada Compile]     util-systems-io.adb
+[Ada Compile]     util-systems-os.adb
+[Ada Compile]     util-systems-types.ads
+[Ada Compile]     util-systems.ads
+[Archive]         libutilada_base.a
+Note: Building utilada=2.9.0/utilada_sys.gpr (4/4)...
+"obj\utilada_sys\static" created
+"lib\utilada_sys\static" created
+[Ada Compile]     util-beans-objects-readers.adb
+[Ada Compile]     util-encoders-aes.adb
+[Ada Compile]     util-encoders-base16.adb
+[Ada Compile]     util-encoders-base32.adb
+[Ada Compile]     util-encoders-base64.adb
+[Ada Compile]     util-encoders-ecc.adb
+[Ada Compile]     util-encoders-hmac-hotp.adb
+[Ada Compile]     util-encoders-hmac-sha1.adb
+[Ada Compile]     util-encoders-hmac-sha256.adb
+[Ada Compile]     util-encoders-hmac.ads
+[Ada Compile]     util-encoders-kdf-pbkdf2.adb
+[Ada Compile]     util-encoders-kdf-pbkdf2_hmac_sha256.ads
+[Ada Compile]     util-encoders-kdf.ads
+[Ada Compile]     util-encoders-quoted_printable.adb
+[Ada Compile]     util-encoders-sha1.adb
+[Ada Compile]     util-encoders-sha256.adb
+[Ada Compile]     util-encoders-uri.adb
+[Ada Compile]     util-encoders.adb
+[Ada Compile]     util-http-clients-mockups.adb
+[Ada Compile]     util-http-clients.adb
+[Ada Compile]     util-http-cookies.adb
+[Ada Compile]     util-http-headers.adb
+[Ada Compile]     util-http-mimes.adb
+[Ada Compile]     util-http-mockups.adb
+[Ada Compile]     util-http-parts.adb
+[Ada Compile]     util-http-rest-rest_get_vector.adb
+[Ada Compile]     util-http-rest.adb
+[Ada Compile]     util-http-tools.adb
+[Ada Compile]     util-http.adb
+[Ada Compile]     util-mail.adb
+[Ada Compile]     util-measures.adb
+[Ada Compile]     util-processes-os.adb
+[Ada Compile]     util-processes-tools.adb
+[Ada Compile]     util-processes.adb
+[Ada Compile]     util-properties-form.adb
+[Ada Compile]     util-properties-json.adb
+[Ada Compile]     util-serialize-contexts.adb
+[Ada Compile]     util-serialize-io-csv.adb
+[Ada Compile]     util-serialize-io-form.adb
+[Ada Compile]     util-serialize-io-json.adb
+[Ada Compile]     util-serialize-io.adb
+[Ada Compile]     util-serialize-mappers-record_mapper.adb
+[Ada Compile]     util-serialize-mappers-vector_mapper.adb
+[Ada Compile]     util-serialize-mappers.adb
+[Ada Compile]     util-serialize-tools.adb
+[Ada Compile]     util-serialize.ads
+[Ada Compile]     util-streams-aes.adb
+[Ada Compile]     util-streams-base16.ads
+[Ada Compile]     util-streams-base64.ads
+[Ada Compile]     util-streams-buffered-encoders.adb
+[Ada Compile]     util-streams-buffered-parts.adb
+[Ada Compile]     util-streams-buffered.adb
+[Ada Compile]     util-streams-files.adb
+[Ada Compile]     util-streams-pipes.adb
+[Ada Compile]     util-streams-raw.adb
+[Ada Compile]     util-streams-sockets.adb
+[Ada Compile]     util-streams-texts-tr.ads
+[Ada Compile]     util-streams-texts-wtr.ads
+[Ada Compile]     util-streams-texts.adb
+[Ada Compile]     util-streams.adb
+[Ada Compile]     util-systems-dlls.adb
+[Archive]         libutilada_sys.a
+Success: Build finished successfully in 26.31 seconds.
+Found declared GPR file: utilada_conf.gpr
+Found declared GPR file: utilada_core.gpr
+Found declared GPR file: utilada_base.gpr
+Found declared GPR file: utilada_sys.gpr
+[alr test] Test completed SUCCESSFULLY

@@ -1,0 +1,1604 @@
+Test ran at 2024-02-28 01:14:19.564985+00:00
+
+SOLUTION:
+spawn_glib=23.0.0: A simple library to spawn processes and communicate with them.
+Origin: source archive v23.0.0.tar.gz at https://github.com/AdaCore/spawn/archive/refs/tags/v23.0.0.tar.gz with hash sha512:440f8b8a45b7a322a5715a195f7e37e6f2641af8190166229e89a11ce6ab60511eb058432f4c3ffcdd670ec71b2509d5e23a80ac2e8dd6b7960bc42385bab86e
+Properties:
+   Author: AdaCore
+   Configuration: no modifiers
+   Description: A simple library to spawn processes and communicate with them.
+   GPR Scenario: OS := unix | osx | Windows_NT
+   case OS is
+      when Linux => GPR External: OS := unix
+      when Macos => GPR External: OS := osx
+      when Windows => GPR External: OS := Windows_NT
+   License: Apache-2.0
+   Long_Description: This is Glib integrated implementation of a spawn processes interface.
+   Maintainer: Vadim Godunko <vgodunko@gmail.com>
+   Maintainer: Max Reznik <reznikmm@gmail.com>
+   Maintainers_Logins: godunko
+   Maintainers_Logins: reznikmm
+   Name: spawn_glib
+   Project_File: gnat/spawn_glib.gpr
+   Tag: process
+   Tag: launch
+   Tag: pipe
+   Tag: glib
+   Version: 23.0.0
+   Website: https://github.com/AdaCore/spawn
+Dependencies (direct):
+   gtkada>=23
+Dependencies (solution):
+   gtkada=24.0.0
+   libgtk3=3.24.41
+   make=4.4.0
+   pkg_config=1.8.0
+Dependencies (graph):
+   gtkada=24.0.0     --> libgtk3=3.24.41 (>=3.24.24)
+   gtkada=24.0.0     --> make=4.4.0 (*)             
+   gtkada=24.0.0     --> pkg_config=1.8.0 (*)       
+   spawn_glib=23.0.0 --> gtkada=24.0.0 (>=23)       
+
+
+LOG:
+Note: Deploying spawn_glib=23.0.0...
+#=#=#                                                                         
+##O#-#                                                                        
+##O=#  #                                                                      
+#=#=-#  #                                                                     
+ #=#=-#   #                                                                   
+Note: Deploying libgtk3=3.24.41...
+The system package 'gtk3-devel' is about to be installed.
+This action might require admin privileges and impact your system installation.
+Do you want Alire to install this system package?
+Using default: Yes
+Last metadata expiration check: 0:06:18 ago on Wed Feb 28 01:06:23 2024.
+Dependencies resolved.
+==========================================================================================
+ Package                                   Arch    Version                  Repo      Size
+==========================================================================================
+Installing:
+ gtk3-devel                                x86_64  3.24.41-1.fc38           updates  4.3 M
+Upgrading:
+ glib2                                     x86_64  2.76.6-1.fc38            updates  2.8 M
+Installing dependencies:
+ ModemManager-glib                         x86_64  1.20.6-1.fc38            updates  323 k
+ adwaita-cursor-theme                      noarch  44.0-1.fc38              fedora   633 k
+ adwaita-icon-theme                        noarch  44.0-1.fc38              fedora   1.1 M
+ alsa-lib                                  x86_64  1.2.11-2.fc38            updates  520 k
+ at-spi2-atk                               x86_64  2.48.4-1.fc38            updates   85 k
+ at-spi2-atk-devel                         x86_64  2.48.4-1.fc38            updates  9.7 k
+ at-spi2-core                              x86_64  2.48.4-1.fc38            updates  371 k
+ at-spi2-core-devel                        x86_64  2.48.4-1.fc38            updates  315 k
+ atk                                       x86_64  2.48.4-1.fc38            updates   80 k
+ atk-devel                                 x86_64  2.48.4-1.fc38            updates  435 k
+ avahi-glib                                x86_64  0.8-22.fc38              updates   15 k
+ avahi-libs                                x86_64  0.8-22.fc38              updates   66 k
+ bluez-libs                                x86_64  5.72-1.fc38              updates   85 k
+ brotli                                    x86_64  1.0.9-11.fc38            fedora   316 k
+ brotli-devel                              x86_64  1.0.9-11.fc38            fedora    31 k
+ bzip2-devel                               x86_64  1.0.8-13.fc38            fedora   214 k
+ cairo                                     x86_64  1.17.8-4.fc38            updates  704 k
+ cairo-devel                               x86_64  1.17.8-4.fc38            updates  188 k
+ cairo-gobject                             x86_64  1.17.8-4.fc38            updates   18 k
+ cairo-gobject-devel                       x86_64  1.17.8-4.fc38            updates   11 k
+ cmake-filesystem                          x86_64  3.27.7-1.fc38            updates   19 k
+ colord-libs                               x86_64  1.4.6-4.fc38             updates  232 k
+ cups-libs                                 x86_64  1:2.4.7-5.fc38           updates  267 k
+ dbus-devel                                x86_64  1:1.14.10-1.fc38         updates   40 k
+ dbus-libs                                 x86_64  1:1.14.10-1.fc38         updates  156 k
+ duktape                                   x86_64  2.7.0-2.fc38             fedora   170 k
+ fdk-aac-free                              x86_64  2.0.0-10.fc38            fedora   336 k
+ flac-libs                                 x86_64  1.4.3-1.fc38             updates  263 k
+ fontconfig                                x86_64  2.14.2-2.fc38            updates  295 k
+ fontconfig-devel                          x86_64  2.14.2-2.fc38            updates  163 k
+ fonts-filesystem                          noarch  1:2.0.5-11.fc38          fedora   8.1 k
+ freetype                                  x86_64  2.13.0-2.fc38            fedora   414 k
+ freetype-devel                            x86_64  2.13.0-2.fc38            fedora   945 k
+ fribidi                                   x86_64  1.0.12-3.fc38            fedora    89 k
+ fribidi-devel                             x86_64  1.0.12-3.fc38            fedora    30 k
+ fuse-common                               x86_64  3.14.1-1.fc38            updates  6.9 k
+ fuse3                                     x86_64  3.14.1-1.fc38            updates   55 k
+ fuse3-libs                                x86_64  3.14.1-1.fc38            updates   93 k
+ gdk-pixbuf2                               x86_64  2.42.10-2.fc38           fedora   485 k
+ gdk-pixbuf2-devel                         x86_64  2.42.10-2.fc38           fedora   367 k
+ gdk-pixbuf2-modules                       x86_64  2.42.10-2.fc38           fedora    85 k
+ geoclue2                                  x86_64  2.7.0-1.fc38             updates  156 k
+ gettext                                   x86_64  0.21.1-2.fc38            fedora   1.0 M
+ gettext-envsubst                          x86_64  0.21.1-2.fc38            fedora    36 k
+ gettext-libs                              x86_64  0.21.1-2.fc38            fedora   320 k
+ gettext-runtime                           x86_64  0.21.1-2.fc38            fedora   117 k
+ glib2-devel                               x86_64  2.76.6-1.fc38            updates  586 k
+ google-noto-fonts-common                  noarch  20230201-2.fc38          updates   16 k
+ google-noto-sans-vf-fonts                 noarch  20230201-2.fc38          updates  579 k
+ graphite2                                 x86_64  1.3.14-11.fc38           fedora    95 k
+ graphite2-devel                           x86_64  1.3.14-11.fc38           fedora    20 k
+ gsettings-desktop-schemas                 x86_64  44.0-1.fc38              fedora   733 k
+ gsm                                       x86_64  1.0.22-2.fc38            fedora    35 k
+ gstreamer1                                x86_64  1.22.9-1.fc38            updates  1.4 M
+ gtk-update-icon-cache                     x86_64  3.24.41-1.fc38           updates   34 k
+ gtk3                                      x86_64  3.24.41-1.fc38           updates  5.6 M
+ harfbuzz                                  x86_64  7.1.0-1.fc38             fedora   889 k
+ harfbuzz-devel                            x86_64  7.1.0-1.fc38             fedora   445 k
+ harfbuzz-icu                              x86_64  7.1.0-1.fc38             fedora    16 k
+ hicolor-icon-theme                        noarch  0.17-15.fc38             fedora    66 k
+ hwdata                                    noarch  0.379-1.fc38             updates  1.6 M
+ jbigkit-libs                              x86_64  2.1-25.fc38              fedora    53 k
+ json-glib                                 x86_64  1.6.6-4.fc38             fedora   162 k
+ lame-libs                                 x86_64  3.100-14.fc38            fedora   337 k
+ langpacks-core-font-en                    noarch  3.0-32.fc38              updates  9.6 k
+ lcms2                                     x86_64  2.15-1.fc38              fedora   178 k
+ libX11                                    x86_64  1.8.7-1.fc38             updates  650 k
+ libX11-common                             noarch  1.8.7-1.fc38             updates  176 k
+ libX11-devel                              x86_64  1.8.7-1.fc38             updates  1.0 M
+ libX11-xcb                                x86_64  1.8.7-1.fc38             updates   12 k
+ libXau                                    x86_64  1.0.11-2.fc38            fedora    32 k
+ libXau-devel                              x86_64  1.0.11-2.fc38            fedora    14 k
+ libXcomposite                             x86_64  0.4.5-9.fc38             fedora    23 k
+ libXcomposite-devel                       x86_64  0.4.5-9.fc38             fedora    15 k
+ libXcursor                                x86_64  1.2.1-3.fc38             fedora    30 k
+ libXcursor-devel                          x86_64  1.2.1-3.fc38             fedora    40 k
+ libXdamage                                x86_64  1.1.5-9.fc38             fedora    22 k
+ libXdamage-devel                          x86_64  1.1.5-9.fc38             fedora   9.3 k
+ libXext                                   x86_64  1.3.5-2.fc38             fedora    39 k
+ libXext-devel                             x86_64  1.3.5-2.fc38             fedora    85 k
+ libXfixes                                 x86_64  6.0.0-5.fc38             fedora    19 k
+ libXfixes-devel                           x86_64  6.0.0-5.fc38             fedora    12 k
+ libXft                                    x86_64  2.3.8-2.fc38             updates   72 k
+ libXft-devel                              x86_64  2.3.8-2.fc38             updates   50 k
+ libXi                                     x86_64  1.8.1-1.fc38             updates   40 k
+ libXi-devel                               x86_64  1.8.1-1.fc38             updates  116 k
+ libXinerama                               x86_64  1.1.5-2.fc38             fedora    14 k
+ libXinerama-devel                         x86_64  1.1.5-2.fc38             fedora    13 k
+ libXrandr                                 x86_64  1.5.2-10.fc38            fedora    27 k
+ libXrandr-devel                           x86_64  1.5.2-10.fc38            fedora    19 k
+ libXrender                                x86_64  0.9.11-2.fc38            fedora    27 k
+ libXrender-devel                          x86_64  0.9.11-2.fc38            fedora    19 k
+ libXtst                                   x86_64  1.2.4-2.fc38             fedora    20 k
+ libXtst-devel                             x86_64  1.2.4-2.fc38             fedora    16 k
+ libXxf86vm                                x86_64  1.1.5-2.fc38             fedora    18 k
+ libasyncns                                x86_64  0.8-24.fc38              fedora    30 k
+ libblkid-devel                            x86_64  2.38.1-4.fc38            fedora    16 k
+ libcanberra                               x86_64  0.30-31.fc38             fedora    85 k
+ libcloudproviders                         x86_64  0.3.5-1.fc38             updates   46 k
+ libcloudproviders-devel                   x86_64  0.3.5-1.fc38             updates   49 k
+ libdatrie                                 x86_64  0.2.13-5.fc38            fedora    32 k
+ libdatrie-devel                           x86_64  0.2.13-5.fc38            fedora   149 k
+ libdrm                                    x86_64  2.4.120-1.fc38           updates  157 k
+ libepoxy                                  x86_64  1.5.10-3.fc38            fedora   237 k
+ libepoxy-devel                            x86_64  1.5.10-3.fc38            fedora   133 k
+ libffi-devel                              x86_64  3.4.4-2.fc38             fedora    29 k
+ libglvnd                                  x86_64  1:1.6.0-2.fc38           fedora   134 k
+ libglvnd-core-devel                       x86_64  1:1.6.0-2.fc38           fedora    18 k
+ libglvnd-devel                            x86_64  1:1.6.0-2.fc38           fedora   163 k
+ libglvnd-egl                              x86_64  1:1.6.0-2.fc38           fedora    36 k
+ libglvnd-gles                             x86_64  1:1.6.0-2.fc38           fedora    32 k
+ libglvnd-glx                              x86_64  1:1.6.0-2.fc38           fedora   142 k
+ libglvnd-opengl                           x86_64  1:1.6.0-2.fc38           fedora    43 k
+ libgusb                                   x86_64  0.4.8-1.fc38             updates   65 k
+ libicu                                    x86_64  72.1-2.fc38              fedora    10 M
+ libicu-devel                              x86_64  72.1-2.fc38              fedora   918 k
+ libjpeg-turbo                             x86_64  2.1.4-2.fc38             fedora   183 k
+ libjpeg-turbo-devel                       x86_64  2.1.4-2.fc38             fedora    98 k
+ liblc3                                    x86_64  1.0.4-2.fc38             updates   80 k
+ libldac                                   x86_64  2.0.2.3-12.fc38          fedora    41 k
+ liblerc                                   x86_64  4.0.0-3.fc38             fedora   202 k
+ libmount-devel                            x86_64  2.38.1-4.fc38            fedora    18 k
+ libnotify                                 x86_64  0.8.3-1.fc38             updates   51 k
+ libogg                                    x86_64  2:1.3.5-5.fc38           fedora    33 k
+ libpciaccess                              x86_64  0.16-8.fc38              fedora    26 k
+ libpng                                    x86_64  2:1.6.37-14.fc38         fedora   120 k
+ libpng-devel                              x86_64  2:1.6.37-14.fc38         fedora   291 k
+ libproxy                                  x86_64  0.4.18-6.fc38            fedora    71 k
+ libsbc                                    x86_64  2.0-2.fc38               fedora    47 k
+ libselinux-devel                          x86_64  3.5-1.fc38               fedora   151 k
+ libsepol-devel                            x86_64  3.5-1.fc38               fedora    49 k
+ libsndfile                                x86_64  1.1.0-6.fc38             fedora   214 k
+ libsoup3                                  x86_64  3.4.4-1.fc38             updates  389 k
+ libstemmer                                x86_64  2.2.0-5.fc38             fedora   168 k
+ libtdb                                    x86_64  1.4.8-1.fc38             fedora    51 k
+ libthai                                   x86_64  0.1.29-4.fc38            fedora   213 k
+ libthai-devel                             x86_64  0.1.29-4.fc38            fedora   140 k
+ libtiff                                   x86_64  4.4.0-8.fc38             updates  201 k
+ libtiff-devel                             x86_64  4.4.0-8.fc38             updates  545 k
+ libtracker-sparql                         x86_64  3.5.3-2.fc38             updates  385 k
+ libunwind                                 x86_64  1.6.2-7.fc38             fedora    68 k
+ libusb1                                   x86_64  1.0.26-2.fc38            fedora    74 k
+ libvorbis                                 x86_64  1:1.3.7-7.fc38           fedora   195 k
+ libwayland-client                         x86_64  1.22.0-1.fc38            updates   34 k
+ libwayland-cursor                         x86_64  1.22.0-1.fc38            updates   19 k
+ libwayland-egl                            x86_64  1.22.0-1.fc38            updates   13 k
+ libwayland-server                         x86_64  1.22.0-1.fc38            updates   42 k
+ libwebp                                   x86_64  1.3.2-2.fc38             updates  284 k
+ libxcb                                    x86_64  1.13.1-11.fc38           fedora   231 k
+ libxcb-devel                              x86_64  1.13.1-11.fc38           fedora   1.4 M
+ libxkbcommon-devel                        x86_64  1.5.0-2.fc38             fedora    65 k
+ libxml2-devel                             x86_64  2.10.4-1.fc38            updates  531 k
+ libxshmfence                              x86_64  1.3-12.fc38              fedora    12 k
+ llvm-libs                                 x86_64  16.0.6-3.fc38            updates   27 M
+ lm_sensors-libs                           x86_64  3.6.0-13.fc38            fedora    41 k
+ low-memory-monitor                        x86_64  2.1-7.fc38               fedora    34 k
+ mesa-filesystem                           x86_64  23.1.9-1.fc38            updates   17 k
+ mesa-libEGL                               x86_64  23.1.9-1.fc38            updates  131 k
+ mesa-libGL                                x86_64  23.1.9-1.fc38            updates  173 k
+ mesa-libgbm                               x86_64  23.1.9-1.fc38            updates   44 k
+ mesa-libglapi                             x86_64  23.1.9-1.fc38            updates   53 k
+ mpg123-libs                               x86_64  1.31.3-1.fc38            fedora   340 k
+ opus                                      x86_64  1.3.1-12.fc38            fedora   206 k
+ pango                                     x86_64  1.50.14-1.fc38           fedora   342 k
+ pango-devel                               x86_64  1.50.14-1.fc38           fedora   161 k
+ pcre2-devel                               x86_64  10.42-1.fc38.1           fedora   506 k
+ pcre2-utf16                               x86_64  10.42-1.fc38.1           fedora   214 k
+ pcre2-utf32                               x86_64  10.42-1.fc38.1           fedora   201 k
+ pipewire-jack-audio-connection-kit-libs   x86_64  1.0.3-1.fc38             updates  140 k
+ pipewire-libs                             x86_64  1.0.3-1.fc38             updates  1.9 M
+ pixman                                    x86_64  0.42.2-1.fc38            fedora   285 k
+ pixman-devel                              x86_64  0.42.2-1.fc38            fedora    17 k
+ polkit                                    x86_64  122-3.fc38.1             updates  150 k
+ polkit-libs                               x86_64  122-3.fc38.1             updates   63 k
+ polkit-pkla-compat                        x86_64  0.1-23.fc38              fedora    44 k
+ pulseaudio-libs                           x86_64  16.1-4.fc38              fedora   694 k
+ rtkit                                     x86_64  0.11-58.fc38             fedora    55 k
+ shared-mime-info                          x86_64  2.2-3.fc38               fedora   381 k
+ sound-theme-freedesktop                   noarch  0.8-19.fc38              fedora   383 k
+ sysprof-capture-devel                     x86_64  3.48.0-1.fc38            fedora    58 k
+ wayland-devel                             x86_64  1.22.0-1.fc38            updates  148 k
+ webrtc-audio-processing                   x86_64  0.3.1-10.fc38            fedora   307 k
+ wireplumber                               x86_64  0.4.17-1.fc38            updates   99 k
+ wireplumber-libs                          x86_64  0.4.17-1.fc38            updates  347 k
+ xdg-desktop-portal                        x86_64  1.16.0-3.fc38            fedora   435 k
+ xml-common                                noarch  0.6.3-60.fc38            fedora    31 k
+ xorg-x11-proto-devel                      noarch  2022.2-3.fc38            fedora   299 k
+ xprop                                     x86_64  1.2.5-3.fc38             fedora    35 k
+ xz-devel                                  x86_64  5.4.1-1.fc38             fedora    65 k
+ zlib-devel                                x86_64  1.2.13-3.fc38            fedora    45 k
+Installing weak dependencies:
+ abattis-cantarell-fonts                   noarch  0.301-9.fc38             fedora   270 k
+ adobe-source-code-pro-fonts               noarch  2.042.1.062.1.026-2.fc38 updates  806 k
+ dconf                                     x86_64  0.40.0-8.fc38            fedora   107 k
+ glib-networking                           x86_64  2.76.1-1.fc38            updates  195 k
+ libcanberra-gtk3                          x86_64  0.30-31.fc38             fedora    31 k
+ libproxy-duktape                          x86_64  0.4.18-6.fc38            fedora    17 k
+ mesa-dri-drivers                          x86_64  23.1.9-1.fc38            updates   19 M
+ mesa-va-drivers                           x86_64  23.1.9-1.fc38            updates  3.4 M
+ pipewire                                  x86_64  1.0.3-1.fc38             updates  115 k
+ pipewire-alsa                             x86_64  1.0.3-1.fc38             updates   64 k
+ pipewire-jack-audio-connection-kit        x86_64  1.0.3-1.fc38             updates   16 k
+ pipewire-pulseaudio                       x86_64  1.0.3-1.fc38             updates  198 k
+ tracker                                   x86_64  3.5.3-2.fc38             updates  584 k
+ xdg-desktop-portal-gtk                    x86_64  1.14.1-2.fc38            fedora   146 k
+
+Transaction Summary
+==========================================================================================
+Install  205 Packages
+Upgrade    1 Package
+
+Total download size: 113 M
+Downloading Packages:
+(1/206): abattis-cantarell-fonts-0.301-9.fc38.n 543 kB/s | 270 kB     00:00    
+(2/206): adwaita-cursor-theme-44.0-1.fc38.noarc 1.0 MB/s | 633 kB     00:00    
+(3/206): brotli-1.0.9-11.fc38.x86_64.rpm        1.9 MB/s | 316 kB     00:00    
+(4/206): adwaita-icon-theme-44.0-1.fc38.noarch. 1.5 MB/s | 1.1 MB     00:00    
+(5/206): brotli-devel-1.0.9-11.fc38.x86_64.rpm  366 kB/s |  31 kB     00:00    
+(6/206): bzip2-devel-1.0.8-13.fc38.x86_64.rpm   1.8 MB/s | 214 kB     00:00    
+(7/206): dconf-0.40.0-8.fc38.x86_64.rpm         999 kB/s | 107 kB     00:00    
+(8/206): duktape-2.7.0-2.fc38.x86_64.rpm        1.1 MB/s | 170 kB     00:00    
+(9/206): fonts-filesystem-2.0.5-11.fc38.noarch.  92 kB/s | 8.1 kB     00:00    
+(10/206): fdk-aac-free-2.0.0-10.fc38.x86_64.rpm 1.9 MB/s | 336 kB     00:00    
+(11/206): freetype-2.13.0-2.fc38.x86_64.rpm     3.8 MB/s | 414 kB     00:00    
+(12/206): fribidi-1.0.12-3.fc38.x86_64.rpm      1.2 MB/s |  89 kB     00:00    
+(13/206): fribidi-devel-1.0.12-3.fc38.x86_64.rp 411 kB/s |  30 kB     00:00    
+(14/206): freetype-devel-2.13.0-2.fc38.x86_64.r 6.1 MB/s | 945 kB     00:00    
+(15/206): gdk-pixbuf2-2.42.10-2.fc38.x86_64.rpm 3.5 MB/s | 485 kB     00:00    
+(16/206): gdk-pixbuf2-modules-2.42.10-2.fc38.x8 670 kB/s |  85 kB     00:00    
+(17/206): gdk-pixbuf2-devel-2.42.10-2.fc38.x86_ 2.3 MB/s | 367 kB     00:00    
+(18/206): gettext-envsubst-0.21.1-2.fc38.x86_64 584 kB/s |  36 kB     00:00    
+(19/206): gettext-libs-0.21.1-2.fc38.x86_64.rpm 4.3 MB/s | 320 kB     00:00    
+(20/206): gettext-0.21.1-2.fc38.x86_64.rpm      7.8 MB/s | 1.0 MB     00:00    
+(21/206): graphite2-1.3.14-11.fc38.x86_64.rpm   1.0 MB/s |  95 kB     00:00    
+(22/206): graphite2-devel-1.3.14-11.fc38.x86_64 336 kB/s |  20 kB     00:00    
+(23/206): gettext-runtime-0.21.1-2.fc38.x86_64. 947 kB/s | 117 kB     00:00    
+(24/206): gsettings-desktop-schemas-44.0-1.fc38 4.5 MB/s | 733 kB     00:00    
+(25/206): gsm-1.0.22-2.fc38.x86_64.rpm          212 kB/s |  35 kB     00:00    
+(26/206): harfbuzz-7.1.0-1.fc38.x86_64.rpm      4.6 MB/s | 889 kB     00:00    
+(27/206): harfbuzz-icu-7.1.0-1.fc38.x86_64.rpm  184 kB/s |  16 kB     00:00    
+(28/206): harfbuzz-devel-7.1.0-1.fc38.x86_64.rp 3.6 MB/s | 445 kB     00:00    
+(29/206): hicolor-icon-theme-0.17-15.fc38.noarc 531 kB/s |  66 kB     00:00    
+(30/206): jbigkit-libs-2.1-25.fc38.x86_64.rpm   569 kB/s |  53 kB     00:00    
+(31/206): json-glib-1.6.6-4.fc38.x86_64.rpm     1.9 MB/s | 162 kB     00:00    
+(32/206): lcms2-2.15-1.fc38.x86_64.rpm          1.7 MB/s | 178 kB     00:00    
+(33/206): lame-libs-3.100-14.fc38.x86_64.rpm    1.9 MB/s | 337 kB     00:00    
+(34/206): libXau-devel-1.0.11-2.fc38.x86_64.rpm 175 kB/s |  14 kB     00:00    
+(35/206): libXau-1.0.11-2.fc38.x86_64.rpm       190 kB/s |  32 kB     00:00    
+(36/206): libXcomposite-0.4.5-9.fc38.x86_64.rpm 274 kB/s |  23 kB     00:00    
+(37/206): libXcomposite-devel-0.4.5-9.fc38.x86_ 160 kB/s |  15 kB     00:00    
+(38/206): libXcursor-1.2.1-3.fc38.x86_64.rpm    276 kB/s |  30 kB     00:00    
+(39/206): libXcursor-devel-1.2.1-3.fc38.x86_64. 639 kB/s |  40 kB     00:00    
+(40/206): libXdamage-devel-1.1.5-9.fc38.x86_64. 145 kB/s | 9.3 kB     00:00    
+(41/206): libXdamage-1.1.5-9.fc38.x86_64.rpm    268 kB/s |  22 kB     00:00    
+(42/206): libXext-1.3.5-2.fc38.x86_64.rpm       474 kB/s |  39 kB     00:00    
+(43/206): libXfixes-6.0.0-5.fc38.x86_64.rpm     201 kB/s |  19 kB     00:00    
+(44/206): libXext-devel-1.3.5-2.fc38.x86_64.rpm 735 kB/s |  85 kB     00:00    
+(45/206): libXfixes-devel-6.0.0-5.fc38.x86_64.r 112 kB/s |  12 kB     00:00    
+(46/206): libXinerama-1.1.5-2.fc38.x86_64.rpm   150 kB/s |  14 kB     00:00    
+(47/206): libXinerama-devel-1.1.5-2.fc38.x86_64 161 kB/s |  13 kB     00:00    
+(48/206): libXrandr-1.5.2-10.fc38.x86_64.rpm    266 kB/s |  27 kB     00:00    
+(49/206): libXrender-0.9.11-2.fc38.x86_64.rpm   313 kB/s |  27 kB     00:00    
+(50/206): libXrandr-devel-1.5.2-10.fc38.x86_64. 185 kB/s |  19 kB     00:00    
+(51/206): libXrender-devel-0.9.11-2.fc38.x86_64 207 kB/s |  19 kB     00:00    
+(52/206): libXtst-1.2.4-2.fc38.x86_64.rpm       252 kB/s |  20 kB     00:00    
+(53/206): libXtst-devel-1.2.4-2.fc38.x86_64.rpm 177 kB/s |  16 kB     00:00    
+(54/206): libXxf86vm-1.1.5-2.fc38.x86_64.rpm    204 kB/s |  18 kB     00:00    
+(55/206): libasyncns-0.8-24.fc38.x86_64.rpm     330 kB/s |  30 kB     00:00    
+(56/206): libblkid-devel-2.38.1-4.fc38.x86_64.r 197 kB/s |  16 kB     00:00    
+(57/206): libcanberra-0.30-31.fc38.x86_64.rpm   982 kB/s |  85 kB     00:00    
+(58/206): libcanberra-gtk3-0.30-31.fc38.x86_64. 507 kB/s |  31 kB     00:00    
+(59/206): libdatrie-0.2.13-5.fc38.x86_64.rpm    347 kB/s |  32 kB     00:00    
+(60/206): libdatrie-devel-0.2.13-5.fc38.x86_64. 1.7 MB/s | 149 kB     00:00    
+(61/206): libepoxy-devel-1.5.10-3.fc38.x86_64.r 1.8 MB/s | 133 kB     00:00    
+(62/206): libepoxy-1.5.10-3.fc38.x86_64.rpm     1.9 MB/s | 237 kB     00:00    
+(63/206): libffi-devel-3.4.4-2.fc38.x86_64.rpm  375 kB/s |  29 kB     00:00    
+(64/206): libglvnd-core-devel-1.6.0-2.fc38.x86_ 203 kB/s |  18 kB     00:00    
+(65/206): libglvnd-1.6.0-2.fc38.x86_64.rpm      1.4 MB/s | 134 kB     00:00    
+(66/206): libglvnd-devel-1.6.0-2.fc38.x86_64.rp 1.7 MB/s | 163 kB     00:00    
+(67/206): libglvnd-egl-1.6.0-2.fc38.x86_64.rpm  560 kB/s |  36 kB     00:00    
+(68/206): libglvnd-gles-1.6.0-2.fc38.x86_64.rpm 511 kB/s |  32 kB     00:00    
+(69/206): libglvnd-glx-1.6.0-2.fc38.x86_64.rpm  1.2 MB/s | 142 kB     00:00    
+(70/206): libglvnd-opengl-1.6.0-2.fc38.x86_64.r 376 kB/s |  43 kB     00:00    
+(71/206): libicu-devel-72.1-2.fc38.x86_64.rpm    10 MB/s | 918 kB     00:00    
+(72/206): libjpeg-turbo-2.1.4-2.fc38.x86_64.rpm 1.9 MB/s | 183 kB     00:00    
+(73/206): libjpeg-turbo-devel-2.1.4-2.fc38.x86_ 1.2 MB/s |  98 kB     00:00    
+(74/206): libldac-2.0.2.3-12.fc38.x86_64.rpm    480 kB/s |  41 kB     00:00    
+(75/206): liblerc-4.0.0-3.fc38.x86_64.rpm       2.4 MB/s | 202 kB     00:00    
+(76/206): libmount-devel-2.38.1-4.fc38.x86_64.r 249 kB/s |  18 kB     00:00    
+(77/206): libicu-72.1-2.fc38.x86_64.rpm          25 MB/s |  10 MB     00:00    
+(78/206): libpciaccess-0.16-8.fc38.x86_64.rpm   319 kB/s |  26 kB     00:00    
+(79/206): libogg-1.3.5-5.fc38.x86_64.rpm        262 kB/s |  33 kB     00:00    
+(80/206): libpng-1.6.37-14.fc38.x86_64.rpm      1.3 MB/s | 120 kB     00:00    
+(81/206): libpng-devel-1.6.37-14.fc38.x86_64.rp 3.5 MB/s | 291 kB     00:00    
+(82/206): libproxy-0.4.18-6.fc38.x86_64.rpm     789 kB/s |  71 kB     00:00    
+(83/206): libproxy-duktape-0.4.18-6.fc38.x86_64 216 kB/s |  17 kB     00:00    
+(84/206): libsbc-2.0-2.fc38.x86_64.rpm          594 kB/s |  47 kB     00:00    
+(85/206): libselinux-devel-3.5-1.fc38.x86_64.rp 1.3 MB/s | 151 kB     00:00    
+(86/206): libsepol-devel-3.5-1.fc38.x86_64.rpm  524 kB/s |  49 kB     00:00    
+(87/206): libsndfile-1.1.0-6.fc38.x86_64.rpm    1.9 MB/s | 214 kB     00:00    
+(88/206): libtdb-1.4.8-1.fc38.x86_64.rpm        623 kB/s |  51 kB     00:00    
+(89/206): libstemmer-2.2.0-5.fc38.x86_64.rpm    1.2 MB/s | 168 kB     00:00    
+(90/206): libthai-0.1.29-4.fc38.x86_64.rpm      1.9 MB/s | 213 kB     00:00    
+(91/206): libthai-devel-0.1.29-4.fc38.x86_64.rp 1.5 MB/s | 140 kB     00:00    
+(92/206): libunwind-1.6.2-7.fc38.x86_64.rpm     454 kB/s |  68 kB     00:00    
+(93/206): libusb1-1.0.26-2.fc38.x86_64.rpm      456 kB/s |  74 kB     00:00    
+(94/206): libvorbis-1.3.7-7.fc38.x86_64.rpm     1.2 MB/s | 195 kB     00:00    
+(95/206): libxcb-1.13.1-11.fc38.x86_64.rpm      2.5 MB/s | 231 kB     00:00    
+(96/206): libxcb-devel-1.13.1-11.fc38.x86_64.rp  11 MB/s | 1.4 MB     00:00    
+(97/206): libxkbcommon-devel-1.5.0-2.fc38.x86_6 657 kB/s |  65 kB     00:00    
+(98/206): libxshmfence-1.3-12.fc38.x86_64.rpm   148 kB/s |  12 kB     00:00    
+(99/206): lm_sensors-libs-3.6.0-13.fc38.x86_64. 479 kB/s |  41 kB     00:00    
+(100/206): low-memory-monitor-2.1-7.fc38.x86_64 317 kB/s |  34 kB     00:00    
+(101/206): mpg123-libs-1.31.3-1.fc38.x86_64.rpm 2.7 MB/s | 340 kB     00:00    
+(102/206): opus-1.3.1-12.fc38.x86_64.rpm        2.3 MB/s | 206 kB     00:00    
+(103/206): pango-1.50.14-1.fc38.x86_64.rpm      3.1 MB/s | 342 kB     00:00    
+(104/206): pango-devel-1.50.14-1.fc38.x86_64.rp 936 kB/s | 161 kB     00:00    
+(105/206): pcre2-devel-10.42-1.fc38.1.x86_64.rp 2.9 MB/s | 506 kB     00:00    
+(106/206): pcre2-utf16-10.42-1.fc38.1.x86_64.rp 1.5 MB/s | 214 kB     00:00    
+(107/206): pcre2-utf32-10.42-1.fc38.1.x86_64.rp 2.9 MB/s | 201 kB     00:00    
+(108/206): pixman-0.42.2-1.fc38.x86_64.rpm      2.1 MB/s | 285 kB     00:00    
+(109/206): pixman-devel-0.42.2-1.fc38.x86_64.rp 125 kB/s |  17 kB     00:00    
+(110/206): polkit-pkla-compat-0.1-23.fc38.x86_6 267 kB/s |  44 kB     00:00    
+(111/206): pulseaudio-libs-16.1-4.fc38.x86_64.r 3.9 MB/s | 694 kB     00:00    
+(112/206): rtkit-0.11-58.fc38.x86_64.rpm        288 kB/s |  55 kB     00:00    
+(113/206): shared-mime-info-2.2-3.fc38.x86_64.r 2.0 MB/s | 381 kB     00:00    
+(114/206): sysprof-capture-devel-3.48.0-1.fc38. 642 kB/s |  58 kB     00:00    
+(115/206): sound-theme-freedesktop-0.8-19.fc38. 2.6 MB/s | 383 kB     00:00    
+(116/206): webrtc-audio-processing-0.3.1-10.fc3 3.1 MB/s | 307 kB     00:00    
+(117/206): xdg-desktop-portal-gtk-1.14.1-2.fc38 1.5 MB/s | 146 kB     00:00    
+(118/206): xdg-desktop-portal-1.16.0-3.fc38.x86 3.2 MB/s | 435 kB     00:00    
+(119/206): xml-common-0.6.3-60.fc38.noarch.rpm  365 kB/s |  31 kB     00:00    
+(120/206): xorg-x11-proto-devel-2022.2-3.fc38.n 3.4 MB/s | 299 kB     00:00    
+(121/206): xprop-1.2.5-3.fc38.x86_64.rpm        336 kB/s |  35 kB     00:00    
+(122/206): xz-devel-5.4.1-1.fc38.x86_64.rpm     441 kB/s |  65 kB     00:00    
+(123/206): zlib-devel-1.2.13-3.fc38.x86_64.rpm  373 kB/s |  45 kB     00:00    
+(124/206): alsa-lib-1.2.11-2.fc38.x86_64.rpm    2.7 MB/s | 520 kB     00:00    
+(125/206): adobe-source-code-pro-fonts-2.042.1. 3.3 MB/s | 806 kB     00:00    
+(126/206): at-spi2-atk-2.48.4-1.fc38.x86_64.rpm 4.0 MB/s |  85 kB     00:00    
+(127/206): at-spi2-atk-devel-2.48.4-1.fc38.x86_ 391 kB/s | 9.7 kB     00:00    
+(128/206): at-spi2-core-2.48.4-1.fc38.x86_64.rp  15 MB/s | 371 kB     00:00    
+(129/206): atk-2.48.4-1.fc38.x86_64.rpm         3.4 MB/s |  80 kB     00:00    
+(130/206): ModemManager-glib-1.20.6-1.fc38.x86_ 954 kB/s | 323 kB     00:00    
+(131/206): at-spi2-core-devel-2.48.4-1.fc38.x86 9.5 MB/s | 315 kB     00:00    
+(132/206): avahi-glib-0.8-22.fc38.x86_64.rpm    736 kB/s |  15 kB     00:00    
+(133/206): avahi-libs-0.8-22.fc38.x86_64.rpm    2.6 MB/s |  66 kB     00:00    
+(134/206): bluez-libs-5.72-1.fc38.x86_64.rpm    3.9 MB/s |  85 kB     00:00    
+(135/206): cairo-1.17.8-4.fc38.x86_64.rpm        27 MB/s | 704 kB     00:00    
+(136/206): cairo-devel-1.17.8-4.fc38.x86_64.rpm 8.0 MB/s | 188 kB     00:00    
+(137/206): atk-devel-2.48.4-1.fc38.x86_64.rpm   5.7 MB/s | 435 kB     00:00    
+(138/206): cairo-gobject-1.17.8-4.fc38.x86_64.r 885 kB/s |  18 kB     00:00    
+(139/206): cairo-gobject-devel-1.17.8-4.fc38.x8 506 kB/s |  11 kB     00:00    
+(140/206): colord-libs-1.4.6-4.fc38.x86_64.rpm   10 MB/s | 232 kB     00:00    
+(141/206): cmake-filesystem-3.27.7-1.fc38.x86_6 521 kB/s |  19 kB     00:00    
+(142/206): cups-libs-2.4.7-5.fc38.x86_64.rpm     11 MB/s | 267 kB     00:00    
+(143/206): dbus-devel-1.14.10-1.fc38.x86_64.rpm 1.8 MB/s |  40 kB     00:00    
+(144/206): flac-libs-1.4.3-1.fc38.x86_64.rpm     12 MB/s | 263 kB     00:00    
+(145/206): fontconfig-2.14.2-2.fc38.x86_64.rpm   13 MB/s | 295 kB     00:00    
+(146/206): dbus-libs-1.14.10-1.fc38.x86_64.rpm  4.0 MB/s | 156 kB     00:00    
+(147/206): fontconfig-devel-2.14.2-2.fc38.x86_6 7.5 MB/s | 163 kB     00:00    
+(148/206): fuse-common-3.14.1-1.fc38.x86_64.rpm 333 kB/s | 6.9 kB     00:00    
+(149/206): fuse3-libs-3.14.1-1.fc38.x86_64.rpm  4.3 MB/s |  93 kB     00:00    
+(150/206): fuse3-3.14.1-1.fc38.x86_64.rpm       1.5 MB/s |  55 kB     00:00    
+(151/206): geoclue2-2.7.0-1.fc38.x86_64.rpm     7.1 MB/s | 156 kB     00:00    
+(152/206): glib-networking-2.76.1-1.fc38.x86_64 8.9 MB/s | 195 kB     00:00    
+(153/206): google-noto-fonts-common-20230201-2. 809 kB/s |  16 kB     00:00    
+(154/206): glib2-devel-2.76.6-1.fc38.x86_64.rpm  14 MB/s | 586 kB     00:00    
+(155/206): google-noto-sans-vf-fonts-20230201-2  20 MB/s | 579 kB     00:00    
+(156/206): gstreamer1-1.22.9-1.fc38.x86_64.rpm   29 MB/s | 1.4 MB     00:00    
+(157/206): gtk-update-icon-cache-3.24.41-1.fc38 936 kB/s |  34 kB     00:00    
+(158/206): gtk3-3.24.41-1.fc38.x86_64.rpm        66 MB/s | 5.6 MB     00:00    
+(159/206): gtk3-devel-3.24.41-1.fc38.x86_64.rpm  48 MB/s | 4.3 MB     00:00    
+(160/206): langpacks-core-font-en-3.0-32.fc38.n 317 kB/s | 9.6 kB     00:00    
+(161/206): hwdata-0.379-1.fc38.noarch.rpm        17 MB/s | 1.6 MB     00:00    
+(162/206): libX11-common-1.8.7-1.fc38.noarch.rp 7.9 MB/s | 176 kB     00:00    
+(163/206): libX11-1.8.7-1.fc38.x86_64.rpm        22 MB/s | 650 kB     00:00    
+(164/206): libX11-xcb-1.8.7-1.fc38.x86_64.rpm   558 kB/s |  12 kB     00:00    
+(165/206): libXft-2.3.8-2.fc38.x86_64.rpm       3.3 MB/s |  72 kB     00:00    
+(166/206): libX11-devel-1.8.7-1.fc38.x86_64.rpm  23 MB/s | 1.0 MB     00:00    
+(167/206): libXft-devel-2.3.8-2.fc38.x86_64.rpm 2.0 MB/s |  50 kB     00:00    
+(168/206): libXi-1.8.1-1.fc38.x86_64.rpm        1.8 MB/s |  40 kB     00:00    
+(169/206): libcloudproviders-0.3.5-1.fc38.x86_6 2.1 MB/s |  46 kB     00:00    
+(170/206): libXi-devel-1.8.1-1.fc38.x86_64.rpm  3.1 MB/s | 116 kB     00:00    
+(171/206): libcloudproviders-devel-0.3.5-1.fc38 2.2 MB/s |  49 kB     00:00    
+(172/206): libdrm-2.4.120-1.fc38.x86_64.rpm     6.6 MB/s | 157 kB     00:00    
+(173/206): liblc3-1.0.4-2.fc38.x86_64.rpm       3.7 MB/s |  80 kB     00:00    
+(174/206): libgusb-0.4.8-1.fc38.x86_64.rpm      1.7 MB/s |  65 kB     00:00    
+(175/206): libnotify-0.8.3-1.fc38.x86_64.rpm    2.1 MB/s |  51 kB     00:00    
+(176/206): libsoup3-3.4.4-1.fc38.x86_64.rpm      15 MB/s | 389 kB     00:00    
+(177/206): libtiff-devel-4.4.0-8.fc38.x86_64.rp  19 MB/s | 545 kB     00:00    
+(178/206): libtiff-4.4.0-8.fc38.x86_64.rpm      4.9 MB/s | 201 kB     00:00    
+(179/206): libtracker-sparql-3.5.3-2.fc38.x86_6  13 MB/s | 385 kB     00:00    
+(180/206): libwayland-egl-1.22.0-1.fc38.x86_64. 594 kB/s |  13 kB     00:00    
+(181/206): libwayland-cursor-1.22.0-1.fc38.x86_ 846 kB/s |  19 kB     00:00    
+(182/206): libwayland-client-1.22.0-1.fc38.x86_ 860 kB/s |  34 kB     00:00    
+(183/206): libwayland-server-1.22.0-1.fc38.x86_ 1.8 MB/s |  42 kB     00:00    
+(184/206): libwebp-1.3.2-2.fc38.x86_64.rpm       12 MB/s | 284 kB     00:00    
+(185/206): libxml2-devel-2.10.4-1.fc38.x86_64.r  12 MB/s | 531 kB     00:00    
+(186/206): mesa-filesystem-23.1.9-1.fc38.x86_64 468 kB/s |  17 kB     00:00    
+(187/206): mesa-libEGL-23.1.9-1.fc38.x86_64.rpm 3.4 MB/s | 131 kB     00:00    
+(188/206): mesa-libGL-23.1.9-1.fc38.x86_64.rpm  4.3 MB/s | 173 kB     00:00    
+(189/206): mesa-libgbm-23.1.9-1.fc38.x86_64.rpm 1.2 MB/s |  44 kB     00:00    
+(190/206): mesa-libglapi-23.1.9-1.fc38.x86_64.r 1.4 MB/s |  53 kB     00:00    
+(191/206): mesa-dri-drivers-23.1.9-1.fc38.x86_6  62 MB/s |  19 MB     00:00    
+(192/206): llvm-libs-16.0.6-3.fc38.x86_64.rpm    73 MB/s |  27 MB     00:00    
+(193/206): mesa-va-drivers-23.1.9-1.fc38.x86_64  23 MB/s | 3.4 MB     00:00    
+(194/206): pipewire-1.0.3-1.fc38.x86_64.rpm     1.7 MB/s | 115 kB     00:00    
+(195/206): pipewire-jack-audio-connection-kit-1 755 kB/s |  16 kB     00:00    
+(196/206): pipewire-jack-audio-connection-kit-l 5.8 MB/s | 140 kB     00:00    
+(197/206): pipewire-alsa-1.0.3-1.fc38.x86_64.rp 1.7 MB/s |  64 kB     00:00    
+(198/206): pipewire-pulseaudio-1.0.3-1.fc38.x86 8.1 MB/s | 198 kB     00:00    
+(199/206): polkit-122-3.fc38.1.x86_64.rpm       3.9 MB/s | 150 kB     00:00    
+(200/206): pipewire-libs-1.0.3-1.fc38.x86_64.rp  36 MB/s | 1.9 MB     00:00    
+(201/206): polkit-libs-122-3.fc38.1.x86_64.rpm  2.3 MB/s |  63 kB     00:00    
+(202/206): wireplumber-0.4.17-1.fc38.x86_64.rpm 4.5 MB/s |  99 kB     00:00    
+(203/206): wayland-devel-1.22.0-1.fc38.x86_64.r 5.3 MB/s | 148 kB     00:00    
+(204/206): tracker-3.5.3-2.fc38.x86_64.rpm       14 MB/s | 584 kB     00:00    
+(205/206): wireplumber-libs-0.4.17-1.fc38.x86_6  15 MB/s | 347 kB     00:00    
+(206/206): glib2-2.76.6-1.fc38.x86_64.rpm        30 MB/s | 2.8 MB     00:00    
+--------------------------------------------------------------------------------
+Total                                            16 MB/s | 113 MB     00:07     
+Running transaction check
+Transaction check succeeded.
+Running transaction test
+Transaction test succeeded.
+Running transaction
+  Preparing        :                                                        1/1 
+  Upgrading        : glib2-2.76.6-1.fc38.x86_64                           1/207 
+  Installing       : xorg-x11-proto-devel-2022.2-3.fc38.noarch            2/207 
+  Installing       : dbus-libs-1:1.14.10-1.fc38.x86_64                    3/207 
+  Installing       : zlib-devel-1.2.13-3.fc38.x86_64                      4/207 
+  Installing       : avahi-libs-0.8-22.fc38.x86_64                        5/207 
+  Installing       : json-glib-1.6.6-4.fc38.x86_64                        6/207 
+  Installing       : libglvnd-1:1.6.0-2.fc38.x86_64                       7/207 
+  Installing       : libwayland-client-1.22.0-1.fc38.x86_64               8/207 
+  Installing       : libX11-xcb-1.8.7-1.fc38.x86_64                       9/207 
+  Installing       : libpng-2:1.6.37-14.fc38.x86_64                      10/207 
+  Installing       : libpng-devel-2:1.6.37-14.fc38.x86_64                11/207 
+  Installing       : fonts-filesystem-1:2.0.5-11.fc38.noarch             12/207 
+  Installing       : libwayland-server-1.22.0-1.fc38.x86_64              13/207 
+  Installing       : cmake-filesystem-3.27.7-1.fc38.x86_64               14/207 
+  Installing       : alsa-lib-1.2.11-2.fc38.x86_64                       15/207 
+  Installing       : libxshmfence-1.3-12.fc38.x86_64                     16/207 
+  Installing       : libogg-2:1.3.5-5.fc38.x86_64                        17/207 
+  Installing       : libvorbis-1:1.3.7-7.fc38.x86_64                     18/207 
+  Installing       : libjpeg-turbo-2.1.4-2.fc38.x86_64                   19/207 
+  Installing       : libicu-72.1-2.fc38.x86_64                           20/207 
+  Installing       : libepoxy-1.5.10-3.fc38.x86_64                       21/207 
+  Installing       : fribidi-1.0.12-3.fc38.x86_64                        22/207 
+  Installing       : fribidi-devel-1.0.12-3.fc38.x86_64                  23/207 
+  Installing       : libwayland-cursor-1.22.0-1.fc38.x86_64              24/207 
+  Installing       : shared-mime-info-2.2-3.fc38.x86_64                  25/207 
+  Running scriptlet: shared-mime-info-2.2-3.fc38.x86_64                  25/207 
+  Installing       : gdk-pixbuf2-2.42.10-2.fc38.x86_64                   26/207 
+  Installing       : libcloudproviders-0.3.5-1.fc38.x86_64               27/207 
+  Installing       : polkit-libs-122-3.fc38.1.x86_64                     28/207 
+  Installing       : mesa-filesystem-23.1.9-1.fc38.x86_64                29/207 
+  Installing       : llvm-libs-16.0.6-3.fc38.x86_64                      30/207 
+  Installing       : libwayland-egl-1.22.0-1.fc38.x86_64                 31/207 
+  Installing       : fuse3-libs-3.14.1-1.fc38.x86_64                     32/207 
+  Running scriptlet: xml-common-0.6.3-60.fc38.noarch                     33/207 
+  Installing       : xml-common-0.6.3-60.fc38.noarch                     33/207 
+  Installing       : dbus-devel-1:1.14.10-1.fc38.x86_64                  34/207 
+  Installing       : pixman-0.42.2-1.fc38.x86_64                         35/207 
+  Installing       : pixman-devel-0.42.2-1.fc38.x86_64                   36/207 
+  Installing       : opus-1.3.1-12.fc38.x86_64                           37/207 
+  Installing       : libusb1-1.0.26-2.fc38.x86_64                        38/207 
+  Installing       : libtdb-1.4.8-1.fc38.x86_64                          39/207 
+  Installing       : libproxy-0.4.18-6.fc38.x86_64                       40/207 
+  Installing       : libffi-devel-3.4.4-2.fc38.x86_64                    41/207 
+  Installing       : libdatrie-0.2.13-5.fc38.x86_64                      42/207 
+  Installing       : libthai-0.1.29-4.fc38.x86_64                        43/207 
+  Installing       : libXau-1.0.11-2.fc38.x86_64                         44/207 
+  Installing       : libxcb-1.13.1-11.fc38.x86_64                        45/207 
+  Installing       : graphite2-1.3.14-11.fc38.x86_64                     46/207 
+  Installing       : gettext-libs-0.21.1-2.fc38.x86_64                   47/207 
+  Installing       : duktape-2.7.0-2.fc38.x86_64                         48/207 
+  Running scriptlet: polkit-122-3.fc38.1.x86_64                          49/207 
+  Installing       : polkit-122-3.fc38.1.x86_64                          49/207 
+  Running scriptlet: polkit-122-3.fc38.1.x86_64                          49/207 
+  Installing       : polkit-pkla-compat-0.1-23.fc38.x86_64               50/207 
+  Running scriptlet: rtkit-0.11-58.fc38.x86_64                           51/207 
+  Installing       : rtkit-0.11-58.fc38.x86_64                           51/207 
+  Running scriptlet: rtkit-0.11-58.fc38.x86_64                           51/207 
+Created symlink /etc/systemd/system/graphical.target.wants/rtkit-daemon.service → /usr/lib/systemd/system/rtkit-daemon.service.
+
+  Installing       : libproxy-duktape-0.4.18-6.fc38.x86_64               52/207 
+  Installing       : graphite2-devel-1.3.14-11.fc38.x86_64               53/207 
+  Installing       : libXau-devel-1.0.11-2.fc38.x86_64                   54/207 
+  Installing       : libxcb-devel-1.13.1-11.fc38.x86_64                  55/207 
+  Installing       : libdatrie-devel-0.2.13-5.fc38.x86_64                56/207 
+  Installing       : libthai-devel-0.1.29-4.fc38.x86_64                  57/207 
+  Installing       : wayland-devel-1.22.0-1.fc38.x86_64                  58/207 
+  Installing       : libgusb-0.4.8-1.fc38.x86_64                         59/207 
+  Installing       : libcloudproviders-devel-0.3.5-1.fc38.x86_64         60/207 
+  Installing       : gtk-update-icon-cache-3.24.41-1.fc38.x86_64         61/207 
+  Installing       : libnotify-0.8.3-1.fc38.x86_64                       62/207 
+  Installing       : libicu-devel-72.1-2.fc38.x86_64                     63/207 
+  Installing       : libjpeg-turbo-devel-2.1.4-2.fc38.x86_64             64/207 
+  Installing       : flac-libs-1.4.3-1.fc38.x86_64                       65/207 
+  Installing       : abattis-cantarell-fonts-0.301-9.fc38.noarch         66/207 
+  Installing       : adobe-source-code-pro-fonts-2.042.1.062.1.026-2.    67/207 
+  Installing       : gsettings-desktop-schemas-44.0-1.fc38.x86_64        68/207 
+  Installing       : glib-networking-2.76.1-1.fc38.x86_64                69/207 
+  Installing       : libsoup3-3.4.4-1.fc38.x86_64                        70/207 
+  Installing       : libglvnd-opengl-1:1.6.0-2.fc38.x86_64               71/207 
+  Installing       : avahi-glib-0.8-22.fc38.x86_64                       72/207 
+  Installing       : cups-libs-1:2.4.7-5.fc38.x86_64                     73/207 
+  Installing       : dconf-0.40.0-8.fc38.x86_64                          74/207 
+  Running scriptlet: dconf-0.40.0-8.fc38.x86_64                          74/207 
+  Installing       : low-memory-monitor-2.1-7.fc38.x86_64                75/207 
+  Running scriptlet: low-memory-monitor-2.1-7.fc38.x86_64                75/207 
+  Installing       : ModemManager-glib-1.20.6-1.fc38.x86_64              76/207 
+  Running scriptlet: geoclue2-2.7.0-1.fc38.x86_64                        77/207 
+  Installing       : geoclue2-2.7.0-1.fc38.x86_64                        77/207 
+  Running scriptlet: geoclue2-2.7.0-1.fc38.x86_64                        77/207 
+  Installing       : libwebp-1.3.2-2.fc38.x86_64                         78/207 
+  Installing       : liblc3-1.0.4-2.fc38.x86_64                          79/207 
+  Installing       : libX11-common-1.8.7-1.fc38.noarch                   80/207 
+  Installing       : libX11-1.8.7-1.fc38.x86_64                          81/207 
+  Installing       : libX11-devel-1.8.7-1.fc38.x86_64                    82/207 
+  Installing       : libXext-1.3.5-2.fc38.x86_64                         83/207 
+  Installing       : libXext-devel-1.3.5-2.fc38.x86_64                   84/207 
+  Installing       : libXrender-0.9.11-2.fc38.x86_64                     85/207 
+  Installing       : libXrender-devel-0.9.11-2.fc38.x86_64               86/207 
+  Installing       : libXfixes-6.0.0-5.fc38.x86_64                       87/207 
+  Installing       : libXfixes-devel-6.0.0-5.fc38.x86_64                 88/207 
+  Installing       : libXi-1.8.1-1.fc38.x86_64                           89/207 
+  Installing       : libXi-devel-1.8.1-1.fc38.x86_64                     90/207 
+  Installing       : libXtst-1.2.4-2.fc38.x86_64                         91/207 
+  Installing       : libXcursor-1.2.1-3.fc38.x86_64                      92/207 
+  Installing       : libXdamage-1.1.5-9.fc38.x86_64                      93/207 
+  Installing       : libXrandr-1.5.2-10.fc38.x86_64                      94/207 
+  Installing       : libXinerama-1.1.5-2.fc38.x86_64                     95/207 
+  Installing       : libXcomposite-0.4.5-9.fc38.x86_64                   96/207 
+  Installing       : libXcomposite-devel-0.4.5-9.fc38.x86_64             97/207 
+  Installing       : libXinerama-devel-1.1.5-2.fc38.x86_64               98/207 
+  Installing       : libXrandr-devel-1.5.2-10.fc38.x86_64                99/207 
+  Installing       : libXdamage-devel-1.1.5-9.fc38.x86_64               100/207 
+  Installing       : libXcursor-devel-1.2.1-3.fc38.x86_64               101/207 
+  Installing       : libXtst-devel-1.2.4-2.fc38.x86_64                  102/207 
+  Installing       : libXxf86vm-1.1.5-2.fc38.x86_64                     103/207 
+  Installing       : xprop-1.2.5-3.fc38.x86_64                          104/207 
+  Installing       : at-spi2-core-2.48.4-1.fc38.x86_64                  105/207 
+  Installing       : atk-2.48.4-1.fc38.x86_64                           106/207 
+  Installing       : at-spi2-atk-2.48.4-1.fc38.x86_64                   107/207 
+  Installing       : hwdata-0.379-1.fc38.noarch                         108/207 
+  Installing       : libpciaccess-0.16-8.fc38.x86_64                    109/207 
+  Installing       : libdrm-2.4.120-1.fc38.x86_64                       110/207 
+  Installing       : mesa-va-drivers-23.1.9-1.fc38.x86_64               111/207 
+  Installing       : google-noto-fonts-common-20230201-2.fc38.noarch    112/207 
+  Installing       : google-noto-sans-vf-fonts-20230201-2.fc38.noarch   113/207 
+  Installing       : langpacks-core-font-en-3.0-32.fc38.noarch          114/207 
+  Installing       : cairo-1.17.8-4.fc38.x86_64                         115/207 
+  Installing       : harfbuzz-7.1.0-1.fc38.x86_64                       116/207 
+  Installing       : freetype-2.13.0-2.fc38.x86_64                      117/207 
+  Installing       : fontconfig-2.14.2-2.fc38.x86_64                    118/207 
+  Running scriptlet: fontconfig-2.14.2-2.fc38.x86_64                    118/207 
+  Installing       : cairo-gobject-1.17.8-4.fc38.x86_64                 119/207 
+  Installing       : libXft-2.3.8-2.fc38.x86_64                         120/207 
+  Installing       : pango-1.50.14-1.fc38.x86_64                        121/207 
+  Installing       : harfbuzz-icu-7.1.0-1.fc38.x86_64                   122/207 
+  Installing       : fuse-common-3.14.1-1.fc38.x86_64                   123/207 
+  Installing       : fuse3-3.14.1-1.fc38.x86_64                         124/207 
+  Installing       : bluez-libs-5.72-1.fc38.x86_64                      125/207 
+  Installing       : xz-devel-5.4.1-1.fc38.x86_64                       126/207 
+  Installing       : libxml2-devel-2.10.4-1.fc38.x86_64                 127/207 
+  Installing       : libxkbcommon-devel-1.5.0-2.fc38.x86_64             128/207 
+  Installing       : webrtc-audio-processing-0.3.1-10.fc38.x86_64       129/207 
+  Installing       : sysprof-capture-devel-3.48.0-1.fc38.x86_64         130/207 
+  Installing       : sound-theme-freedesktop-0.8-19.fc38.noarch         131/207 
+  Running scriptlet: sound-theme-freedesktop-0.8-19.fc38.noarch         131/207 
+  Installing       : pcre2-utf32-10.42-1.fc38.1.x86_64                  132/207 
+  Installing       : pcre2-utf16-10.42-1.fc38.1.x86_64                  133/207 
+  Installing       : pcre2-devel-10.42-1.fc38.1.x86_64                  134/207 
+  Installing       : mpg123-libs-1.31.3-1.fc38.x86_64                   135/207 
+  Installing       : lm_sensors-libs-3.6.0-13.fc38.x86_64               136/207 
+  Installing       : mesa-libgbm-23.1.9-1.fc38.x86_64                   137/207 
+  Installing       : libglvnd-egl-1:1.6.0-2.fc38.x86_64                 138/207 
+  Installing       : mesa-libEGL-23.1.9-1.fc38.x86_64                   139/207 
+  Installing       : mesa-libglapi-23.1.9-1.fc38.x86_64                 140/207 
+  Installing       : mesa-dri-drivers-23.1.9-1.fc38.x86_64              141/207 
+  Installing       : libglvnd-glx-1:1.6.0-2.fc38.x86_64                 142/207 
+  Installing       : mesa-libGL-23.1.9-1.fc38.x86_64                    143/207 
+  Installing       : libglvnd-gles-1:1.6.0-2.fc38.x86_64                144/207 
+  Installing       : libunwind-1.6.2-7.fc38.x86_64                      145/207 
+  Installing       : gstreamer1-1.22.9-1.fc38.x86_64                    146/207 
+  Installing       : libstemmer-2.2.0-5.fc38.x86_64                     147/207 
+  Installing       : tracker-3.5.3-2.fc38.x86_64                        148/207 
+  Running scriptlet: tracker-3.5.3-2.fc38.x86_64                        148/207 
+  Installing       : libtracker-sparql-3.5.3-2.fc38.x86_64              149/207 
+  Installing       : libsepol-devel-3.5-1.fc38.x86_64                   150/207 
+  Installing       : libselinux-devel-3.5-1.fc38.x86_64                 151/207 
+  Installing       : libsbc-2.0-2.fc38.x86_64                           152/207 
+  Installing       : liblerc-4.0.0-3.fc38.x86_64                        153/207 
+  Installing       : libldac-2.0.2.3-12.fc38.x86_64                     154/207 
+  Installing       : libglvnd-core-devel-1:1.6.0-2.fc38.x86_64          155/207 
+  Installing       : libglvnd-devel-1:1.6.0-2.fc38.x86_64               156/207 
+  Installing       : libepoxy-devel-1.5.10-3.fc38.x86_64                157/207 
+  Installing       : libblkid-devel-2.38.1-4.fc38.x86_64                158/207 
+  Installing       : libmount-devel-2.38.1-4.fc38.x86_64                159/207 
+  Installing       : glib2-devel-2.76.6-1.fc38.x86_64                   160/207 
+  Installing       : atk-devel-2.48.4-1.fc38.x86_64                     161/207 
+  Installing       : at-spi2-core-devel-2.48.4-1.fc38.x86_64            162/207 
+  Installing       : at-spi2-atk-devel-2.48.4-1.fc38.x86_64             163/207 
+  Installing       : libasyncns-0.8-24.fc38.x86_64                      164/207 
+  Installing       : lcms2-2.15-1.fc38.x86_64                           165/207 
+  Installing       : colord-libs-1.4.6-4.fc38.x86_64                    166/207 
+  Installing       : lame-libs-3.100-14.fc38.x86_64                     167/207 
+  Installing       : jbigkit-libs-2.1-25.fc38.x86_64                    168/207 
+  Installing       : libtiff-4.4.0-8.fc38.x86_64                        169/207 
+  Installing       : gdk-pixbuf2-modules-2.42.10-2.fc38.x86_64          170/207 
+  Installing       : libtiff-devel-4.4.0-8.fc38.x86_64                  171/207 
+  Installing       : gdk-pixbuf2-devel-2.42.10-2.fc38.x86_64            172/207 
+  Installing       : hicolor-icon-theme-0.17-15.fc38.noarch             173/207 
+  Installing       : gsm-1.0.22-2.fc38.x86_64                           174/207 
+  Installing       : libsndfile-1.1.0-6.fc38.x86_64                     175/207 
+  Installing       : pulseaudio-libs-16.1-4.fc38.x86_64                 176/207 
+  Installing       : libcanberra-0.30-31.fc38.x86_64                    177/207 
+  Running scriptlet: libcanberra-0.30-31.fc38.x86_64                    177/207 
+  Installing       : gettext-envsubst-0.21.1-2.fc38.x86_64              178/207 
+  Installing       : gettext-runtime-0.21.1-2.fc38.x86_64               179/207 
+  Installing       : gettext-0.21.1-2.fc38.x86_64                       180/207 
+  Installing       : fdk-aac-free-2.0.0-10.fc38.x86_64                  181/207 
+  Installing       : wireplumber-0.4.17-1.fc38.x86_64                   182/207 
+  Installing       : wireplumber-libs-0.4.17-1.fc38.x86_64              183/207 
+  Installing       : pipewire-libs-1.0.3-1.fc38.x86_64                  184/207 
+  Running scriptlet: pipewire-1.0.3-1.fc38.x86_64                       185/207 
+  Installing       : pipewire-1.0.3-1.fc38.x86_64                       185/207 
+  Running scriptlet: pipewire-1.0.3-1.fc38.x86_64                       185/207 
+Created symlink /etc/systemd/user/sockets.target.wants/pipewire.socket → /usr/lib/systemd/user/pipewire.socket.
+
+  Installing       : xdg-desktop-portal-1.16.0-3.fc38.x86_64            186/207 
+  Running scriptlet: xdg-desktop-portal-1.16.0-3.fc38.x86_64            186/207 
+  Installing       : pipewire-jack-audio-connection-kit-libs-1.0.3-1.   187/207 
+  Installing       : bzip2-devel-1.0.8-13.fc38.x86_64                   188/207 
+  Installing       : brotli-1.0.9-11.fc38.x86_64                        189/207 
+  Installing       : brotli-devel-1.0.9-11.fc38.x86_64                  190/207 
+  Installing       : harfbuzz-devel-7.1.0-1.fc38.x86_64                 191/207 
+  Installing       : freetype-devel-2.13.0-2.fc38.x86_64                192/207 
+  Installing       : fontconfig-devel-2.14.2-2.fc38.x86_64              193/207 
+  Installing       : cairo-devel-1.17.8-4.fc38.x86_64                   194/207 
+  Installing       : cairo-gobject-devel-1.17.8-4.fc38.x86_64           195/207 
+  Installing       : libXft-devel-2.3.8-2.fc38.x86_64                   196/207 
+  Installing       : pango-devel-1.50.14-1.fc38.x86_64                  197/207 
+  Installing       : adwaita-cursor-theme-44.0-1.fc38.noarch            198/207 
+  Installing       : adwaita-icon-theme-44.0-1.fc38.noarch              199/207 
+  Installing       : libcanberra-gtk3-0.30-31.fc38.x86_64               200/207 
+  Installing       : xdg-desktop-portal-gtk-1.14.1-2.fc38.x86_64        201/207 
+  Running scriptlet: xdg-desktop-portal-gtk-1.14.1-2.fc38.x86_64        201/207 
+  Installing       : gtk3-3.24.41-1.fc38.x86_64                         202/207 
+  Installing       : gtk3-devel-3.24.41-1.fc38.x86_64                   203/207 
+  Installing       : pipewire-jack-audio-connection-kit-1.0.3-1.fc38.   204/207 
+  Installing       : pipewire-alsa-1.0.3-1.fc38.x86_64                  205/207 
+  Installing       : pipewire-pulseaudio-1.0.3-1.fc38.x86_64            206/207 
+  Running scriptlet: pipewire-pulseaudio-1.0.3-1.fc38.x86_64            206/207 
+Created symlink /etc/systemd/user/sockets.target.wants/pipewire-pulse.socket → /usr/lib/systemd/user/pipewire-pulse.socket.
+
+  Cleanup          : glib2-2.76.3-1.fc38.x86_64                         207/207 
+  Running scriptlet: dconf-0.40.0-8.fc38.x86_64                         207/207 
+  Running scriptlet: fontconfig-2.14.2-2.fc38.x86_64                    207/207 
+  Running scriptlet: wireplumber-0.4.17-1.fc38.x86_64                   207/207 
+Created symlink /etc/systemd/user/pipewire-session-manager.service → /usr/lib/systemd/user/wireplumber.service.
+Created symlink /etc/systemd/user/pipewire.service.wants/wireplumber.service → /usr/lib/systemd/user/wireplumber.service.
+
+  Running scriptlet: glib2-2.76.3-1.fc38.x86_64                         207/207 
+  Verifying        : abattis-cantarell-fonts-0.301-9.fc38.noarch          1/207 
+  Verifying        : adwaita-cursor-theme-44.0-1.fc38.noarch              2/207 
+  Verifying        : adwaita-icon-theme-44.0-1.fc38.noarch                3/207 
+  Verifying        : brotli-1.0.9-11.fc38.x86_64                          4/207 
+  Verifying        : brotli-devel-1.0.9-11.fc38.x86_64                    5/207 
+  Verifying        : bzip2-devel-1.0.8-13.fc38.x86_64                     6/207 
+  Verifying        : dconf-0.40.0-8.fc38.x86_64                           7/207 
+  Verifying        : duktape-2.7.0-2.fc38.x86_64                          8/207 
+  Verifying        : fdk-aac-free-2.0.0-10.fc38.x86_64                    9/207 
+  Verifying        : fonts-filesystem-1:2.0.5-11.fc38.noarch             10/207 
+  Verifying        : freetype-2.13.0-2.fc38.x86_64                       11/207 
+  Verifying        : freetype-devel-2.13.0-2.fc38.x86_64                 12/207 
+  Verifying        : fribidi-1.0.12-3.fc38.x86_64                        13/207 
+  Verifying        : fribidi-devel-1.0.12-3.fc38.x86_64                  14/207 
+  Verifying        : gdk-pixbuf2-2.42.10-2.fc38.x86_64                   15/207 
+  Verifying        : gdk-pixbuf2-devel-2.42.10-2.fc38.x86_64             16/207 
+  Verifying        : gdk-pixbuf2-modules-2.42.10-2.fc38.x86_64           17/207 
+  Verifying        : gettext-0.21.1-2.fc38.x86_64                        18/207 
+  Verifying        : gettext-envsubst-0.21.1-2.fc38.x86_64               19/207 
+  Verifying        : gettext-libs-0.21.1-2.fc38.x86_64                   20/207 
+  Verifying        : gettext-runtime-0.21.1-2.fc38.x86_64                21/207 
+  Verifying        : graphite2-1.3.14-11.fc38.x86_64                     22/207 
+  Verifying        : graphite2-devel-1.3.14-11.fc38.x86_64               23/207 
+  Verifying        : gsettings-desktop-schemas-44.0-1.fc38.x86_64        24/207 
+  Verifying        : gsm-1.0.22-2.fc38.x86_64                            25/207 
+  Verifying        : harfbuzz-7.1.0-1.fc38.x86_64                        26/207 
+  Verifying        : harfbuzz-devel-7.1.0-1.fc38.x86_64                  27/207 
+  Verifying        : harfbuzz-icu-7.1.0-1.fc38.x86_64                    28/207 
+  Verifying        : hicolor-icon-theme-0.17-15.fc38.noarch              29/207 
+  Verifying        : jbigkit-libs-2.1-25.fc38.x86_64                     30/207 
+  Verifying        : json-glib-1.6.6-4.fc38.x86_64                       31/207 
+  Verifying        : lame-libs-3.100-14.fc38.x86_64                      32/207 
+  Verifying        : lcms2-2.15-1.fc38.x86_64                            33/207 
+  Verifying        : libXau-1.0.11-2.fc38.x86_64                         34/207 
+  Verifying        : libXau-devel-1.0.11-2.fc38.x86_64                   35/207 
+  Verifying        : libXcomposite-0.4.5-9.fc38.x86_64                   36/207 
+  Verifying        : libXcomposite-devel-0.4.5-9.fc38.x86_64             37/207 
+  Verifying        : libXcursor-1.2.1-3.fc38.x86_64                      38/207 
+  Verifying        : libXcursor-devel-1.2.1-3.fc38.x86_64                39/207 
+  Verifying        : libXdamage-1.1.5-9.fc38.x86_64                      40/207 
+  Verifying        : libXdamage-devel-1.1.5-9.fc38.x86_64                41/207 
+  Verifying        : libXext-1.3.5-2.fc38.x86_64                         42/207 
+  Verifying        : libXext-devel-1.3.5-2.fc38.x86_64                   43/207 
+  Verifying        : libXfixes-6.0.0-5.fc38.x86_64                       44/207 
+  Verifying        : libXfixes-devel-6.0.0-5.fc38.x86_64                 45/207 
+  Verifying        : libXinerama-1.1.5-2.fc38.x86_64                     46/207 
+  Verifying        : libXinerama-devel-1.1.5-2.fc38.x86_64               47/207 
+  Verifying        : libXrandr-1.5.2-10.fc38.x86_64                      48/207 
+  Verifying        : libXrandr-devel-1.5.2-10.fc38.x86_64                49/207 
+  Verifying        : libXrender-0.9.11-2.fc38.x86_64                     50/207 
+  Verifying        : libXrender-devel-0.9.11-2.fc38.x86_64               51/207 
+  Verifying        : libXtst-1.2.4-2.fc38.x86_64                         52/207 
+  Verifying        : libXtst-devel-1.2.4-2.fc38.x86_64                   53/207 
+  Verifying        : libXxf86vm-1.1.5-2.fc38.x86_64                      54/207 
+  Verifying        : libasyncns-0.8-24.fc38.x86_64                       55/207 
+  Verifying        : libblkid-devel-2.38.1-4.fc38.x86_64                 56/207 
+  Verifying        : libcanberra-0.30-31.fc38.x86_64                     57/207 
+  Verifying        : libcanberra-gtk3-0.30-31.fc38.x86_64                58/207 
+  Verifying        : libdatrie-0.2.13-5.fc38.x86_64                      59/207 
+  Verifying        : libdatrie-devel-0.2.13-5.fc38.x86_64                60/207 
+  Verifying        : libepoxy-1.5.10-3.fc38.x86_64                       61/207 
+  Verifying        : libepoxy-devel-1.5.10-3.fc38.x86_64                 62/207 
+  Verifying        : libffi-devel-3.4.4-2.fc38.x86_64                    63/207 
+  Verifying        : libglvnd-1:1.6.0-2.fc38.x86_64                      64/207 
+  Verifying        : libglvnd-core-devel-1:1.6.0-2.fc38.x86_64           65/207 
+  Verifying        : libglvnd-devel-1:1.6.0-2.fc38.x86_64                66/207 
+  Verifying        : libglvnd-egl-1:1.6.0-2.fc38.x86_64                  67/207 
+  Verifying        : libglvnd-gles-1:1.6.0-2.fc38.x86_64                 68/207 
+  Verifying        : libglvnd-glx-1:1.6.0-2.fc38.x86_64                  69/207 
+  Verifying        : libglvnd-opengl-1:1.6.0-2.fc38.x86_64               70/207 
+  Verifying        : libicu-72.1-2.fc38.x86_64                           71/207 
+  Verifying        : libicu-devel-72.1-2.fc38.x86_64                     72/207 
+  Verifying        : libjpeg-turbo-2.1.4-2.fc38.x86_64                   73/207 
+  Verifying        : libjpeg-turbo-devel-2.1.4-2.fc38.x86_64             74/207 
+  Verifying        : libldac-2.0.2.3-12.fc38.x86_64                      75/207 
+  Verifying        : liblerc-4.0.0-3.fc38.x86_64                         76/207 
+  Verifying        : libmount-devel-2.38.1-4.fc38.x86_64                 77/207 
+  Verifying        : libogg-2:1.3.5-5.fc38.x86_64                        78/207 
+  Verifying        : libpciaccess-0.16-8.fc38.x86_64                     79/207 
+  Verifying        : libpng-2:1.6.37-14.fc38.x86_64                      80/207 
+  Verifying        : libpng-devel-2:1.6.37-14.fc38.x86_64                81/207 
+  Verifying        : libproxy-0.4.18-6.fc38.x86_64                       82/207 
+  Verifying        : libproxy-duktape-0.4.18-6.fc38.x86_64               83/207 
+  Verifying        : libsbc-2.0-2.fc38.x86_64                            84/207 
+  Verifying        : libselinux-devel-3.5-1.fc38.x86_64                  85/207 
+  Verifying        : libsepol-devel-3.5-1.fc38.x86_64                    86/207 
+  Verifying        : libsndfile-1.1.0-6.fc38.x86_64                      87/207 
+  Verifying        : libstemmer-2.2.0-5.fc38.x86_64                      88/207 
+  Verifying        : libtdb-1.4.8-1.fc38.x86_64                          89/207 
+  Verifying        : libthai-0.1.29-4.fc38.x86_64                        90/207 
+  Verifying        : libthai-devel-0.1.29-4.fc38.x86_64                  91/207 
+  Verifying        : libunwind-1.6.2-7.fc38.x86_64                       92/207 
+  Verifying        : libusb1-1.0.26-2.fc38.x86_64                        93/207 
+  Verifying        : libvorbis-1:1.3.7-7.fc38.x86_64                     94/207 
+  Verifying        : libxcb-1.13.1-11.fc38.x86_64                        95/207 
+  Verifying        : libxcb-devel-1.13.1-11.fc38.x86_64                  96/207 
+  Verifying        : libxkbcommon-devel-1.5.0-2.fc38.x86_64              97/207 
+  Verifying        : libxshmfence-1.3-12.fc38.x86_64                     98/207 
+  Verifying        : lm_sensors-libs-3.6.0-13.fc38.x86_64                99/207 
+  Verifying        : low-memory-monitor-2.1-7.fc38.x86_64               100/207 
+  Verifying        : mpg123-libs-1.31.3-1.fc38.x86_64                   101/207 
+  Verifying        : opus-1.3.1-12.fc38.x86_64                          102/207 
+  Verifying        : pango-1.50.14-1.fc38.x86_64                        103/207 
+  Verifying        : pango-devel-1.50.14-1.fc38.x86_64                  104/207 
+  Verifying        : pcre2-devel-10.42-1.fc38.1.x86_64                  105/207 
+  Verifying        : pcre2-utf16-10.42-1.fc38.1.x86_64                  106/207 
+  Verifying        : pcre2-utf32-10.42-1.fc38.1.x86_64                  107/207 
+  Verifying        : pixman-0.42.2-1.fc38.x86_64                        108/207 
+  Verifying        : pixman-devel-0.42.2-1.fc38.x86_64                  109/207 
+  Verifying        : polkit-pkla-compat-0.1-23.fc38.x86_64              110/207 
+  Verifying        : pulseaudio-libs-16.1-4.fc38.x86_64                 111/207 
+  Verifying        : rtkit-0.11-58.fc38.x86_64                          112/207 
+  Verifying        : shared-mime-info-2.2-3.fc38.x86_64                 113/207 
+  Verifying        : sound-theme-freedesktop-0.8-19.fc38.noarch         114/207 
+  Verifying        : sysprof-capture-devel-3.48.0-1.fc38.x86_64         115/207 
+  Verifying        : webrtc-audio-processing-0.3.1-10.fc38.x86_64       116/207 
+  Verifying        : xdg-desktop-portal-1.16.0-3.fc38.x86_64            117/207 
+  Verifying        : xdg-desktop-portal-gtk-1.14.1-2.fc38.x86_64        118/207 
+  Verifying        : xml-common-0.6.3-60.fc38.noarch                    119/207 
+  Verifying        : xorg-x11-proto-devel-2022.2-3.fc38.noarch          120/207 
+  Verifying        : xprop-1.2.5-3.fc38.x86_64                          121/207 
+  Verifying        : xz-devel-5.4.1-1.fc38.x86_64                       122/207 
+  Verifying        : zlib-devel-1.2.13-3.fc38.x86_64                    123/207 
+  Verifying        : ModemManager-glib-1.20.6-1.fc38.x86_64             124/207 
+  Verifying        : adobe-source-code-pro-fonts-2.042.1.062.1.026-2.   125/207 
+  Verifying        : alsa-lib-1.2.11-2.fc38.x86_64                      126/207 
+  Verifying        : at-spi2-atk-2.48.4-1.fc38.x86_64                   127/207 
+  Verifying        : at-spi2-atk-devel-2.48.4-1.fc38.x86_64             128/207 
+  Verifying        : at-spi2-core-2.48.4-1.fc38.x86_64                  129/207 
+  Verifying        : at-spi2-core-devel-2.48.4-1.fc38.x86_64            130/207 
+  Verifying        : atk-2.48.4-1.fc38.x86_64                           131/207 
+  Verifying        : atk-devel-2.48.4-1.fc38.x86_64                     132/207 
+  Verifying        : avahi-glib-0.8-22.fc38.x86_64                      133/207 
+  Verifying        : avahi-libs-0.8-22.fc38.x86_64                      134/207 
+  Verifying        : bluez-libs-5.72-1.fc38.x86_64                      135/207 
+  Verifying        : cairo-1.17.8-4.fc38.x86_64                         136/207 
+  Verifying        : cairo-devel-1.17.8-4.fc38.x86_64                   137/207 
+  Verifying        : cairo-gobject-1.17.8-4.fc38.x86_64                 138/207 
+  Verifying        : cairo-gobject-devel-1.17.8-4.fc38.x86_64           139/207 
+  Verifying        : cmake-filesystem-3.27.7-1.fc38.x86_64              140/207 
+  Verifying        : colord-libs-1.4.6-4.fc38.x86_64                    141/207 
+  Verifying        : cups-libs-1:2.4.7-5.fc38.x86_64                    142/207 
+  Verifying        : dbus-devel-1:1.14.10-1.fc38.x86_64                 143/207 
+  Verifying        : dbus-libs-1:1.14.10-1.fc38.x86_64                  144/207 
+  Verifying        : flac-libs-1.4.3-1.fc38.x86_64                      145/207 
+  Verifying        : fontconfig-2.14.2-2.fc38.x86_64                    146/207 
+  Verifying        : fontconfig-devel-2.14.2-2.fc38.x86_64              147/207 
+  Verifying        : fuse-common-3.14.1-1.fc38.x86_64                   148/207 
+  Verifying        : fuse3-3.14.1-1.fc38.x86_64                         149/207 
+  Verifying        : fuse3-libs-3.14.1-1.fc38.x86_64                    150/207 
+  Verifying        : geoclue2-2.7.0-1.fc38.x86_64                       151/207 
+  Verifying        : glib-networking-2.76.1-1.fc38.x86_64               152/207 
+  Verifying        : glib2-devel-2.76.6-1.fc38.x86_64                   153/207 
+  Verifying        : google-noto-fonts-common-20230201-2.fc38.noarch    154/207 
+  Verifying        : google-noto-sans-vf-fonts-20230201-2.fc38.noarch   155/207 
+  Verifying        : gstreamer1-1.22.9-1.fc38.x86_64                    156/207 
+  Verifying        : gtk-update-icon-cache-3.24.41-1.fc38.x86_64        157/207 
+  Verifying        : gtk3-3.24.41-1.fc38.x86_64                         158/207 
+  Verifying        : gtk3-devel-3.24.41-1.fc38.x86_64                   159/207 
+  Verifying        : hwdata-0.379-1.fc38.noarch                         160/207 
+  Verifying        : langpacks-core-font-en-3.0-32.fc38.noarch          161/207 
+  Verifying        : libX11-1.8.7-1.fc38.x86_64                         162/207 
+  Verifying        : libX11-common-1.8.7-1.fc38.noarch                  163/207 
+  Verifying        : libX11-devel-1.8.7-1.fc38.x86_64                   164/207 
+  Verifying        : libX11-xcb-1.8.7-1.fc38.x86_64                     165/207 
+  Verifying        : libXft-2.3.8-2.fc38.x86_64                         166/207 
+  Verifying        : libXft-devel-2.3.8-2.fc38.x86_64                   167/207 
+  Verifying        : libXi-1.8.1-1.fc38.x86_64                          168/207 
+  Verifying        : libXi-devel-1.8.1-1.fc38.x86_64                    169/207 
+  Verifying        : libcloudproviders-0.3.5-1.fc38.x86_64              170/207 
+  Verifying        : libcloudproviders-devel-0.3.5-1.fc38.x86_64        171/207 
+  Verifying        : libdrm-2.4.120-1.fc38.x86_64                       172/207 
+  Verifying        : libgusb-0.4.8-1.fc38.x86_64                        173/207 
+  Verifying        : liblc3-1.0.4-2.fc38.x86_64                         174/207 
+  Verifying        : libnotify-0.8.3-1.fc38.x86_64                      175/207 
+  Verifying        : libsoup3-3.4.4-1.fc38.x86_64                       176/207 
+  Verifying        : libtiff-4.4.0-8.fc38.x86_64                        177/207 
+  Verifying        : libtiff-devel-4.4.0-8.fc38.x86_64                  178/207 
+  Verifying        : libtracker-sparql-3.5.3-2.fc38.x86_64              179/207 
+  Verifying        : libwayland-client-1.22.0-1.fc38.x86_64             180/207 
+  Verifying        : libwayland-cursor-1.22.0-1.fc38.x86_64             181/207 
+  Verifying        : libwayland-egl-1.22.0-1.fc38.x86_64                182/207 
+  Verifying        : libwayland-server-1.22.0-1.fc38.x86_64             183/207 
+  Verifying        : libwebp-1.3.2-2.fc38.x86_64                        184/207 
+  Verifying        : libxml2-devel-2.10.4-1.fc38.x86_64                 185/207 
+  Verifying        : llvm-libs-16.0.6-3.fc38.x86_64                     186/207 
+  Verifying        : mesa-dri-drivers-23.1.9-1.fc38.x86_64              187/207 
+  Verifying        : mesa-filesystem-23.1.9-1.fc38.x86_64               188/207 
+  Verifying        : mesa-libEGL-23.1.9-1.fc38.x86_64                   189/207 
+  Verifying        : mesa-libGL-23.1.9-1.fc38.x86_64                    190/207 
+  Verifying        : mesa-libgbm-23.1.9-1.fc38.x86_64                   191/207 
+  Verifying        : mesa-libglapi-23.1.9-1.fc38.x86_64                 192/207 
+  Verifying        : mesa-va-drivers-23.1.9-1.fc38.x86_64               193/207 
+  Verifying        : pipewire-1.0.3-1.fc38.x86_64                       194/207 
+  Verifying        : pipewire-alsa-1.0.3-1.fc38.x86_64                  195/207 
+  Verifying        : pipewire-jack-audio-connection-kit-1.0.3-1.fc38.   196/207 
+  Verifying        : pipewire-jack-audio-connection-kit-libs-1.0.3-1.   197/207 
+  Verifying        : pipewire-libs-1.0.3-1.fc38.x86_64                  198/207 
+  Verifying        : pipewire-pulseaudio-1.0.3-1.fc38.x86_64            199/207 
+  Verifying        : polkit-122-3.fc38.1.x86_64                         200/207 
+  Verifying        : polkit-libs-122-3.fc38.1.x86_64                    201/207 
+  Verifying        : tracker-3.5.3-2.fc38.x86_64                        202/207 
+  Verifying        : wayland-devel-1.22.0-1.fc38.x86_64                 203/207 
+  Verifying        : wireplumber-0.4.17-1.fc38.x86_64                   204/207 
+  Verifying        : wireplumber-libs-0.4.17-1.fc38.x86_64              205/207 
+  Verifying        : glib2-2.76.6-1.fc38.x86_64                         206/207 
+  Verifying        : glib2-2.76.3-1.fc38.x86_64                         207/207 
+
+Upgraded:
+  glib2-2.76.6-1.fc38.x86_64                                                    
+Installed:
+  ModemManager-glib-1.20.6-1.fc38.x86_64                                        
+  abattis-cantarell-fonts-0.301-9.fc38.noarch                                   
+  adobe-source-code-pro-fonts-2.042.1.062.1.026-2.fc38.noarch                   
+  adwaita-cursor-theme-44.0-1.fc38.noarch                                       
+  adwaita-icon-theme-44.0-1.fc38.noarch                                         
+  alsa-lib-1.2.11-2.fc38.x86_64                                                 
+  at-spi2-atk-2.48.4-1.fc38.x86_64                                              
+  at-spi2-atk-devel-2.48.4-1.fc38.x86_64                                        
+  at-spi2-core-2.48.4-1.fc38.x86_64                                             
+  at-spi2-core-devel-2.48.4-1.fc38.x86_64                                       
+  atk-2.48.4-1.fc38.x86_64                                                      
+  atk-devel-2.48.4-1.fc38.x86_64                                                
+  avahi-glib-0.8-22.fc38.x86_64                                                 
+  avahi-libs-0.8-22.fc38.x86_64                                                 
+  bluez-libs-5.72-1.fc38.x86_64                                                 
+  brotli-1.0.9-11.fc38.x86_64                                                   
+  brotli-devel-1.0.9-11.fc38.x86_64                                             
+  bzip2-devel-1.0.8-13.fc38.x86_64                                              
+  cairo-1.17.8-4.fc38.x86_64                                                    
+  cairo-devel-1.17.8-4.fc38.x86_64                                              
+  cairo-gobject-1.17.8-4.fc38.x86_64                                            
+  cairo-gobject-devel-1.17.8-4.fc38.x86_64                                      
+  cmake-filesystem-3.27.7-1.fc38.x86_64                                         
+  colord-libs-1.4.6-4.fc38.x86_64                                               
+  cups-libs-1:2.4.7-5.fc38.x86_64                                               
+  dbus-devel-1:1.14.10-1.fc38.x86_64                                            
+  dbus-libs-1:1.14.10-1.fc38.x86_64                                             
+  dconf-0.40.0-8.fc38.x86_64                                                    
+  duktape-2.7.0-2.fc38.x86_64                                                   
+  fdk-aac-free-2.0.0-10.fc38.x86_64                                             
+  flac-libs-1.4.3-1.fc38.x86_64                                                 
+  fontconfig-2.14.2-2.fc38.x86_64                                               
+  fontconfig-devel-2.14.2-2.fc38.x86_64                                         
+  fonts-filesystem-1:2.0.5-11.fc38.noarch                                       
+  freetype-2.13.0-2.fc38.x86_64                                                 
+  freetype-devel-2.13.0-2.fc38.x86_64                                           
+  fribidi-1.0.12-3.fc38.x86_64                                                  
+  fribidi-devel-1.0.12-3.fc38.x86_64                                            
+  fuse-common-3.14.1-1.fc38.x86_64                                              
+  fuse3-3.14.1-1.fc38.x86_64                                                    
+  fuse3-libs-3.14.1-1.fc38.x86_64                                               
+  gdk-pixbuf2-2.42.10-2.fc38.x86_64                                             
+  gdk-pixbuf2-devel-2.42.10-2.fc38.x86_64                                       
+  gdk-pixbuf2-modules-2.42.10-2.fc38.x86_64                                     
+  geoclue2-2.7.0-1.fc38.x86_64                                                  
+  gettext-0.21.1-2.fc38.x86_64                                                  
+  gettext-envsubst-0.21.1-2.fc38.x86_64                                         
+  gettext-libs-0.21.1-2.fc38.x86_64                                             
+  gettext-runtime-0.21.1-2.fc38.x86_64                                          
+  glib-networking-2.76.1-1.fc38.x86_64                                          
+  glib2-devel-2.76.6-1.fc38.x86_64                                              
+  google-noto-fonts-common-20230201-2.fc38.noarch                               
+  google-noto-sans-vf-fonts-20230201-2.fc38.noarch                              
+  graphite2-1.3.14-11.fc38.x86_64                                               
+  graphite2-devel-1.3.14-11.fc38.x86_64                                         
+  gsettings-desktop-schemas-44.0-1.fc38.x86_64                                  
+  gsm-1.0.22-2.fc38.x86_64                                                      
+  gstreamer1-1.22.9-1.fc38.x86_64                                               
+  gtk-update-icon-cache-3.24.41-1.fc38.x86_64                                   
+  gtk3-3.24.41-1.fc38.x86_64                                                    
+  gtk3-devel-3.24.41-1.fc38.x86_64                                              
+  harfbuzz-7.1.0-1.fc38.x86_64                                                  
+  harfbuzz-devel-7.1.0-1.fc38.x86_64                                            
+  harfbuzz-icu-7.1.0-1.fc38.x86_64                                              
+  hicolor-icon-theme-0.17-15.fc38.noarch                                        
+  hwdata-0.379-1.fc38.noarch                                                    
+  jbigkit-libs-2.1-25.fc38.x86_64                                               
+  json-glib-1.6.6-4.fc38.x86_64                                                 
+  lame-libs-3.100-14.fc38.x86_64                                                
+  langpacks-core-font-en-3.0-32.fc38.noarch                                     
+  lcms2-2.15-1.fc38.x86_64                                                      
+  libX11-1.8.7-1.fc38.x86_64                                                    
+  libX11-common-1.8.7-1.fc38.noarch                                             
+  libX11-devel-1.8.7-1.fc38.x86_64                                              
+  libX11-xcb-1.8.7-1.fc38.x86_64                                                
+  libXau-1.0.11-2.fc38.x86_64                                                   
+  libXau-devel-1.0.11-2.fc38.x86_64                                             
+  libXcomposite-0.4.5-9.fc38.x86_64                                             
+  libXcomposite-devel-0.4.5-9.fc38.x86_64                                       
+  libXcursor-1.2.1-3.fc38.x86_64                                                
+  libXcursor-devel-1.2.1-3.fc38.x86_64                                          
+  libXdamage-1.1.5-9.fc38.x86_64                                                
+  libXdamage-devel-1.1.5-9.fc38.x86_64                                          
+  libXext-1.3.5-2.fc38.x86_64                                                   
+  libXext-devel-1.3.5-2.fc38.x86_64                                             
+  libXfixes-6.0.0-5.fc38.x86_64                                                 
+  libXfixes-devel-6.0.0-5.fc38.x86_64                                           
+  libXft-2.3.8-2.fc38.x86_64                                                    
+  libXft-devel-2.3.8-2.fc38.x86_64                                              
+  libXi-1.8.1-1.fc38.x86_64                                                     
+  libXi-devel-1.8.1-1.fc38.x86_64                                               
+  libXinerama-1.1.5-2.fc38.x86_64                                               
+  libXinerama-devel-1.1.5-2.fc38.x86_64                                         
+  libXrandr-1.5.2-10.fc38.x86_64                                                
+  libXrandr-devel-1.5.2-10.fc38.x86_64                                          
+  libXrender-0.9.11-2.fc38.x86_64                                               
+  libXrender-devel-0.9.11-2.fc38.x86_64                                         
+  libXtst-1.2.4-2.fc38.x86_64                                                   
+  libXtst-devel-1.2.4-2.fc38.x86_64                                             
+  libXxf86vm-1.1.5-2.fc38.x86_64                                                
+  libasyncns-0.8-24.fc38.x86_64                                                 
+  libblkid-devel-2.38.1-4.fc38.x86_64                                           
+  libcanberra-0.30-31.fc38.x86_64                                               
+  libcanberra-gtk3-0.30-31.fc38.x86_64                                          
+  libcloudproviders-0.3.5-1.fc38.x86_64                                         
+  libcloudproviders-devel-0.3.5-1.fc38.x86_64                                   
+  libdatrie-0.2.13-5.fc38.x86_64                                                
+  libdatrie-devel-0.2.13-5.fc38.x86_64                                          
+  libdrm-2.4.120-1.fc38.x86_64                                                  
+  libepoxy-1.5.10-3.fc38.x86_64                                                 
+  libepoxy-devel-1.5.10-3.fc38.x86_64                                           
+  libffi-devel-3.4.4-2.fc38.x86_64                                              
+  libglvnd-1:1.6.0-2.fc38.x86_64                                                
+  libglvnd-core-devel-1:1.6.0-2.fc38.x86_64                                     
+  libglvnd-devel-1:1.6.0-2.fc38.x86_64                                          
+  libglvnd-egl-1:1.6.0-2.fc38.x86_64                                            
+  libglvnd-gles-1:1.6.0-2.fc38.x86_64                                           
+  libglvnd-glx-1:1.6.0-2.fc38.x86_64                                            
+  libglvnd-opengl-1:1.6.0-2.fc38.x86_64                                         
+  libgusb-0.4.8-1.fc38.x86_64                                                   
+  libicu-72.1-2.fc38.x86_64                                                     
+  libicu-devel-72.1-2.fc38.x86_64                                               
+  libjpeg-turbo-2.1.4-2.fc38.x86_64                                             
+  libjpeg-turbo-devel-2.1.4-2.fc38.x86_64                                       
+  liblc3-1.0.4-2.fc38.x86_64                                                    
+  libldac-2.0.2.3-12.fc38.x86_64                                                
+  liblerc-4.0.0-3.fc38.x86_64                                                   
+  libmount-devel-2.38.1-4.fc38.x86_64                                           
+  libnotify-0.8.3-1.fc38.x86_64                                                 
+  libogg-2:1.3.5-5.fc38.x86_64                                                  
+  libpciaccess-0.16-8.fc38.x86_64                                               
+  libpng-2:1.6.37-14.fc38.x86_64                                                
+  libpng-devel-2:1.6.37-14.fc38.x86_64                                          
+  libproxy-0.4.18-6.fc38.x86_64                                                 
+  libproxy-duktape-0.4.18-6.fc38.x86_64                                         
+  libsbc-2.0-2.fc38.x86_64                                                      
+  libselinux-devel-3.5-1.fc38.x86_64                                            
+  libsepol-devel-3.5-1.fc38.x86_64                                              
+  libsndfile-1.1.0-6.fc38.x86_64                                                
+  libsoup3-3.4.4-1.fc38.x86_64                                                  
+  libstemmer-2.2.0-5.fc38.x86_64                                                
+  libtdb-1.4.8-1.fc38.x86_64                                                    
+  libthai-0.1.29-4.fc38.x86_64                                                  
+  libthai-devel-0.1.29-4.fc38.x86_64                                            
+  libtiff-4.4.0-8.fc38.x86_64                                                   
+  libtiff-devel-4.4.0-8.fc38.x86_64                                             
+  libtracker-sparql-3.5.3-2.fc38.x86_64                                         
+  libunwind-1.6.2-7.fc38.x86_64                                                 
+  libusb1-1.0.26-2.fc38.x86_64                                                  
+  libvorbis-1:1.3.7-7.fc38.x86_64                                               
+  libwayland-client-1.22.0-1.fc38.x86_64                                        
+  libwayland-cursor-1.22.0-1.fc38.x86_64                                        
+  libwayland-egl-1.22.0-1.fc38.x86_64                                           
+  libwayland-server-1.22.0-1.fc38.x86_64                                        
+  libwebp-1.3.2-2.fc38.x86_64                                                   
+  libxcb-1.13.1-11.fc38.x86_64                                                  
+  libxcb-devel-1.13.1-11.fc38.x86_64                                            
+  libxkbcommon-devel-1.5.0-2.fc38.x86_64                                        
+  libxml2-devel-2.10.4-1.fc38.x86_64                                            
+  libxshmfence-1.3-12.fc38.x86_64                                               
+  llvm-libs-16.0.6-3.fc38.x86_64                                                
+  lm_sensors-libs-3.6.0-13.fc38.x86_64                                          
+  low-memory-monitor-2.1-7.fc38.x86_64                                          
+  mesa-dri-drivers-23.1.9-1.fc38.x86_64                                         
+  mesa-filesystem-23.1.9-1.fc38.x86_64                                          
+  mesa-libEGL-23.1.9-1.fc38.x86_64                                              
+  mesa-libGL-23.1.9-1.fc38.x86_64                                               
+  mesa-libgbm-23.1.9-1.fc38.x86_64                                              
+  mesa-libglapi-23.1.9-1.fc38.x86_64                                            
+  mesa-va-drivers-23.1.9-1.fc38.x86_64                                          
+  mpg123-libs-1.31.3-1.fc38.x86_64                                              
+  opus-1.3.1-12.fc38.x86_64                                                     
+  pango-1.50.14-1.fc38.x86_64                                                   
+  pango-devel-1.50.14-1.fc38.x86_64                                             
+  pcre2-devel-10.42-1.fc38.1.x86_64                                             
+  pcre2-utf16-10.42-1.fc38.1.x86_64                                             
+  pcre2-utf32-10.42-1.fc38.1.x86_64                                             
+  pipewire-1.0.3-1.fc38.x86_64                                                  
+  pipewire-alsa-1.0.3-1.fc38.x86_64                                             
+  pipewire-jack-audio-connection-kit-1.0.3-1.fc38.x86_64                        
+  pipewire-jack-audio-connection-kit-libs-1.0.3-1.fc38.x86_64                   
+  pipewire-libs-1.0.3-1.fc38.x86_64                                             
+  pipewire-pulseaudio-1.0.3-1.fc38.x86_64                                       
+  pixman-0.42.2-1.fc38.x86_64                                                   
+  pixman-devel-0.42.2-1.fc38.x86_64                                             
+  polkit-122-3.fc38.1.x86_64                                                    
+  polkit-libs-122-3.fc38.1.x86_64                                               
+  polkit-pkla-compat-0.1-23.fc38.x86_64                                         
+  pulseaudio-libs-16.1-4.fc38.x86_64                                            
+  rtkit-0.11-58.fc38.x86_64                                                     
+  shared-mime-info-2.2-3.fc38.x86_64                                            
+  sound-theme-freedesktop-0.8-19.fc38.noarch                                    
+  sysprof-capture-devel-3.48.0-1.fc38.x86_64                                    
+  tracker-3.5.3-2.fc38.x86_64                                                   
+  wayland-devel-1.22.0-1.fc38.x86_64                                            
+  webrtc-audio-processing-0.3.1-10.fc38.x86_64                                  
+  wireplumber-0.4.17-1.fc38.x86_64                                              
+  wireplumber-libs-0.4.17-1.fc38.x86_64                                         
+  xdg-desktop-portal-1.16.0-3.fc38.x86_64                                       
+  xdg-desktop-portal-gtk-1.14.1-2.fc38.x86_64                                   
+  xml-common-0.6.3-60.fc38.noarch                                               
+  xorg-x11-proto-devel-2022.2-3.fc38.noarch                                     
+  xprop-1.2.5-3.fc38.x86_64                                                     
+  xz-devel-5.4.1-1.fc38.x86_64                                                  
+  zlib-devel-1.2.13-3.fc38.x86_64                                               
+
+Complete!
+Note: Deploying make=4.4.0...
+Note: Deploying pkg_config=1.8.0...
+Note: Deploying gtkada=24.0.0...
+#=#=#                                                                         
+##O#-#                                                                        
+##O=#  #                                                                      
+#=#=-#  #                                                                     
+ #=#=-#   #                                                                   
+  #=#=- #   #                                                                 
+   #=#=- #   #                                                                
+    #=O#-  #   #                                                              
+     #=O#-   #   #                                                            
+      #=O=#   #    #                                                          
+       -#O=-#   #     #                                                       
+Note: Running post_fetch actions for gtkada=24.0.0...
+checking build system type... x86_64-pc-linux-gnu
+checking host system type... x86_64-pc-linux-gnu
+checking target system type... x86_64-pc-linux-gnu
+checking for pkg-config... /usr/bin/pkg-config
+checking pkg-config is at least version 0.9.0... yes
+checking for gcc... gcc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ISO C89... none needed
+checking for gprbuild... /usr/bin/gprbuild
+checking for gprinstall... /usr/bin/gprinstall
+checking that your gnat compiler works with a simple example... yes
+checking whether NLS is requested... yes
+checking for gettext in libc... yes
+checking for GTK... yes
+checking for pkg-config... (cached) /usr/bin/pkg-config
+checking pkg-config is at least version 0.16... yes
+checking for GTK+ - version >= 3.24.24... yes (version 3.24.41)
+checking for GMODULE... yes
+checking for FONTCONFIG... yes
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating gtkada_shared.gpr
+config.status: creating po/Makefile
+config.status: creating docs/gtkada_rm/html/static/index.html
+configure: --------- Summary for Gtkada 18.0w -----------------
+configure:   Shared libraries:       yes (default: static)
+configure: --------------------------------------------
+gnatprep -DGETTEXT_INTL=False -DHAVE_GETTEXT=True src/gtkada-intl.gpb src/gtkada-intl.adb
+Note: Building spawn_glib/gnat/spawn_glib.gpr...
+Setup
+   [mkdir]        object directory for project GtkAda
+   [mkdir]        library directory for project GtkAda
+   [mkdir]        object directory for project Spawn_Glib
+   [mkdir]        library directory for project Spawn_Glib
+Compile
+   [Ada]          gtk.ads
+   [Ada]          pango.ads
+   [Ada]          glib-xml.adb
+   [Ada]          gtkada-handlers.ads
+   [Ada]          cairo.adb
+   [Ada]          cairo-region.adb
+   [Ada]          gtk-marshallers.adb
+   [Ada]          gtkada-canvas_view-links.adb
+   [Ada]          glib-key_file.adb
+   [Ada]          glib-unicode.adb
+   [Ada]          pango-cairo.adb
+   [Ada]          gtkada-abstract_tree_model.adb
+   [Ada]          gtk-type_conversion.adb
+   [Ada]          gdk-pixbuf.adb
+   [Ada]          gtkada-pixmaps.ads
+   [Ada]          gtkada.ads
+   [Ada]          gtkada-multi_paned.adb
+   [Ada]          glib-properties-creation.adb
+   [Ada]          glib-type_conversion_hooks.adb
+   [Ada]          cairo-font_options.adb
+   [Ada]          glib-module.adb
+   [Ada]          glib-gslist.adb
+   [Ada]          gdk.ads
+   [Ada]          gtkada-canvas_view.adb
+   [Ada]          glib.adb
+   [Ada]          cairo-pattern.ads
+   [Ada]          gdk-types.ads
+   [Ada]          gtkada-canvas.adb
+   [Ada]          glib-graphs-layouts.adb
+   [Ada]          gtk-text_child.adb
+   [Ada]          glib-enums.ads
+   [Ada]          cairo-png.adb
+   [Ada]          gdk-window_attr.adb
+   [Ada]          gtkada-abstract_list_model.adb
+   [Ada]          gtkada-types.adb
+   [Ada]          gtk-arguments.adb
+   [Ada]          gtk-bindings.adb
+   [Ada]          gtk-handlers.adb
+   [Ada]          gdk-cairo.adb
+   [Ada]          gdk-threads.ads
+   [Ada]          gtkada-canvas_view-objects.adb
+   [Ada]          gtkada-file_selection.adb
+   [Ada]          gtkada-printing.adb
+   [Ada]          gdk-color.adb
+   [Ada]          gtkada-application.adb
+   [Ada]          cairo-pdf.adb
+   [Ada]          glib-types.adb
+   [Ada]          glib-graphs.adb
+   [Ada]          glib-xml_int.ads
+   [Ada]          gtkada-multiline_entry.adb
+   [Ada]          gtkada-dialogs.adb
+   [Ada]          gdk-input.ads
+   [Ada]          gdk-property.adb
+   [Ada]          gtkada-style.adb
+   [Ada]          gdk-dnd.adb
+   [Ada]          gdk-rectangle.adb
+   [Ada]          gdk-keyval.adb
+   [Ada]          gtk-dnd.adb
+   [Ada]          gdk-main.adb
+   [Ada]          gtk-rc.adb
+   [Ada]          gtk-tree_model-utils.adb
+   [Ada]          gtkada-canvas_view-astar.adb
+   [Ada]          gdk-types-keysyms.ads
+   [Ada]          gtkada-canvas_view-views.adb
+   [Ada]          cairo-matrix.ads
+   [Ada]          gdk-visual.adb
+   [Ada]          cairo-surface.adb
+   [Ada]          glib-glist.adb
+   [Ada]          glib-main.adb
+   [Ada]          glib-error.adb
+   [Ada]          glib-messages.adb
+   [Ada]          cairo-image_surface.adb
+   [Ada]          gtkada-canvas_view-models.adb
+   [Ada]          glib-properties.adb
+   [Ada]          fontconfig.adb
+   [Ada]          gtkada-canvas_view-models-layers.adb
+   [Ada]          gdk-display_manager.adb
+   [Ada]          glib-convert.adb
+   [Ada]          glib-gnodes.adb
+   [Ada]          gtkada-mdi.adb
+   [Ada]          cairo-scaled_font.ads
+   [Ada]          gtkada-builder.adb
+   [Ada]          glib-generic_properties.adb
+   [Ada]          gtkada-bindings.adb
+   [Ada]          glib-values.adb
+   [Ada]          cairo-svg.adb
+   [Ada]          gtkada-canvas_view-rtrees.adb
+   [Ada]          gtkada-c.adb
+   [Ada]          cairo-font_face.ads
+   [Ada]          glib-object.adb
+   [Ada]          gtkada-intl.adb
+   [Ada]          gdk-cursor.adb
+   [Ada]          gtk-cell_area_box.adb
+   [Ada]          gtk-button.adb
+   [Ada]          gtk-icon_source.adb
+   [Ada]          glib-utils.adb
+   [Ada]          gtk-scrollbar.adb
+   [Ada]          gtk-tree_selection.adb
+   [Ada]          gtk-adjustment.adb
+   [Ada]          pango-attributes.adb
+   [Ada]          gtk-color_selection.adb
+   [Ada]          gtk-tree_view_column.adb
+   [Ada]          gtk-glarea.adb
+   [Ada]          gdk-device_tool.adb
+   [Ada]          gtk-action_bar.adb
+   [Ada]          gtk-button_box.adb
+   [Ada]          gtk-style.adb
+   [Ada]          gtk-gesture_drag.adb
+   [Ada]          glib-simple_action_group.adb
+   [Ada]          gtk-color_selection_dialog.adb
+   [Ada]          gtk-print_settings.adb
+   [Ada]          gtk-application.adb
+   [Ada]          gtk-popover.adb
+   [Ada]          gtk-target_list.adb
+   [Ada]          gtk-icon_factory.adb
+   [Ada]          gtk-separator_menu_item.adb
+   [Ada]          gtk-tool_button.adb
+   [Ada]          glib-application.adb
+   [Ada]          gtk-toggle_action.adb
+   [Ada]          gtk-arrow.adb
+   [Ada]          gtk-text_tag.adb
+   [Ada]          gtk-recent_manager.adb
+   [Ada]          gtk-status_bar.adb
+   [Ada]          gtk-gesture_single.adb
+   [Ada]          gtk-event_box.adb
+   [Ada]          gtk-accel_label.adb
+   [Ada]          gtk-font_chooser_dialog.adb
+   [Ada]          gdk-event.adb
+   [Ada]          gdk-seat.adb
+   [Ada]          gtk-menu_bar.adb
+   [Ada]          gtk-spin_button.adb
+   [Ada]          gtk-font_selection.adb
+   [Ada]          gtk-cell_layout.adb
+   [Ada]          gtk-search_entry.adb
+   [Ada]          gtk-stock.adb
+   [Ada]          glib-variant.adb
+   [Ada]          gtk-flow_box.adb
+   [Ada]          gtk-text_view.adb
+   [Ada]          gtk-bin.adb
+   [Ada]          gtk-invisible.adb
+   [Ada]          gtk-cell_renderer_spinner.adb
+   [Ada]          gtk-separator_tool_item.adb
+   [Ada]          gtk-toggle_tool_button.adb
+   [Ada]          pango-font_face.adb
+   [Ada]          gtk-cell_area.adb
+   [Ada]          gtk-label.adb
+   [Ada]          pango-font_map.adb
+   [Ada]          pango-context.adb
+   [Ada]          gtk-list_store.adb
+   [Ada]          pango-matrix.adb
+   [Ada]          gtk-layout.adb
+   [Ada]          gtk-tree_drag_dest.adb
+   [Ada]          gdk-rgba.adb
+   [Ada]          gtk-style_context.adb
+   [Ada]          gtk-flow_box_child.adb
+   [Ada]          gtk-revealer.adb
+   [Ada]          gdk-drag_contexts.adb
+   [Ada]          gtk-hbutton_box.adb
+   [Ada]          gtk-settings.adb
+   [Ada]          glib-cancellable.adb
+   [Ada]          gtk-dialog.adb
+   [Ada]          gtk-icon_set.adb
+   [Ada]          gtk-color_chooser_widget.adb
+   [Ada]          gtk-size_group.adb
+   [Ada]          gtk-menu_item.adb
+   [Ada]          gdk-frame_timings.adb
+   [Ada]          gtk-status_icon.adb
+   [Ada]          gtk-binding_set.adb
+   [Ada]          gdk-device_manager.adb
+   [Ada]          gtk-box.adb
+   [Ada]          gtk-offscreen_window.adb
+   [Ada]          gtk-menu.adb
+   [Ada]          gtk-header_bar.adb
+   [Ada]          gtk-table.adb
+   [Ada]          gtk-vbutton_box.adb
+   [Ada]          gtk-color_chooser.adb
+   [Ada]          gtk-icon_theme.adb
+   [Ada]          gtk-list_box.adb
+   [Ada]          gtk-link_button.adb
+   [Ada]          gdk-device.adb
+   [Ada]          gtk-scale_button.adb
+   [Ada]          gtk-recent_chooser.adb
+   [Ada]          gtk-progress_bar.adb
+   [Ada]          gtk-combo_box_text.adb
+   [Ada]          gtk-scale.adb
+   [Ada]          gtk-symbolic_color.adb
+   [Ada]          gtk-font_chooser.adb
+   [Ada]          gtk-tool_shell.adb
+   [Ada]          gtk-activatable.adb
+   [Ada]          gtk-css_provider.adb
+   [Ada]          gtk-entry_buffer.adb
+   [Ada]          gtk-image_menu_item.adb
+   [Ada]          gtk-paper_size.adb
+   [Ada]          gtk-recent_chooser_menu.adb
+   [Ada]          gtk-shortcuts_window.adb
+   [Ada]          gtk-tree_model_sort.adb
+   [Ada]          gtk-ui_manager.adb
+   [Ada]          gtk-file_chooser.adb
+   [Ada]          gtk-target_entry.adb
+   [Ada]          gtk-stack.adb
+   [Ada]          gtk-handle_box.adb
+   [Ada]          gtk-font_selection_dialog.adb
+   [Ada]          gtk-tree_model.adb
+   [Ada]          gtk-file_chooser_widget.adb
+   [Ada]          gtk-text_tag_table.adb
+   [Ada]          gtk-search_bar.adb
+   [Ada]          gtk-calendar.adb
+   [Ada]          gtk-builder.adb
+   [Ada]          gtk-menu_button.adb
+   [Ada]          gtk-color_button.adb
+   [Ada]          gtk-tool_palette.adb
+   [Ada]          gtk-scrolled_window.adb
+   [Ada]          gtk-text_child_anchor.adb
+   [Ada]          gtk-stack_switcher.adb
+   [Ada]          gtk-im_multi_context.adb
+   [Ada]          gtk-combo_box.adb
+   [Ada]          glib-poll.adb
+   [Ada]          gtk-aspect_frame.adb
+   [Ada]          gtk-frame.adb
+   [Ada]          gtk-selection_data.adb
+   [Ada]          gtk-menu_tool_button.adb
+   [Ada]          gtk-orientable.adb
+   [Ada]          gtk-accel_map.adb
+   [Ada]          gtk-assistant.adb
+   [Ada]          gdk-monitor.adb
+   [Ada]          gtk-radio_action.adb
+   [Ada]          glib-spawn.adb
+   [Ada]          gtk-buildable.adb
+   [Ada]          gtk-im_context_simple.adb
+   [Ada]          glib-option.adb
+   [Ada]          gtk-toolbar.adb
+   [Ada]          gtk-style_properties.adb
+   [Ada]          gtk-recent_chooser_widget.adb
+   [Ada]          glib-menu.adb
+   [Ada]          gtk-tool_item.adb
+   [Ada]          glib-action.adb
+   [Ada]          gtk-tool_item_group.adb
+   [Ada]          pango-language.adb
+   [Ada]          gtk-cell_renderer_text.adb
+   [Ada]          gtk-recent_info.adb
+   [Ada]          gtk-recent_filter.adb
+   [Ada]          gtk-menu_shell.adb
+   [Ada]          gtk-color_chooser_dialog.adb
+   [Ada]          gtk-css_section.adb
+   [Ada]          gtk-expander.adb
+   [Ada]          gtk-check_button.adb
+   [Ada]          gtk-event_controller.adb
+   [Ada]          gtk-application_window.adb
+   [Ada]          glib-list_model.adb
+   [Ada]          glib-action_group.adb
+   [Ada]          gtk-recent_chooser_dialog.adb
+   [Ada]          gtk-check_menu_item.adb
+   [Ada]          gtk-print_context.adb
+   [Ada]          pango-layout.adb
+   [Ada]          gtk-cell_area_context.adb
+   [Ada]          gtk-file_chooser_button.adb
+   [Ada]          gtk-action_group.adb
+   [Ada]          gtk-file_chooser_dialog.adb
+   [Ada]          gtk-text_iter.adb
+   [Ada]          glib-menu_model.adb
+   [Ada]          gtk-grange.adb
+   [Ada]          pango-enums.adb
+   [Ada]          gtk-gesture_zoom.adb
+   [Ada]          gtk-main.adb
+   [Ada]          gtk-cell_view.adb
+   [Ada]          pango-font.adb
+   [Ada]          gtk-tearoff_menu_item.adb
+   [Ada]          gdk-screen.adb
+   [Ada]          gtk-cell_renderer_pixbuf.adb
+   [Ada]          gtk-radio_tool_button.adb
+   [Ada]          gtk-font_chooser_widget.adb
+   [Ada]          gtk-switch.adb
+   [Ada]          gtk-cell_renderer_spin.adb
+   [Ada]          gtk-gesture_multi_press.adb
+   [Ada]          gtk-entry_completion.adb
+   [Ada]          gtk-paned.adb
+   [Ada]          gtk-tree_view.adb
+   [Ada]          gtk-font_button.adb
+   [Ada]          gtk-gesture_swipe.adb
+   [Ada]          gdk-window.adb
+   [Ada]          gtk-viewport.adb
+   [Ada]          gtk-accel_group.adb
+   [Ada]          gtk-enums.adb
+   [Ada]          gtk-text_attributes.adb
+   [Ada]          glib-iochannel.adb
+   [Ada]          gtk-gesture.adb
+   [Ada]          gtk-cell_renderer_accel.adb
+   [Ada]          gtk-separator.adb
+gtk-enums.adb:38:04: warning: possible aliasing problem for type "Chars_Ptr" [enabled by default]
+gtk-enums.adb:38:04: warning: use -fno-strict-aliasing switch for references [enabled by default]
+gtk-enums.adb:38:04: warning: or use "pragma No_Strict_Aliasing (Chars_Ptr);" [enabled by default]
+   [Ada]          gdk-display.adb
+   [Ada]          gtk-grid.adb
+   [Ada]          gtk-gesture_pan.adb
+   [Ada]          gtk-image.adb
+   [Ada]          gtk-info_bar.adb
+   [Ada]          gtk-clipboard.adb
+   [Ada]          gtk-gradient.adb
+   [Ada]          gtk-cell_renderer_progress.adb
+   [Ada]          gtk-toggle_button.adb
+   [Ada]          gtk-list_box_row.adb
+   [Ada]          gtk-text_mark.adb
+   [Ada]          gtk-radio_button.adb
+   [Ada]          gtk-icon_view.adb
+   [Ada]          gtk-scrollable.adb
+   [Ada]          gtk-fixed.adb
+   [Ada]          gtk-notebook.adb
+   [Ada]          gtk-alignment.adb
+   [Ada]          pango-coverage.adb
+   [Ada]          gtk-cell_editable.adb
+   [Ada]          gtk-gesture_rotate.adb
+   [Ada]          gtk-tree_store.adb
+   [Ada]          gtk-cell_renderer_toggle.adb
+   [Ada]          gtk-actionable.adb
+   [Ada]          gtk-print_operation.adb
+   [Ada]          gtk-radio_menu_item.adb
+   [Ada]          gdk-drawing_context.adb
+   [Ada]          gtk-window.adb
+   [Ada]          glib-notification.adb
+   [Ada]          gtk-recent_action.adb
+   [Ada]          gtk-text_buffer.adb
+   [Ada]          gtk-gesture_long_press.adb
+   [Ada]          pango-tabs.adb
+   [Ada]          gtk-message_dialog.adb
+   [Ada]          gtk-tree_row_reference.adb
+   [Ada]          gtk-tree_drag_source.adb
+   [Ada]          gtk-cell_renderer.adb
+   [Ada]          gtk-hsv.adb
+   [Ada]          gtk-action.adb
+   [Ada]          gtk-page_setup.adb
+   [Ada]          gtk-widget.adb
+   [Ada]          pango-font_metrics.adb
+   [Ada]          gtk-tree_model_filter.adb
+   [Ada]          gtk-style_provider.adb
+   [Ada]          gdk-glcontext.adb
+   [Ada]          gtk-tree_sortable.adb
+   [Ada]          gtk-overlay.adb
+   [Ada]          gtk-drawing_area.adb
+   [Ada]          gtk-file_filter.adb
+   [Ada]          glib-simple_action.adb
+   [Ada]          glib-action_map.adb
+   [Ada]          gtk-tooltip.adb
+   [Ada]          gdk-frame_clock.adb
+   [Ada]          pango-font_family.adb
+   [Ada]          gtk-print_operation_preview.adb
+   [Ada]          gtk-editable.adb
+   [Ada]          gtk-cell_renderer_combo.adb
+   [Ada]          gtk-im_context.adb
+   [Ada]          pango-fontset.adb
+   [Ada]          glib-string.adb
+   [Ada]          gtk-gentry.adb
+   [Ada]          gtk-spinner.adb
+   [Ada]          glib-g_icon.adb
+   [Ada]          gtk-about_dialog.adb
+   [Ada]          gtk-theming_engine.adb
+   [Ada]          gtk-misc.adb
+   [Ada]          gtk-container.adb
+   [Ada]          gtk-level_bar.adb
+   [Ada]          gtk-volume_button.adb
+   [C]            misc.c
+   [C]            misc_generated.c
+   [c]            posix_const.c
+   [c]            pipe2.c
+   [Ada]          spawn.ads
+   [Ada]          spawn-string_vectors.ads
+   [Ada]          spawn-posix.ads
+   [Ada]          spawn-processes.adb
+   [Ada]          spawn-channels.adb
+/home/runner/work/alire-crates-ci/alire-crates-ci/test/f8d8d7c6-f809-4e45-b8db-50e37e47f351/spawn_glib_23.0.0_440f8b8a/alire/cache/dependencies/gtkada_24.0.0_80c56171/src/misc.c: In function ‘ada_g_module_build_path’:
+/home/runner/work/alire-crates-ci/alire-crates-ci/test/f8d8d7c6-f809-4e45-b8db-50e37e47f351/spawn_glib_23.0.0_440f8b8a/alire/cache/dependencies/gtkada_24.0.0_80c56171/src/misc.c:216:3: warning: ‘g_module_build_path’ is deprecated [-Wdeprecated-declarations]
+  216 |   return g_module_build_path (directory, module_name);
+      |   ^~~~~~
+In file included from /usr/include/glib-2.0/gio/giomodule.h:31,
+                 from /usr/include/glib-2.0/gio/gio.h:102,
+                 from /usr/include/gtk-3.0/gdk/gdkapplaunchcontext.h:28,
+                 from /usr/include/gtk-3.0/gdk/gdk.h:32,
+                 from /home/runner/work/alire-crates-ci/alire-crates-ci/test/f8d8d7c6-f809-4e45-b8db-50e37e47f351/spawn_glib_23.0.0_440f8b8a/alire/cache/dependencies/gtkada_24.0.0_80c56171/src/misc.c:38:
+/usr/include/glib-2.0/gmodule.h:142:23: note: declared here
+  142 | gchar*                g_module_build_path    (const gchar  *directory,
+      |                       ^~~~~~~~~~~~~~~~~~~
+   [Ada]          spawn-environments.adb
+   [Ada]          spawn-internal__posix.adb
+   [Ada]          spawn-environments-internal__glib.adb
+Build Libraries
+   [gprlib]       gtkada.lexch
+   [gprlib]       spawn_glib.lexch
+   [archive]      libgtkada.a
+   [index]        libgtkada.a
+   [archive]      libspawn_glib.a
+   [index]        libspawn_glib.a
+Build finished successfully in 75.13 seconds.
+
+spawn_glib=23.0.0 successfully retrieved and built.
+Dependencies were solved as follows:
+
+   + gtkada     24.0.0  (new)         
+   + libgtk3    3.24.41 (new,indirect)
+   + make       4.4.0   (new,indirect)
+   + pkg_config 1.8.0   (new,indirect)
+Found declared GPR file: gnat/spawn_glib.gpr

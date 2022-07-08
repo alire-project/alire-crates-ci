@@ -1,0 +1,455 @@
+Test ran at 2024-12-11 00:55:04.815798+00:00
+
+SOLUTION:
+atari_exe_tools=1.5.0: Atari tools for for handling EXE-files
+Origin: source archive atari_exe_tools-1.5.0.tgz at https://sourceforge.net/projects/tutorial-6502/files/Alire/atari_exe_tools-1.5.0.tgz with hashes sha256:cfa984352e70e528ee768124141eaa3d56dc595f7613ce7c1bf12be578005349, sha512:e166df5c4b7afc02f30463495cb76c482801985d8f8f1bda2af6b8408da2d18f6435cbc95a003e306c217b725f18493d325080fc34c1144d0891040cc89c1e0d
+Properties:
+   Test run: ${CRATE_DIR}/test/alr run
+   Author: Martin Krischik
+   Build Switches: 
+   Description: Atari tools for for handling EXE-files
+   Executable: exe_tools-main
+   License: GPL-3.0-or-later
+   Long_Description: This is a tool to analyse Atari 8 bit EXE files.
+
+# Print Header
+
+```sh
+>exe_tools-main --print-header ./test/share/atari_check_exe_test/HELLO_C.EXE"
+File: ./test/share/atari_check_exe_test/HELLO_C.EXE
+Magic: $FFFF; Start: $2E00; End: $2EF5; Length: 246
+Magic: $0000; Start: $02E2; End: $02E3; Length: 2; Init: $2E47
+Magic: $0000; Start: $2400; End: $28DE; Length: 1247
+Magic: $0000; Start: $02E0; End: $02E1; Length: 2; Run: $2401
+```
+
+# Print Data
+
+```sh
+--print-data ./test/share/atari_check_exe_test/HELLO_A.EXE"
+File: ./test/share/atari_check_exe_test/HELLO_A.EXE
+2400: 60 60 A2 00 A9 0B 9D 42 03 A9 3F 9D 44 03 A9 24  
+2410: 9D 45 03 A9 2E 9D 48 03 A9 00 9D 49 03 20 56 E4  
+2420: A2 00 A9 07 9D 42 03 A9 6D 9D 44 03 A9 24 9D 45  
+2430: 03 A9 01 9D 48 03 A9 00 9D 49 03 20 56 E4 60 48  
+2440: 65 6C 6C 6F 20 57 6F 72 6C 64 21 9B 28 75 73 69  
+2450: 6E 67 20 61 20 65 78 65 63 75 74 61 62 6C 65 20  
+2460: 69 6E 20 61 73 73 65 6D 62 65 72 29 9B 00        
+02E0: 02 24                                            
+Run: $2402
+>exe_tools-main 
+```
+
+The ATASCII part of the hexdump has been removed as Alire is not UTF8 compatible.
+
+Development versions and testsuite available using the follwowing index:
+
+```sh
+alr index --add "git+https://github.com/krischik/alire-index.git#develop" --name krischik
+```
+
+Source code including AUnit tests available on [SourceForge](https://git.code.sf.net/p/tutorial-6502/git)
+
+   Maintainer: Martin Krischik <krischik@users.sourceforge.net>
+   Maintainers_Logins: krischik
+   Name: atari_exe_tools
+   Tag: atari
+   Tag: tools
+   Tag: retrocomputing
+   Tag: ada-2022
+   Version: 1.5.0
+   Website: https://sourceforge.net/projects/tutorial-6502
+Dependencies (direct):
+   adacl^5.15.1
+   gnat>=12 & <2000
+Dependencies (solution):
+   adacl=5.15.1
+   gnat=13.1.0 (gnat_native) (installed)
+Dependencies (graph):
+   adacl=5.15.1          --> gnat=13.1.0 (gnat_native) (>=12 & <2000)
+   atari_exe_tools=1.5.0 --> adacl=5.15.1 (^5.15.1)                  
+   atari_exe_tools=1.5.0 --> gnat=13.1.0 (gnat_native) (>=12 & <2000)
+
+
+LOG:
+Note: Deploying atari_exe_tools=1.5.0...
+
+######################################################################## 100.0%
+######################################################################## 100.0%
+######################################################################## 100.0%#=#=#                                                                          
+
+######################################################################## 100.0%##=#=#                                                                         
+
+####################################################                      72.4%
+######################################################################## 100.0%
+Note: Deploying adacl=5.15.1...
+
+######################################################################## 100.0%
+######################################################################## 100.0%
+######################################################################## 100.0%
+######################################################################## 100.0%#=#=#                                                                          
+##=#=#                                                                         
+
+######################################################################## 100.0%
+
+atari_exe_tools=1.5.0 successfully retrieved.
+Dependencies were solved as follows:
+
+   +  adacl 5.15.1 (new)                      
+   +i gnat  13.1.0 (new,installed,gnat_native)
+Note: Synchronizing workspace...
+Dependencies automatically updated as follows:
+
+   +  adacl           5.15.1 (new)                      
+   +· atari_exe_tools 1.5.0  (new,path=..)              
+   +  aunit           23.0.0 (new)                      
+   +i gnat            13.1.0 (new,installed,gnat_native)
+Note: Deploying adacl=5.15.1...
+
+######################################################################## 100.0%
+######################################################################## 100.0%
+######################################################################## 100.0%
+######################################################################## 100.0%#=#=#                                                                          
+##=#=#                                                                         
+
+#############################################################             85.5%
+######################################################################## 100.0%
+Note: Deploying aunit=23.0.0...
+#=#=#                                                                          
+##O#-#                                                                         
+
+Note: Building atari_exe_tools/atari_exe_tools.gpr...
+Setup
+   [mkdir]        object directory for project AdaCL
+   [mkdir]        library directory for project AdaCL
+   [mkdir]        object directory for project Atari_EXE_Tools
+   [mkdir]        exec directory for project Atari_EXE_Tools
+Compile
+   [Ada]          exe_tools-main.adb
+   [Ada]          adacl_config.ads
+   [Ada]          adacl-os-low_level.ads
+   [Ada]          adacl-strings.adb
+   [Ada]          adacl-pointer-shared.ads
+   [Ada]          adacl-command_line-getopt.adb
+   [Ada]          adacl.ads
+   [Ada]          adacl-wide_wide_strings-hex.adb
+   [Ada]          adacl-assert-discrete.adb
+   [Ada]          adacl-pointer-unique.ads
+   [Ada]          adacl-pointer.ads
+   [Ada]          adacl-pointer-shared_with_delete.adb
+   [Ada]          adacl-wide_strings.adb
+   [Ada]          adacl-wide_strings-hex.adb
+   [Ada]          adacl-trace.adb
+   [Ada]          adacl-pointer-unique_with_delete.adb
+   [Ada]          adacl-pointer-element.adb
+   [Ada]          adacl-base.ads
+   [Ada]          adacl-assert-arrays.adb
+   [Ada]          adacl-trace-assert.ads
+   [Ada]          adacl-assert-pointer.adb
+   [Ada]          adacl-pointer-holder.adb
+   [Ada]          adacl-strings-hex.adb
+   [Ada]          adacl-os.ads
+   [Ada]          adacl-limited_base.ads
+   [Ada]          adacl-command_line.ads
+   [Ada]          adacl-wide_wide_strings.adb
+   [Ada]          adacl-assert.adb
+   [Ada]          exe_tools.ads
+   [Ada]          exe_tools-commandline.adb
+   [Ada]          exe_tools-segment_print.adb
+   [Ada]          exe_tools-byte_io.ads
+   [Ada]          exe_tools-segment_body.adb
+   [Ada]          exe_tools-segment_header.adb
+Build Libraries
+   [gprlib]       AdaCL.lexch
+   [archive]      libAdaCL.a
+   [index]        libAdaCL.a
+Bind
+   [gprbind]      exe_tools-main.bexch
+   [Ada]          exe_tools-main.ali
+Link
+   [link]         exe_tools-main.adb
+Note: Building atari_exe_tools_test/atari_exe_tools_test.gpr...
+Setup
+   [mkdir]        object directory for project AUnit
+   [mkdir]        library directory for project AUnit
+   [mkdir]        object directory for project Atari_EXE_Tools_Test
+   [mkdir]        exec directory for project Atari_EXE_Tools_Test
+Compile
+   [Ada]          exe_tools_test-main.adb
+   [Ada]          aunit-io.ads
+   [Ada]          aunit-memory.adb
+   [Ada]          aunit-memory-utils.adb
+   [Ada]          aunit-time_measure.adb
+   [Ada]          aunit-reporter-xml.adb
+   [Ada]          aunit-reporter-junit.adb
+   [Ada]          aunit-reporter-gnattest.adb
+   [Ada]          aunit-reporter-text.adb
+   [Ada]          ada_containers.ads
+   [Ada]          ada_containers-aunit_lists.adb
+   [Ada]          aunit-test_caller.adb
+   [Ada]          aunit-run.adb
+   [Ada]          aunit-test_fixtures.adb
+   [Ada]          aunit-assertions.adb
+   [Ada]          aunit-test_suites.adb
+   [Ada]          aunit.adb
+   [Ada]          aunit-simple_test_cases.adb
+   [Ada]          aunit-test_filters.adb
+   [Ada]          aunit-reporter.adb
+   [Ada]          aunit-options.ads
+   [Ada]          aunit-test_cases.adb
+   [Ada]          aunit-test_results.adb
+   [Ada]          aunit-tests.ads
+   [Ada]          exe_tools_test.ads
+   [Ada]          exe_tools_test-suite.adb
+   [Ada]          exe_tools_test-segment_print.adb
+Build Libraries
+   [gprlib]       aunit.lexch
+   [archive]      libaunit.a
+   [index]        libaunit.a
+Bind
+   [gprbind]      exe_tools_test-main.bexch
+   [Ada]          exe_tools_test-main.ali
+Link
+   [link]         exe_tools_test-main.adb
+Build finished successfully in 7.50 seconds.
+File: ./share/atari_check_exe_test/HELLO_A.EXE
+Magic: $FFFF; Start: $2400; End: $246D; Length: 110
+Magic: $0000; Start: $02E0; End: $02E1; Length: 2; Run: $2402
+File: ./share/atari_check_exe_test/HELLO_C.EXE
+Magic: $FFFF; Start: $2E00; End: $2EF5; Length: 246
+Magic: $0000; Start: $02E2; End: $02E3; Length: 2; Init: $2E47
+Magic: $0000; Start: $2400; End: $28DE; Length: 1247
+Magic: $0000; Start: $02E0; End: $02E1; Length: 2; Run: $2401
+File: ./share/atari_check_exe_test/HELLO_A.EXE
+2400: 60 60 A2 00 A9 0B 9D 42 03 A9 3F 9D 44 03 A9 24  ♦♦“♥)▝↓B┘)?↓D┘)$ 
+2410: 9D 45 03 A9 2E 9D 48 03 A9 00 9D 49 03 20 56 E4  ↓E┘).↓H┘)♥↓I┘␠Vd 
+2420: A2 00 A9 07 9D 42 03 A9 6D 9D 44 03 A9 24 9D 45  “♥)╲↓B┘)m↓D┘)$↓E 
+2430: 03 A9 01 9D 48 03 A9 00 9D 49 03 20 56 E4 60 48  ┘)├↓H┘)♥↓I┘␠Vd♦H 
+2440: 65 6C 6C 6F 20 57 6F 72 6C 64 21 9B 28 75 73 69  ello␠World!␍(usi 
+2450: 6E 67 20 61 20 65 78 65 63 75 74 61 62 6C 65 20  ng␠a␠executable␠ 
+2460: 69 6E 20 61 73 73 65 6D 62 65 72 29 9B 00        in␠assember)␍♥   
+02E0: 02 24                                            ⎹$               
+Run: $2402
+File: ./share/atari_check_exe_test/HELLO_C.EXE
+2E00: 60 50 72 6F 67 72 61 6D 20 77 6F 75 6C 64 20 6C  ♦Program␠would␠l 
+2E10: 6F 61 64 20 62 65 6C 6F 77 20 4D 45 4D 4C 4F 2E  oad␠below␠MEMLO. 
+2E20: 9B 43 6F 6E 73 69 64 65 72 20 75 73 69 6E 67 20  ␍Consider␠using␠ 
+2E30: 61 20 68 69 67 68 65 72 20 6C 6F 61 64 20 61 64  a␠higher␠load␠ad 
+2E40: 64 72 65 73 73 2E 9B 38 AD E5 02 E9 00 8D F6 2E  dress.␍8-e⎹i♥▆v. 
+2E50: AD E6 02 E9 00 8D F7 2E AD F6 2E 38 E9 00 8D F6  -f⎹i♥▆w.-v.8i♥▆v 
+2E60: 2E AD F7 2E E9 08 8D F7 2E AD F6 2E C9 38 AD F7  .-w.i◢▆w.-v.I8-w 
+2E70: 2E E9 29 90 31 AD E7 02 C9 00 AD E8 02 E9 24 90  .i)♣1-g⎹I♥-h⎹i$♣ 
+2E80: 24 A2 00 A9 01 9D 44 03 A9 2E 9D 45 03 A9 46 9D  $“♥)├↓D┘).↓E┘)F↓ 
+2E90: 48 03 A9 00 9D 49 03 A9 0B 9D 42 03 20 56 E4 20  H┘)♥↓I┘)▝↓B┘␠Vd␠ 
+2EA0: E0 2E 4C DA 2E 60 4C BC 2E 4E 6F 74 20 65 6E 6F  ♦.LZ.♦L<.Not␠eno 
+2EB0: 75 67 68 20 6D 65 6D 6F 72 79 2E 9B A2 00 A9 A9  ugh␠memory.␍“♥)) 
+2EC0: 9D 44 03 A9 2E 9D 45 03 A9 13 9D 48 03 A9 00 9D  ↓D┘).↓E┘)┼↓H┘)♥↓ 
+2ED0: 49 03 A9 0B 9D 42 03 20 56 E4 20 E0 2E 6C 0A 00  I┘)▝↓B┘␠Vd␠♦.l◣♥ 
+2EE0: A9 0A 20 EB 2E 18 E9 00 D0 F8 60 A2 00 A0 00 88  )◣␠k.┴i♥Px♦“♥█♥◤ 
+2EF0: D0 FD CA D0 FA 60                                P↰JPz♦           
+02E2: 47 2E                                            G.               
+Init: $2E47
+2400: 60 20 E9 27 BA 8E E0 28 A5 0E A6 0F 8D E3 28 8E  ♦␠i‘:‾♦(%▂&▖▆c(‾ 
+2410: E4 28 38 AD E5 02 E9 00 85 0E 85 82 AD E6 02 E9  d(8-e⎹i♥┐▂┐▊-f⎹i 
+2420: 00 85 0F 85 83 20 63 24 A5 52 8D E2 28 A0 00 84  ♥┐▖┐┘␠c$%R▆b(█♥┤ 
+2430: 52 AE BE 02 8E E1 28 8C BE 02 88 8C FC 02 20 B9  R.>⎹‾a(▟>⎹◤▟-⎹␠9 
+2440: 24 AE E0 28 9A 20 D0 24 AD E2 28 85 52 AD E1 28  $.♦(└␠P$-b(┐R-a( 
+2450: 8D BE 02 AD E3 28 AE E4 28 85 0E 86 0F A2 00 8E  ▆>⎹-c(.d(┐▂╱▖“♥‾ 
+2460: F0 02 60 A0 00 F0 07 A9 6F A2 24 4C 8D 28 60 A9  p⎹♦█♥p╲)o“$L▆(♦) 
+2470: 26 A2 28 20 25 26 A9 0C A2 28 20 25 26 20 97 25  &“(␠%&)▘“(␠%&␠┬% 
+2480: A2 00 A9 00 4C 87 24 60 20 A2 24 8D DF 28 A9 FF  “♥)♥L╲$♦␠“$▆_()▶ 
+2490: AA 60 8D DF 28 AA F0 09 20 D5 25 20 A2 24 A9 FF  *♦▆_(*p▗␠U%␠“$)▶ 
+24A0: AA 60 8D E5 28 A9 00 8D E6 28 60 C8 48 18 98 65  *♦▆e()♥▆f(♦HH┴┴e 
+24B0: 82 85 82 90 02 E6 83 68 60 AD 89 28 AE 8A 28 20  ▊┐▊♣⎹f┘h♦-▛(.◥(␠ 
+24C0: F3 25 AD 8B 28 AE 8C 28 20 F3 25 A0 04 4C 6F 24  s%-▙(.▟(␠s%█┤Lo$ 
+24D0: A0 00 F0 07 A9 6B A2 28 4C 8D 28 60 A4 82 D0 02  █♥p╲)k“(L▆(♦$▊P⎹ 
+24E0: C6 83 C6 82 60 98 4C 92 24 E0 00 D0 1B C9 0C B0  F┘F▊♦┴L─$♦♥P␛I▘0 
+24F0: 17 AA BD B2 28 0A 0A AA A9 FF DD BF 28 F0 09 BD  ┬*=2(◣◣*)▶]?(p▗= 
+2500: BE 28 F0 04 BD BF 28 60 A2 FF 60 20 F3 25 A0 00  >(p┤=?(♦“▶♦␠s%█♥ 
+2510: A2 04 20 68 27 20 DC 24 A0 01 B1 9A 29 01 F0 06  “┤␠h‘␠\$█├1└)├p╱ 
+2520: B1 9A 29 06 F0 06 A2 FF 8A 4C 87 25 B1 9A 29 08  1└)╱p╱“▶◥L╲%1└)◢ 
+2530: F0 0E B1 9A 29 F7 91 9A C8 A2 00 B1 9A 4C 87 25  p▂1└)w┌└H“♥1└L╲% 
+2540: 88 B1 9A 20 F1 25 A9 02 20 C9 25 20 F3 25 A2 00  ◤1└␠q%)⎹␠I%␠s%“♥ 
+2550: A9 01 20 8E 26 E0 00 D0 07 C9 00 F0 17 4C 81 25  )├␠‾&♦♥P╲I♥p┬L├% 
+2560: E0 FF D0 1D C9 FF D0 19 A0 01 B1 9A 09 04 91 9A  ♦▶P↓I▶P▌█├1└▗┤┌└ 
+2570: 8A 4C 87 25 A0 01 B1 9A 09 02 91 9A CA 8A 4C 87  ◥L╲%█├1└▗⎹┌└J◥L╲ 
+2580: 25 A0 00 B1 82 A2 00 48 A0 01 B1 82 85 9A C8 B1  %█♥1▊“♥H█├1▊┐└H1 
+2590: 82 85 9B 68 4C B6 25 AD 83 28 AE 84 28 4C 0B 25  ▊┐␍hL6%-┘(.┤(L▝% 
+25A0: A0 01 B1 82 AA 88 B1 82 E6 82 F0 05 E6 82 F0 03  █├1▊*◤1▊f▊p┐f▊p┘ 
+25B0: 60 E6 82 E6 83 60 A0 03 4C AC 24 A9 07 4C 88 24  ♦f▊f┘♦█┘L,$)╲L◤$ 
+25C0: A0 01 B1 82 AA 88 B1 82 60 A2 00 18 65 82 48 8A  █├1▊*◤1▊♦“♥┴e▊H◥ 
+25D0: 65 83 AA 68 60 C9 80 B0 04 A9 00 AA 60 29 7F AA  e┘*h♦I♥0┤)♥*♦)▶* 
+25E0: E0 38 B0 06 BD 33 28 A2 00 60 A9 12 A2 00 60 A9  ♦80╱=3(“♥♦)─“♥♦) 
+25F0: 00 A2 00 48 A5 82 38 E9 02 85 82 B0 02 C6 83 A0  ♥“♥H%▊8i⎹┐▊0⎹F┘█ 
+2600: 01 8A 91 82 68 88 91 82 60 A0 03 A5 82 38 E9 02  ├◥┌▊h◤┌▊♦█┘%▊8i⎹ 
+2610: 85 82 B0 02 C6 83 B1 82 AA 88 B1 82 A0 00 91 82  ┐▊0⎹F┘1▊*◤1▊█♥┌▊ 
+2620: C8 8A 91 82 60 20 F3 25 AD 86 28 85 8B AD 85 28  H◥┌▊♦␠s%-╱(┐▙-┐( 
+2630: 85 8A A0 00 B1 8A 20 F1 25 A0 05 20 0B 26 A0 05  ┐◥█♥1◥␠q%█┐␠▝&█┐ 
+2640: 20 C2 25 20 AB 27 20 C1 27 E0 80 B0 29 AD 86 28  ␠B%␠+‘␠A‘♦♥0)-╱( 
+2650: 85 8B AD 85 28 85 8A A0 00 B1 8A 20 F1 25 A9 DE  ┐▙-┐(┐◥█♥1◥␠q%)^ 
+2660: A2 28 20 F3 25 A2 00 A9 01 20 C1 27 E0 80 B0 06  “(␠s%“♥)├␠A‘♦♥0╱ 
+2670: A2 00 8A 4C A8 25 AD 86 28 85 8B AD 85 28 85 8A  “♥◥L(%-╱(┐▙-┐(┐◥ 
+2680: A0 01 B1 8A 09 04 91 8A A2 FF 8A 4C A8 25 20 7E  █├1◥▗┤┌◥“▶◥L(%␠◀ 
+2690: 27 F0 19 E0 FF F0 24 E0 00 F0 23 A9 07 9D 42 03  ‘p▌♦▶p$♦♥p#)╲↓B┘ 
+26A0: 20 56 E4 10 07 C0 88 F0 03 4C E5 24 BD 48 03 48  ␠Vd♣╲@◤p┘Le$=H┘H 
+26B0: BD 49 03 AA A9 00 8D DF 28 68 60 4C BB 25 AD E7  =I┘*)♥▆_(h♦L;%-g 
+26C0: 28 D0 56 BD 48 03 48 A9 50 9D 48 03 BD 49 03 48  (PV=H┘H)P↓H┘=I┘H 
+26D0: A9 00 9D 49 03 BD 44 03 48 A9 E8 9D 44 03 BD 45  )♥↓I┘=D┘H)h↓D┘=E 
+26E0: 03 48 A9 28 9D 45 03 A9 05 9D 42 03 20 56 E4 10  ┘H)(↓E┘)┐↓B┘␠Vd♣ 
+26F0: 0B C0 88 F0 07 68 68 68 68 4C E5 24 BD 48 03 8D  ▝@◤p╲hhhhLe$=H┘▆ 
+2700: E7 28 A9 00 85 9C 68 9D 45 03 68 9D 44 03 68 9D  g()♥┐↑h↓E┘h↓D┘h↓ 
+2710: 49 03 68 9D 48 03 AD E7 28 38 E5 9C 85 9D BD 48  I┘h↓H┘-g(8e↑┐↓=H 
+2720: 03 C5 9D F0 02 B0 3A BD 49 03 D0 35 BD 44 03 85  ┘E↓p⎹0:=I┘P5=D┘┐ 
+2730: 9E BD 45 03 85 9F BD 48 03 85 A0 48 A0 00 A6 9C  ←=E┘┐→=H┘┐█H█♥&↑ 
+2740: BD E8 28 91 9E C8 E8 C6 A0 D0 F5 68 48 18 65 9C  =h(┌←HhF█PuhH┴e↑ 
+2750: 85 9C CD E7 28 90 05 A9 00 8D E7 28 A2 00 4C B4  ┐↑Mg(♣┐)♥▆g(“♥L4 
+2760: 26 A5 9D 9D 48 03 10 C4 B5 96 48 B1 82 95 96 68  &%↓↓H┘♣D5▐H1▊▀▐h 
+2770: 91 82 C8 B5 97 48 B1 82 95 97 68 91 82 60 48 8A  ┌▊H5┬H1▊▀┬h┌▊♦H◥ 
+2780: 48 20 A0 25 48 8A 48 20 A0 25 20 E9 24 30 15 AA  H␠█%H◥H␠█%␠i$0▄* 
+2790: 68 9D 45 03 68 9D 44 03 68 9D 49 03 68 9D 48 03  h↓E┘h↓D┘h↓I┘h↓H┘ 
+27A0: 1D 49 03 60 68 68 68 68 A2 FF 60 85 8C 86 8D A2  ↓I┘♦hhhh“▶♦┐▟╱▆“ 
+27B0: 00 A0 00 B1 8C F0 08 C8 D0 F9 E6 8D E8 D0 F4 98  ♥█♥1▟p◢HPyf▆hPt┴ 
+27C0: 60 20 7E 27 F0 11 E0 FF F0 1C A9 0B 9D 42 03 20  ♦␠◀‘p┌♦▶p↑)▝↓B┘␠ 
+27D0: 56 E4 10 03 4C E5 24 BD 48 03 48 BD 49 03 AA A9  Vd♣┘Le$=H┘H=I┘*) 
+27E0: 00 8D DF 28 68 60 4C BB 25 A9 DF 85 8A A9 28 85  ♥▆_(h♦L;%)_┐◥)(┐ 
+27F0: 8B A9 00 A8 A2 00 F0 0A 91 8A C8 D0 FB E6 8B CA  ▙)♥(“♥p◣┌◥HP♠f▙J 
+2800: D0 F6 C0 59 F0 05 91 8A C8 D0 F7 60 20 20 28 75  Pv@Yp┐┌◥HPw♦␠␠(u 
+2810: 73 69 6E 67 20 65 78 65 63 75 74 61 62 6C 65 20  sing␠executable␠ 
+2820: 69 6E 20 43 29 00 48 65 6C 6C 6F 20 57 6F 72 6C  in␠C)♥Hello␠Worl 
+2830: 64 21 00 0C 06 04 03 0D 07 07 03 07 0B 0B 0B 0B  d!♥▘╱┤┘‾╲╲┘╲▝▝▝▝ 
+2840: 07 0B 0B 0B 07 0D 02 12 12 06 03 07 0A 03 12 12  ╲▝▝▝╲‾⎹──╱┘╲◣┘── 
+2850: 12 12 12 01 05 08 0B 0E 01 0E 03 0D 08 01 0E 09  ───├┐◢▝▂├▂┘‾◢├▂▗ 
+2860: 12 12 12 12 12 12 12 11 12 12 07 00 01 00 01 01  ───────┌──╲♥├♥├├ 
+2870: 00 02 01 00 00 00 00 00 00 00 00 00 00 00 00 00  ♥⎹├♥♥♥♥♥♥♥♥♥♥♥♥♥ 
+2880: 00 00 00 6B 28 6E 28 71 28 00 00 00 00 8D 9B 28  ♥♥♥k(n(q(♥♥♥♥▆␍( 
+2890: 8E 9C 28 8D A2 28 8E A3 28 88 B9 FF FF 8D AC 28  ‾↑(▆“(‾#(◤9▶▶▆,( 
+28A0: 88 B9 FF FF 8D AB 28 8C AE 28 20 FF FF A0 FF D0  ◤9▶▶▆+(▟.(␠▶▶█▶P 
+28B0: E8 60 00 00 00 FF FF FF FF FF FF FF FF FF 03 00  h♦♥♥♥▶▶▶▶▶▶▶▶▶┘♥ 
+28C0: 45 00 00 FF 00 00 00 FF 00 00 00 FF 00 00 00 FF  E♥♥▶♥♥♥▶♥♥♥▶♥♥♥▶ 
+28D0: 00 00 00 FF 00 00 00 FF 00 00 00 FF 00 00 9B     ♥♥♥▶♥♥♥▶♥♥♥▶♥♥␍  
+02E0: 01 24                                            ├$               
+Run: $2401
+File: ./share/atari_check_exe_test/HELLO_A.EXE
+Magic: $FFFF; Start: $2400; End: $246D; Length: 110
+2400: 60 60 A2 00 A9 0B 9D 42 03 A9 3F 9D 44 03 A9 24  ♦♦“♥)▝↓B┘)?↓D┘)$ 
+2410: 9D 45 03 A9 2E 9D 48 03 A9 00 9D 49 03 20 56 E4  ↓E┘).↓H┘)♥↓I┘␠Vd 
+2420: A2 00 A9 07 9D 42 03 A9 6D 9D 44 03 A9 24 9D 45  “♥)╲↓B┘)m↓D┘)$↓E 
+2430: 03 A9 01 9D 48 03 A9 00 9D 49 03 20 56 E4 60 48  ┘)├↓H┘)♥↓I┘␠Vd♦H 
+2440: 65 6C 6C 6F 20 57 6F 72 6C 64 21 9B 28 75 73 69  ello␠World!␍(usi 
+2450: 6E 67 20 61 20 65 78 65 63 75 74 61 62 6C 65 20  ng␠a␠executable␠ 
+2460: 69 6E 20 61 73 73 65 6D 62 65 72 29 9B 00        in␠assember)␍♥   
+Magic: $0000; Start: $02E0; End: $02E1; Length: 2; Run: $2402
+02E0: 02 24                                            ⎹$               
+File: ./share/atari_check_exe_test/HELLO_C.EXE
+Magic: $FFFF; Start: $2E00; End: $2EF5; Length: 246
+2E00: 60 50 72 6F 67 72 61 6D 20 77 6F 75 6C 64 20 6C  ♦Program␠would␠l 
+2E10: 6F 61 64 20 62 65 6C 6F 77 20 4D 45 4D 4C 4F 2E  oad␠below␠MEMLO. 
+2E20: 9B 43 6F 6E 73 69 64 65 72 20 75 73 69 6E 67 20  ␍Consider␠using␠ 
+2E30: 61 20 68 69 67 68 65 72 20 6C 6F 61 64 20 61 64  a␠higher␠load␠ad 
+2E40: 64 72 65 73 73 2E 9B 38 AD E5 02 E9 00 8D F6 2E  dress.␍8-e⎹i♥▆v. 
+2E50: AD E6 02 E9 00 8D F7 2E AD F6 2E 38 E9 00 8D F6  -f⎹i♥▆w.-v.8i♥▆v 
+2E60: 2E AD F7 2E E9 08 8D F7 2E AD F6 2E C9 38 AD F7  .-w.i◢▆w.-v.I8-w 
+2E70: 2E E9 29 90 31 AD E7 02 C9 00 AD E8 02 E9 24 90  .i)♣1-g⎹I♥-h⎹i$♣ 
+2E80: 24 A2 00 A9 01 9D 44 03 A9 2E 9D 45 03 A9 46 9D  $“♥)├↓D┘).↓E┘)F↓ 
+2E90: 48 03 A9 00 9D 49 03 A9 0B 9D 42 03 20 56 E4 20  H┘)♥↓I┘)▝↓B┘␠Vd␠ 
+2EA0: E0 2E 4C DA 2E 60 4C BC 2E 4E 6F 74 20 65 6E 6F  ♦.LZ.♦L<.Not␠eno 
+2EB0: 75 67 68 20 6D 65 6D 6F 72 79 2E 9B A2 00 A9 A9  ugh␠memory.␍“♥)) 
+2EC0: 9D 44 03 A9 2E 9D 45 03 A9 13 9D 48 03 A9 00 9D  ↓D┘).↓E┘)┼↓H┘)♥↓ 
+2ED0: 49 03 A9 0B 9D 42 03 20 56 E4 20 E0 2E 6C 0A 00  I┘)▝↓B┘␠Vd␠♦.l◣♥ 
+2EE0: A9 0A 20 EB 2E 18 E9 00 D0 F8 60 A2 00 A0 00 88  )◣␠k.┴i♥Px♦“♥█♥◤ 
+2EF0: D0 FD CA D0 FA 60                                P↰JPz♦           
+Magic: $0000; Start: $02E2; End: $02E3; Length: 2; Init: $2E47
+02E2: 47 2E                                            G.               
+Magic: $0000; Start: $2400; End: $28DE; Length: 1247
+2400: 60 20 E9 27 BA 8E E0 28 A5 0E A6 0F 8D E3 28 8E  ♦␠i‘:‾♦(%▂&▖▆c(‾ 
+2410: E4 28 38 AD E5 02 E9 00 85 0E 85 82 AD E6 02 E9  d(8-e⎹i♥┐▂┐▊-f⎹i 
+2420: 00 85 0F 85 83 20 63 24 A5 52 8D E2 28 A0 00 84  ♥┐▖┐┘␠c$%R▆b(█♥┤ 
+2430: 52 AE BE 02 8E E1 28 8C BE 02 88 8C FC 02 20 B9  R.>⎹‾a(▟>⎹◤▟-⎹␠9 
+2440: 24 AE E0 28 9A 20 D0 24 AD E2 28 85 52 AD E1 28  $.♦(└␠P$-b(┐R-a( 
+2450: 8D BE 02 AD E3 28 AE E4 28 85 0E 86 0F A2 00 8E  ▆>⎹-c(.d(┐▂╱▖“♥‾ 
+2460: F0 02 60 A0 00 F0 07 A9 6F A2 24 4C 8D 28 60 A9  p⎹♦█♥p╲)o“$L▆(♦) 
+2470: 26 A2 28 20 25 26 A9 0C A2 28 20 25 26 20 97 25  &“(␠%&)▘“(␠%&␠┬% 
+2480: A2 00 A9 00 4C 87 24 60 20 A2 24 8D DF 28 A9 FF  “♥)♥L╲$♦␠“$▆_()▶ 
+2490: AA 60 8D DF 28 AA F0 09 20 D5 25 20 A2 24 A9 FF  *♦▆_(*p▗␠U%␠“$)▶ 
+24A0: AA 60 8D E5 28 A9 00 8D E6 28 60 C8 48 18 98 65  *♦▆e()♥▆f(♦HH┴┴e 
+24B0: 82 85 82 90 02 E6 83 68 60 AD 89 28 AE 8A 28 20  ▊┐▊♣⎹f┘h♦-▛(.◥(␠ 
+24C0: F3 25 AD 8B 28 AE 8C 28 20 F3 25 A0 04 4C 6F 24  s%-▙(.▟(␠s%█┤Lo$ 
+24D0: A0 00 F0 07 A9 6B A2 28 4C 8D 28 60 A4 82 D0 02  █♥p╲)k“(L▆(♦$▊P⎹ 
+24E0: C6 83 C6 82 60 98 4C 92 24 E0 00 D0 1B C9 0C B0  F┘F▊♦┴L─$♦♥P␛I▘0 
+24F0: 17 AA BD B2 28 0A 0A AA A9 FF DD BF 28 F0 09 BD  ┬*=2(◣◣*)▶]?(p▗= 
+2500: BE 28 F0 04 BD BF 28 60 A2 FF 60 20 F3 25 A0 00  >(p┤=?(♦“▶♦␠s%█♥ 
+2510: A2 04 20 68 27 20 DC 24 A0 01 B1 9A 29 01 F0 06  “┤␠h‘␠\$█├1└)├p╱ 
+2520: B1 9A 29 06 F0 06 A2 FF 8A 4C 87 25 B1 9A 29 08  1└)╱p╱“▶◥L╲%1└)◢ 
+2530: F0 0E B1 9A 29 F7 91 9A C8 A2 00 B1 9A 4C 87 25  p▂1└)w┌└H“♥1└L╲% 
+2540: 88 B1 9A 20 F1 25 A9 02 20 C9 25 20 F3 25 A2 00  ◤1└␠q%)⎹␠I%␠s%“♥ 
+2550: A9 01 20 8E 26 E0 00 D0 07 C9 00 F0 17 4C 81 25  )├␠‾&♦♥P╲I♥p┬L├% 
+2560: E0 FF D0 1D C9 FF D0 19 A0 01 B1 9A 09 04 91 9A  ♦▶P↓I▶P▌█├1└▗┤┌└ 
+2570: 8A 4C 87 25 A0 01 B1 9A 09 02 91 9A CA 8A 4C 87  ◥L╲%█├1└▗⎹┌└J◥L╲ 
+2580: 25 A0 00 B1 82 A2 00 48 A0 01 B1 82 85 9A C8 B1  %█♥1▊“♥H█├1▊┐└H1 
+2590: 82 85 9B 68 4C B6 25 AD 83 28 AE 84 28 4C 0B 25  ▊┐␍hL6%-┘(.┤(L▝% 
+25A0: A0 01 B1 82 AA 88 B1 82 E6 82 F0 05 E6 82 F0 03  █├1▊*◤1▊f▊p┐f▊p┘ 
+25B0: 60 E6 82 E6 83 60 A0 03 4C AC 24 A9 07 4C 88 24  ♦f▊f┘♦█┘L,$)╲L◤$ 
+25C0: A0 01 B1 82 AA 88 B1 82 60 A2 00 18 65 82 48 8A  █├1▊*◤1▊♦“♥┴e▊H◥ 
+25D0: 65 83 AA 68 60 C9 80 B0 04 A9 00 AA 60 29 7F AA  e┘*h♦I♥0┤)♥*♦)▶* 
+25E0: E0 38 B0 06 BD 33 28 A2 00 60 A9 12 A2 00 60 A9  ♦80╱=3(“♥♦)─“♥♦) 
+25F0: 00 A2 00 48 A5 82 38 E9 02 85 82 B0 02 C6 83 A0  ♥“♥H%▊8i⎹┐▊0⎹F┘█ 
+2600: 01 8A 91 82 68 88 91 82 60 A0 03 A5 82 38 E9 02  ├◥┌▊h◤┌▊♦█┘%▊8i⎹ 
+2610: 85 82 B0 02 C6 83 B1 82 AA 88 B1 82 A0 00 91 82  ┐▊0⎹F┘1▊*◤1▊█♥┌▊ 
+2620: C8 8A 91 82 60 20 F3 25 AD 86 28 85 8B AD 85 28  H◥┌▊♦␠s%-╱(┐▙-┐( 
+2630: 85 8A A0 00 B1 8A 20 F1 25 A0 05 20 0B 26 A0 05  ┐◥█♥1◥␠q%█┐␠▝&█┐ 
+2640: 20 C2 25 20 AB 27 20 C1 27 E0 80 B0 29 AD 86 28  ␠B%␠+‘␠A‘♦♥0)-╱( 
+2650: 85 8B AD 85 28 85 8A A0 00 B1 8A 20 F1 25 A9 DE  ┐▙-┐(┐◥█♥1◥␠q%)^ 
+2660: A2 28 20 F3 25 A2 00 A9 01 20 C1 27 E0 80 B0 06  “(␠s%“♥)├␠A‘♦♥0╱ 
+2670: A2 00 8A 4C A8 25 AD 86 28 85 8B AD 85 28 85 8A  “♥◥L(%-╱(┐▙-┐(┐◥ 
+2680: A0 01 B1 8A 09 04 91 8A A2 FF 8A 4C A8 25 20 7E  █├1◥▗┤┌◥“▶◥L(%␠◀ 
+2690: 27 F0 19 E0 FF F0 24 E0 00 F0 23 A9 07 9D 42 03  ‘p▌♦▶p$♦♥p#)╲↓B┘ 
+26A0: 20 56 E4 10 07 C0 88 F0 03 4C E5 24 BD 48 03 48  ␠Vd♣╲@◤p┘Le$=H┘H 
+26B0: BD 49 03 AA A9 00 8D DF 28 68 60 4C BB 25 AD E7  =I┘*)♥▆_(h♦L;%-g 
+26C0: 28 D0 56 BD 48 03 48 A9 50 9D 48 03 BD 49 03 48  (PV=H┘H)P↓H┘=I┘H 
+26D0: A9 00 9D 49 03 BD 44 03 48 A9 E8 9D 44 03 BD 45  )♥↓I┘=D┘H)h↓D┘=E 
+26E0: 03 48 A9 28 9D 45 03 A9 05 9D 42 03 20 56 E4 10  ┘H)(↓E┘)┐↓B┘␠Vd♣ 
+26F0: 0B C0 88 F0 07 68 68 68 68 4C E5 24 BD 48 03 8D  ▝@◤p╲hhhhLe$=H┘▆ 
+2700: E7 28 A9 00 85 9C 68 9D 45 03 68 9D 44 03 68 9D  g()♥┐↑h↓E┘h↓D┘h↓ 
+2710: 49 03 68 9D 48 03 AD E7 28 38 E5 9C 85 9D BD 48  I┘h↓H┘-g(8e↑┐↓=H 
+2720: 03 C5 9D F0 02 B0 3A BD 49 03 D0 35 BD 44 03 85  ┘E↓p⎹0:=I┘P5=D┘┐ 
+2730: 9E BD 45 03 85 9F BD 48 03 85 A0 48 A0 00 A6 9C  ←=E┘┐→=H┘┐█H█♥&↑ 
+2740: BD E8 28 91 9E C8 E8 C6 A0 D0 F5 68 48 18 65 9C  =h(┌←HhF█PuhH┴e↑ 
+2750: 85 9C CD E7 28 90 05 A9 00 8D E7 28 A2 00 4C B4  ┐↑Mg(♣┐)♥▆g(“♥L4 
+2760: 26 A5 9D 9D 48 03 10 C4 B5 96 48 B1 82 95 96 68  &%↓↓H┘♣D5▐H1▊▀▐h 
+2770: 91 82 C8 B5 97 48 B1 82 95 97 68 91 82 60 48 8A  ┌▊H5┬H1▊▀┬h┌▊♦H◥ 
+2780: 48 20 A0 25 48 8A 48 20 A0 25 20 E9 24 30 15 AA  H␠█%H◥H␠█%␠i$0▄* 
+2790: 68 9D 45 03 68 9D 44 03 68 9D 49 03 68 9D 48 03  h↓E┘h↓D┘h↓I┘h↓H┘ 
+27A0: 1D 49 03 60 68 68 68 68 A2 FF 60 85 8C 86 8D A2  ↓I┘♦hhhh“▶♦┐▟╱▆“ 
+27B0: 00 A0 00 B1 8C F0 08 C8 D0 F9 E6 8D E8 D0 F4 98  ♥█♥1▟p◢HPyf▆hPt┴ 
+27C0: 60 20 7E 27 F0 11 E0 FF F0 1C A9 0B 9D 42 03 20  ♦␠◀‘p┌♦▶p↑)▝↓B┘␠ 
+27D0: 56 E4 10 03 4C E5 24 BD 48 03 48 BD 49 03 AA A9  Vd♣┘Le$=H┘H=I┘*) 
+27E0: 00 8D DF 28 68 60 4C BB 25 A9 DF 85 8A A9 28 85  ♥▆_(h♦L;%)_┐◥)(┐ 
+27F0: 8B A9 00 A8 A2 00 F0 0A 91 8A C8 D0 FB E6 8B CA  ▙)♥(“♥p◣┌◥HP♠f▙J 
+2800: D0 F6 C0 59 F0 05 91 8A C8 D0 F7 60 20 20 28 75  Pv@Yp┐┌◥HPw♦␠␠(u 
+2810: 73 69 6E 67 20 65 78 65 63 75 74 61 62 6C 65 20  sing␠executable␠ 
+2820: 69 6E 20 43 29 00 48 65 6C 6C 6F 20 57 6F 72 6C  in␠C)♥Hello␠Worl 
+2830: 64 21 00 0C 06 04 03 0D 07 07 03 07 0B 0B 0B 0B  d!♥▘╱┤┘‾╲╲┘╲▝▝▝▝ 
+2840: 07 0B 0B 0B 07 0D 02 12 12 06 03 07 0A 03 12 12  ╲▝▝▝╲‾⎹──╱┘╲◣┘── 
+2850: 12 12 12 01 05 08 0B 0E 01 0E 03 0D 08 01 0E 09  ───├┐◢▝▂├▂┘‾◢├▂▗ 
+2860: 12 12 12 12 12 12 12 11 12 12 07 00 01 00 01 01  ───────┌──╲♥├♥├├ 
+2870: 00 02 01 00 00 00 00 00 00 00 00 00 00 00 00 00  ♥⎹├♥♥♥♥♥♥♥♥♥♥♥♥♥ 
+2880: 00 00 00 6B 28 6E 28 71 28 00 00 00 00 8D 9B 28  ♥♥♥k(n(q(♥♥♥♥▆␍( 
+2890: 8E 9C 28 8D A2 28 8E A3 28 88 B9 FF FF 8D AC 28  ‾↑(▆“(‾#(◤9▶▶▆,( 
+28A0: 88 B9 FF FF 8D AB 28 8C AE 28 20 FF FF A0 FF D0  ◤9▶▶▆+(▟.(␠▶▶█▶P 
+28B0: E8 60 00 00 00 FF FF FF FF FF FF FF FF FF 03 00  h♦♥♥♥▶▶▶▶▶▶▶▶▶┘♥ 
+28C0: 45 00 00 FF 00 00 00 FF 00 00 00 FF 00 00 00 FF  E♥♥▶♥♥♥▶♥♥♥▶♥♥♥▶ 
+28D0: 00 00 00 FF 00 00 00 FF 00 00 00 FF 00 00 9B     ♥♥♥▶♥♥♥▶♥♥♥▶♥♥␍  
+Magic: $0000; Start: $02E0; End: $02E1; Length: 2; Run: $2401
+02E0: 01 24                                            ├$               
+
+OK Call EXE_Tools : Test_Dump_01: the header of Assembler Hello World
+OK Call EXE_Tools : Test_Dump_02: the headers of C Hello World
+OK Call EXE_Tools : Test_Dump_03: the segement of Assembler Hello World
+OK Call EXE_Tools : Test_Dump_04: the segments of C Hello World
+OK Call EXE_Tools : Test_Dump_05: the all of Assembler Hello World
+OK Call EXE_Tools : Test_Dump_06: the all of C Hello World
+
+Total Tests Run:   6
+Successful Tests:  6
+Failed Assertions: 0
+Unexpected Errors: 0

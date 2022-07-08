@@ -1,4 +1,4 @@
-Test ran at 2022-06-07 12:36:33.302699+00:00
+Test ran at 2024-05-14 12:27:23.798567+00:00
 
 SOLUTION:
 usb_embedded=0.3.0: An Ada USB stack for embedded devices
@@ -26,22 +26,22 @@ Dependencies (direct):
    bbqueue~0.3.0
    hal~0.3
 Dependencies (solution):
-   atomic=0.4.1
-   bbqueue=0.3.0
+   atomic=0.5.0
+   bbqueue=0.3.1
    gnat=10.3.2 (gnat_native) (installed)
    hal=0.3.0
 Dependencies (graph):
-   bbqueue=0.3.0      --> atomic=0.4.1 (~0.4)             
-   bbqueue=0.3.0      --> gnat=10.3.2 (gnat_native) (>=10)
-   usb_embedded=0.3.0 --> bbqueue=0.3.0 (~0.3.0)          
+   bbqueue=0.3.1      --> atomic=0.5.0 (~0.5)             
+   bbqueue=0.3.1      --> gnat=10.3.2 (gnat_native) (>=10)
+   usb_embedded=0.3.0 --> bbqueue=0.3.1 (~0.3.0)          
    usb_embedded=0.3.0 --> hal=0.3.0 (~0.3)                
 
 
 LOG:
 Note: Deploying usb_embedded=0.3.0...
-Note: Deploying atomic=0.4.1...
+Note: Deploying atomic=0.5.0...
 Note: Deploying hal=0.3.0...
-Note: Deploying bbqueue=0.3.0...
+Note: Deploying bbqueue=0.3.1...
 Note: Building usb_embedded/usb_embedded.gpr...
 Setup
    [mkdir]        object directory for project Atomic
@@ -71,6 +71,7 @@ Compile
    [Ada]          atomic.adb
    [Ada]          atomic-unsigned.adb
    [Ada]          atomic-signed.adb
+   [Ada]          atomic_config.ads
    [Ada]          atomic-unsigned_32.ads
    [Ada]          atomic-signed_32.ads
    [Ada]          atomic-unsigned_8.ads
@@ -109,16 +110,17 @@ Build Libraries
    [gprlib]       Usb_Embedded.lexch
    [archive]      libBbqueue.a
    [archive]      libhal.a
-   [index]        libhal.a
    [index]        libBbqueue.a
+   [index]        libhal.a
    [archive]      libUsb_Embedded.a
    [index]        libUsb_Embedded.a
-Build finished successfully in 3.98 seconds.
+Build finished successfully in 8.58 seconds.
 
 usb_embedded=0.3.0 successfully retrieved and built.
 Dependencies were solved as follows:
 
-   +  atomic  0.4.1  (new,indirect)                      
-   +  bbqueue 0.3.0  (new)                               
+   +  atomic  0.5.0  (new,indirect)                      
+   +  bbqueue 0.3.1  (new)                               
    +i gnat    10.3.2 (new,installed,gnat_native,indirect)
    +  hal     0.3.0  (new)                               
+Found declared GPR file: usb_embedded.gpr

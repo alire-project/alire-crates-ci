@@ -1,0 +1,2058 @@
+badge: false
+crate: lsystem_editor
+creation_timestamp: 1793666280.7596986
+distro: ubuntu-26.04
+duration: 20.060560529999975
+gnat: 11.2.4
+last_attempt: 2026-11-03 12:30:07.221250+00:00
+log:
+- 'Test ran at 2026-11-03 12:30:07.221227+00:00
+
+
+  '
+- 'SOLUTION:
+
+  '
+- 'lsystem_editor=1.0.0: L-Systems editor in Ada
+
+  '
+- 'Origin: commit b01f05b870b2eb91e95f4868e259d9208afdbe34 from https://github.com/Heziode/lsystem-editor
+
+  '
+- 'Properties:
+
+  '
+- '   Author: Heziode
+
+  '
+- '   Description: L-Systems editor in Ada
+
+  '
+- '   Executable: lsystem-editor
+
+  '
+- '   License: MIT
+
+  '
+- '   Long_Description: <img src="https://github.com/Heziode/lsystem-editor/blob/master/share/lsystem_editor/ressources/icon.png?raw=true"
+  alt="App Icon">
+
+  '
+- '
+
+  '
+- '# L-System Editor
+
+  '
+- '
+
+  '
+- '<img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License">
+
+  '
+- '
+
+  '
+- 'A comprehensive graphical and command-line editor for creating, manipulating, and
+  visualizing Lindenmayer systems (L-systems).
+
+  '
+- '
+
+  '
+- 'This project was initially developed as part of a university project.
+
+  '
+- '
+
+  '
+- '## What are L-Systems?
+
+  '
+- '
+
+  '
+- 'L-systems (Lindenmayer systems) are a type of formal grammar introduced by biologist
+  Aristid Lindenmayer in 1968. They are particularly useful for modeling plant growth
+  and generating fractals. An L-system consists of:
+
+  '
+- '
+
+  '
+- '- An **alphabet** of symbols that can be used to make strings
+
+  '
+- '- An **axiom** (initial string) to start with
+
+  '
+- '- A set of **production rules** that expand each symbol into a larger string of
+  symbols
+
+  '
+- '
+
+  '
+- 'Through recursive application of these rules, complex structures can be generated
+  from simple initial conditions.
+
+  '
+- '
+
+  '
+- '## Features
+
+  '
+- '
+
+  '
+- '- **Interactive GUI** for creating and editing L-systems
+
+  '
+- '- **Command-line interface** for batch processing and automated workflows
+
+  '
+- '- **Real-time visualization** of the L-system at different development levels
+
+  '
+- '- **Export capabilities** to PS (PostScript) format for now
+
+  '
+- '- **Customizable rendering** with adjustable parameters (colors, margins, dimensions)
+
+  '
+- '- **Save and load** L-system definitions using `.ls` files
+
+  '
+- '
+
+  '
+- '## Installation
+
+  '
+- '
+
+  '
+- '### Using Alire (recommended)
+
+  '
+- '
+
+  '
+- '```
+
+  '
+- 'alr install lsystem_editor
+
+  '
+- '```
+
+  '
+- '
+
+  '
+- '### From Source
+
+  '
+- '
+
+  '
+- '1. Ensure you have Ada and GtkAda installed. This project depends on GNAT Lib.
+
+  '
+- '2. Clone the repository: `git clone https://github.com/Heziode/lsystem-editor.git`
+
+  '
+- '3. Build with Alire: `alr build` or manually with `make`
+
+  '
+- '
+
+  '
+- '## Usage
+
+  '
+- '
+
+  '
+- '### GUI Mode
+
+  '
+- '
+
+  '
+- 'Launch the graphical interface:
+
+  '
+- '
+
+  '
+- '```
+
+  '
+- './bin/lsystem_editor
+
+  '
+- '# Or
+
+  '
+- 'alr run
+
+  '
+- '```
+
+  '
+- '
+
+  '
+- 'The GUI offers:
+
+  '
+- '- A text editor area for defining L-system rules
+
+  '
+- '- Controls to adjust the development level
+
+  '
+- '- Real-time visualization of the L-system
+
+  '
+- '- Export options
+
+  '
+- '- Customization of colors and rendering parameters
+
+  '
+- '
+
+  '
+- '### Command-Line Mode
+
+  '
+- '
+
+  '
+- 'For automated processing or batch operations:
+
+  '
+- '
+
+  '
+- '```
+
+  '
+- 'lsystem_editor --no-gui [OPTIONS]
+
+  '
+- '```
+
+  '
+- '
+
+  '
+- '#### Command-Line Options
+
+  '
+- '
+
+  '
+- '| Option | Long Form | Description |
+
+  '
+- '|--------|-----------|-------------|
+
+  '
+- '| `-i` | `--input=FILE` | Input file containing an L-system definition |
+
+  '
+- '| `-o` | `--output=FILE` | Output file to store an L-system definition |
+
+  '
+- '| `-e` | `--export=FORMAT` | Export format for the L-system representation |
+
+  '
+- '| `-p` | `--export-file=FILE` | Output file for the exported representation |
+
+  '
+- '| `-d` | `--develop=N` | Number of development steps to apply |
+
+  '
+- '| `-w` | `--width=N` | Width of the output representation |
+
+  '
+- '| `-h` | `--height=N` | Height of the output representation |
+
+  '
+- '| `-b` | `--background-color=COLOR` | Background color in hex format (e.g., #AABBCC)
+  |
+
+  '
+- '| `-f` | `--foreground-color=COLOR` | Foreground color in hex format (e.g., #AABBCC)
+  |
+
+  '
+- '| `-mt` | `--margin-top=N` | Top margin for rendering |
+
+  '
+- '| `-mr` | `--margin-right=N` | Right margin for rendering |
+
+  '
+- '| `-mb` | `--margin-bottom=N` | Bottom margin for rendering |
+
+  '
+- '| `-ml` | `--margin-left=N` | Left margin for rendering |
+
+  '
+- '
+
+  '
+- '## L-System File Format
+
+  '
+- '
+
+  '
+- 'L-system definitions are stored in `.ls` files with the following syntax:
+
+  '
+- '
+
+  '
+- '```
+
+  '
+- '<angle> [angle in degrees]
+
+  '
+- '<axiom> [initial string]
+
+  '
+- '<rules>
+
+  '
+- '[symbol] [replacement string]
+
+  '
+- '[symbol] [replacement string]
+
+  '
+- '...
+
+  '
+- '</rules>
+
+  '
+- '```
+
+  '
+- '
+
+  '
+- '### Example L-System: Koch Curve
+
+  '
+- '
+
+  '
+- '```
+
+  '
+- '60.0
+
+  '
+- '-F++F++F
+
+  '
+- 'F F-F++F-F
+
+  '
+- '```
+
+  '
+- '
+
+  '
+- 'Where:
+
+  '
+- '- `F` means "draw forward"
+
+  '
+- '- `+` means "turn left by angle"
+
+  '
+- '- `-` means "turn right by angle"
+
+  '
+- '
+
+  '
+- '## Controls in GUI Mode
+
+  '
+- '
+
+  '
+- '- **Text Editor**: Define and edit your L-system
+
+  '
+- '- **Validate Button**: Check if your L-system definition is valid
+
+  '
+- '- **Level Spinner**: Adjust the development level
+
+  '
+- '- **Color Controls**: Change foreground and background colors
+
+  '
+- '- **Export Options**: Save visualizations
+
+  '
+- '
+
+  '
+- '## License
+
+  '
+- '
+
+  '
+- 'L-System Editor is distributed under the MIT License.
+
+  '
+- '
+
+  '
+- 'Copyright (c) 2018 Quentin Dauprat (Heziode)
+
+  '
+- '
+
+  '
+- 'See the [LICENSE](https://github.com/Heziode/lsystem-editor/blob/master/LICENSE)
+  file for full details.
+
+  '
+- '
+
+  '
+- '   Maintainer: Heziode <heziode@protonmail.com>
+
+  '
+- '   Maintainers_Logins: heziode
+
+  '
+- '   Name: lsystem_editor
+
+  '
+- '   Project_File: LSystem_Editor.gpr
+
+  '
+- '   Tag: gtk
+
+  '
+- '   Tag: gtk3
+
+  '
+- '   Tag: ada
+
+  '
+- '   Tag: l-systems
+
+  '
+- '   Tag: gtkada
+
+  '
+- '   Tag: l-system
+
+  '
+- '   Tag: editor
+
+  '
+- '   Tag: gui
+
+  '
+- '   Version: 1.0.0
+
+  '
+- '   Website: https://github.com/Heziode/lsystem-editor
+
+  '
+- 'Dependencies (direct):
+
+  '
+- '   gtkada^25.0.1
+
+  '
+- '   resources~0.1.0
+
+  '
+- 'Dependencies (solution):
+
+  '
+- '   gtkada=25.0.1
+
+  '
+- '   libgtk3=3.24.52
+
+  '
+- '   make=4.4.1
+
+  '
+- '   pkg_config=2.5.1
+
+  '
+- '   resources=0.1.0
+
+  '
+- 'Dependencies (graph):
+
+  '
+- '   gtkada=25.0.1        --> libgtk3=3.24.52 (>=3.24.24)
+
+  '
+- '   gtkada=25.0.1        --> make=4.4.1 (*)
+
+  '
+- '   gtkada=25.0.1        --> pkg_config=2.5.1 (*)
+
+  '
+- '   lsystem_editor=1.0.0 --> gtkada=25.0.1 (^25.0.1)
+
+  '
+- '   lsystem_editor=1.0.0 --> resources=0.1.0 (~0.1.0)
+
+  '
+- '
+
+  '
+- '
+
+  LOG:
+
+  '
+- '[alr test] Testing lsystem_editor=1.0.0
+
+  '
+- '[alr test] Spawning retrieval for remote crate: alr -d -n get lsystem_editor=1.0.0
+
+  '
+- 'Note: Deploying lsystem_editor=1.0.0...
+
+  '
+- 'Note: Deploying libgtk3=3.24.52...
+
+  '
+- 'The system package ''libgtk-3-dev'' is about to be installed.
+
+  '
+- 'This action might require admin privileges and impact your system installation.
+
+  '
+- 'Do you want Alire to install this system package?
+
+  '
+- 'Using default: Yes
+
+  '
+- "(Reading database ... \n"
+- '(Reading database ... 5%
+
+  '
+- '(Reading database ... 10%
+
+  '
+- '(Reading database ... 15%
+
+  '
+- '(Reading database ... 20%
+
+  '
+- '(Reading database ... 25%
+
+  '
+- '(Reading database ... 30%
+
+  '
+- '(Reading database ... 35%
+
+  '
+- '(Reading database ... 40%
+
+  '
+- '(Reading database ... 45%
+
+  '
+- '(Reading database ... 50%
+
+  '
+- '(Reading database ... 55%
+
+  '
+- '(Reading database ... 60%
+
+  '
+- '(Reading database ... 65%
+
+  '
+- '(Reading database ... 70%
+
+  '
+- '(Reading database ... 75%
+
+  '
+- '(Reading database ... 80%
+
+  '
+- '(Reading database ... 85%
+
+  '
+- '(Reading database ... 90%
+
+  '
+- '(Reading database ... 95%
+
+  '
+- '(Reading database ... 100%
+
+  '
+- '(Reading database ... 212746 files and directories currently installed.)
+
+  '
+- 'Preparing to unpack .../00-libbrotli1_1.2.0-3ubuntu0.1_amd64v3.deb ...
+
+  '
+- 'Unpacking libbrotli1:amd64 (1.2.0-3ubuntu0.1) over (1.2.0-3build1) ...
+
+  '
+- 'Preparing to unpack .../01-brotli_1.2.0-3ubuntu0.1_amd64v3.deb ...
+
+  '
+- 'Unpacking brotli (1.2.0-3ubuntu0.1) over (1.2.0-3build1) ...
+
+  '
+- 'Selecting previously unselected package bzip2-doc.
+
+  '
+- 'Preparing to unpack .../02-bzip2-doc_1.0.8-6ubuntu0.1_all.deb ...
+
+  '
+- 'Unpacking bzip2-doc (1.0.8-6ubuntu0.1) ...
+
+  '
+- 'Selecting previously unselected package gir1.2-atk-1.0:amd64.
+
+  '
+- 'Preparing to unpack .../03-gir1.2-atk-1.0_2.60.4-0ubuntu0.1_amd64v3.deb ...
+
+  '
+- 'Unpacking gir1.2-atk-1.0:amd64 (2.60.4-0ubuntu0.1) ...
+
+  '
+- 'Selecting previously unselected package gir1.2-freedesktop:amd64.
+
+  '
+- 'Preparing to unpack .../04-gir1.2-freedesktop_1.86.0-6build1_amd64v3.deb ...
+
+  '
+- 'Unpacking gir1.2-freedesktop:amd64 (1.86.0-6build1) ...
+
+  '
+- 'Selecting previously unselected package gir1.2-atspi-2.0:amd64.
+
+  '
+- 'Preparing to unpack .../05-gir1.2-atspi-2.0_2.60.4-0ubuntu0.1_amd64v3.deb ...
+
+  '
+- 'Unpacking gir1.2-atspi-2.0:amd64 (2.60.4-0ubuntu0.1) ...
+
+  '
+- 'Selecting previously unselected package gir1.2-glib-2.0-dev:amd64.
+
+  '
+- 'Preparing to unpack .../06-gir1.2-glib-2.0-dev_2.88.0-1ubuntu0.1_amd64v3.deb ...
+
+  '
+- 'Unpacking gir1.2-glib-2.0-dev:amd64 (2.88.0-1ubuntu0.1) ...
+
+  '
+- 'Selecting previously unselected package gir1.2-freedesktop-dev:amd64.
+
+  '
+- 'Preparing to unpack .../07-gir1.2-freedesktop-dev_1.86.0-6build1_amd64v3.deb ...
+
+  '
+- 'Unpacking gir1.2-freedesktop-dev:amd64 (1.86.0-6build1) ...
+
+  '
+- 'Selecting previously unselected package gir1.2-gdkpixbuf-2.0:amd64.
+
+  '
+- 'Preparing to unpack .../08-gir1.2-gdkpixbuf-2.0_2.44.5+dfsg-4ubuntu1_amd64v3.deb
+  ...
+
+  '
+- 'Unpacking gir1.2-gdkpixbuf-2.0:amd64 (2.44.5+dfsg-4ubuntu1) ...
+
+  '
+- 'Selecting previously unselected package gir1.2-gly-2:amd64.
+
+  '
+- 'Preparing to unpack .../09-gir1.2-gly-2_2.1.5+ds-0ubuntu0.2_amd64v3.deb ...
+
+  '
+- 'Unpacking gir1.2-gly-2:amd64 (2.1.5+ds-0ubuntu0.2) ...
+
+  '
+- 'Selecting previously unselected package libharfbuzz-gobject0:amd64.
+
+  '
+- 'Preparing to unpack .../10-libharfbuzz-gobject0_12.3.2-2_amd64v3.deb ...
+
+  '
+- 'Unpacking libharfbuzz-gobject0:amd64 (12.3.2-2) ...
+
+  '
+- 'Selecting previously unselected package gir1.2-harfbuzz-0.0:amd64.
+
+  '
+- 'Preparing to unpack .../11-gir1.2-harfbuzz-0.0_12.3.2-2_amd64v3.deb ...
+
+  '
+- 'Unpacking gir1.2-harfbuzz-0.0:amd64 (12.3.2-2) ...
+
+  '
+- 'Selecting previously unselected package libpangoxft-1.0-0:amd64.
+
+  '
+- 'Preparing to unpack .../12-libpangoxft-1.0-0_1.57.0-1_amd64v3.deb ...
+
+  '
+- 'Unpacking libpangoxft-1.0-0:amd64 (1.57.0-1) ...
+
+  '
+- 'Selecting previously unselected package gir1.2-pango-1.0:amd64.
+
+  '
+- 'Preparing to unpack .../13-gir1.2-pango-1.0_1.57.0-1_amd64v3.deb ...
+
+  '
+- 'Unpacking gir1.2-pango-1.0:amd64 (1.57.0-1) ...
+
+  '
+- 'Selecting previously unselected package gir1.2-gtk-3.0:amd64.
+
+  '
+- 'Preparing to unpack .../14-gir1.2-gtk-3.0_3.24.52-0ubuntu1_amd64v3.deb ...
+
+  '
+- 'Unpacking gir1.2-gtk-3.0:amd64 (3.24.52-0ubuntu1) ...
+
+  '
+- 'Selecting previously unselected package native-architecture.
+
+  '
+- 'Preparing to unpack .../15-native-architecture_0.2.6build1_all.deb ...
+
+  '
+- 'Unpacking native-architecture (0.2.6build1) ...
+
+  '
+- 'Selecting previously unselected package girepository-tools:amd64.
+
+  '
+- 'Preparing to unpack .../16-girepository-tools_2.88.0-1ubuntu0.1_amd64v3.deb ...
+
+  '
+- 'Unpacking girepository-tools:amd64 (2.88.0-1ubuntu0.1) ...
+
+  '
+- 'Selecting previously unselected package uuid-dev:amd64.
+
+  '
+- 'Preparing to unpack .../17-uuid-dev_2.41.3-3ubuntu2.2_amd64v3.deb ...
+
+  '
+- 'Unpacking uuid-dev:amd64 (2.41.3-3ubuntu2.2) ...
+
+  '
+- 'Selecting previously unselected package libblkid-dev:amd64.
+
+  '
+- 'Preparing to unpack .../18-libblkid-dev_2.41.3-3ubuntu2.2_amd64v3.deb ...
+
+  '
+- 'Unpacking libblkid-dev:amd64 (2.41.3-3ubuntu2.2) ...
+
+  '
+- 'Selecting previously unselected package libsepol-dev:amd64.
+
+  '
+- 'Preparing to unpack .../19-libsepol-dev_3.9-2_amd64v3.deb ...
+
+  '
+- 'Unpacking libsepol-dev:amd64 (3.9-2) ...
+
+  '
+- 'Selecting previously unselected package libselinux-dev:amd64.
+
+  '
+- 'Preparing to unpack .../20-libselinux-dev_3.9-4build1_amd64v3.deb ...
+
+  '
+- 'Unpacking libselinux-dev:amd64 (3.9-4build1) ...
+
+  '
+- 'Selecting previously unselected package libmount-dev:amd64.
+
+  '
+- 'Preparing to unpack .../21-libmount-dev_2.41.3-3ubuntu2.2_amd64v3.deb ...
+
+  '
+- 'Unpacking libmount-dev:amd64 (2.41.3-3ubuntu2.2) ...
+
+  '
+- 'Selecting previously unselected package libsysprof-capture-4-dev:amd64.
+
+  '
+- 'Preparing to unpack .../22-libsysprof-capture-4-dev_50.0-1_amd64v3.deb ...
+
+  '
+- 'Unpacking libsysprof-capture-4-dev:amd64 (50.0-1) ...
+
+  '
+- 'Selecting previously unselected package libgio-2.0-dev:amd64.
+
+  '
+- 'Preparing to unpack .../23-libgio-2.0-dev_2.88.0-1ubuntu0.1_amd64v3.deb ...
+
+  '
+- 'Unpacking libgio-2.0-dev:amd64 (2.88.0-1ubuntu0.1) ...
+
+  '
+- 'Selecting previously unselected package libgio-2.0-dev-bin.
+
+  '
+- 'Preparing to unpack .../24-libgio-2.0-dev-bin_2.88.0-1ubuntu0.1_amd64v3.deb ...
+
+  '
+- 'Unpacking libgio-2.0-dev-bin (2.88.0-1ubuntu0.1) ...
+
+  '
+- 'Selecting previously unselected package libglib2.0-dev-bin.
+
+  '
+- 'Preparing to unpack .../25-libglib2.0-dev-bin_2.88.0-1ubuntu0.1_amd64v3.deb ...
+
+  '
+- 'Unpacking libglib2.0-dev-bin (2.88.0-1ubuntu0.1) ...
+
+  '
+- 'Selecting previously unselected package libglib2.0-dev:amd64.
+
+  '
+- 'Preparing to unpack .../26-libglib2.0-dev_2.88.0-1ubuntu0.1_amd64v3.deb ...
+
+  '
+- 'Unpacking libglib2.0-dev:amd64 (2.88.0-1ubuntu0.1) ...
+
+  '
+- 'Selecting previously unselected package libatk1.0-dev:amd64.
+
+  '
+- 'Preparing to unpack .../27-libatk1.0-dev_2.60.4-0ubuntu0.1_amd64v3.deb ...
+
+  '
+- 'Unpacking libatk1.0-dev:amd64 (2.60.4-0ubuntu0.1) ...
+
+  '
+- 'Selecting previously unselected package libsystemd-dev:amd64.
+
+  '
+- 'Preparing to unpack .../28-libsystemd-dev_259.9-0ubuntu0.1_amd64v3.deb ...
+
+  '
+- 'Unpacking libsystemd-dev:amd64 (259.9-0ubuntu0.1) ...
+
+  '
+- 'Selecting previously unselected package libdbus-1-dev:amd64.
+
+  '
+- 'Preparing to unpack .../29-libdbus-1-dev_1.16.2-2ubuntu4_amd64v3.deb ...
+
+  '
+- 'Unpacking libdbus-1-dev:amd64 (1.16.2-2ubuntu4) ...
+
+  '
+- 'Selecting previously unselected package xorg-sgml-doctools.
+
+  '
+- 'Preparing to unpack .../30-xorg-sgml-doctools_1%3a1.11-1.1build1_all.deb ...
+
+  '
+- 'Unpacking xorg-sgml-doctools (1:1.11-1.1build1) ...
+
+  '
+- 'Selecting previously unselected package x11proto-dev.
+
+  '
+- 'Preparing to unpack .../31-x11proto-dev_2025.1-1_all.deb ...
+
+  '
+- 'Unpacking x11proto-dev (2025.1-1) ...
+
+  '
+- 'Selecting previously unselected package libxau-dev:amd64.
+
+  '
+- 'Preparing to unpack .../32-libxau-dev_1%3a1.0.11-1build2_amd64v3.deb ...
+
+  '
+- 'Unpacking libxau-dev:amd64 (1:1.0.11-1build2) ...
+
+  '
+- 'Selecting previously unselected package libxdmcp-dev:amd64.
+
+  '
+- 'Preparing to unpack .../33-libxdmcp-dev_1%3a1.1.5-2_amd64v3.deb ...
+
+  '
+- 'Unpacking libxdmcp-dev:amd64 (1:1.1.5-2) ...
+
+  '
+- 'Selecting previously unselected package xtrans-dev.
+
+  '
+- 'Preparing to unpack .../34-xtrans-dev_1.6.0-1build1_all.deb ...
+
+  '
+- 'Unpacking xtrans-dev (1.6.0-1build1) ...
+
+  '
+- 'Selecting previously unselected package libxcb1-dev:amd64.
+
+  '
+- 'Preparing to unpack .../35-libxcb1-dev_1.17.0-2ubuntu1_amd64v3.deb ...
+
+  '
+- 'Unpacking libxcb1-dev:amd64 (1.17.0-2ubuntu1) ...
+
+  '
+- 'Selecting previously unselected package libx11-dev:amd64.
+
+  '
+- 'Preparing to unpack .../36-libx11-dev_2%3a1.8.13-1ubuntu0.1_amd64v3.deb ...
+
+  '
+- 'Unpacking libx11-dev:amd64 (2:1.8.13-1ubuntu0.1) ...
+
+  '
+- 'Selecting previously unselected package libxext-dev:amd64.
+
+  '
+- 'Preparing to unpack .../37-libxext-dev_2%3a1.3.4-1build3_amd64v3.deb ...
+
+  '
+- 'Unpacking libxext-dev:amd64 (2:1.3.4-1build3) ...
+
+  '
+- 'Selecting previously unselected package libxfixes-dev:amd64.
+
+  '
+- 'Preparing to unpack .../38-libxfixes-dev_1%3a6.0.0-2build2_amd64v3.deb ...
+
+  '
+- 'Unpacking libxfixes-dev:amd64 (1:6.0.0-2build2) ...
+
+  '
+- 'Selecting previously unselected package libxi-dev:amd64.
+
+  '
+- 'Preparing to unpack .../39-libxi-dev_2%3a1.8.2-2_amd64v3.deb ...
+
+  '
+- 'Unpacking libxi-dev:amd64 (2:1.8.2-2) ...
+
+  '
+- 'Selecting previously unselected package libxtst-dev:amd64.
+
+  '
+- 'Preparing to unpack .../40-libxtst-dev_2%3a1.2.5-1ubuntu0.1_amd64v3.deb ...
+
+  '
+- 'Unpacking libxtst-dev:amd64 (2:1.2.5-1ubuntu0.1) ...
+
+  '
+- 'Selecting previously unselected package libxres-dev:amd64.
+
+  '
+- 'Preparing to unpack .../41-libxres-dev_2%3a1.2.1-1build2_amd64v3.deb ...
+
+  '
+- 'Unpacking libxres-dev:amd64 (2:1.2.1-1build2) ...
+
+  '
+- 'Selecting previously unselected package libatspi2.0-dev:amd64.
+
+  '
+- 'Preparing to unpack .../42-libatspi2.0-dev_2.60.4-0ubuntu0.1_amd64v3.deb ...
+
+  '
+- 'Unpacking libatspi2.0-dev:amd64 (2.60.4-0ubuntu0.1) ...
+
+  '
+- 'Selecting previously unselected package libatk-bridge2.0-dev:amd64.
+
+  '
+- 'Preparing to unpack .../43-libatk-bridge2.0-dev_2.60.4-0ubuntu0.1_amd64v3.deb ...
+
+  '
+- 'Unpacking libatk-bridge2.0-dev:amd64 (2.60.4-0ubuntu0.1) ...
+
+  '
+- 'Selecting previously unselected package libbrotli-dev:amd64.
+
+  '
+- 'Preparing to unpack .../44-libbrotli-dev_1.2.0-3ubuntu0.1_amd64v3.deb ...
+
+  '
+- 'Unpacking libbrotli-dev:amd64 (1.2.0-3ubuntu0.1) ...
+
+  '
+- 'Selecting previously unselected package libbz2-dev:amd64.
+
+  '
+- 'Preparing to unpack .../45-libbz2-dev_1.0.8-6ubuntu0.1_amd64v3.deb ...
+
+  '
+- 'Unpacking libbz2-dev:amd64 (1.0.8-6ubuntu0.1) ...
+
+  '
+- 'Selecting previously unselected package libcairo-script-interpreter2:amd64.
+
+  '
+- 'Preparing to unpack .../46-libcairo-script-interpreter2_1.18.4-3_amd64v3.deb ...
+
+  '
+- 'Unpacking libcairo-script-interpreter2:amd64 (1.18.4-3) ...
+
+  '
+- 'Selecting previously unselected package libpng-dev:amd64.
+
+  '
+- 'Preparing to unpack .../47-libpng-dev_1.6.57-1ubuntu0.1_amd64v3.deb ...
+
+  '
+- 'Unpacking libpng-dev:amd64 (1.6.57-1ubuntu0.1) ...
+
+  '
+- 'Selecting previously unselected package libfreetype-dev:amd64.
+
+  '
+- 'Preparing to unpack .../48-libfreetype-dev_2.14.2+dfsg-1ubuntu0.2_amd64v3.deb ...
+
+  '
+- 'Unpacking libfreetype-dev:amd64 (2.14.2+dfsg-1ubuntu0.2) ...
+
+  '
+- 'Selecting previously unselected package libfontconfig-dev:amd64.
+
+  '
+- 'Preparing to unpack .../49-libfontconfig-dev_2.17.1-3ubuntu1_amd64v3.deb ...
+
+  '
+- 'Unpacking libfontconfig-dev:amd64 (2.17.1-3ubuntu1) ...
+
+  '
+- 'Selecting previously unselected package libpixman-1-dev:amd64.
+
+  '
+- 'Preparing to unpack .../50-libpixman-1-dev_0.46.4-1_amd64v3.deb ...
+
+  '
+- 'Unpacking libpixman-1-dev:amd64 (0.46.4-1) ...
+
+  '
+- 'Selecting previously unselected package libice-dev:amd64.
+
+  '
+- 'Preparing to unpack .../51-libice-dev_2%3a1.1.1-1build1_amd64v3.deb ...
+
+  '
+- 'Unpacking libice-dev:amd64 (2:1.1.1-1build1) ...
+
+  '
+- 'Selecting previously unselected package libsm-dev:amd64.
+
+  '
+- 'Preparing to unpack .../52-libsm-dev_2%3a1.2.6-1build1_amd64v3.deb ...
+
+  '
+- 'Unpacking libsm-dev:amd64 (2:1.2.6-1build1) ...
+
+  '
+- 'Selecting previously unselected package libxcb-render0-dev:amd64.
+
+  '
+- 'Preparing to unpack .../53-libxcb-render0-dev_1.17.0-2ubuntu1_amd64v3.deb ...
+
+  '
+- 'Unpacking libxcb-render0-dev:amd64 (1.17.0-2ubuntu1) ...
+
+  '
+- 'Selecting previously unselected package libxcb-shm0-dev:amd64.
+
+  '
+- 'Preparing to unpack .../54-libxcb-shm0-dev_1.17.0-2ubuntu1_amd64v3.deb ...
+
+  '
+- 'Unpacking libxcb-shm0-dev:amd64 (1.17.0-2ubuntu1) ...
+
+  '
+- 'Selecting previously unselected package libxrender-dev:amd64.
+
+  '
+- 'Preparing to unpack .../55-libxrender-dev_1%3a0.9.12-1build1_amd64v3.deb ...
+
+  '
+- 'Unpacking libxrender-dev:amd64 (1:0.9.12-1build1) ...
+
+  '
+- 'Selecting previously unselected package libcairo2-dev:amd64.
+
+  '
+- 'Preparing to unpack .../56-libcairo2-dev_1.18.4-3_amd64v3.deb ...
+
+  '
+- 'Unpacking libcairo2-dev:amd64 (1.18.4-3) ...
+
+  '
+- 'Selecting previously unselected package libdatrie-dev:amd64.
+
+  '
+- 'Preparing to unpack .../57-libdatrie-dev_0.2.14-1_amd64v3.deb ...
+
+  '
+- 'Unpacking libdatrie-dev:amd64 (0.2.14-1) ...
+
+  '
+- 'Selecting previously unselected package libegl-mesa0:amd64.
+
+  '
+- 'Preparing to unpack .../58-libegl-mesa0_26.0.8-1ubuntu0.3_amd64v3.deb ...
+
+  '
+- 'Unpacking libegl-mesa0:amd64 (26.0.8-1ubuntu0.3) ...
+
+  '
+- 'Selecting previously unselected package libegl1:amd64.
+
+  '
+- 'Preparing to unpack .../59-libegl1_1.7.0-3_amd64v3.deb ...
+
+  '
+- 'Unpacking libegl1:amd64 (1.7.0-3) ...
+
+  '
+- 'Selecting previously unselected package libglx-dev:amd64.
+
+  '
+- 'Preparing to unpack .../60-libglx-dev_1.7.0-3_amd64v3.deb ...
+
+  '
+- 'Unpacking libglx-dev:amd64 (1.7.0-3) ...
+
+  '
+- 'Selecting previously unselected package libgl-dev:amd64.
+
+  '
+- 'Preparing to unpack .../61-libgl-dev_1.7.0-3_amd64v3.deb ...
+
+  '
+- 'Unpacking libgl-dev:amd64 (1.7.0-3) ...
+
+  '
+- 'Selecting previously unselected package libegl-dev:amd64.
+
+  '
+- 'Preparing to unpack .../62-libegl-dev_1.7.0-3_amd64v3.deb ...
+
+  '
+- 'Unpacking libegl-dev:amd64 (1.7.0-3) ...
+
+  '
+- 'Selecting previously unselected package libglvnd-core-dev:amd64.
+
+  '
+- 'Preparing to unpack .../63-libglvnd-core-dev_1.7.0-3_amd64v3.deb ...
+
+  '
+- 'Unpacking libglvnd-core-dev:amd64 (1.7.0-3) ...
+
+  '
+- 'Selecting previously unselected package libgles1:amd64.
+
+  '
+- 'Preparing to unpack .../64-libgles1_1.7.0-3_amd64v3.deb ...
+
+  '
+- 'Unpacking libgles1:amd64 (1.7.0-3) ...
+
+  '
+- 'Selecting previously unselected package libgles2:amd64.
+
+  '
+- 'Preparing to unpack .../65-libgles2_1.7.0-3_amd64v3.deb ...
+
+  '
+- 'Unpacking libgles2:amd64 (1.7.0-3) ...
+
+  '
+- 'Selecting previously unselected package libgles-dev:amd64.
+
+  '
+- 'Preparing to unpack .../66-libgles-dev_1.7.0-3_amd64v3.deb ...
+
+  '
+- 'Unpacking libgles-dev:amd64 (1.7.0-3) ...
+
+  '
+- 'Selecting previously unselected package libopengl0:amd64.
+
+  '
+- 'Preparing to unpack .../67-libopengl0_1.7.0-3_amd64v3.deb ...
+
+  '
+- 'Unpacking libopengl0:amd64 (1.7.0-3) ...
+
+  '
+- 'Selecting previously unselected package libopengl-dev:amd64.
+
+  '
+- 'Preparing to unpack .../68-libopengl-dev_1.7.0-3_amd64v3.deb ...
+
+  '
+- 'Unpacking libopengl-dev:amd64 (1.7.0-3) ...
+
+  '
+- 'Selecting previously unselected package libglvnd-dev:amd64.
+
+  '
+- 'Preparing to unpack .../69-libglvnd-dev_1.7.0-3_amd64v3.deb ...
+
+  '
+- 'Unpacking libglvnd-dev:amd64 (1.7.0-3) ...
+
+  '
+- 'Selecting previously unselected package libegl1-mesa-dev:amd64.
+
+  '
+- 'Preparing to unpack .../70-libegl1-mesa-dev_26.0.8-1ubuntu0.3_amd64v3.deb ...
+
+  '
+- 'Unpacking libegl1-mesa-dev:amd64 (26.0.8-1ubuntu0.3) ...
+
+  '
+- 'Selecting previously unselected package libepoxy-dev:amd64.
+
+  '
+- 'Preparing to unpack .../71-libepoxy-dev_1.5.10-2build1_amd64v3.deb ...
+
+  '
+- 'Unpacking libepoxy-dev:amd64 (1.5.10-2build1) ...
+
+  '
+- 'Selecting previously unselected package libfribidi-dev:amd64.
+
+  '
+- 'Preparing to unpack .../72-libfribidi-dev_1.0.16-5_amd64v3.deb ...
+
+  '
+- 'Unpacking libfribidi-dev:amd64 (1.0.16-5) ...
+
+  '
+- 'Selecting previously unselected package libgdk-pixbuf2.0-bin.
+
+  '
+- 'Preparing to unpack .../73-libgdk-pixbuf2.0-bin_2.44.5+dfsg-4ubuntu1_amd64v3.deb
+  ...
+
+  '
+- 'Unpacking libgdk-pixbuf2.0-bin (2.44.5+dfsg-4ubuntu1) ...
+
+  '
+- 'Selecting previously unselected package liblcms2-dev:amd64.
+
+  '
+- 'Preparing to unpack .../74-liblcms2-dev_2.17-1ubuntu0.2_amd64v3.deb ...
+
+  '
+- 'Unpacking liblcms2-dev:amd64 (2.17-1ubuntu0.2) ...
+
+  '
+- 'Selecting previously unselected package libseccomp-dev:amd64.
+
+  '
+- 'Preparing to unpack .../75-libseccomp-dev_2.6.0-2ubuntu5_amd64v3.deb ...
+
+  '
+- 'Unpacking libseccomp-dev:amd64 (2.6.0-2ubuntu5) ...
+
+  '
+- 'Selecting previously unselected package libglycin-2-dev:amd64.
+
+  '
+- 'Preparing to unpack .../76-libglycin-2-dev_2.1.5+ds-0ubuntu0.2_amd64v3.deb ...
+
+  '
+- 'Unpacking libglycin-2-dev:amd64 (2.1.5+ds-0ubuntu0.2) ...
+
+  '
+- 'Selecting previously unselected package libgdk-pixbuf-2.0-dev:amd64.
+
+  '
+- 'Preparing to unpack .../77-libgdk-pixbuf-2.0-dev_2.44.5+dfsg-4ubuntu1_amd64v3.deb
+  ...
+
+  '
+- 'Unpacking libgdk-pixbuf-2.0-dev:amd64 (2.44.5+dfsg-4ubuntu1) ...
+
+  '
+- 'Selecting previously unselected package libgraphite2-dev:amd64.
+
+  '
+- 'Preparing to unpack .../78-libgraphite2-dev_1.3.14-11ubuntu1.1_amd64v3.deb ...
+
+  '
+- 'Unpacking libgraphite2-dev:amd64 (1.3.14-11ubuntu1.1) ...
+
+  '
+- 'Selecting previously unselected package libharfbuzz-icu0:amd64.
+
+  '
+- 'Preparing to unpack .../79-libharfbuzz-icu0_12.3.2-2_amd64v3.deb ...
+
+  '
+- 'Unpacking libharfbuzz-icu0:amd64 (12.3.2-2) ...
+
+  '
+- 'Selecting previously unselected package libharfbuzz-subset0:amd64.
+
+  '
+- 'Preparing to unpack .../80-libharfbuzz-subset0_12.3.2-2_amd64v3.deb ...
+
+  '
+- 'Unpacking libharfbuzz-subset0:amd64 (12.3.2-2) ...
+
+  '
+- 'Selecting previously unselected package libharfbuzz-cairo0:amd64.
+
+  '
+- 'Preparing to unpack .../81-libharfbuzz-cairo0_12.3.2-2_amd64v3.deb ...
+
+  '
+- 'Unpacking libharfbuzz-cairo0:amd64 (12.3.2-2) ...
+
+  '
+- 'Selecting previously unselected package libharfbuzz-dev:amd64.
+
+  '
+- 'Preparing to unpack .../82-libharfbuzz-dev_12.3.2-2_amd64v3.deb ...
+
+  '
+- 'Unpacking libharfbuzz-dev:amd64 (12.3.2-2) ...
+
+  '
+- 'Selecting previously unselected package libthai-dev:amd64.
+
+  '
+- 'Preparing to unpack .../83-libthai-dev_0.1.30-1_amd64v3.deb ...
+
+  '
+- 'Unpacking libthai-dev:amd64 (0.1.30-1) ...
+
+  '
+- 'Selecting previously unselected package libxft-dev:amd64.
+
+  '
+- 'Preparing to unpack .../84-libxft-dev_2.3.6-1build2_amd64v3.deb ...
+
+  '
+- 'Unpacking libxft-dev:amd64 (2.3.6-1build2) ...
+
+  '
+- 'Selecting previously unselected package pango1.0-tools.
+
+  '
+- 'Preparing to unpack .../85-pango1.0-tools_1.57.0-1_amd64v3.deb ...
+
+  '
+- 'Unpacking pango1.0-tools (1.57.0-1) ...
+
+  '
+- 'Selecting previously unselected package libpango1.0-dev:amd64.
+
+  '
+- 'Preparing to unpack .../86-libpango1.0-dev_1.57.0-1_amd64v3.deb ...
+
+  '
+- 'Unpacking libpango1.0-dev:amd64 (1.57.0-1) ...
+
+  '
+- 'Selecting previously unselected package libwayland-server0:amd64.
+
+  '
+- 'Preparing to unpack .../87-libwayland-server0_1.24.0-2_amd64v3.deb ...
+
+  '
+- 'Unpacking libwayland-server0:amd64 (1.24.0-2) ...
+
+  '
+- 'Selecting previously unselected package libwayland-bin.
+
+  '
+- 'Preparing to unpack .../88-libwayland-bin_1.24.0-2_amd64v3.deb ...
+
+  '
+- 'Unpacking libwayland-bin (1.24.0-2) ...
+
+  '
+- 'Selecting previously unselected package libwayland-dev:amd64.
+
+  '
+- 'Preparing to unpack .../89-libwayland-dev_1.24.0-2_amd64v3.deb ...
+
+  '
+- 'Unpacking libwayland-dev:amd64 (1.24.0-2) ...
+
+  '
+- 'Selecting previously unselected package libxcomposite-dev:amd64.
+
+  '
+- 'Preparing to unpack .../90-libxcomposite-dev_1%3a0.4.6-1build1_amd64v3.deb ...
+
+  '
+- 'Unpacking libxcomposite-dev:amd64 (1:0.4.6-1build1) ...
+
+  '
+- 'Selecting previously unselected package libxcursor-dev:amd64.
+
+  '
+- 'Preparing to unpack .../91-libxcursor-dev_1%3a1.2.3-1build1_amd64v3.deb ...
+
+  '
+- 'Unpacking libxcursor-dev:amd64 (1:1.2.3-1build1) ...
+
+  '
+- 'Selecting previously unselected package libxdamage-dev:amd64.
+
+  '
+- 'Preparing to unpack .../92-libxdamage-dev_1%3a1.1.7-1_amd64v3.deb ...
+
+  '
+- 'Unpacking libxdamage-dev:amd64 (1:1.1.7-1) ...
+
+  '
+- 'Selecting previously unselected package libxinerama-dev:amd64.
+
+  '
+- 'Preparing to unpack .../93-libxinerama-dev_2%3a1.1.4-3build2_amd64v3.deb ...
+
+  '
+- 'Unpacking libxinerama-dev:amd64 (2:1.1.4-3build2) ...
+
+  '
+- 'Selecting previously unselected package libxkbcommon-dev:amd64.
+
+  '
+- 'Preparing to unpack .../94-libxkbcommon-dev_1.13.1-1_amd64v3.deb ...
+
+  '
+- 'Unpacking libxkbcommon-dev:amd64 (1.13.1-1) ...
+
+  '
+- 'Selecting previously unselected package libxrandr-dev:amd64.
+
+  '
+- 'Preparing to unpack .../95-libxrandr-dev_2%3a1.5.4-1build1_amd64v3.deb ...
+
+  '
+- 'Unpacking libxrandr-dev:amd64 (2:1.5.4-1build1) ...
+
+  '
+- 'Selecting previously unselected package wayland-protocols.
+
+  '
+- 'Preparing to unpack .../96-wayland-protocols_1.47-1_all.deb ...
+
+  '
+- 'Unpacking wayland-protocols (1.47-1) ...
+
+  '
+- 'Selecting previously unselected package libgtk-3-dev:amd64.
+
+  '
+- 'Preparing to unpack .../97-libgtk-3-dev_3.24.52-0ubuntu1_amd64v3.deb ...
+
+  '
+- 'Unpacking libgtk-3-dev:amd64 (3.24.52-0ubuntu1) ...
+
+  '
+- 'Selecting previously unselected package libpng-tools.
+
+  '
+- 'Preparing to unpack .../98-libpng-tools_1.6.57-1ubuntu0.1_amd64v3.deb ...
+
+  '
+- 'Unpacking libpng-tools (1.6.57-1ubuntu0.1) ...
+
+  '
+- 'Setting up gir1.2-gly-2:amd64 (2.1.5+ds-0ubuntu0.2) ...
+
+  '
+- 'Setting up libcairo-script-interpreter2:amd64 (1.18.4-3) ...
+
+  '
+- 'Setting up bzip2-doc (1.0.8-6ubuntu0.1) ...
+
+  '
+- 'Setting up libwayland-server0:amd64 (1.24.0-2) ...
+
+  '
+- 'Setting up libseccomp-dev:amd64 (2.6.0-2ubuntu5) ...
+
+  '
+- 'Setting up libgio-2.0-dev-bin (2.88.0-1ubuntu0.1) ...
+
+  '
+- 'Setting up gir1.2-freedesktop:amd64 (1.86.0-6build1) ...
+
+  '
+- 'Setting up libharfbuzz-icu0:amd64 (12.3.2-2) ...
+
+  '
+- 'Setting up libpixman-1-dev:amd64 (0.46.4-1) ...
+
+  '
+- 'Setting up native-architecture (0.2.6build1) ...
+
+  '
+- 'Setting up libpangoxft-1.0-0:amd64 (1.57.0-1) ...
+
+  '
+- 'Setting up libglvnd-core-dev:amd64 (1.7.0-3) ...
+
+  '
+- 'Setting up gir1.2-gdkpixbuf-2.0:amd64 (2.44.5+dfsg-4ubuntu1) ...
+
+  '
+- 'Setting up libpng-tools (1.6.57-1ubuntu0.1) ...
+
+  '
+- 'Setting up gir1.2-atk-1.0:amd64 (2.60.4-0ubuntu0.1) ...
+
+  '
+- 'Setting up libfribidi-dev:amd64 (1.0.16-5) ...
+
+  '
+- 'Setting up libxkbcommon-dev:amd64 (1.13.1-1) ...
+
+  '
+- 'Setting up libbrotli1:amd64 (1.2.0-3ubuntu0.1) ...
+
+  '
+- 'Setting up libpng-dev:amd64 (1.6.57-1ubuntu0.1) ...
+
+  '
+- 'Setting up pango1.0-tools (1.57.0-1) ...
+
+  '
+- 'Setting up libharfbuzz-gobject0:amd64 (12.3.2-2) ...
+
+  '
+- 'Setting up gir1.2-atspi-2.0:amd64 (2.60.4-0ubuntu0.1) ...
+
+  '
+- 'Setting up gir1.2-harfbuzz-0.0:amd64 (12.3.2-2) ...
+
+  '
+- 'Setting up libopengl0:amd64 (1.7.0-3) ...
+
+  '
+- 'Setting up libsysprof-capture-4-dev:amd64 (50.0-1) ...
+
+  '
+- 'Setting up xtrans-dev (1.6.0-1build1) ...
+
+  '
+- 'Setting up libwayland-bin (1.24.0-2) ...
+
+  '
+- 'Setting up libgraphite2-dev:amd64 (1.3.14-11ubuntu1.1) ...
+
+  '
+- 'Setting up gir1.2-pango-1.0:amd64 (1.57.0-1) ...
+
+  '
+- 'Setting up libegl-mesa0:amd64 (26.0.8-1ubuntu0.3) ...
+
+  '
+- 'Setting up libgles2:amd64 (1.7.0-3) ...
+
+  '
+- 'Setting up libharfbuzz-cairo0:amd64 (12.3.2-2) ...
+
+  '
+- 'Setting up uuid-dev:amd64 (2.41.3-3ubuntu2.2) ...
+
+  '
+- 'Setting up libgles1:amd64 (1.7.0-3) ...
+
+  '
+- 'Setting up libsepol-dev:amd64 (3.9-2) ...
+
+  '
+- 'Setting up liblcms2-dev:amd64 (2.17-1ubuntu0.2) ...
+
+  '
+- 'Setting up wayland-protocols (1.47-1) ...
+
+  '
+- 'Setting up libdatrie-dev:amd64 (0.2.14-1) ...
+
+  '
+- 'Setting up gir1.2-glib-2.0-dev:amd64 (2.88.0-1ubuntu0.1) ...
+
+  '
+- 'Setting up libgdk-pixbuf2.0-bin (2.44.5+dfsg-4ubuntu1) ...
+
+  '
+- 'Setting up libegl1:amd64 (1.7.0-3) ...
+
+  '
+- 'Setting up libharfbuzz-subset0:amd64 (12.3.2-2) ...
+
+  '
+- 'Setting up xorg-sgml-doctools (1:1.11-1.1build1) ...
+
+  '
+- 'Setting up libopengl-dev:amd64 (1.7.0-3) ...
+
+  '
+- 'Setting up libselinux-dev:amd64 (3.9-4build1) ...
+
+  '
+- 'Setting up libsystemd-dev:amd64 (259.9-0ubuntu0.1) ...
+
+  '
+- 'Setting up libbrotli-dev:amd64 (1.2.0-3ubuntu0.1) ...
+
+  '
+- 'Setting up brotli (1.2.0-3ubuntu0.1) ...
+
+  '
+- 'Setting up libbz2-dev:amd64 (1.0.8-6ubuntu0.1) ...
+
+  '
+- 'Setting up libblkid-dev:amd64 (2.41.3-3ubuntu2.2) ...
+
+  '
+- 'Setting up girepository-tools:amd64 (2.88.0-1ubuntu0.1) ...
+
+  '
+- 'Setting up gir1.2-gtk-3.0:amd64 (3.24.52-0ubuntu1) ...
+
+  '
+- 'Setting up libwayland-dev:amd64 (1.24.0-2) ...
+
+  '
+- 'Setting up libfreetype-dev:amd64 (2.14.2+dfsg-1ubuntu0.2) ...
+
+  '
+- 'Setting up libdbus-1-dev:amd64 (1.16.2-2ubuntu4) ...
+
+  '
+- 'Setting up gir1.2-freedesktop-dev:amd64 (1.86.0-6build1) ...
+
+  '
+- 'Setting up libthai-dev:amd64 (0.1.30-1) ...
+
+  '
+- 'Setting up libmount-dev:amd64 (2.41.3-3ubuntu2.2) ...
+
+  '
+- 'Setting up libglib2.0-dev-bin (2.88.0-1ubuntu0.1) ...
+
+  '
+- 'Setting up libgio-2.0-dev:amd64 (2.88.0-1ubuntu0.1) ...
+
+  '
+- 'Setting up libfontconfig-dev:amd64 (2.17.1-3ubuntu1) ...
+
+  '
+- 'Processing triggers for libc-bin (2.43-2ubuntu2.4) ...
+
+  '
+- 'Processing triggers for man-db (2.13.1-1build1) ...
+
+  '
+- 'Not building database; man-db/auto-update is not ''true''.
+
+  '
+- 'Processing triggers for libglib2.0-0t64:amd64 (2.88.0-1ubuntu0.1) ...
+
+  '
+- 'Setting up libglib2.0-dev:amd64 (2.88.0-1ubuntu0.1) ...
+
+  '
+- 'Processing triggers for sgml-base (1.31+nmu1build1) ...
+
+  '
+- 'Processing triggers for install-info (7.2-5ubuntu2) ...
+
+  '
+- 'Setting up libatk1.0-dev:amd64 (2.60.4-0ubuntu0.1) ...
+
+  '
+- 'Setting up x11proto-dev (2025.1-1) ...
+
+  '
+- 'Setting up libharfbuzz-dev:amd64 (12.3.2-2) ...
+
+  '
+- 'Setting up libxau-dev:amd64 (1:1.0.11-1build2) ...
+
+  '
+- 'Setting up libice-dev:amd64 (2:1.1.1-1build1) ...
+
+  '
+- 'Setting up libsm-dev:amd64 (2:1.2.6-1build1) ...
+
+  '
+- 'Setting up libglycin-2-dev:amd64 (2.1.5+ds-0ubuntu0.2) ...
+
+  '
+- 'Setting up libxdmcp-dev:amd64 (1:1.1.5-2) ...
+
+  '
+- 'Setting up libgdk-pixbuf-2.0-dev:amd64 (2.44.5+dfsg-4ubuntu1) ...
+
+  '
+- 'Setting up libxcb1-dev:amd64 (1.17.0-2ubuntu1) ...
+
+  '
+- 'Setting up libx11-dev:amd64 (2:1.8.13-1ubuntu0.1) ...
+
+  '
+- 'Setting up libxfixes-dev:amd64 (1:6.0.0-2build2) ...
+
+  '
+- 'Setting up libxcb-shm0-dev:amd64 (1.17.0-2ubuntu1) ...
+
+  '
+- 'Setting up libxcb-render0-dev:amd64 (1.17.0-2ubuntu1) ...
+
+  '
+- 'Setting up libxext-dev:amd64 (2:1.3.4-1build3) ...
+
+  '
+- 'Setting up libglx-dev:amd64 (1.7.0-3) ...
+
+  '
+- 'Setting up libxres-dev:amd64 (2:1.2.1-1build2) ...
+
+  '
+- 'Setting up libxi-dev:amd64 (2:1.8.2-2) ...
+
+  '
+- 'Setting up libxrender-dev:amd64 (1:0.9.12-1build1) ...
+
+  '
+- 'Setting up libgl-dev:amd64 (1.7.0-3) ...
+
+  '
+- 'Setting up libxft-dev:amd64 (2.3.6-1build2) ...
+
+  '
+- 'Setting up libxtst-dev:amd64 (2:1.2.5-1ubuntu0.1) ...
+
+  '
+- 'Setting up libxdamage-dev:amd64 (1:1.1.7-1) ...
+
+  '
+- 'Setting up libatspi2.0-dev:amd64 (2.60.4-0ubuntu0.1) ...
+
+  '
+- 'Setting up libegl-dev:amd64 (1.7.0-3) ...
+
+  '
+- 'Setting up libxcomposite-dev:amd64 (1:0.4.6-1build1) ...
+
+  '
+- 'Setting up libxcursor-dev:amd64 (1:1.2.3-1build1) ...
+
+  '
+- 'Setting up libepoxy-dev:amd64 (1.5.10-2build1) ...
+
+  '
+- 'Setting up libatk-bridge2.0-dev:amd64 (2.60.4-0ubuntu0.1) ...
+
+  '
+- 'Setting up libxrandr-dev:amd64 (2:1.5.4-1build1) ...
+
+  '
+- 'Setting up libxinerama-dev:amd64 (2:1.1.4-3build2) ...
+
+  '
+- 'Setting up libcairo2-dev:amd64 (1.18.4-3) ...
+
+  '
+- 'Setting up libgles-dev:amd64 (1.7.0-3) ...
+
+  '
+- 'Setting up libglvnd-dev:amd64 (1.7.0-3) ...
+
+  '
+- 'Setting up libpango1.0-dev:amd64 (1.57.0-1) ...
+
+  '
+- 'Setting up libegl1-mesa-dev:amd64 (26.0.8-1ubuntu0.3) ...
+
+  '
+- 'Setting up libgtk-3-dev:amd64 (3.24.52-0ubuntu1) ...
+
+  '
+- '
+
+  '
+- 'Running kernel seems to be up-to-date.
+
+  '
+- '
+
+  '
+- 'Restarting services...
+
+  '
+- ' systemctl restart packagekit.service php8.5-fpm.service
+
+  '
+- '
+
+  '
+- 'Service restarts being deferred:
+
+  '
+- ' systemctl restart hosted-compute-agent.service
+
+  '
+- '
+
+  '
+- 'No containers need to be restarted.
+
+  '
+- '
+
+  '
+- 'No user sessions are running outdated binaries.
+
+  '
+- '
+
+  '
+- 'No VM guests are running outdated hypervisor (qemu) binaries on this host.
+
+  '
+- 'Note: Deploying resources=0.1.0...
+
+  '
+- 'Note: Deploying gtkada=25.0.1...
+
+  '
+- '
+
+  '
+- "#=#=#                                                                         \
+  \ \n"
+- "##O#-#                                                                        \
+  \ \n"
+- "##=O#- #                                                                      \
+  \ \n"
+- "# #=O#- #                                                                     \
+  \ \n"
+- " # #=O#-  #                                                                   \
+  \ \n"
+- "  # #=O=#   #                                                                 \
+  \ \n"
+- "   # #=O=#   #                                                                \
+  \ \n"
+- "    # -#O=-#   #                                                              \
+  \ \n"
+- "     # -#O=- #   #                                                            \
+  \ \n"
+- '
+
+  '
+- 'lsystem_editor=1.0.0 successfully retrieved.
+
+  '
+- 'Dependencies were solved as follows:
+
+  '
+- '
+
+  '
+- '   +  gtkada     25.0.1  (new)
+
+  '
+- '   +b libgtk3    3.24.52 (new,indirect,system package)
+
+  '
+- '   +b make       4.4.1   (new,indirect,system package)
+
+  '
+- '   +b pkg_config 2.5.1   (new,indirect,system package)
+
+  '
+- '   +  resources  0.1.0   (new)
+
+  '
+- '[alr test] Spawning default test for remote crate: alr -d -n build --release --
+  -cargs:Ada -gnatwn
+
+  '
+- 'Note: Running post-fetch actions for gtkada=25.0.1...
+
+  '
+- 'checking build system type... x86_64-pc-linux-gnu
+
+  '
+- 'checking host system type... x86_64-pc-linux-gnu
+
+  '
+- 'checking target system type... x86_64-pc-linux-gnu
+
+  '
+- 'checking for pkg-config... /usr/bin/pkg-config
+
+  '
+- 'checking pkg-config is at least version 0.9.0... yes
+
+  '
+- 'checking for gcc... gcc
+
+  '
+- 'checking whether the C compiler works... no
+
+  '
+- 'configure: error: in `/home/runner/.local/share/alire/builds/gtkada_25.0.1_d3787772/20ece283def0535595b4c48bb0c5036845f09c805e64199cd714d6bba4517b09'':
+
+  '
+- 'configure: error: C compiler cannot create executables
+
+  '
+- 'See `config.log'' for more details
+
+  '
+- 'Warning: Execution failed for action: Post_Fetch run: bash -c PATH=${DISTRIB_ROOT}/mingw64/bin:${PATH}
+  ./configure (from ${CRATE_ROOT}/.)
+
+  '
+- 'Warning: Exit code: 77
+
+  '
+- 'Warning: Action output not captured, check it above.
+
+  '
+- 'stderr: ALIRE.PROPERTIES.ACTIONS.ACTION_FAILED
+
+  '
+- 'stderr: Action failed with exit code 77
+
+  '
+- 'stderr: raised ALIRE.PROPERTIES.ACTIONS.ACTION_FAILED : Action failed with exit
+  code 77
+
+  '
+- '[/home/runner/work/alire-crates-ci/alire-crates-ci/alire_install/bin/alr]
+
+  '
+- '0xacc145 Alire.Properties.Actions.Executor.Execute_Actions at alire-properties-actions-executor.adb:130
+
+  '
+- '0xaca6d9 Alire.Properties.Actions.Executor.Execute_Actions at alire-properties-actions-executor.adb:36
+
+  '
+- '0xc72eae Alire.Roots.Build at alire-roots.adb:232
+
+  '
+- '0xc9832b Alire.Roots.Traverse at alire-roots.adb:2143
+
+  '
+- '0xcfee85 Alire.Solutions.Traverse.Visit at alire-solutions.adb:1472
+
+  '
+- '0xcfdca2 Alire.Solutions.Traverse at alire-solutions.adb:1539
+
+  '
+- '0xc9841e Alire.Roots.Traverse at alire-roots.adb:2147
+
+  '
+- '0xc984dd Alire.Roots.Traverse at alire-roots.adb:2127
+
+  '
+- '0xc7359b Alire.Roots.Build at alire-roots.adb:286
+
+  '
+- '0xc736d7 Alire.Roots.Build at alire-roots.adb:114
+
+  '
+- '0x49aa0d Alr.Commands.Build.Execute at alr-commands-build.adb:145
+
+  '
+- '0x49a36d Alr.Commands.Build.Execute at alr-commands-build.adb:113
+
+  '
+- '0x49a51f Alr.Commands.Build.Execute at alr-commands-build.adb:54
+
+  '
+- '0x53bbcc Alr.Commands.Sub_Cmd.Execute at clic-subcommand-instance.adb:749
+
+  '
+- '0x5472be Alr.Commands.Execute at alr-commands.adb:632
+
+  '
+- '0x43d48a Alr.Main at alr-main.adb:13
+
+  '
+- '0x4403a3 Main at b__alr-main.adb:2445
+
+  '
+- '[/usr/lib/x86_64-linux-gnu/libc.so.6]
+
+  '
+- '0x70e8ee22a8bf
+
+  '
+- '0x70e8ee22a9d6
+
+  '
+- '[/home/runner/work/alire-crates-ci/alire-crates-ci/alire_install/bin/alr]
+
+  '
+- '0x43d323 _start at ???
+
+  '
+- '0xfffffffffffffffe
+
+  '
+- '
+
+  '
+- 'ERROR: Compilation failed.
+
+  '
+platform: linux
+status: failing
+version: 1.0.0

@@ -1,0 +1,252 @@
+Test ran at 2026-11-15 12:52:12.223195+00:00
+
+SOLUTION:
+rand=0.1.0: Random number generation toolkit
+Origin: commit 6d1af921227f1e7e0d61bf3cee431af701b99508 from https://github.com/AldanTanneo/rand-ada.git
+Properties:
+   Author: César SAGAERT
+   Build Switches: 
+   Description: Random number generation toolkit
+   License: Apache-2.0 WITH LLVM-exception
+   Long_Description: # Random number generation toolkit for Ada
+
+Design principles mostly inspired by the [rand](https://github.com/rust-random/rand) Rust crate.
+
+The project is split into several subcrates. `rand_core`, `rand_chacha`, `rand_xoshiro256` and `rand_distributions` can be used on embedded; However, `rand_sys` (and its dependent `rand`, the main crate) pull entropy from system sources, using the [`system_random`](https://alire.ada.dev/crates/system_random) Alire crate.
+
+## Usage examples
+
+Get a thread local instance of a secure Random Number Generator (RNG), seeded with system entropy:
+
+```ada
+with Rand;
+R : Rand.Rng := Rand.Thread_Rng;
+--  alternatively:
+R : Rand.Rng := Rand.Small_Rng;
+   --  a fast, unsecure RNG seeded with system entropy
+R : Rand.Rng := Rand.Sys.Get;
+   --  RNG based on system randomness sources
+   --  (OS-dependent)
+```
+
+Use convenience methods on the RNG to generate basic types:
+
+```ada
+V1 : Float := R.Gen;        --  a float in the range [0, 1)
+V2 : Long_Integer := R.Gen; --  a long integer over the whole range
+```
+
+You can also define your own random number generators by implementing the `Rand.Core_Rng` interface (alias for `Rand_Core.Rng`).
+
+Use `Next` and `Next_Bytes` to get the raw output of any RNG:
+
+```ada
+Buf : Rand.Core.Bytes (1 .. 256);
+R.Next_Bytes (Buf);
+X : Rand.Core.U64 := R.Next;
+```
+
+Use a predefined random distribution to get finer random value selection:
+
+```ada
+use Rand.Distributions;
+D1 : Uniform_Nat.Distribution := Uniform_Nat.Create (8, 27);
+S : Natural := D1.Sample (R);
+   --  sample in the inclusive range [8, 27]
+
+D2 : Bernoulli := Bernoulli.Create (0.25);
+S : Boolean := D2.Sample (R);
+   --  a boolean that is True 25% of the time
+```
+
+Or define your own distributions:
+
+```ada
+use Rand.Distributions;
+
+type Gaussian is new Long_Float_Distr.Distribution with record
+   Sigma : Long_Float;
+end record;
+
+overriding
+function Sample (D : Gaussian; R : in out Rand.Rng) return Long_Float
+is (...); --  sampling the custom distribution
+```
+
+Even on your own types:
+
+```ada
+with Rand_Distributions; use Rand_Distributions;
+
+type My_Rec is record
+   A : Integer;
+   B : Float;
+end record;
+
+package I is new Generic_Distribution (My_Rec);
+--  define the interface distributions over your type must implement
+
+type My_Distr is new I.Distribution with null record;
+
+overriding
+function Sample (D : My_Distr; R : in out Rand.Rng) return My_Rec
+is (A => 4, --  chosen by fair dice roll
+    B => R.Gen);
+```
+
+   Maintainer: César SAGAERT <sagaert@adacore.com>
+   Maintainers_Logins: AldanTanneo
+   Name: rand
+   Tag: random
+   Tag: chacha20
+   Tag: rng
+   Tag: getrandom
+   Tag: security
+   Version: 0.1.0
+   Website: https://github.com/AldanTanneo/rand-ada
+Dependencies (direct):
+   rand_chacha~0.1.0
+   rand_core~0.1.0
+   rand_distributions~0.1.0
+   rand_sys~0.1.0
+   rand_xoshiro256~0.1.0
+Dependencies (solution):
+   rand_chacha=0.1.0
+   rand_core=0.1.0
+   rand_distributions=0.1.0
+   rand_sys=0.1.0
+   rand_xoshiro256=0.1.0
+   system_random=1.0.0
+Dependencies (graph):
+   rand=0.1.0               --> rand_chacha=0.1.0 (~0.1.0)
+   rand=0.1.0               --> rand_core=0.1.0 (~0.1.0)
+   rand=0.1.0               --> rand_distributions=0.1.0 (~0.1.0)
+   rand=0.1.0               --> rand_sys=0.1.0 (~0.1.0)
+   rand=0.1.0               --> rand_xoshiro256=0.1.0 (~0.1.0)
+   rand_chacha=0.1.0        --> rand_core=0.1.0 (~0.1.0)
+   rand_distributions=0.1.0 --> rand_core=0.1.0 (~0.1.0)
+   rand_sys=0.1.0           --> rand_core=0.1.0 (~0.1.0)
+   rand_sys=0.1.0           --> system_random=1.0.0 (^1.0.0)
+   rand_xoshiro256=0.1.0    --> rand_core=0.1.0 (~0.1.0)
+
+
+LOG:
+[alr test] Testing rand=0.1.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get rand=0.1.0
+Note: Deploying rand=0.1.0...
+Note: Deploying rand_core=0.1.0...
+Note: Deploying system_random=1.0.0...
+
+rand=0.1.0 successfully retrieved.
+Dependencies were solved as follows:
+
+   + rand_chacha        0.1.0 (new)
+   + rand_core          0.1.0 (new)
+   + rand_distributions 0.1.0 (new)
+   + rand_sys           0.1.0 (new)
+   + rand_xoshiro256    0.1.0 (new)
+   + system_random      1.0.0 (new,indirect)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building rand=0.1.0/rand.gpr...
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\rand_ada_6d1af921\5c905e2d91a94a0305c6b483700c511204d30a4857287530cc4f24c739345750\rand_core\obj\release" created
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\rand_ada_6d1af921\5c905e2d91a94a0305c6b483700c511204d30a4857287530cc4f24c739345750\rand_core\lib" created
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\system_random_1.0.0_3db7f76e\279899c59e91ecaca24f94888c0cd486344d015de6db23708e83213af005eade\obj" created
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\system_random_1.0.0_3db7f76e\279899c59e91ecaca24f94888c0cd486344d015de6db23708e83213af005eade\lib" created
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\rand_ada_6d1af921\5c707cec316e74f2dfb271d334f88ebdcf6daba1cbc8000c3f469500d5df73bb\rand_distributions\obj\release" created
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\rand_ada_6d1af921\5c707cec316e74f2dfb271d334f88ebdcf6daba1cbc8000c3f469500d5df73bb\rand_distributions\lib" created
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\rand_ada_6d1af921\5d321bfc30e2b4c1d3f460e278231fe0613bf1d6efe9c54bda3ee0267afb11fd\rand_chacha\obj\release" created
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\rand_ada_6d1af921\5d321bfc30e2b4c1d3f460e278231fe0613bf1d6efe9c54bda3ee0267afb11fd\rand_chacha\lib" created
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\rand_ada_6d1af921\9b1985b2c9a6efca190554acbad51ca1e9f9fa4fc804aae1dff9005a31a36e88\rand_sys\obj\release" created
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\rand_ada_6d1af921\9b1985b2c9a6efca190554acbad51ca1e9f9fa4fc804aae1dff9005a31a36e88\rand_sys\lib" created
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\rand_ada_6d1af921\eb6eb494ce6236dbb5bbd135ab54da3b58971017ceb2c664109617495de0749c\rand_xoshiro256\obj\release" created
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\rand_ada_6d1af921\eb6eb494ce6236dbb5bbd135ab54da3b58971017ceb2c664109617495de0749c\rand_xoshiro256\lib" created
+"obj\release" created
+"lib" created
+[Ada Compile]     rand_distributions-bernoulli.ads
+[Ada Compile]     rand_distributions-uniform.adb
+[Ada Compile]     rand_distributions.ads
+[Ada Compile]     rand_distributions_config.ads
+[Ada Compile]     rand_core-generators.adb
+[Ada Compile]     rand_core-utils.adb
+[Ada Compile]     rand_core.ads
+[Archive]         libRand_Distributions.a
+[Ada Compile]     rand_core_config.ads
+[Ada Compile]     rand_chacha.adb
+[Ada Compile]     rand_chacha_config.ads
+[Ada Compile]     rand_sys.adb
+[Ada Compile]     rand_sys_config.ads
+[Archive]         libRand_Chacha.a
+[Archive]         libRand_Core.a
+[Ada Compile]     rand_xoshiro256.adb
+[Ada Compile]     rand_xoshiro256_config.ads
+[Archive]         libRand_Sys.a
+[Ada Compile]     system_random.adb
+[Ada Compile]     rand-distributions-standard_uniform.ads
+[Archive]         libRand_Xoshiro256.a
+[Archive]         libsystem_random.a
+[Ada Compile]     rand-distributions.ads
+[Ada Compile]     rand-sequence.adb
+[Ada Compile]     rand-thread_local.adb
+rand-sequence.adb:2:28: error: argument for pragma "Extensions_Allowed" must be "On" or "Off"
+rand.gpr: error: [Ada Compile] rand-sequence.adb (rand.gpr) failed with status 1
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "D:\a\alire-crates-ci\alire-crates-ci\test\b93583d6-b20a-4fca-a024-034436fda23a\rand_0.1.0_6d1af921\rand.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "D:\a\alire-crates-ci\alire-crates-ci\test\b93583d6-b20a-4fca-a024-034436fda23a\rand_0.1.0_6d1af921\rand.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+stderr: ALIRE.CHECKED_ERROR
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "D:\a\alire-crates-ci\alire-crates-ci\test\b93583d6-b20a-4fca-a024-034436fda23a\rand_0.1.0_6d1af921\rand.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
+[D:\a\alire-crates-ci\alire-crates-ci\alire_install\bin\alr.exe]
+0x7ff6f9b0da2a Semantic_Versioning.Basic.Restrictions.First_Index at alire.adb:284
+0x7ff6f970595b Semantic_Versioning.Basic.Restrictions.First_Index at alire-os_lib-subprocess.adb:111
+0x7ff6f99bcba1 Semantic_Versioning.Basic.Restrictions.First_Index at alire-spawn.adb:22
+0x7ff6f99bdd5d Semantic_Versioning.Basic.Restrictions.First_Index at alire-spawn.adb:68
+0x7ff6f98e2d64 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:189
+0x7ff6f98e11da Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:255
+0x7ff6f990912d Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2143
+0x7ff6f99782f9 Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1472
+0x7ff6f9977424 Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1555
+0x7ff6f990922c Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2147
+0x7ff6f99092fa Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2127
+0x7ff6f98e17a7 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:286
+0x7ff6f98e1912 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:114
+0x7ff6f9053baa Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:145
+0x7ff6f905341e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:113
+0x7ff6f90535ba Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:54
+0x7ff6f9105dea Semantic_Versioning.Basic.Restrictions.First_Index at clic-subcommand-instance.adb:749
+0x7ff6f9112b0e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands.adb:632
+0x7ff6f8fe16a0 Alr.Main at alr-main.adb:13
+0x7ff6f8fe5270 Main at b__alr-main.adb:2454
+0x7ff6f8fe133e __tmainCRTStartup at ???
+0x7ff6f8fe1144 mainCRTStartup at ???
+[C:\Windows\System32\KERNEL32.DLL]
+0x7ffe1e9ddd35
+[C:\Windows\SYSTEM32\ntdll.dll]
+0x7ffe2009f2ba
+
+stderr: ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED
+stderr: alire-roots.adb:202
+stderr: raised ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED : alire-roots.adb:202
+[D:\a\alire-crates-ci\alire-crates-ci\alire_install\bin\alr.exe]
+0x7ff6f98e313c Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:202
+0x7ff6f98e11da Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:255
+0x7ff6f990912d Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2143
+0x7ff6f99782f9 Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1472
+0x7ff6f9977424 Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1555
+0x7ff6f990922c Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2147
+0x7ff6f99092fa Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2127
+0x7ff6f98e17a7 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:286
+0x7ff6f98e1912 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:114
+0x7ff6f9053baa Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:145
+0x7ff6f905341e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:113
+0x7ff6f90535ba Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:54
+0x7ff6f9105dea Semantic_Versioning.Basic.Restrictions.First_Index at clic-subcommand-instance.adb:749
+0x7ff6f9112b0e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands.adb:632
+0x7ff6f8fe16a0 Alr.Main at alr-main.adb:13
+0x7ff6f8fe5270 Main at b__alr-main.adb:2454
+0x7ff6f8fe133e __tmainCRTStartup at ???
+0x7ff6f8fe1144 mainCRTStartup at ???
+[C:\Windows\System32\KERNEL32.DLL]
+0x7ffe1e9ddd35
+[C:\Windows\SYSTEM32\ntdll.dll]
+0x7ffe2009f2ba
+
+ERROR: Compilation failed.

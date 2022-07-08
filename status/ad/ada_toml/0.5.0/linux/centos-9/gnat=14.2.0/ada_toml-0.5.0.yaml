@@ -1,0 +1,556 @@
+badge: true
+badge_color: red
+crate: ada_toml
+creation_timestamp: 1738717721.6121137
+distro: centos-9
+duration: 0.8375396159999582
+gnat: 14.2.0
+last_attempt: 2025-08-26 01:33:12.268614+00:00
+log:
+- 'Test ran at 2025-08-26 01:33:12.268533+00:00
+
+
+  '
+- 'SOLUTION:
+
+  '
+- 'ada_toml=0.5.0: TOML parser for Ada
+
+  '
+- 'Origin: source archive v0.5.tar.gz at https://github.com/pmderodat/ada-toml/archive/v0.5.tar.gz
+  with hash sha512:33dcb0dddc8023fb3e7893d8c0790e6e30fbb007456dcc327ac0e2b64c20a4d67852c905f176d5e9ab62b5754f571e5d53b82f27d5f86e962ddb6b37949a5410
+
+  '
+- 'Properties:
+
+  '
+- '   Author: AdaCore
+
+  '
+- '   Author: Pierre-Marie de Rodat <pmderodat@kawie.fr>
+
+  '
+- '   Description: TOML parser for Ada
+
+  '
+- '   GPR Scenario: ADA_TOML_BUILD_MODE := dev | prod
+
+  '
+- '   GPR Scenario: LIBRARY_TYPE := static | relocatable | static-pic
+
+  '
+- '   License: BSD-3-Clause
+
+  '
+- '   Long_Description: ada-toml: TOML parser for Ada
+
+  '
+- '=============================
+
+  '
+- '
+
+  '
+- '`ada-toml` is a pure Ada library for parsing and creating
+
+  '
+- '[TOML](https://github.com/toml-lang/toml#toml) documents. It conforms to the
+
+  '
+- '[version 1.0.0](https://toml.io/en/v1.0.0) of the format standard.
+
+  '
+- '
+
+  '
+- '
+
+  '
+- 'Quick tutorial
+
+  '
+- '--------------
+
+  '
+- '
+
+  '
+- 'All basic types and subprograms are in the `TOML` package. All "nodes" in a
+
+  '
+- 'TOML documents are materialized using the `TOML.TOML_Value` type. Since TOML
+
+  '
+- 'values make up a tree, this type has reference semantics. This means that
+
+  '
+- 'modifying a TOML node does not modify the corresponding `TOML_Value` value
+
+  '
+- 'itself, but rather the TOML value that is referenced.
+
+  '
+- '
+
+  '
+- 'Parsing a TOML file is as easy as using the `TOML.File_IO.Load_File` function:
+
+  '
+- '
+
+  '
+- '```ada
+
+  '
+- 'declare
+
+  '
+- '   Result : constant TOML.Read_Result :=
+
+  '
+- '      TOML.File_IO.Load_File ("config.toml");
+
+  '
+- 'begin
+
+  '
+- '   if Result.Success then
+
+  '
+- '      Ada.Text_IO.Put_Line ("config.toml loaded with success!");
+
+  '
+- '   else
+
+  '
+- '      Ada.Text_IO.Put_Line ("error while loading config.toml:");
+
+  '
+- '      Ada.Text_IO.Put_Line
+
+  '
+- '         (Ada.Strings.Unbounded.To_String (Result.Message));
+
+  '
+- '   end if;
+
+  '
+- 'end;
+
+  '
+- '```
+
+  '
+- '
+
+  '
+- 'Each TOML value has kind, defining which data it contains (a boolean, an
+
+  '
+- 'integer, a string, a table, ...). To each kind, one or several primitives are
+
+  '
+- 'associated to let one process the underlying data:
+
+  '
+- '
+
+  '
+- '```ada
+
+  '
+- 'case Result.Kind is
+
+  '
+- '   when TOML.TOML_Boolean =>
+
+  '
+- '      Ada.Text_IO.Put_Line ("Boolean: " & Result.As_Boolean''Image);
+
+  '
+- '
+
+  '
+- '   when TOML.TOML_Integer =>
+
+  '
+- '      Ada.Text_IO.Put_Line ("Boolean: " & Result.As_Integer''Image);
+
+  '
+- '
+
+  '
+- '   when TOML.TOML_String =>
+
+  '
+- '      Ada.Text_IO.Put_Line ("Boolean: " & Result.As_String);
+
+  '
+- '
+
+  '
+- '   when TOML.TOML_Array =>
+
+  '
+- '      Ada.Text_IO.Put_Line ("Array of " & Result.Length & " elements");
+
+  '
+- '
+
+  '
+- '   when others =>
+
+  '
+- '      null;
+
+  '
+- 'end case;
+
+  '
+- '```
+
+  '
+- '
+
+  '
+- 'There are also primitives to build TOML values:
+
+  '
+- '
+
+  '
+- '```ada
+
+  '
+- 'declare
+
+  '
+- '   Bool : constant TOML.TOML_Value := TOML.Create_Boolean (False);
+
+  '
+- '   Int  : constant TOML.TOML_Value := TOML.Create_Integer (10);
+
+  '
+- '   Str  : constant TOML.TOML_Value := TOML.Create_String ("Hello, world");
+
+  '
+- '
+
+  '
+- '   Table : constant TOML.TOML_Value := TOML.Create_Table;
+
+  '
+- 'begin
+
+  '
+- '   Table.Set ("bool_field", Bool);
+
+  '
+- '   Table.Set ("int_field", Int);
+
+  '
+- '   Table.Set ("str_field", Str);
+
+  '
+- 'end;
+
+  '
+- '```
+
+  '
+- '
+
+  '
+- 'And finally one can turn a tree of TOML nodes back in text form:
+
+  '
+- '
+
+  '
+- '```ada
+
+  '
+- 'Ada.Text_IO.Put_Line ("TOML document:");
+
+  '
+- 'Ada.Text_IO.Put_Line (Table.Dump_As_String);
+
+  '
+- '```
+
+  '
+- '
+
+  '
+- '
+
+  '
+- 'Contributing
+
+  '
+- '------------
+
+  '
+- '
+
+  '
+- 'The development of `ada-toml` happens on
+
+  '
+- '[GitHub](https://github.com/pmderodat/ada-toml).  Everyone is welcome to
+
+  '
+- 'contribute to this project: please read our [contribution
+
+  '
+- 'rules](https://github.com/pmderodat/ada-toml/tree/master/CONTRIBUTING.rst) if
+
+  '
+- 'you consider doing so.
+
+  '
+- '
+
+  '
+- '   Maintainer: pmderodat@kawie.fr
+
+  '
+- '   Maintainers_Logins: pmderodat
+
+  '
+- '   Name: ada_toml
+
+  '
+- '   Project_File: ada_toml.gpr
+
+  '
+- '   Version: 0.5.0
+
+  '
+- '
+
+  '
+- '
+
+  LOG:
+
+  '
+- '[alr test] Testing ada_toml=0.5.0
+
+  '
+- '[alr test] Spawning retrieval for remote crate: alr -d -n get ada_toml=0.5.0
+
+  '
+- 'Note: Deploying ada_toml=0.5.0...
+
+  '
+- "#=#=#                                                                         \n"
+- '
+
+  '
+- 'ada_toml=0.5.0 successfully retrieved.
+
+  '
+- 'There are no dependencies.
+
+  '
+- '[alr test] Spawning default test for remote crate: alr -d -n build --release --
+  -cargs:Ada -gnatwn
+
+  '
+- 'Note: Building ada_toml=0.5.0/ada_toml.gpr...
+
+  '
+- '/root/.local/share/alire/toolchains/gprbuild_25.0.1_9a2e6cfb/bin/gprbuild: /lib64/libc.so.6:
+  version `GLIBC_2.35'' not found (required by /root/.local/share/alire/toolchains/gprbuild_25.0.1_9a2e6cfb/bin/gprbuild)
+
+  '
+- 'stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/9da2edc6-f29b-4f40-8bd6-14a478bb4d51/ada_toml_0.5.0_33dcb0dd/ada_toml.gpr",
+  "-cargs:Ada", "-gnatwn"] exited with code 1
+
+  '
+- 'ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/9da2edc6-f29b-4f40-8bd6-14a478bb4d51/ada_toml_0.5.0_33dcb0dd/ada_toml.gpr",
+  "-cargs:Ada", "-gnatwn"] exited with code 1
+
+  '
+- 'stderr: ALIRE.CHECKED_ERROR
+
+  '
+- 'stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/9da2edc6-f29b-4f40-8bd6-14a478bb4d51/ada_toml_0.5.0_33dcb0dd/ada_toml.gpr",
+  "-cargs:Ada", "-gnatwn"] exited with code 1
+
+  '
+- 'stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
+
+  '
+- '[/usr/bin/alr]
+
+  '
+- '0xe75bc6 Alire.Raise_Checked_Error at alire.adb:284
+
+  '
+- '0xac1a54 Alire.Os_Lib.Subprocess.Checked_Spawn at alire-os_lib-subprocess.adb:111
+
+  '
+- '0xd40276 Alire.Spawn.Command at alire-spawn.adb:22
+
+  '
+- '0xd412ee Alire.Spawn.Gprbuild at alire-spawn.adb:68
+
+  '
+- '0xc748cb Alire.Roots.Build at alire-roots.adb:189
+
+  '
+- '0xc7301a Alire.Roots.Build at alire-roots.adb:255
+
+  '
+- '0xc9832b Alire.Roots.Traverse at alire-roots.adb:2143
+
+  '
+- '0xcfee85 Alire.Solutions.Traverse.Visit at alire-solutions.adb:1472
+
+  '
+- '0xcfdfcc Alire.Solutions.Traverse at alire-solutions.adb:1555
+
+  '
+- '0xc9841e Alire.Roots.Traverse at alire-roots.adb:2147
+
+  '
+- '0xc984dd Alire.Roots.Traverse at alire-roots.adb:2127
+
+  '
+- '0xc7359b Alire.Roots.Build at alire-roots.adb:286
+
+  '
+- '0xc736d7 Alire.Roots.Build at alire-roots.adb:114
+
+  '
+- '0x49aa0d Alr.Commands.Build.Execute at alr-commands-build.adb:145
+
+  '
+- '0x49a36d Alr.Commands.Build.Execute at alr-commands-build.adb:113
+
+  '
+- '0x49a51f Alr.Commands.Build.Execute at alr-commands-build.adb:54
+
+  '
+- '0x53bbcc Alr.Commands.Sub_Cmd.Execute at clic-subcommand-instance.adb:749
+
+  '
+- '0x5472be Alr.Commands.Execute at alr-commands.adb:632
+
+  '
+- '0x43d48a Alr.Main at alr-main.adb:13
+
+  '
+- '0x4403a3 Main at b__alr-main.adb:2445
+
+  '
+- '[/lib64/libc.so.6]
+
+  '
+- '0x7ffa470125ce
+
+  '
+- '0x7ffa4701267e
+
+  '
+- '[/usr/bin/alr]
+
+  '
+- '0x43d323 _start at ???
+
+  '
+- '0xfffffffffffffffe
+
+  '
+- '
+
+  '
+- 'stderr: ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED
+
+  '
+- 'stderr: alire-roots.adb:202
+
+  '
+- 'stderr: raised ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED : alire-roots.adb:202
+
+  '
+- '[/usr/bin/alr]
+
+  '
+- '0xc74cc7 Alire.Roots.Build at alire-roots.adb:202
+
+  '
+- '0xc7301a Alire.Roots.Build at alire-roots.adb:255
+
+  '
+- '0xc9832b Alire.Roots.Traverse at alire-roots.adb:2143
+
+  '
+- '0xcfee85 Alire.Solutions.Traverse.Visit at alire-solutions.adb:1472
+
+  '
+- '0xcfdfcc Alire.Solutions.Traverse at alire-solutions.adb:1555
+
+  '
+- '0xc9841e Alire.Roots.Traverse at alire-roots.adb:2147
+
+  '
+- '0xc984dd Alire.Roots.Traverse at alire-roots.adb:2127
+
+  '
+- '0xc7359b Alire.Roots.Build at alire-roots.adb:286
+
+  '
+- '0xc736d7 Alire.Roots.Build at alire-roots.adb:114
+
+  '
+- '0x49aa0d Alr.Commands.Build.Execute at alr-commands-build.adb:145
+
+  '
+- '0x49a36d Alr.Commands.Build.Execute at alr-commands-build.adb:113
+
+  '
+- '0x49a51f Alr.Commands.Build.Execute at alr-commands-build.adb:54
+
+  '
+- '0x53bbcc Alr.Commands.Sub_Cmd.Execute at clic-subcommand-instance.adb:749
+
+  '
+- '0x5472be Alr.Commands.Execute at alr-commands.adb:632
+
+  '
+- '0x43d48a Alr.Main at alr-main.adb:13
+
+  '
+- '0x4403a3 Main at b__alr-main.adb:2445
+
+  '
+- '[/lib64/libc.so.6]
+
+  '
+- '0x7ffa470125ce
+
+  '
+- '0x7ffa4701267e
+
+  '
+- '[/usr/bin/alr]
+
+  '
+- '0x43d323 _start at ???
+
+  '
+- '0xfffffffffffffffe
+
+  '
+- '
+
+  '
+- 'ERROR: Compilation failed.
+
+  '
+platform: linux
+status: failing
+version: 0.5.0

@@ -1,0 +1,104 @@
+Test ran at 2026-01-19 12:31:20.074531+00:00
+
+SOLUTION:
+gnatcoll_omp=26.0.0: GNAT Components Collection - OpenMP binding
+Origin: source archive v26.0.0.zip at https://github.com/AdaCore/gnatcoll-bindings/archive/refs/tags/v26.0.0.zip with hash sha512:dacec6f3f87c5ba7b197db9d3df4f7547019583d0c440c9cd572a458a736e1a59c165df6148848fd574bef16cf69a7fb19b66f46d963addfc343c3ff10bf649b
+Properties:
+   Author: AdaCore
+   Configuration: no modifiers
+   Description: GNAT Components Collection - OpenMP binding
+   License: GPL-3.0-or-later WITH GCC-exception-3.1
+   Maintainer: chouteau@adacore.com
+   Maintainer: sagaert@adacore.com
+   Maintainers_Logins: Fabien-Chouteau
+   Maintainers_Logins: AldanTanneo
+   Name: gnatcoll_omp
+   Project_File: omp/gnatcoll_omp.gpr
+   Tag: gnatcoll
+   Tag: bindings
+   Tag: openmp
+   Tag: libgomp
+   Version: 26.0.0
+   Website: https://github.com/adacore/gnatcoll-bindings
+Dependencies (direct):
+   gnatcoll_minimal~26.0.0
+   libgomp*
+Dependencies (solution):
+   gnat=14.2.1 (gnat_native)
+   gnatcoll_minimal=26.0.0
+   libgomp=14.2.0
+Dependencies (graph):
+   gnatcoll_minimal=26.0.0 --> gnat=14.2.1 (gnat_native) (>=14)
+   gnatcoll_omp=26.0.0     --> gnatcoll_minimal=26.0.0 (~26.0.0)
+   gnatcoll_omp=26.0.0     --> libgomp=14.2.0 (*)
+
+
+LOG:
+[alr test] Testing gnatcoll_omp=26.0.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get gnatcoll_omp=26.0.0
+Note: Deploying gnatcoll_omp=26.0.0...
+#=#=#                                                                          
+##O#-#                                                                         
+Note: Deploying gnatcoll_minimal=26.0.0...
+#=#=#                                                                          
+##O#-#                                                                         
+##=O#- #                                                                       
+# #=O#- #                                                                      
+ # #=O#-  #                                                                    
+  # #=O=#   #                                                                  
+   # #=O=#   #                                                                 
+
+gnatcoll_omp=26.0.0 successfully retrieved.
+Dependencies were solved as follows:
+
+   +b gnat             14.2.1 (new,gnat_native,indirect,binary)
+   +  gnatcoll_minimal 26.0.0 (new)
+   +b libgomp          14.2.0 (new,system package)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building gnatcoll_omp=26.0.0/omp/gnatcoll_omp.gpr...
+Setup
+   [mkdir]        object directory for project GNATCOLL_Minimal
+   [mkdir]        library directory for project GNATCOLL_Minimal
+   [mkdir]        object directory for project GnatColl_OMP
+   [mkdir]        library directory for project GnatColl_OMP
+Compile
+   [C]            gnatcoll_atomics.c
+   [C]            getRSS.c
+   [Ada]          gnatcoll.ads
+   [Ada]          gnatcoll-storage_pools.ads
+   [Ada]          gnatcoll-promises.adb
+   [Ada]          gnatcoll-refcount-weakref.adb
+   [Ada]          gnatcoll-storage_pools-alignment.adb
+   [Ada]          gnatcoll-memory.adb
+   [Ada]          gnatcoll-refcount.adb
+   [Ada]          gnatcoll-damerau_levenshtein_generic.adb
+   [Ada]          gnatcoll-coders-streams.adb
+gnatcoll-refcount.ads:90:04: warning: in instantiation at gnatcoll-storage_pools-headers.adb:57 [enabled by default]
+gnatcoll-refcount.ads:90:04: warning: possible aliasing problem for type "Header_Access" [enabled by default]
+gnatcoll-refcount.ads:90:04: warning: use -fno-strict-aliasing switch for references [enabled by default]
+gnatcoll-refcount.ads:90:04: warning: or use "pragma No_Strict_Aliasing (Header_Access);" [enabled by default]
+   [Ada]          gnatcoll-coders.adb
+   [Ada]          gnatcoll-locks.adb
+   [Ada]          gnatcoll-any_types.adb
+   [Ada]          gnatcoll-coders-base64.adb
+   [Ada]          gnatcoll-storage_pools-headers.adb
+   [Ada]          gnatcoll-damerau_levenshtein_distance.ads
+   [Ada]          gnatcoll-boyer_moore.adb
+   [Ada]          gnatcoll-atomic.adb
+   [Ada]          gnatcoll-asserts.adb
+   [Ada]          gnatcoll-tribooleans.adb
+   [C]            sort_omp.c
+   [Ada]          gnatcoll-omp-generic_array_sort.adb
+   [Ada]          a-cvgpso.adb
+   [Ada]          gnatcoll-omp-generic_constrained_array_sort.adb
+   [Ada]          gnatcoll-omp.ads
+Build Libraries
+   [gprlib]       gnatcoll_minimal.lexch
+   [gprlib]       gnatcoll_omp.lexch
+   [archive]      libgnatcoll_minimal.a
+   [index]        libgnatcoll_minimal.a
+   [archive]      libgnatcoll_omp.a
+   [index]        libgnatcoll_omp.a
+Success: Build finished successfully in 2.73 seconds.
+Found declared GPR file: omp/gnatcoll_omp.gpr
+[alr test] Test completed SUCCESSFULLY

@@ -1,0 +1,149 @@
+Test ran at 2025-08-12 13:22:40.893776+00:00
+
+SOLUTION:
+geste=1.1.0: GEneric Sprite and Tile Engine
+Origin: source archive GESTE-1.1.0.zip at https://github.com/Fabien-Chouteau/GESTE/releases/download/v1.1.0/GESTE-1.1.0.zip with hash sha512:55da4926a318a664e798131b094711d8eef151c0ff905ae13fbc5d2c116b1c7724d936b6e5a37ace5b72c49980b7c6ae8549a261501b861e4d5af5101931efef
+Properties:
+   Author: Fabien Chouteau <fabien.chouteau@gmail.com>
+   Auto_Gpr_With: auto-gpr-with=false
+   Description: GEneric Sprite and Tile Engine
+   License: BSD-3-Clause
+   Long_Description: 
+[![Build Status](https://travis-ci.org/Fabien-Chouteau/GESTE.svg?branch=master)](https://travis-ci.org/Fabien-Chouteau/GESTE)
+[![codecov](https://codecov.io/gh/Fabien-Chouteau/GESTE/branch/master/graph/badge.svg)](https://codecov.io/gh/Fabien-Chouteau/GESTE)
+
+GESTE is a sprite and tile 2D render engine designed to run on
+micro-controllers low performance systems. GESTE also provides a basic math and
+physic engine using fixed point arithmetic.
+
+## Creating maps
+
+GESTE is developed in parallel with
+[tiled-code-gen](https://github.com/Fabien-Chouteau/tiled-code-gen), a tool
+that generates code from the [Tiled Map Editor](https://www.mapeditor.org/).
+
+## Examples
+
+The crate `geste_examples` contains 3 examples of different game genre:
+ - platformer
+ - RPG
+ - racing
+
+## Design
+
+### Layers
+
+In GESTE, a scene is made of layers. Native layers can be `Sprite`, `Grid` or
+`Text`. You can implement you own type of layers if you want to.
+
+ - `Sprite` layers display a single tile at a given position
+ - `Grid` layers display a grid of tiles at a given position
+ - `Text` layers display a text at a given position
+
+Layers have a priority which tells in which order they will be drawn on the
+screen.
+
+### Rendering
+
+The rendering algorithm is somewhat similar to ray casting. Instead of taking
+each objects of the scene and drawing it on the screen, the engine takes each
+pixel and tries to find its color from the different objects of the scene.
+
+For each pixel of the area that is being drawn, GESTE will go through the list
+of layers and see if the corresponding pixel inside the layer is transparent or
+not. When a non transparent pixel is found, the pixel is pushed to the screen
+and the procedure starts again for the next pixel. If all the layers have a
+transparent pixel, the background color is used.
+
+The more layers to go through, the more time time it will take to render a
+pixel.
+
+
+   Maintainer: fabien.chouteau@gmail.com
+   Maintainers_Logins: Fabien-Chouteau
+   Name: geste
+   Project_File: geste.gpr
+   Tag: game
+   Tag: nostd
+   Tag: rendering
+   Tag: sprite
+   Version: 1.1.0
+   Website: https://github.com/Fabien-Chouteau/GESTE
+
+
+LOG:
+[alr test] Testing geste=1.1.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get geste=1.1.0
+Note: Deploying geste=1.1.0...
+#=#=#                                                                         
+##O#-#                                                                        
+
+                                                                           0.5%
+######################################################################## 100.0%
+
+geste=1.1.0 successfully retrieved.
+There are no dependencies.
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building geste=1.1.0/geste.gpr...
+/root/.local/share/alire/toolchains/gprbuild_25.0.1_9a2e6cfb/bin/gprbuild: /lib64/libc.so.6: version `GLIBC_2.35' not found (required by /root/.local/share/alire/toolchains/gprbuild_25.0.1_9a2e6cfb/bin/gprbuild)
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/cc264027-054e-4663-ad8f-2b2f4cdaf8b1/geste_1.1.0_55da4926/geste.gpr", "-cargs:Ada", "-gnatwn"] exited with code 1
+ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/cc264027-054e-4663-ad8f-2b2f4cdaf8b1/geste_1.1.0_55da4926/geste.gpr", "-cargs:Ada", "-gnatwn"] exited with code 1
+stderr: ALIRE.CHECKED_ERROR
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/cc264027-054e-4663-ad8f-2b2f4cdaf8b1/geste_1.1.0_55da4926/geste.gpr", "-cargs:Ada", "-gnatwn"] exited with code 1
+stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
+[/usr/bin/alr]
+0xe75bc6 Alire.Raise_Checked_Error at alire.adb:284
+0xac1a54 Alire.Os_Lib.Subprocess.Checked_Spawn at alire-os_lib-subprocess.adb:111
+0xd40276 Alire.Spawn.Command at alire-spawn.adb:22
+0xd412ee Alire.Spawn.Gprbuild at alire-spawn.adb:68
+0xc748cb Alire.Roots.Build at alire-roots.adb:189
+0xc7301a Alire.Roots.Build at alire-roots.adb:255
+0xc9832b Alire.Roots.Traverse at alire-roots.adb:2143
+0xcfee85 Alire.Solutions.Traverse.Visit at alire-solutions.adb:1472
+0xcfdfcc Alire.Solutions.Traverse at alire-solutions.adb:1555
+0xc9841e Alire.Roots.Traverse at alire-roots.adb:2147
+0xc984dd Alire.Roots.Traverse at alire-roots.adb:2127
+0xc7359b Alire.Roots.Build at alire-roots.adb:286
+0xc736d7 Alire.Roots.Build at alire-roots.adb:114
+0x49aa0d Alr.Commands.Build.Execute at alr-commands-build.adb:145
+0x49a36d Alr.Commands.Build.Execute at alr-commands-build.adb:113
+0x49a51f Alr.Commands.Build.Execute at alr-commands-build.adb:54
+0x53bbcc Alr.Commands.Sub_Cmd.Execute at clic-subcommand-instance.adb:749
+0x5472be Alr.Commands.Execute at alr-commands.adb:632
+0x43d48a Alr.Main at alr-main.adb:13
+0x4403a3 Main at b__alr-main.adb:2445
+[/lib64/libc.so.6]
+0x7fc5b59d05ce
+0x7fc5b59d067e
+[/usr/bin/alr]
+0x43d323 _start at ???
+0xfffffffffffffffe
+
+stderr: ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED
+stderr: alire-roots.adb:202
+stderr: raised ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED : alire-roots.adb:202
+[/usr/bin/alr]
+0xc74cc7 Alire.Roots.Build at alire-roots.adb:202
+0xc7301a Alire.Roots.Build at alire-roots.adb:255
+0xc9832b Alire.Roots.Traverse at alire-roots.adb:2143
+0xcfee85 Alire.Solutions.Traverse.Visit at alire-solutions.adb:1472
+0xcfdfcc Alire.Solutions.Traverse at alire-solutions.adb:1555
+0xc9841e Alire.Roots.Traverse at alire-roots.adb:2147
+0xc984dd Alire.Roots.Traverse at alire-roots.adb:2127
+0xc7359b Alire.Roots.Build at alire-roots.adb:286
+0xc736d7 Alire.Roots.Build at alire-roots.adb:114
+0x49aa0d Alr.Commands.Build.Execute at alr-commands-build.adb:145
+0x49a36d Alr.Commands.Build.Execute at alr-commands-build.adb:113
+0x49a51f Alr.Commands.Build.Execute at alr-commands-build.adb:54
+0x53bbcc Alr.Commands.Sub_Cmd.Execute at clic-subcommand-instance.adb:749
+0x5472be Alr.Commands.Execute at alr-commands.adb:632
+0x43d48a Alr.Main at alr-main.adb:13
+0x4403a3 Main at b__alr-main.adb:2445
+[/lib64/libc.so.6]
+0x7fc5b59d05ce
+0x7fc5b59d067e
+[/usr/bin/alr]
+0x43d323 _start at ???
+0xfffffffffffffffe
+
+ERROR: Compilation failed.

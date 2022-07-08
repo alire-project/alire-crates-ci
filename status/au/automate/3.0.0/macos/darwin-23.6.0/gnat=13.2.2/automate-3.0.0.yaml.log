@@ -1,0 +1,52 @@
+Test ran at 2025-07-02 00:45:01.635165+00:00
+
+SOLUTION:
+automate=3.0.0: Ada finite-state machine generator
+Origin: commit b83dfb7701b9f27aaa2c6b40467c99c55f1ee92f from https://github.com/Blady-Com/Automate.git
+Properties:
+   Author: Pascal Pignard
+   Description: Ada finite-state machine generator
+   Executable: genauto
+   case OS is
+      when Macos => GPR External: GENAUTO_LINKER_FLAGS := -Wl,-no_pie
+   License: CECILL-2.1
+   Maintainer: Pascal Pignard <blady.net@orange.fr>
+   Maintainers_Logins: Blady-Com
+   Name: automate
+   Tag: automaton
+   Tag: generator
+   Version: 3.0.0
+   Website: https://github.com/Blady-Com/Automate
+Dependencies (direct):
+   uxstrings>=0.6
+Dependencies (solution):
+   gnat=13.2.2 (gnat_native)
+   uxstrings=0.8.2+alpha-20250125
+Dependencies (graph):
+   automate=3.0.0                 --> uxstrings=0.8.2+alpha-20250125 (>=0.6)
+   uxstrings=0.8.2+alpha-20250125 --> gnat=13.2.2 (gnat_native) (^13.0)
+
+
+LOG:
+Spawning: alr -d -n get --build automate=3.0.0
+Note: Deploying automate=3.0.0...
+Note: Deploying uxstrings=0.8.2+alpha-20250125...
+Note: Building automate=3.0.0/automate.gpr...
+automate.gpr:1:06: imported project file "lib_uxstrings3.gpr" not found
+gprbuild: "/Users/runner/work/alire-crates-ci/alire-crates-ci/test/1e85bacf-3144-4553-bb0f-f15bd25cea9c/automate_3.0.0_b83dfb77/automate.gpr" processing failed
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/Users/runner/work/alire-crates-ci/alire-crates-ci/test/1e85bacf-3144-4553-bb0f-f15bd25cea9c/automate_3.0.0_b83dfb77/automate.gpr"] exited with code 5
+ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/Users/runner/work/alire-crates-ci/alire-crates-ci/test/1e85bacf-3144-4553-bb0f-f15bd25cea9c/automate_3.0.0_b83dfb77/automate.gpr"] exited with code 5
+stderr: ALIRE.CHECKED_ERROR
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/Users/runner/work/alire-crates-ci/alire-crates-ci/test/1e85bacf-3144-4553-bb0f-f15bd25cea9c/automate_3.0.0_b83dfb77/automate.gpr"] exited with code 5
+stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
+Load address: 0x104440000
+Call stack traceback locations:
+0x1050706cc 0x10507072c 0x104e457a8 0x104aad3ec 0x104d1e03c 0x104d1e5b4 0x104c6b834 0x104c6a038 0x104c8c508 0x104cec028 0x104ceb458 0x104c8c5e4 0x104c8c6cc 0x104c6a53c 0x104c6a66c 0x1044bf1a8 0x1044c2564 0x1044c26e4 0x10454a178 0x104554f5c 0x104442018 0x104446bd8
+
+
+Warning: automate=3.0.0 successfully retrieved but its build failed.
+Dependencies were solved as follows:
+
+   +b gnat      13.2.2               (new,gnat_native,indirect,binary)
+   +  uxstrings 0.8.2+alpha-20250125 (new)
+ERROR: Build ended with errors

@@ -1,0 +1,708 @@
+Test ran at 2026-09-03 13:03:30.776277+00:00
+
+SOLUTION:
+light_tasking_stm32g4xx=16.0.0: light-tasking runtime for the STM32G4XX SoC
+Origin: source archive light-tasking-stm32g4xx-16.0.0.tar.gz at https://github.com/damaki/community-bb-runtimes/releases/download/v16.0.0/light-tasking-stm32g4xx-16.0.0.tar.gz with hashes sha256:093f78b9af7dc9809c92193b948f35f47862137311d9f6b3fc32abcfb154ee34, sha512:f8f522a8afcfa56317a121250503a3d20a3f52a258d97e46f190b89f46d4ba5ef802b59b69cb45a5021dc7a6e49b4c1ffc8c9d5b1e6961ddc318d119611349d5
+Properties:
+   Author: AdaCore
+   Author: Daniel King
+   Config type: AHB_Pre : Enum (DIV1, DIV2, DIV4, DIV8, DIV16, DIV64, DIV128, DIV256, DIV512) default: 'DIV1'
+   Config type: APB1_Pre : Enum (DIV1, DIV2, DIV4, DIV8, DIV16) default: 'DIV1'
+   Config type: APB2_Pre : Enum (DIV1, DIV2, DIV4, DIV8, DIV16) default: 'DIV1'
+   Config type: HSE_Bypass : Boolean default: 'false'
+   Config type: HSE_Clock_Frequency : Integer range 4000000 .. 48000000 default: '24000000'
+   Config type: Interrupt_Stack_Size : Integer range 1 .. 9223372036854775807 default: '1024'
+   Config type: LSE_Bypass : Boolean default: 'false'
+   Config type: LSE_Enabled : Boolean default: 'false'
+   Config type: LSI_Enabled : Boolean default: 'true'
+   Config type: MCU_Flash_Memory_Size : String default: 'E'
+   Config type: MCU_Sub_Family : Enum (G431, G441, G491, G4A1, G473, G483, G474, G484) default: 'G474'
+   Config type: PLL_M_Div : Integer range 1 .. 16 default: '4'
+   Config type: PLL_N_Mul : Integer range 8 .. 127 default: '85'
+   Config type: PLL_P_Div : Integer range 2 .. 31 default: '2'
+   Config type: PLL_P_Enable : Boolean default: 'true'
+   Config type: PLL_Q_Div : Enum (DIV2, DIV4, DIV6, DIV8) default: 'DIV2'
+   Config type: PLL_Q_Enable : Boolean default: 'true'
+   Config type: PLL_R_Div : Enum (DIV2, DIV4, DIV6, DIV8) default: 'DIV2'
+   Config type: PLL_Src : Enum (HSE, HSI16) default: 'HSI16'
+   Config type: SYSCLK_Src : Enum (HSI16, HSE, PLLRCLK) default: 'PLLRCLK'
+   Configuration: no modifiers
+   Description: light-tasking runtime for the STM32G4XX SoC
+   License: GPL-3.0-or-later WITH GCC-exception-3.1
+   Long_Description: ## Usage
+
+First edit your `alire.toml` file and add the following elements:
+ - Add `light_tasking_stm32g4xx` in the dependency list:
+   ```toml
+   [[depends-on]]
+   light_tasking_stm32g4xx = "*"
+   ```
+ - if applicable, apply any runtime configuration variables (see below).
+
+Then edit your project file to add the following elements:
+ - "with" the run-time project files. With this, gprbuild will compile the run-time before your application
+   ```ada
+   with "runtime_build.gpr";
+   with "ravenscar_build.gpr";
+   ```
+ - Specify the `Target` and `Runtime` attributes:
+   ```ada
+      for Target use runtime_build'Target;
+      for Runtime ("Ada") use runtime_build'Runtime ("Ada");
+   ```
+ - specify the `Linker` switches:
+   ```ada
+   package Linker is
+     for Switches ("Ada") use Runtime_Build.Linker_Switches;
+   end Linker;
+   ```
+
+The runtime is configurable via Alire crate configuration variables.
+See the project website for full details of the available options.
+
+By default, the runtime is configured for the STM32G474RE. If you are using
+a different MCU, then you will need to configure the runtime by adding the
+following to your `alire.toml`. For example, to configure the runtime for the
+STM32G431K6:
+```toml
+[configuration.values]
+light_tasking_stm32g4xx.MCU_Sub_Family        = "G431"
+light_tasking_stm32g4xx.MCU_Flash_Memory_Size = "6"
+```
+
+By default, the runtime configures the clock tree for a 170 MHz system clock
+from the high-speed internal (HSI) oscillator. If you want a different clock
+configuration, then use the crate configuration variables to specify the
+configuration you wish to use. For example, to configure the runtime to
+generate a 170 MHz system clock from a 24 MHz HSE crystal oscillator:
+```toml
+[configuration.values]
+# Configure a 24 MHz HSE crystal oscillator
+light_tasking_stm32g4xx.HSE_Clock_Frequency = 24000000
+light_tasking_stm32g4xx.HSE_Bypass = false
+
+# Select PLLRCLK as the SYSCLK source
+light_tasking_stm32g4xx.SYSCLK_Src = "PLLRCLK"
+
+# Configure the PLL VCO to run at 340 MHz from the 24 MHz HSE (fVCO = fHSE * (N/M))
+light_tasking_stm32g4xx.PLL_Src = "HSE"
+light_tasking_stm32g4xx.PLL_N_Mul = 85
+light_tasking_stm32g4xx.PLL_M_Div = 6
+
+# Configure the PLLRCLK to run at 170 MHz from the 340 MHz VCO.
+light_tasking_stm32g4xx.PLL_R_Div = 2
+
+# Configure the AHB and APB to also run at 170 MHz
+light_tasking_stm32g4xx.AHB_Pre  = "DIV1"
+light_tasking_stm32g4xx.APB1_Pre = "DIV1"
+light_tasking_stm32g4xx.APB2_Pre = "DIV1"
+```
+
+The runtime will generate a compile time error when an invalid PLL configuration
+is set.
+
+By default the PLL's Q and P clocks are enabled. If you don't need them, then you
+can disable them via the crate configuration:
+```toml
+[configuration.values]
+light_tasking_stm32g4xx.PLL_Q_Enable = false
+light_tasking_stm32g4xx.PLL_P_Enable = false
+```
+
+The runtime will enable the PLL only when either `PLL_Q_Enable` or `PLL_P_Enable`
+is `true`, or when `SYSCLK_Src = "PLLRCLK"`.
+
+The interrupt stack size is also configurable:
+```toml
+[configuration.values]
+light_tasking_stm32g4xx.Interrupt_Stack_Size = 1024
+```
+
+   Maintainer: Daniel King <damaki.gh@gmail.com>
+   Maintainers_Logins: damaki
+   Name: light_tasking_stm32g4xx
+   Project_File: runtime_build.gpr
+   Project_File: ravenscar_build.gpr
+   Tag: embedded
+   Tag: runtime
+   Tag: stm32g4
+   Version: 16.0.0
+   Website: https://github.com/damaki/community-bb-runtimes
+Dependencies (direct):
+   gnat_arm_elf^16
+Dependencies (solution):
+   gnat_arm_elf=16.1.0
+Dependencies (graph):
+   light_tasking_stm32g4xx=16.0.0 --> gnat_arm_elf=16.1.0 (^16)
+
+
+LOG:
+[alr test] Testing light_tasking_stm32g4xx=16.0.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get light_tasking_stm32g4xx=16.0.0
+Note: Deploying light_tasking_stm32g4xx=16.0.0...
+
+#=#=#                                                                          
+######################################################################## 100.0%
+Note: Deploying gnat_arm_elf=16.1.0...
+
+#=#=#                                                                          
+#                                                                          2.4%
+#####                                                                      7.1%
+#######                                                                   10.0%
+###########                                                               15.8%
+#############                                                             19.1%
+#############                                                             19.2%
+##################                                                        25.8%
+#######################                                                   32.0%
+#########################                                                 35.4%
+############################                                              39.9%
+#################################                                         45.8%
+###################################                                       49.3%
+######################################                                    54.0%
+##########################################                                58.6%
+#############################################                             63.4%
+################################################                          68.0%
+##################################################                        70.3%
+#####################################################                     74.5%
+#######################################################                   77.4%
+###########################################################               82.7%
+##############################################################            86.8%
+################################################################          89.2%
+#####################################################################     95.9%
+######################################################################## 100.0%
+Note: gnat_arm_elf=16.1.0 installed successfully.
+
+light_tasking_stm32g4xx=16.0.0 successfully retrieved.
+Dependencies were solved as follows:
+
+   +b gnat_arm_elf 16.1.0 (new,binary)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building light_tasking_stm32g4xx=16.0.0/runtime_build.gpr (1/2)...
+"runtimes\G474\obj" created
+"runtimes\G474\adalib" created
+[Ada Compile]     a-assert.adb
+[Ada Compile]     a-chahan.adb
+[Ada Compile]     a-charac.ads
+[Ada Compile]     a-chlat1.ads
+[Ada Compile]     a-elchha.adb
+[Ada Compile]     a-except.adb
+[Ada Compile]     a-ngelfu.adb
+[Ada Compile]     a-nlelfu.ads
+[Ada Compile]     a-nllefu.ads
+[Ada Compile]     a-nselfu.ads
+[Ada Compile]     a-nubinu.ads
+[Ada Compile]     a-nuelfu.ads
+[Ada Compile]     a-numaux.ads
+[Ada Compile]     a-numeri.ads
+[Ada Compile]     a-stmaco.ads
+[Ada Compile]     a-strbou.adb
+[Ada Compile]     a-strfix.adb
+[Ada Compile]     a-string.ads
+[Ada Compile]     a-strmap.adb
+[Ada Compile]     a-strsea.adb
+[Ada Compile]     a-strsup.adb
+[Ada Compile]     a-tags.adb
+[Ada Compile]     a-textio.adb
+[Ada Compile]     a-unccon.ads
+[Ada Compile]     a-uncdea.ads
+[Ada Compile]     ada.ads
+[Ada Compile]     g-debuti.adb
+[Ada Compile]     g-io.adb
+[Ada Compile]     g-sestin.ads
+[Ada Compile]     g-souinf.ads
+[Ada Compile]     gnat.ads
+[Ada Compile]     i-c.adb
+[Ada Compile]     i-cexten.ads
+[Ada Compile]     i-cpoint.adb
+[Ada Compile]     i-cstrin.adb
+[Ada Compile]     i-stm32-flash.ads
+[Ada Compile]     i-stm32-pwr.ads
+[Ada Compile]     i-stm32-rcc.ads
+[Ada Compile]     i-stm32.ads
+[Ada Compile]     interfac.ads
+[Ada Compile]     light_tasking_stm32g4xx_config.ads
+[Ada Compile]     machcode.ads
+[Ada Compile]     s-addope.adb
+[Ada Compile]     s-aridou.adb
+[Ada Compile]     s-arit32.adb
+[Ada Compile]     s-arit64.adb
+[Ada Compile]     s-assert.adb
+[Ada Compile]     s-atacco.ads
+[Ada Compile]     s-atocou.adb
+[Ada Compile]     s-atopri.adb
+[Ada Compile]     s-bb.ads
+[Ada Compile]     s-bbarat.adb
+[Ada Compile]     s-bbbopa.ads
+[Ada Compile]     s-bbmcpa.ads
+[Ada Compile]     s-bbpara.ads
+[Ada Compile]     s-bitops.adb
+[Ada Compile]     s-boarop.ads
+[Ada Compile]     s-bytswa.ads
+[Ada Compile]     s-carsi8.adb
+[Ada Compile]     s-carun8.adb
+[Ada Compile]     s-casi16.adb
+[Ada Compile]     s-casi32.adb
+[Ada Compile]     s-casi64.adb
+[Ada Compile]     s-casuti.adb
+[Ada Compile]     s-caun16.adb
+[Ada Compile]     s-caun32.adb
+[Ada Compile]     s-caun64.adb
+[Ada Compile]     s-cautns.adb
+[Ada Compile]     s-dourea.adb
+[Ada Compile]     s-exnflt.ads
+[Ada Compile]     s-exnint.ads
+[Ada Compile]     s-exnlfl.ads
+[Ada Compile]     s-exnllf.ads
+[Ada Compile]     s-exnlli.ads
+[Ada Compile]     s-expint.ads
+[Ada Compile]     s-explli.ads
+[Ada Compile]     s-expllu.ads
+[Ada Compile]     s-expmod.adb
+[Ada Compile]     s-exponn.adb
+[Ada Compile]     s-exponr.adb
+[Ada Compile]     s-expont.adb
+[Ada Compile]     s-exponu.adb
+[Ada Compile]     s-expuns.ads
+[Ada Compile]     s-fatflt.ads
+[Ada Compile]     s-fatgen.adb
+[Ada Compile]     s-fatlfl.ads
+[Ada Compile]     s-fatllf.ads
+[Ada Compile]     s-flocon.adb
+[Ada Compile]     s-gcmain.adb
+[Ada Compile]     s-geveop.adb
+[Ada Compile]     s-imaged.adb
+[Ada Compile]     s-imagef.adb
+[Ada Compile]     s-imagei.adb
+[Ada Compile]     s-imagen.adb
+[Ada Compile]     s-imager.adb
+[Ada Compile]     s-imageu.adb
+[Ada Compile]     s-imagew.adb
+[Ada Compile]     s-imde32.ads
+[Ada Compile]     s-imde64.ads
+[Ada Compile]     s-imen16.ads
+[Ada Compile]     s-imen32.ads
+[Ada Compile]     s-imenu8.ads
+[Ada Compile]     s-imfi32.ads
+[Ada Compile]     s-imfi64.ads
+[Ada Compile]     s-imgboo.adb
+[Ada Compile]     s-imgcha.adb
+[Ada Compile]     s-imgflt.ads
+[Ada Compile]     s-imgint.ads
+[Ada Compile]     s-imglfl.ads
+[Ada Compile]     s-imgllf.ads
+[Ada Compile]     s-imglli.ads
+[Ada Compile]     s-imgllu.ads
+[Ada Compile]     s-imgllw.ads
+[Ada Compile]     s-imguns.ads
+[Ada Compile]     s-imguti.adb
+[Ada Compile]     s-imgwiu.ads
+[Ada Compile]     s-libc.adb
+[Ada Compile]     s-libdou.adb
+[Ada Compile]     s-libm.adb
+[Ada Compile]     s-libpre.ads
+[Ada Compile]     s-libsin.adb
+[Ada Compile]     s-lidosq.adb
+[Ada Compile]     s-lisisq.adb
+[Ada Compile]     s-maccod.ads
+[Ada Compile]     s-macres.adb
+[Ada Compile]     s-memcom.adb
+[Ada Compile]     s-memcop.adb
+[Ada Compile]     s-memmov.adb
+[Ada Compile]     s-memory.adb
+[Ada Compile]     s-memset.adb
+[Ada Compile]     s-memtyp.ads
+[Ada Compile]     s-pack03.adb
+[Ada Compile]     s-pack05.adb
+[Ada Compile]     s-pack06.adb
+[Ada Compile]     s-pack07.adb
+[Ada Compile]     s-pack09.adb
+[Ada Compile]     s-pack10.adb
+[Ada Compile]     s-pack11.adb
+[Ada Compile]     s-pack12.adb
+[Ada Compile]     s-pack13.adb
+[Ada Compile]     s-pack14.adb
+[Ada Compile]     s-pack15.adb
+[Ada Compile]     s-pack17.adb
+[Ada Compile]     s-pack18.adb
+[Ada Compile]     s-pack19.adb
+[Ada Compile]     s-pack20.adb
+[Ada Compile]     s-pack21.adb
+[Ada Compile]     s-pack22.adb
+[Ada Compile]     s-pack23.adb
+[Ada Compile]     s-pack25.adb
+[Ada Compile]     s-pack26.adb
+[Ada Compile]     s-pack27.adb
+[Ada Compile]     s-pack28.adb
+[Ada Compile]     s-pack29.adb
+[Ada Compile]     s-pack30.adb
+[Ada Compile]     s-pack31.adb
+[Ada Compile]     s-pack33.adb
+[Ada Compile]     s-pack34.adb
+[Ada Compile]     s-pack35.adb
+[Ada Compile]     s-pack36.adb
+[Ada Compile]     s-pack37.adb
+[Ada Compile]     s-pack38.adb
+[Ada Compile]     s-pack39.adb
+[Ada Compile]     s-pack41.adb
+[Ada Compile]     s-pack42.adb
+[Ada Compile]     s-pack43.adb
+[Ada Compile]     s-pack44.adb
+[Ada Compile]     s-pack45.adb
+[Ada Compile]     s-pack46.adb
+[Ada Compile]     s-pack47.adb
+[Ada Compile]     s-pack49.adb
+[Ada Compile]     s-pack50.adb
+[Ada Compile]     s-pack51.adb
+[Ada Compile]     s-pack52.adb
+[Ada Compile]     s-pack53.adb
+[Ada Compile]     s-pack54.adb
+[Ada Compile]     s-pack55.adb
+[Ada Compile]     s-pack57.adb
+[Ada Compile]     s-pack58.adb
+[Ada Compile]     s-pack59.adb
+[Ada Compile]     s-pack60.adb
+[Ada Compile]     s-pack61.adb
+[Ada Compile]     s-pack62.adb
+[Ada Compile]     s-pack63.adb
+[Ada Compile]     s-parame.adb
+[Ada Compile]     s-powflt.ads
+[Ada Compile]     s-powlfl.ads
+[Ada Compile]     s-powllf.ads
+[Ada Compile]     s-retsta.ads
+[Ada Compile]     s-secsta.adb
+[Ada Compile]     s-semiho.adb
+[Ada Compile]     s-sssita.adb
+[Ada Compile]     s-stache.adb
+[Ada Compile]     s-stoele.ads
+[Ada Compile]     s-textio.adb
+[Ada Compile]     s-unstyp.ads
+[Ada Compile]     s-vade32.ads
+[Ada Compile]     s-vade64.ads
+[Ada Compile]     s-vaen16.ads
+[Ada Compile]     s-vaen32.ads
+[Ada Compile]     s-vaenu8.ads
+[Ada Compile]     s-vafi32.ads
+[Ada Compile]     s-vafi64.ads
+[Ada Compile]     s-valboo.adb
+[Ada Compile]     s-valcha.adb
+[Ada Compile]     s-valflt.ads
+[Ada Compile]     s-valint.ads
+[Ada Compile]     s-vallfl.ads
+[Ada Compile]     s-valllf.ads
+[Ada Compile]     s-vallli.ads
+[Ada Compile]     s-valllu.ads
+[Ada Compile]     s-valrea.adb
+[Ada Compile]     s-valued.adb
+[Ada Compile]     s-valuef.adb
+[Ada Compile]     s-valuei.adb
+[Ada Compile]     s-valuen.adb
+[Ada Compile]     s-valuer.adb
+[Ada Compile]     s-valueu.adb
+[Ada Compile]     s-valuns.ads
+[Ada Compile]     s-valuti.adb
+[Ada Compile]     s-veboop.adb
+[Ada Compile]     s-vector.ads
+[Ada Compile]     s-widint.ads
+[Ada Compile]     s-widlli.ads
+[Ada Compile]     s-widllu.ads
+[Ada Compile]     s-widthi.adb
+[Ada Compile]     s-widthu.adb
+[Ada Compile]     s-widuns.ads
+[Ada Compile]     setup_pll.adb
+[Ada Compile]     stm32g4xx_runtime_config.ads
+[Ada Compile]     system.ads
+[Ada Compile]     text_io.ads
+[Ada Compile]     unchconv.ads
+[Ada Compile]     unchdeal.ads
+[Asm_Cpp Compile] breakpoint_handler-cortexm.S
+[Asm_Cpp Compile] handler.S
+[Asm_Cpp Compile] start-common.S
+[Asm_Cpp Compile] start-ram.S
+[Asm_Cpp Compile] start-rom.S
+[Archive]         libgnat.a
+Note: Building light_tasking_stm32g4xx=16.0.0/ravenscar_build.gpr (2/2)...
+[Ada Compile]     a-exetim.adb
+[Ada Compile]     a-extiin.adb
+[Ada Compile]     a-interr.adb
+[Ada Compile]     a-intnam.ads
+[Ada Compile]     a-reatim.adb
+[Ada Compile]     a-retide.adb
+[Ada Compile]     a-rttiev.adb
+[Ada Compile]     a-synbar.adb
+[Ada Compile]     a-sytaco.adb
+[Ada Compile]     a-taside.adb
+[Ada Compile]     a-taster.adb
+[Ada Compile]     s-bbbosu.adb
+[Ada Compile]     s-bbcppr.adb
+[Ada Compile]     s-bbcpsp.ads
+[Ada Compile]     s-bbexti.adb
+[Ada Compile]     s-bbinte.adb
+[Ada Compile]     s-bbprot.adb
+[Ada Compile]     s-bbthqu.adb
+[Ada Compile]     s-bbthre.adb
+[Ada Compile]     s-bbtiev.adb
+[Ada Compile]     s-bbtime.adb
+[Ada Compile]     s-bcpcst.adb
+[Ada Compile]     s-bcprmu.adb
+[Ada Compile]     s-interr.adb
+[Ada Compile]     s-mufalo.adb
+[Ada Compile]     s-multip.adb
+[Ada Compile]     s-musplo.adb
+[Ada Compile]     s-osinte.ads
+[Ada Compile]     s-reldel.adb
+[Ada Compile]     s-restri.adb
+[Ada Compile]     s-rident.ads
+[Ada Compile]     s-taprob.adb
+[Ada Compile]     s-taprop.adb
+[Ada Compile]     s-tarest.adb
+[Ada Compile]     s-tasdeb.adb
+[Ada Compile]     s-tasinf.adb
+[Ada Compile]     s-taskin.adb
+[Ada Compile]     s-taspri.ads
+[Ada Compile]     s-tasque.adb
+[Ada Compile]     s-tasres.ads
+[Ada Compile]     s-tpoben.adb
+[Ada Compile]     s-tpobmu.adb
+[Ada Compile]     s-tpobop.adb
+[Ada Compile]     s-tposen.adb
+[Ada Compile]     s-trahoo.adb
+[Ada Compile]     a-assert.adb
+[Ada Compile]     a-chahan.adb
+[Ada Compile]     a-charac.ads
+[Ada Compile]     a-chlat1.ads
+[Archive]         libgnarl.a
+[Ada Compile]     a-elchha.adb
+[Ada Compile]     a-except.adb
+[Ada Compile]     a-ngelfu.adb
+[Ada Compile]     a-nlelfu.ads
+[Ada Compile]     a-nllefu.ads
+[Ada Compile]     a-nselfu.ads
+[Ada Compile]     a-nubinu.ads
+[Ada Compile]     a-nuelfu.ads
+[Ada Compile]     a-numaux.ads
+[Ada Compile]     a-numeri.ads
+[Ada Compile]     a-stmaco.ads
+[Ada Compile]     a-strbou.adb
+[Ada Compile]     a-strfix.adb
+[Ada Compile]     a-string.ads
+[Ada Compile]     a-strmap.adb
+[Ada Compile]     a-strsea.adb
+[Ada Compile]     a-strsup.adb
+[Ada Compile]     a-tags.adb
+[Ada Compile]     a-textio.adb
+[Ada Compile]     a-unccon.ads
+[Ada Compile]     a-uncdea.ads
+[Ada Compile]     ada.ads
+[Ada Compile]     g-debuti.adb
+[Ada Compile]     g-io.adb
+[Ada Compile]     g-sestin.ads
+[Ada Compile]     g-souinf.ads
+[Ada Compile]     gnat.ads
+[Ada Compile]     i-c.adb
+[Ada Compile]     i-cexten.ads
+[Ada Compile]     i-cpoint.adb
+[Ada Compile]     i-cstrin.adb
+[Ada Compile]     i-stm32-flash.ads
+[Ada Compile]     i-stm32-pwr.ads
+[Ada Compile]     i-stm32-rcc.ads
+[Ada Compile]     i-stm32.ads
+[Ada Compile]     interfac.ads
+[Ada Compile]     light_tasking_stm32g4xx_config.ads
+[Ada Compile]     machcode.ads
+[Ada Compile]     s-addope.adb
+[Ada Compile]     s-aridou.adb
+[Ada Compile]     s-arit32.adb
+[Ada Compile]     s-arit64.adb
+[Ada Compile]     s-assert.adb
+[Ada Compile]     s-atacco.ads
+[Ada Compile]     s-atocou.adb
+[Ada Compile]     s-atopri.adb
+[Ada Compile]     s-bb.ads
+[Ada Compile]     s-bbarat.adb
+[Ada Compile]     s-bbbopa.ads
+[Ada Compile]     s-bbmcpa.ads
+[Ada Compile]     s-bbpara.ads
+[Ada Compile]     s-bitops.adb
+[Ada Compile]     s-boarop.ads
+[Ada Compile]     s-bytswa.ads
+[Ada Compile]     s-carsi8.adb
+[Ada Compile]     s-carun8.adb
+[Ada Compile]     s-casi16.adb
+[Ada Compile]     s-casi32.adb
+[Ada Compile]     s-casi64.adb
+[Ada Compile]     s-casuti.adb
+[Ada Compile]     s-caun16.adb
+[Ada Compile]     s-caun32.adb
+[Ada Compile]     s-caun64.adb
+[Ada Compile]     s-cautns.adb
+[Ada Compile]     s-dourea.adb
+[Ada Compile]     s-exnflt.ads
+[Ada Compile]     s-exnint.ads
+[Ada Compile]     s-exnlfl.ads
+[Ada Compile]     s-exnllf.ads
+[Ada Compile]     s-exnlli.ads
+[Ada Compile]     s-expint.ads
+[Ada Compile]     s-explli.ads
+[Ada Compile]     s-expllu.ads
+[Ada Compile]     s-expmod.adb
+[Ada Compile]     s-exponn.adb
+[Ada Compile]     s-exponr.adb
+[Ada Compile]     s-expont.adb
+[Ada Compile]     s-exponu.adb
+[Ada Compile]     s-expuns.ads
+[Ada Compile]     s-fatflt.ads
+[Ada Compile]     s-fatgen.adb
+[Ada Compile]     s-fatlfl.ads
+[Ada Compile]     s-fatllf.ads
+[Ada Compile]     s-flocon.adb
+[Ada Compile]     s-gcmain.adb
+[Ada Compile]     s-geveop.adb
+[Ada Compile]     s-imaged.adb
+[Ada Compile]     s-imagef.adb
+[Ada Compile]     s-imagei.adb
+[Ada Compile]     s-imagen.adb
+[Ada Compile]     s-imager.adb
+[Ada Compile]     s-imageu.adb
+[Ada Compile]     s-imagew.adb
+[Ada Compile]     s-imde32.ads
+[Ada Compile]     s-imde64.ads
+[Ada Compile]     s-imen16.ads
+[Ada Compile]     s-imen32.ads
+[Ada Compile]     s-imenu8.ads
+[Ada Compile]     s-imfi32.ads
+[Ada Compile]     s-imfi64.ads
+[Ada Compile]     s-imgboo.adb
+[Ada Compile]     s-imgcha.adb
+[Ada Compile]     s-imgflt.ads
+[Ada Compile]     s-imgint.ads
+[Ada Compile]     s-imglfl.ads
+[Ada Compile]     s-imgllf.ads
+[Ada Compile]     s-imglli.ads
+[Ada Compile]     s-imgllu.ads
+[Ada Compile]     s-imgllw.ads
+[Ada Compile]     s-imguns.ads
+[Ada Compile]     s-imguti.adb
+[Ada Compile]     s-imgwiu.ads
+[Ada Compile]     s-libc.adb
+[Ada Compile]     s-libdou.adb
+[Ada Compile]     s-libm.adb
+[Ada Compile]     s-libpre.ads
+[Ada Compile]     s-libsin.adb
+[Ada Compile]     s-lidosq.adb
+[Ada Compile]     s-lisisq.adb
+[Ada Compile]     s-maccod.ads
+[Ada Compile]     s-macres.adb
+[Ada Compile]     s-memcom.adb
+[Ada Compile]     s-memcop.adb
+[Ada Compile]     s-memmov.adb
+[Ada Compile]     s-memory.adb
+[Ada Compile]     s-memset.adb
+[Ada Compile]     s-memtyp.ads
+[Ada Compile]     s-pack03.adb
+[Ada Compile]     s-pack05.adb
+[Ada Compile]     s-pack06.adb
+[Ada Compile]     s-pack07.adb
+[Ada Compile]     s-pack09.adb
+[Ada Compile]     s-pack10.adb
+[Ada Compile]     s-pack11.adb
+[Ada Compile]     s-pack12.adb
+[Ada Compile]     s-pack13.adb
+[Ada Compile]     s-pack14.adb
+[Ada Compile]     s-pack15.adb
+[Ada Compile]     s-pack17.adb
+[Ada Compile]     s-pack18.adb
+[Ada Compile]     s-pack19.adb
+[Ada Compile]     s-pack20.adb
+[Ada Compile]     s-pack21.adb
+[Ada Compile]     s-pack22.adb
+[Ada Compile]     s-pack23.adb
+[Ada Compile]     s-pack25.adb
+[Ada Compile]     s-pack26.adb
+[Ada Compile]     s-pack27.adb
+[Ada Compile]     s-pack28.adb
+[Ada Compile]     s-pack29.adb
+[Ada Compile]     s-pack30.adb
+[Ada Compile]     s-pack31.adb
+[Ada Compile]     s-pack33.adb
+[Ada Compile]     s-pack34.adb
+[Ada Compile]     s-pack35.adb
+[Ada Compile]     s-pack36.adb
+[Ada Compile]     s-pack37.adb
+[Ada Compile]     s-pack38.adb
+[Ada Compile]     s-pack39.adb
+[Ada Compile]     s-pack41.adb
+[Ada Compile]     s-pack42.adb
+[Ada Compile]     s-pack43.adb
+[Ada Compile]     s-pack44.adb
+[Ada Compile]     s-pack45.adb
+[Ada Compile]     s-pack46.adb
+[Ada Compile]     s-pack47.adb
+[Ada Compile]     s-pack49.adb
+[Ada Compile]     s-pack50.adb
+[Ada Compile]     s-pack51.adb
+[Ada Compile]     s-pack52.adb
+[Ada Compile]     s-pack53.adb
+[Ada Compile]     s-pack54.adb
+[Ada Compile]     s-pack55.adb
+[Ada Compile]     s-pack57.adb
+[Ada Compile]     s-pack58.adb
+[Ada Compile]     s-pack59.adb
+[Ada Compile]     s-pack60.adb
+[Ada Compile]     s-pack61.adb
+[Ada Compile]     s-pack62.adb
+[Ada Compile]     s-pack63.adb
+[Ada Compile]     s-parame.adb
+[Ada Compile]     s-powflt.ads
+[Ada Compile]     s-powlfl.ads
+[Ada Compile]     s-powllf.ads
+[Ada Compile]     s-retsta.ads
+[Ada Compile]     s-secsta.adb
+[Ada Compile]     s-semiho.adb
+[Ada Compile]     s-sssita.adb
+[Ada Compile]     s-stache.adb
+[Ada Compile]     s-stoele.ads
+[Ada Compile]     s-textio.adb
+[Ada Compile]     s-unstyp.ads
+[Ada Compile]     s-vade32.ads
+[Ada Compile]     s-vade64.ads
+[Ada Compile]     s-vaen16.ads
+[Ada Compile]     s-vaen32.ads
+[Ada Compile]     s-vaenu8.ads
+[Ada Compile]     s-vafi32.ads
+[Ada Compile]     s-vafi64.ads
+[Ada Compile]     s-valboo.adb
+[Ada Compile]     s-valcha.adb
+[Ada Compile]     s-valflt.ads
+[Ada Compile]     s-valint.ads
+[Ada Compile]     s-vallfl.ads
+[Ada Compile]     s-valllf.ads
+[Ada Compile]     s-vallli.ads
+[Ada Compile]     s-valllu.ads
+[Ada Compile]     s-valrea.adb
+[Ada Compile]     s-valued.adb
+[Ada Compile]     s-valuef.adb
+[Ada Compile]     s-valuei.adb
+[Ada Compile]     s-valuen.adb
+[Ada Compile]     s-valuer.adb
+[Ada Compile]     s-valueu.adb
+[Ada Compile]     s-valuns.ads
+[Ada Compile]     s-valuti.adb
+[Ada Compile]     s-veboop.adb
+[Ada Compile]     s-vector.ads
+[Ada Compile]     s-widint.ads
+[Ada Compile]     s-widlli.ads
+[Ada Compile]     s-widllu.ads
+[Ada Compile]     s-widthi.adb
+[Ada Compile]     s-widthu.adb
+[Ada Compile]     s-widuns.ads
+[Ada Compile]     setup_pll.adb
+[Ada Compile]     stm32g4xx_runtime_config.ads
+[Ada Compile]     system.ads
+[Ada Compile]     text_io.ads
+[Ada Compile]     unchconv.ads
+[Ada Compile]     unchdeal.ads
+[Archive]         libgnat.a
+Success: Build finished successfully in 32.07 seconds.
+Found declared GPR file: runtime_build.gpr
+Found declared GPR file: ravenscar_build.gpr
+[alr test] Test completed SUCCESSFULLY

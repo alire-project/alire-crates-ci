@@ -1,0 +1,107 @@
+Test ran at 2025-09-08 12:51:59.693942+00:00
+
+SOLUTION:
+libgpr=25.0.0: GNAT Project File Library
+Origin: source archive gprbuild-25.0.0.zip at https://github.com/adacore/gprbuild/archive/v25.0.0/gprbuild-25.0.0.zip with hash sha512:17669998ac9a420a44713704d0155dcdfa0998896c43723990268035417e7faeec77217caff108a757eb62bea4c98ee6a25781311743b4f3bfbda9ca48633ffe
+Properties:
+   Author: AdaCore
+   Configuration: no modifiers
+   Description: GNAT Project File Library
+   GPR Scenario: GPR_BUILD := debug | production | coverage | profiling
+   GPR Scenario: LIBRARY_TYPE := static | relocatable | static-pic
+   License: GPL-3.0-or-later WITH GCC-exception-3.1
+   Maintainer: chouteau@adacore.com
+   Maintainers_Logins: Fabien-Chouteau
+   Name: libgpr
+   Project_File: gpr/gpr.gpr
+   Version: 25.0.0
+Dependencies (direct):
+   gnat/=2020
+   xmlada~25.0.0
+Dependencies (solution):
+   gnat=15.1.2 (gnat_native)
+   xmlada=25.0.0
+Dependencies (graph):
+   libgpr=25.0.0 --> gnat=15.1.2 (gnat_native) (/=2020)
+   libgpr=25.0.0 --> xmlada=25.0.0 (~25.0.0)
+   xmlada=25.0.0 --> gnat=15.1.2 (gnat_native) (>=11)
+
+
+LOG:
+[alr test] Testing libgpr=25.0.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get libgpr=25.0.0
+Note: Deploying libgpr=25.0.0...
+#=#=#                                                                          
+##O#-#                                                                         
+##O=#  #                                                                       
+#=#=-#  #                                                                      
+ #=#=-#   #                                                                    
+  #=#=- #   #                                                                  
+   #=#=- #   #                                                                 
+
+libgpr=25.0.0 successfully retrieved.
+Dependencies were solved as follows:
+
+   +b gnat   15.1.2 (new,gnat_native,binary)
+   +  xmlada 25.0.0 (new)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building libgpr=25.0.0/gpr/gpr.gpr...
+Setup
+   [mkdir]        object directory for project GPR
+   [mkdir]        library directory for project GPR
+Compile
+   [C]            gpr_imports.c
+   [Ada]          gpr-util.adb
+   [Ada]          gpr.adb
+   [Ada]          gpr-ali.adb
+   [Ada]          gpr-sinput.adb
+   [Ada]          gpr-opt.ads
+   [Ada]          gpr-sdefault.adb
+gpr-sdefault.adb:29:06: warning: "System.OS_Constants" is an internal GNAT unit [-gnatwi]
+gpr-sdefault.adb:29:06: warning: use of this unit is non-portable and version-dependent [-gnatwi]
+   [Ada]          gpr-pp.adb
+   [Ada]          gpr-env.adb
+   [Ada]          gpr-part.adb
+   [Ada]          gpr-util-aux.adb
+   [Ada]          gpr-com.ads
+   [Ada]          gpr-jobserver.adb
+   [Ada]          gpr-erroutc.adb
+   [Ada]          gpr-debug.adb
+   [Ada]          gpr-attr.adb
+   [Ada]          gpr-osint.adb
+gpr-osint.adb:30:06: warning: "System.CRTL" is an internal GNAT unit [-gnatwi]
+gpr-osint.adb:30:06: warning: use of this unit is non-portable and version-dependent [-gnatwi]
+gpr-osint.adb:31:06: warning: "System.OS_Constants" is an internal GNAT unit [-gnatwi]
+gpr-osint.adb:31:06: warning: use of this unit is non-portable and version-dependent [-gnatwi]
+   [Ada]          gpr-names.adb
+   [Ada]          gpr-proc.adb
+   [Ada]          gpr-knowledge.adb
+   [Ada]          gpr-compilation-sync.adb
+   [Ada]          gpr-compilation-protocol.adb
+   [Ada]          gpr-strt.adb
+   [Ada]          gpr-tree.adb
+   [Ada]          gpr-script.adb
+   [Ada]          gpr-tempdir.adb
+   [Ada]          gpr-snames.adb
+   [Ada]          gpr-compilation-process-waiter.adb
+   [Ada]          gpr-conf.adb
+   [Ada]          gpr-dect.adb
+   [Ada]          gpr-nmsc.adb
+   [Ada]          gpr-compilation.adb
+   [Ada]          gpr-cset.adb
+   [Ada]          gpr-err.adb
+   [Ada]          gpr-output.adb
+   [Ada]          gpr-version.adb
+   [Ada]          gpr-ext.adb
+   [Ada]          gpr-attr-pm.adb
+   [Ada]          gpr-compilation-slave.adb
+   [Ada]          gpr-compilation-process.adb
+   [Ada]          gpr_build_util.adb
+   [Ada]          gpr-scans.adb
+Build Libraries
+   [gprlib]       gpr.lexch
+   [archive]      libgpr.a
+   [index]        libgpr.a
+Success: Build finished successfully in 61.84 seconds.
+Found declared GPR file: gpr/gpr.gpr
+[alr test] Test completed SUCCESSFULLY

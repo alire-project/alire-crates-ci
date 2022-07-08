@@ -1,0 +1,54 @@
+Test ran at 2024-05-22 12:56:24.525981+00:00
+
+SOLUTION:
+aws=24.0.0: Ada Web Server
+Origin: source archive aws-24.0.0-with-templates-parser.zip at https://github.com/AdaCore/aws/releases/download/v24.0.0/aws-24.0.0-with-templates-parser.zip with hash sha512:2b75fe6dc1bf676b6bd949354e352a94c918c109f8065179634ccba6e17329ba48163deb4bceb506eaf1e2a1446378bbe3439ea007a7dc5dd77286e56b497c4c
+Properties:
+   Post_Fetch run: ${CRATE_DIR}/./make setup ZLIB=false DEMOS=false LAL=false XMLADA=false SOCKET=openssl prefix=install_dir PRJ_BUILD=Release
+   Post_Fetch run: ${CRATE_DIR}/./make all ENABLE_SHARED=false
+   Post_Fetch run: ${CRATE_DIR}/./make install-lib-native install-tools-native --jobs=1 ENABLE_SHARED=false
+   Author: AdaCore
+   Description: Ada Web Server
+   License: GPL-3.0-only WITH GCC-exception-3.1
+   Maintainer: chouteau@adacore.com
+   Maintainers_Logins: Fabien-Chouteau
+   Name: aws
+   Project_File: install_dir/share/gpr/aws.gpr
+   Tag: aws
+   Tag: web
+   Tag: server
+   Tag: http
+   Tag: https
+   Tag: soap
+   Tag: wsdl
+   Tag: ssl
+   Version: 24.0.0
+   Website: https://github.com/adacore/aws
+Dependencies (direct):
+   gnat>=12
+   gnatcoll~24.0.0
+   make*
+   openssl*
+   xmlada~24.0.0
+Dependencies (solution):
+   gnatcoll=24.0.0
+   libgpr=24.0.0
+   make=4.3.0
+   openssl=3.0.2
+   xmlada=24.0.0
+Dependencies (external):
+   gnat((>=12) & (>=11)) & (/=2020) (direct,hinted)
+Dependencies (graph):
+   aws=24.0.0      --> gnat>=12                 
+   aws=24.0.0      --> gnatcoll=24.0.0 (~24.0.0)
+   aws=24.0.0      --> make=4.3.0 (*)           
+   aws=24.0.0      --> openssl=3.0.2 (*)        
+   aws=24.0.0      --> xmlada=24.0.0 (~24.0.0)  
+   gnatcoll=24.0.0 --> libgpr=24.0.0 (~24.0.0)  
+   libgpr=24.0.0   --> gnat/=2020               
+   libgpr=24.0.0   --> xmlada=24.0.0 (~24.0.0)  
+   xmlada=24.0.0   --> gnat>=11                 
+Dependencies cannot be met
+
+
+LOG:
