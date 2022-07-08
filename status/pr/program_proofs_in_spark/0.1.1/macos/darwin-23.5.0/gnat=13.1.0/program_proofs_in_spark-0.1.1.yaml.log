@@ -1,0 +1,101 @@
+Test ran at 2025-01-26 00:40:17.034456+00:00
+
+SOLUTION:
+program_proofs_in_spark=0.1.1: Programs from the book Program Proofs in SPARK
+Origin: commit 37500dca9b643d1cd2f3711e1f97264923ea0baa from https://github.com/AdaCore/program_proofs_in_spark.git
+Properties:
+   Author: Yannick Moy
+   Description: Programs from the book Program Proofs in SPARK
+   License: Apache-2.0
+   Maintainer: Yannick Moy <moy@adacore.com>
+   Maintainers_Logins: yannickmoy
+   Name: program_proofs_in_spark
+   Project_File: ch5/ch5.gpr
+   Project_File: ch7/ch7.gpr
+   Project_File: ch12/ch12.gpr
+   Project_File: ch13/ch13.gpr
+   Project_File: ch15/ch15.gpr
+   Tag: spark
+   Version: 0.1.1
+   Website: https://github.com/AdaCore/program_proofs_in_spark
+Dependencies (direct):
+   gnat>=12 & <2000
+   gnatprove^12.1.1
+Dependencies (solution):
+   gnat=13.1.0 (gnat_native) (installed)
+   gnatprove=12.1.1 (installed)
+Dependencies (graph):
+   program_proofs_in_spark=0.1.1 --> gnat=13.1.0 (gnat_native) (>=12 & <2000)
+   program_proofs_in_spark=0.1.1 --> gnatprove=12.1.1 (^12.1.1)              
+
+
+LOG:
+Note: Deploying program_proofs_in_spark=0.1.1...
+Note: Deploying gnatprove=12.1.1...
+#=#=#                                                                          
+##O#-#                                                                         
+##O=#  #                                                                       
+
+                                                                           0.0%
+#                                                                          2.5%
+###                                                                        5.1%
+######                                                                     9.4%
+#########                                                                 13.1%
+###########                                                               16.2%
+###############                                                           21.7%
+##################                                                        26.1%
+######################                                                    30.7%
+########################                                                  34.4%
+###########################                                               38.2%
+#############################                                             41.2%
+##################################                                        48.0%
+#####################################                                     51.7%
+#######################################                                   55.3%
+##########################################                                58.5%
+############################################                              61.8%
+##############################################                            64.8%
+#################################################                         68.8%
+###################################################                       71.9%
+######################################################                    75.3%
+#########################################################                 79.3%
+#########################################################                 79.3%
+###########################################################               82.9%
+###############################################################           88.0%
+##################################################################        91.9%
+####################################################################      95.0%
+######################################################################    98.4%
+######################################################################## 100.0%
+Note: gnatprove=12.1.1 installed successfully.
+Note: Building program_proofs_in_spark/ch5/ch5.gpr (1/5)...
+Setup
+   [mkdir]        object directory for project Ch5
+Compile
+   [Ada]          test_abstract_syntax_trees.adb
+test_abstract_syntax_trees.adb:18:22: error: invalid prefix in selected component "Add"
+abstract_syntax_trees.ads:39:49: error: unmatched actual in instantiation of "Functional_Maps" declared at a-cofuma.ads:33
+abstract_syntax_trees.ads:40:31: error: "Map" not declared in "Environments"
+abstract_syntax_trees.ads:49:19: error: invalid prefix in selected component "Has_Key"
+abstract_syntax_trees.ads:49:49: error: invalid prefix in selected component "Get"
+abstract_syntax_trees.ads:49:72: error: type of "else" incompatible with that of "then" expression
+abstract_syntax_trees.ads:49:72: error: "else" expression has type universal integer
+a-cofuma.ads:36:07: error: This package has been moved to the SPARK library shipped with any SPARK release starting with version 23.
+
+   compilation of test_abstract_syntax_trees.adb failed
+
+gprbuild: *** compilation phase failed
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/Users/runner/work/alire-crates-ci/alire-crates-ci/test/f1c86e83-a200-457d-beb3-807e5668e838/program_proofs_in_spark_0.1.1_37500dca/ch5/ch5.gpr"] exited with code 4
+ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/Users/runner/work/alire-crates-ci/alire-crates-ci/test/f1c86e83-a200-457d-beb3-807e5668e838/program_proofs_in_spark_0.1.1_37500dca/ch5/ch5.gpr"] exited with code 4
+stderr: ALIRE.CHECKED_ERROR
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/Users/runner/work/alire-crates-ci/alire-crates-ci/test/f1c86e83-a200-457d-beb3-807e5668e838/program_proofs_in_spark_0.1.1_37500dca/ch5/ch5.gpr"] exited with code 4
+stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
+Load address: 0x10462b000
+Call stack traceback locations:
+0x104f33415 0x104c06e83 0x104e19df9 0x104e1a581 0x104d7aac3 0x104d78f99 0x104d95873 0x104de1dc1 0x104de081a 0x104d959b8 0x104d79349 0x10468a9c1 0x10469b578 0x1046a001c 0x10472605c 0x1047313b8 0x10462c605 0x10462f914
+
+
+Warning: program_proofs_in_spark=0.1.1 successfully retrieved but its build failed.
+Dependencies were solved as follows:
+
+   +i gnat      13.1.0 (new,installed,gnat_native)
+   +i gnatprove 12.1.1 (new,installed)            
+ERROR: Build ended with errors

@@ -1,0 +1,160 @@
+badge: true
+badge_color: yellow
+crate: remoteio
+creation_timestamp: 1660900509.8552194
+distro: fedora-36
+duration: 1.8707308059999832
+gnat: 12.1.1
+last_attempt: 2022-09-10 13:15:56.130686+00:00
+log:
+- 'Test ran at 2022-09-10 13:15:56.130659+00:00
+
+
+  '
+- 'SOLUTION:
+
+  '
+- 'remoteio=1.20220.1: Remote I/O Protocol Client Library for GNAT Ada
+
+  '
+- 'Origin: source archive remoteio-1.20220.1.tbz2 at http://repo.munts.com/alire/remoteio-1.20220.1.tbz2
+  with hashes sha256:64576e563db4b914de34bc316e632522b0d58c3d6a2f86996480bb6770ea0946,
+  sha512:76e58c614dcdf4333fd9d23dd1d2031f6f802c195fcea08b1ed1ec6d25e49430fd4ed8f7aa44cba94ae8f075427eeea3a1e1a045e47e673a5873609c4be265b0
+
+  '
+- 'Available when: (case OS is Linux => True, Windows => True, others => False)
+
+  '
+- 'Properties:
+
+  '
+- '   case OS is
+
+  '
+- '      when Linux => Post_Fetch run: ${CRATE_DIR}/./sh -c sed -i ''s/lhidapi/lhidapi-hidraw/g''
+  src/objects/hid/hid-hidapi.ads
+
+  '
+- '      when Windows => Post_Fetch run: ${CRATE_DIR}/./sh -c mkdir -p ./bin && cp
+  src/win64/*.dll ./bin && mkdir -p ./lib && cp src/win64/*.dll ./lib
+
+  '
+- '   Author: Philip Munts
+
+  '
+- '   Description: Remote I/O Protocol Client Library for GNAT Ada
+
+  '
+- '   License: BSD-1-Clause
+
+  '
+- '   Maintainer: Philip Munts <phil@munts.net>
+
+  '
+- '   Maintainers_Logins: pmunts
+
+  '
+- '   Name: remoteio
+
+  '
+- '   Project_File: remoteio.gpr
+
+  '
+- '   Project_File: programs.gpr
+
+  '
+- '   Tag: embedded
+
+  '
+- '   Tag: linux
+
+  '
+- '   Tag: remoteio
+
+  '
+- '   Tag: adc
+
+  '
+- '   Tag: dac
+
+  '
+- '   Tag: gpio
+
+  '
+- '   Tag: i2c
+
+  '
+- '   Tag: motor
+
+  '
+- '   Tag: pwm
+
+  '
+- '   Tag: sensor
+
+  '
+- '   Tag: serial
+
+  '
+- '   Tag: servo
+
+  '
+- '   Tag: spi
+
+  '
+- '   Tag: stepper
+
+  '
+- '   Version: 1.20220.1
+
+  '
+- '   Website: https://github.com/pmunts/libsimpleio
+
+  '
+- 'Dependencies (direct):
+
+  '
+- '   case OS is
+
+  '
+- '      when Linux => libhidapi*
+
+  '
+- '   case OS is
+
+  '
+- '      when Linux => libusb~1.0
+
+  '
+- 'Dependencies (external):
+
+  '
+- '   libhidapi* (direct,hinted)
+
+  '
+- '   libusb~1.0 (direct,hinted)
+
+  '
+- 'Dependencies (graph):
+
+  '
+- '   remoteio=1.20220.1 --> libhidapi*
+
+  '
+- '   remoteio=1.20220.1 --> libusb~1.0
+
+  '
+- 'Dependencies cannot be met
+
+  '
+- '
+
+  '
+- '
+
+  LOG:
+
+  '
+platform: linux
+status: missing-dependencies
+version: 1.20220.1

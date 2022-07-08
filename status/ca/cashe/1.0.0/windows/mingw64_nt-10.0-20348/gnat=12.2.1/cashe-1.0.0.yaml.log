@@ -1,0 +1,92 @@
+Test ran at 2025-03-17 00:48:25.269950+00:00
+
+SOLUTION:
+cashe=1.0.0: A fixed-point decimal money library written in Ada.
+Origin: commit d142893b6036e384daa3e8a9172f133c204ee5a7 from https://github.com/AJ-Ianozi/Cashe.git
+Properties:
+   Author: AJ Ianozi
+   Description: A fixed-point decimal money library written in Ada.
+   License: MIT
+   Maintainer: AJ Ianozi <aj@ianozi.com>
+   Maintainers_Logins: AJ-Ianozi
+   Name: cashe
+   Tag: currency
+   Tag: money
+   Tag: decimal
+   Tag: finance
+   Version: 1.0.0
+   Website: https://github.com/AJ-Ianozi/Cashe/
+Dependencies (direct):
+   gnat>=12 & <2000
+   iso^2.0.0
+Dependencies (solution):
+   gnat=12.2.1 (gnat_native)
+   iso=2.0.0
+Dependencies (graph):
+   cashe=1.0.0 --> gnat=12.2.1 (gnat_native) (>=12 & <2000)
+   cashe=1.0.0 --> iso=2.0.0 (^2.0.0)
+
+
+LOG:
+Spawning: alr -d -n get --build cashe=1.0.0
+Note: Deploying cashe=1.0.0...
+Note: Deploying iso=2.0.0...
+Note: Building cashe=1.0.0/cashe.gpr...
+Setup
+   [mkdir]        object directory for project ISO
+   [mkdir]        library directory for project ISO
+   [mkdir]        object directory for project Cashe
+   [mkdir]        library directory for project Cashe
+Compile
+   [Ada]          iso_config.ads
+   [Ada]          iso.ads
+   [Ada]          iso-currencies.adb
+   [Ada]          iso-countries.adb
+   [Ada]          cashe_config.ads
+   [Ada]          cashe.adb
+   [Ada]          cashe-money_handling.adb
+iso-currencies.adb:244:34: error: literal out of range of type Standard.Character
+
+   compilation of iso-currencies.adb failed
+
+gprbuild: *** compilation phase failed
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "D:\a\alire-crates-ci\alire-crates-ci\test\69847c6b-df9f-445d-8d1a-83f8df334d2b\cashe_1.0.0_d142893b\cashe.gpr"] exited with code 4
+ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "D:\a\alire-crates-ci\alire-crates-ci\test\69847c6b-df9f-445d-8d1a-83f8df334d2b\cashe_1.0.0_d142893b\cashe.gpr"] exited with code 4
+stderr: ALIRE.CHECKED_ERROR
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "D:\a\alire-crates-ci\alire-crates-ci\test\69847c6b-df9f-445d-8d1a-83f8df334d2b\cashe_1.0.0_d142893b\cashe.gpr"] exited with code 4
+stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
+[D:\a\alire-crates-ci\alire-crates-ci\alire_install\bin\alr.exe]
+0x7ff70ad1b6aa Semantic_Versioning.Basic.Restrictions.First_Index at alire.adb:284
+0x7ff70a9362cb Semantic_Versioning.Basic.Restrictions.First_Index at alire-os_lib-subprocess.adb:111
+0x7ff70abd9ee1 Semantic_Versioning.Basic.Restrictions.First_Index at alire-spawn.adb:21
+0x7ff70abda5bf Semantic_Versioning.Basic.Restrictions.First_Index at alire-spawn.adb:41
+0x7ff70ab0e35c Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:186
+0x7ff70ab0c84a Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:252
+0x7ff70ab329c9 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2075
+0x7ff70aba10ed Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1480
+0x7ff70aba0218 Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1563
+0x7ff70ab32ac8 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2079
+0x7ff70ab32b96 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2059
+0x7ff70ab0ce0e Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:283
+0x7ff70ab0cf0a Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:111
+0x7ff70a2d4f23 Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-get.adb:205
+0x7ff70a2d88df Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-get.adb:378
+0x7ff70a2d8a9a Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-get.adb:256
+0x7ff70a371628 Semantic_Versioning.Basic.Restrictions.First_Index at clic-subcommand-instance.adb:749
+0x7ff70a37deeb Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands.adb:561
+0x7ff70a2516a0 Alr.Main at alr-main.adb:13
+0x7ff70a254f2e Main at b__alr-main.adb:2306
+0x7ff70a25133e __tmainCRTStartup at ???
+0x7ff70a251144 mainCRTStartup at ???
+[C:\Windows\System32\KERNEL32.DLL]
+0x7ffa892d4cae
+[C:\Windows\SYSTEM32\ntdll.dll]
+0x7ffa8a65edc9
+
+
+Warning: cashe=1.0.0 successfully retrieved but its build failed.
+Dependencies were solved as follows:
+
+   +b gnat 12.2.1 (new,gnat_native,binary)
+   +  iso  2.0.0  (new)
+ERROR: Build ended with errors

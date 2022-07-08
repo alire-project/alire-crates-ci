@@ -1,0 +1,65 @@
+Test ran at 2024-12-10 12:34:07.997863+00:00
+
+SOLUTION:
+c_strings=1.0.0: Convenience subprograms to interact with C strings
+Origin: source archive v1.0.tar.gz at https://github.com/mosteo/cstrings/archive/v1.0.tar.gz with hash sha512:cf45f76d1f86b2389885f9235af9319130a9a5a1717000db84194fbaaa04e8b033e2cd4c173db8b922af3ee5150a1d7334f531074e215d1a911d3ffc38b85e96
+Properties:
+   Author: Alejandro R. Mosteo
+   Description: Convenience subprograms to interact with C strings
+   License: LGPL-3.0-only
+   Maintainer: alejandro@mosteo.com
+   Maintainers_Logins: mosteo
+   Name: c_strings
+   Version: 1.0.0
+
+
+LOG:
+Note: Deploying c_strings=1.0.0...
+#=#=#                                                                          
+##O#-#                                                                         
+Note: Building c_strings/c_strings.gpr...
+Setup
+   [mkdir]        object directory for project C_Strings
+   [mkdir]        library directory for project C_Strings
+Compile
+   [Ada]          c_strings.ads
+c_strings.ads:76:38: error: non-local pointer cannot point to local object
+
+   compilation of c_strings.ads failed
+
+gprbuild: *** compilation phase failed
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/023381dc-1459-446a-9118-41ccba3e0bd6/c_strings_1.0.0_cf45f76d/c_strings.gpr"] exited with code 4
+ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/023381dc-1459-446a-9118-41ccba3e0bd6/c_strings_1.0.0_cf45f76d/c_strings.gpr"] exited with code 4
+stderr: ALIRE.CHECKED_ERROR
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/023381dc-1459-446a-9118-41ccba3e0bd6/c_strings_1.0.0_cf45f76d/c_strings.gpr"] exited with code 4
+stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
+[/home/runner/work/alire-crates-ci/alire-crates-ci/alire_install/bin/alr]
+0xd7ada2 Alire.Raise_Checked_Error at alire.adb:251
+0xa423cf Alire.Os_Lib.Subprocess.Checked_Spawn at alire-os_lib-subprocess.adb:110
+0xc5cdee Alire.Spawn.Command at alire-spawn.adb:21
+0xc5d51c Alire.Spawn.Gprbuild at alire-spawn.adb:41
+0xbc1550 Alire.Roots.Build.Build_Single_Release.Call_Gprbuild at alire-roots.adb:140
+0xbbfbaf Alire.Roots.Build.Build_Single_Release at alire-roots.adb:171
+0xbdb95e Alire.Roots.Traverse.Traverse_Wrap at alire-roots.adb:1364
+0xc25a8b Alire.Solutions.Traverse.Visit at alire-solutions.adb:1443
+0xc246a2 Alire.Solutions.Traverse at alire-solutions.adb:1518
+0xbdbaac Alire.Roots.Traverse at alire-roots.adb:1368
+0xbbff40 Alire.Roots.Build at alire-roots.adb:196
+0x4a0334 Alr.Commands.Build.Execute at alr-commands-build.adb:58
+0x4b065a Alr.Commands.Get.Retrieve at alr-commands-get.adb:187
+0x4b4e77 Alr.Commands.Get.Execute at alr-commands-get.adb:348
+0x53bb7e Alr.Commands.Sub_Cmd.Execute at clic-subcommand-instance.adb:742
+0x54756f Alr.Commands.Execute at alr-commands.adb:492
+0x43cb1a Alr.Main at alr-main.adb:10
+0x43f3e7 Main at b__alr-main.adb:2132
+[/lib/x86_64-linux-gnu/libc.so.6]
+0x7f58d322a1c8
+0x7f58d322a289
+[/home/runner/work/alire-crates-ci/alire-crates-ci/alire_install/bin/alr]
+0x43c9f8 _start at ???
+0xfffffffffffffffe
+
+
+Warning: c_strings=1.0.0 successfully retrieved but its build failed.
+There are no dependencies.
+ERROR: Build ended with errors

@@ -1,0 +1,99 @@
+Test ran at 2026-06-14 01:43:57.118046+00:00
+
+SOLUTION:
+whitakers_words=0.20240801.0: William Whitaker's WORDS, a Latin dictionary
+Origin: commit bbf5d50cf4026c17d35f07ce85771954b95c6af9 from https://github.com/mosteo/whitakers-words.git
+Available when: (case OS is Windows => False)
+Properties:
+   Post_Fetch run: make (from ${CRATE_ROOT}/.)
+   Author: William A. Whitaker
+   Author: Martin Keegan
+   Configuration: no modifiers
+   Description: William Whitaker's WORDS, a Latin dictionary
+   Executable: words
+   License: Custom-Public-Domain
+   Maintainer: alejandro@mosteo.com
+   Maintainers_Logins: mosteo
+   Name: whitakers_words
+   Project_File: commands.gpr
+   Version: 0.20240801.0
+   Website: https://bitbucket.org/ben-crowell/whitakers-words/
+Dependencies (direct):
+   gnat/=7.3
+   make*
+Dependencies (solution):
+   gnat=15.1.2 (gnat_native)
+   make=4.4.1
+Dependencies (graph):
+   whitakers_words=0.20240801.0 --> gnat=15.1.2 (gnat_native) (/=7.3)
+   whitakers_words=0.20240801.0 --> make=4.4.1 (*)
+
+
+LOG:
+[alr test] Testing whitakers_words=0.20240801.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get whitakers_words=0.20240801.0
+Note: Deploying whitakers_words=0.20240801.0...
+
+whitakers_words=0.20240801.0 successfully retrieved.
+Dependencies were solved as follows:
+
+   +b gnat 15.1.2 (new,gnat_native,binary)
+   +b make 4.4.1  (new,system package)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Running post-fetch actions for whitakers_words=0.20240801.0...
+sed 's|@datadir@|.|' src/latin_utils/latin_utils-config.adb.in > src/latin_utils/latin_utils-config.adb
+gprbuild -p -j4 commands.gpr
+Setup
+   [mkdir]        object directory for project Latin_Utils
+   [mkdir]        library directory for project Latin_Utils
+   [mkdir]        object directory for project Support_Utils
+   [mkdir]        library directory for project Support_Utils
+   [mkdir]        object directory for project Words_Engine
+   [mkdir]        library directory for project Words_Engine
+   [mkdir]        exec directory for project Commands
+Compile
+   [Ada]          makedict.adb
+   [Ada]          makeefil.adb
+   [Ada]          makeewds.adb
+   [Ada]          makeinfl.adb
+   [Ada]          makestem.adb
+   [Ada]          meanings.adb
+   [Ada]          wakedict.adb
+   [Ada]          words.adb
+   [Ada]          latin_utils-strings_package.adb
+   [Ada]          latin_utils-dictionary_package.adb
+   [Ada]          latin_utils-config.adb
+   [Ada]          latin_utils.ads
+   [Ada]          latin_utils-inflections_package.adb
+   [Ada]          latin_utils-latin_file_names.ads
+   [Ada]          latin_utils-general.adb
+   [Ada]          latin_utils-preface.adb
+   [Ada]          support_utils.ads
+   [Ada]          support_utils-dictionary_form.adb
+   [Ada]          support_utils-word_support_package.adb
+   [Ada]          support_utils-uniques_package.ads
+   [Ada]          support_utils-developer_parameters.adb
+   [Ada]          support_utils-line_stuff.adb
+   [Ada]          support_utils-addons_package.adb
+   [Ada]          support_utils-char_utils.adb
+   [Ada]          support_utils-word_parameters.adb
+   [Ada]          words_engine-list_package.adb
+support_utils-word_parameters.adb:481:09: (style) redundant parentheses [-gnatyx]
+words_engine-list_package.adb:870:39: (style) redundant parentheses [-gnatyx]
+
+   compilation of support_utils-word_parameters.adb failed
+   compilation of words_engine-list_package.adb failed
+
+gprbuild: *** compilation phase failed
+make: *** [commands] Error 4
+Warning: Execution failed for action: Post_Fetch run: make (from ${CRATE_ROOT}/.)
+Warning: Exit code: 2
+Warning: Action output not captured, check it above.
+stderr: ALIRE.PROPERTIES.ACTIONS.ACTION_FAILED
+stderr: Action failed with exit code 2
+stderr: raised ALIRE.PROPERTIES.ACTIONS.ACTION_FAILED : Action failed with exit code 2
+Load address: 0x104124000
+Call stack traceback locations:
+0x104e300cc 0x104e3012c 0x1047d3fe4 0x1047d2788 0x10498b9c0 0x1049af78c 0x104a0f56c 0x104a0e99c 0x1049af868 0x1049af950 0x10498c00c 0x10498c174 0x104195730 0x104195070 0x1041951e4 0x104232b38 0x10423dc78 0x1041269f8 0x10412ba2c
+
+ERROR: Compilation failed.

@@ -1,0 +1,206 @@
+Test ran at 2026-08-20 00:45:10.438638+00:00
+
+SOLUTION:
+pla_util=2.1.3: A power line adapter utility
+Origin: commit f5b3a986fd37f098dbc5660b5f9846e181d982db from https://github.com/serock/pla-util.git
+Available when: (case OS is Linux => True, others => False)
+Properties:
+   Author: John Serock
+   Build Switches: 
+   Configuration: no modifiers
+   Description: A power line adapter utility
+   Executable: pla-util
+   License: GPL-3.0-or-later
+   Maintainer: john.serock@gmail.com
+   Maintainers_Logins: serock
+   Name: pla_util
+   Project_File: pla_util.gpr
+   Tag: powerline
+   Version: 2.1.3
+   Website: https://github.com/serock/pla-util
+Dependencies (direct):
+   libpcap^1.8.1
+Dependencies (solution):
+   libpcap=1.10.4
+Dependencies (graph):
+   pla_util=2.1.3 --> libpcap=1.10.4 (^1.8.1)
+
+
+LOG:
+[alr test] Testing pla_util=2.1.3
+[alr test] Spawning retrieval for remote crate: alr -d -n get pla_util=2.1.3
+Note: Deploying pla_util=2.1.3...
+Note: Deploying libpcap=1.10.4...
+The system package 'libpcap-dev' is about to be installed.
+This action might require admin privileges and impact your system installation.
+Do you want Alire to install this system package?
+Using default: Yes
+Selecting previously unselected package libnl-3-dev:amd64.
+(Reading database ... 
+(Reading database ... 5%
+(Reading database ... 10%
+(Reading database ... 15%
+(Reading database ... 20%
+(Reading database ... 25%
+(Reading database ... 30%
+(Reading database ... 35%
+(Reading database ... 40%
+(Reading database ... 45%
+(Reading database ... 50%
+(Reading database ... 55%
+(Reading database ... 60%
+(Reading database ... 65%
+(Reading database ... 70%
+(Reading database ... 75%
+(Reading database ... 80%
+(Reading database ... 85%
+(Reading database ... 90%
+(Reading database ... 95%
+(Reading database ... 100%
+(Reading database ... 207012 files and directories currently installed.)
+Preparing to unpack .../libnl-3-dev_3.7.0-0.3build1.1_amd64.deb ...
+Unpacking libnl-3-dev:amd64 (3.7.0-0.3build1.1) ...
+Selecting previously unselected package libnl-route-3-dev:amd64.
+Preparing to unpack .../libnl-route-3-dev_3.7.0-0.3build1.1_amd64.deb ...
+Unpacking libnl-route-3-dev:amd64 (3.7.0-0.3build1.1) ...
+Selecting previously unselected package libibverbs-dev:amd64.
+Preparing to unpack .../libibverbs-dev_50.0-2ubuntu0.2_amd64.deb ...
+Unpacking libibverbs-dev:amd64 (50.0-2ubuntu0.2) ...
+Selecting previously unselected package libpcap0.8-dev:amd64.
+Preparing to unpack .../libpcap0.8-dev_1.10.4-4.1ubuntu3_amd64.deb ...
+Unpacking libpcap0.8-dev:amd64 (1.10.4-4.1ubuntu3) ...
+Selecting previously unselected package libpcap-dev:amd64.
+Preparing to unpack .../libpcap-dev_1.10.4-4.1ubuntu3_amd64.deb ...
+Unpacking libpcap-dev:amd64 (1.10.4-4.1ubuntu3) ...
+Setting up libnl-3-dev:amd64 (3.7.0-0.3build1.1) ...
+Setting up libnl-route-3-dev:amd64 (3.7.0-0.3build1.1) ...
+Setting up libibverbs-dev:amd64 (50.0-2ubuntu0.2) ...
+Setting up libpcap0.8-dev:amd64 (1.10.4-4.1ubuntu3) ...
+Setting up libpcap-dev:amd64 (1.10.4-4.1ubuntu3) ...
+Processing triggers for man-db (2.12.0-4build2) ...
+Not building database; man-db/auto-update is not 'true'.
+
+Running kernel seems to be up-to-date.
+
+Restarting services...
+
+Service restarts being deferred:
+ systemctl restart hosted-compute-agent.service
+
+No containers need to be restarted.
+
+No user sessions are running outdated binaries.
+
+No VM guests are running outdated hypervisor (qemu) binaries on this host.
+
+pla_util=2.1.3 successfully retrieved.
+Dependencies were solved as follows:
+
+   +b libpcap 1.10.4 (new,system package)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building pla_util=2.1.3/pla_util.gpr...
+Setup
+   [mkdir]        object directory for project Pla_Util
+   [mkdir]        exec directory for project Pla_Util
+Compile
+   [Ada]          pla_util.adb
+   [Ada]          console.adb
+   [Ada]          config.ads
+   [Ada]          firmware_boot_strings.ads
+   [Ada]          hfid_strings.ads
+   [Ada]          pla_util_config.ads
+   [Ada]          power_line_adapter_sets.ads
+   [Ada]          power_line_adapters.adb
+   [Ada]          commands.adb
+   [Ada]          mac_addresses.adb
+   [Ada]          messages.adb
+   [Ada]          messages-constructors.adb
+   [Ada]          octets.ads
+   [Ada]          power_line_adapters-network.adb
+   [Ada]          to_bounded_string.adb
+   [Ada]          packets.ads
+   [Ada]          packets-network_devices.adb
+   [Ada]          power_line_adapters-constructors.adb
+   [Ada]          packets-device_locators.adb
+   [Ada]          packets-filters.adb
+   [Ada]          packets-pcap.ads
+   [Ada]          packets-pcap-devices.ads
+Bind
+   [gprbind]      pla_util.bexch
+   [Ada]          pla_util.ali
+Link
+   [link]         pla_util.adb
+/home/runner/.local/share/alire/toolchains/gnat_native_11.2.4_2f37a10b/bin/../lib/gcc/x86_64-pc-linux-gnu/11.2.0/../../../../x86_64-pc-linux-gnu/bin/ld: /lib/x86_64-linux-gnu/libc.so.6: unknown type [0x13] section `.relr.dyn'
+/home/runner/.local/share/alire/toolchains/gnat_native_11.2.4_2f37a10b/bin/../lib/gcc/x86_64-pc-linux-gnu/11.2.0/../../../../x86_64-pc-linux-gnu/bin/ld: skipping incompatible /lib/x86_64-linux-gnu/libc.so.6 when searching for /lib/x86_64-linux-gnu/libc.so.6
+/home/runner/.local/share/alire/toolchains/gnat_native_11.2.4_2f37a10b/bin/../lib/gcc/x86_64-pc-linux-gnu/11.2.0/../../../../x86_64-pc-linux-gnu/bin/ld: cannot find /lib/x86_64-linux-gnu/libc.so.6
+/home/runner/.local/share/alire/toolchains/gnat_native_11.2.4_2f37a10b/bin/../lib/gcc/x86_64-pc-linux-gnu/11.2.0/../../../../x86_64-pc-linux-gnu/bin/ld: /lib/x86_64-linux-gnu/libc.so.6: unknown type [0x13] section `.relr.dyn'
+/home/runner/.local/share/alire/toolchains/gnat_native_11.2.4_2f37a10b/bin/../lib/gcc/x86_64-pc-linux-gnu/11.2.0/../../../../x86_64-pc-linux-gnu/bin/ld: skipping incompatible /lib/x86_64-linux-gnu/libc.so.6 when searching for /lib/x86_64-linux-gnu/libc.so.6
+/home/runner/.local/share/alire/toolchains/gnat_native_11.2.4_2f37a10b/bin/../lib/gcc/x86_64-pc-linux-gnu/11.2.0/../../../../x86_64-pc-linux-gnu/bin/ld: /lib64/ld-linux-x86-64.so.2: unknown type [0x13] section `.relr.dyn'
+/home/runner/.local/share/alire/toolchains/gnat_native_11.2.4_2f37a10b/bin/../lib/gcc/x86_64-pc-linux-gnu/11.2.0/../../../../x86_64-pc-linux-gnu/bin/ld: skipping incompatible /lib64/ld-linux-x86-64.so.2 when searching for /lib64/ld-linux-x86-64.so.2
+/home/runner/.local/share/alire/toolchains/gnat_native_11.2.4_2f37a10b/bin/../lib/gcc/x86_64-pc-linux-gnu/11.2.0/../../../../x86_64-pc-linux-gnu/bin/ld: cannot find /lib64/ld-linux-x86-64.so.2
+/home/runner/.local/share/alire/toolchains/gnat_native_11.2.4_2f37a10b/bin/../lib/gcc/x86_64-pc-linux-gnu/11.2.0/../../../../x86_64-pc-linux-gnu/bin/ld: /lib64/ld-linux-x86-64.so.2: unknown type [0x13] section `.relr.dyn'
+/home/runner/.local/share/alire/toolchains/gnat_native_11.2.4_2f37a10b/bin/../lib/gcc/x86_64-pc-linux-gnu/11.2.0/../../../../x86_64-pc-linux-gnu/bin/ld: skipping incompatible /lib64/ld-linux-x86-64.so.2 when searching for /lib64/ld-linux-x86-64.so.2
+collect2: error: ld returned 1 exit status
+gprbuild: link of pla_util.adb failed
+gprbuild: failed command was: /home/runner/.local/share/alire/toolchains/gnat_native_11.2.4_2f37a10b/bin/gcc pla_util.o b__pla_util.o /home/runner/work/alire-crates-ci/alire-crates-ci/test/257b7172-4051-4aa4-86be-692e798db342/pla_util_2.1.3_f5b3a986/obj/pla_util_config.o /home/runner/work/alire-crates-ci/alire-crates-ci/test/257b7172-4051-4aa4-86be-692e798db342/pla_util_2.1.3_f5b3a986/obj/config.o /home/runner/work/alire-crates-ci/alire-crates-ci/test/257b7172-4051-4aa4-86be-692e798db342/pla_util_2.1.3_f5b3a986/obj/firmware_boot_strings.o /home/runner/work/alire-crates-ci/alire-crates-ci/test/257b7172-4051-4aa4-86be-692e798db342/pla_util_2.1.3_f5b3a986/obj/hfid_strings.o /home/runner/work/alire-crates-ci/alire-crates-ci/test/257b7172-4051-4aa4-86be-692e798db342/pla_util_2.1.3_f5b3a986/obj/octets.o /home/runner/work/alire-crates-ci/alire-crates-ci/test/257b7172-4051-4aa4-86be-692e798db342/pla_util_2.1.3_f5b3a986/obj/mac_addresses.o /home/runner/work/alire-crates-ci/alire-crates-ci/test/257b7172-4051-4aa4-86be-692e798db342/pla_util_2.1.3_f5b3a986/obj/packets.o /home/runner/work/alire-crates-ci/alire-crates-ci/test/257b7172-4051-4aa4-86be-692e798db342/pla_util_2.1.3_f5b3a986/obj/messages.o /home/runner/work/alire-crates-ci/alire-crates-ci/test/257b7172-4051-4aa4-86be-692e798db342/pla_util_2.1.3_f5b3a986/obj/messages-constructors.o /home/runner/work/alire-crates-ci/alire-crates-ci/test/257b7172-4051-4aa4-86be-692e798db342/pla_util_2.1.3_f5b3a986/obj/packets-pcap.o /home/runner/work/alire-crates-ci/alire-crates-ci/test/257b7172-4051-4aa4-86be-692e798db342/pla_util_2.1.3_f5b3a986/obj/packets-filters.o /home/runner/work/alire-crates-ci/alire-crates-ci/test/257b7172-4051-4aa4-86be-692e798db342/pla_util_2.1.3_f5b3a986/obj/packets-pcap-devices.o /home/runner/work/alire-crates-ci/alire-crates-ci/test/257b7172-4051-4aa4-86be-692e798db342/pla_util_2.1.3_f5b3a986/obj/packets-device_locators.o /home/runner/work/alire-crates-ci/alire-crates-ci/test/257b7172-4051-4aa4-86be-692e798db342/pla_util_2.1.3_f5b3a986/obj/packets-network_devices.o /home/runner/work/alire-crates-ci/alire-crates-ci/test/257b7172-4051-4aa4-86be-692e798db342/pla_util_2.1.3_f5b3a986/obj/to_bounded_string.o /home/runner/work/alire-crates-ci/alire-crates-ci/test/257b7172-4051-4aa4-86be-692e798db342/pla_util_2.1.3_f5b3a986/obj/power_line_adapter_sets.o /home/runner/work/alire-crates-ci/alire-crates-ci/test/257b7172-4051-4aa4-86be-692e798db342/pla_util_2.1.3_f5b3a986/obj/power_line_adapters-constructors.o /home/runner/work/alire-crates-ci/alire-crates-ci/test/257b7172-4051-4aa4-86be-692e798db342/pla_util_2.1.3_f5b3a986/obj/power_line_adapters-network.o /home/runner/work/alire-crates-ci/alire-crates-ci/test/257b7172-4051-4aa4-86be-692e798db342/pla_util_2.1.3_f5b3a986/obj/power_line_adapters.o /home/runner/work/alire-crates-ci/alire-crates-ci/test/257b7172-4051-4aa4-86be-692e798db342/pla_util_2.1.3_f5b3a986/obj/commands.o /home/runner/work/alire-crates-ci/alire-crates-ci/test/257b7172-4051-4aa4-86be-692e798db342/pla_util_2.1.3_f5b3a986/obj/console.o -pie -Wl,-z,relro,-z,now -lpcap -L/home/runner/work/alire-crates-ci/alire-crates-ci/test/257b7172-4051-4aa4-86be-692e798db342/pla_util_2.1.3_f5b3a986/obj/ -L/home/runner/work/alire-crates-ci/alire-crates-ci/test/257b7172-4051-4aa4-86be-692e798db342/pla_util_2.1.3_f5b3a986/obj/ -L/home/runner/.local/share/alire/toolchains/gnat_native_11.2.4_2f37a10b/lib/gcc/x86_64-pc-linux-gnu/11.2.0/adalib/ -shared-libgcc -lgnat-11 -ldl -Wl,-rpath-link,/home/runner/.local/share/alire/toolchains/gnat_native_11.2.4_2f37a10b/lib/gcc/x86_64-pc-linux-gnu/11.2.0//adalib -o /home/runner/work/alire-crates-ci/alire-crates-ci/test/257b7172-4051-4aa4-86be-692e798db342/pla_util_2.1.3_f5b3a986/bin//pla-util
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/257b7172-4051-4aa4-86be-692e798db342/pla_util_2.1.3_f5b3a986/pla_util.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/257b7172-4051-4aa4-86be-692e798db342/pla_util_2.1.3_f5b3a986/pla_util.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+stderr: ALIRE.CHECKED_ERROR
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/257b7172-4051-4aa4-86be-692e798db342/pla_util_2.1.3_f5b3a986/pla_util.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
+[/home/runner/work/alire-crates-ci/alire-crates-ci/alire_install/bin/alr]
+0xe75bc6 Alire.Raise_Checked_Error at alire.adb:284
+0xac1a54 Alire.Os_Lib.Subprocess.Checked_Spawn at alire-os_lib-subprocess.adb:111
+0xd40276 Alire.Spawn.Command at alire-spawn.adb:22
+0xd412ee Alire.Spawn.Gprbuild at alire-spawn.adb:68
+0xc748cb Alire.Roots.Build at alire-roots.adb:189
+0xc7301a Alire.Roots.Build at alire-roots.adb:255
+0xc9832b Alire.Roots.Traverse at alire-roots.adb:2143
+0xcfee85 Alire.Solutions.Traverse.Visit at alire-solutions.adb:1472
+0xcfdfcc Alire.Solutions.Traverse at alire-solutions.adb:1555
+0xc9841e Alire.Roots.Traverse at alire-roots.adb:2147
+0xc984dd Alire.Roots.Traverse at alire-roots.adb:2127
+0xc7359b Alire.Roots.Build at alire-roots.adb:286
+0xc736d7 Alire.Roots.Build at alire-roots.adb:114
+0x49aa0d Alr.Commands.Build.Execute at alr-commands-build.adb:145
+0x49a36d Alr.Commands.Build.Execute at alr-commands-build.adb:113
+0x49a51f Alr.Commands.Build.Execute at alr-commands-build.adb:54
+0x53bbcc Alr.Commands.Sub_Cmd.Execute at clic-subcommand-instance.adb:749
+0x5472be Alr.Commands.Execute at alr-commands.adb:632
+0x43d48a Alr.Main at alr-main.adb:13
+0x4403a3 Main at b__alr-main.adb:2445
+[/lib/x86_64-linux-gnu/libc.so.6]
+0x7fcff7a2a1c8
+0x7fcff7a2a289
+[/home/runner/work/alire-crates-ci/alire-crates-ci/alire_install/bin/alr]
+0x43d323 _start at ???
+0xfffffffffffffffe
+
+stderr: ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED
+stderr: alire-roots.adb:202
+stderr: raised ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED : alire-roots.adb:202
+[/home/runner/work/alire-crates-ci/alire-crates-ci/alire_install/bin/alr]
+0xc74cc7 Alire.Roots.Build at alire-roots.adb:202
+0xc7301a Alire.Roots.Build at alire-roots.adb:255
+0xc9832b Alire.Roots.Traverse at alire-roots.adb:2143
+0xcfee85 Alire.Solutions.Traverse.Visit at alire-solutions.adb:1472
+0xcfdfcc Alire.Solutions.Traverse at alire-solutions.adb:1555
+0xc9841e Alire.Roots.Traverse at alire-roots.adb:2147
+0xc984dd Alire.Roots.Traverse at alire-roots.adb:2127
+0xc7359b Alire.Roots.Build at alire-roots.adb:286
+0xc736d7 Alire.Roots.Build at alire-roots.adb:114
+0x49aa0d Alr.Commands.Build.Execute at alr-commands-build.adb:145
+0x49a36d Alr.Commands.Build.Execute at alr-commands-build.adb:113
+0x49a51f Alr.Commands.Build.Execute at alr-commands-build.adb:54
+0x53bbcc Alr.Commands.Sub_Cmd.Execute at clic-subcommand-instance.adb:749
+0x5472be Alr.Commands.Execute at alr-commands.adb:632
+0x43d48a Alr.Main at alr-main.adb:13
+0x4403a3 Main at b__alr-main.adb:2445
+[/lib/x86_64-linux-gnu/libc.so.6]
+0x7fcff7a2a1c8
+0x7fcff7a2a289
+[/home/runner/work/alire-crates-ci/alire-crates-ci/alire_install/bin/alr]
+0x43d323 _start at ???
+0xfffffffffffffffe
+
+ERROR: Compilation failed.

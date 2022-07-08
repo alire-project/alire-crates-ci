@@ -1,0 +1,82 @@
+Test ran at 2026-04-01 13:14:14.012132+00:00
+
+SOLUTION:
+pico_st7789=0.1.2: ST7789 display driver for RP2040 (PIO parallel + SPI)
+Origin: commit 8f4687e1a526c0c91f4b753d8cea9a4ebe043228 from https://gitlab.com/mhermeling/st7789.git
+Properties:
+   Author: Mark Hermeling
+   Description: ST7789 display driver for RP2040 (PIO parallel + SPI)
+   License: Apache-2.0
+   Maintainer: Mark Hermeling <mark@hermeling.org>
+   Maintainers_Logins: markhermeling
+   Name: pico_st7789
+   Tag: embedded
+   Tag: st7789
+   Tag: display
+   Tag: rp2040
+   Tag: pio
+   Tag: spi
+   Version: 0.1.2
+   Website: https://gitlab.com/mhermeling/st7789
+Dependencies (direct):
+   light_tasking_rp2040*
+   rp2040_hal*
+Dependencies (solution):
+   atomic=1.1.0
+   bbqueue=1.0.0
+   cortex_m=1.1.0
+   gnat=15.2.1 (gnat_arm_elf)
+   gnat_arm_elf=15.2.1
+   hal=1.0.0
+   light_tasking_rp2040=15.2.0
+   rp2040_hal=2.7.1
+   usb_embedded=1.0.1
+Dependencies (graph):
+   bbqueue=1.0.0               --> atomic=1.1.0 (^1.0.0)
+   bbqueue=1.0.0               --> gnat=15.2.1 (gnat_arm_elf) (>=10)
+   cortex_m=1.1.0              --> gnat_arm_elf=15.2.1 (>=12)
+   cortex_m=1.1.0              --> hal=1.0.0 (~0.3 | ^1.0.0)
+   light_tasking_rp2040=15.2.0 --> gnat_arm_elf=15.2.1 (^15)
+   pico_st7789=0.1.2           --> light_tasking_rp2040=15.2.0 (*)
+   pico_st7789=0.1.2           --> rp2040_hal=2.7.1 (*)
+   rp2040_hal=2.7.1            --> atomic=1.1.0 (^1)
+   rp2040_hal=2.7.1            --> cortex_m=1.1.0 (^1)
+   rp2040_hal=2.7.1            --> gnat_arm_elf=15.2.1 (>=14 & /=15.1.2)
+   rp2040_hal=2.7.1            --> hal=1.0.0 (^1)
+   rp2040_hal=2.7.1            --> usb_embedded=1.0.1 (^1)
+   usb_embedded=1.0.1          --> bbqueue=1.0.0 (^1.0.0)
+   usb_embedded=1.0.1          --> hal=1.0.0 (^1.0.0)
+
+
+LOG:
+[alr test] Testing pico_st7789=0.1.2
+[alr test] Spawning retrieval for remote crate: alr -d -n get pico_st7789=0.1.2
+Note: Deploying pico_st7789=0.1.2...
+
+pico_st7789=0.1.2 successfully retrieved.
+Dependencies were solved as follows:
+
+   +  atomic               1.1.0  (new,indirect)
+   +  bbqueue              1.0.0  (new,indirect)
+   +  cortex_m             1.1.0  (new,indirect)
+   +b gnat                 15.2.1 (new,gnat_arm_elf,indirect,binary)
+   +b gnat_arm_elf         15.2.1 (new,indirect,binary)
+   +  hal                  1.0.0  (new,indirect)
+   +  light_tasking_rp2040 15.2.0 (new)
+   +  rp2040_hal           2.7.1  (new)
+   +  usb_embedded         1.0.1  (new,indirect)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building pico_st7789=0.1.2/pico_st7789.gpr...
+Setup
+   [mkdir]        object directory for project Pico_ST7789
+   [mkdir]        library directory for project Pico_ST7789
+Compile
+   [Ada]          pico_st7789_config.ads
+   [Ada]          st7789.adb
+Build Libraries
+   [gprlib]       pico_st7789.lexch
+   [archive]      libpico_st7789.a
+   [index]        libpico_st7789.a
+Success: Build finished successfully in 1.10 seconds.
+Found declared GPR file: pico_st7789.gpr
+[alr test] Test completed SUCCESSFULLY

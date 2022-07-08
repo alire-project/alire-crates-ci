@@ -1,0 +1,208 @@
+Test ran at 2025-11-10 01:31:28.717154+00:00
+
+SOLUTION:
+image_io=20240725.0.0: Output in BMP,PPM,QOI;input in BMP,GIF,JPG,PNG,PNM,QOI,TGA
+Origin: commit e3fcdc57ed2f868e3ad21aeb3330d23c5ec3dbe5 from https://github.com/bracke/Image_IO.git
+Properties:
+   Author: Jeff Carter
+   Build Switches: 
+   Description: Output in BMP,PPM,QOI;input in BMP,GIF,JPG,PNG,PNM,QOI,TGA
+   License: BSD-3-Clause
+   Long_Description: # Image_IO
+Output in BMP, PNG, PPM, and QOI formats; input in BMP, GIF, JPG, PNG, PNM, QOI, and TGA formats
+
+Package Image_IO.Operations provides the ability to input and output images.
+
+PNG is a lossless compressed format that is widely supported. Uncompressed BMP is a universal format that is very large. PPM is intended to be a set of portable formats, but lacks support by default on some platforms. QOI is a lossless compressed format, but not widely supported.
+
+Write_P3 uses [PragmARC.Text_IO](https://github.com/jrcarter/PragmARC/blob/Ada-12/pragmarc-text_io.ads) to obtain uniform line terminators across platforms. This can be easily changed to Ada.Text_IO if the line terminators are not a concern.
+
+Write_PNG uses [Z_Compression](https://github.com/jrcarter/Z_Compression) and [CRC-32](https://github.com/jrcarter/CRC-32).
+
+Read is a wrapper around [Generic Image Decoder (GID)](https://github.com/zertovitch/gid) for the most common use: reading an image from a file. GID may be used to decode images from other sources, but that generality makes it complex to use. Read ignores transparency (Alpha channel) and only reads the first frame of an animation.
+
+Pure_RGB is a demo program that reads an image using Read, modifies it to change all color components to the closest of 0 or 255, and outputs the result using Write_PNG. It is invoked with
+
+     pure_rgb <name>
+
+The output name is the input name with ".png" appended. Pure_RGB does no error handling; if the input file name is omitted, doesn't exist, or is not a supported image format, the program will terminate with an unhandled exception.
+
+Image_IO and Pure_RGB have been compiled and tested with GNAT 12.3.0 on Linux and ObjectAda 10.5U7 on Windows.
+
+   Maintainer: Bent Bracke <bent@bracke.dk>
+   Maintainers_Logins: bracke
+   Name: image_io
+   Tag: image
+   Tag: io
+   Tag: bmp
+   Tag: ppm
+   Tag: qoi
+   Tag: gif
+   Tag: jpg
+   Tag: png
+   Tag: pnm
+   Tag: tga
+   Version: 20240725.0.0
+   Website: https://github.com/bracke/Image_IO
+Dependencies (direct):
+   crc_32^20240725.0.0
+   gid^13.0.0
+   gnat<13.0 | >=13.3
+   pragmarc^20240323.0.0
+   z_compression^20240724.0.0
+Dependencies (solution):
+   crc_32=20240725.0.0
+   gid=13.0.1
+   gnat=15.2.1 (gnat_native)
+   pragmarc=20240323.0.0
+   z_compression=20240724.0.0
+Dependencies (graph):
+   crc_32=20240725.0.0        --> gnat=15.2.1 (gnat_native) (<13.0 | >=13.3)
+   image_io=20240725.0.0      --> crc_32=20240725.0.0 (^20240725.0.0)
+   image_io=20240725.0.0      --> gid=13.0.1 (^13.0.0)
+   image_io=20240725.0.0      --> gnat=15.2.1 (gnat_native) (<13.0 | >=13.3)
+   image_io=20240725.0.0      --> pragmarc=20240323.0.0 (^20240323.0.0)
+   image_io=20240725.0.0      --> z_compression=20240724.0.0 (^20240724.0.0)
+   pragmarc=20240323.0.0      --> gnat=15.2.1 (gnat_native) (<13.0 | >=13.3)
+   z_compression=20240724.0.0 --> gnat=15.2.1 (gnat_native) (<13.0 | >=13.3)
+
+
+LOG:
+[alr test] Testing image_io=20240725.0.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get image_io=20240725.0.0
+Note: Deploying image_io=20240725.0.0...
+Note: Deploying gid=13.0.1...
+
+######################################################################## 100.0%
+stderr: Generating Outcome_Failure with message: release integrity test failed: expected [sha512:316514d234592629399fe2b3612ce6e4ff656e2792576aeee081e4b7024305b6e0d0bb5827eea832b4f4488eca2df40427e0a04068745272b6a58c3895f59d4c] but got [sha512:a69332c9248706e20af82e5e38b6b0e1157e7e102000961b50aa4123034c7270403b3ab33ae9589414d72c3e36db7b0c5154e4615d9806e5d16213cc50381c8d]
+stderr: Generating Outcome_Failure with call stack:
+stderr: raised AAA.DEBUG.STACK_TRACE.DEBUG_EXCEPTION : aaa-debug.adb:44
+[/usr/sbin/alr]
+0xfcfcdb Aaa.Debug.Stack_Trace at aaa-debug.adb:44
+0xe744f2 Alire.Outcome_Failure at alire.adb:226
+0xe74c7f Alire.Outcome_Failure at alire.adb:223
+0xa1bba5 Alire.Origins.Deployers.Verify_Hashes at alire-origins-deployers.adb:219
+0xa18f1a Alire.Origins.Deployers.Deploy_Steps at alire-origins-deployers.adb:117
+0xa1a528 Alire.Origins.Deployers.Deploy at alire-origins-deployers.adb:170
+0xc4528a Alire.Releases.Deploy at alire-releases.adb:341
+0xc7ea93 Alire.Roots.Deploy_Dependencies at alire-roots.adb:812
+0xc9832b Alire.Roots.Traverse at alire-roots.adb:2143
+0xcfee85 Alire.Solutions.Traverse.Visit at alire-solutions.adb:1472
+0xcfdca2 Alire.Solutions.Traverse at alire-solutions.adb:1539
+0xc9841e Alire.Roots.Traverse at alire-roots.adb:2147
+0xc984dd Alire.Roots.Traverse at alire-roots.adb:2127
+0xc7ed61 Alire.Roots.Deploy_Dependencies at alire-roots.adb:843
+0xc7ef09 Alire.Roots.Deploy_Dependencies at alire-roots.adb:766
+0x4aaec4 Alr.Commands.Get.Retrieve at alr-commands-get.adb:179
+0x4ae94f Alr.Commands.Get.Execute at alr-commands-get.adb:380
+0x4aeafd Alr.Commands.Get.Execute at alr-commands-get.adb:256
+0x53bbcc Alr.Commands.Sub_Cmd.Execute at clic-subcommand-instance.adb:749
+0x5472be Alr.Commands.Execute at alr-commands.adb:632
+0x43d48a Alr.Main at alr-main.adb:13
+0x4403a3 Main at b__alr-main.adb:2445
+[/usr/bin/..//lib/libc.so.6]
+0x7fbe87829673
+0x7fbe87829727
+[/usr/sbin/alr]
+0x43d323 _start at ???
+0xfffffffffffffffe
+
+stderr: ALIRE.CHECKED_ERROR
+stderr: release integrity test failed: expected [sha512:316514d234592629399fe2b3612ce6e4ff656e2792576aeee081e4b7024305b6e0d0bb5827eea832b4f4488eca2df40427e0a04068745272b6a58c3895f59d4c] but got [sha512:a69332c9248706e20af82e5e38b6b0e1157e7e102000961b50aa4123034c7270403b3ab33ae9589414d72c3e36db7b0c5154e4615d9806e5d16213cc50381c8d]
+stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
+[/usr/sbin/alr]
+0xe72ea3 Alire.Assert at alire.adb:158
+0xc452b2 Alire.Releases.Deploy at alire-releases.adb:341
+0xc7ea93 Alire.Roots.Deploy_Dependencies at alire-roots.adb:812
+0xc9832b Alire.Roots.Traverse at alire-roots.adb:2143
+0xcfee85 Alire.Solutions.Traverse.Visit at alire-solutions.adb:1472
+0xcfdca2 Alire.Solutions.Traverse at alire-solutions.adb:1539
+0xc9841e Alire.Roots.Traverse at alire-roots.adb:2147
+0xc984dd Alire.Roots.Traverse at alire-roots.adb:2127
+0xc7ed61 Alire.Roots.Deploy_Dependencies at alire-roots.adb:843
+0xc7ef09 Alire.Roots.Deploy_Dependencies at alire-roots.adb:766
+0x4aaec4 Alr.Commands.Get.Retrieve at alr-commands-get.adb:179
+0x4ae94f Alr.Commands.Get.Execute at alr-commands-get.adb:380
+0x4aeafd Alr.Commands.Get.Execute at alr-commands-get.adb:256
+0x53bbcc Alr.Commands.Sub_Cmd.Execute at clic-subcommand-instance.adb:749
+0x5472be Alr.Commands.Execute at alr-commands.adb:632
+0x43d48a Alr.Main at alr-main.adb:13
+0x4403a3 Main at b__alr-main.adb:2445
+[/usr/bin/..//lib/libc.so.6]
+0x7fbe87829673
+0x7fbe87829727
+[/usr/sbin/alr]
+0x43d323 _start at ???
+0xfffffffffffffffe
+
+ERROR: release integrity test failed: expected [sha512:316514d234592629399fe2b3612ce6e4ff656e2792576aeee081e4b7024305b6e0d0bb5827eea832b4f4488eca2df40427e0a04068745272b6a58c3895f59d4c] but got [sha512:a69332c9248706e20af82e5e38b6b0e1157e7e102000961b50aa4123034c7270403b3ab33ae9589414d72c3e36db7b0c5154e4615d9806e5d16213cc50381c8d]
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Deploying gid=13.0.1...
+
+######################################################################## 100.0%
+stderr: Generating Outcome_Failure with message: release integrity test failed: expected [sha512:316514d234592629399fe2b3612ce6e4ff656e2792576aeee081e4b7024305b6e0d0bb5827eea832b4f4488eca2df40427e0a04068745272b6a58c3895f59d4c] but got [sha512:a1cddbc0f2411be819b9f919f4dd9b70d817ef775222c242c1dde01704b7fdc2f7a3b503003b12f9e6e36c71ec73b38035da6360da9eea3adccc0191d7b2edd3]
+stderr: Generating Outcome_Failure with call stack:
+stderr: raised AAA.DEBUG.STACK_TRACE.DEBUG_EXCEPTION : aaa-debug.adb:44
+[/usr/sbin/alr]
+0xfcfcdb Aaa.Debug.Stack_Trace at aaa-debug.adb:44
+0xe744f2 Alire.Outcome_Failure at alire.adb:226
+0xe74c7f Alire.Outcome_Failure at alire.adb:223
+0xa1bba5 Alire.Origins.Deployers.Verify_Hashes at alire-origins-deployers.adb:219
+0xa18f1a Alire.Origins.Deployers.Deploy_Steps at alire-origins-deployers.adb:117
+0xa1a528 Alire.Origins.Deployers.Deploy at alire-origins-deployers.adb:170
+0xc4528a Alire.Releases.Deploy at alire-releases.adb:341
+0xc7ea93 Alire.Roots.Deploy_Dependencies at alire-roots.adb:812
+0xc9832b Alire.Roots.Traverse at alire-roots.adb:2143
+0xcfee85 Alire.Solutions.Traverse.Visit at alire-solutions.adb:1472
+0xcfdca2 Alire.Solutions.Traverse at alire-solutions.adb:1539
+0xc9841e Alire.Roots.Traverse at alire-roots.adb:2147
+0xc984dd Alire.Roots.Traverse at alire-roots.adb:2127
+0xc7ed61 Alire.Roots.Deploy_Dependencies at alire-roots.adb:843
+0xc7ef09 Alire.Roots.Deploy_Dependencies at alire-roots.adb:766
+0xc934f2 Alire.Roots.Sync_From_Manifest at alire-roots.adb:1836
+0xc93715 Alire.Roots.Sync_From_Manifest at alire-roots.adb:1781
+0x545499 Alr.Commands.Requires_Workspace at alr-commands.adb:413
+0x49a20c Alr.Commands.Build.Execute at alr-commands-build.adb:87
+0x49a51f Alr.Commands.Build.Execute at alr-commands-build.adb:54
+0x53bbcc Alr.Commands.Sub_Cmd.Execute at clic-subcommand-instance.adb:749
+0x5472be Alr.Commands.Execute at alr-commands.adb:632
+0x43d48a Alr.Main at alr-main.adb:13
+0x4403a3 Main at b__alr-main.adb:2445
+[/usr/bin/..//lib/libc.so.6]
+0x7f1eca6da673
+0x7f1eca6da727
+[/usr/sbin/alr]
+0x43d323 _start at ???
+0xfffffffffffffffe
+
+stderr: ALIRE.CHECKED_ERROR
+stderr: release integrity test failed: expected [sha512:316514d234592629399fe2b3612ce6e4ff656e2792576aeee081e4b7024305b6e0d0bb5827eea832b4f4488eca2df40427e0a04068745272b6a58c3895f59d4c] but got [sha512:a1cddbc0f2411be819b9f919f4dd9b70d817ef775222c242c1dde01704b7fdc2f7a3b503003b12f9e6e36c71ec73b38035da6360da9eea3adccc0191d7b2edd3]
+stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
+[/usr/sbin/alr]
+0xe72ea3 Alire.Assert at alire.adb:158
+0xc452b2 Alire.Releases.Deploy at alire-releases.adb:341
+0xc7ea93 Alire.Roots.Deploy_Dependencies at alire-roots.adb:812
+0xc9832b Alire.Roots.Traverse at alire-roots.adb:2143
+0xcfee85 Alire.Solutions.Traverse.Visit at alire-solutions.adb:1472
+0xcfdca2 Alire.Solutions.Traverse at alire-solutions.adb:1539
+0xc9841e Alire.Roots.Traverse at alire-roots.adb:2147
+0xc984dd Alire.Roots.Traverse at alire-roots.adb:2127
+0xc7ed61 Alire.Roots.Deploy_Dependencies at alire-roots.adb:843
+0xc7ef09 Alire.Roots.Deploy_Dependencies at alire-roots.adb:766
+0xc934f2 Alire.Roots.Sync_From_Manifest at alire-roots.adb:1836
+0xc93715 Alire.Roots.Sync_From_Manifest at alire-roots.adb:1781
+0x545499 Alr.Commands.Requires_Workspace at alr-commands.adb:413
+0x49a20c Alr.Commands.Build.Execute at alr-commands-build.adb:87
+0x49a51f Alr.Commands.Build.Execute at alr-commands-build.adb:54
+0x53bbcc Alr.Commands.Sub_Cmd.Execute at clic-subcommand-instance.adb:749
+0x5472be Alr.Commands.Execute at alr-commands.adb:632
+0x43d48a Alr.Main at alr-main.adb:13
+0x4403a3 Main at b__alr-main.adb:2445
+[/usr/bin/..//lib/libc.so.6]
+0x7f1eca6da673
+0x7f1eca6da727
+[/usr/sbin/alr]
+0x43d323 _start at ???
+0xfffffffffffffffe
+
+ERROR: release integrity test failed: expected [sha512:316514d234592629399fe2b3612ce6e4ff656e2792576aeee081e4b7024305b6e0d0bb5827eea832b4f4488eca2df40427e0a04068745272b6a58c3895f59d4c] but got [sha512:a1cddbc0f2411be819b9f919f4dd9b70d817ef775222c242c1dde01704b7fdc2f7a3b503003b12f9e6e36c71ec73b38035da6360da9eea3adccc0191d7b2edd3]

@@ -1,0 +1,115 @@
+Test ran at 2025-02-04 22:45:56.863481+00:00
+
+SOLUTION:
+matreshka_spikedog_core=21.0.0: Web-application server. Implementation library
+Origin: commit 8932a8f4aec45d6818176162c5632f7df81ae688 from https://github.com/reznikmm/matreshka-alire
+Properties:
+   Author: Vadim Godunko
+   Description: Web-application server. Implementation library
+   License: BSD-3-Clause
+   Maintainer: Vadim Godunko <vgodunko@gmail.com>
+   Maintainer: Maxim Reznik <reznikmm@gmail.com>
+   Maintainers_Logins: godunko
+   Maintainers_Logins: reznikmm
+   Name: matreshka_spikedog_core
+   Project_File: build_matreshka_spikedog_core.gpr
+   Tag: web
+   Tag: servlet
+   Version: 21.0.0
+   Website: https://github.com/godunko/matreshka
+Dependencies (direct):
+   matreshka_league21.0.0
+   matreshka_spikedog_api21.0.0
+Dependencies (solution):
+   make=4.3.0
+   matreshka_league=21.0.0
+   matreshka_servlet=21.0.0
+   matreshka_spikedog_api=21.0.0
+Dependencies (graph):
+   matreshka_league=21.0.0        --> make=4.3.0 (*)
+   matreshka_servlet=21.0.0       --> matreshka_league=21.0.0 (21.0.0)
+   matreshka_spikedog_api=21.0.0  --> matreshka_league=21.0.0 (21.0.0)
+   matreshka_spikedog_api=21.0.0  --> matreshka_servlet=21.0.0 (21.0.0)
+   matreshka_spikedog_core=21.0.0 --> matreshka_league=21.0.0 (21.0.0)
+   matreshka_spikedog_core=21.0.0 --> matreshka_spikedog_api=21.0.0 (21.0.0)
+
+
+LOG:
+Spawning: alr -d -n get --build matreshka_spikedog_core=21.0.0
+Note: Deploying matreshka_spikedog_core=21.0.0...
+Note: Deploying matreshka_servlet=21.0.0...
+Note: Deploying matreshka_spikedog_api=21.0.0...
+Note: Building matreshka_spikedog_core=21.0.0/build_matreshka_spikedog_core.gpr...
+Setup
+   [mkdir]        object directory for project Matreshka_Servlet
+   [mkdir]        object directory for project Matreshka_Spikedog_API
+   [mkdir]        object directory for project Matreshka_Spikedog_Core
+Compile
+   [Ada]          web_socket-listeners.ads
+   [Ada]          web_socket-connections.ads
+   [Ada]          web_socket-handlers.adb
+   [Ada]          web_socket.ads
+   [Ada]          servlet-http_parameters.adb
+   [Ada]          matreshka-rfc2616_dates.adb
+   [Ada]          servlet-http_servlets.adb
+   [Ada]          servlet-http_sessions.ads
+   [Ada]          servlet-http_parameter_vectors.ads
+   [Ada]          servlet-http_upgrade_handlers.ads
+   [Ada]          servlet-http_cookies.adb
+   [Ada]          servlet-http_requests.adb
+   [Ada]          servlet-http_responses.adb
+servlet-http_cookies.adb:55:13: warning: function "Create" is not referenced [-gnatwu]
+   [Ada]          servlet-http_cookie_sets.adb
+   [Ada]          servlet-context_listeners.ads
+   [Ada]          servlet-container_initializers.ads
+   [Ada]          servlet-output_streams.ads
+   [Ada]          servlet-servlets.ads
+   [Ada]          servlet-event_listeners.ads
+   [Ada]          servlet-contexts.adb
+   [Ada]          servlet-requests.adb
+servlet-contexts.adb:56:07: warning: constant "Aux" is not referenced [-gnatwu]
+   [Ada]          servlet-responses.ads
+   [Ada]          servlet-write_listeners.ads
+   [Ada]          servlet-servlet_registrations.adb
+   [Ada]          servlet-generic_servlets.adb
+   [Ada]          servlet-request_wrappers.adb
+   [Ada]          servlet.ads
+   [Ada]          servlet-response_wrappers.adb
+   [Ada]          servlet-configs.ads
+   [Ada]          spikedog-http_session_managers.ads
+   [Ada]          spikedog-generic_application_initializer.adb
+   [Ada]          spikedog.ads
+   [Ada]          spikedog-servlet_contexts.ads
+spikedog-generic_application_initializer.adb:52:13: warning: all instances of "Initializer" will have the same external name [-gnatwx]
+   [Ada]          spikedog-http_sessions.adb
+   [Ada]          matreshka-spikedog_deployment_descriptors.ads
+   [Ada]          matreshka-servlet_containers.adb
+   [Ada]          matreshka-spikedog_deployment_descriptors-parsers.adb
+   [Ada]          matreshka-servlet_dispatchers.adb
+   [Ada]          matreshka-servlet_defaults.adb
+   [Ada]          matreshka-servlet_servers.ads
+   [Ada]          matreshka-servlet_http_requests.adb
+   [Ada]          matreshka-servlet_registrations.adb
+   [Ada]          matreshka-servlet_http_responses.adb
+matreshka-servlet_containers-loader__posix.adb:52:12: warning: package "Conversions" is not referenced [-gnatwu]
+matreshka-servlet_containers-loader__posix.adb:57:04: warning: use clause for private type "System.Address" has no effect [-gnatwu]
+matreshka-servlet_containers-loader__posix.adb:58:04: warning: use clause for type "Servlet_Container_Initializer_Access" defined at servlet-container_initializers.ads:56 has no effect [-gnatwu]
+matreshka-servlet_containers-loader__posix.adb:71:07: warning: constant "RTLD_LAZY" is not referenced [-gnatwu]
+matreshka-servlet_containers-loader__posix.adb:73:07: warning: constant "RTLD_GLOBAL" is not referenced [-gnatwu]
+matreshka-servlet_containers-loader__posix.adb:74:07: warning: constant "RTLD_LOCAL" is not referenced [-gnatwu]
+Build Libraries
+   [gprlib]       matreshka-servlet-14.2.lexch
+   [gprlib]       spikedog-api-14.2.lexch
+   [link library] libmatreshka-servlet-14.2.so
+   [gprlib]       spikedog-core-14.2.lexch
+   [link library] libspikedog-api-14.2.so
+   [link library] libspikedog-core-14.2.so
+
+matreshka_spikedog_core=21.0.0 successfully retrieved and built.
+Dependencies were solved as follows:
+
+   +b make                   4.3.0  (new,indirect,system package)
+   +  matreshka_league       21.0.0 (new)
+   +  matreshka_servlet      21.0.0 (new,indirect)
+   +  matreshka_spikedog_api 21.0.0 (new)
+Found declared GPR file: build_matreshka_spikedog_core.gpr

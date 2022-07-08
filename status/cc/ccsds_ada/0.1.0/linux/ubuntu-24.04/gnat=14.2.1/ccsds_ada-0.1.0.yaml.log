@@ -1,0 +1,63 @@
+Test ran at 2026-09-03 12:50:21.475890+00:00
+
+SOLUTION:
+ccsds_ada=0.1.0: CCSDS protocol suite with SPARK formal verification
+Origin: commit 7632ca9aa6f83c695b5b0fa2d420bf13a2ba8297 from https://github.com/b-erdem/ccsds_ada.git
+Properties:
+   Author: Baris Erdem
+   Description: CCSDS protocol suite with SPARK formal verification
+   License: Apache-2.0
+   Long_Description: SPARK-proved CCSDS protocol suite for Ada 2022. Implements Space Packet
+Protocol (133.0-B-1), Time Code Formats (301.0-B-4 CUC/CDS), AOS Transfer
+Frame (732.0-B-4) with FECF, Encapsulation Packet (133.1-B-3), CFDP PDU
+(727.0-B-5) with optional CRC, SLE identifiers (132.0-B-3), and the
+CRC-16-CCITT-FALSE primitive used by AOS and CFDP. 100% formally verified
+at SPARK Level 2 (440 proof obligations, 0 unproved). No heap allocation,
+pragma Pure, suitable for embedded flight software and safety-critical
+ground systems.
+
+   Maintainer: Baris Erdem <baris@erdem.dev>
+   Maintainers_Logins: b-erdem
+   Name: ccsds_ada
+   Tag: ccsds
+   Tag: space
+   Tag: telemetry
+   Tag: telecommand
+   Tag: spark
+   Tag: embedded
+   Tag: satellite
+   Tag: verified
+   Tag: cfdp
+   Tag: aos
+   Version: 0.1.0
+   Website: https://github.com/b-erdem/ccsds_ada
+
+
+LOG:
+[alr test] Testing ccsds_ada=0.1.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get ccsds_ada=0.1.0
+Note: Deploying ccsds_ada=0.1.0...
+
+ccsds_ada=0.1.0 successfully retrieved.
+There are no dependencies.
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building ccsds_ada=0.1.0/ccsds_ada.gpr...
+Setup
+   [mkdir]        object directory for project Ccsds_Ada
+   [mkdir]        library directory for project Ccsds_Ada
+Compile
+   [Ada]          ccsds-space_packets.adb
+   [Ada]          ccsds-encap_packets.adb
+   [Ada]          ccsds-aos_frames.adb
+   [Ada]          ccsds-time_codes.adb
+   [Ada]          ccsds.ads
+   [Ada]          ccsds-sle.ads
+   [Ada]          ccsds-cfdp.adb
+   [Ada]          ccsds-crc16.adb
+Build Libraries
+   [gprlib]       ccsds_ada.lexch
+   [archive]      libccsds_ada.a
+   [index]        libccsds_ada.a
+Success: Build finished successfully in 0.62 seconds.
+Found declared GPR file: ccsds_ada.gpr
+[alr test] Test completed SUCCESSFULLY

@@ -1,0 +1,125 @@
+Test ran at 2024-06-13 12:59:54.469596+00:00
+
+SOLUTION:
+usb_embedded=0.3.0: An Ada USB stack for embedded devices
+Origin: commit ed111b350df2a61893f6d3deaac53bfa14f47f01 from https://github.com/Fabien-Chouteau/usb_embedded.git
+Properties:
+   Author: Fabien Chouteau
+   Config type: Control_Buffer_Size : Integer range 256 .. 9223372036854775807 default: '256'
+   Config type: Event_Log_Buffer_Size : Integer range 0 .. 9223372036854775807 default: '0'
+   Config type: Max_Strings : Integer range 0 .. 9223372036854775807 default: '10'
+   Config type: String_Buffer_Size : Integer range 0 .. 9223372036854775807 default: '256'
+   Configuration: no modifiers
+   Description: An Ada USB stack for embedded devices
+   License: BSD-3-Clause
+   Maintainer: Fabien Chouteau <chouteau@adacore.com>
+   Maintainers_Logins: Fabien-Chouteau
+   Name: usb_embedded
+   Tag: embedded
+   Tag: usb
+   Tag: hid
+   Tag: midi
+   Tag: nostd
+   Version: 0.3.0
+   Website: https://github.com/Fabien-Chouteau/usb_embedded
+Dependencies (direct):
+   bbqueue~0.3.0
+   hal~0.3
+Dependencies (solution):
+   atomic=0.5.0
+   bbqueue=0.3.2
+   gnat=13.2.1 (gnat_external) (installed)
+   hal=0.3.0
+Dependencies (graph):
+   bbqueue=0.3.2      --> atomic=0.5.0 (~0.5)               
+   bbqueue=0.3.2      --> gnat=13.2.1 (gnat_external) (>=10)
+   usb_embedded=0.3.0 --> bbqueue=0.3.2 (~0.3.0)            
+   usb_embedded=0.3.0 --> hal=0.3.0 (~0.3)                  
+
+
+LOG:
+Note: Deploying usb_embedded=0.3.0...
+Note: Deploying atomic=0.5.0...
+Note: Deploying hal=0.3.0...
+Note: Deploying bbqueue=0.3.2...
+Note: Building usb_embedded/usb_embedded.gpr...
+Setup
+   [mkdir]        object directory for project Atomic
+   [mkdir]        library directory for project Atomic
+   [mkdir]        object directory for project Bbqueue
+   [mkdir]        library directory for project Bbqueue
+   [mkdir]        object directory for project HAL
+   [mkdir]        library directory for project HAL
+   [mkdir]        object directory for project Usb_Embedded
+   [mkdir]        library directory for project Usb_Embedded
+Compile
+   [Ada]          hal-touch_panel.ads
+   [Ada]          hal-filesystem.ads
+   [Ada]          hal-audio.ads
+   [Ada]          hal-block_drivers.ads
+   [Ada]          hal-i2c.ads
+   [Ada]          hal-real_time_clock.ads
+   [Ada]          hal-sdmmc.adb
+   [Ada]          hal-time.ads
+   [Ada]          hal.ads
+   [Ada]          hal-spi.ads
+   [Ada]          hal-uart.ads
+   [Ada]          hal-dsi.ads
+   [Ada]          hal-bitmap.ads
+   [Ada]          hal-gpio.ads
+   [Ada]          hal-framebuffer.ads
+   [Ada]          atomic-unsigned.adb
+   [Ada]          atomic.adb
+   [Ada]          atomic-signed.adb
+   [Ada]          atomic_config.ads
+   [Ada]          atomic-unsigned_16.ads
+   [Ada]          atomic-signed_32.ads
+   [Ada]          atomic-unsigned_8.ads
+   [Ada]          atomic-signed_16.ads
+   [Ada]          atomic-signed_8.ads
+   [Ada]          atomic-unsigned_32.ads
+   [Ada]          bbqueue_config.ads
+   [Ada]          bbqueue-buffers-framed.adb
+   [Ada]          bbqueue-buffers.adb
+   [Ada]          bbqueue.adb
+   [Ada]          usb_embedded_config.ads
+   [Ada]          usb-lang.ads
+   [Ada]          usb-hal-device.ads
+   [Ada]          usb-device-hid.adb
+   [Ada]          usb.adb
+   [Ada]          usb-device-serial.adb
+   [Ada]          usb-device-hid-joystick.adb
+   [Ada]          usb-hal.ads
+   [Ada]          usb-device-control.adb
+   [Ada]          usb-logging.ads
+   [Ada]          usb-device-hid-keyboard.adb
+   [Ada]          usb-device-hid-mouse.adb
+   [Ada]          usb-device.adb
+   [Ada]          usb-device-midi.adb
+   [Ada]          usb-device-hid-gamepad.adb
+   [Ada]          usb-utils.adb
+   [Ada]          usb-logging-device__null.adb
+usb-device.ads:40:60: warning: applying 'Class to an untagged incomplete type is an obsolescent feature (RM J.11) [-gnatwr]
+Build Libraries
+   [gprlib]       Atomic.lexch
+   [gprlib]       Bbqueue.lexch
+   [archive]      libAtomic.a
+   [index]        libAtomic.a
+   [gprlib]       hal.lexch
+   [gprlib]       Usb_Embedded.lexch
+   [archive]      libBbqueue.a
+   [archive]      libhal.a
+   [index]        libBbqueue.a
+   [index]        libhal.a
+   [archive]      libUsb_Embedded.a
+   [index]        libUsb_Embedded.a
+Build finished successfully in 1.51 seconds.
+
+usb_embedded=0.3.0 successfully retrieved and built.
+Dependencies were solved as follows:
+
+   +  atomic  0.5.0  (new,indirect)                        
+   +  bbqueue 0.3.2  (new)                                 
+   +i gnat    13.2.1 (new,installed,gnat_external,indirect)
+   +  hal     0.3.0  (new)                                 
+Found declared GPR file: usb_embedded.gpr

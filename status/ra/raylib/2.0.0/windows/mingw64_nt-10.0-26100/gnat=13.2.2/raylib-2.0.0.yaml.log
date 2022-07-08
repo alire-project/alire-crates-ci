@@ -1,0 +1,126 @@
+Test ran at 2026-08-22 00:55:59.517994+00:00
+
+SOLUTION:
+raylib=2.0.0: Ada bindings for Raylib
+Origin: commit d6a489037ca3d9c3ffe3f73a0a3ce6168ee70297 from https://github.com/Fabien-Chouteau/raylib-ada.git
+Properties:
+   Author: Fabien Chouteau
+   Description: Ada bindings for Raylib
+   License: MIT OR Apache-2.0 WITH LLVM-exception
+   Long_Description: # Using raylib-ada
+
+This project is available in the [Alire package manager](https://alire.ada.dev).
+To use it, just add `raylib` in your dependencies:
+```console
+$ alr with raylib
+```
+
+And add the following linker switches for executable projects to link against
+Raylib and libmath:
+```
+   package Linker is
+      for Switches ("Ada") use ("-lraylib", "-lm");
+   end Linker;
+```
+
+# Raylib dependencies on Ubuntu/Debian
+
+When Raylib is available in the system distributions (Arch, Fedora, Msys2,
+Macports, Brew, etc.), Alire will install it for you so there's nothing to do
+here.
+
+For Ubuntu/Debian on the other hand, you have to download a Raylib release from
+GitHub (or build from source if you want).
+
+Alire will let you know with a message like this:
+```
+warn: The following external dependencies are unavailable within Alire:
+warn:    libraylib^6
+warn: They should be made available in the environment by the user.
+```
+
+Download the 6.0 release from this address:
+```
+$ wget https://github.com/raysan5/raylib/releases/download/6.0/raylib-6.0_linux_amd64.tar.gz
+```
+
+Extract it:
+```
+$ tar xf raylib-6.0_linux_amd64.tar.gz
+```
+
+Set the environment variables like so:
+```
+$ export C_INCLUDE_PATH=${PWD}/raylib-6.0_linux_amd64/include/:${C_INCLUDE_PATH}
+$ export LIBRARY_PATH=${PWD}/raylib-6.0_linux_amd64/lib/:${LIBRARY_PATH}
+```
+
+   Maintainer: Fabien Chouteau <fabien.chouteau@gmail.com>
+   Maintainers_Logins: Fabien-Chouteau
+   Name: raylib
+   Tag: raylib
+   Tag: gamedev
+   Tag: binding
+   Version: 2.0.0
+   Website: https://github.com/Fabien-Chouteau/raylib-ada
+Dependencies (direct):
+   gnat>=12 & <2000
+   libraylib~6.0
+Dependencies (solution):
+   gnat=13.2.2 (gnat_native)
+   libraylib=6.0.0
+Dependencies (graph):
+   raylib=2.0.0 --> gnat=13.2.2 (gnat_native) (>=12 & <2000)
+   raylib=2.0.0 --> libraylib=6.0.0 (~6.0)
+
+
+LOG:
+[alr test] Testing raylib=2.0.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get raylib=2.0.0
+Note: Deploying raylib=2.0.0...
+Note: Deploying libraylib=6.0.0...
+The system package 'mingw-w64-x86_64-raylib' is about to be installed.
+This action might require admin privileges and impact your system installation.
+Do you want Alire to install this system package?
+Using default: Yes
+resolving dependencies...
+looking for conflicting packages...
+
+Packages (2) mingw-w64-x86_64-glfw-3.5.1-1  mingw-w64-x86_64-raylib-6.0-1
+
+Total Download Size:   1.29 MiB
+Total Installed Size:  7.27 MiB
+
+:: Proceed with installation? [Y/n] 
+:: Retrieving packages...
+ mingw-w64-x86_64-raylib-6.0-1-any downloading...
+ mingw-w64-x86_64-glfw-3.5.1-1-any downloading...
+checking keyring...
+checking package integrity...
+loading package files...
+checking for file conflicts...
+checking available disk space...
+:: Processing package changes...
+installing mingw-w64-x86_64-glfw...
+installing mingw-w64-x86_64-raylib...
+
+raylib=2.0.0 successfully retrieved.
+Dependencies were solved as follows:
+
+   +b gnat      13.2.2 (new,gnat_native,binary)
+   +b libraylib 6.0.0  (new,system package)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building raylib=2.0.0/raylib.gpr...
+"obj\release" created
+"lib" created
+[Ada Compile]     raylib-gui.adb
+[Ada Compile]     raylib.adb
+[Ada Compile]     raylib_config.ads
+[C Compile]       raygui_impl.c
+raylib-gui.adb:5:07: warning: possible aliasing problem for type "C_String_Array_Access" [enabled by default]
+raylib-gui.adb:5:07: warning: use -fno-strict-aliasing switch for references [enabled by default]
+raylib-gui.adb:5:07: warning: or use "pragma No_Strict_Aliasing (C_String_Array_Access);" [enabled by default]
+[Archive]         libRaylibAda.a
+Success: Build finished successfully in 2.25 seconds.
+Found declared GPR file: raylib.gpr
+[alr test] Test completed SUCCESSFULLY

@@ -1,0 +1,695 @@
+Test ran at 2025-10-09 12:35:46.330547+00:00
+
+SOLUTION:
+aws=24.0.0: Ada Web Server
+Origin: source archive aws-24.0.0-with-templates-parser.zip at https://github.com/AdaCore/aws/releases/download/v24.0.0/aws-24.0.0-with-templates-parser.zip with hash sha512:2b75fe6dc1bf676b6bd949354e352a94c918c109f8065179634ccba6e17329ba48163deb4bceb506eaf1e2a1446378bbe3439ea007a7dc5dd77286e56b497c4c
+Properties:
+   Post_Fetch run: make setup ZLIB=false DEMOS=false LAL=false XMLADA=false SOCKET=openssl prefix=install_dir PRJ_BUILD=Release (from ${CRATE_ROOT}/.)
+   Post_Fetch run: make all ENABLE_SHARED=false (from ${CRATE_ROOT}/.)
+   Post_Fetch run: make install-lib-native install-tools-native --jobs=1 ENABLE_SHARED=false (from ${CRATE_ROOT}/.)
+   Author: AdaCore
+   Description: Ada Web Server
+   License: GPL-3.0-only WITH GCC-exception-3.1
+   Maintainer: chouteau@adacore.com
+   Maintainers_Logins: Fabien-Chouteau
+   Name: aws
+   Project_File: install_dir/share/gpr/aws.gpr
+   Tag: aws
+   Tag: web
+   Tag: server
+   Tag: http
+   Tag: https
+   Tag: soap
+   Tag: wsdl
+   Tag: ssl
+   Version: 24.0.0
+   Website: https://github.com/adacore/aws
+Dependencies (direct):
+   gnat>=12
+   gnatcoll~24.0.0
+   make*
+   openssl*
+   xmlada~24.0.0
+Dependencies (solution):
+   gnat=14.2.1 (gnat_native)
+   gnatcoll=24.0.0
+   libgpr=24.0.0
+   make=4.4.1
+   openssl=3.5.2
+   xmlada=24.0.0
+Dependencies (graph):
+   aws=24.0.0      --> gnat=14.2.1 (gnat_native) (>=12)
+   aws=24.0.0      --> gnatcoll=24.0.0 (~24.0.0)
+   aws=24.0.0      --> make=4.4.1 (*)
+   aws=24.0.0      --> openssl=3.5.2 (*)
+   aws=24.0.0      --> xmlada=24.0.0 (~24.0.0)
+   gnatcoll=24.0.0 --> libgpr=24.0.0 (~24.0.0)
+   libgpr=24.0.0   --> gnat=14.2.1 (gnat_native) (/=2020)
+   libgpr=24.0.0   --> xmlada=24.0.0 (~24.0.0)
+   xmlada=24.0.0   --> gnat=14.2.1 (gnat_native) (>=11)
+
+
+LOG:
+[alr test] Testing aws=24.0.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get aws=24.0.0
+Note: Deploying aws=24.0.0...
+#=#=#                                                                          
+##O#-#                                                                         
+
+######################################################################## 100.0%
+Note: Deploying make=4.4.1...
+The system package 'make' is about to be installed.
+This action might require admin privileges and impact your system installation.
+Do you want Alire to install this system package?
+Using default: Yes
+[32m==>[0m [1mFetching downloads for: [32mmake[39m[0m
+[34m==>[0m [1mDownloading https://ghcr.io/v2/homebrew/core/make/manifests/4.4.1-1[0m
+[32m==>[0m [1mFetching [32mmake[39m[0m
+[34m==>[0m [1mDownloading https://ghcr.io/v2/homebrew/core/make/blobs/sha256:f361639a5ec1a9355e12f985c511dd6631b6790452a52057032a3a07a690ca4e[0m
+[34m==>[0m [1mPouring make--4.4.1.arm64_sequoia.bottle.1.tar.gz[0m
+[34m==>[0m [1mCaveats[0m
+GNU "make" has been installed as "gmake".
+If you need to use it as "make", you can add a "gnubin" directory
+to your PATH from your bashrc like:
+
+    PATH="/opt/homebrew/opt/make/libexec/gnubin:$PATH"
+[34m==>[0m [1mSummary[0m
+🍺  /opt/homebrew/Cellar/make/4.4.1: 17 files, 1.3MB
+[34m==>[0m [1mNo outdated dependents to upgrade![0m
+Note: Deploying libgpr=24.0.0...
+#=#=#                                                                          
+##O#-#                                                                         
+##O=#  #                                                                       
+#=#=-#  #                                                                      
+ #=#=-#   #                                                                    
+  #=#=- #   #                                                                  
+   #=#=- #   #                                                                 
+Note: Deploying gnatcoll=24.0.0...
+#=#=#                                                                          
+##O#-#                                                                         
+##O=#  #                                                                       
+#=#=-#  #                                                                      
+ #=#=-#   #                                                                    
+  #=#=- #   #                                                                  
+   #=#=- #   #                                                                 
+
+aws=24.0.0 successfully retrieved.
+Dependencies were solved as follows:
+
+   +b gnat     14.2.1 (new,gnat_native,binary)
+   +  gnatcoll 24.0.0 (new)
+   +  libgpr   24.0.0 (new,indirect)
+   +b make     4.4.1  (new,system package)
+   +b openssl  3.5.2  (new,system package)
+   +  xmlada   24.0.0 (new)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Running post-fetch actions for aws=24.0.0...
+sed: illegal option -- s
+usage: sed script [-EHalnru] [-i extension] [file ...]
+	sed [-EHalnu] [-i extension] [-e script] ... [-f script_file] ... [file ...]
+sed: illegal option -- s
+usage: sed script [-EHalnru] [-i extension] [file ...]
+	sed [-EHalnu] [-i extension] [-e script] ... [-f script_file] ... [file ...]
+Bind
+   [gprbind]      xoscons.bexch
+   [Ada]          xoscons.ali
+Link
+   [link]         xoscons.adb
+Setup OS specific definitions
+Can not generate system tags. The test are disabled
+sed: illegal option -- s
+usage: sed script [-EHalnru] [-i extension] [file ...]
+	sed [-EHalnu] [-i extension] [-e script] ... [-f script_file] ... [file ...]
+Setup
+   [mkdir]        object directory for project Zlib
+   [mkdir]        library directory for project Zlib
+   [mkdir]        object directory for project Include
+   [mkdir]        library directory for project Include
+   [mkdir]        object directory for project XmlAda_Schema
+   [mkdir]        object directory for project GPR
+   [mkdir]        library directory for project GPR
+   [mkdir]        object directory for project GnatColl
+   [mkdir]        library directory for project GnatColl
+   [mkdir]        object directory for project SSL
+   [mkdir]        library directory for project SSL
+   [mkdir]        object directory for project Src
+   [mkdir]        library directory for project Src
+   [mkdir]        library directory for project AWS
+   [mkdir]        object directory for project Tools
+   [mkdir]        exec directory for project Tools
+Compile
+   [Ada]          awsres.adb
+   [Ada]          zlib-streams.adb
+   [Ada]          zlib-thin.adb
+   [Ada]          memory_streams.adb
+   [Ada]          zlib.adb
+   [Ada]          aws-os_lib.ads
+   [Ada]          templates_parser.adb
+   [Ada]          templates_parser-debug.adb
+   [Ada]          templates_parser-utils.adb
+   [Ada]          templates_parser-query.adb
+   [Ada]          aws-http2-frame.adb
+   [Ada]          aws-http2-message-list.ads
+   [Ada]          aws-http2-stream-set.ads
+   [Ada]          aws-http2-frame-settings.adb
+   [Ada]          aws-http2-frame-priority.adb
+   [Ada]          aws-http2-frame-headers.adb
+   [Ada]          aws-http2.adb
+   [Ada]          aws-http2-frame-push_promise.adb
+   [Ada]          aws-http2-hpack-huffman.adb
+   [Ada]          aws-http2-frame-rst_stream.adb
+   [Ada]          aws-http2-frame-list.ads
+   [Ada]          aws-http2-hpack.adb
+   [Ada]          aws-http2-connection.adb
+   [Ada]          aws-http2-frame-window_update.adb
+   [Ada]          aws-http2-frame-goaway.adb
+   [Ada]          aws-http2-hpack-table.adb
+   [Ada]          aws-http2-message.adb
+   [Ada]          aws-http2-frame-data.adb
+   [Ada]          aws-http2-stream.adb
+   [Ada]          aws-http2-frame-ping.adb
+   [Ada]          aws-http2-frame-continuation.adb
+   [Ada]          aws-services-dispatchers.ads
+   [Ada]          aws-services-web_block-context.adb
+   [Ada]          aws-services-split_pages-alpha.adb
+   [Ada]          aws-services-dispatchers-method.adb
+   [Ada]          aws-smtp-server.adb
+   [Ada]          aws-communication.adb
+   [Ada]          aws-client-hotplug.adb
+   [Ada]          aws-cookie.adb
+   [Ada]          aws-resources-streams-pipe.adb
+   [Ada]          aws-services-split_pages-uniform-overlapping.adb
+   [Ada]          aws-status-translate_table.adb
+   [Ada]          aws-smtp-messages-set.adb
+   [Ada]          aws-services-dispatchers-virtual_host.adb
+   [Ada]          aws-server-hotplug.adb
+   [Ada]          aws-services-dispatchers-transient_pages.adb
+   [Ada]          aws-services-callbacks.adb
+   [Ada]          aws-net-log-callbacks.adb
+   [Ada]          aws-services-split_pages-alpha-bounded.adb
+   [Ada]          aws-communication-server.adb
+   [Ada]          aws-services-dispatchers-timer.adb
+   [Ada]          aws-services-web_block.ads
+   [Ada]          aws-services-split_pages-uniform-alpha.adb
+   [Ada]          aws-services-split_pages-shared.adb
+   [Ada]          aws-services-web_block-registry.adb
+   [Ada]          aws-net-sets.ads
+   [Ada]          aws-services-download.adb
+   [Ada]          aws-communication-client.adb
+   [Ada]          aws-services-dispatchers-uri.adb
+   [Ada]          aws-pop.adb
+   [Ada]          aws-services-directory.adb
+   [Ada]          aws-smtp-authentication-plain.adb
+   [Ada]          aws-smtp-authentication.ads
+   [Ada]          aws-smtp.adb
+   [Ada]          aws-smtp-client.adb
+   [Ada]          aws-services-split_pages-uniform.adb
+   [Ada]          aws-services-split_pages.adb
+   [Ada]          aws-services-dispatchers-linker.adb
+   [Ada]          aws-smtp-messages.adb
+   [Ada]          aws-services-web_mail.adb
+   [Ada]          aws-services-page_server.adb
+   [Ada]          aws-net-stream_io.adb
+   [Ada]          aws-server-push.adb
+   [Ada]          aws-net-websocket-protocol.ads
+   [Ada]          aws-session-control.adb
+   [Ada]          aws-net-websocket-handshake_error.adb
+   [Ada]          aws-resources-streams-disk-once.adb
+   [Ada]          aws-response-set.adb
+   [Ada]          aws-config.adb
+   [Ada]          aws-client-http_utils.adb
+   [Ada]          aws-resources-streams-disk.adb
+   [Ada]          aws-containers-tables.adb
+   [Ada]          aws-containers-memory_streams.ads
+   [Ada]          aws-containers-tables-set.ads
+   [Ada]          aws-containers.ads
+   [Ada]          aws-resources-streams-zlib.adb
+   [Ada]          aws-net-poll_events.adb
+   [Ada]          aws-headers-set.adb
+   [Ada]          aws-net-buffered.adb
+   [Ada]          aws-server-log.adb
+   [Ada]          aws-dispatchers-callback.adb
+   [Ada]          aws-headers.adb
+   [Ada]          aws-config-set.adb
+   [Ada]          aws-resources-streams.adb
+   [Ada]          aws-server.adb
+   [Ada]          aws-headers-values.adb
+   [Ada]          aws-resources.adb
+   [Ada]          aws-services-transient_pages-control.adb
+   [Ada]          aws-server-status.adb
+   [Ada]          aws-default.ads
+   [Ada]          aws-net-ssl-rsa_dh_generators.adb
+   [Ada]          aws-utils-streams.adb
+   [Ada]          aws-templates.ads
+   [Ada]          aws-response.adb
+   [Ada]          aws-exceptions.ads
+   [Ada]          aws-containers-string_vectors.ads
+   [Ada]          aws-translator.adb
+   [Ada]          aws-hotplug-get_status.adb
+   [Ada]          aws-session.adb
+   [Ada]          aws-containers-key_value.ads
+   [Ada]          aws-url-set.adb
+   [Ada]          aws-resources-streams-memory.adb
+   [Ada]          aws-server-get_status.adb
+   [Ada]          aws-config-utils.adb
+   [Ada]          aws-attachments.adb
+   [Ada]          aws-resources-files.adb
+   [Ada]          aws-status-translate_set.adb
+   [Ada]          aws-utils.adb
+   [Ada]          aws-server-context.ads
+   [Ada]          aws-client.adb
+   [Ada]          aws-net-poll_events-g_poll.adb
+   [Ada]          aws-url.adb
+   [Ada]          aws-net-acceptors.adb
+   [Ada]          aws-net-websocket-registry-utils.adb
+   [Ada]          aws-net-log.adb
+   [Ada]          aws-net-websocket-protocol-draft76.adb
+   [Ada]          aws-net-websocket.adb
+   [Ada]          aws-digest.adb
+   [Ada]          aws-config-ini.adb
+   [Ada]          aws-net.adb
+   [Ada]          aws-parameters-set.adb
+   [Ada]          aws-net-generic_sets.adb
+   [Ada]          aws-hotplug.adb
+   [Ada]          aws-status-set.adb
+   [Ada]          aws-net-websocket-registry.adb
+   [Ada]          aws-messages.adb
+   [Ada]          aws-url-raise_url_error.adb
+   [Ada]          aws-mime.adb
+   [Ada]          aws-resources-embedded.adb
+   [Ada]          aws.ads
+   [Ada]          aws-log.adb
+   [Ada]          aws-net-ssl-certificate.adb
+   [Ada]          aws-parameters.adb
+   [Ada]          aws-services.ads
+   [Ada]          aws-server-http_utils.adb
+   [Ada]          aws-net-websocket-protocol-rfc6455.adb
+   [Ada]          aws-net-websocket-registry-control.adb
+   [Ada]          aws-services-transient_pages.adb
+   [Ada]          aws-net-memory.adb
+   [Ada]          aws-resources-streams-memory-zlib.adb
+   [Ada]          aws-status.adb
+   [Ada]          aws-dispatchers.adb
+   [Ada]          templates_parser-input__aws.adb
+   [Ada]          templates_parser_tasking__standard_tasking.adb
+   [Ada]          aws-net-std__gnat.adb
+   [Ada]          aws-net-ssl__openssl.adb
+   [Ada]          aws-net-ssl-certificate-impl__openssl.adb
+   [Ada]          templates_parser-configuration__aws.ads
+   [Ada]          schema-validators-xsd_grammar.adb
+   [Ada]          schema-validators.adb
+   [Ada]          schema-decimal.adb
+   [Ada]          schema-readers.adb
+   [Ada]          schema-dom_readers.adb
+   [Ada]          schema-schema_readers.adb
+   [Ada]          schema-date_time.adb
+   [Ada]          schema-simple_types.adb
+   [Ada]          schema.adb
+   [Ada]          dom-core-comments.ads
+   [Ada]          dom-core-character_datas.adb
+   [Ada]          dom-core-documents.adb
+   [Ada]          dom-core-document_types.adb
+   [Ada]          dom-core-cdata_sections.ads
+   [Ada]          dom-core-elements.adb
+   [Ada]          dom.ads
+   [Ada]          dom-core-document_fragments.ads
+   [Ada]          dom-core-processing_instructions.ads
+   [Ada]          dom-core-entity_references.ads
+   [Ada]          dom-core.adb
+   [Ada]          dom-core-nodes.adb
+   [Ada]          dom-core-texts.adb
+   [Ada]          dom-core-notations.adb
+   [Ada]          dom-readers.adb
+   [Ada]          dom-core-attrs.adb
+   [C]            gpr_imports.c
+   [Ada]          gpr-util.adb
+   [Ada]          gpr.adb
+   [Ada]          gpr-ali.adb
+   [Ada]          gpr-sinput.adb
+   [Ada]          gpr-opt.ads
+   [Ada]          gpr-sdefault.adb
+   [Ada]          gpr-pp.adb
+   [Ada]          gpr-env.adb
+   [Ada]          gpr-part.adb
+   [Ada]          gpr-util-aux.adb
+   [Ada]          gpr-com.ads
+   [Ada]          gpr-jobserver.adb
+   [Ada]          gpr-erroutc.adb
+   [Ada]          gpr-debug.adb
+   [Ada]          gpr-attr.adb
+   [Ada]          gpr-osint.adb
+   [Ada]          gpr-names.adb
+   [Ada]          gpr-proc.adb
+   [Ada]          gpr-knowledge.adb
+   [Ada]          gpr-compilation-sync.adb
+   [Ada]          gpr-compilation-protocol.adb
+   [Ada]          gpr-strt.adb
+   [Ada]          gpr-tree.adb
+   [Ada]          gpr-script.adb
+   [Ada]          gpr-tempdir.adb
+   [Ada]          gpr-snames.adb
+   [Ada]          gpr-compilation-process-waiter.adb
+   [Ada]          gpr-conf.adb
+   [Ada]          gpr-dect.adb
+   [Ada]          gpr-nmsc.adb
+   [Ada]          gpr-compilation.adb
+   [Ada]          gpr-cset.adb
+   [Ada]          gpr-err.adb
+   [Ada]          gpr-output.adb
+   [Ada]          gpr-version.adb
+   [Ada]          gpr-ext.adb
+   [Ada]          gpr-attr-pm.adb
+   [Ada]          gpr-compilation-slave.adb
+   [Ada]          gpr-compilation-process.adb
+   [Ada]          gpr_build_util.adb
+   [Ada]          gpr-scans.adb
+   [C]            process-wrappers.c
+In file included from /Users/runner/.local/share/alire/builds/gnatcoll_24.0.0_11c512d1/3db7c379ca5cfa3491e5902cd6de8a81ff2aa1830eee2ceac298d591fdb32f77/src/os/unix/process-wrappers.c:26:
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:83:8: error: unknown type name 'FILE'
+   83 | extern FILE *__stdinp;
+      |        ^~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:81:1: note: 'FILE' is defined in header '<stdio.h>'; this is probably fixable by adding '#include <stdio.h>'
+   80 | #include <sys/_types/_seek_set.h>
+  +++ |+#include <stdio.h>
+   81 | 
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:84:8: error: unknown type name 'FILE'
+   84 | extern FILE *__stdoutp;
+      |        ^~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:84:8: note: 'FILE' is defined in header '<stdio.h>'; this is probably fixable by adding '#include <stdio.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:85:8: error: unknown type name 'FILE'
+   85 | extern FILE *__stderrp;
+      |        ^~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:85:8: note: 'FILE' is defined in header '<stdio.h>'; this is probably fixable by adding '#include <stdio.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:148:19: error: unknown type name 'FILE'
+  148 | void     clearerr(FILE *);
+      |                   ^~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:148:19: note: 'FILE' is defined in header '<stdio.h>'; this is probably fixable by adding '#include <stdio.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:149:17: error: unknown type name 'FILE'
+  149 | int      fclose(FILE *);
+      |                 ^~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:149:17: note: 'FILE' is defined in header '<stdio.h>'; this is probably fixable by adding '#include <stdio.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:150:15: error: unknown type name 'FILE'
+  150 | int      feof(FILE *);
+      |               ^~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:150:15: note: 'FILE' is defined in header '<stdio.h>'; this is probably fixable by adding '#include <stdio.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:151:17: error: unknown type name 'FILE'
+  151 | int      ferror(FILE *);
+      |                 ^~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:151:17: note: 'FILE' is defined in header '<stdio.h>'; this is probably fixable by adding '#include <stdio.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:152:17: error: unknown type name 'FILE'
+  152 | int      fflush(FILE *);
+      |                 ^~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:152:17: note: 'FILE' is defined in header '<stdio.h>'; this is probably fixable by adding '#include <stdio.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:153:16: error: unknown type name 'FILE'
+  153 | int      fgetc(FILE *);
+      |                ^~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:153:16: note: 'FILE' is defined in header '<stdio.h>'; this is probably fixable by adding '#include <stdio.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:154:18: error: unknown type name 'FILE'
+  154 | int      fgetpos(FILE * __restrict, fpos_t *);
+      |                  ^~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:154:18: note: 'FILE' is defined in header '<stdio.h>'; this is probably fixable by adding '#include <stdio.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:154:37: error: unknown type name 'fpos_t'
+  154 | int      fgetpos(FILE * __restrict, fpos_t *);
+      |                                     ^~~~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:154:37: note: 'fpos_t' is defined in header '<stdio.h>'; this is probably fixable by adding '#include <stdio.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:155:40: error: unknown type name 'FILE'
+  155 | char    *fgets(char * __restrict, int, FILE *);
+      |                                        ^~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:155:40: note: 'FILE' is defined in header '<stdio.h>'; this is probably fixable by adding '#include <stdio.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:159:1: error: unknown type name 'FILE'
+  159 | FILE    *fopen(const char * __restrict __filename, const char * __restrict __mode) __DARWIN_ALIAS_STARTING(__MAC_10_6, __IPHONE_2_0, __DARWIN_ALIAS(fopen));
+      | ^~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:159:1: note: 'FILE' is defined in header '<stdio.h>'; this is probably fixable by adding '#include <stdio.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:161:18: error: unknown type name 'FILE'
+  161 | int      fprintf(FILE * __restrict, const char * __restrict, ...) __printflike(2, 3);
+      |                  ^~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:161:18: note: 'FILE' is defined in header '<stdio.h>'; this is probably fixable by adding '#include <stdio.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:162:21: error: unknown type name 'FILE'
+  162 | int      fputc(int, FILE *);
+      |                     ^~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:162:21: note: 'FILE' is defined in header '<stdio.h>'; this is probably fixable by adding '#include <stdio.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:163:41: error: unknown type name 'FILE'
+  163 | int      fputs(const char * __restrict, FILE * __restrict) __DARWIN_ALIAS(fputs);
+      |                                         ^~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:163:41: note: 'FILE' is defined in header '<stdio.h>'; this is probably fixable by adding '#include <stdio.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:164:1: error: unknown type name 'size_t'
+  164 | size_t   fread(void * __restrict __ptr, size_t __size, size_t __nitems, FILE * __restrict __stream);
+      | ^~~~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:81:1: note: 'size_t' is defined in header '<stddef.h>'; this is probably fixable by adding '#include <stddef.h>'
+   80 | #include <sys/_types/_seek_set.h>
+  +++ |+#include <stddef.h>
+   81 | 
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:164:41: error: unknown type name 'size_t'
+  164 | size_t   fread(void * __restrict __ptr, size_t __size, size_t __nitems, FILE * __restrict __stream);
+      |                                         ^~~~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:164:41: note: 'size_t' is defined in header '<stddef.h>'; this is probably fixable by adding '#include <stddef.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:164:56: error: unknown type name 'size_t'
+  164 | size_t   fread(void * __restrict __ptr, size_t __size, size_t __nitems, FILE * __restrict __stream);
+      |                                                        ^~~~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:164:56: note: 'size_t' is defined in header '<stddef.h>'; this is probably fixable by adding '#include <stddef.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:164:73: error: unknown type name 'FILE'
+  164 | size_t   fread(void * __restrict __ptr, size_t __size, size_t __nitems, FILE * __restrict __stream);
+      |                                                                         ^~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:164:73: note: 'FILE' is defined in header '<stdio.h>'; this is probably fixable by adding '#include <stdio.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:165:1: error: unknown type name 'FILE'
+  165 | FILE    *freopen(const char * __restrict, const char * __restrict,
+      | ^~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:165:1: note: 'FILE' is defined in header '<stdio.h>'; this is probably fixable by adding '#include <stdio.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:166:18: error: unknown type name 'FILE'
+  166 |                  FILE * __restrict) __DARWIN_ALIAS(freopen);
+      |                  ^~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:166:18: note: 'FILE' is defined in header '<stdio.h>'; this is probably fixable by adding '#include <stdio.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:167:17: error: unknown type name 'FILE'
+  167 | int      fscanf(FILE * __restrict, const char * __restrict, ...) __scanflike(2, 3);
+      |                 ^~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:167:17: note: 'FILE' is defined in header '<stdio.h>'; this is probably fixable by adding '#include <stdio.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:168:16: error: unknown type name 'FILE'
+  168 | int      fseek(FILE *, long, int);
+      |                ^~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:168:16: note: 'FILE' is defined in header '<stdio.h>'; this is probably fixable by adding '#include <stdio.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:169:18: error: unknown type name 'FILE'
+  169 | int      fsetpos(FILE *, const fpos_t *);
+      |                  ^~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:169:18: note: 'FILE' is defined in header '<stdio.h>'; this is probably fixable by adding '#include <stdio.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:169:32: error: unknown type name 'fpos_t'
+  169 | int      fsetpos(FILE *, const fpos_t *);
+      |                                ^~~~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:169:32: note: 'fpos_t' is defined in header '<stdio.h>'; this is probably fixable by adding '#include <stdio.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:170:16: error: unknown type name 'FILE'
+  170 | long     ftell(FILE *);
+      |                ^~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:170:16: note: 'FILE' is defined in header '<stdio.h>'; this is probably fixable by adding '#include <stdio.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:171:1: error: unknown type name 'size_t'
+  171 | size_t   fwrite(const void * __restrict __ptr, size_t __size, size_t __nitems, FILE * __restrict __stream) __DARWIN_ALIAS(fwrite);
+      | ^~~~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:171:1: note: 'size_t' is defined in header '<stddef.h>'; this is probably fixable by adding '#include <stddef.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:171:48: error: unknown type name 'size_t'
+  171 | size_t   fwrite(const void * __restrict __ptr, size_t __size, size_t __nitems, FILE * __restrict __stream) __DARWIN_ALIAS(fwrite);
+      |                                                ^~~~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:171:48: note: 'size_t' is defined in header '<stddef.h>'; this is probably fixable by adding '#include <stddef.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:171:63: error: unknown type name 'size_t'
+  171 | size_t   fwrite(const void * __restrict __ptr, size_t __size, size_t __nitems, FILE * __restrict __stream) __DARWIN_ALIAS(fwrite);
+      |                                                               ^~~~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:171:63: note: 'size_t' is defined in header '<stddef.h>'; this is probably fixable by adding '#include <stddef.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:171:80: error: unknown type name 'FILE'
+  171 | size_t   fwrite(const void * __restrict __ptr, size_t __size, size_t __nitems, FILE * __restrict __stream) __DARWIN_ALIAS(fwrite);
+      |                                                                                ^~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:171:80: note: 'FILE' is defined in header '<stdio.h>'; this is probably fixable by adding '#include <stdio.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:172:15: error: unknown type name 'FILE'
+  172 | int      getc(FILE *);
+      |               ^~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:172:15: note: 'FILE' is defined in header '<stdio.h>'; this is probably fixable by adding '#include <stdio.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:184:20: error: unknown type name 'FILE'
+  184 | int      putc(int, FILE *);
+      |                    ^~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:184:20: note: 'FILE' is defined in header '<stdio.h>'; this is probably fixable by adding '#include <stdio.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:189:17: error: unknown type name 'FILE'
+  189 | void     rewind(FILE *);
+      |                 ^~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:189:17: note: 'FILE' is defined in header '<stdio.h>'; this is probably fixable by adding '#include <stdio.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:191:17: error: unknown type name 'FILE'
+  191 | void     setbuf(FILE * __restrict, char * __restrict);
+      |                 ^~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:191:17: note: 'FILE' is defined in header '<stdio.h>'; this is probably fixable by adding '#include <stdio.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:192:18: error: unknown type name 'FILE'
+  192 | int      setvbuf(FILE * __restrict, char * __restrict, int, size_t);
+      |                  ^~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:192:18: note: 'FILE' is defined in header '<stdio.h>'; this is probably fixable by adding '#include <stdio.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:192:61: error: unknown type name 'size_t'
+  192 | int      setvbuf(FILE * __restrict, char * __restrict, int, size_t);
+      |                                                             ^~~~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:192:61: note: 'size_t' is defined in header '<stddef.h>'; this is probably fixable by adding '#include <stddef.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:203:1: error: unknown type name 'FILE'
+  203 | FILE    *tmpfile(void);
+      | ^~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:203:1: note: 'FILE' is defined in header '<stdio.h>'; this is probably fixable by adding '#include <stdio.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:213:22: error: unknown type name 'FILE'
+  213 | int      ungetc(int, FILE *);
+      |                      ^~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:213:22: note: 'FILE' is defined in header '<stdio.h>'; this is probably fixable by adding '#include <stdio.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:214:19: error: unknown type name 'FILE'
+  214 | int      vfprintf(FILE * __restrict, const char * __restrict, __gnuc_va_list) __printflike(2, 0);
+      |                   ^~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:214:19: note: 'FILE' is defined in header '<stdio.h>'; this is probably fixable by adding '#include <stdio.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:242:1: error: unknown type name 'FILE'
+  242 | FILE    *fdopen(int, const char *) __DARWIN_ALIAS_STARTING(__MAC_10_6, __IPHONE_2_0, __DARWIN_ALIAS(fdopen));
+      | ^~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:242:1: note: 'FILE' is defined in header '<stdio.h>'; this is probably fixable by adding '#include <stdio.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:244:17: error: unknown type name 'FILE'
+  244 | int      fileno(FILE *);
+      |                 ^~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:244:17: note: 'FILE' is defined in header '<stdio.h>'; this is probably fixable by adding '#include <stdio.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:255:17: error: unknown type name 'FILE'
+  255 | int      pclose(FILE *) __swift_unavailable("Use posix_spawn APIs or NSTask instead. (On iOS, process spawning is unavailable.)");
+      |                 ^~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:255:17: note: 'FILE' is defined in header '<stdio.h>'; this is probably fixable by adding '#include <stdio.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:259:1: error: unknown type name 'FILE'
+  259 | FILE    *popen(const char *, const char *) __DARWIN_ALIAS_STARTING(__MAC_10_6, __IPHONE_2_0, __DARWIN_ALIAS(popen)) __swift_unavailable("Use posix_spawn APIs or NSTask instead. (On iOS, process spawning is unavailable.)");
+      | ^~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:259:1: note: 'FILE' is defined in header '<stdio.h>'; this is probably fixable by adding '#include <stdio.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:274:17: error: unknown type name 'FILE'
+  274 | int     __srget(FILE *);
+      |                 ^~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:274:17: note: 'FILE' is defined in header '<stdio.h>'; this is probably fixable by adding '#include <stdio.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:275:20: error: unknown type name 'FILE'
+  275 | int     __svfscanf(FILE *, const char *, __gnuc_va_list) __scanflike(2, 0);
+      |                    ^~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:275:20: note: 'FILE' is defined in header '<stdio.h>'; this is probably fixable by adding '#include <stdio.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:276:22: error: unknown type name 'FILE'
+  276 | int     __swbuf(int, FILE *);
+      |                      ^~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:276:22: note: 'FILE' is defined in header '<stdio.h>'; this is probably fixable by adding '#include <stdio.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:285:44: error: unknown type name 'FILE'
+  285 | __header_always_inline int __sputc(int _c, FILE *_p) {
+      |                                            ^~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:285:44: note: 'FILE' is defined in header '<stdio.h>'; this is probably fixable by adding '#include <stdio.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:311:20: error: unknown type name 'FILE'
+  311 | void     flockfile(FILE *);
+      |                    ^~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:311:20: note: 'FILE' is defined in header '<stdio.h>'; this is probably fixable by adding '#include <stdio.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:312:23: error: unknown type name 'FILE'
+  312 | int      ftrylockfile(FILE *);
+      |                       ^~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:312:23: note: 'FILE' is defined in header '<stdio.h>'; this is probably fixable by adding '#include <stdio.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:313:22: error: unknown type name 'FILE'
+  313 | void     funlockfile(FILE *);
+      |                      ^~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:313:22: note: 'FILE' is defined in header '<stdio.h>'; this is probably fixable by adding '#include <stdio.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:314:24: error: unknown type name 'FILE'
+  314 | int      getc_unlocked(FILE *);
+      |                        ^~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:314:24: note: 'FILE' is defined in header '<stdio.h>'; this is probably fixable by adding '#include <stdio.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:316:29: error: unknown type name 'FILE'
+  316 | int      putc_unlocked(int, FILE *);
+      |                             ^~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:316:29: note: 'FILE' is defined in header '<stdio.h>'; this is probably fixable by adding '#include <stdio.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:321:15: error: unknown type name 'FILE'
+  321 | int      getw(FILE *);
+      |               ^~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:321:15: note: 'FILE' is defined in header '<stdio.h>'; this is probably fixable by adding '#include <stdio.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:322:20: error: unknown type name 'FILE'
+  322 | int      putw(int, FILE *);
+      |                    ^~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:322:20: note: 'FILE' is defined in header '<stdio.h>'; this is probably fixable by adding '#include <stdio.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:354:17: error: unknown type name 'FILE'
+  354 | int      fseeko(FILE * __stream, off_t __offset, int __whence);
+      |                 ^~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:354:17: note: 'FILE' is defined in header '<stdio.h>'; this is probably fixable by adding '#include <stdio.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:355:17: error: unknown type name 'FILE'
+  355 | off_t    ftello(FILE * __stream);
+      |                 ^~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:355:17: note: 'FILE' is defined in header '<stdio.h>'; this is probably fixable by adding '#include <stdio.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:361:44: error: unknown type name 'size_t'
+  361 | int      snprintf(char * __restrict __str, size_t __size, const char * __restrict __format, ...) __printflike(3, 4);
+      |                                            ^~~~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:361:44: note: 'size_t' is defined in header '<stddef.h>'; this is probably fixable by adding '#include <stddef.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:362:18: error: unknown type name 'FILE'
+  362 | int      vfscanf(FILE * __restrict __stream, const char * __restrict __format, __gnuc_va_list) __scanflike(2, 0);
+      |                  ^~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:362:18: note: 'FILE' is defined in header '<stdio.h>'; this is probably fixable by adding '#include <stdio.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:364:45: error: unknown type name 'size_t'
+  364 | int      vsnprintf(char * __restrict __str, size_t __size, const char * __restrict __format, __gnuc_va_list) __printflike(3, 0);
+      |                                             ^~~~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:364:45: note: 'size_t' is defined in header '<stddef.h>'; this is probably fixable by adding '#include <stddef.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:379:71: error: expected ',' or ';' before '__OSX_AVAILABLE_STARTING'
+  379 | int     dprintf(int, const char * __restrict, ...) __printflike(2, 3) __OSX_AVAILABLE_STARTING(__MAC_10_7, __IPHONE_4_3);
+      |                                                                       ^~~~~~~~~~~~~~~~~~~~~~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:380:83: error: expected ',' or ';' before '__OSX_AVAILABLE_STARTING'
+  380 | int     vdprintf(int, const char * __restrict, __gnuc_va_list) __printflike(2, 0) __OSX_AVAILABLE_STARTING(__MAC_10_7, __IPHONE_4_3);
+      |                                                                                   ^~~~~~~~~~~~~~~~~~~~~~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:381:46: error: unknown type name 'size_t'
+  381 | ssize_t getdelim(char ** __restrict __linep, size_t * __restrict __linecapp, int __delimiter, FILE * __restrict __stream) __OSX_AVAILABLE_STARTING(__MAC_10_7, __IPHONE_4_3);
+      |                                              ^~~~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:381:46: note: 'size_t' is defined in header '<stddef.h>'; this is probably fixable by adding '#include <stddef.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:381:95: error: unknown type name 'FILE'
+  381 | ssize_t getdelim(char ** __restrict __linep, size_t * __restrict __linecapp, int __delimiter, FILE * __restrict __stream) __OSX_AVAILABLE_STARTING(__MAC_10_7, __IPHONE_4_3);
+      |                                                                                               ^~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:381:95: note: 'FILE' is defined in header '<stdio.h>'; this is probably fixable by adding '#include <stdio.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:382:45: error: unknown type name 'size_t'
+  382 | ssize_t getline(char ** __restrict __linep, size_t * __restrict __linecapp, FILE * __restrict __stream) __OSX_AVAILABLE_STARTING(__MAC_10_7, __IPHONE_4_3);
+      |                                             ^~~~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:382:45: note: 'size_t' is defined in header '<stddef.h>'; this is probably fixable by adding '#include <stddef.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:382:77: error: unknown type name 'FILE'
+  382 | ssize_t getline(char ** __restrict __linep, size_t * __restrict __linecapp, FILE * __restrict __stream) __OSX_AVAILABLE_STARTING(__MAC_10_7, __IPHONE_4_3);
+      |                                                                             ^~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:382:77: note: 'FILE' is defined in header '<stdio.h>'; this is probably fixable by adding '#include <stdio.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:383:1: error: unknown type name 'FILE'
+  383 | FILE *fmemopen(void * __restrict __buf, size_t __size, const char * __restrict __mode) __API_AVAILABLE(macos(10.13), ios(11.0), tvos(11.0), watchos(4.0));
+      | ^~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:383:1: note: 'FILE' is defined in header '<stdio.h>'; this is probably fixable by adding '#include <stdio.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:383:41: error: unknown type name 'size_t'
+  383 | FILE *fmemopen(void * __restrict __buf, size_t __size, const char * __restrict __mode) __API_AVAILABLE(macos(10.13), ios(11.0), tvos(11.0), watchos(4.0));
+      |                                         ^~~~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:383:41: note: 'size_t' is defined in header '<stddef.h>'; this is probably fixable by adding '#include <stddef.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:384:1: error: unknown type name 'FILE'
+  384 | FILE *open_memstream(char **__bufp, size_t *__sizep) __API_AVAILABLE(macos(10.13), ios(11.0), tvos(11.0), watchos(4.0));
+      | ^~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:384:1: note: 'FILE' is defined in header '<stdio.h>'; this is probably fixable by adding '#include <stdio.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:384:37: error: unknown type name 'size_t'
+  384 | FILE *open_memstream(char **__bufp, size_t *__sizep) __API_AVAILABLE(macos(10.13), ios(11.0), tvos(11.0), watchos(4.0));
+      |                                     ^~~~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:384:37: note: 'size_t' is defined in header '<stddef.h>'; this is probably fixable by adding '#include <stddef.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:399:17: error: unknown type name 'FILE'
+  399 | char    *fgetln(FILE *, size_t *);
+      |                 ^~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:399:17: note: 'FILE' is defined in header '<stdio.h>'; this is probably fixable by adding '#include <stdio.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:399:25: error: unknown type name 'size_t'
+  399 | char    *fgetln(FILE *, size_t *);
+      |                         ^~~~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:399:25: note: 'size_t' is defined in header '<stddef.h>'; this is probably fixable by adding '#include <stddef.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:401:17: error: unknown type name 'FILE'
+  401 | int      fpurge(FILE *);
+      |                 ^~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:401:17: note: 'FILE' is defined in header '<stdio.h>'; this is probably fixable by adding '#include <stdio.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:402:20: error: unknown type name 'FILE'
+  402 | void     setbuffer(FILE *, char *, int);
+      |                    ^~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:402:20: note: 'FILE' is defined in header '<stdio.h>'; this is probably fixable by adding '#include <stdio.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:403:21: error: unknown type name 'FILE'
+  403 | int      setlinebuf(FILE *);
+      |                     ^~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:403:21: note: 'FILE' is defined in header '<stdio.h>'; this is probably fixable by adding '#include <stdio.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:410:1: error: unknown type name 'FILE'
+  410 | FILE    *funopen(const void *,
+      | ^~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:410:1: note: 'FILE' is defined in header '<stdio.h>'; this is probably fixable by adding '#include <stdio.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:413:18: error: unknown type name 'fpos_t'
+  413 |                  fpos_t (* _Nullable)(void *, fpos_t, int),
+      |                  ^~~~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:413:18: note: 'fpos_t' is defined in header '<stdio.h>'; this is probably fixable by adding '#include <stdio.h>'
+
+   compilation of process-wrappers.c failed
+
+gprbuild: *** compilation phase failed
+make: *** [build-awsres-tool-native] Error 4
+Warning: Execution failed for action: Post_Fetch run: make all ENABLE_SHARED=false (from ${CRATE_ROOT}/.)
+Warning: Exit code: 2
+Warning: Action output not captured, check it above.
+stderr: ALIRE.PROPERTIES.ACTIONS.ACTION_FAILED
+stderr: Action failed with exit code 2
+stderr: raised ALIRE.PROPERTIES.ACTIONS.ACTION_FAILED : Action failed with exit code 2
+Load address: 0x102e58000
+Call stack traceback locations:
+0x103b640cc 0x103b6412c 0x103507fe4 0x103506788 0x1036bf9c0 0x1036e378c 0x10374356c 0x10374299c 0x1036e3868 0x1036e3950 0x1036c000c 0x1036c0174 0x102ec9730 0x102ec9070 0x102ec91e4 0x102f66b38 0x102f71c78 0x102e5a9f8 0x102e5fa2c
+
+ERROR: Compilation failed.

@@ -1,0 +1,164 @@
+Test ran at 2024-12-03 00:49:04.530012+00:00
+
+SOLUTION:
+adacl=5.10.2: Ada Class Library
+Origin: source archive adacl-5.10.2.tgz at https://sourceforge.net/projects/adacl/files/Alire/adacl-5.10.2.tgz with hashes sha256:1761f656b6299c7891c1711ef8c202a0b7feae3e213ec5debc7c3103d1ca6671, sha512:bc9fe050eb19cd3e790bba9cf397d6719174fa619fe9ec37239506ac48843594e96013dcdc493b9be349085420a4d8e823eedd05b518cc8777bd65117de4eeac
+Properties:
+   Test run: ${CRATE_DIR}/test/alr run
+   Author: Martin Krischik <krischik@users.sourceforge.net>
+   Build Switches: 
+   Description: Ada Class Library
+   License: GPL-3.0-or-later
+   Long_Description: A class library for Ada for those who like OO programming.
+
+Currently the following functionality is migrated to Ada 2022: 
+
+* getopt commandline argument parser
+* string utilities
+* trace utility
+* reference counted smart pointer
+
+Development versions and testsuite available using the follwowing index:
+
+```sh
+alr index --add "git+https://github.com/krischik/alire-index.git#develop" --name krischik
+```
+
+Source code and terstsuite available on [SourceForge](https://git.code.sf.net/p/adacl/git)
+
+   Maintainer: Martin Krischik <krischik@users.sourceforge.net>
+   Maintainers_Logins: krischik
+   Name: adacl
+   Tag: library
+   Tag: command-line
+   Tag: trace
+   Tag: logging
+   Tag: string
+   Tag: ada2022
+   Version: 5.10.2
+   Website: https://sourceforge.net/projects/adacl/
+Dependencies (direct):
+   gnat>=12 & <2000
+Dependencies (solution):
+   gnat=12.2.1 (gnat_native) (installed)
+Dependencies (graph):
+   adacl=5.10.2 --> gnat=12.2.1 (gnat_native) (>=12 & <2000)
+
+
+LOG:
+Note: Deploying adacl=5.10.2...
+#=#=#                                                                         
+
+######################################################################## 100.0%##O#-#                                                                        
+
+######################################################################## 100.0%##=O#- #                                                                      
+
+######################################################################## 100.0%
+######################################################################## 100.0%# #=O#- #                                                                     
+
+#########                                                                 13.1%
+######################################################################## 100.0%
+
+adacl=5.10.2 successfully retrieved.
+Dependencies were solved as follows:
+
+   +i gnat 12.2.1 (new,installed,gnat_native)
+Note: Synchronizing workspace...
+Dependencies automatically updated as follows:
+
+   +· adacl 5.10.2 (new,path=..)              
+   +  aunit 23.0.0 (new)                      
+   +i gnat  12.2.1 (new,installed,gnat_native)
+Note: Deploying aunit=23.0.0...
+#=#=#                                                                         
+##O#-#                                                                        
+
+Note: Building adacl_test/adacl_test.gpr...
+Setup
+   [mkdir]        object directory for project AdaCL
+   [mkdir]        library directory for project AdaCL
+   [mkdir]        object directory for project AUnit
+   [mkdir]        library directory for project AUnit
+   [mkdir]        object directory for project AdaCL_Test
+   [mkdir]        exec directory for project AdaCL_Test
+Compile
+   [Ada]          adacl_test-main.adb
+   [Ada]          aunit-io.ads
+   [Ada]          aunit-memory-utils.adb
+   [Ada]          aunit-memory.adb
+   [Ada]          aunit-time_measure.adb
+   [Ada]          aunit-reporter-xml.adb
+   [Ada]          aunit-reporter-text.adb
+   [Ada]          aunit-reporter-gnattest.adb
+   [Ada]          aunit-reporter-junit.adb
+   [Ada]          ada_containers-aunit_lists.adb
+   [Ada]          ada_containers.ads
+   [Ada]          aunit-test_cases.adb
+   [Ada]          aunit-test_results.adb
+   [Ada]          aunit.adb
+   [Ada]          aunit-options.ads
+   [Ada]          aunit-test_fixtures.adb
+   [Ada]          aunit-reporter.adb
+   [Ada]          aunit-assertions.adb
+   [Ada]          aunit-tests.ads
+   [Ada]          aunit-run.adb
+   [Ada]          aunit-test_filters.adb
+   [Ada]          aunit-simple_test_cases.adb
+   [Ada]          aunit-test_suites.adb
+   [Ada]          aunit-test_caller.adb
+   [Ada]          adacl_config.ads
+   [Ada]          adacl-os-low_level.ads
+   [Ada]          adacl-base.ads
+   [Ada]          adacl-reference.ads
+   [Ada]          adacl-command_line-getopt.adb
+   [Ada]          adacl-command_line.ads
+   [Ada]          adacl.ads
+   [Ada]          adacl-trace.adb
+   [Ada]          adacl-os.ads
+   [Ada]          adacl-reference-holder.adb
+   [Ada]          adacl-reference-element.adb
+   [Ada]          adacl-limited_base.ads
+   [Ada]          adacl-strings.adb
+   [Ada]          adacl_test.ads
+   [Ada]          adacl_test-suite.adb
+   [Ada]          adacl-reference-element-test.adb
+   [Ada]          adacl-strings-test.adb
+   [Ada]          adacl-trace-test.adb
+   [Ada]          adacl_test-reference_holder.adb
+Build Libraries
+   [gprlib]       AdaCL.lexch
+   [gprlib]       aunit.lexch
+   [archive]      libAdaCL.a
+   [archive]      libaunit.a
+   [index]        libaunit.a
+   [index]        libAdaCL.a
+Bind
+   [gprbind]      adacl_test-main.bexch
+   [Ada]          adacl_test-main.ali
+Link
+   [link]         adacl_test-main.adb
+Build finished successfully in 5.35 seconds.
+
+OK AdaCL.Reference.Element : Test_Add_Reference_01 : simple add
+OK AdaCL.Reference.Element : Test_Add_Reference_02 : two add
+OK AdaCL.Reference.Element : Test_Remove_Reference_01 : add remove
+OK AdaCL.Reference.Element : Test_Remove_Reference_02 : add remove
+OK AdaCL.Reference.Holder : Test_Create_01 : one level
+OK AdaCL.Reference.Holder : Test_Create_02 : add remove
+OK AdaCL.Reference.Holder : Test_Set_01 : one level
+OK AdaCL.Reference.Holder : Test_Set_02 : add remove
+OK AdaCL.Strings : Test_Append_All_01 : simple append
+OK AdaCL.Strings : Test_Append_All_02 : skip append
+OK AdaCL.Strings : Test_Append_All_03 : append once
+OK AdaCL.Trace : Test_Enable_Trace_01 : enable trace
+OK AdaCL.Trace : Test_Write_To_File_01 : trace to file
+OK AdaCL.Trace : Test_Write_String_01 : simple string output
+OK AdaCL.Trace : Test_Function_Trace_01 : function trace one string
+OK AdaCL.Trace : Test_Function_Trace_02 : function trace two strings
+OK AdaCL.Trace : Test_Function_Trace_03 : function trace no parameter
+OK AdaCL.Trace : Test_Function_Trace_04 : function trace two level
+
+Total Tests Run:   18
+Successful Tests:  18
+Failed Assertions: 0
+Unexpected Errors: 0

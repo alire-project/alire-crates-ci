@@ -1,0 +1,136 @@
+Test ran at 2026-05-17 01:37:50.209438+00:00
+
+SOLUTION:
+light_nrf52840=15.4.0: light runtime for the NRF52840 SoC
+Origin: source archive light-nrf52840-15.4.0.tar.gz at https://github.com/damaki/community-bb-runtimes/releases/download/v15.4.0/light-nrf52840-15.4.0.tar.gz with hashes sha256:95c129cca10fa7c4b8cce2908507f39ee5e7947f6bd6f596646816378a3cf1ed, sha512:8ddec5d81c238993f8c12e42c48321c99b0e460c01ddd6cffe8cff82d96d6c73bc8850cf03d308b7909a6bf92435ecc56a35a9ae23092f19a81c0a0b5cc50332
+Properties:
+   Author: AdaCore
+   Author: Daniel King
+   Config type: Interrupt_Secondary_Stack_Size : Integer range 1 .. 9223372036854775807 default: '128'
+   Config type: Interrupt_Stack_Size : Integer range 1 .. 9223372036854775807 default: '1024'
+   Config type: LFCLK_Src : Enum (Xtal, RC, Synth) default: 'Xtal'
+   Config type: Time_Base : Enum (RTC0, RTC1, RTC2) default: 'RTC2'
+   Config type: Use_Reset_Pin : Boolean default: 'true'
+   Config type: Use_SWO_Trace : Boolean default: 'true'
+   Configuration: no modifiers
+   Description: light runtime for the NRF52840 SoC
+   License: GPL-3.0-or-later WITH GCC-exception-3.1
+   Long_Description: ## Usage
+
+First edit your `alire.toml` file and add the following elements:
+ - Add `light_nrf52840` in the dependency list:
+   ```toml
+   [[depends-on]]
+   light_nrf52840 = "*"
+   ```
+
+Then edit your project file to add the following elements:
+ - "with" the run-time project file. With this, gprbuild will compile the run-time before your application
+   ```ada
+   with "$(runtime_proj_prefix)_build.gpr";
+   ```
+ - Specify the `Target` and `Runtime` attributes:
+   ```ada
+      for Target use $(runtime_proj_prefix)_build'Target;
+      for Runtime ("Ada") use $(runtime_proj_prefix)_build'Runtime ("Ada");
+   ```
+
+   Maintainer: Daniel King <damaki.gh@gmail.com>
+   Maintainers_Logins: damaki
+   Name: light_nrf52840
+   Project_File: runtime_build.gpr
+   Tag: embedded
+   Tag: runtime
+   Version: 15.4.0
+   Website: https://github.com/damaki/community-bb-runtimes
+Dependencies (direct):
+   gnat_arm_elf^15
+Dependencies (solution):
+   gnat_arm_elf=15.2.1
+Dependencies (graph):
+   light_nrf52840=15.4.0 --> gnat_arm_elf=15.2.1 (^15)
+
+
+LOG:
+[alr test] Testing light_nrf52840=15.4.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get light_nrf52840=15.4.0
+Note: Deploying light_nrf52840=15.4.0...
+
+#=#=#                                                                          
+#####################                                                     29.7%
+######################################################################## 100.0%
+stderr: Generating Outcome_Failure with message: release integrity test failed: expected [sha256:95c129cca10fa7c4b8cce2908507f39ee5e7947f6bd6f596646816378a3cf1ed] but got [sha256:ec426ba25083b97093a1045196f189ba453582b468484ffaacecf18ba4a4a708]
+stderr: Generating Outcome_Failure with call stack:
+stderr: raised AAA.DEBUG.STACK_TRACE.DEBUG_EXCEPTION : aaa-debug.adb:44
+[/usr/sbin/alr]
+0xfcfcdb Aaa.Debug.Stack_Trace at aaa-debug.adb:44
+0xe744f2 Alire.Outcome_Failure at alire.adb:226
+0xe74c7f Alire.Outcome_Failure at alire.adb:223
+0xa1bba5 Alire.Origins.Deployers.Verify_Hashes at alire-origins-deployers.adb:219
+0xa18f1a Alire.Origins.Deployers.Deploy_Steps at alire-origins-deployers.adb:117
+0xa1a528 Alire.Origins.Deployers.Deploy at alire-origins-deployers.adb:170
+0xc4528a Alire.Releases.Deploy at alire-releases.adb:341
+0xc7d8a3 Alire.Roots.Create_For_Release at alire-roots.adb:723
+0xc7de47 Alire.Roots.Create_For_Release at alire-roots.adb:714
+0x4aab90 Alr.Commands.Get.Retrieve at alr-commands-get.adb:134
+0x4ae94f Alr.Commands.Get.Execute at alr-commands-get.adb:380
+0x4aeafd Alr.Commands.Get.Execute at alr-commands-get.adb:256
+0x53bbcc Alr.Commands.Sub_Cmd.Execute at clic-subcommand-instance.adb:749
+0x5472be Alr.Commands.Execute at alr-commands.adb:632
+0x43d48a Alr.Main at alr-main.adb:13
+0x4403a3 Main at b__alr-main.adb:2445
+[/usr/bin/..//lib/libc.so.6]
+0x7f9beebf3673
+0x7f9beebf3727
+[/usr/sbin/alr]
+0x43d323 _start at ???
+0xfffffffffffffffe
+
+stderr: ALIRE.CHECKED_ERROR
+stderr: release integrity test failed: expected [sha256:95c129cca10fa7c4b8cce2908507f39ee5e7947f6bd6f596646816378a3cf1ed] but got [sha256:ec426ba25083b97093a1045196f189ba453582b468484ffaacecf18ba4a4a708]
+stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
+[/usr/sbin/alr]
+0xe72ea3 Alire.Assert at alire.adb:158
+0xc452b2 Alire.Releases.Deploy at alire-releases.adb:341
+0xc7d8a3 Alire.Roots.Create_For_Release at alire-roots.adb:723
+0xc7de47 Alire.Roots.Create_For_Release at alire-roots.adb:714
+0x4aab90 Alr.Commands.Get.Retrieve at alr-commands-get.adb:134
+0x4ae94f Alr.Commands.Get.Execute at alr-commands-get.adb:380
+0x4aeafd Alr.Commands.Get.Execute at alr-commands-get.adb:256
+0x53bbcc Alr.Commands.Sub_Cmd.Execute at clic-subcommand-instance.adb:749
+0x5472be Alr.Commands.Execute at alr-commands.adb:632
+0x43d48a Alr.Main at alr-main.adb:13
+0x4403a3 Main at b__alr-main.adb:2445
+[/usr/bin/..//lib/libc.so.6]
+0x7f9beebf3673
+0x7f9beebf3727
+[/usr/sbin/alr]
+0x43d323 _start at ???
+0xfffffffffffffffe
+
+ERROR: release integrity test failed: expected [sha256:95c129cca10fa7c4b8cce2908507f39ee5e7947f6bd6f596646816378a3cf1ed] but got [sha256:ec426ba25083b97093a1045196f189ba453582b468484ffaacecf18ba4a4a708]
+****** UNEXPECTED EXCEPTION FOLLOWS:
+raised ADA.IO_EXCEPTIONS.NAME_ERROR : directory "light_nrf52840_15.4.0_95c129cc" does not exist
+[/usr/sbin/alr]
+0x10de9d0 Ada.Directories.Set_Directory at a-direct.adb:1103
+0x7d99a8 Alire.Directories.Initialize at alire-directories.adb:443
+0x7d1ac0 alire__directories__guardDI at ???
+0x5590b4 Alr.Commands.Test.Do_Test.Test_Release.Test_Action.Default_Test.Remote_Test at alr-commands-test.adb:243
+0x5586a8 Alr.Commands.Test.Do_Test.Test_Release.Test_Action.Default_Test at alr-commands-test.adb:273
+0x557d37 Alr.Commands.Test.Do_Test.Test_Release.Test_Action at alr-commands-test.adb:355
+0x555b58 Alr.Commands.Test.Do_Test.Test_Release at alr-commands-test.adb:389
+0x5544e1 Alr.Commands.Test.Do_Test at alr-commands-test.adb:498
+0x55cc93 Alr.Commands.Test.Execute at alr-commands-test.adb:691
+0x55cec7 Alr.Commands.Test.Execute at alr-commands-test.adb:533
+0x53bbcc Alr.Commands.Sub_Cmd.Execute at clic-subcommand-instance.adb:749
+0x5472be Alr.Commands.Execute at alr-commands.adb:632
+0x43d48a Alr.Main at alr-main.adb:13
+0x4403a3 Main at b__alr-main.adb:2445
+[/usr/bin/..//lib/libc.so.6]
+0x7fa4650c7673
+0x7fa4650c7727
+[/usr/sbin/alr]
+0x43d323 _start at ???
+0xfffffffffffffffe
+
+****** TRACE END

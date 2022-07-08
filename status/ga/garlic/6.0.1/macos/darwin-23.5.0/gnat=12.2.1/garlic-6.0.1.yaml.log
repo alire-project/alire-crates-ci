@@ -1,0 +1,74 @@
+Test ran at 2024-06-10 00:48:23.919582+00:00
+
+SOLUTION:
+garlic=6.0.1: GNAT Library for Ada Distributed Environment (garlic)
+Origin: commit 90ef4b6f01c95df7e04c8f3e4c41c275f23acea9 from https://github.com/reznikmm/garlic.git
+Properties:
+   Author: AdaCore
+   Configuration: no modifiers
+   Description: GNAT Library for Ada Distributed Environment (garlic)
+   case OS is
+      when Linux => Environment: LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:${CRATE_ROOT}/.libs/relocatable
+      when Macos => Environment: DYLD_LIBRARY_PATH=${DYLD_LIBRARY_PATH}:${CRATE_ROOT}/.libs/relocatable
+      when Windows => Environment: PATH=${PATH}:${CRATE_ROOT}/.libs/relocatable
+   GPR Scenario: GARLIC_BUILD_MODE := dev | prod
+   License: GPL-2.0-or-later WITH GCC-exception-2.0
+   Maintainer: Max Reznik <reznikmm@gmail.com>
+   Maintainers_Logins: reznikmm
+   Name: garlic
+   Project_File: gnat/garlic.gpr
+   Tag: dsa
+   Tag: distributed
+   Tag: annex
+   Tag: network
+   Tag: glade
+   Version: 6.0.1
+   Website: https://github.com/reznikmm/garlic/wiki
+
+
+LOG:
+Note: Deploying garlic=6.0.1...
+Note: Building garlic/gnat/garlic.gpr...
+Setup
+   [mkdir]        object directory for project Garlic
+   [mkdir]        library directory for project Garlic
+Compile
+   [Ada]          s-garrem.adb
+   [Ada]          s-gaplsp.ads
+   [Ada]          s-gastco.adb
+   [Ada]          s-dsaser.ads
+   [Ada]          s-garpri.adb
+   [Ada]          s-garter.adb
+   [Ada]          s-garuti.adb
+   [Ada]          s-rpc.adb
+   [Ada]          s-garsto.adb
+   [Ada]          s-ganata.adb
+   [Ada]          s-garopt.adb
+   [Ada]          s-garpro.adb
+   [Ada]          s-gaphlo.adb
+   [Ada]          s-garela.adb
+   [Ada]          s-garhea.adb
+   [Ada]          s-garfil.adb
+   [Ada]          s-garexc.adb
+   [Ada]          s-rpcser.adb
+   [Ada]          s-gprese.ads
+   [Ada]          s-gptcse.adb
+   [Ada]          s-gaprco.adb
+s-gptcse.adb:37:06: warning: unnecessary with of ancestor [-gnatwr]
+
+   compilation of s-gptcse.adb failed
+
+gprbuild: *** compilation phase failed
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/Users/runner/work/alire-crates-ci/alire-crates-ci/test/6c34af5b-d34f-400d-9671-dc93f4cee94e/garlic_6.0.1_90ef4b6f/gnat/garlic.gpr"] exited with code 4
+ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/Users/runner/work/alire-crates-ci/alire-crates-ci/test/6c34af5b-d34f-400d-9671-dc93f4cee94e/garlic_6.0.1_90ef4b6f/gnat/garlic.gpr"] exited with code 4
+stderr: ALIRE.CHECKED_ERROR
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/Users/runner/work/alire-crates-ci/alire-crates-ci/test/6c34af5b-d34f-400d-9671-dc93f4cee94e/garlic_6.0.1_90ef4b6f/gnat/garlic.gpr"] exited with code 4
+stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
+Load address: 0x1020e7000
+Call stack traceback locations:
+0x1029ef415 0x1026c2e83 0x1028d5df9 0x1028d6581 0x102836ac3 0x102834f99 0x102851873 0x10289ddc1 0x10289c81a 0x1028519b8 0x102835349 0x1021469c1 0x102157578 0x10215c01c 0x1021e205c 0x1021ed3b8 0x1020e8605 0x1020eb914
+
+
+Warning: garlic=6.0.1 successfully retrieved but its build failed.
+There are no dependencies.
+ERROR: Build ended with errors

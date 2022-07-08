@@ -1,0 +1,198 @@
+Test ran at 2026-08-28 16:53:06.633508+00:00
+
+SOLUTION:
+lmdb_ada=1.2.0: Bindings to the Lightning Memory-Mapped Database
+Origin: source archive v1.2.0.tar.gz at https://git.sr.ht/~nytpu/lmdb-ada/archive/v1.2.0.tar.gz with hashes sha256:b9d19e0eec24a79d5ff951c13062e076ff95042e6ca0e4d9ba90849437b39ce4, sha512:8af6120dd3ff8602694ec5dc52408c69b8fbf327b72a57261b7020d922f6941d0287b8b5a8dccd34ddb4f68c3ce92152990ffda58f8b76ac0313879705d3a7c4
+Properties:
+   Author: nytpu
+   Description: Bindings to the Lightning Memory-Mapped Database
+   GPR Scenario: LMDB_BUILD_MODE := debug | optimize
+   GPR Scenario: LMDB_COMPILE_CHECKS := enabled | disabled
+   GPR Scenario: LMDB_CONTRACTS := enabled | disabled
+   GPR Scenario: LMDB_LIBRARY_TYPE := dynamic | relocatable | static | static-pic
+   GPR Scenario: LMDB_PLATFORM := unix | windows
+   GPR Scenario: LMDB_RUNTIME_CHECKS := enabled | disabled
+   GPR Scenario: LMDB_STYLE_CHECKS := enabled | disabled
+   case OS is
+      when Linux => GPR External: LMDB_PLATFORM := unix
+      when Macos => GPR External: LMDB_PLATFORM := unix
+      when Windows => GPR External: LMDB_PLATFORM := windows
+   License: BSD-2-Clause AND OLDAP-2.8+
+   Maintainer: nytpu <alex@nytpu.com>
+   Maintainers_Logins: nytpu
+   Name: lmdb_ada
+   Project_File: lmdb.gpr
+   Tag: database
+   Tag: key-value
+   Version: 1.2.0
+   Website: https://git.sr.ht/~nytpu/lmdb-ada
+Dependencies (direct):
+   gnatcoll^22.0.0
+Dependencies (solution):
+   gnat=16.1.0 (gnat_native)
+   gnatcoll=22.0.0
+   libgpr=22.0.0
+   xmlada=22.0.0
+Dependencies (graph):
+   gnatcoll=22.0.0 --> libgpr=22.0.0 (~22.0.0)
+   libgpr=22.0.0   --> gnat=16.1.0 (gnat_native) (/=2020)
+   libgpr=22.0.0   --> xmlada=22.0.0 (~22.0.0)
+   lmdb_ada=1.2.0  --> gnatcoll=22.0.0 (^22.0.0)
+   xmlada=22.0.0   --> gnat=16.1.0 (gnat_native) (>=11)
+
+
+LOG:
+[alr test] Testing lmdb_ada=1.2.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get lmdb_ada=1.2.0
+Note: Deploying lmdb_ada=1.2.0...
+
+#=#=#                                                                          
+##O#-#                                                                         
+##=O#- #                                                                       
+# #=O#- #                                                                      
+Note: Deploying xmlada=22.0.0...
+
+#=#=#                                                                          
+##O#-#                                                                         
+##=O#- #                                                                       
+Note: Deploying libgpr=22.0.0...
+
+#=#=#                                                                          
+##O#-#                                                                         
+##=O#- #                                                                       
+Note: Deploying gnatcoll=22.0.0...
+
+#=#=#                                                                          
+##O#-#                                                                         
+##=O#- #                                                                       
+
+lmdb_ada=1.2.0 successfully retrieved.
+Dependencies were solved as follows:
+
+   +b gnat     16.1.0 (new,gnat_native,indirect,binary)
+   +  gnatcoll 22.0.0 (new)
+   +  libgpr   22.0.0 (new,indirect)
+   +  xmlada   22.0.0 (new,indirect)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Running post-fetch actions for xmlada=22.0.0...
+configure: loading site script /usr/local/etc/config.site
+checking build system type... x86_64-w64-mingw32
+checking host system type... x86_64-w64-mingw32
+checking target system type... x86_64-w64-mingw32
+checking whether gnat can build shared libs... yes
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether ln -s works... no, using cp -pR
+configure: creating ./config.status
+config.status: creating xmlada_shared.gpr
+config.status: creating Makefile
+config.status: creating tests/dom/default.gpr
+Note: Building lmdb_ada=1.2.0/lmdb.gpr...
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\xmlada_22.0.0_b322ae27\203717355baa29ae6df321c0e5fe208e221ec4ffd0b5c962070039c4a9ab04c4\sax\obj\static" created
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\xmlada_22.0.0_b322ae27\203717355baa29ae6df321c0e5fe208e221ec4ffd0b5c962070039c4a9ab04c4\sax\lib\static" created
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\xmlada_22.0.0_b322ae27\203717355baa29ae6df321c0e5fe208e221ec4ffd0b5c962070039c4a9ab04c4\schema\obj\static" created
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\libgpr_22.0.0_30e39dcc\0f0956330e25bb0706f949c039e973f048b0b4c44c24ec9c2a4b7c542364c1ca\gpr\libobj\production\static" created
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\libgpr_22.0.0_30e39dcc\0f0956330e25bb0706f949c039e973f048b0b4c44c24ec9c2a4b7c542364c1ca\gpr\lib\production\static" created
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\gnatcoll_22.0.0_620c2f23\174f01737230b112b470fbe40890e21f2bf9d2e7db35bb3d83b85ce3ad7c4e57\obj\gnatcoll\all" created
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\gnatcoll_22.0.0_620c2f23\174f01737230b112b470fbe40890e21f2bf9d2e7db35bb3d83b85ce3ad7c4e57\lib\gnatcoll\static" created
+"obj" created
+"lib" created
+[Ada Compile]     gnatcoll-any_types.adb
+[Ada Compile]     gnatcoll-arg_lists.adb
+[Ada Compile]     gnatcoll-asserts.adb
+[Ada Compile]     gnatcoll-atomic.adb
+[Ada Compile]     gnatcoll-boyer_moore.adb
+[Ada Compile]     gnatcoll-coders-base64.adb
+[Ada Compile]     gnatcoll-coders-streams.adb
+[Ada Compile]     gnatcoll-coders.adb
+[Ada Compile]     gnatcoll-config.adb
+[Ada Compile]     gnatcoll-damerau_levenshtein_distance.ads
+[Ada Compile]     gnatcoll-damerau_levenshtein_generic.adb
+[Ada Compile]     gnatcoll-email-mailboxes.adb
+[Ada Compile]     gnatcoll-email-parser.adb
+[Ada Compile]     gnatcoll-email-utils.adb
+[Ada Compile]     gnatcoll-email.adb
+[Ada Compile]     gnatcoll-format_columns_vertical.ads
+[Ada Compile]     gnatcoll-formatters.adb
+[Ada Compile]     gnatcoll-geometry.adb
+[Ada Compile]     gnatcoll-io-native.adb
+[Ada Compile]     gnatcoll-io-remote-unix.adb
+[Ada Compile]     gnatcoll-io-remote-windows.adb
+gnatcoll-io-remote-unix.adb:409:36: warning: aspect Unreferenced specified for "Status" [enabled by default]
+gnatcoll-io-remote-unix.adb:434:36: warning: aspect Unreferenced specified for "Status" [enabled by default]
+[Ada Compile]     gnatcoll-io-remote.adb
+[Ada Compile]     gnatcoll-io.adb
+gnatcoll-io-remote-windows.adb:496:36: warning: aspect Unreferenced specified for "Status" [enabled by default]
+[Ada Compile]     gnatcoll-json-utility.adb
+[Ada Compile]     gnatcoll-json.adb
+gnatcoll-io-remote.adb:854:62: warning: aspect Unreferenced specified for "Dead" [enabled by default]
+[Ada Compile]     gnatcoll-locks.adb
+[Ada Compile]     gnatcoll-memory.adb
+[Ada Compile]     gnatcoll-mmap-system__win32.adb
+[Ada Compile]     gnatcoll-mmap.adb
+[Ada Compile]     gnatcoll-opt_parse.adb
+[Ada Compile]     gnatcoll-os-constants__windows.ads
+[Ada Compile]     gnatcoll-os-dir.adb
+gnatcoll-opt_parse.adb:225:17: error: (Ada 2005) cannot copy object of a limited type (RM-2005 6.5(5.5/2))
+gnatcoll-opt_parse.adb:225:17: error: consider switching to return of access type
+gnatcoll.gpr: error: [Ada Compile] gnatcoll-opt_parse.adb (gnatcoll.gpr) failed with status 1
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "D:\a\alire-crates-ci\alire-crates-ci\test\2a5c5884-7629-4ba9-b930-66f3670ed240\lmdb_ada_1.2.0_b9d19e0e\lmdb.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "D:\a\alire-crates-ci\alire-crates-ci\test\2a5c5884-7629-4ba9-b930-66f3670ed240\lmdb_ada_1.2.0_b9d19e0e\lmdb.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+stderr: ALIRE.CHECKED_ERROR
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "D:\a\alire-crates-ci\alire-crates-ci\test\2a5c5884-7629-4ba9-b930-66f3670ed240\lmdb_ada_1.2.0_b9d19e0e\lmdb.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
+[D:\a\alire-crates-ci\alire-crates-ci\alire_install\bin\alr.exe]
+0x7ff6221ada2a Semantic_Versioning.Basic.Restrictions.First_Index at alire.adb:284
+0x7ff621da595b Semantic_Versioning.Basic.Restrictions.First_Index at alire-os_lib-subprocess.adb:111
+0x7ff62205cba1 Semantic_Versioning.Basic.Restrictions.First_Index at alire-spawn.adb:22
+0x7ff62205dd5d Semantic_Versioning.Basic.Restrictions.First_Index at alire-spawn.adb:68
+0x7ff621f82d64 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:189
+0x7ff621f811da Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:255
+0x7ff621fa912d Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2143
+0x7ff6220182f9 Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1472
+0x7ff622017424 Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1555
+0x7ff621fa922c Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2147
+0x7ff621fa92fa Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2127
+0x7ff621f817a7 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:286
+0x7ff621f81912 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:114
+0x7ff6216f3baa Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:145
+0x7ff6216f341e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:113
+0x7ff6216f35ba Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:54
+0x7ff6217a5dea Semantic_Versioning.Basic.Restrictions.First_Index at clic-subcommand-instance.adb:749
+0x7ff6217b2b0e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands.adb:632
+0x7ff6216816a0 Alr.Main at alr-main.adb:13
+0x7ff621685270 Main at b__alr-main.adb:2454
+0x7ff62168133e __tmainCRTStartup at ???
+0x7ff621681144 mainCRTStartup at ???
+[C:\Windows\System32\KERNEL32.DLL]
+0x7ffde7afe8d5
+[C:\Windows\SYSTEM32\ntdll.dll]
+0x7ffde908c53a
+
+stderr: ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED
+stderr: alire-roots.adb:202
+stderr: raised ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED : alire-roots.adb:202
+[D:\a\alire-crates-ci\alire-crates-ci\alire_install\bin\alr.exe]
+0x7ff621f8313c Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:202
+0x7ff621f811da Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:255
+0x7ff621fa912d Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2143
+0x7ff6220182f9 Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1472
+0x7ff622017424 Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1555
+0x7ff621fa922c Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2147
+0x7ff621fa92fa Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2127
+0x7ff621f817a7 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:286
+0x7ff621f81912 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:114
+0x7ff6216f3baa Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:145
+0x7ff6216f341e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:113
+0x7ff6216f35ba Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:54
+0x7ff6217a5dea Semantic_Versioning.Basic.Restrictions.First_Index at clic-subcommand-instance.adb:749
+0x7ff6217b2b0e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands.adb:632
+0x7ff6216816a0 Alr.Main at alr-main.adb:13
+0x7ff621685270 Main at b__alr-main.adb:2454
+0x7ff62168133e __tmainCRTStartup at ???
+0x7ff621681144 mainCRTStartup at ???
+[C:\Windows\System32\KERNEL32.DLL]
+0x7ffde7afe8d5
+[C:\Windows\SYSTEM32\ntdll.dll]
+0x7ffde908c53a
+
+ERROR: Compilation failed.

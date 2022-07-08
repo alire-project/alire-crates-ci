@@ -1,0 +1,110 @@
+Test ran at 2026-07-12 01:01:47.176324+00:00
+
+SOLUTION:
+rabbitmq=0.1.0: Ada bindings for the librabbitmq C client library
+Origin: commit cf05eeb7b9c85a6a23fff7f57e4910bd3d38fd88 from https://github.com/geewiz/rabbitmq_ada.git
+Available when: (case Distribution is Arch => True, Debian => True, Fedora => True, Homebrew => True, Macports => True, Msys2 => True, Ubuntu => True, others => False)
+Properties:
+   Author: Jochen Lillich
+   Description: Ada bindings for the librabbitmq C client library
+   License: MIT
+   Maintainer: Jochen Lillich <hello@geewiz.dev>
+   Maintainers_Logins: geewiz
+   Name: rabbitmq
+   Tag: rabbitmq
+   Tag: amqp
+   Tag: message
+   Tag: queue
+   Version: 0.1.0
+   Website: https://github.com/geewiz/rabbitmq_ada
+Dependencies (direct):
+   librabbitmq*
+Dependencies (solution):
+   librabbitmq=0.15.0
+Dependencies (graph):
+   rabbitmq=0.1.0 --> librabbitmq=0.15.0 (*)
+
+
+LOG:
+[alr test] Testing rabbitmq=0.1.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get rabbitmq=0.1.0
+Note: Deploying rabbitmq=0.1.0...
+Note: Deploying librabbitmq=0.15.0...
+The system package 'mingw-w64-x86_64-rabbitmq-c' is about to be installed.
+This action might require admin privileges and impact your system installation.
+Do you want Alire to install this system package?
+Using default: Yes
+resolving dependencies...
+looking for conflicting packages...
+
+Packages (8) mingw-w64-x86_64-gcc-libs-15.1.0-7  mingw-w64-x86_64-gettext-runtime-0.25.1-1  mingw-w64-x86_64-libiconv-1.18-1  mingw-w64-x86_64-libwinpthread-13.0.0.r72.g7010671fa-1  mingw-w64-x86_64-openssl-3.5.1-1  mingw-w64-x86_64-popt-1.19-1  mingw-w64-x86_64-tzdata-2025b-2  mingw-w64-x86_64-rabbitmq-c-0.15.0-2
+
+Total Download Size:   10.38 MiB
+Total Installed Size:  68.82 MiB
+
+:: Proceed with installation? [Y/n] 
+:: Retrieving packages...
+ mingw-w64-x86_64-openssl-3.5.1-1-any downloading...
+ mingw-w64-x86_64-gcc-libs-15.1.0-7-any downloading...
+ mingw-w64-x86_64-libiconv-1.18-1-any downloading...
+ mingw-w64-x86_64-gettext-runtime-0.25.1-1-any downloading...
+ mingw-w64-x86_64-tzdata-2025b-2-any downloading...
+ mingw-w64-x86_64-rabbitmq-c-0.15.0-2-any downloading...
+ mingw-w64-x86_64-popt-1.19-1-any downloading...
+ mingw-w64-x86_64-libwinpthread-13.0.0.r72.g7010671fa-1-any downloading...
+checking keyring...
+checking package integrity...
+loading package files...
+checking for file conflicts...
+checking available disk space...
+:: Processing package changes...
+installing mingw-w64-x86_64-openssl...
+Optional dependencies for mingw-w64-x86_64-openssl
+    mingw-w64-x86_64-ca-certificates
+installing mingw-w64-x86_64-libwinpthread...
+installing mingw-w64-x86_64-tzdata...
+installing mingw-w64-x86_64-gcc-libs...
+installing mingw-w64-x86_64-libiconv...
+installing mingw-w64-x86_64-gettext-runtime...
+installing mingw-w64-x86_64-popt...
+installing mingw-w64-x86_64-rabbitmq-c...
+
+rabbitmq=0.1.0 successfully retrieved.
+Dependencies were solved as follows:
+
+   +b librabbitmq 0.15.0 (new,system package)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building rabbitmq=0.1.0/rabbitmq.gpr...
+Setup
+   [mkdir]        object directory for project Rabbitmq
+   [mkdir]        library directory for project Rabbitmq
+Compile
+   [C]            rabbitmq_ada_helpers.c
+   [Ada]          rabbitmq_config.ads
+   [Ada]          rabbitmq.ads
+   [Ada]          rabbitmq-queues.adb
+   [Ada]          rabbitmq-publishing.adb
+   [Ada]          rabbitmq-messages.adb
+In file included from D:\a\alire-crates-ci\alire-crates-ci\test\ca68f568-6f16-48c3-95be-643940854aa2\rabbitmq_0.1.0_cf05eeb7\src\rabbitmq_ada_helpers.c:6:
+C:\Users\runneradmin\AppData\Local\alire\cache\msys64\mingw64\include/amqp.h:10:5: warning: #warning "amqp.h is deprecated, use rabbitmq-c/amqp.h instead." [-Wcpp]
+   10 | #   warning "amqp.h is deprecated, use rabbitmq-c/amqp.h instead."
+      |     ^~~~~~~
+In file included from D:\a\alire-crates-ci\alire-crates-ci\test\ca68f568-6f16-48c3-95be-643940854aa2\rabbitmq_0.1.0_cf05eeb7\src\rabbitmq_ada_helpers.c:7:
+C:\Users\runneradmin\AppData\Local\alire\cache\msys64\mingw64\include/amqp_tcp_socket.h:10:5: warning: #warning "amqp_tcp_socket.h is deprecated, use rabbitmq-c/tcp_socket.h instead." [-Wcpp]
+   10 | #   warning "amqp_tcp_socket.h is deprecated, use rabbitmq-c/tcp_socket.h instead."
+      |     ^~~~~~~
+   [Ada]          rabbitmq-exchanges.adb
+   [Ada]          rabbitmq-exceptions.ads
+   [Ada]          rabbitmq-c_binding.ads
+   [Ada]          rabbitmq-consuming.adb
+   [Ada]          rabbitmq-connections.adb
+   [Ada]          rabbitmq-client.adb
+   [Ada]          rabbitmq-client-urls.adb
+   [Ada]          rabbitmq-channels.adb
+Build Libraries
+   [gprlib]       Rabbitmq.lexch
+   [archive]      libRabbitmq.a
+   [index]        libRabbitmq.a
+Success: Build finished successfully in 3.09 seconds.
+Found declared GPR file: rabbitmq.gpr
+[alr test] Test completed SUCCESSFULLY

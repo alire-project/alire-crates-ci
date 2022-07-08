@@ -1,0 +1,309 @@
+Test ran at 2025-07-17 01:10:48.247457+00:00
+
+SOLUTION:
+coap_spark=0.9.0: CoAP implementation formally verified with SPARK/Ada
+Origin: commit 81401167ac44c9178de4e130b1bd83228d62a3d2 from https://github.com/mgrojo/coap_spark.git
+Properties:
+   Author: Manuel Gomez
+   Build Switches: 
+   Config set: wolfssl {STATIC_PSK := true}
+   Configuration: no modifiers
+   Description: CoAP implementation formally verified with SPARK/Ada
+   License: Apache-2.0 OR GPL-2.0-or-later
+   Long_Description: CoAP-SPARK is a library implementing the Constrained Application Protocol (CoAP)
+as defined in
+[RFC 7252](https://www.rfc-editor.org/rfc/rfc7252), developed in the SPARK 
+language, the formally verified subset of the Ada programming language.
+
+This version implements the client side of the protocol with some limitations:
+- It does not support block-wise transfers.
+- It does not support retransmission of messages.
+- It only supports NoSec and PreSharedKey security modes.
+
+See LICENSING for licensing information.
+
+   Maintainer: Manuel Gomez <mgrojo@gmail.com>
+   Maintainers_Logins: mgrojo
+   Name: coap_spark
+   Tag: spark
+   Tag: coap
+   Tag: iot
+   Tag: protocol
+   Version: 0.9.0
+   Website: https://github.com/mgrojo/coap_spark
+Dependencies (direct):
+   gnatprove^14.1.1
+   wolfssl^5.8.0
+Dependencies (solution):
+   gnatprove=14.1.1
+   wolfssl=5.8.0
+Dependencies (graph):
+   coap_spark=0.9.0 --> gnatprove=14.1.1 (^14.1.1)
+   coap_spark=0.9.0 --> wolfssl=5.8.0 (^5.8.0)
+
+
+LOG:
+[alr test] Testing coap_spark=0.9.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get coap_spark=0.9.0
+Note: Deploying coap_spark=0.9.0...
+Note: Deploying gnatprove=14.1.1...
+
+#=#=#                                                                          
+##                                                                         4.0%
+#####                                                                      7.6%
+######                                                                     9.5%
+#########                                                                 12.5%
+##########                                                                15.0%
+##############                                                            19.8%
+#################                                                         24.3%
+####################                                                      27.8%
+######################                                                    30.6%
+#########################                                                 35.4%
+#############################                                             40.5%
+###############################                                           43.8%
+##################################                                        48.4%
+######################################                                    54.0%
+#######################################                                   54.8%
+#######################################                                   55.3%
+########################################                                  55.8%
+#########################################                                 57.9%
+############################################                              61.7%
+###############################################                           65.5%
+##################################################                        70.7%
+####################################################                      72.9%
+#####################################################                     74.2%
+#######################################################                   77.1%
+##########################################################                81.3%
+#############################################################             85.6%
+################################################################          89.4%
+###################################################################       93.8%
+#####################################################################     97.1%
+#######################################################################   99.6%
+######################################################################## 100.0%
+Note: Deploying wolfssl=5.8.0...
+
+coap_spark=0.9.0 successfully retrieved.
+Dependencies were solved as follows:
+
+   +b gnatprove 14.1.1 (new,binary)
+   +  wolfssl   5.8.0  (new)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building coap_spark=0.9.0/coap_spark.gpr...
+Setup
+   [mkdir]        object directory for project SPARKlib
+   [mkdir]        object directory for project WolfSSL
+   [mkdir]        library directory for project WolfSSL
+   [mkdir]        object directory for project Coap_Spark
+   [mkdir]        library directory for project Coap_Spark
+Compile
+   [Ada]          wolfssl.adb
+   [Ada]          spark_terminal.adb
+   [Ada]          spark_sockets.adb
+   [C]            wolfmath.c
+   [C]            wolfevent.c
+   [C]            wc_xmss_impl.c
+   [C]            wc_xmss.c
+   [C]            wc_port.c
+   [C]            wc_pkcs11.c
+   [C]            wc_mlkem_poly.c
+   [C]            wc_mlkem.c
+   [C]            wc_lms_impl.c
+   [C]            wc_lms.c
+   [C]            wc_encrypt.c
+   [C]            wc_dsp.c
+   [C]            tfm.c
+   [C]            srp.c
+   [C]            sp_x86_64.c
+   [C]            sp_sm2_x86_64.c
+   [C]            sp_sm2_cortexm.c
+   [C]            sp_sm2_c64.c
+   [C]            sp_sm2_c32.c
+   [C]            sp_sm2_armthumb.c
+   [C]            sp_sm2_arm64.c
+   [C]            sp_sm2_arm32.c
+   [C]            sp_int.c
+   [C]            sp_dsp32.c
+   [C]            sp_cortexm.c
+   [C]            sp_c64.c
+   [C]            sp_c32.c
+   [C]            sp_armthumb.c
+   [C]            sp_arm64.c
+   [C]            sp_arm32.c
+   [C]            sphincs.c
+   [C]            sm4.c
+   [C]            sm3.c
+   [C]            sm2.c
+   [C]            siphash.c
+   [C]            signature.c
+   [C]            sha512.c
+   [C]            sha3.c
+   [C]            sha256.c
+   [C]            sha.c
+   [C]            sakke.c
+   [C]            rsa.c
+   [C]            ripemd.c
+   [C]            rc2.c
+   [C]            random.c
+   [C]            pwdbased.c
+   [C]            poly1305.c
+   [C]            pkcs7.c
+   [C]            pkcs12.c
+   [C]            misc.c
+   [C]            memory.c
+   [C]            md5.c
+   [C]            md4.c
+   [C]            md2.c
+   [C]            logging.c
+   [C]            kdf.c
+   [C]            integer.c
+   [C]            hpke.c
+   [C]            hmac.c
+   [C]            hash.c
+   [C]            ge_operations.c
+   [C]            ge_low_mem.c
+   [C]            ge_448.c
+   [C]            fe_operations.c
+   [C]            fe_low_mem.c
+   [C]            fe_448.c
+   [C]            falcon.c
+   [C]            ext_xmss.c
+   [C]            ext_mlkem.c
+   [C]            ext_lms.c
+   [C]            evp.c
+   [C]            error.c
+   [C]            ed448.c
+   [C]            ed25519.c
+   [C]            ecc_fp.c
+   [C]            eccsi.c
+   [C]            ecc.c
+   [C]            dsa.c
+   [C]            dilithium.c
+   [C]            dh.c
+   [C]            des3.c
+   [C]            curve448.c
+   [C]            curve25519.c
+   [C]            cryptocb.c
+   [C]            cpuid.c
+   [C]            compress.c
+   [C]            coding.c
+   [C]            cmac.c
+   [C]            chacha20_poly1305.c
+   [C]            chacha.c
+   [C]            camellia.c
+   [C]            blake2s.c
+   [C]            blake2b.c
+   [C]            asn.c
+   [C]            asm.c
+   [C]            ascon.c
+   [C]            arc4.c
+   [C]            aes.c
+   [C]            x509_str.c
+   [C]            x509.c
+   [C]            wolfio.c
+   [C]            tls13.c
+   [C]            tls.c
+   [C]            ssl_sess.c
+   [C]            ssl_p7p12.c
+   [C]            ssl_misc.c
+   [C]            ssl_load.c
+   [C]            ssl_crypto.c
+   [C]            ssl_certman.c
+   [C]            ssl_bn.c
+   [C]            ssl_asn1.c
+   [C]            ssl.c
+   [C]            sniffer.c
+   [C]            quic.c
+   [C]            pk.c
+   [C]            ocsp.c
+   [C]            keys.c
+   [C]            internal.c
+   [C]            dtls13.c
+   [C]            dtls.c
+   [C]            crl.c
+   [C]            conf.c
+   [C]            bio.c
+   [C]            ada_binding.c
+   [Ada]          spark.ads
+   [Ada]          spark-tests.ads
+   [Ada]          spark-pointers.ads
+   [Ada]          spark-pointers-pointers_with_aliasing_separate_memory.adb
+   [Ada]          spark-pointers-pointers_with_aliasing.adb
+spark-pointers-pointers_with_aliasing_separate_memory.ads:16:03: warning: "Always_Terminates" is not a valid aspect identifier [enabled by default]
+   [Ada]          spark-pointers-abstract_sets.adb
+spark-pointers-pointers_with_aliasing.ads:14:03: warning: "Always_Terminates" is not a valid aspect identifier [enabled by default]
+   [Ada]          spark-pointers-abstract_maps.ads
+spark-pointers-abstract_sets.ads:16:03: warning: "Always_Terminates" is not a valid aspect identifier [enabled by default]
+   [Ada]          spark-lemmas.ads
+spark-pointers-abstract_maps.ads:17:03: warning: "Always_Terminates" is not a valid aspect identifier [enabled by default]
+   [Ada]          spark-lemmas-fixed_point_arithmetic.adb
+   [Ada]          spark-higher_order.adb
+spark-higher_order.ads:16:14: error: aspect "GHOST" must apply to an object, package, subprogram or type
+spark-higher_order.ads:36:14: error: aspect "GHOST" must apply to an object, package, subprogram or type
+spark-higher_order.ads:54:14: error: aspect "GHOST" must apply to an object, package, subprogram or type
+spark-higher_order.ads:69:14: error: aspect "GHOST" must apply to an object, package, subprogram or type
+spark-lemmas-fixed_point_arithmetic.ads:19:08: warning: "Always_Terminates" is not a valid aspect identifier [enabled by default]
+
+   compilation of spark-higher_order.adb failed
+
+gprbuild: *** compilation phase failed
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "D:\a\alire-crates-ci\alire-crates-ci\test\d2fd2334-4822-47ef-9431-72751cf9a19d\coap_spark_0.9.0_81401167\coap_spark.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "D:\a\alire-crates-ci\alire-crates-ci\test\d2fd2334-4822-47ef-9431-72751cf9a19d\coap_spark_0.9.0_81401167\coap_spark.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+stderr: ALIRE.CHECKED_ERROR
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "D:\a\alire-crates-ci\alire-crates-ci\test\d2fd2334-4822-47ef-9431-72751cf9a19d\coap_spark_0.9.0_81401167\coap_spark.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
+[D:\a\alire-crates-ci\alire-crates-ci\alire_install\bin\alr.exe]
+0x7ff78490da2a Semantic_Versioning.Basic.Restrictions.First_Index at alire.adb:284
+0x7ff78450595b Semantic_Versioning.Basic.Restrictions.First_Index at alire-os_lib-subprocess.adb:111
+0x7ff7847bcba1 Semantic_Versioning.Basic.Restrictions.First_Index at alire-spawn.adb:22
+0x7ff7847bdd5d Semantic_Versioning.Basic.Restrictions.First_Index at alire-spawn.adb:68
+0x7ff7846e2d64 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:189
+0x7ff7846e11da Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:255
+0x7ff78470912d Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2143
+0x7ff7847782f9 Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1472
+0x7ff784777424 Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1555
+0x7ff78470922c Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2147
+0x7ff7847092fa Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2127
+0x7ff7846e17a7 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:286
+0x7ff7846e1912 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:114
+0x7ff783e53baa Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:145
+0x7ff783e5341e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:113
+0x7ff783e535ba Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:54
+0x7ff783f05dea Semantic_Versioning.Basic.Restrictions.First_Index at clic-subcommand-instance.adb:749
+0x7ff783f12b0e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands.adb:632
+0x7ff783de16a0 Alr.Main at alr-main.adb:13
+0x7ff783de5270 Main at b__alr-main.adb:2454
+0x7ff783de133e __tmainCRTStartup at ???
+0x7ff783de1144 mainCRTStartup at ???
+[C:\Windows\System32\KERNEL32.DLL]
+0x7ffca4d14cae
+[C:\Windows\SYSTEM32\ntdll.dll]
+0x7ffca5b3edc9
+
+stderr: ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED
+stderr: alire-roots.adb:202
+stderr: raised ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED : alire-roots.adb:202
+[D:\a\alire-crates-ci\alire-crates-ci\alire_install\bin\alr.exe]
+0x7ff7846e313c Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:202
+0x7ff7846e11da Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:255
+0x7ff78470912d Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2143
+0x7ff7847782f9 Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1472
+0x7ff784777424 Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1555
+0x7ff78470922c Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2147
+0x7ff7847092fa Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2127
+0x7ff7846e17a7 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:286
+0x7ff7846e1912 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:114
+0x7ff783e53baa Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:145
+0x7ff783e5341e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:113
+0x7ff783e535ba Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:54
+0x7ff783f05dea Semantic_Versioning.Basic.Restrictions.First_Index at clic-subcommand-instance.adb:749
+0x7ff783f12b0e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands.adb:632
+0x7ff783de16a0 Alr.Main at alr-main.adb:13
+0x7ff783de5270 Main at b__alr-main.adb:2454
+0x7ff783de133e __tmainCRTStartup at ???
+0x7ff783de1144 mainCRTStartup at ???
+[C:\Windows\System32\KERNEL32.DLL]
+0x7ffca4d14cae
+[C:\Windows\SYSTEM32\ntdll.dll]
+0x7ffca5b3edc9
+
+ERROR: Compilation failed.

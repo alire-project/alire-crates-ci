@@ -1,0 +1,112 @@
+Test ran at 2026-07-15 13:10:11.551045+00:00
+
+SOLUTION:
+aws=25.2.0: Ada Web Server
+Origin: source archive aws-25.2.0-with-templates-parser.zip at https://github.com/AdaCore/aws/releases/download/v25.2.0/aws-25.2.0-with-templates-parser.zip with hash sha512:bb26af84c502135c3ec1137c895d628e5f068810e3ad6c1cad6113256d44d764794ecfdcc12fa9efbdcfc3eaa4a971b56f35dae7c0bbe0f6d953cbaf45a40e10
+Properties:
+   Post_Fetch run: sh -c mkdir -p `gcc -dumpmachine`/setup/src (from ${CRATE_ROOT}/.)
+   Post_Fetch run: sh -c make setup ZLIB=false DEMOS=false LAL=false XMLADA=true SOCKET=openssl prefix=install_dir PRJ_BUILD=Release (from ${CRATE_ROOT}/.)
+   Post_Fetch run: sh -c mv `gcc -dumpmachine`/ build/ (from ${CRATE_ROOT}/.)
+   Author: AdaCore
+   Description: Ada Web Server
+   GPR Scenario: PRJ_TARGET := Windows_NT | UNIX | Darwin | vxworks | freebsd
+   GPR Scenario: TARGET := <string>
+   GPR Scenario: TGT_DIR := <string>
+   case OS is
+      when Freebsd => (GPR External: PRJ_TARGET := freebsd and GPR External: TARGET := build and GPR External: TGT_DIR := ../build)
+      when Linux => (GPR External: PRJ_TARGET := UNIX and GPR External: TARGET := build and GPR External: TGT_DIR := ../build)
+      when Macos => (GPR External: PRJ_TARGET := Darwin and GPR External: TARGET := build and GPR External: TGT_DIR := ../build)
+      when Windows => (GPR External: PRJ_TARGET := Windows_NT and GPR External: TARGET := build and GPR External: TGT_DIR := ../build)
+   License: GPL-3.0-only WITH GCC-exception-3.1
+   Maintainer: chouteau@adacore.com
+   Maintainers_Logins: Fabien-Chouteau
+   Name: aws
+   Project_File: aws.gpr
+   Project_File: build/projects/aws_config.gpr
+   Tag: aws
+   Tag: web
+   Tag: server
+   Tag: http
+   Tag: https
+   Tag: soap
+   Tag: wsdl
+   Tag: ssl
+   Version: 25.2.0
+   Website: https://github.com/adacore/aws
+Dependencies (direct):
+   gnat>=12
+   gnatcoll~25.0.0
+   make*
+   openssl>=1.1.0
+   xmlada~25.0.0
+Dependencies (solution):
+   gnat=15.1.2 (gnat_native)
+   gnatcoll=25.0.0
+   libgpr=25.0.0
+   make=4.4.1
+   openssl=3.6.2
+   xmlada=25.0.0
+Dependencies (graph):
+   aws=25.2.0      --> gnat=15.1.2 (gnat_native) (>=12)
+   aws=25.2.0      --> gnatcoll=25.0.0 (~25.0.0)
+   aws=25.2.0      --> make=4.4.1 (*)
+   aws=25.2.0      --> openssl=3.6.2 (>=1.1.0)
+   aws=25.2.0      --> xmlada=25.0.0 (~25.0.0)
+   gnatcoll=25.0.0 --> gnat=15.1.2 (gnat_native) (>=13)
+   gnatcoll=25.0.0 --> libgpr=25.0.0 (~25.0.0)
+   libgpr=25.0.0   --> gnat=15.1.2 (gnat_native) (/=2020)
+   libgpr=25.0.0   --> xmlada=25.0.0 (~25.0.0)
+   xmlada=25.0.0   --> gnat=15.1.2 (gnat_native) (>=11)
+
+
+LOG:
+[alr test] Testing aws=25.2.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get aws=25.2.0
+Note: Deploying aws=25.2.0...
+#=#=#                                                                          
+##O#-#                                                                         
+
+######################################################################## 100.0%
+
+aws=25.2.0 successfully retrieved.
+Dependencies were solved as follows:
+
+   +b gnat     15.1.2 (new,gnat_native,binary)
+   +  gnatcoll 25.0.0 (new)
+   +  libgpr   25.0.0 (new,indirect)
+   +b make     4.4.1  (new,system package)
+   +b openssl  3.6.2  (new,system package)
+   +  xmlada   25.0.0 (new)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Running post-fetch actions for aws=25.2.0...
+Setup
+   [mkdir]        exec directory for project Setup
+Bind
+   [gprbind]      xoscons.bexch
+   [Ada]          xoscons.ali
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+Link
+   [link]         xoscons.adb
+ld: library not found for -lSystem
+collect2: error: ld returned 1 exit status
+gprbuild: link of xoscons.adb failed
+gprbuild: failed command was: /users/runner/.local/share/alire/toolchains/gnat_native_15.1.2_60748c54/bin/gcc xoscons.o b__xoscons.o /Users/runner/work/alire-crates-ci/alire-crates-ci/test/6be21acf-e7ce-4ed7-824f-eedb407233fc/aws_25.2.0_bb26af84/aarch64-apple-darwin23.6.0/setup/obj/xutil.o -L/Users/runner/work/alire-crates-ci/alire-crates-ci/test/6be21acf-e7ce-4ed7-824f-eedb407233fc/aws_25.2.0_bb26af84/aarch64-apple-darwin23.6.0/setup/obj/ -L/Users/runner/work/alire-crates-ci/alire-crates-ci/test/6be21acf-e7ce-4ed7-824f-eedb407233fc/aws_25.2.0_bb26af84/aarch64-apple-darwin23.6.0/setup/obj/ -L/users/runner/.local/share/alire/toolchains/gnat_native_15.1.2_60748c54/lib/gcc/aarch64-apple-darwin23.6.0/15.0.1/adalib/ -static-libgcc /users/runner/.local/share/alire/toolchains/gnat_native_15.1.2_60748c54/lib/gcc/aarch64-apple-darwin23.6.0/15.0.1/adalib/libgnat.a -Wl,-rpath,@executable_path/..//obj -Wl,-rpath,@executable_path/../../../../../../../../..//.local/share/alire/toolchains/gnat_native_15.1.2_60748c54/lib/gcc/aarch64-apple-darwin23.6.0/15.0.1/adalib -o /Users/runner/work/alire-crates-ci/alire-crates-ci/test/6be21acf-e7ce-4ed7-824f-eedb407233fc/aws_25.2.0_bb26af84/aarch64-apple-darwin23.6.0/setup/bin//xoscons
+Setup OS specific definitions
+aws-os_lib-tmplt.c:77:10: fatal error: stdlib.h: No such file or directory
+   77 | #include <stdlib.h>
+      |          ^~~~~~~~~~
+compilation terminated.
+/bin/sh: /Users/runner/work/alire-crates-ci/alire-crates-ci/test/6be21acf-e7ce-4ed7-824f-eedb407233fc/aws_25.2.0_bb26af84/aarch64-apple-darwin23.6.0/setup/bin/xoscons: No such file or directory
+make[1]: *** [/src/aws-os_lib.ads] Error 127
+make: *** [config_setup] Error 2
+Warning: Execution failed for action: Post_Fetch run: sh -c make setup ZLIB=false DEMOS=false LAL=false XMLADA=true SOCKET=openssl prefix=install_dir PRJ_BUILD=Release (from ${CRATE_ROOT}/.)
+Warning: Exit code: 2
+Warning: Action output not captured, check it above.
+stderr: ALIRE.PROPERTIES.ACTIONS.ACTION_FAILED
+stderr: Action failed with exit code 2
+stderr: raised ALIRE.PROPERTIES.ACTIONS.ACTION_FAILED : Action failed with exit code 2
+Load address: 0x1026ec000
+Call stack traceback locations:
+0x1033f80cc 0x1033f812c 0x102d9bfe4 0x102d9a788 0x102f539c0 0x102f7778c 0x102fd756c 0x102fd699c 0x102f77868 0x102f77950 0x102f5400c 0x102f54174 0x10275d730 0x10275d070 0x10275d1e4 0x1027fab38 0x102805c78 0x1026ee9f8 0x1026f3a2c
+
+ERROR: Compilation failed.

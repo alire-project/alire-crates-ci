@@ -1,0 +1,106 @@
+Test ran at 2024-03-22 00:53:04.168678+00:00
+
+SOLUTION:
+ews=1.11.0: Embedded Web Server
+Origin: commit 17517ec52b96488d433ec1d49946d74441d57a1e from https://github.com/simonjwright/ews.git
+Properties:
+   Post_Build run: gprbuild -P generator/ews_generator.gpr (from ${CRATE_ROOT}/.)
+   Author: Simon Wright <simon@pushface.org>
+   Configuration: no modifiers
+   Description: Embedded Web Server
+   Environment: PATH=${PATH}:${CRATE_ROOT}/bin
+   GPR Scenario: LIBRARY_TYPE := relocatable | static
+   License: GPL-3.0-or-later WITH GCC-exception-3.1
+   Long_Description: EWS is a web server construction kit, designed for embedded
+applications using the GNAT Ada compiler.
+
+The project is hosted at https://github.com/simonjwright/ews.
+
+
+   Maintainer: Simon Wright <simon@pushface.org>
+   Maintainers_Logins: simonjwright
+   Name: ews
+   Project_File: ews.gpr
+   Tag: web
+   Tag: server
+   Version: 1.11.0
+   Website: https://github.com/simonjwright/ews
+Dependencies (direct):
+   xmlada*
+Dependencies (solution):
+   xmlada=21.0.0
+Dependencies (graph):
+   ews=1.11.0 --> xmlada=21.0.0 (*)
+
+
+LOG:
+Spawning: alr -d -n get --build ews=1.11.0
+Note: Deploying ews=1.11.0...
+Note: Building ews=1.11.0/ews.gpr...
+Setup
+   [mkdir]        object directory for project EWS
+   [mkdir]        library directory for project EWS
+Compile
+   [Ada]          schema-validators-xsd_grammar.adb
+   [Ada]          schema-validators.adb
+   [Ada]          schema-decimal.adb
+   [Ada]          schema-readers.adb
+   [Ada]          schema-dom_readers.adb
+   [Ada]          schema-schema_readers.adb
+   [Ada]          schema-date_time.adb
+   [Ada]          schema-simple_types.adb
+   [Ada]          schema.adb
+   [Ada]          dom-core-comments.ads
+   [Ada]          dom-core-character_datas.adb
+   [Ada]          dom-core-documents.adb
+   [Ada]          dom-core-document_types.adb
+   [Ada]          dom-core-cdata_sections.ads
+   [Ada]          dom-core-elements.adb
+   [Ada]          dom.ads
+   [Ada]          dom-core-document_fragments.ads
+   [Ada]          dom-core-processing_instructions.ads
+   [Ada]          dom-core-entity_references.ads
+   [Ada]          dom-core.adb
+   [Ada]          dom-core-nodes.adb
+   [Ada]          dom-core-texts.adb
+   [Ada]          dom-core-notations.adb
+   [Ada]          dom-readers.adb
+   [Ada]          dom-core-attrs.adb
+   [ada]          ews-types.adb
+   [ada]          ews-http-ews_attachments_friend.adb
+   [ada]          ews-server.adb
+   [ada]          ews-http.adb
+   [ada]          ews-dynamic.adb
+   [ada]          ews-static.adb
+   [ada]          input_sources-ews_attachments.adb
+   [ada]          ews-reference_counted_pointers_g.adb
+   [ada]          ews.ads
+Build Libraries
+   [gprlib]       xmlada_dom.lexch
+   [gprlib]       xmlada_schema.lexch
+   [archive]      libxmlada_dom.a
+   [index]        libxmlada_dom.a
+   [gprlib]       ews.lexch
+   [archive]      libxmlada_schema.a
+   [index]        libxmlada_schema.a
+   [archive]      libews.a
+   [index]        libews.a
+Note: Running post-build actions for ews=1.11.0...
+Setup
+   [mkdir]        object directory for project EWS_Generator
+   [mkdir]        exec directory for project EWS_Generator
+Compile
+   [Ada]          generator.adb
+   [Ada]          ews.ads
+   [Ada]          ews-types.adb
+Bind
+   [gprbind]      generator.bexch
+   [Ada]          generator.ali
+Link
+   [link]         generator.adb
+
+ews=1.11.0 successfully retrieved and built.
+Dependencies were solved as follows:
+
+   + xmlada 21.0.0 (new)
+Found declared GPR file: ews.gpr

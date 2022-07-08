@@ -1,0 +1,153 @@
+Test ran at 2026-07-14 01:19:15.300106+00:00
+
+SOLUTION:
+markdown=26.0.0: Markdown parser
+Origin: source archive v26.0.0.zip at https://github.com/AdaCore/markdown/archive/refs/tags/v26.0.0.zip with hash sha512:87a903dc35f02dc643b92afa4875642e922a1b1725e94c235b900f1e6999e56fd9632d1e5d7fb04158da348cbf286bd80ff8dcbc94e216a8cd418cb84d233403
+Properties:
+   Author: AdaCore
+   Build Switches: 
+   Configuration: no modifiers
+   Description: Markdown parser
+   GPR Scenario: MARKDOWN_BUILD_MODE := dev | prod | coverage
+   GPR Scenario: MARKDOWN_LIBRARY_TYPE := relocatable | static | static-pic
+   GPR External: MARKDOWN_BUILD_MODE := prod
+   License: Apache-2.0
+   Maintainer: Max Reznik <reznik@adacore.com>
+   Maintainer: chouteau@adacore.com
+   Maintainer: sagaert@adacore.com
+   Maintainers_Logins: reznikmm
+   Maintainers_Logins: Fabien-Chouteau
+   Maintainers_Logins: AldanTanneo
+   Name: markdown
+   Project_File: gnat/markdown.gpr
+   Tag: markdown
+   Tag: gfm
+   Tag: commonmark
+   Version: 26.0.0
+Dependencies (direct):
+   vss_extra~26.0.0
+   vss_text~26.0.0
+Dependencies (solution):
+   vss_extra=26.0.0
+   vss_text=26.0.0
+Dependencies (graph):
+   markdown=26.0.0  --> vss_extra=26.0.0 (~26.0.0)
+   markdown=26.0.0  --> vss_text=26.0.0 (~26.0.0)
+   vss_extra=26.0.0 --> vss_text=26.0.0 (^26.0.0)
+
+
+LOG:
+[alr test] Testing markdown=26.0.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get markdown=26.0.0
+Note: Deploying markdown=26.0.0...
+
+#=#=#                                                                          
+Note: Deploying vss_text=26.0.0...
+
+#=#=#                                                                          
+##O#-#                                                                         
+Note: Deploying vss_extra=26.0.0...
+
+#=#=#                                                                          
+##O#-#                                                                         
+
+markdown=26.0.0 successfully retrieved.
+Dependencies were solved as follows:
+
+   + vss_extra 26.0.0 (new)
+   + vss_text  26.0.0 (new)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building markdown=26.0.0/gnat/markdown.gpr...
+Setup
+   [mkdir]        object directory for project VSS_GNAT
+   [mkdir]        library directory for project VSS_GNAT
+   [mkdir]        object directory for project VSS_RegExp
+   [mkdir]        library directory for project VSS_RegExp
+   [mkdir]        object directory for project Markdown
+   [mkdir]        library directory for project Markdown
+Compile
+   [Ada]          vss-xml-templates-proxies-strings.adb
+   [Ada]          vss-xml-templates-proxies-booleans.adb
+   [Ada]          vss-xml-templates-processors.adb
+   [Ada]          vss-xml-implementation-template_programs.ads
+vss-xml-templates-processors.adb:106:24: target_name is an Ada 2020 feature
+vss-xml-templates-processors.adb:236:24: target_name is an Ada 2020 feature
+vss-xml-templates-processors.adb:249:27: target_name is an Ada 2020 feature
+vss-strings.ads:58:06: illegal character, replaced by "("
+vss-strings.ads:61:11: "String_Literal" is not a valid aspect identifier
+vss-strings.ads:62:11: "Put_Image" is not a valid aspect identifier
+vss-strings.ads:58:06: illegal character, replaced by "("
+vss-strings.ads:61:11: "String_Literal" is not a valid aspect identifier
+vss-strings.ads:62:11: "Put_Image" is not a valid aspect identifier
+vss-strings.ads:58:06: illegal character, replaced by "("
+vss-strings.ads:61:11: "String_Literal" is not a valid aspect identifier
+vss-strings.ads:62:11: "Put_Image" is not a valid aspect identifier
+vss-string_vectors.ads:30:08: "Aggregate" is not a valid aspect identifier
+
+   compilation of vss-xml-implementation-template_programs.ads failed
+   compilation of vss-xml-templates-processors.adb failed
+   compilation of vss-xml-templates-proxies-booleans.adb failed
+   compilation of vss-xml-templates-proxies-strings.adb failed
+
+gprbuild: *** compilation phase failed
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "D:\a\alire-crates-ci\alire-crates-ci\test\42280443-b865-496e-9875-8b45522504be\markdown_26.0.0_87a903dc\gnat/markdown.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "D:\a\alire-crates-ci\alire-crates-ci\test\42280443-b865-496e-9875-8b45522504be\markdown_26.0.0_87a903dc\gnat/markdown.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+stderr: ALIRE.CHECKED_ERROR
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "D:\a\alire-crates-ci\alire-crates-ci\test\42280443-b865-496e-9875-8b45522504be\markdown_26.0.0_87a903dc\gnat/markdown.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
+[D:\a\alire-crates-ci\alire-crates-ci\alire_install\bin\alr.exe]
+0x7ff72e52da2a Semantic_Versioning.Basic.Restrictions.First_Index at alire.adb:284
+0x7ff72e12595b Semantic_Versioning.Basic.Restrictions.First_Index at alire-os_lib-subprocess.adb:111
+0x7ff72e3dcba1 Semantic_Versioning.Basic.Restrictions.First_Index at alire-spawn.adb:22
+0x7ff72e3ddd5d Semantic_Versioning.Basic.Restrictions.First_Index at alire-spawn.adb:68
+0x7ff72e302d64 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:189
+0x7ff72e3011da Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:255
+0x7ff72e32912d Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2143
+0x7ff72e3982f9 Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1472
+0x7ff72e397424 Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1555
+0x7ff72e32922c Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2147
+0x7ff72e3292fa Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2127
+0x7ff72e3017a7 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:286
+0x7ff72e301912 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:114
+0x7ff72da73baa Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:145
+0x7ff72da7341e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:113
+0x7ff72da735ba Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:54
+0x7ff72db25dea Semantic_Versioning.Basic.Restrictions.First_Index at clic-subcommand-instance.adb:749
+0x7ff72db32b0e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands.adb:632
+0x7ff72da016a0 Alr.Main at alr-main.adb:13
+0x7ff72da05270 Main at b__alr-main.adb:2454
+0x7ff72da0133e __tmainCRTStartup at ???
+0x7ff72da01144 mainCRTStartup at ???
+[C:\Windows\System32\KERNEL32.DLL]
+0x7ffb9477e8d5
+[C:\Windows\SYSTEM32\ntdll.dll]
+0x7ffb968ec53a
+
+stderr: ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED
+stderr: alire-roots.adb:202
+stderr: raised ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED : alire-roots.adb:202
+[D:\a\alire-crates-ci\alire-crates-ci\alire_install\bin\alr.exe]
+0x7ff72e30313c Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:202
+0x7ff72e3011da Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:255
+0x7ff72e32912d Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2143
+0x7ff72e3982f9 Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1472
+0x7ff72e397424 Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1555
+0x7ff72e32922c Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2147
+0x7ff72e3292fa Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2127
+0x7ff72e3017a7 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:286
+0x7ff72e301912 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:114
+0x7ff72da73baa Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:145
+0x7ff72da7341e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:113
+0x7ff72da735ba Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:54
+0x7ff72db25dea Semantic_Versioning.Basic.Restrictions.First_Index at clic-subcommand-instance.adb:749
+0x7ff72db32b0e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands.adb:632
+0x7ff72da016a0 Alr.Main at alr-main.adb:13
+0x7ff72da05270 Main at b__alr-main.adb:2454
+0x7ff72da0133e __tmainCRTStartup at ???
+0x7ff72da01144 mainCRTStartup at ???
+[C:\Windows\System32\KERNEL32.DLL]
+0x7ffb9477e8d5
+[C:\Windows\SYSTEM32\ntdll.dll]
+0x7ffb968ec53a
+
+ERROR: Compilation failed.

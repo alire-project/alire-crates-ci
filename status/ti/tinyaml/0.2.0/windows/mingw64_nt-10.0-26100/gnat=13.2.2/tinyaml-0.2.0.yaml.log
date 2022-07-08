@@ -1,0 +1,88 @@
+Test ran at 2026-08-17 00:28:28.798996+00:00
+
+SOLUTION:
+tinyaml=0.2.0: A strict YAML subset parser for Ada, inspired by StrictYAML
+Origin: commit be50c2ab58613763b6664e100d9ede10c5ef1ec0 from https://github.com/geewiz/tinyaml_ada.git
+Properties:
+   Author: Jochen Lillich
+   Description: A strict YAML subset parser for Ada, inspired by StrictYAML
+   GPR Scenario: TINYAML_STYLE_CHECKS := -gnaty3abcefhiklmnoprstux | -gnatyN
+   GPR External: TINYAML_STYLE_CHECKS := -gnaty3abcefhiklmnoprstux
+   License: MIT
+   Maintainer: Jochen Lillich <hello@geewiz.dev>
+   Maintainers_Logins: geewiz
+   Name: tinyaml
+   Tag: yaml
+   Tag: parser
+   Tag: validation
+   Tag: configuration
+   Tag: strictyaml
+   Version: 0.2.0
+   Website: https://github.com/geewiz/tinyaml
+Dependencies (direct):
+   gnat>=13
+Dependencies (solution):
+   gnat=13.2.2 (gnat_native)
+Dependencies (graph):
+   tinyaml=0.2.0 --> gnat=13.2.2 (gnat_native) (>=13)
+
+
+LOG:
+[alr test] Testing tinyaml=0.2.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get tinyaml=0.2.0
+Note: Deploying tinyaml=0.2.0...
+
+tinyaml=0.2.0 successfully retrieved.
+Dependencies were solved as follows:
+
+   +b gnat 13.2.2 (new,gnat_native,binary)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building tinyaml=0.2.0/tinyaml.gpr...
+Setup
+   [mkdir]        object directory for project Tinyaml
+   [mkdir]        library directory for project Tinyaml
+Compile
+   [Ada]          tinyaml_config.ads
+   [Ada]          tinyaml.adb
+   [Ada]          tinyaml-validation.adb
+   [Ada]          tinyaml-schemas.adb
+   [Ada]          tinyaml-schemas-str.adb
+   [Ada]          tinyaml-schemas-seq.adb
+   [Ada]          tinyaml-schemas-prelude.ads
+   [Ada]          tinyaml-schemas-map.adb
+   [Ada]          tinyaml-schemas-int.adb
+   [Ada]          tinyaml-schemas-flt.adb
+   [Ada]          tinyaml-schemas-enum.adb
+tinyaml-schemas-seq.adb:12:13: (style) subprogram body "Get_Schema" not in alphabetical order
+tinyaml-schemas-seq.adb:45:24: (style) subprogram body "Describe" not in alphabetical order
+   [Ada]          tinyaml-schemas-constraints.ads
+   [Ada]          tinyaml-schemas-constraints-range_constraint.adb
+tinyaml-schemas-flt.adb:6:04: (style) subprogram body has no previous spec
+   [Ada]          tinyaml-schemas-bool.adb
+tinyaml-schemas-constraints-range_constraint.adb:3:04: (style) subprogram body has no previous spec
+tinyaml-schemas-constraints-range_constraint.adb:13:24: (style) subprogram body "Check" not in alphabetical order
+   [Ada]          tinyaml-schemas-any.ads
+tinyaml-schemas-bool.adb:7:04: (style) subprogram body has no previous spec
+   [Ada]          tinyaml-parser.adb
+   [Ada]          tinyaml-nodes.adb
+tinyaml-parser.adb:59:13: (style) subprogram body "Parse_Value_After_Colon" not in alphabetical order
+tinyaml-parser.adb:137:13: (style) subprogram body "Parse_Indented_Value" not in alphabetical order
+tinyaml-parser.adb:331:13: (style) subprogram body "Parse_Document" not in alphabetical order
+tinyaml-parser.ads:17:80: (style) this line is too long
+   [Ada]          tinyaml-nodes-sequence.adb
+   [Ada]          tinyaml-nodes-scalar.adb
+   [Ada]          tinyaml-nodes-prelude.ads
+tinyaml-schemas-map.adb:35:14: (style) subprogram body "Add_Field" not in alphabetical order
+   [Ada]          tinyaml-nodes-navigation.adb
+   [Ada]          tinyaml-nodes-map.adb
+tinyaml-schemas-enum.adb:16:24: (style) subprogram body "Is_Valid" not in alphabetical order
+   [Ada]          tinyaml-lexer.adb
+   [Ada]          tinyaml-documents.adb
+tinyaml-nodes.adb:26:14: (style) subprogram body "Free_Map_Children" not in alphabetical order
+Build Libraries
+   [gprlib]       Tinyaml.lexch
+   [archive]      libTinyaml.a
+   [index]        libTinyaml.a
+Success: Build finished successfully in 7.25 seconds.
+Found declared GPR file: tinyaml.gpr
+[alr test] Test completed SUCCESSFULLY

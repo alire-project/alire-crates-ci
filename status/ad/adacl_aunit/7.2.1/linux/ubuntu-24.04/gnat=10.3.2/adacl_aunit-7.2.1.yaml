@@ -1,0 +1,350 @@
+badge: false
+crate: adacl_aunit
+creation_timestamp: 1787846168.4787827
+distro: ubuntu-24.04
+duration: 1.5098109059999842
+gnat: 10.3.2
+last_attempt: 2026-08-27 16:06:05.047340+00:00
+log:
+- 'Test ran at 2026-08-27 16:06:05.047315+00:00
+
+
+  '
+- 'SOLUTION:
+
+  '
+- 'adacl_aunit=7.2.1: Ada 2022 AUnit with readable asserts & paramerised test
+
+  '
+- 'Origin: source archive adacl_aunit-7.2.1.tgz at https://sourceforge.net/projects/adacl/files/Alire/adacl_aunit-7.2.1.tgz
+  with hashes sha256:fbf0163b0581412425dbb8197ea46dcc7219852027a52f63dd22b3f013b6c461,
+  sha512:c62b793930a97639f817f16d897f3d8593c96d54e3a48a3388380761ab80e4b744fb62f0a6df98c99662a8c802df7ac46bd5a21337cec7f785b3c5d498974fa2
+
+  '
+- 'Properties:
+
+  '
+- '   Test run: alr --chdir=test run (from ${CRATE_ROOT}/.)
+
+  '
+- '   Author: Martin Krischik <krischik@users.sourceforge.net>
+
+  '
+- "   Build Switches: \n"
+- '   Description: Ada 2022 AUnit with readable asserts & paramerised test
+
+  '
+- '   License: GPL-3.0-or-later
+
+  '
+- '   Long_Description: A versatile Ada 2022 testing library, enhancing AUnit with
+  readable assertions and
+
+  '
+- 'parameterised tests.
+
+  '
+- '
+
+  '
+- '## Features
+
+  '
+- '
+
+  '
+- '### AUnit-Compatible Assertions
+
+  '
+- '
+
+  '
+- '  - Generic support for access, array, discrete, floating-point, fixed-point, decimal,
+  vector types, and files.
+
+  '
+- '  - **Readable Error Messages**: Assertions provide detailed feedback.
+
+  '
+- '
+
+  '
+- 'Example for unbounded strings:
+
+  '
+- '
+
+  '
+- '```ada
+
+  '
+- '    procedure Equal
+
+  '
+- "       (Actual\t : Ada.Strings.Unbounded.Unbounded_String;\n"
+- "\tExpected : String;\n"
+- "\tName\t : String;\n"
+- "\tSource\t : String  := GNAT.Source_Info.File;\n"
+- "\tLine\t : Natural := GNAT.Source_Info.Line)\n"
+- '    is
+
+  '
+- '       use Ada.Strings.Unbounded;
+
+  '
+- '    begin
+
+  '
+- '       if not (Actual = Expected) then
+
+  '
+- "\t  Report_Assertion\n"
+- "\t     (Message => \"In string \xC2\xAB\" & Name & \"\xC2\xBB the \" & Actual'Image\
+  \ & \" is not equal to \" & Expected'Image,\n"
+- "\t      Source  => Source,\n"
+- "\t      Line    => Line);\n"
+- '       end if;
+
+  '
+- '    end Equal;
+
+  '
+- '```
+
+  '
+- '
+
+  '
+- 'This yields clear, context-rich error messages, surpassing standard AUnit
+
+  '
+- 'output.
+
+  '
+- '
+
+  '
+- '## Parameterised Tests
+
+  '
+- '
+
+  '
+- 'Run the same test with varied inputs and expected values, boosting coverage
+
+  '
+- 'efficiently.
+
+  '
+- '
+
+  '
+- 'Example from hp41cx_tools:
+
+  '
+- '
+
+  '
+- '```ada
+
+  '
+- 'overriding procedure Register_Tests (T : in out Test_Case) is
+
+  '
+- '   pragma Debug (AdaCL.Trace.Entering (In_Parameter => T.Name.all''Image));
+
+  '
+- 'begin
+
+  '
+- "   T.Parameter.Register_Routine (T, Test_To_HP_Duration_01'Access, \"WAKE_UP\"\
+  ,\t   \"2024-12-01 08:00:00\",   [3, 9, 4, 2, 0, 2, 8, 8, 0, 0, 0], 3942028800.0);\n"
+- "   T.Parameter.Register_Routine (T, Test_To_HP_Duration_01'Access, \"^LBLTEST\"\
+  ,\t   \"2025-07-22 12:00:00\",   [3, 9, 6, 2, 1, 7, 4, 4, 0, 0, 0], 3962174400.0);\n"
+- "   T.Parameter.Register_Routine (T, Test_To_HP_Duration_01'Access, \"TONE\",\t\
+  \   \"2025-11-12 09:12:34\",   [3, 9, 7, 1, 9, 2, 7, 5, 5, 4, 0], 3971927554.0);\n"
+- "   T.Parameter.Register_Routine (T, Test_To_HP_Duration_01'Access, \"FRACTION\"\
+  ,\t   \"2025-11-12 09:12:34.5\", [3, 9, 7, 1, 9, 2, 7, 5, 5, 4, 5], 3971927554.5);\n"
+- "   T.Parameter.Register_Routine (T, Test_To_HP_Duration_01'Access, \"REPEAT24\"\
+  ,\t   \"24:00:00\",\t\t    [0, 0, 0, 0, 0, 8, 6, 4, 0, 0, 0], 0000086400.0);\n"
+- "   T.Parameter.Register_Routine (T, Test_To_HP_Duration_01'Access, \"REPEAT'First\"\
+  , \"0000:00:01.0\",\t    [0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0], 0000000010.0);\n"
+- "   T.Parameter.Register_Routine (T, Test_To_HP_Duration_01'Access, \"REPEAT'Last\"\
+  ,  \"9999:59:59.9\",\t    [0, 0, 3, 5, 9, 9, 9, 9, 9, 9, 9], 0035999999.9);\n"
+- '   pragma Debug (AdaCL.Trace.Exiting);
+
+  '
+- '   return;
+
+  '
+- 'end Register_Tests;
+
+  '
+- '```
+
+  '
+- '
+
+  '
+- 'Registering tests multiple times with different data enhances test coverage
+
+  '
+- 'without redundant code.
+
+  '
+- '
+
+  '
+- 'Source: [SourceForge](https://sourceforge.net/p/adacl/git/ci/master/tree/adacl_aunit/test/src/)
+
+  '
+- 'Documentation: [GNATdoc](https://adacl.sourceforge.net/gnatdoc/adacl_aunit_test/index.html)
+
+  '
+- '
+
+  '
+- '   Maintainer: Martin Krischik <krischik@users.sourceforge.net>
+
+  '
+- '   Maintainers_Logins: krischik
+
+  '
+- '   Name: adacl_aunit
+
+  '
+- '   Tag: library
+
+  '
+- '   Tag: aunit
+
+  '
+- '   Tag: assert
+
+  '
+- '   Tag: ada2022
+
+  '
+- '   Version: 7.2.1
+
+  '
+- '   Website: https://sourceforge.net/projects/adacl_aunit/
+
+  '
+- 'Dependencies (direct):
+
+  '
+- '   adacl^7.2
+
+  '
+- '   aunit^26.0.0
+
+  '
+- 'Dependencies (solution):
+
+  '
+- '   adacl=7.2.1
+
+  '
+- '   aunit=26.0.0
+
+  '
+- 'Dependencies (graph):
+
+  '
+- '   adacl_aunit=7.2.1 --> adacl=7.2.1 (^7.2)
+
+  '
+- '   adacl_aunit=7.2.1 --> aunit=26.0.0 (^26.0.0)
+
+  '
+- '
+
+  '
+- '
+
+  LOG:
+
+  '
+- 'Note: Synchronizing workspace...
+
+  '
+- 'Dependencies automatically updated as follows:
+
+  '
+- '
+
+  '
+- '   +  adacl       7.2.1  (new)
+
+  '
+- '   +. adacl_aunit 7.2.1  (new,path=..)
+
+  '
+- '   +  aunit       26.0.0 (new,indirect)
+
+  '
+- '
+
+  '
+- 'Note: Building adacl_aunit_test=7.2.1/adacl_aunit_test.gpr...
+
+  '
+- 'Setup
+
+  '
+- '   [mkdir]        object directory for project AdaCL_AUnit
+
+  '
+- '   [mkdir]        library directory for project AdaCL_AUnit
+
+  '
+- '   [mkdir]        object directory for project AdaCL_AUnit_Test
+
+  '
+- '   [mkdir]        exec directory for project AdaCL_AUnit_Test
+
+  '
+- 'Compile
+
+  '
+- '   [Ada]          adacl_aunit_test-main.adb
+
+  '
+- '   [Ada]          aunit-reporter-gnattest.adb
+
+  '
+- '   [Ada]          aunit-reporter-xml.adb
+
+  '
+- '   [Ada]          ada_containers-aunit_lists.adb
+
+  '
+- 'gnat1: invalid switch: -gnat2022
+
+  '
+- '
+
+  '
+- '   compilation of adacl_aunit_test-main.adb failed
+
+  '
+- '
+
+  '
+- 'gprbuild: *** compilation phase failed
+
+  '
+- 'ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/5901e13c-6d90-4274-a503-5f6026a533a6/adacl_aunit_7.2.1_fbf0163b/test/adacl_aunit_test.gpr"]
+  exited with code 4
+
+  '
+- 'ERROR: Build failed
+
+  '
+- '[alr test] Test action exited with error code 1
+
+  '
+platform: linux
+status: failing
+version: 7.2.1

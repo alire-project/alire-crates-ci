@@ -1,0 +1,64 @@
+Test ran at 2026-05-13 13:12:38.473456+00:00
+
+SOLUTION:
+a0b_base=0.5.0: Fundamental types, GCC built-ins, and base packages for Ada projects
+Origin: commit 882bbc92ae5c38d43cd3012d2e37e23dfae078ab from https://github.com/godunko/a0b-base.git
+Properties:
+   Author: Vadim Godunko
+   Config type: Tasking : Enum (none, ada, a0b) default: 'none'
+   Configuration: no modifiers
+   Description: Fundamental types, GCC built-ins, and base packages for Ada projects
+   License: Apache-2.0 WITH LLVM-exception
+   Long_Description: The `a0b_base` crate provides the root package hierarchy and foundational components tailored for embedded, bare-metal, and low-level Ada applications. 
+
+Key features include:
+* Foundational Types: 
+  - `Integer_*` and `Unsigned_*` types of various sizes (1 to 64 bits) with shift and rotate operations.
+  - `Unsigned_*_Array` types and "Enumerable" modular types (2 to 8 bits).
+* Low-Level Utilities: 
+  - Big-endian formatted types (`A0B.Types.Big_Endian`) for low-level protocol specifications.
+  - Type declarations specifically designed for use with the SVD2Ada code generator.
+* Compiler Bindings: 
+  - Direct bindings to GCC built-ins (such as `bswap`, `clz`, `ffs`) in `A0B.Types.GCC_Builtins`.
+
+   Maintainer: Vadim Godunko <vgodunko@gmail.com>
+   Maintainers_Logins: godunko
+   Name: a0b_base
+   Project_File: gnat/a0b_base.gpr
+   Tag: a0b
+   Tag: types
+   Tag: builtins
+   Version: 0.5.0
+   Website: https://github.com/godunko/a0b-base
+
+
+LOG:
+[alr test] Testing a0b_base=0.5.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get a0b_base=0.5.0
+Note: Deploying a0b_base=0.5.0...
+
+a0b_base=0.5.0 successfully retrieved.
+There are no dependencies.
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building a0b_base=0.5.0/gnat/a0b_base.gpr...
+Setup
+   [mkdir]        object directory for project A0B_Base
+   [mkdir]        library directory for project A0B_Base
+Compile
+   [Ada]          a0b-peripherals.ads
+   [Ada]          a0b.ads
+   [Ada]          a0b-types-big_endian.adb
+   [Ada]          a0b-types-gcc_builtins.ads
+   [Ada]          a0b-types-arrays.ads
+a0b-types-big_endian.adb:10:04: warning: "Unsigned_64" is already use-visible through previous use_type_clause at a0b-types.ads:297 [-gnatwr]
+a0b-types-big_endian.adb:10:04: warning: use clause for type "Unsigned_64" defined at a0b-types.ads:88 has no effect [-gnatwu]
+   [Ada]          a0b-types-enumerable.ads
+   [Ada]          a0b-types.ads
+   [Ada]          a0b-types-svd.ads
+Build Libraries
+   [gprlib]       a0b_base.lexch
+   [archive]      liba0b_base.a
+   [index]        liba0b_base.a
+Success: Build finished successfully in 1.73 seconds.
+Found declared GPR file: gnat/a0b_base.gpr
+[alr test] Test completed SUCCESSFULLY

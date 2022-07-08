@@ -1,0 +1,768 @@
+badge: false
+crate: lithophane
+creation_timestamp: 1788007338.7419758
+distro: mingw64_nt-10.0-26100
+duration: 66.40599999999995
+gnat: 11.2.4
+last_attempt: 2026-08-29 13:03:14.200046+00:00
+log:
+- 'Test ran at 2026-08-29 13:03:14.200046+00:00
+
+
+  '
+- 'SOLUTION:
+
+  '
+- 'lithophane=0.1.1: Create lithophane with Ada
+
+  '
+- 'Origin: commit c130d911bf25618d8def97581d34a20692f9e932 from https://github.com/smionean/lithophane_ada.git
+
+  '
+- 'Properties:
+
+  '
+- "   Author: Simon Be\xE0n\n"
+- "   Build Switches: \n"
+- '   Description: Create lithophane with Ada
+
+  '
+- '   Executable: lithophane
+
+  '
+- '   License: MIT OR Apache-2.0 WITH LLVM-exception
+
+  '
+- '   Long_Description: Create [lithophane](https://en.wikipedia.org/wiki/Lithophane)
+  of your favourite picture with Ada.
+
+  '
+- '
+
+  '
+- '
+
+  '
+- '
+
+  '
+- '**Usage**
+
+  '
+- '```
+
+  '
+- 'lithophane [options] <input_file>
+
+  '
+- '```
+
+  '
+- '
+
+  '
+- '`<input_file>` is the picture to convert (any format supported by
+
+  '
+- '[GID](https://gen-img-dec.sourceforge.io): PNG, JPEG, BMP, GIF, TGA, ...).
+
+  '
+- '
+
+  '
+- '**Options**
+
+  '
+- '```
+
+  '
+- '-h --help
+
+  '
+- '-v --version
+
+  '
+- '-b --save-binary          (default)
+
+  '
+- '-a --save-ascii
+
+  '
+- '-p --save-pgm
+
+  '
+- '-o<name> --output-name=<name>
+
+  '
+- '-H<height> --height=<height>
+
+  '
+- '-f<filter> --filter=<filter>
+
+  '
+- '-c<file> --config=<file>
+
+  '
+- '```
+
+  '
+- '
+
+  '
+- '| Option | Description |
+
+  '
+- '| --- | --- |
+
+  '
+- '| `-h`, `--help` | print usage and exit |
+
+  '
+- '| `-v`, `--version` | print the program version and exit |
+
+  '
+- '| `-b`, `--save-binary` | write the lithophane as a binary STL file: `<output-name>.bin.stl`
+  (this is the default output if no `-a`/`-b`/`-p` flag is given) |
+
+  '
+- '| `-a`, `--save-ascii` | write the lithophane as an ASCII STL file: `<output-name>.ascii.stl`
+  |
+
+  '
+- '| `-p`, `--save-pgm` | also dump the grayscale-converted image as a PGM file: `<output-name>.pgm`
+  |
+
+  '
+- '| `-o<name>`, `--output-name=<name>` | base name used for every output file above
+  (default: `test`) |
+
+  '
+- '| `-H<height>`, `--height=<height>` | target height of the lithophane |
+
+  '
+- '| `-f<filter>`, `--filter=<filter>` | image filter to apply before conversion |
+
+  '
+- '| `-c<file>`, `--config=<file>` | read options from a config file instead of (or
+  in addition to) the command line; when given, it overrides any previous option |
+
+  '
+- '
+
+  '
+- 'You can combine `-a`, `-b` and `-p`: each one adds its own output file, they are
+
+  '
+- 'not mutually exclusive.
+
+  '
+- '
+
+  '
+- '**Config file**
+
+  '
+- '
+
+  '
+- '`-c`/`--config` points to a TOML file such as [config.toml](config.toml):
+
+  '
+- '```toml
+
+  '
+- 'input-name = "foo.png"
+
+  '
+- 'output-name = "test"
+
+  '
+- 'filter = "threshold"
+
+  '
+- 'save-ascii = false
+
+  '
+- 'save-binary = true
+
+  '
+- 'save-pgm = true
+
+  '
+- 'height = 10
+
+  '
+- '```
+
+  '
+- '
+
+  '
+- '> [!NOTE]
+
+  '
+- '> `-f`/`--filter`, `-H`/`--height` and `-c`/`--config` are already accepted on
+
+  '
+- '> the command line but are not wired up yet: filters, height scaling and the
+
+  '
+- '> config file are parsed but have no effect on the generated STL for now
+
+  '
+- '> (see TODO below). The only filter currently applied is a fixed threshold at
+
+  '
+- '> mid-grey, done automatically when saving to binary STL.
+
+  '
+- '
+
+  '
+- "   Maintainer: Simon Be\xE0n <smionean@gmail.com>\n"
+- '   Maintainers_Logins: smionean
+
+  '
+- '   Name: lithophane
+
+  '
+- '   Tag: 3dprint
+
+  '
+- '   Tag: lithophane
+
+  '
+- '   Tag: lithography
+
+  '
+- '   Version: 0.1.1
+
+  '
+- '   Website: https://github.com/smionean/lithophane_ada
+
+  '
+- 'Dependencies (direct):
+
+  '
+- '   getopt^2.0.0
+
+  '
+- '   gid^14.0.0
+
+  '
+- 'Dependencies (solution):
+
+  '
+- '   getopt=2.0.0
+
+  '
+- '   gid=14.0.0
+
+  '
+- 'Dependencies (graph):
+
+  '
+- '   lithophane=0.1.1 --> getopt=2.0.0 (^2.0.0)
+
+  '
+- '   lithophane=0.1.1 --> gid=14.0.0 (^14.0.0)
+
+  '
+- '
+
+  '
+- '
+
+  LOG:
+
+  '
+- '[alr test] Testing lithophane=0.1.1
+
+  '
+- '[alr test] Spawning retrieval for remote crate: alr -d -n get lithophane=0.1.1
+
+  '
+- 'Note: Deploying lithophane=0.1.1...
+
+  '
+- 'Note: Deploying getopt=2.0.0...
+
+  '
+- '
+
+  '
+- "#=#=#                                                                         \
+  \ \n"
+- "##O#-#                                                                        \
+  \ \n"
+- 'Note: Deploying gid=14.0.0...
+
+  '
+- '
+
+  '
+- '######################################################################## 100.0%
+
+  '
+- '######################################################################## 100.0%
+
+  '
+- '######################################################################## 100.0%
+
+  '
+- '######################################################################## 100.0%
+
+  '
+- '######################################################################## 100.0%
+
+  '
+- '
+
+  '
+- 'lithophane=0.1.1 successfully retrieved.
+
+  '
+- 'Dependencies were solved as follows:
+
+  '
+- '
+
+  '
+- '   + getopt 2.0.0  (new)
+
+  '
+- '   + gid    14.0.0 (new)
+
+  '
+- '[alr test] Spawning default test for remote crate: alr -d -n build --release --
+  -cargs:Ada -gnatwn
+
+  '
+- 'Note: Building gid=14.0.0/gid.gpr...
+
+  '
+- '"obj\debug" created
+
+  '
+- '[Ada Compile]     all_rgb.adb
+
+  '
+- '[Ada Compile]     benchmark.adb
+
+  '
+- '[Ada Compile]     clusters.adb
+
+  '
+- '[Ada Compile]     color_avg.adb
+
+  '
+- '[Ada Compile]     color_distances.adb
+
+  '
+- '[Ada Compile]     color_statistics.adb
+
+  '
+- '[Ada Compile]     comp_img.adb
+
+  '
+- '[Ada Compile]     comp_img_fct.adb
+
+  '
+- '[Ada Compile]     dumb_png.adb
+
+  '
+- '[Ada Compile]     fast_io.adb
+
+  '
+- '[Ada Compile]     gid-buffering.adb
+
+  '
+- '[Ada Compile]     gid-color_tables.adb
+
+  '
+- '[Ada Compile]     gid-decoding_bmp.adb
+
+  '
+- '[Ada Compile]     gid-decoding_gif.adb
+
+  '
+- '[Ada Compile]     gid-decoding_jpg.adb
+
+  '
+- '[Ada Compile]     gid-decoding_png-huffman.adb
+
+  '
+- '[Ada Compile]     gid-decoding_png.adb
+
+  '
+- '[Ada Compile]     gid-decoding_pnm.adb
+
+  '
+- '[Ada Compile]     gid-decoding_qoi.adb
+
+  '
+- '[Ada Compile]     gid-decoding_tga.adb
+
+  '
+- '[Ada Compile]     gid-headers.adb
+
+  '
+- '[Ada Compile]     gid.adb
+
+  '
+- '[Ada Compile]     is_opaque.adb
+
+  '
+- '[Ada Compile]     mini.adb
+
+  '
+- '[Ada Bind]        all_rgb
+
+  '
+- '[Ada Bind]        clusters
+
+  '
+- '[Ada Bind]        color_avg
+
+  '
+- '[Ada Compile]     recurve.adb
+
+  '
+- '[Ada Bind]        benchmark
+
+  '
+- '[Ada Bind]        comp_img
+
+  '
+- '[Ada Compile]     steg.adb
+
+  '
+- '[Ada Bind]        is_opaque
+
+  '
+- '[Ada Compile]     to_bmp.adb
+
+  '
+- '[Ada Bind]        mini
+
+  '
+- '[Ada Compile]     to_png.adb
+
+  '
+- '[Ada Bind]        recurve
+
+  '
+- '[Ada Post-Bind]   b__all_rgb.adb
+
+  '
+- '[Link]            all_rgb.exe
+
+  '
+- '[Ada Post-Bind]   b__benchmark.adb
+
+  '
+- '[Link]            benchmark.exe
+
+  '
+- '[Ada Post-Bind]   b__clusters.adb
+
+  '
+- '[Link]            clusters.exe
+
+  '
+- '[Ada Post-Bind]   b__color_avg.adb
+
+  '
+- '[Ada Bind]        steg
+
+  '
+- '[Link]            color_avg.exe
+
+  '
+- '[Ada Post-Bind]   b__comp_img.adb
+
+  '
+- '[Link]            comp_img.exe
+
+  '
+- '[Ada Post-Bind]   b__is_opaque.adb
+
+  '
+- '[Link]            is_opaque.exe
+
+  '
+- '[Ada Post-Bind]   b__mini.adb
+
+  '
+- '[Link]            mini.exe
+
+  '
+- '[Ada Post-Bind]   b__recurve.adb
+
+  '
+- '[Link]            recurve.exe
+
+  '
+- '[Ada Post-Bind]   b__steg.adb
+
+  '
+- '[Link]            steg.exe
+
+  '
+- '[Ada Bind]        to_bmp
+
+  '
+- '[Ada Post-Bind]   b__to_bmp.adb
+
+  '
+- '[Link]            to_bmp.exe
+
+  '
+- '[Ada Bind]        to_png
+
+  '
+- '[Ada Post-Bind]   b__to_png.adb
+
+  '
+- '[Link]            to_png.exe
+
+  '
+- 'Note: Building lithophane=0.1.1/lithophane.gpr...
+
+  '
+- '"C:\Users\runneradmin\AppData\Local\alire\cache\builds\getopt_2.0.0_2c081653\be348ef2bca7d4fcfaf31ef40b1cda620a8d8a334923527a9643ddb0e5cce2be\obj"
+  created
+
+  '
+- '"C:\Users\runneradmin\AppData\Local\alire\cache\builds\getopt_2.0.0_2c081653\be348ef2bca7d4fcfaf31ef40b1cda620a8d8a334923527a9643ddb0e5cce2be\lib"
+  created
+
+  '
+- '"obj\release" created
+
+  '
+- '"bin" created
+
+  '
+- '[Ada Compile]     getopts.adb
+
+  '
+- '[Ada Compile]     lithophane-filters.adb
+
+  '
+- '[Ada Compile]     lithophane-stl.adb
+
+  '
+- '[Ada Compile]     lithophane.adb
+
+  '
+- 'gnat1: invalid switch: -gnat2022
+
+  '
+- 'lithophane.gpr: error: [Ada Compile] lithophane-filters.adb (lithophane.gpr) failed
+  with status 1
+
+  '
+- 'gnat1: invalid switch: -gnat2022
+
+  '
+- 'lithophane.gpr: error: [Ada Compile] lithophane-stl.adb (lithophane.gpr) failed
+  with status 1
+
+  '
+- 'gnat1: invalid switch: -gnat2022
+
+  '
+- 'lithophane.gpr: error: [Ada Compile] lithophane.adb (lithophane.gpr) failed with
+  status 1
+
+  '
+- 'stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "D:\a\alire-crates-ci\alire-crates-ci\test\c13e455f-f5f5-4c72-9339-87adce5c032c\lithophane_0.1.1_c130d911\lithophane.gpr",
+  "-cargs:Ada", "-gnatwn"] exited with code 4
+
+  '
+- 'ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "D:\a\alire-crates-ci\alire-crates-ci\test\c13e455f-f5f5-4c72-9339-87adce5c032c\lithophane_0.1.1_c130d911\lithophane.gpr",
+  "-cargs:Ada", "-gnatwn"] exited with code 4
+
+  '
+- 'stderr: ALIRE.CHECKED_ERROR
+
+  '
+- 'stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "D:\a\alire-crates-ci\alire-crates-ci\test\c13e455f-f5f5-4c72-9339-87adce5c032c\lithophane_0.1.1_c130d911\lithophane.gpr",
+  "-cargs:Ada", "-gnatwn"] exited with code 4
+
+  '
+- 'stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
+
+  '
+- '[D:\a\alire-crates-ci\alire-crates-ci\alire_install\bin\alr.exe]
+
+  '
+- '0x7ff63560da2a Semantic_Versioning.Basic.Restrictions.First_Index at alire.adb:284
+
+  '
+- '0x7ff63520595b Semantic_Versioning.Basic.Restrictions.First_Index at alire-os_lib-subprocess.adb:111
+
+  '
+- '0x7ff6354bcba1 Semantic_Versioning.Basic.Restrictions.First_Index at alire-spawn.adb:22
+
+  '
+- '0x7ff6354bdd5d Semantic_Versioning.Basic.Restrictions.First_Index at alire-spawn.adb:68
+
+  '
+- '0x7ff6353e2d64 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:189
+
+  '
+- '0x7ff6353e11da Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:255
+
+  '
+- '0x7ff63540912d Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2143
+
+  '
+- '0x7ff6354782f9 Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1472
+
+  '
+- '0x7ff635477424 Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1555
+
+  '
+- '0x7ff63540922c Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2147
+
+  '
+- '0x7ff6354092fa Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2127
+
+  '
+- '0x7ff6353e17a7 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:286
+
+  '
+- '0x7ff6353e1912 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:114
+
+  '
+- '0x7ff634b53baa Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:145
+
+  '
+- '0x7ff634b5341e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:113
+
+  '
+- '0x7ff634b535ba Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:54
+
+  '
+- '0x7ff634c05dea Semantic_Versioning.Basic.Restrictions.First_Index at clic-subcommand-instance.adb:749
+
+  '
+- '0x7ff634c12b0e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands.adb:632
+
+  '
+- '0x7ff634ae16a0 Alr.Main at alr-main.adb:13
+
+  '
+- '0x7ff634ae5270 Main at b__alr-main.adb:2454
+
+  '
+- '0x7ff634ae133e __tmainCRTStartup at ???
+
+  '
+- '0x7ff634ae1144 mainCRTStartup at ???
+
+  '
+- '[C:\Windows\System32\KERNEL32.DLL]
+
+  '
+- '0x7ffac355e8d5
+
+  '
+- '[C:\Windows\SYSTEM32\ntdll.dll]
+
+  '
+- '0x7ffac40ec53a
+
+  '
+- '
+
+  '
+- 'stderr: ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED
+
+  '
+- 'stderr: alire-roots.adb:202
+
+  '
+- 'stderr: raised ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED : alire-roots.adb:202
+
+  '
+- '[D:\a\alire-crates-ci\alire-crates-ci\alire_install\bin\alr.exe]
+
+  '
+- '0x7ff6353e313c Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:202
+
+  '
+- '0x7ff6353e11da Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:255
+
+  '
+- '0x7ff63540912d Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2143
+
+  '
+- '0x7ff6354782f9 Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1472
+
+  '
+- '0x7ff635477424 Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1555
+
+  '
+- '0x7ff63540922c Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2147
+
+  '
+- '0x7ff6354092fa Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2127
+
+  '
+- '0x7ff6353e17a7 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:286
+
+  '
+- '0x7ff6353e1912 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:114
+
+  '
+- '0x7ff634b53baa Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:145
+
+  '
+- '0x7ff634b5341e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:113
+
+  '
+- '0x7ff634b535ba Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:54
+
+  '
+- '0x7ff634c05dea Semantic_Versioning.Basic.Restrictions.First_Index at clic-subcommand-instance.adb:749
+
+  '
+- '0x7ff634c12b0e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands.adb:632
+
+  '
+- '0x7ff634ae16a0 Alr.Main at alr-main.adb:13
+
+  '
+- '0x7ff634ae5270 Main at b__alr-main.adb:2454
+
+  '
+- '0x7ff634ae133e __tmainCRTStartup at ???
+
+  '
+- '0x7ff634ae1144 mainCRTStartup at ???
+
+  '
+- '[C:\Windows\System32\KERNEL32.DLL]
+
+  '
+- '0x7ffac355e8d5
+
+  '
+- '[C:\Windows\SYSTEM32\ntdll.dll]
+
+  '
+- '0x7ffac40ec53a
+
+  '
+- '
+
+  '
+- 'ERROR: Compilation failed.
+
+  '
+platform: windows
+status: failing
+version: 0.1.1

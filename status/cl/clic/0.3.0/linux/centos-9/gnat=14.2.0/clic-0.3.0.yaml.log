@@ -1,0 +1,127 @@
+Test ran at 2025-08-13 13:25:57.252881+00:00
+
+SOLUTION:
+clic=0.3.0: Command Line Interface Components
+Origin: commit 56bbdc008e16996b6f76e443fd0165a240de1b13 from https://github.com/alire-project/clic.git
+Properties:
+   Author: Alejandro R. Mosteo
+   Author: Fabien Chouteau
+   Description: Command Line Interface Components
+   License: MIT AND GPL-3.0-or-later WITH GCC-exception-3.1
+   Long_Description: Command Line Interface Components:
+ - "git like" subcommand handling
+ - TTY color and formatting
+ - User input queries
+ - User configuration
+
+   Maintainer: alejandro@mosteo.com
+   Maintainer: Fabien Chouteau <fabien.chouteau@gmail.com>
+   Maintainers_Logins: mosteo
+   Maintainers_Logins: Fabien-Chouteau
+   Name: clic
+   Tag: cli
+   Tag: command-line
+   Tag: user-input
+   Tag: tty
+   Version: 0.3.0
+   Website: https://github.com/alire-project/clic
+Dependencies (direct):
+   aaa~0.2.4
+   ada_toml~0.2|~0.3
+   ansiada^1.0
+   simple_logging^1.2.0
+Dependencies (solution):
+   aaa=0.2.6
+   ada_toml=0.3.0
+   ansiada=1.1.0
+   simple_logging=1.2.0
+Dependencies (graph):
+   clic=0.3.0 --> aaa=0.2.6 (~0.2.4)
+   clic=0.3.0 --> ada_toml=0.3.0 (~0.2|~0.3)
+   clic=0.3.0 --> ansiada=1.1.0 (^1.0)
+   clic=0.3.0 --> simple_logging=1.2.0 (^1.2.0)
+
+
+LOG:
+[alr test] Testing clic=0.3.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get clic=0.3.0
+Note: Deploying clic=0.3.0...
+Note: Deploying aaa=0.2.6...
+Note: Deploying ada_toml=0.3.0...
+#=#=#                                                                         
+##O#-#                                                                        
+##O=#  #                                                                      
+Note: Deploying ansiada=1.1.0...
+Note: Deploying simple_logging=1.2.0...
+
+clic=0.3.0 successfully retrieved.
+Dependencies were solved as follows:
+
+   + aaa            0.2.6 (new)
+   + ada_toml       0.3.0 (new)
+   + ansiada        1.1.0 (new)
+   + simple_logging 1.2.0 (new)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building clic=0.3.0/clic.gpr...
+/root/.local/share/alire/toolchains/gprbuild_25.0.1_9a2e6cfb/bin/gprbuild: /lib64/libc.so.6: version `GLIBC_2.35' not found (required by /root/.local/share/alire/toolchains/gprbuild_25.0.1_9a2e6cfb/bin/gprbuild)
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/c0eb4935-d792-4b2c-997d-de929238766c/clic_0.3.0_56bbdc00/clic.gpr", "-cargs:Ada", "-gnatwn"] exited with code 1
+ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/c0eb4935-d792-4b2c-997d-de929238766c/clic_0.3.0_56bbdc00/clic.gpr", "-cargs:Ada", "-gnatwn"] exited with code 1
+stderr: ALIRE.CHECKED_ERROR
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/c0eb4935-d792-4b2c-997d-de929238766c/clic_0.3.0_56bbdc00/clic.gpr", "-cargs:Ada", "-gnatwn"] exited with code 1
+stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
+[/usr/bin/alr]
+0xe75bc6 Alire.Raise_Checked_Error at alire.adb:284
+0xac1a54 Alire.Os_Lib.Subprocess.Checked_Spawn at alire-os_lib-subprocess.adb:111
+0xd40276 Alire.Spawn.Command at alire-spawn.adb:22
+0xd412ee Alire.Spawn.Gprbuild at alire-spawn.adb:68
+0xc748cb Alire.Roots.Build at alire-roots.adb:189
+0xc7301a Alire.Roots.Build at alire-roots.adb:255
+0xc9832b Alire.Roots.Traverse at alire-roots.adb:2143
+0xcfee85 Alire.Solutions.Traverse.Visit at alire-solutions.adb:1472
+0xcfdfcc Alire.Solutions.Traverse at alire-solutions.adb:1555
+0xc9841e Alire.Roots.Traverse at alire-roots.adb:2147
+0xc984dd Alire.Roots.Traverse at alire-roots.adb:2127
+0xc7359b Alire.Roots.Build at alire-roots.adb:286
+0xc736d7 Alire.Roots.Build at alire-roots.adb:114
+0x49aa0d Alr.Commands.Build.Execute at alr-commands-build.adb:145
+0x49a36d Alr.Commands.Build.Execute at alr-commands-build.adb:113
+0x49a51f Alr.Commands.Build.Execute at alr-commands-build.adb:54
+0x53bbcc Alr.Commands.Sub_Cmd.Execute at clic-subcommand-instance.adb:749
+0x5472be Alr.Commands.Execute at alr-commands.adb:632
+0x43d48a Alr.Main at alr-main.adb:13
+0x4403a3 Main at b__alr-main.adb:2445
+[/lib64/libc.so.6]
+0x7f0eac9845ce
+0x7f0eac98467e
+[/usr/bin/alr]
+0x43d323 _start at ???
+0xfffffffffffffffe
+
+stderr: ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED
+stderr: alire-roots.adb:202
+stderr: raised ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED : alire-roots.adb:202
+[/usr/bin/alr]
+0xc74cc7 Alire.Roots.Build at alire-roots.adb:202
+0xc7301a Alire.Roots.Build at alire-roots.adb:255
+0xc9832b Alire.Roots.Traverse at alire-roots.adb:2143
+0xcfee85 Alire.Solutions.Traverse.Visit at alire-solutions.adb:1472
+0xcfdfcc Alire.Solutions.Traverse at alire-solutions.adb:1555
+0xc9841e Alire.Roots.Traverse at alire-roots.adb:2147
+0xc984dd Alire.Roots.Traverse at alire-roots.adb:2127
+0xc7359b Alire.Roots.Build at alire-roots.adb:286
+0xc736d7 Alire.Roots.Build at alire-roots.adb:114
+0x49aa0d Alr.Commands.Build.Execute at alr-commands-build.adb:145
+0x49a36d Alr.Commands.Build.Execute at alr-commands-build.adb:113
+0x49a51f Alr.Commands.Build.Execute at alr-commands-build.adb:54
+0x53bbcc Alr.Commands.Sub_Cmd.Execute at clic-subcommand-instance.adb:749
+0x5472be Alr.Commands.Execute at alr-commands.adb:632
+0x43d48a Alr.Main at alr-main.adb:13
+0x4403a3 Main at b__alr-main.adb:2445
+[/lib64/libc.so.6]
+0x7f0eac9845ce
+0x7f0eac98467e
+[/usr/bin/alr]
+0x43d323 _start at ???
+0xfffffffffffffffe
+
+ERROR: Compilation failed.

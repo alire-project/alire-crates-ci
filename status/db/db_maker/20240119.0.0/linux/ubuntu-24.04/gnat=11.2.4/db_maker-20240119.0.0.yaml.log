@@ -1,0 +1,80 @@
+Test ran at 2026-08-03 01:11:40.084305+00:00
+
+SOLUTION:
+db_maker=20240119.0.0: A generic for creating simple DBs (one table in an RDBMS)
+Origin: commit 05feea71716e21f6c3b0bf32eef7eb33b22806db from https://github.com/bracke/DB_Maker.git
+Properties:
+   Author: Jeff Carter 
+   Build Switches: 
+   Description: A generic for creating simple DBs (one table in an RDBMS)
+   License: GPL-3.0-or-later
+   Long_Description: # DB_Maker
+A generic for creating simple DBs (one table in an RDBMS) with PragmARC.Persistent_Skip_List_Unbounded and Ada GUI.
+
+Searching does not use the O(log N) search of the underlying skip list, but instead does a linear search for fields that have the corresponding search text as a substring (case insensitive). This is much slower, but is still quite fast. If you have less than 100,000 records it should be fast enough. "Search" starts from the 1st record; "Search More" from the record after the last search. "Clear" clears the edit fields to make entering a new search easier.
+
+Because searching is case insensitive and matches substrings, searching for "son" would match "Orson Welles", "Fowler De Johnsone", and "Son House".
+
+Only about 7 fields will fit vertically in the typical browser window. This could perhaps be increased by making the font smaller. A vertical scroll bar will appear if needed.
+
+Movies is a small demo program that could be used to catalogue a collection of films. DB_Strings is a non-limited replacement for PragmARC.B_Strings, since type B_String is limited in the Ada-12 version of the PragmARCs.
+
+   Maintainer: Bent Bracke <bent@bracke.dk>
+   Maintainers_Logins: bracke
+   Name: db_maker
+   Tag: database
+   Tag: table
+   Version: 20240119
+   Website: https://github.com/bracke/DB_Maker
+Dependencies (direct):
+   ada_gui^20240224.0.0
+   gnat<13.0 | >=13.3
+   pragmarc^20240323.0.0
+Dependencies (solution):
+   ada_gui=20240224.0.1
+   gnat=11.2.4 (gnat_native)
+   libgnutls=3.8.3
+   pragmarc=20240323.0.0
+   simple_components=4.81.0
+   unixodbc=2.3.12
+Dependencies (graph):
+   ada_gui=20240224.0.1     --> gnat=11.2.4 (gnat_native) (<13.0 | >=13.3)
+   ada_gui=20240224.0.1     --> simple_components=4.81.0 (^4.68.0)
+   db_maker=20240119.0.0    --> ada_gui=20240224.0.1 (^20240224.0.0)
+   db_maker=20240119.0.0    --> gnat=11.2.4 (gnat_native) (<13.0 | >=13.3)
+   db_maker=20240119.0.0    --> pragmarc=20240323.0.0 (^20240323.0.0)
+   pragmarc=20240323.0.0    --> gnat=11.2.4 (gnat_native) (<13.0 | >=13.3)
+   simple_components=4.81.0 --> libgnutls=3.8.3 (^3.7)
+   simple_components=4.81.0 --> unixodbc=2.3.12 (^2.3)
+
+
+LOG:
+[alr test] Testing db_maker=20240119.0.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get db_maker=20240119.0.0
+Note: Deploying db_maker=20240119.0.0...
+
+db_maker=20240119.0.0 successfully retrieved.
+Dependencies were solved as follows:
+
+   +  ada_gui           20240224.0.1 (new)
+   +b gnat              11.2.4       (new,gnat_native,binary)
+   +b libgnutls         3.8.3        (new,indirect,system package)
+   +  pragmarc          20240323.0.0 (new)
+   +  simple_components 4.81.0       (new,indirect)
+   +b unixodbc          2.3.12       (new,indirect,system package)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building db_maker=20240119.0.0/db_maker.gpr...
+Setup
+   [mkdir]        object directory for project DB_Maker
+   [mkdir]        library directory for project DB_Maker
+Compile
+   [Ada]          db_maker_config.ads
+   [Ada]          db_strings.ads
+   [Ada]          db_maker.adb
+Build Libraries
+   [gprlib]       DB_Maker.lexch
+   [archive]      libDB_Maker.a
+   [index]        libDB_Maker.a
+Success: Build finished successfully in 0.65 seconds.
+Found declared GPR file: db_maker.gpr
+[alr test] Test completed SUCCESSFULLY

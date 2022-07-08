@@ -1,0 +1,261 @@
+badge: false
+crate: muntsos_aarch64
+creation_timestamp: 1765845999.5055249
+distro: darwin-24.6.0
+duration: 0.27587370799983546
+gnat: 13.2.2
+last_attempt: 2025-12-16 01:02:23.752883+00:00
+log:
+- 'Test ran at 2025-12-16 01:02:23.752842+00:00
+
+
+  '
+- 'SOLUTION:
+
+  '
+- 'muntsos_aarch64=11.0.1: MuntsOS Embedded Linux support for AArch64 targets
+
+  '
+- 'Origin: source archive muntsos_aarch64-11.0.1.tbz2 at https://raw.githubusercontent.com/pmunts/alire-crates/0debf2c7d1e5e3e31cee99aaf03dd199e5bb0643/muntsos_aarch64/muntsos_aarch64-11.0.1.tbz2
+  with hashes sha256:9bccdb14899d957a51666d951de367af60eee2fdad7493f46c5a1ea2b50cbf1c,
+  sha512:0a6b2cab2192c06a6ad55243bb55c2347c59846653e07177c2908a7975efd44f0d691e4afc82c0e186ec2f576f5d39b677b89d6b8b2a3d7f8da0a179c8a9f1d9
+
+  '
+- 'Available when: (case OS is Linux => True, Windows => True, others => False)
+
+  '
+- 'Properties:
+
+  '
+- '   case OS is
+
+  '
+- '      when Linux => Post_Fetch run: sh -c ./postfetch.linux (from ${CRATE_ROOT}/.)
+
+  '
+- '      when Windows => Post_Fetch run: sh -c ./postfetch.windows (from ${CRATE_ROOT}/.)
+
+  '
+- '   Author: Philip Munts
+
+  '
+- '   Configuration: no modifiers
+
+  '
+- '   Description: MuntsOS Embedded Linux support for AArch64 targets
+
+  '
+- '   License: BSD-1-Clause
+
+  '
+- '   Long_Description: # Introduction
+
+  '
+- '
+
+  '
+- 'This crate modifies an Alire program project to build a cross-compiled
+
+  '
+- 'program for a **[MuntsOS Embedded
+
+  '
+- 'Linux](https://github.com/pmunts/muntsos)** AArch64 / ARMv8 / arm64
+
+  '
+- 'target computer.
+
+  '
+- '
+
+  '
+- 'The **MuntsOS Embedded Linux** cross toolchain packages must be
+
+  '
+- 'installed on your development computer before you can use this crate.
+
+  '
+- 'See:
+
+  '
+- '
+
+  '
+- '[Application Note
+
+  '
+- '#1](https://repo.munts.com/muntsos/doc/AppNote1-Setup-Debian.pdf) for
+
+  '
+- "Debian Linux distributions  \n"
+- '[Application Note
+
+  '
+- '#2](https://repo.munts.com/muntsos/doc/AppNote2-Setup-RPM.pdf) for RPM
+
+  '
+- "Linux distributions  \n"
+- '[Application Note
+
+  '
+- '#24](https://repo.munts.com/muntsos/doc/AppNote24-Setup-RPM.pdf) for
+
+  '
+- 'x86-64 Windows 10 or 11.
+
+  '
+- '
+
+  '
+- '# Environment Variables
+
+  '
+- '
+
+  '
+- 'If **`ALIRE_DISABLESTYLECHECKS`** is set to **`yes`**, the postfetch
+
+  '
+- 'script will disable style checking in the project **`.gpr`** file.
+
+  '
+- '
+
+  '
+- 'If **`ALIRE_INSTALLMAKEFILE`** is set to **`yes`**, the postfetch script
+
+  '
+- 'will install an optional but useful **`Makefile`** to the project
+
+  '
+- 'directory.
+
+  '
+- '
+
+  '
+- 'You can add the following to **`~/.bashrc`** or its equivalent to
+
+  '
+- 'permanently define these environment variables:
+
+  '
+- '
+
+  '
+- '    export ALIRE_DISABLESTYLECHECKS=yes
+
+  '
+- '    export ALIRE_INSTALLMAKEFILE=yes
+
+  '
+- '
+
+  '
+- '# Example
+
+  '
+- '
+
+  '
+- 'The following commands illustrate how to create an Alire program project
+
+  '
+- 'that will cross-compile a program to run on a **MuntsOS Embedded Linux**
+
+  '
+- 'target computer. The result is a pristine (*i.e.* all temporary, working
+
+  '
+- 'and deliverable files removed) project, suitable for checking into a
+
+  '
+- 'source code control repository.
+
+  '
+- '
+
+  '
+- '    alr -n init --bin myexample
+
+  '
+- '    cd myexample
+
+  '
+- '    alr -n with muntsos_aarch64
+
+  '
+- '    ALIRE_DISABLESTYLECHECKS=yes ALIRE_INSTALLMAKEFILE=yes alr action -r post-fetch
+
+  '
+- '    make reallyclean
+
+  '
+- '
+
+  '
+- 'See also [Application Note
+
+  '
+- '#7](https://repo.munts.com/muntsos/doc/AppNote7-Flash-LED-Ada-Alire.pdf).
+
+  '
+- '
+
+  '
+- '   Maintainer: Philip Munts <phil@munts.net>
+
+  '
+- '   Maintainers_Logins: pmunts
+
+  '
+- '   Name: muntsos_aarch64
+
+  '
+- '   Project_File: aws.gpr
+
+  '
+- '   Project_File: libsimpleio.gpr
+
+  '
+- '   Tag: muntsos
+
+  '
+- '   Tag: embedded
+
+  '
+- '   Tag: linux
+
+  '
+- '   Tag: arm64
+
+  '
+- '   Tag: aarch64
+
+  '
+- '   Version: 11.0.1
+
+  '
+- '   Website: https://github.com/pmunts/muntsos
+
+  '
+- 'Dependencies (direct):
+
+  '
+- '   case OS is
+
+  '
+- '      when Linux => muntsos_dev_aarch64*
+
+  '
+- '
+
+  '
+- '
+
+  LOG:
+
+  '
+platform: macos
+status: unavailable
+version: 11.0.1

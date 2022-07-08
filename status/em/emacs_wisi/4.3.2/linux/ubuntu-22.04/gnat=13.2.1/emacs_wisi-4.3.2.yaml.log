@@ -1,0 +1,137 @@
+Test ran at 2024-03-24 01:18:52.046721+00:00
+
+SOLUTION:
+emacs_wisi=4.3.2: Ada code for Emacs wisi ELPA package
+Origin: commit 467a029c39639fe13e5a5ced632d4f33b4e471d3 from https://git.savannah.nongnu.org/git/ada-mode.git
+Properties:
+   Author: Stephen Leake
+   Description: Ada code for Emacs wisi ELPA package
+   License: GPL-3.0-or-later
+   Maintainer: Stephen Leake <stephen_leake@stephe-leake.org>
+   Maintainers_Logins: stephe-ada-guru
+   Name: emacs_wisi
+   Project_File: wisi_alire.gpr
+   Tag: emacs
+   Tag: indent
+   Tag: project
+   Tag: compile
+   Tag: xref
+   Version: 4.3.2
+   Website: https://elpa.gnu.org/packages/wisi.html
+Dependencies (direct):
+   gnat(>=11 & <2000) | >=2021
+   stephes_ada_library~3.7.2
+   wisitoken~4.2.1
+Dependencies (solution):
+   gnat=13.2.1 (gnat_native)
+   gnatcoll=22.0.0
+   libgpr=22.0.0
+   stephes_ada_library=3.7.3
+   wisitoken=4.2.1
+   xmlada=22.0.0
+Dependencies (graph):
+   emacs_wisi=4.3.2          --> gnat=13.2.1 (gnat_native) ((>=11 & <2000) | >=2021)
+   emacs_wisi=4.3.2          --> stephes_ada_library=3.7.3 (~3.7.2)
+   emacs_wisi=4.3.2          --> wisitoken=4.2.1 (~4.2.1)
+   gnatcoll=22.0.0           --> libgpr=22.0.0 (~22.0.0)
+   libgpr=22.0.0             --> gnat=13.2.1 (gnat_native) (/=2020)
+   libgpr=22.0.0             --> xmlada=22.0.0 (~22.0.0)
+   stephes_ada_library=3.7.3 --> gnat=13.2.1 (gnat_native) ((>=11 & <2000) | >=2021)
+   wisitoken=4.2.1           --> gnat=13.2.1 (gnat_native) ((>=11 & <2000) | >=2021)
+   wisitoken=4.2.1           --> gnatcoll=22.0.0 (^22.0.0)
+   wisitoken=4.2.1           --> stephes_ada_library=3.7.3 (~3.7.2)
+   xmlada=22.0.0             --> gnat=13.2.1 (gnat_native) (>=11)
+
+
+LOG:
+Spawning: alr -d -n get --build emacs_wisi=4.3.2
+Note: Deploying emacs_wisi=4.3.2...
+warning: remote HEAD refers to nonexistent ref, unable to checkout.
+
+Note: Deploying stephes_ada_library=3.7.3...
+warning: remote HEAD refers to nonexistent ref, unable to checkout.
+
+Note: Deploying wisitoken=4.2.1...
+warning: remote HEAD refers to nonexistent ref, unable to checkout.
+
+Note: Running post-fetch actions for xmlada=22.0.0...
+checking build system type... x86_64-unknown-linux-gnu
+checking host system type... x86_64-unknown-linux-gnu
+checking target system type... x86_64-unknown-linux-gnu
+checking whether gnat can build shared libs... yes
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether ln -s works... yes
+configure: creating ./config.status
+config.status: creating xmlada_shared.gpr
+config.status: creating Makefile
+config.status: creating tests/dom/default.gpr
+Note: Building wisitoken=4.2.1/build/wisitoken_alire.gpr (1/2)...
+gnatcoll.gpr:254:07: warning: value "windows" is not used as label
+Setup
+   [mkdir]        object directory for project XmlAda_Sax
+   [mkdir]        library directory for project XmlAda_Sax
+   [mkdir]        object directory for project XmlAda_Schema
+   [mkdir]        object directory for project GPR
+   [mkdir]        library directory for project GPR
+   [mkdir]        object directory for project GnatColl
+   [mkdir]        library directory for project GnatColl
+   [mkdir]        object directory for project Stephes_Ada_Library
+   [mkdir]        exec directory for project Stephes_Ada_Library
+   [mkdir]        object directory for project Wisitoken_Alire
+   [mkdir]        library directory for project Wisitoken_Alire
+Compile
+   [Ada]          sal-endianness.ads
+   [Ada]          sal-gen_unbounded_definite_min_heaps_fibonacci.adb
+   [Ada]          sal-gen_trimmed_image_unsigned.adb
+   [Ada]          sal-interfaces_more.adb
+   [Ada]          sal-generic_hex_value.adb
+sal-gen_unbounded_definite_min_heaps_fibonacci.adb:320:26: access discriminant in return aggregate would be a dangling reference
+sal-gen_unbounded_definite_min_heaps_fibonacci.adb:325:26: access discriminant in return aggregate would be a dangling reference
+
+   compilation of sal-gen_unbounded_definite_min_heaps_fibonacci.adb failed
+
+gprbuild: *** compilation phase failed
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/root/.local/share/alire/builds/wisitoken_4.2.1_dc778486/0a252376b3c09fc25da564d844a4e70ec7ad3e6803c5833bf8e64376916b4a1c/build/wisitoken_alire.gpr"] exited with code 4
+ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/root/.local/share/alire/builds/wisitoken_4.2.1_dc778486/0a252376b3c09fc25da564d844a4e70ec7ad3e6803c5833bf8e64376916b4a1c/build/wisitoken_alire.gpr"] exited with code 4
+stderr: ALIRE.CHECKED_ERROR
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/root/.local/share/alire/builds/wisitoken_4.2.1_dc778486/0a252376b3c09fc25da564d844a4e70ec7ad3e6803c5833bf8e64376916b4a1c/build/wisitoken_alire.gpr"] exited with code 4
+stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
+[/usr/bin/alr]
+0xe4810a Alire.Raise_Checked_Error at alire.adb:272
+0xa90404 Alire.Os_Lib.Subprocess.Checked_Spawn at alire-os_lib-subprocess.adb:111
+0xd153f3 Alire.Spawn.Command at alire-spawn.adb:21
+0xd15b11 Alire.Spawn.Gprbuild at alire-spawn.adb:41
+0xc45693 Alire.Roots.Build at alire-roots.adb:182
+0xc43936 Alire.Roots.Build at alire-roots.adb:248
+0xc6b083 Alire.Roots.Traverse at alire-roots.adb:2053
+0xcd9c00 Alire.Solutions.Traverse.Visit at alire-solutions.adb:1480
+0xcd8746 Alire.Solutions.Traverse at alire-solutions.adb:1547
+0xc6b1be Alire.Roots.Traverse at alire-roots.adb:2057
+0xc6b3f5 Alire.Roots.Traverse at alire-roots.adb:2037
+0xc440f1 Alire.Roots.Build at alire-roots.adb:281
+0xc441d7 Alire.Roots.Build at alire-roots.adb:107
+0x4a4206 Alr.Commands.Get.Retrieve at alr-commands-get.adb:195
+0x4a87b2 Alr.Commands.Get.Execute at alr-commands-get.adb:368
+0x4a8a49 Alr.Commands.Get.Execute at alr-commands-get.adb:246
+0x53939b Alr.Commands.Sub_Cmd.Execute at clic-subcommand-instance.adb:749
+0x54587e Alr.Commands.Execute at alr-commands.adb:561
+0x436183 Alr.Main at alr-main.adb:13
+0x438de1 Main at b__alr-main.adb:2257
+[/lib/x86_64-linux-gnu/libc.so.6]
+0x7faa69887d8e
+0x7faa69887e3e
+[/usr/bin/alr]
+0x43601c _start at ???
+0xfffffffffffffffe
+
+
+Warning: emacs_wisi=4.3.2 successfully retrieved but its build failed.
+Dependencies were solved as follows:
+
+   +b gnat                13.2.1 (new,gnat_native,binary)
+   +  gnatcoll            22.0.0 (new,indirect)
+   +  libgpr              22.0.0 (new,indirect)
+   +  stephes_ada_library 3.7.3  (new)
+   +  wisitoken           4.2.1  (new)
+   +  xmlada              22.0.0 (new,indirect)
+ERROR: Build ended with errors
