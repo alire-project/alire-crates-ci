@@ -1,0 +1,90 @@
+Test ran at 2024-06-04 01:59:29.399903+00:00
+
+SOLUTION:
+dummyserver=1.0.0: DummyServer is a terminal program that serves dummy content
+Origin: commit 9a6e8708b748fc1f16b8fdd69c3944ae4e7ebcb3 from https://github.com/bracke/dummyserver.git
+Properties:
+   Author: Bent Bracke
+   Description: DummyServer is a terminal program that serves dummy content
+   Executable: dummyserver
+   License: CC0-1.0
+   Long_Description: DummyServer is a terminal program that serves dummy content (resources). These resources are defined in a single JSON configuration and configuration is thus very simple and fast. The prime purpose of DummyServer is to serve content to test client applications.
+   Maintainer: Bent Bracke <bent@bracke.dk>
+   Maintainers_Logins: bracke
+   Name: dummyserver
+   Tag: http
+   Tag: server
+   Tag: test
+   Tag: terminal
+   Tag: console
+   Version: 1.0.0
+   Website: https://github.com/bracke/dummyserver
+Dependencies (direct):
+   json^5.0.3
+Dependencies (solution):
+   json=5.0.3
+Dependencies (graph):
+   dummyserver=1.0.0 --> json=5.0.3 (^5.0.3)
+
+
+LOG:
+Note: Deploying dummyserver=1.0.0...
+Note: Deploying json=5.0.3...
+Note: Building json/json.gpr (1/2)...
+Setup
+   [mkdir]        object directory for project JSON
+   [mkdir]        library directory for project JSON
+Compile
+   [Ada]          json-parsers.adb
+   [Ada]          json-streams.adb
+   [Ada]          json-tokenizers.adb
+   [Ada]          json-types.adb
+   [Ada]          json.ads
+Build Libraries
+   [gprlib]       json-ada.lexch
+   [archive]      libjson-ada.a
+   [index]        libjson-ada.a
+Note: Building json/json_pretty_print.gpr (2/2)...
+Setup
+   [mkdir]        object directory for project JSON_Pretty_Print
+   [mkdir]        exec directory for project JSON_Pretty_Print
+Compile
+   [Ada]          pretty_print.adb
+Bind
+   [gprbind]      pretty_print.bexch
+   [Ada]          pretty_print.ali
+Link
+   [link]         pretty_print.adb
+-macosx_version_min has been renamed to -macos_version_min
+0  0x10074df43  __assert_rtn + 64
+1  0x10064ff43  ld::AtomPlacement::findAtom(unsigned char, unsigned long long, ld::AtomPlacement::AtomLoc const*&, long long&) const + 1411
+2  0x10066c431  ld::InputFiles::SliceParser::parseObjectFile(mach_o::Header const*) const + 19745
+3  0x10067ce44  ld::InputFiles::parseAllFiles(void (ld::AtomFile const*) block_pointer)::$_7::operator()(unsigned long, ld::FileInfo const&) const + 1380
+4  0x7ff8126dedef  _dispatch_client_callout2 + 8
+5  0x7ff8126f0547  _dispatch_apply_invoke3 + 431
+6  0x7ff8126dedbc  _dispatch_client_callout + 8
+7  0x7ff8126e004e  _dispatch_once_callout + 20
+8  0x7ff8126ef740  _dispatch_apply_invoke + 184
+9  0x7ff8126dedbc  _dispatch_client_callout + 8
+10  0x7ff8126ee2ca  _dispatch_root_queue_drain + 871
+11  0x7ff8126ee84f  _dispatch_worker_thread2 + 152
+12  0x7ff81287cb43  _pthread_wqthread + 262
+ld: Assertion failed: (resultIndex < sectData.atoms.size()), function findAtom, file Relocations.cpp, line 1336.
+collect2: error: ld returned 1 exit status
+gprbuild: link of pretty_print.adb failed
+gprbuild: failed command was: /users/runner/.config/alire/cache/dependencies/gnat_native_13.1.0_071d715c/bin/gcc pretty_print.o b__pretty_print.o /Users/runner/work/alire-crates-ci/alire-crates-ci/test/01b1e5a3-87b9-41d4-a73a-8ebd796ca25a/dummyserver_1.0.0_9a6e8708/alire/cache/dependencies/json_ada_fda3e8b1/json/build/lib/libjson-ada.a -L/Users/runner/work/alire-crates-ci/alire-crates-ci/test/01b1e5a3-87b9-41d4-a73a-8ebd796ca25a/dummyserver_1.0.0_9a6e8708/alire/cache/dependencies/json_ada_fda3e8b1/json/build/tools/obj/release/ -L/Users/runner/work/alire-crates-ci/alire-crates-ci/test/01b1e5a3-87b9-41d4-a73a-8ebd796ca25a/dummyserver_1.0.0_9a6e8708/alire/cache/dependencies/json_ada_fda3e8b1/json/build/tools/obj/release/ -L/Users/runner/work/alire-crates-ci/alire-crates-ci/test/01b1e5a3-87b9-41d4-a73a-8ebd796ca25a/dummyserver_1.0.0_9a6e8708/alire/cache/dependencies/json_ada_fda3e8b1/json/build/lib/ -L/users/runner/.config/alire/cache/dependencies/gnat_native_13.1.0_071d715c/lib/gcc/x86_64-apple-darwin21.6.0/13.1.0/adalib/ /users/runner/.config/alire/cache/dependencies/gnat_native_13.1.0_071d715c/lib/gcc/x86_64-apple-darwin21.6.0/13.1.0/adalib/libgnat.a -Wl,-rpath,@executable_path/..//tools/obj/release -Wl,-rpath,@executable_path/..//lib -Wl,-rpath,@executable_path/../../../../../../../../../../../../..//.config/alire/cache/dependencies/gnat_native_13.1.0_071d715c/lib/gcc/x86_64-apple-darwin21.6.0/13.1.0/adalib -o /Users/runner/work/alire-crates-ci/alire-crates-ci/test/01b1e5a3-87b9-41d4-a73a-8ebd796ca25a/dummyserver_1.0.0_9a6e8708/alire/cache/dependencies/json_ada_fda3e8b1/json/build/bin//pretty_print
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/Users/runner/work/alire-crates-ci/alire-crates-ci/test/01b1e5a3-87b9-41d4-a73a-8ebd796ca25a/dummyserver_1.0.0_9a6e8708/alire/cache/dependencies/json_ada_fda3e8b1/json/json_pretty_print.gpr"] exited with code 4
+ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/Users/runner/work/alire-crates-ci/alire-crates-ci/test/01b1e5a3-87b9-41d4-a73a-8ebd796ca25a/dummyserver_1.0.0_9a6e8708/alire/cache/dependencies/json_ada_fda3e8b1/json/json_pretty_print.gpr"] exited with code 4
+stderr: ALIRE.CHECKED_ERROR
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/Users/runner/work/alire-crates-ci/alire-crates-ci/test/01b1e5a3-87b9-41d4-a73a-8ebd796ca25a/dummyserver_1.0.0_9a6e8708/alire/cache/dependencies/json_ada_fda3e8b1/json/json_pretty_print.gpr"] exited with code 4
+stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
+Load address: 0x100afe000
+Call stack traceback locations:
+0x101406415 0x1010d9e83 0x1012ecdf9 0x1012ed581 0x10124dac3 0x10124bf99 0x101268873 0x1012b4dc1 0x1012b33c2 0x1012689b8 0x10124c349 0x100b5d9c1 0x100b6e578 0x100b7301c 0x100bf905c 0x100c043b8 0x100aff605 0x100b02914
+
+
+Warning: dummyserver=1.0.0 successfully retrieved but its build failed.
+Dependencies were solved as follows:
+
+   + json 5.0.3 (new)
+ERROR: Build ended with errors
