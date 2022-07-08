@@ -1,0 +1,112 @@
+Test ran at 2025-12-21 12:37:07.771765+00:00
+
+SOLUTION:
+a0b_tools=0.1.0: A0B Tools: Runtime Generator
+Origin: commit 39e79120e51c646cd330e77cc38f359b81ee6194 from https://github.com/godunko/a0b-tools.git
+Properties:
+   Author: Vadim Godunko
+   Auto_Gpr_With: auto-gpr-with=false
+   Configuration: no modifiers
+   Description: A0B Tools: Runtime Generator
+   Environment: PATH=${PATH}:${CRATE_ROOT}/bin
+   Executable: a0b-runtime
+   License: GPL-3.0-or-later
+   Maintainer: Vadim Godunko <vgodunko@gmail.com>
+   Maintainers_Logins: godunko
+   Name: a0b_tools
+   Project_File: gnat/a0b_tools.gpr
+   Tag: a0b
+   Tag: tools
+   Tag: runtime
+   Version: 0.1.0
+   Website: https://github.com/godunko/a0b-tools
+Dependencies (direct):
+   a0b_base*
+   gnat*
+   gnatcoll*
+   vss*
+Dependencies (solution):
+   a0b_base=0.4.0
+   gnat=15.1.2 (gnat_native)
+   gnatcoll=25.0.0
+   libgpr=25.0.0
+   vss=25.0.0
+   xmlada=25.0.0
+Dependencies (graph):
+   a0b_tools=0.1.0 --> a0b_base=0.4.0 (*)
+   a0b_tools=0.1.0 --> gnat=15.1.2 (gnat_native) (*)
+   a0b_tools=0.1.0 --> gnatcoll=25.0.0 (*)
+   a0b_tools=0.1.0 --> vss=25.0.0 (*)
+   gnatcoll=25.0.0 --> gnat=15.1.2 (gnat_native) (>=13)
+   gnatcoll=25.0.0 --> libgpr=25.0.0 (~25.0.0)
+   libgpr=25.0.0   --> gnat=15.1.2 (gnat_native) (/=2020)
+   libgpr=25.0.0   --> xmlada=25.0.0 (~25.0.0)
+   vss=25.0.0      --> gnat=15.1.2 (gnat_native) (>=11 & <2000)
+   xmlada=25.0.0   --> gnat=15.1.2 (gnat_native) (>=11)
+
+
+LOG:
+[alr test] Testing a0b_tools=0.1.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get a0b_tools=0.1.0
+Note: Deploying a0b_tools=0.1.0...
+
+a0b_tools=0.1.0 successfully retrieved.
+Dependencies were solved as follows:
+
+   +  a0b_base 0.4.0  (new)
+   +b gnat     15.1.2 (new,gnat_native,binary)
+   +  gnatcoll 25.0.0 (new)
+   +  libgpr   25.0.0 (new,indirect)
+   +  vss      25.0.0 (new)
+   +  xmlada   25.0.0 (new,indirect)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building a0b_tools=0.1.0/gnat/a0b_tools.gpr...
+Setup
+   [mkdir]        object directory for project A0B_Base
+   [mkdir]        library directory for project A0B_Base
+   [mkdir]        object directory for project A0B_Tools
+   [mkdir]        exec directory for project A0B_Tools
+Compile
+   [Ada]          rtg-driver.adb
+   [Ada]          vss-xml-xmlada_readers.adb
+   [Ada]          vss-xml-implementation-xmlada_parse_errors.adb
+   [Ada]          vss-xml-implementation-xmlada_attributes.adb
+   [Ada]          vss-xml-implementation-xmlada_locators.adb
+   [Ada]          a0b-types-svd.ads
+   [Ada]          a0b-types.ads
+   [Ada]          a0b-types-big_endian.adb
+   [Ada]          a0b-types-gcc_builtins.ads
+   [Ada]          a0b-types-arrays.ads
+   [Ada]          a0b-peripherals.ads
+   [Ada]          a0b.ads
+   [Ada]          rtg.ads
+   [Ada]          rtg-architecture.adb
+   [Ada]          rtg-gnat_rts_sources.adb
+   [Ada]          rtg-interrupts.ads
+   [Ada]          rtg-runtime.adb
+   [Ada]          rtg-runtime_reader.adb
+   [Ada]          rtg-startup.adb
+   [Ada]          rtg-startup-reader.adb
+   [Ada]          rtg-svd_reader.adb
+   [Ada]          rtg-system.adb
+   [Ada]          rtg-system_bb_mcu_parameters.adb
+   [Ada]          rtg-system_bb_mcu_vectors.adb
+   [Ada]          rtg-system_bb_parameters.adb
+   [Ada]          rtg-tasking.adb
+   [Ada]          rtg-diagnostics.adb
+   [Ada]          rtg-utilities.adb
+Build Libraries
+   [gprlib]       a0b_base.lexch
+   [gprlib]       vss-xml-xmlada.lexch
+   [archive]      liba0b_base.a
+   [index]        liba0b_base.a
+   [archive]      libvss-xml-xmlada.a
+   [index]        libvss-xml-xmlada.a
+Bind
+   [gprbind]      rtg-driver.bexch
+   [Ada]          rtg-driver.ali
+Link
+   [link]         rtg-driver.adb
+Success: Build finished successfully in 12.27 seconds.
+Found declared GPR file: gnat/a0b_tools.gpr
+[alr test] Test completed SUCCESSFULLY

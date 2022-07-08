@@ -1,0 +1,502 @@
+badge: true
+badge_color: red
+crate: wioe5_ham1
+creation_timestamp: 1752663155.5627093
+distro: centos-9
+duration: 0.6661568479999005
+gnat: 14.2.0
+last_attempt: 2025-07-18 01:28:12.209602+00:00
+log:
+- 'Test ran at 2025-07-18 01:28:12.209552+00:00
+
+
+  '
+- 'SOLUTION:
+
+  '
+- 'wioe5_ham1=1.23340.1: Wio-E5 LoRa Transceiver Module Device Driver
+
+  '
+- 'Origin: source archive wioe5_ham1-1.23340.1.tbz2 at https://raw.githubusercontent.com/pmunts/alire-crates/1a403b346e0bbef15b9f4a8b2f7bb12a2fe2b827/wioe5_ham1/wioe5_ham1-1.23340.1.tbz2
+  with hashes sha256:f8a15bd3d3f84c115a435a43184bcd051a6e4ef16bf9d594505612122fc08ad4,
+  sha512:4347114857752a569855be87b589038d66f43684402306f9859d6d260db255bef362de8001d431568a74ee301eff356327af78a2af803d61649b3bca2460025f
+
+  '
+- 'Available when: (case OS is Linux => True, Windows => True, others => False)
+
+  '
+- 'Properties:
+
+  '
+- '   Author: Philip Munts
+
+  '
+- '   Description: Wio-E5 LoRa Transceiver Module Device Driver
+
+  '
+- '   License: BSD-1-Clause
+
+  '
+- '   Long_Description: # Introduction
+
+  '
+- '
+
+  '
+- 'This crate provides the device driver package **Wio_E5.Ham1** for the
+
+  '
+- 'Seeed Studio [Wio-E5 LoRa Transceiver
+
+  '
+- 'Module](https://wiki.seeedstudio.com/LoRa-E5_STM32WLE5JC_Module)
+
+  '
+- 'operating in test *aka* P2P (so-called Peer to Peer or Point to Point)
+
+  '
+- 'broadcast mode.
+
+  '
+- '
+
+  '
+- 'See
+
+  '
+- '[WioE5LoRaP2P.pdf](https://repo.munts.com/libsimpleio/doc/WioE5LoRaP2P.pdf)
+
+  '
+- 'for more information about the [LoRa wireless
+
+  '
+- 'system](https://www.semtech.com/lora/what-is-lora) and operating the
+
+  '
+- 'Wio-E5 module in P2P mode.
+
+  '
+- '
+
+  '
+- '**Wio_E5.Ham1** is derived from **Wio_E5.P2P** (see crate
+
+  '
+- '[wioe5_p2p](https://alire.ada.dev/crates/wioe5_p2p.html)). It reserves
+
+  '
+- 'the first twelve bytes of the payload for address information to
+
+  '
+- 'implement ***[Amateur
+
+  '
+- 'Radio](https://www.fcc.gov/wireless/bureau-divisions/mobility-division/amateur-radio-service)
+
+  '
+- 'Unicast Flavor #1***, which creates a amateur radio [Personal Area
+
+  '
+- 'Network](https://en.wikipedia.org/wiki/Personal_area_network), operated
+
+  '
+- 'under a *Technician* or higher license, in the [33-cm
+
+  '
+- 'band](https://en.wikipedia.org/wiki/33-centimeter_band) (902 to 928 MHz
+
+  '
+- 'in the United States, 915 to 928 MHz in New Zealand, and possible
+
+  '
+- 'allocations in other [ITU Region
+
+  '
+- '2](https://w6hs.net/itu-region-2-member-countries) countries).
+
+  '
+- '
+
+  '
+- '*The code for this crate has been extracted from the [Linux Simple I/O
+
+  '
+- 'Library project](https://github.com/pmunts/libsimpleio).*
+
+  '
+- '
+
+  '
+- '# API
+
+  '
+- '
+
+  '
+- 'The API for this device driver is documented in the
+
+  '
+- '[Wio-E5.Ham1](https://github.com/pmunts/libsimpleio/blob/master/ada/devices/wioe5/wio_e5-ham1.ads)
+
+  '
+- 'package specification.
+
+  '
+- '
+
+  '
+- '**Wio-E5.Ham1** is a generic package that must be instantiated with two
+
+  '
+- '**Positive** value parameters, for maximum payload size (1 to 241 bytes)
+
+  '
+- 'and FIFO queue depth. The default values for the generic formal
+
+  '
+- 'parameters will prove satisfactory for most purposes. Depending on what
+
+  '
+- 'kind of data you are going to be sending, you might want reduce the
+
+  '
+- 'maximum payload size to match some other protocol, such as 64 bytes for
+
+  '
+- 'the [Remote I/O
+
+  '
+- 'Protocol](https://repo.munts.com/libsimpleio/doc/RemoteIOProtocol.pdf).
+
+  '
+- '
+
+  '
+- '# Minimal Test Program
+
+  '
+- '
+
+  '
+- '    WITH Wio_E5.Ham1;
+
+  '
+- '
+
+  '
+- '    PROCEDURE HelloWorld IS
+
+  '
+- '
+
+  '
+- '      PACKAGE LoRa IS NEW Wio_E5.Ham1;
+
+  '
+- '
+
+  '
+- '      dev : LoRa.Device;
+
+  '
+- '
+
+  '
+- '    BEGIN
+
+  '
+- '      dev := LoRa.Create("/dev/ttyUSB0", 115200, "ZZ0ZZZ    ", 1, 915.0);
+
+  '
+- '      dev.Send("Hello, World!", 2);
+
+  '
+- '      dev.Shutdown;
+
+  '
+- '    END HelloWorld;
+
+  '
+- '
+
+  '
+- 'More example programs are available at:
+
+  '
+- '<https://github.com/pmunts/libsimpleio/tree/master/ada/programs/wioe5/ham1>.
+
+  '
+- '
+
+  '
+- '   Maintainer: Philip Munts <phil@munts.net>
+
+  '
+- '   Maintainers_Logins: pmunts
+
+  '
+- '   Name: wioe5_ham1
+
+  '
+- '   Project_File: wioe5_ham1.gpr
+
+  '
+- '   Tag: embedded
+
+  '
+- '   Tag: linux
+
+  '
+- '   Tag: wioe5
+
+  '
+- '   Tag: lora
+
+  '
+- '   Tag: radio
+
+  '
+- '   Tag: wireless
+
+  '
+- '   Tag: ham
+
+  '
+- '   Version: 1.23340.1
+
+  '
+- '   Website: https://github.com/pmunts/libsimpleio
+
+  '
+- '
+
+  '
+- '
+
+  LOG:
+
+  '
+- '[alr test] Testing wioe5_ham1=1.23340.1
+
+  '
+- '[alr test] Spawning retrieval for remote crate: alr -d -n get wioe5_ham1=1.23340.1
+
+  '
+- 'Note: Deploying wioe5_ham1=1.23340.1...
+
+  '
+- '
+
+  '
+- '######################################################################## 100.0%
+
+  '
+- '
+
+  '
+- 'wioe5_ham1=1.23340.1 successfully retrieved.
+
+  '
+- 'There are no dependencies.
+
+  '
+- '[alr test] Spawning default test for remote crate: alr -d -n build --release --
+  -cargs:Ada -gnatwn
+
+  '
+- 'Note: Building wioe5_ham1=1.23340.1/wioe5_ham1.gpr...
+
+  '
+- '/root/.local/share/alire/toolchains/gprbuild_25.0.1_9a2e6cfb/bin/gprbuild: /lib64/libc.so.6:
+  version `GLIBC_2.35'' not found (required by /root/.local/share/alire/toolchains/gprbuild_25.0.1_9a2e6cfb/bin/gprbuild)
+
+  '
+- 'stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/f1070689-e87a-4a3b-80e5-3317400354ba/wioe5_ham1_1.23340.1_f8a15bd3/wioe5_ham1.gpr",
+  "-cargs:Ada", "-gnatwn"] exited with code 1
+
+  '
+- 'ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/f1070689-e87a-4a3b-80e5-3317400354ba/wioe5_ham1_1.23340.1_f8a15bd3/wioe5_ham1.gpr",
+  "-cargs:Ada", "-gnatwn"] exited with code 1
+
+  '
+- 'stderr: ALIRE.CHECKED_ERROR
+
+  '
+- 'stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/f1070689-e87a-4a3b-80e5-3317400354ba/wioe5_ham1_1.23340.1_f8a15bd3/wioe5_ham1.gpr",
+  "-cargs:Ada", "-gnatwn"] exited with code 1
+
+  '
+- 'stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
+
+  '
+- '[/usr/bin/alr]
+
+  '
+- '0xe75bc6 Alire.Raise_Checked_Error at alire.adb:284
+
+  '
+- '0xac1a54 Alire.Os_Lib.Subprocess.Checked_Spawn at alire-os_lib-subprocess.adb:111
+
+  '
+- '0xd40276 Alire.Spawn.Command at alire-spawn.adb:22
+
+  '
+- '0xd412ee Alire.Spawn.Gprbuild at alire-spawn.adb:68
+
+  '
+- '0xc748cb Alire.Roots.Build at alire-roots.adb:189
+
+  '
+- '0xc7301a Alire.Roots.Build at alire-roots.adb:255
+
+  '
+- '0xc9832b Alire.Roots.Traverse at alire-roots.adb:2143
+
+  '
+- '0xcfee85 Alire.Solutions.Traverse.Visit at alire-solutions.adb:1472
+
+  '
+- '0xcfdfcc Alire.Solutions.Traverse at alire-solutions.adb:1555
+
+  '
+- '0xc9841e Alire.Roots.Traverse at alire-roots.adb:2147
+
+  '
+- '0xc984dd Alire.Roots.Traverse at alire-roots.adb:2127
+
+  '
+- '0xc7359b Alire.Roots.Build at alire-roots.adb:286
+
+  '
+- '0xc736d7 Alire.Roots.Build at alire-roots.adb:114
+
+  '
+- '0x49aa0d Alr.Commands.Build.Execute at alr-commands-build.adb:145
+
+  '
+- '0x49a36d Alr.Commands.Build.Execute at alr-commands-build.adb:113
+
+  '
+- '0x49a51f Alr.Commands.Build.Execute at alr-commands-build.adb:54
+
+  '
+- '0x53bbcc Alr.Commands.Sub_Cmd.Execute at clic-subcommand-instance.adb:749
+
+  '
+- '0x5472be Alr.Commands.Execute at alr-commands.adb:632
+
+  '
+- '0x43d48a Alr.Main at alr-main.adb:13
+
+  '
+- '0x4403a3 Main at b__alr-main.adb:2445
+
+  '
+- '[/lib64/libc.so.6]
+
+  '
+- '0x7fd140f265ce
+
+  '
+- '0x7fd140f2667e
+
+  '
+- '[/usr/bin/alr]
+
+  '
+- '0x43d323 _start at ???
+
+  '
+- '0xfffffffffffffffe
+
+  '
+- '
+
+  '
+- 'stderr: ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED
+
+  '
+- 'stderr: alire-roots.adb:202
+
+  '
+- 'stderr: raised ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED : alire-roots.adb:202
+
+  '
+- '[/usr/bin/alr]
+
+  '
+- '0xc74cc7 Alire.Roots.Build at alire-roots.adb:202
+
+  '
+- '0xc7301a Alire.Roots.Build at alire-roots.adb:255
+
+  '
+- '0xc9832b Alire.Roots.Traverse at alire-roots.adb:2143
+
+  '
+- '0xcfee85 Alire.Solutions.Traverse.Visit at alire-solutions.adb:1472
+
+  '
+- '0xcfdfcc Alire.Solutions.Traverse at alire-solutions.adb:1555
+
+  '
+- '0xc9841e Alire.Roots.Traverse at alire-roots.adb:2147
+
+  '
+- '0xc984dd Alire.Roots.Traverse at alire-roots.adb:2127
+
+  '
+- '0xc7359b Alire.Roots.Build at alire-roots.adb:286
+
+  '
+- '0xc736d7 Alire.Roots.Build at alire-roots.adb:114
+
+  '
+- '0x49aa0d Alr.Commands.Build.Execute at alr-commands-build.adb:145
+
+  '
+- '0x49a36d Alr.Commands.Build.Execute at alr-commands-build.adb:113
+
+  '
+- '0x49a51f Alr.Commands.Build.Execute at alr-commands-build.adb:54
+
+  '
+- '0x53bbcc Alr.Commands.Sub_Cmd.Execute at clic-subcommand-instance.adb:749
+
+  '
+- '0x5472be Alr.Commands.Execute at alr-commands.adb:632
+
+  '
+- '0x43d48a Alr.Main at alr-main.adb:13
+
+  '
+- '0x4403a3 Main at b__alr-main.adb:2445
+
+  '
+- '[/lib64/libc.so.6]
+
+  '
+- '0x7fd140f265ce
+
+  '
+- '0x7fd140f2667e
+
+  '
+- '[/usr/bin/alr]
+
+  '
+- '0x43d323 _start at ???
+
+  '
+- '0xfffffffffffffffe
+
+  '
+- '
+
+  '
+- 'ERROR: Compilation failed.
+
+  '
+platform: linux
+status: failing
+version: 1.23340.1

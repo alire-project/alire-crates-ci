@@ -1,0 +1,92 @@
+Test ran at 2026-10-07 01:10:37.322999+00:00
+
+SOLUTION:
+espidf_event=0.1.0: Ada/ESP-IDF: Event Loop Library bindings
+Origin: commit 210b46d83d8d41d26cfdf4cb005130aed1ec9bf2 from https://github.com/godunko/espidf_event.git
+Properties:
+   Author: Vadim Godunko
+   Configuration: no modifiers
+   Description: Ada/ESP-IDF: Event Loop Library bindings
+   License: Apache-2.0 WITH LLVM-exception
+   Long_Description: Ada bindings for the ESP-IDF Event Loop Library (`esp_event`).
+
+Covers creation of the default event loop and registration/unregistration of event handlers,
+as needed by other components (Wi-Fi, network interfaces) to report asynchronous events.
+
+   Maintainer: Vadim Godunko <vgodunko@gmail.com>
+   Maintainers_Logins: godunko
+   Name: espidf_event
+   Tag: a0b
+   Tag: embedded
+   Tag: esp
+   Tag: esp32
+   Tag: espidf
+   Tag: event
+   Version: 0.1.0
+   Website: https://github.com/godunko/espidf_event
+Dependencies (direct):
+   espidf^0.2.0
+Dependencies (solution):
+   a0b_base=0.5.0
+   espidf=0.2.0
+Dependencies (graph):
+   espidf=0.2.0       --> a0b_base=0.5.0 (^0.5.0)
+   espidf_event=0.1.0 --> espidf=0.2.0 (^0.2.0)
+
+
+LOG:
+[alr test] Testing espidf_event=0.1.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get espidf_event=0.1.0
+Note: Deploying espidf_event=0.1.0...
+Note: Deploying a0b_base=0.5.0...
+Note: Deploying espidf=0.2.0...
+Warning: Possible tilde intended instead of caret for a 0.x version.
+   Alire does not change the meaning of caret and tilde for pre/post-1.0 versions.
+   The suspicious dependency is: espidf^0.2.0
+   You can disable this warning by setting the option warning.caret to false.
+
+espidf_event=0.1.0 successfully retrieved.
+Dependencies were solved as follows:
+
+   + a0b_base 0.5.0 (new,indirect)
+   + espidf   0.2.0 (new)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building espidf_event=0.1.0/espidf_event.gpr...
+Setup
+   [mkdir]        object directory for project A0B_Base
+   [mkdir]        library directory for project A0B_Base
+   [mkdir]        object directory for project ESPIDF
+   [mkdir]        library directory for project ESPIDF
+   [mkdir]        object directory for project ESPIDF_Event
+   [mkdir]        library directory for project ESPIDF_Event
+Compile
+   [Ada]          a0b-types-svd.ads
+   [Ada]          a0b-types-big_endian.adb
+   [Ada]          a0b-types-arrays.ads
+   [Ada]          a0b-peripherals.ads
+   [Ada]          a0b-types-enumerable.ads
+   [Ada]          a0b-types-gcc_builtins.ads
+   [Ada]          a0b-types.ads
+   [Ada]          a0b.ads
+   [Ada]          espidf-hal.ads
+a0b-types-big_endian.adb:10:04: warning: "Unsigned_64" is already use-visible through previous use_type_clause at a0b-types.ads:297 [-gnatwr]
+a0b-types-big_endian.adb:10:04: warning: use clause for type "Unsigned_64" defined at a0b-types.ads:88 has no effect [-gnatwu]
+   [Ada]          espidf-driver.ads
+   [Ada]          espidf.ads
+   [Ada]          espidf-ada_esp_check_error.adb
+   [Ada]          espidf-c_strings.adb
+   [Ada]          espidf-event.adb
+espidf-c_strings.ads:130:54: (style) bad casing of "NUL" declared in Standard [-gnatyn]
+Build Libraries
+   [gprlib]       a0b_base.lexch
+   [gprlib]       adaespidf.lexch
+   [archive]      liba0b_base.a
+   [index]        liba0b_base.a
+   [gprlib]       adaespidf_event.lexch
+   [archive]      libadaespidf.a
+   [index]        libadaespidf.a
+   [archive]      libadaespidf_event.a
+   [index]        libadaespidf_event.a
+Success: Build finished successfully in 0.54 seconds.
+Found declared GPR file: espidf_event.gpr
+[alr test] Test completed SUCCESSFULLY

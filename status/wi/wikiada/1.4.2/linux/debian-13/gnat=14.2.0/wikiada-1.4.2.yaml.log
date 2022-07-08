@@ -1,0 +1,116 @@
+Test ran at 2025-10-05 13:09:42.459467+00:00
+
+SOLUTION:
+wikiada=1.4.2: Wiki Engine with parser and renderer for several wiki syntaxes
+Origin: commit 8e70483ec7ab9f1212e35250f7b301be80ce3b60 from https://gitlab.com/stcarrez/ada-wiki.git
+Properties:
+   Author: Stephane.Carrez@gmail.com
+   Configuration: no modifiers
+   Description: Wiki Engine with parser and renderer for several wiki syntaxes
+   GPR Scenario: WIKI_BUILD := distrib | debug | optimize | profile | coverage
+   GPR Scenario: WIKI_LIBRARY_TYPE := relocatable | static | static-pic
+   License: Apache-2.0
+   Long_Description: [![Build Status](https://img.shields.io/endpoint?url=https://porion.vacs.fr/porion/api/v1/projects/ada-wiki/badges/build.json)](https://porion.vacs.fr/porion/projects/view/ada-wiki/summary)
+[![Test Status](https://img.shields.io/endpoint?url=https://porion.vacs.fr/porion/api/v1/projects/ada-wiki/badges/tests.json)](https://porion.vacs.fr/porion/projects/view/ada-wiki/xunits)
+[![Coverage](https://img.shields.io/endpoint?url=https://porion.vacs.fr/porion/api/v1/projects/ada-wiki/badges/coverage.json)](https://porion.vacs.fr/porion/projects/view/ada-wiki/summary)
+
+Ada Wiki is a small library that provides and focuses only on the Wiki engine.
+
+The library allows to:
+
+* Parse a wiki text such as Mediawiki, Creole, PhpBB, Dotclear and Google Code
+* Parse HTML content in embedded wiki text,
+* Filter out the wiki, HTML or text through customizable filters,
+* Render the wiki text in HTML, text or another wiki format
+
+The Ada Wiki library is used by [Ada Web Application](https://gitlab.com/stcarrez/ada-awa)
+for the implementation of the blog and wiki online plugins.
+
+
+   Maintainer: Stephane.Carrez@gmail.com
+   Maintainers_Logins: stcarrez
+   Name: wikiada
+   Project_File: wikiada.gpr
+   Tag: wiki-engine
+   Tag: markdown
+   Tag: mediawiki
+   Tag: dotclear
+   Tag: html
+   Tag: parser
+   Tag: renderer
+   Version: 1.4.2
+   Website: https://gitlab.com/stcarrez/ada-wiki
+Dependencies (direct):
+   utilada^2.5.0
+Dependencies (solution):
+   utilada=2.8.1
+Dependencies (graph):
+   wikiada=1.4.2 --> utilada=2.8.1 (^2.5.0)
+
+
+LOG:
+[alr test] Testing wikiada=1.4.2
+[alr test] Spawning retrieval for remote crate: alr -d -n get wikiada=1.4.2
+Note: Deploying wikiada=1.4.2...
+
+wikiada=1.4.2 successfully retrieved.
+Dependencies were solved as follows:
+
+   + utilada 2.8.1 (new)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building wikiada=1.4.2/wikiada.gpr...
+Setup
+   [mkdir]        object directory for project WikiAda
+   [mkdir]        library directory for project WikiAda
+Compile
+   [Ada]          wiki-render-wiki.adb
+   [Ada]          wiki-utils.adb
+   [Ada]          wiki-helpers.adb
+   [Ada]          wiki-documents.adb
+   [Ada]          wiki-parsers-dotclear.adb
+   [Ada]          wiki-html_parser-entities.ads
+   [Ada]          wiki-render-links.adb
+   [Ada]          wiki.adb
+   [Ada]          wiki-filters-html.adb
+   [Ada]          wiki-filters-collectors.adb
+   [Ada]          wiki-parsers-textile.adb
+   [Ada]          wiki-filters.adb
+   [Ada]          wiki-nodes-lists.adb
+   [Ada]          wiki-nodes-dump.adb
+   [Ada]          wiki-plugins.ads
+   [Ada]          wiki-helpers-parser.adb
+   [Ada]          wiki-nodes.adb
+   [Ada]          wiki-parsers-common.adb
+   [Ada]          wiki-streams-text_io.adb
+   [Ada]          wiki-buffers.adb
+   [Ada]          wiki-streams-html.adb
+   [Ada]          wiki-plugins-conditions.adb
+   [Ada]          wiki-filters-autolink.adb
+   [Ada]          wiki-streams-html-text_io.ads
+   [Ada]          wiki-streams-builders.adb
+   [Ada]          wiki-render-html.adb
+   [Ada]          wiki-render.adb
+   [Ada]          wiki-plugins-variables.adb
+   [Ada]          wiki-parsers-google.adb
+   [Ada]          wiki-parsers-mediawiki.adb
+   [Ada]          wiki-parsers-creole.adb
+   [Ada]          wiki-streams-html-builders.ads
+   [Ada]          wiki-parsers.adb
+   [Ada]          wiki-attributes.adb
+   [Ada]          wiki-filters-variables.adb
+   [Ada]          wiki-render-text.adb
+   [Ada]          wiki-plugins-templates.adb
+   [Ada]          wiki-filters-toc.adb
+   [Ada]          wiki-strings.adb
+   [Ada]          wiki-streams-html-stream.adb
+   [Ada]          wiki-parsers-markdown.adb
+   [Ada]          wiki-streams.ads
+   [Ada]          wiki-html_parser.adb
+   [Ada]          wiki-parsers-html.adb
+Build Libraries
+   [gprlib]       wikiada.lexch
+   [archive]      libwikiada.a
+   [index]        libwikiada.a
+Success: Build finished successfully in 5.43 seconds.
+Found declared GPR file: wikiada.gpr
+[alr test] Test completed SUCCESSFULLY

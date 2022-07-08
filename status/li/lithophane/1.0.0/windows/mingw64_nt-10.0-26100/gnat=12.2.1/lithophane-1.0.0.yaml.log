@@ -1,0 +1,278 @@
+Test ran at 2026-09-28 01:21:44.847294+00:00
+
+SOLUTION:
+lithophane=1.0.0: Create lithophane with Ada
+Origin: commit 01e28ce1f09e3bbec6b73a8d76f02507e5703f9a from https://github.com/smionean/lithophane_ada.git
+Properties:
+   Author: Simon Beàn
+   Build Switches: 
+   Description: Create lithophane with Ada
+   Executable: lithophane
+   License: MIT OR Apache-2.0 WITH LLVM-exception
+   Long_Description: Create [lithophane](https://en.wikipedia.org/wiki/Lithophane) of your favourite picture with Ada.
+
+**Build**
+```
+alr build
+```
+
+**Usage**
+```
+bin/lithophane [options] <input_file>
+```
+
+`<input_file>` is the picture to convert (any format supported by
+[GID](https://gen-img-dec.sourceforge.io): PNG, JPEG, BMP, GIF, TGA, ...).
+
+**Options**
+```
+-h --help
+-v --version
+-b --save-binary          (default)
+-a --save-ascii
+-m --save-3mf
+-p --save-pgm
+-o<name> --output-name=<name>
+-H<height> --height=<height>
+-B<border> --border=<border>
+--dimensions=<W>x<H>x<D>
+-f<filter> --filter <filter> [<n>]
+-c<file> --config=<file>
+```
+
+| Option | Description |
+| --- | --- |
+| `-h`, `--help` | print usage and exit |
+| `-v`, `--version` | print the program version and exit |
+| `-b`, `--save-binary` | write the lithophane as a binary STL file: `<output-name>.bin.stl` (this is the default output if no `-a`/`-b`/`-p` flag is given) |
+| `-a`, `--save-ascii` | write the lithophane as an ASCII STL file: `<output-name>.ascii.stl` |
+| `-m`, `--save-3mf` | write the lithophane as a 3MF file: `<output-name>.3mf` (a ZIP/OPC package with a welded, watertight mesh as `3D/3dmodel.model`) |
+| `-p`, `--save-pgm` | also dump the grayscale-converted image as a PGM file: `<output-name>.pgm` |
+| `-o<name>`, `--output-name=<name>` | base name used for every output file above (default: `test`) |
+| `-H<height>`, `--height=<height>` | target height of the lithophane |
+| `-B<border>`, `--border=<border>` | width, in pixels, of the border added around the image (default: `20`) |
+| `--dimensions=<W>x<H>x<D>` | target physical size **of the 3MF output**, in millimetres (3MF is unit-aware, STL is not). Each axis with a non-zero value is scaled to it exactly; an axis left empty or `0` follows the first constrained axis so the model keeps its proportions. `X`/`Y` are centred on the origin. Example: `--dimensions=100x100x1.5`, or `--dimensions=120x0x0` to set the width and let height and depth scale with it. |
+| `-f<filter>`, `--filter <filter> [<n>]` | image filter to apply before conversion; `<filter>` is one of `bartlett`, `gauss`, `square`, `sharpen`, `threshold`. The optional number `<n>` right after the filter name is the kernel size (an odd number, default `3`) for `bartlett`/`gauss`/`square`/`sharpen`, or the cut value `0..255` (default `128`) for `threshold`. |
+| `-c<file>`, `--config=<file>` | read options from a config file instead of (or in addition to) the command line; when given, it overrides any previous option |
+
+You can combine `-a`, `-b`, `-m` and `-p`: each one adds its own output file,
+they are not mutually exclusive.
+
+The `<n>` argument is positional and optional, so both of these work:
+```
+bin/lithophane --filter gauss 5 doc/img/ada.logo.png
+bin/lithophane --filter threshold 200 doc/img/ada.logo.png
+bin/lithophane --filter sharpen doc/img/ada.logo.png
+```
+
+**Config file**
+
+`-c`/`--config` points to a TOML file such as [config.toml](doc/example/config.toml):
+```toml
+input-name = "foo.png"
+output-name = "test"
+filter = "threshold"
+filter_size = 3
+filter_threshold = 128
+border_size = 20
+save-ascii = false
+save-binary = true
+save-3mf = false
+save-pgm = true
+height = 10
+dimensions = { width = 100.0, height = 100.0, depth = 1.5 }
+```
+
+Every key is optional; a missing key keeps its default. `filter_size` must be a
+positive odd integer, `filter_threshold` must be in `0..255`, and `border_size`
+must be a non-negative integer, otherwise the key is ignored. `dimensions` is an
+inline table (`width` / `height` / `depth`, in millimetres, applied to the 3MF
+output); any sub-key may be omitted or set to `0` to leave that axis
+proportional. The config file is read at the point where `-c`/`--config`
+appears on the command line, so options placed *after* it still take effect.
+
+> [!NOTE]
+> `-f`/`--filter` and `-c`/`--config` are wired up: the selected filter (and its
+> size / threshold) is applied to the grayscale image before the STL is
+> generated, and the config file overrides the matching settings.
+> `-B`/`--border` is wired up too: it sets the white margin added around the
+> image before conversion. When no filter is selected, a threshold filter at mid-grey
+> (`128`) is applied by default.
+
+   Maintainer: Simon Beàn <smionean@gmail.com>
+   Maintainers_Logins: smionean
+   Name: lithophane
+   Tag: 3dprint
+   Tag: lithophane
+   Tag: lithography
+   Tag: stl
+   Tag: 3mf
+   Version: 1.0.0
+   Website: https://github.com/smionean/lithophane_ada
+Dependencies (direct):
+   ada_toml~0.5.0
+   getopt^2.0.0
+   gid^14.0.0
+Dependencies (solution):
+   ada_toml=0.5.0
+   getopt=2.0.0
+   gid=14.0.0
+Dependencies (graph):
+   lithophane=1.0.0 --> ada_toml=0.5.0 (~0.5.0)
+   lithophane=1.0.0 --> getopt=2.0.0 (^2.0.0)
+   lithophane=1.0.0 --> gid=14.0.0 (^14.0.0)
+
+
+LOG:
+[alr test] Testing lithophane=1.0.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get lithophane=1.0.0
+Note: Deploying lithophane=1.0.0...
+Note: Deploying ada_toml=0.5.0...
+
+#=#=#                                                                          
+##O#-#                                                                         
+Note: Deploying getopt=2.0.0...
+curl: (28) Failed to connect to git.sr.ht:443 after 21747 ms: Could not connect to server
+stderr: Command ["curl", "https://git.sr.ht/~nytpu/getopt-ada/archive/v2.0.0.tar.gz", "-L", "--progress-bar", "-o", "C:\Users\runneradmin\AppData\Local\alire\cache\releases\alr-qdds.tmp\v2.0.0.tar.gz"] exited with code 28
+stderr: Generating Outcome_Failure with message: Command ["curl", "https://git.sr.ht/~nytpu/getopt-ada/archive/v2.0.0.tar.gz", "-L", "--progress-bar", "-o", "C:\Users\runneradmin\AppData\Local\alire\cache\releases\alr-qdds.tmp\v2.0.0.tar.gz"] exited with code 28
+stderr: Generating Outcome_Failure with call stack:
+stderr: raised AAA.DEBUG.STACK_TRACE.DEBUG_EXCEPTION : aaa-debug.adb:44
+[D:\a\alire-crates-ci\alire-crates-ci\alire_install\bin\alr.exe]
+0x7ff699bd2307 Semantic_Versioning.Basic.Restrictions.First_Index at aaa-debug.adb:44
+0x7ff69998c118 Semantic_Versioning.Basic.Restrictions.First_Index at alire.adb:226
+0x7ff69998c994 Semantic_Versioning.Basic.Restrictions.First_Index at alire.adb:223
+0x7ff6992af374 Semantic_Versioning.Basic.Restrictions.First_Index at alire-errors.adb:106
+0x7ff6992af441 Semantic_Versioning.Basic.Restrictions.First_Index at alire-errors.adb:104
+0x7ff6994a49b0 Semantic_Versioning.Basic.Restrictions.First_Index at alire-origins-deployers-source_archive.adb:176
+0x7ff6994a5045 Semantic_Versioning.Basic.Restrictions.First_Index at alire-origins-deployers-source_archive.adb:202
+0x7ff6994cd885 Semantic_Versioning.Basic.Restrictions.First_Index at alire-origins-deployers.adb:111
+0x7ff6994cf275 Semantic_Versioning.Basic.Restrictions.First_Index at alire-origins-deployers.adb:170
+0x7ff69973095e Semantic_Versioning.Basic.Restrictions.First_Index at alire-releases.adb:341
+0x7ff69976d8a1 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:812
+0x7ff69978912d Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2143
+0x7ff6997f82f9 Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1472
+0x7ff6997f70ef Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1539
+0x7ff69978922c Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2147
+0x7ff6997892fa Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2127
+0x7ff69976db94 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:843
+0x7ff69976dd4c Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:766
+0x7ff698ee6396 Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-get.adb:179
+0x7ff698eea1c2 Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-get.adb:380
+0x7ff698eea37e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-get.adb:256
+0x7ff698f85dea Semantic_Versioning.Basic.Restrictions.First_Index at clic-subcommand-instance.adb:749
+0x7ff698f92b0e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands.adb:632
+0x7ff698e616a0 Alr.Main at alr-main.adb:13
+0x7ff698e65270 Main at b__alr-main.adb:2454
+0x7ff698e6133e __tmainCRTStartup at ???
+0x7ff698e61144 mainCRTStartup at ???
+[C:\Windows\System32\KERNEL32.DLL]
+0x7ff879e6e985
+[C:\Windows\SYSTEM32\ntdll.dll]
+0x7ff87bf2c53a
+
+File not found - C:\Users\runneradmin\AppData\Local\alire\cache\releases\alr-qdds.tmp\*
+File not found - C:\Users\runneradmin\AppData\Local\alire\cache\releases\alr-qdds.tmp\*
+stderr: ALIRE.CHECKED_ERROR
+stderr: Command ["curl", "https://git.sr.ht/~nytpu/getopt-ada/archive/v2.0.0.tar.gz", "-L", "--progress-bar", "-o", "C:\Users\runneradmin\AppData\Local\alire\cache\releases\alr-qdds.tmp\v2.0.0.tar.gz"] exited with code 28
+stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:2
+[D:\a\alire-crates-ci\alire-crates-ci\alire_install\bin\alr.exe]
+0x7ff69998a8da Semantic_Versioning.Basic.Restrictions.First_Index at alire.adb:158
+0x7ff699730986 Semantic_Versioning.Basic.Restrictions.First_Index at alire-releases.adb:341
+0x7ff69976d8a1 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:812
+0x7ff69978912d Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2143
+0x7ff6997f82f9 Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1472
+0x7ff6997f70ef Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1539
+0x7ff69978922c Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2147
+0x7ff6997892fa Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2127
+0x7ff69976db94 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:843
+0x7ff69976dd4c Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:766
+0x7ff698ee6396 Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-get.adb:179
+0x7ff698eea1c2 Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-get.adb:380
+0x7ff698eea37e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-get.adb:256
+0x7ff698f85dea Semantic_Versioning.Basic.Restrictions.First_Index at clic-subcommand-instance.adb:749
+0x7ff698f92b0e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands.adb:632
+0x7ff698e616a0 Alr.Main at alr-main.adb:13
+0x7ff698e65270 Main at b__alr-main.adb:2454
+0x7ff698e6133e __tmainCRTStartup at ???
+0x7ff698e61144 mainCRTStartup at ???
+[C:\Windows\System32\KERNEL32.DLL]
+0x7ff879e6e985
+[C:\Windows\SYSTEM32\ntdll.dll]
+0x7ff87bf2c53a
+
+ERROR: Command ["curl", "https://git.sr.ht/~nytpu/getopt-ada/archive/v2.0.0.tar.gz", "-L", "--progress-bar", "-o", "C:\Users\runneradmin\AppData\Local\alire\cache\releases\alr-qdds.tmp\v2.0.0.tar.gz"] exited with code 28
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Deploying getopt=2.0.0...
+curl: (28) Failed to connect to git.sr.ht:443 after 21010 ms: Could not connect to server
+stderr: Command ["curl", "https://git.sr.ht/~nytpu/getopt-ada/archive/v2.0.0.tar.gz", "-L", "--progress-bar", "-o", "C:\Users\runneradmin\AppData\Local\alire\cache\releases\alr-fltc.tmp\v2.0.0.tar.gz"] exited with code 28
+stderr: Generating Outcome_Failure with message: Command ["curl", "https://git.sr.ht/~nytpu/getopt-ada/archive/v2.0.0.tar.gz", "-L", "--progress-bar", "-o", "C:\Users\runneradmin\AppData\Local\alire\cache\releases\alr-fltc.tmp\v2.0.0.tar.gz"] exited with code 28
+stderr: Generating Outcome_Failure with call stack:
+stderr: raised AAA.DEBUG.STACK_TRACE.DEBUG_EXCEPTION : aaa-debug.adb:44
+[D:\a\alire-crates-ci\alire-crates-ci\alire_install\bin\alr.exe]
+0x7ff699bd2307 Semantic_Versioning.Basic.Restrictions.First_Index at aaa-debug.adb:44
+0x7ff69998c118 Semantic_Versioning.Basic.Restrictions.First_Index at alire.adb:226
+0x7ff69998c994 Semantic_Versioning.Basic.Restrictions.First_Index at alire.adb:223
+0x7ff6992af374 Semantic_Versioning.Basic.Restrictions.First_Index at alire-errors.adb:106
+0x7ff6992af441 Semantic_Versioning.Basic.Restrictions.First_Index at alire-errors.adb:104
+0x7ff6994a49b0 Semantic_Versioning.Basic.Restrictions.First_Index at alire-origins-deployers-source_archive.adb:176
+0x7ff6994a5045 Semantic_Versioning.Basic.Restrictions.First_Index at alire-origins-deployers-source_archive.adb:202
+0x7ff6994cd885 Semantic_Versioning.Basic.Restrictions.First_Index at alire-origins-deployers.adb:111
+0x7ff6994cf275 Semantic_Versioning.Basic.Restrictions.First_Index at alire-origins-deployers.adb:170
+0x7ff69973095e Semantic_Versioning.Basic.Restrictions.First_Index at alire-releases.adb:341
+0x7ff69976d8a1 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:812
+0x7ff69978912d Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2143
+0x7ff6997f82f9 Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1472
+0x7ff6997f70ef Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1539
+0x7ff69978922c Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2147
+0x7ff6997892fa Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2127
+0x7ff69976db94 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:843
+0x7ff69976dd4c Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:766
+0x7ff699783db8 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:1836
+0x7ff699783fd0 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:1781
+0x7ff698f90777 Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands.adb:413
+0x7ff698ed3289 Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:87
+0x7ff698ed35ba Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:54
+0x7ff698f85dea Semantic_Versioning.Basic.Restrictions.First_Index at clic-subcommand-instance.adb:749
+0x7ff698f92b0e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands.adb:632
+0x7ff698e616a0 Alr.Main at alr-main.adb:13
+0x7ff698e65270 Main at b__alr-main.adb:2454
+0x7ff698e6133e __tmainCRTStartup at ???
+0x7ff698e61144 mainCRTStartup at ???
+[C:\Windows\System32\KERNEL32.DLL]
+0x7ff879e6e985
+[C:\Windows\SYSTEM32\ntdll.dll]
+0x7ff87bf2c53a
+
+File not found - C:\Users\runneradmin\AppData\Local\alire\cache\releases\alr-fltc.tmp\*
+File not found - C:\Users\runneradmin\AppData\Local\alire\cache\releases\alr-fltc.tmp\*
+stderr: ALIRE.CHECKED_ERROR
+stderr: Command ["curl", "https://git.sr.ht/~nytpu/getopt-ada/archive/v2.0.0.tar.gz", "-L", "--progress-bar", "-o", "C:\Users\runneradmin\AppData\Local\alire\cache\releases\alr-fltc.tmp\v2.0.0.tar.gz"] exited with code 28
+stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:2
+[D:\a\alire-crates-ci\alire-crates-ci\alire_install\bin\alr.exe]
+0x7ff69998a8da Semantic_Versioning.Basic.Restrictions.First_Index at alire.adb:158
+0x7ff699730986 Semantic_Versioning.Basic.Restrictions.First_Index at alire-releases.adb:341
+0x7ff69976d8a1 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:812
+0x7ff69978912d Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2143
+0x7ff6997f82f9 Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1472
+0x7ff6997f70ef Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1539
+0x7ff69978922c Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2147
+0x7ff6997892fa Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2127
+0x7ff69976db94 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:843
+0x7ff69976dd4c Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:766
+0x7ff699783db8 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:1836
+0x7ff699783fd0 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:1781
+0x7ff698f90777 Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands.adb:413
+0x7ff698ed3289 Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:87
+0x7ff698ed35ba Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:54
+0x7ff698f85dea Semantic_Versioning.Basic.Restrictions.First_Index at clic-subcommand-instance.adb:749
+0x7ff698f92b0e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands.adb:632
+0x7ff698e616a0 Alr.Main at alr-main.adb:13
+0x7ff698e65270 Main at b__alr-main.adb:2454
+0x7ff698e6133e __tmainCRTStartup at ???
+0x7ff698e61144 mainCRTStartup at ???
+[C:\Windows\System32\KERNEL32.DLL]
+0x7ff879e6e985
+[C:\Windows\SYSTEM32\ntdll.dll]
+0x7ff87bf2c53a
+
+ERROR: Command ["curl", "https://git.sr.ht/~nytpu/getopt-ada/archive/v2.0.0.tar.gz", "-L", "--progress-bar", "-o", "C:\Users\runneradmin\AppData\Local\alire\cache\releases\alr-fltc.tmp\v2.0.0.tar.gz"] exited with code 28

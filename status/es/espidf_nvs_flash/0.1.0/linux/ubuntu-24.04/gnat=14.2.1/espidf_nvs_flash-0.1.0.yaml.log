@@ -1,0 +1,65 @@
+Test ran at 2026-09-30 12:44:57.328167+00:00
+
+SOLUTION:
+espidf_nvs_flash=0.1.0: Ada/ESP-IDF: Non-Volatile Storage (NVS) bindings
+Origin: commit f0d92de5210dcfa71b6497fdc7aa2a615bd4daf6 from https://github.com/godunko/espidf_nvs_flash.git
+Properties:
+   Author: Vadim Godunko
+   Configuration: no modifiers
+   Description: Ada/ESP-IDF: Non-Volatile Storage (NVS) bindings
+   License: Apache-2.0 WITH LLVM-exception
+   Long_Description: Ada bindings for the ESP-IDF Non-Volatile Storage library (`nvs_flash`).
+
+Covers initialization of the NVS partition, opening/closing namespaces, key lookup,
+reading and writing string values, and committing changes.
+
+   Maintainer: Vadim Godunko <vgodunko@gmail.com>
+   Maintainers_Logins: godunko
+   Name: espidf_nvs_flash
+   Tag: a0b
+   Tag: embedded
+   Tag: esp
+   Tag: esp32
+   Tag: espidf
+   Tag: nvs-flash
+   Version: 0.1.0
+   Website: https://github.com/godunko/espidf_nvs_flash
+Dependencies (direct):
+   espidf^0.2.0
+Dependencies (solution):
+   a0b_base=0.5.0
+   espidf=0.2.0
+Dependencies (graph):
+   espidf=0.2.0           --> a0b_base=0.5.0 (^0.5.0)
+   espidf_nvs_flash=0.1.0 --> espidf=0.2.0 (^0.2.0)
+
+
+LOG:
+[alr test] Testing espidf_nvs_flash=0.1.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get espidf_nvs_flash=0.1.0
+Note: Deploying espidf_nvs_flash=0.1.0...
+Warning: Possible tilde intended instead of caret for a 0.x version.
+   Alire does not change the meaning of caret and tilde for pre/post-1.0 versions.
+   The suspicious dependency is: espidf^0.2.0
+   You can disable this warning by setting the option warning.caret to false.
+
+espidf_nvs_flash=0.1.0 successfully retrieved.
+Dependencies were solved as follows:
+
+   + a0b_base 0.5.0 (new,indirect)
+   + espidf   0.2.0 (new)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building espidf_nvs_flash=0.1.0/espidf_nvs_flash.gpr...
+Setup
+   [mkdir]        object directory for project ESPIDF_NVS_Flash
+   [mkdir]        library directory for project ESPIDF_NVS_Flash
+Compile
+   [Ada]          espidf-nvs_flash.adb
+espidf-nvs_flash.adb:144:11: warning: "length" may be referenced before it has a value [enabled by default]
+Build Libraries
+   [gprlib]       adaespidf_nvs_flash.lexch
+   [archive]      libadaespidf_nvs_flash.a
+   [index]        libadaespidf_nvs_flash.a
+Success: Build finished successfully in 0.48 seconds.
+Found declared GPR file: espidf_nvs_flash.gpr
+[alr test] Test completed SUCCESSFULLY

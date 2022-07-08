@@ -1,0 +1,82 @@
+Test ran at 2024-06-16 01:28:07.220863+00:00
+
+SOLUTION:
+spawn=23.0.0: A simple library to spawn processes and communicate with them.
+Origin: source archive v23.0.0.tar.gz at https://github.com/AdaCore/spawn/archive/refs/tags/v23.0.0.tar.gz with hash sha512:440f8b8a45b7a322a5715a195f7e37e6f2641af8190166229e89a11ce6ab60511eb058432f4c3ffcdd670ec71b2509d5e23a80ac2e8dd6b7960bc42385bab86e
+Properties:
+   Author: AdaCore
+   Configuration: no modifiers
+   Description: A simple library to spawn processes and communicate with them.
+   GPR Scenario: OS := unix | osx | Windows_NT
+   case OS is
+      when Linux => GPR External: OS := unix
+      when Macos => GPR External: OS := osx
+      when Windows => GPR External: OS := Windows_NT
+   License: Apache-2.0
+   Long_Description: This is Glib indepentent implementation of a spawn processes interface.
+   Maintainer: Vadim Godunko <vgodunko@gmail.com>
+   Maintainer: Max Reznik <reznikmm@gmail.com>
+   Maintainers_Logins: godunko
+   Maintainers_Logins: reznikmm
+   Name: spawn
+   Project_File: gnat/spawn.gpr
+   Tag: process
+   Tag: launch
+   Tag: pipe
+   Version: 23.0.0
+   Website: https://github.com/AdaCore/spawn
+
+
+LOG:
+Note: Deploying spawn=23.0.0...
+#=#=#                                                                          
+##O#-#                                                                         
+##O=#  #                                                                       
+#=#=-#  #                                                                      
+-#O#- #   #                                                                    
+ -#O#-  #   #                                                                  
+Note: Building spawn/gnat/spawn.gpr...
+Setup
+   [mkdir]        object directory for project Spawn
+   [mkdir]        library directory for project Spawn
+Compile
+   [c]            pipe2.c
+   [c]            posix_const.c
+   [Ada]          spawn-processes.adb
+In file included from /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/sys/_types.h:32,
+                 from /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/sys/fcntl.h:78,
+                 from /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/fcntl.h:23,
+                 from /Users/runner/work/alire-crates-ci/alire-crates-ci/test/16ced47b-6362-4964-b960-32ba82b78273/spawn_23.0.0_440f8b8a/source/spawn/pipe2.c:1:
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/sys/cdefs.h:554:30: error: missing ')' after "__has_attribute"
+  554 | #if __has_cpp_attribute(clang::unsafe_buffer_usage)
+      |                              ^~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/sys/cdefs.h:554:32: error: missing binary operator before token "unsafe_buffer_usage"
+  554 | #if __has_cpp_attribute(clang::unsafe_buffer_usage)
+      |                                ^~~~~~~~~~~~~~~~~~~
+In file included from /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/sys/errno.h:72,
+                 from /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/errno.h:23,
+                 from /Users/runner/work/alire-crates-ci/alire-crates-ci/test/16ced47b-6362-4964-b960-32ba82b78273/spawn_23.0.0_440f8b8a/source/spawn/posix_const.c:1:
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/sys/cdefs.h:554:30: error: missing ')' after "__has_attribute"
+  554 | #if __has_cpp_attribute(clang::unsafe_buffer_usage)
+      |                              ^~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/sys/cdefs.h:554:32: error: missing binary operator before token "unsafe_buffer_usage"
+  554 | #if __has_cpp_attribute(clang::unsafe_buffer_usage)
+      |                                ^~~~~~~~~~~~~~~~~~~
+
+   compilation of pipe2.c failed
+   compilation of posix_const.c failed
+
+gprbuild: *** compilation phase failed
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/Users/runner/work/alire-crates-ci/alire-crates-ci/test/16ced47b-6362-4964-b960-32ba82b78273/spawn_23.0.0_440f8b8a/gnat/spawn.gpr"] exited with code 4
+ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/Users/runner/work/alire-crates-ci/alire-crates-ci/test/16ced47b-6362-4964-b960-32ba82b78273/spawn_23.0.0_440f8b8a/gnat/spawn.gpr"] exited with code 4
+stderr: ALIRE.CHECKED_ERROR
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/Users/runner/work/alire-crates-ci/alire-crates-ci/test/16ced47b-6362-4964-b960-32ba82b78273/spawn_23.0.0_440f8b8a/gnat/spawn.gpr"] exited with code 4
+stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
+Load address: 0x100ccd000
+Call stack traceback locations:
+0x1015d5415 0x1012a8e83 0x1014bbdf9 0x1014bc581 0x10141cac3 0x10141af99 0x101437873 0x101483dc1 0x10148281a 0x1014379b8 0x10141b349 0x100d2c9c1 0x100d3d578 0x100d4201c 0x100dc805c 0x100dd33b8 0x100cce605 0x100cd1914
+
+
+Warning: spawn=23.0.0 successfully retrieved but its build failed.
+There are no dependencies.
+ERROR: Build ended with errors

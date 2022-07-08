@@ -1,0 +1,86 @@
+Test ran at 2024-06-03 13:10:24.057004+00:00
+
+SOLUTION:
+tlsada=2.5.2: Bindings for libtls
+Origin: source archive v2.5.2.tar.gz at https://git.sr.ht/~nytpu/tlsada/archive/v2.5.2.tar.gz with hashes sha256:7e2dcb928abab9a516f531a5f5f9edc76b4bb8226bc9a73d0819ff2f393d0bb1, sha512:292e2a9851ec22a5c606c486de39cde69fe7a764c6ec87adde8ab41d00df5f94263ff874fc8ff31b5bf8fcc8721de0e7ea9a907c6b425eb74d57803d04ad9224
+Properties:
+   Author: nytpu
+   Description: Bindings for libtls
+   GPR Scenario: TLSADA_BUILD_MODE := debug | optimize
+   GPR Scenario: TLSADA_COMPILE_CHECKS := enabled | disabled
+   GPR Scenario: TLSADA_CONTRACTS := enabled | disabled
+   GPR Scenario: TLSADA_LIBRARY_TYPE := dynamic | relocatable | static | static-pic
+   GPR Scenario: TLSADA_RUNTIME_CHECKS := enabled | disabled
+   GPR Scenario: TLSADA_STYLE_CHECKS := enabled | disabled
+   License: MPL-2.0
+   Maintainer: nytpu <alex@nytpu.com>
+   Maintainers_Logins: nytpu
+   Name: tlsada
+   Tag: tls
+   Tag: ssl
+   Version: 2.5.2
+   Website: https://git.sr.ht/~nytpu/tlsada
+Dependencies (direct):
+   libtls^3.5
+Dependencies (solution):
+   libtls=3.8.1
+Dependencies (graph):
+   tlsada=2.5.2 --> libtls=3.8.1 (^3.5)
+
+
+LOG:
+Note: Deploying tlsada=2.5.2...
+#=#=#                                                                          
+##O#-#                                                                         
+##O=#  #                                                                       
+#=#=-#  #                                                                      
+-#O#- #   #                                                                    
+Note: Deploying libtls=3.8.1...
+The system package 'libretls' is about to be installed.
+This action might require admin privileges and impact your system installation.
+Do you want Alire to install this system package?
+Using default: Yes
+resolving dependencies...
+looking for conflicting packages...
+
+Package (1)     New Version  Net Change  Download Size
+
+extra/libretls  3.8.1-2        0.10 MiB       0.05 MiB
+
+Total Download Size:   0.05 MiB
+Total Installed Size:  0.10 MiB
+
+:: Proceed with installation? [Y/n] 
+:: Retrieving packages...
+ libretls-3.8.1-2-x86_64 downloading...
+checking keyring...
+checking package integrity...
+loading package files...
+checking for file conflicts...
+:: Processing package changes...
+installing libretls...
+:: Running post-transaction hooks...
+(1/1) Arming ConditionNeedsUpdate...
+Note: Building tlsada/tlsada.gpr...
+Setup
+   [mkdir]        object directory for project TLSAda
+   [mkdir]        library directory for project TLSAda
+Compile
+   [Ada]          libtls_bindings.ads
+   [Ada]          tls-contexts.adb
+   [Ada]          tls.adb
+   [Ada]          tls-configure.adb
+   [Ada]          tls-contexts-client.adb
+   [Ada]          tls-contexts-server.adb
+tls-contexts.adb:498:17: warning: "O" is not modified, could be declared constant [-gnatwk]
+Build Libraries
+   [gprlib]       tlsada.lexch
+   [archive]      libtlsada.a
+   [index]        libtlsada.a
+Build finished successfully in 2.59 seconds.
+
+tlsada=2.5.2 successfully retrieved and built.
+Dependencies were solved as follows:
+
+   + libtls 3.8.1 (new)
+Found declared GPR file: tlsada.gpr

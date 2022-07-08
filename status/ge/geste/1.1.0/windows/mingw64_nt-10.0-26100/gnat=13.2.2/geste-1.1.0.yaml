@@ -1,0 +1,527 @@
+badge: false
+crate: geste
+creation_timestamp: 1761395182.6769867
+distro: mingw64_nt-10.0-26100
+duration: 3.9850000000001273
+gnat: 13.2.2
+last_attempt: 2026-08-22 01:02:12.144483+00:00
+log:
+- 'Test ran at 2026-08-22 01:02:12.144483+00:00
+
+
+  '
+- 'SOLUTION:
+
+  '
+- 'geste=1.1.0: GEneric Sprite and Tile Engine
+
+  '
+- 'Origin: source archive GESTE-1.1.0.zip at https://github.com/Fabien-Chouteau/GESTE/releases/download/v1.1.0/GESTE-1.1.0.zip
+  with hash sha512:55da4926a318a664e798131b094711d8eef151c0ff905ae13fbc5d2c116b1c7724d936b6e5a37ace5b72c49980b7c6ae8549a261501b861e4d5af5101931efef
+
+  '
+- 'Properties:
+
+  '
+- '   Author: Fabien Chouteau <fabien.chouteau@gmail.com>
+
+  '
+- '   Auto_Gpr_With: auto-gpr-with=false
+
+  '
+- '   Description: GEneric Sprite and Tile Engine
+
+  '
+- '   License: BSD-3-Clause
+
+  '
+- "   Long_Description: \n"
+- '[![Build Status](https://travis-ci.org/Fabien-Chouteau/GESTE.svg?branch=master)](https://travis-ci.org/Fabien-Chouteau/GESTE)
+
+  '
+- '[![codecov](https://codecov.io/gh/Fabien-Chouteau/GESTE/branch/master/graph/badge.svg)](https://codecov.io/gh/Fabien-Chouteau/GESTE)
+
+  '
+- '
+
+  '
+- 'GESTE is a sprite and tile 2D render engine designed to run on
+
+  '
+- 'micro-controllers low performance systems. GESTE also provides a basic math and
+
+  '
+- 'physic engine using fixed point arithmetic.
+
+  '
+- '
+
+  '
+- '## Creating maps
+
+  '
+- '
+
+  '
+- 'GESTE is developed in parallel with
+
+  '
+- '[tiled-code-gen](https://github.com/Fabien-Chouteau/tiled-code-gen), a tool
+
+  '
+- 'that generates code from the [Tiled Map Editor](https://www.mapeditor.org/).
+
+  '
+- '
+
+  '
+- '## Examples
+
+  '
+- '
+
+  '
+- 'The crate `geste_examples` contains 3 examples of different game genre:
+
+  '
+- ' - platformer
+
+  '
+- ' - RPG
+
+  '
+- ' - racing
+
+  '
+- '
+
+  '
+- '## Design
+
+  '
+- '
+
+  '
+- '### Layers
+
+  '
+- '
+
+  '
+- 'In GESTE, a scene is made of layers. Native layers can be `Sprite`, `Grid` or
+
+  '
+- '`Text`. You can implement you own type of layers if you want to.
+
+  '
+- '
+
+  '
+- ' - `Sprite` layers display a single tile at a given position
+
+  '
+- ' - `Grid` layers display a grid of tiles at a given position
+
+  '
+- ' - `Text` layers display a text at a given position
+
+  '
+- '
+
+  '
+- 'Layers have a priority which tells in which order they will be drawn on the
+
+  '
+- 'screen.
+
+  '
+- '
+
+  '
+- '### Rendering
+
+  '
+- '
+
+  '
+- 'The rendering algorithm is somewhat similar to ray casting. Instead of taking
+
+  '
+- 'each objects of the scene and drawing it on the screen, the engine takes each
+
+  '
+- 'pixel and tries to find its color from the different objects of the scene.
+
+  '
+- '
+
+  '
+- 'For each pixel of the area that is being drawn, GESTE will go through the list
+
+  '
+- 'of layers and see if the corresponding pixel inside the layer is transparent or
+
+  '
+- 'not. When a non transparent pixel is found, the pixel is pushed to the screen
+
+  '
+- 'and the procedure starts again for the next pixel. If all the layers have a
+
+  '
+- 'transparent pixel, the background color is used.
+
+  '
+- '
+
+  '
+- 'The more layers to go through, the more time time it will take to render a
+
+  '
+- 'pixel.
+
+  '
+- '
+
+  '
+- '
+
+  '
+- '   Maintainer: fabien.chouteau@gmail.com
+
+  '
+- '   Maintainers_Logins: Fabien-Chouteau
+
+  '
+- '   Name: geste
+
+  '
+- '   Project_File: geste.gpr
+
+  '
+- '   Tag: game
+
+  '
+- '   Tag: nostd
+
+  '
+- '   Tag: rendering
+
+  '
+- '   Tag: sprite
+
+  '
+- '   Version: 1.1.0
+
+  '
+- '   Website: https://github.com/Fabien-Chouteau/GESTE
+
+  '
+- '
+
+  '
+- '
+
+  LOG:
+
+  '
+- '[alr test] Testing geste=1.1.0
+
+  '
+- '[alr test] Spawning retrieval for remote crate: alr -d -n get geste=1.1.0
+
+  '
+- 'Note: Deploying geste=1.1.0...
+
+  '
+- '
+
+  '
+- "#=#=#                                                                         \
+  \ \n"
+- "##O#-#                                                                        \
+  \ \n"
+- '###############################                                           43.9%
+
+  '
+- '######################################################################## 100.0%
+
+  '
+- '
+
+  '
+- 'geste=1.1.0 successfully retrieved.
+
+  '
+- 'There are no dependencies.
+
+  '
+- '[alr test] Spawning default test for remote crate: alr -d -n build --release --
+  -cargs:Ada -gnatwn
+
+  '
+- 'Note: Building geste=1.1.0/geste.gpr...
+
+  '
+- '"obj" created
+
+  '
+- '[Ada Compile]     geste-grid.adb
+
+  '
+- '[Ada Compile]     geste-maths.adb
+
+  '
+- '[Ada Compile]     geste-maths_tables.ads
+
+  '
+- '[Ada Compile]     geste-maths_types.ads
+
+  '
+- 'geste-grid.ads:37:14: error: file "geste_config.ads" not found
+
+  '
+- 'geste-grid.ads:37:14: error: "GESTE.GRID (body)" depends on "GESTE.GRID (spec)"
+
+  '
+- 'geste-grid.ads:37:14: error: "GESTE.GRID (spec)" depends on "GESTE (spec)"
+
+  '
+- 'geste-grid.ads:37:14: error: "GESTE (spec)" depends on "GESTE_CONFIG (spec)"
+
+  '
+- 'geste.gpr: error: [Ada Compile] geste-grid.adb (geste.gpr) failed with status 1
+
+  '
+- 'geste-maths.ads:37:14: error: file "geste_config.ads" not found
+
+  '
+- 'geste-maths.ads:37:14: error: "GESTE.MATHS (body)" depends on "GESTE.MATHS (spec)"
+
+  '
+- 'geste-maths.ads:37:14: error: "GESTE.MATHS (spec)" depends on "GESTE (spec)"
+
+  '
+- 'geste-maths.ads:37:14: error: "GESTE (spec)" depends on "GESTE_CONFIG (spec)"
+
+  '
+- 'geste.gpr: error: [Ada Compile] geste-maths.adb (geste.gpr) failed with status
+  1
+
+  '
+- 'geste-maths_tables.ads:39:14: error: file "geste_config.ads" not found
+
+  '
+- 'geste-maths_tables.ads:39:14: error: "GESTE.MATHS_TABLES (spec)" depends on "GESTE
+  (spec)"
+
+  '
+- 'geste-maths_tables.ads:39:14: error: "GESTE (spec)" depends on "GESTE_CONFIG (spec)"
+
+  '
+- 'geste.gpr: error: [Ada Compile] geste-maths_tables.ads (geste.gpr) failed with
+  status 1
+
+  '
+- 'geste-maths_types.ads:35:14: error: file "geste_config.ads" not found
+
+  '
+- 'geste-maths_types.ads:35:14: error: "GESTE.MATHS_TYPES (spec)" depends on "GESTE
+  (spec)"
+
+  '
+- 'geste-maths_types.ads:35:14: error: "GESTE (spec)" depends on "GESTE_CONFIG (spec)"
+
+  '
+- 'geste.gpr: error: [Ada Compile] geste-maths_types.ads (geste.gpr) failed with status
+  1
+
+  '
+- 'stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "D:\a\alire-crates-ci\alire-crates-ci\test\d86c0d2d-63d9-48a8-865c-b047d2bd202c\geste_1.1.0_55da4926\geste.gpr",
+  "-cargs:Ada", "-gnatwn"] exited with code 4
+
+  '
+- 'ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "D:\a\alire-crates-ci\alire-crates-ci\test\d86c0d2d-63d9-48a8-865c-b047d2bd202c\geste_1.1.0_55da4926\geste.gpr",
+  "-cargs:Ada", "-gnatwn"] exited with code 4
+
+  '
+- 'stderr: ALIRE.CHECKED_ERROR
+
+  '
+- 'stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "D:\a\alire-crates-ci\alire-crates-ci\test\d86c0d2d-63d9-48a8-865c-b047d2bd202c\geste_1.1.0_55da4926\geste.gpr",
+  "-cargs:Ada", "-gnatwn"] exited with code 4
+
+  '
+- 'stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
+
+  '
+- '[D:\a\alire-crates-ci\alire-crates-ci\alire_install\bin\alr.exe]
+
+  '
+- '0x7ff7512ada2a Semantic_Versioning.Basic.Restrictions.First_Index at alire.adb:284
+
+  '
+- '0x7ff750ea595b Semantic_Versioning.Basic.Restrictions.First_Index at alire-os_lib-subprocess.adb:111
+
+  '
+- '0x7ff75115cba1 Semantic_Versioning.Basic.Restrictions.First_Index at alire-spawn.adb:22
+
+  '
+- '0x7ff75115dd5d Semantic_Versioning.Basic.Restrictions.First_Index at alire-spawn.adb:68
+
+  '
+- '0x7ff751082d64 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:189
+
+  '
+- '0x7ff7510811da Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:255
+
+  '
+- '0x7ff7510a912d Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2143
+
+  '
+- '0x7ff7511182f9 Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1472
+
+  '
+- '0x7ff751117424 Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1555
+
+  '
+- '0x7ff7510a922c Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2147
+
+  '
+- '0x7ff7510a92fa Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2127
+
+  '
+- '0x7ff7510817a7 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:286
+
+  '
+- '0x7ff751081912 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:114
+
+  '
+- '0x7ff7507f3baa Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:145
+
+  '
+- '0x7ff7507f341e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:113
+
+  '
+- '0x7ff7507f35ba Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:54
+
+  '
+- '0x7ff7508a5dea Semantic_Versioning.Basic.Restrictions.First_Index at clic-subcommand-instance.adb:749
+
+  '
+- '0x7ff7508b2b0e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands.adb:632
+
+  '
+- '0x7ff7507816a0 Alr.Main at alr-main.adb:13
+
+  '
+- '0x7ff750785270 Main at b__alr-main.adb:2454
+
+  '
+- '0x7ff75078133e __tmainCRTStartup at ???
+
+  '
+- '0x7ff750781144 mainCRTStartup at ???
+
+  '
+- '[C:\Windows\System32\KERNEL32.DLL]
+
+  '
+- '0x7ffafa07e8d5
+
+  '
+- '[C:\Windows\SYSTEM32\ntdll.dll]
+
+  '
+- '0x7ffafb46c53a
+
+  '
+- '
+
+  '
+- 'stderr: ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED
+
+  '
+- 'stderr: alire-roots.adb:202
+
+  '
+- 'stderr: raised ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED : alire-roots.adb:202
+
+  '
+- '[D:\a\alire-crates-ci\alire-crates-ci\alire_install\bin\alr.exe]
+
+  '
+- '0x7ff75108313c Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:202
+
+  '
+- '0x7ff7510811da Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:255
+
+  '
+- '0x7ff7510a912d Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2143
+
+  '
+- '0x7ff7511182f9 Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1472
+
+  '
+- '0x7ff751117424 Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1555
+
+  '
+- '0x7ff7510a922c Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2147
+
+  '
+- '0x7ff7510a92fa Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2127
+
+  '
+- '0x7ff7510817a7 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:286
+
+  '
+- '0x7ff751081912 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:114
+
+  '
+- '0x7ff7507f3baa Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:145
+
+  '
+- '0x7ff7507f341e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:113
+
+  '
+- '0x7ff7507f35ba Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:54
+
+  '
+- '0x7ff7508a5dea Semantic_Versioning.Basic.Restrictions.First_Index at clic-subcommand-instance.adb:749
+
+  '
+- '0x7ff7508b2b0e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands.adb:632
+
+  '
+- '0x7ff7507816a0 Alr.Main at alr-main.adb:13
+
+  '
+- '0x7ff750785270 Main at b__alr-main.adb:2454
+
+  '
+- '0x7ff75078133e __tmainCRTStartup at ???
+
+  '
+- '0x7ff750781144 mainCRTStartup at ???
+
+  '
+- '[C:\Windows\System32\KERNEL32.DLL]
+
+  '
+- '0x7ffafa07e8d5
+
+  '
+- '[C:\Windows\SYSTEM32\ntdll.dll]
+
+  '
+- '0x7ffafb46c53a
+
+  '
+- '
+
+  '
+- 'ERROR: Compilation failed.
+
+  '
+platform: windows
+status: failing
+version: 1.1.0

@@ -1,0 +1,175 @@
+Test ran at 2026-10-09 12:42:58.817717+00:00
+
+SOLUTION:
+adacl_serial=8.0.1: AdaCL embedded: portable serial port and SPARK-friendly character I/O
+Origin: source archive adacl_serial-8.0.1.tgz at https://sourceforge.net/projects/adacl/files/Alire/adacl_serial-8.0.1.tgz with hashes sha256:a3f522f5f8edb3451c44b9daf95b69281a096d1381d9ef00e8a5e7491cc8aa03, sha512:b9cb68bd46f699e0d3877af8dfe67bd568f1820e14f71b59bcfef541c05b841cab07b68ba6458286b9b525ba390ba0aa5a70ab64e55b47e23d0d750e9e637fe1
+Properties:
+   case OS is
+      when Linux => Test run: /bin/bash ci-verify.sh (from ${CRATE_ROOT}/.)
+      when Macos => Test run: /bin/bash ci-verify.sh (from ${CRATE_ROOT}/.)
+      when Windows => Test run: powershell -ExecutionPolicy Bypass -File ci-verify.ps1 (from ${CRATE_ROOT}/.)
+      when others => (empty)
+   Author: Martin Krischik <krischik@users.sourceforge.net>
+   Build Switches: 
+   Configuration: no modifiers
+   Description: AdaCL embedded: portable serial port and SPARK-friendly character I/O
+   License: GPL-3.0-or-later
+   Long_Description: Thin, SPARK-friendly helpers for character and string I/O on a serial port, plus a
+portable binding for the port itself.
+
+The crate contains two packages.
+
+**AdaCL.Serial_Communications**: On Linux and Windows the spec renames GNAT.Serial_Communications and  On macOS it is a
+native body. GNAT reuses the Linux termios record there, which ignores Block and Timeout; this body uses the Darwin
+layout (64-bit flags, no c_line, VMIN at 16 and VTIME at 17) so it's now fully macOS compatible.
+
+AdaCL.Serial_IO is the character and string layer. It extends AdaCL.Serial_Communications.Serial_Port (itself a
+descendant of Ada.Streams.Root_Stream_Type) with a null-record derivation, turning the type into a true class.
+Consequently all operations can be written with the convenient Class.Method syntax (Port.Get, Port.Put_Line,
+Port.Expect, ...).
+
+Provided facilities:
+* Conversion helpers between Stream_Element / Stream_Element_Array and Character / String
+* Classic Get / Put / Get_Line / Put_Line operations
+* High-level Expect procedures (discard or capture skipped text until a given sequence arrives)
+* Full SPARK contracts on Serial_IO; that package is proven to SPARK gold level
+
+Intended for console-style protocols used by classic and modern retro calculators (SwissMicros DM-series, HP-IL
+emulators, etc.).
+
+Licensed under the GNU Library General Public License version 3 (or later).
+Integrates with the Ada Class Library (AdaCL).
+
+Source: [SourceForge](https://sourceforge.net/p/adacl/git/ci/master/tree/adacl_serial/)
+Documentation: [Overview](https://adacl.sourceforge.net/adacl-serial/) and
+[GNATdoc](https://adacl.sourceforge.net/gnatdoc/index.html)
+
+   Maintainer: Martin Krischik <krischik@users.sourceforge.net>
+   Maintainers_Logins: krischik
+   Name: adacl_serial
+   Tag: library
+   Tag: serial
+   Tag: io
+   Tag: streams
+   Tag: communication
+   Tag: spark
+   Tag: ada2022
+   Tag: embedded
+   Version: 8.0.1
+   Website: https://sourceforge.net/projects/adacl/
+Dependencies (direct):
+   adacl^8.0
+Dependencies (solution):
+   adacl=8.0.0
+Dependencies (graph):
+   adacl_serial=8.0.1 --> adacl=8.0.0 (^8.0)
+
+
+LOG:
+=== Ada CI Verification ===
+=== AdaCL Serial Prove ===
+Directory: prove
+Updating dependencies...
+Dependencies automatically updated as follows:
+
+   +  adacl        8.0.0  (new,indirect)
+   +. adacl_serial 8.0.1  (new,path=..)
+   +b gnatprove    16.1.0 (new,binary)
+Note: Deploying gnatprove=16.1.0...
+#=#=#                                                                          
+##O#-#                                                                         
+
+                                                                           0.6%
+#######                                                                   10.7%
+##############                                                            20.8%
+########################                                                  33.6%
+###########################                                               38.4%
+###########################                                               38.4%
+##############################                                            42.2%
+#################################                                         46.7%
+##################################                                        47.7%
+####################################                                      50.1%
+#####################################                                     52.3%
+#######################################                                   54.8%
+#########################################                                 57.4%
+###########################################                               60.1%
+#############################################                             62.8%
+###############################################                           65.7%
+#################################################                         68.5%
+###################################################                       71.5%
+#####################################################                     74.7%
+########################################################                  78.0%
+##########################################################                81.4%
+#############################################################             84.9%
+###############################################################           88.4%
+##################################################################        91.9%
+####################################################################      95.5%
+#######################################################################   99.3%
+######################################################################## 100.0%
+Building with validation...
+Note: Building adacl_serial_prove=8.0.1/adacl_serial_prove.gpr...
+Setup
+   [mkdir]        object directory for project AdaCL
+   [mkdir]        library directory for project AdaCL
+   [mkdir]        object directory for project AdaCL_Serial
+   [mkdir]        library directory for project AdaCL_Serial
+   [mkdir]        object directory for project AdaCl_Serial_Prove
+   [mkdir]        exec directory for project AdaCl_Serial_Prove
+Compile
+   [Ada]          dummy-main.adb
+   [Ada]          adacl_config.ads
+   [Ada]          adacl.ads
+   [Ada]          adacl_serial_config.ads
+gnat1: invalid switch: -gnat2022
+gnat1: invalid switch: -gnat2022
+gnat1: invalid switch: -gnat2022
+gnat1: invalid switch: -gnat2022
+
+   compilation of dummy-main.adb failed
+   compilation of adacl.ads failed
+   compilation of adacl_config.ads failed
+   compilation of adacl_serial_config.ads failed
+
+gprbuild: *** compilation phase failed
+ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/eff5a1b4-939c-4e3e-9bd6-95057b71736b/adacl_serial_8.0.1_a3f522f5/prove/adacl_serial_prove.gpr"] exited with code 4
+ERROR: Compilation failed.
+Running tests...
+Success: Test ended successfully.
+Note: Check log at /home/runner/work/alire-crates-ci/alire-crates-ci/test/eff5a1b4-939c-4e3e-9bd6-95057b71736b/adacl_serial_8.0.1_a3f522f5/prove/alire/alr_test_local.log
+SUCCESS: AdaCL Serial Prove
+--------------------------------------------------
+=== AdaCL Serial Test ===
+Directory: test
+Updating dependencies...
+Dependencies automatically updated as follows:
+
+   +  adacl        8.0.0  (new,indirect)
+   +. adacl_serial 8.0.1  (new,path=..)
+   +  aunit        26.0.0 (new)
+Building with validation...
+Note: Building adacl_serial_test=8.0.1/adacl_serial_test.gpr...
+Setup
+   [mkdir]        object directory for project AdaCL_Serial
+   [mkdir]        object directory for project AUnit
+   [mkdir]        library directory for project AUnit
+   [mkdir]        object directory for project AdaCL_Serial_Test
+   [mkdir]        exec directory for project AdaCL_Serial_Test
+Compile
+   [Ada]          adacl_serial_test-main.adb
+   [Ada]          aunit-io.ads
+   [Ada]          aunit-memory.adb
+   [Ada]          aunit-memory-utils.adb
+gnat1: invalid switch: -gnat2022
+
+   compilation of adacl_serial_test-main.adb failed
+
+gprbuild: *** compilation phase failed
+ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/eff5a1b4-939c-4e3e-9bd6-95057b71736b/adacl_serial_8.0.1_a3f522f5/test/adacl_serial_test.gpr"] exited with code 4
+ERROR: Compilation failed.
+Running tests...
+ERROR: Local test of adacl_serial_test=8.0.1 failed:
+ERROR:    Check alire/alr_test_local.log for details.
+FAILED: AdaCL Serial Test (Exit-Code: 1)
+--------------------------------------------------
+All steps completed.
+[alr test] Test completed SUCCESSFULLY

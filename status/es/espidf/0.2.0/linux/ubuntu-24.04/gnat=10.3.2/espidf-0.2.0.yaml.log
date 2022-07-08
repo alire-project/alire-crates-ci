@@ -1,0 +1,133 @@
+Test ran at 2026-10-03 14:01:24.868850+00:00
+
+SOLUTION:
+espidf=0.2.0: Ada/ESP-IDF: common types and utilities for ESP-IDF bindings
+Origin: commit 180c1c28078d5e6ce432c48d9d1f35fe668b6047 from https://github.com/godunko/espidf.git
+Properties:
+   Author: Vadim Godunko
+   Config type: Build_Environment : Enum (ada_only, espidf) default: 'ada_only'
+   Configuration: no modifiers
+   Description: Ada/ESP-IDF: common types and utilities for ESP-IDF bindings
+   License: Apache-2.0 WITH LLVM-exception
+   Long_Description: Root crate of the Ada bindings for the Espressif IoT Development Framework (ESP-IDF).
+
+Provides definitions shared by all `espidf_*` binding crates:
+- C types used across ESP-IDF APIs (`esp_err_t`, `size_t`, ...);
+- conversion of strings between Ada and C;
+- conversion of `esp_err_t` error codes into Ada exceptions.
+
+   Maintainer: Vadim Godunko <vgodunko@gmail.com>
+   Maintainers_Logins: godunko
+   Name: espidf
+   Tag: a0b
+   Tag: embedded
+   Tag: esp
+   Tag: esp32
+   Tag: espidf
+   Version: 0.2.0
+   Website: https://github.com/godunko/espidf
+Dependencies (direct):
+   a0b_base^0.5.0
+Dependencies (solution):
+   a0b_base=0.5.0
+Dependencies (graph):
+   espidf=0.2.0 --> a0b_base=0.5.0 (^0.5.0)
+
+
+LOG:
+[alr test] Testing espidf=0.2.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get espidf=0.2.0
+Note: Deploying espidf=0.2.0...
+Warning: Possible tilde intended instead of caret for a 0.x version.
+   Alire does not change the meaning of caret and tilde for pre/post-1.0 versions.
+   The suspicious dependency is: a0b_base^0.5.0
+   You can disable this warning by setting the option warning.caret to false.
+
+espidf=0.2.0 successfully retrieved.
+Dependencies were solved as follows:
+
+   + a0b_base 0.5.0 (new)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building espidf=0.2.0/espidf.gpr...
+Setup
+   [mkdir]        object directory for project ESPIDF
+   [mkdir]        library directory for project ESPIDF
+Compile
+   [Ada]          espidf-hal.ads
+   [Ada]          espidf-driver.ads
+   [Ada]          espidf.ads
+   [Ada]          espidf-ada_esp_check_error.adb
+espidf.ads:63:56: "Static" is not a valid aspect identifier
+espidf.ads:63:56: "Static" is not a valid aspect identifier
+espidf.ads:63:56: "Static" is not a valid aspect identifier
+espidf-ada_esp_check_error.adb:45:18: missing operand
+espidf-ada_esp_check_error.adb:45:19: target_name is an Ada 2020 feature
+espidf-ada_esp_check_error.adb:49:19: target_name is an Ada 2020 feature
+
+   compilation of espidf-ada_esp_check_error.adb failed
+   compilation of espidf.ads failed
+   compilation of espidf-driver.ads failed
+   compilation of espidf-hal.ads failed
+
+gprbuild: *** compilation phase failed
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/3974a7ca-2e58-401e-8263-4e6c894e9471/espidf_0.2.0_180c1c28/espidf.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/3974a7ca-2e58-401e-8263-4e6c894e9471/espidf_0.2.0_180c1c28/espidf.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+stderr: ALIRE.CHECKED_ERROR
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/3974a7ca-2e58-401e-8263-4e6c894e9471/espidf_0.2.0_180c1c28/espidf.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
+[/home/runner/work/alire-crates-ci/alire-crates-ci/alire_install/bin/alr]
+0xe75bc6 Alire.Raise_Checked_Error at alire.adb:284
+0xac1a54 Alire.Os_Lib.Subprocess.Checked_Spawn at alire-os_lib-subprocess.adb:111
+0xd40276 Alire.Spawn.Command at alire-spawn.adb:22
+0xd412ee Alire.Spawn.Gprbuild at alire-spawn.adb:68
+0xc748cb Alire.Roots.Build at alire-roots.adb:189
+0xc7301a Alire.Roots.Build at alire-roots.adb:255
+0xc9832b Alire.Roots.Traverse at alire-roots.adb:2143
+0xcfee85 Alire.Solutions.Traverse.Visit at alire-solutions.adb:1472
+0xcfdfcc Alire.Solutions.Traverse at alire-solutions.adb:1555
+0xc9841e Alire.Roots.Traverse at alire-roots.adb:2147
+0xc984dd Alire.Roots.Traverse at alire-roots.adb:2127
+0xc7359b Alire.Roots.Build at alire-roots.adb:286
+0xc736d7 Alire.Roots.Build at alire-roots.adb:114
+0x49aa0d Alr.Commands.Build.Execute at alr-commands-build.adb:145
+0x49a36d Alr.Commands.Build.Execute at alr-commands-build.adb:113
+0x49a51f Alr.Commands.Build.Execute at alr-commands-build.adb:54
+0x53bbcc Alr.Commands.Sub_Cmd.Execute at clic-subcommand-instance.adb:749
+0x5472be Alr.Commands.Execute at alr-commands.adb:632
+0x43d48a Alr.Main at alr-main.adb:13
+0x4403a3 Main at b__alr-main.adb:2445
+[/lib/x86_64-linux-gnu/libc.so.6]
+0x7f18c0e2a1c8
+0x7f18c0e2a289
+[/home/runner/work/alire-crates-ci/alire-crates-ci/alire_install/bin/alr]
+0x43d323 _start at ???
+0xfffffffffffffffe
+
+stderr: ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED
+stderr: alire-roots.adb:202
+stderr: raised ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED : alire-roots.adb:202
+[/home/runner/work/alire-crates-ci/alire-crates-ci/alire_install/bin/alr]
+0xc74cc7 Alire.Roots.Build at alire-roots.adb:202
+0xc7301a Alire.Roots.Build at alire-roots.adb:255
+0xc9832b Alire.Roots.Traverse at alire-roots.adb:2143
+0xcfee85 Alire.Solutions.Traverse.Visit at alire-solutions.adb:1472
+0xcfdfcc Alire.Solutions.Traverse at alire-solutions.adb:1555
+0xc9841e Alire.Roots.Traverse at alire-roots.adb:2147
+0xc984dd Alire.Roots.Traverse at alire-roots.adb:2127
+0xc7359b Alire.Roots.Build at alire-roots.adb:286
+0xc736d7 Alire.Roots.Build at alire-roots.adb:114
+0x49aa0d Alr.Commands.Build.Execute at alr-commands-build.adb:145
+0x49a36d Alr.Commands.Build.Execute at alr-commands-build.adb:113
+0x49a51f Alr.Commands.Build.Execute at alr-commands-build.adb:54
+0x53bbcc Alr.Commands.Sub_Cmd.Execute at clic-subcommand-instance.adb:749
+0x5472be Alr.Commands.Execute at alr-commands.adb:632
+0x43d48a Alr.Main at alr-main.adb:13
+0x4403a3 Main at b__alr-main.adb:2445
+[/lib/x86_64-linux-gnu/libc.so.6]
+0x7f18c0e2a1c8
+0x7f18c0e2a289
+[/home/runner/work/alire-crates-ci/alire-crates-ci/alire_install/bin/alr]
+0x43d323 _start at ???
+0xfffffffffffffffe
+
+ERROR: Compilation failed.

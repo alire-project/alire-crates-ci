@@ -1,0 +1,120 @@
+Test ran at 2025-05-19 13:17:44.792995+00:00
+
+SOLUTION:
+servletada=1.7.1: Web Servlet Library following JSR 154, JSR 315 (Core)
+Origin: commit 0108fe88a48dabab0fef0e80e3343af2996fd03c from https://gitlab.com/stcarrez/ada-servlet.git
+Properties:
+   Author: Stephane.Carrez@gmail.com
+   Configuration: no modifiers
+   Description: Web Servlet Library following JSR 154, JSR 315 (Core)
+   GPR Scenario: SERVLET_BUILD := distrib | debug | optimize | profile | coverage
+   GPR Scenario: SERVLET_LIBRARY_TYPE := relocatable | static | static-pic
+   License: Apache-2.0
+   Long_Description: [![Build Status](https://img.shields.io/endpoint?url=https://porion.vacs.fr/porion/api/v1/projects/ada-servlet/badges/build.json)](https://porion.vacs.fr/porion/projects/view/ada-servlet/summary)
+[![Test Status](https://img.shields.io/endpoint?url=https://porion.vacs.fr/porion/api/v1/projects/ada-servlet/badges/tests.json)](https://porion.vacs.fr/porion/projects/view/ada-servlet/xunits)
+[![Coverage](https://img.shields.io/endpoint?url=https://porion.vacs.fr/porion/api/v1/projects/ada-servlet/badges/coverage.json)](https://porion.vacs.fr/porion/projects/view/ada-servlet/summary)
+
+Ada Servlet allows to create web applications using the same pattern
+as the Java Servlet (See JSR 154, JSR 315). 
+
+The Ada Servlet library is used by the [Ada Server Faces](https://gitlab.com/stcarrez/ada-asf)
+framework and [Ada Web Application](https://gitlab.com/stcarrez/ada-awa)
+to provide server web requests.
+
+
+   Maintainer: Stephane.Carrez@gmail.com
+   Maintainers_Logins: stcarrez
+   Name: servletada
+   Project_File: servletada.gpr
+   Tag: web
+   Tag: servlet
+   Tag: http
+   Tag: json
+   Tag: rest
+   Version: 1.7.1
+   Website: https://gitlab.com/stcarrez/ada-servlet
+Dependencies (direct):
+   elada^1.8.5
+   security^1.5.0
+   utilada^2.6.0
+Dependencies (solution):
+   elada=1.8.7
+   gnat=14.2.1 (gnat_native)
+   security=1.5.1
+   utilada=2.8.0
+   utilada_xml=2.8.0
+   xmlada=25.0.0
+Dependencies (graph):
+   elada=1.8.7       --> utilada=2.8.0 (^2.5.0)
+   security=1.5.1    --> utilada=2.8.0 (^2.6.0)
+   security=1.5.1    --> utilada_xml=2.8.0 (^2.6.0)
+   servletada=1.7.1  --> elada=1.8.7 (^1.8.5)
+   servletada=1.7.1  --> security=1.5.1 (^1.5.0)
+   servletada=1.7.1  --> utilada=2.8.0 (^2.6.0)
+   utilada_xml=2.8.0 --> utilada=2.8.0 (^2.7.0)
+   utilada_xml=2.8.0 --> xmlada=25.0.0 (*)
+   xmlada=25.0.0     --> gnat=14.2.1 (gnat_native) (>=11)
+
+
+LOG:
+Spawning: alr -d -n get --build servletada=1.7.1
+Note: Deploying servletada=1.7.1...
+Note: Building servletada=1.7.1/servletada.gpr...
+Setup
+   [mkdir]        object directory for project ServletAda
+   [mkdir]        library directory for project ServletAda
+Compile
+   [Ada]          servlet-rest-definition.adb
+   [Ada]          servlet-cookies.ads
+   [Ada]          servlet-filters-cache_control.adb
+   [Ada]          servlet-security.ads
+   [Ada]          servlet-core-mappers.adb
+   [Ada]          servlet-security-filters-oauth.adb
+   [Ada]          servlet-core.adb
+   [Ada]          servlet-responses-mockup.adb
+   [Ada]          servlet-security-filters.adb
+   [Ada]          servlet-streams.adb
+   [Ada]          servlet-requests-mockup.adb
+   [Ada]          servlet-rest.adb
+   [Ada]          servlet-filters.ads
+   [Ada]          servlet-core-measures.adb
+   [Ada]          servlet-responses.adb
+   [Ada]          servlet-core-rest.adb
+   [Ada]          servlet-filters-dump.adb
+   [Ada]          servlet-rest-operation.adb
+   [Ada]          servlet-streams-json.adb
+   [Ada]          servlet-requests.adb
+   [Ada]          servlet-routes-servlets.adb
+   [Ada]          servlet-sessions.adb
+   [Ada]          servlet-routes.adb
+   [Ada]          servlet-parts-mockup.adb
+   [Ada]          servlet-core-configs.adb
+   [Ada]          servlet-requests-tools.adb
+   [Ada]          servlet-sessions-factory.adb
+   [Ada]          servlet-server.adb
+   [Ada]          servlet-streams-raw.adb
+   [Ada]          servlet-responses-tools.adb
+   [Ada]          servlet-security-oauth.adb
+   [Ada]          servlet.ads
+   [Ada]          servlet-routes-servlets-rest.ads
+   [Ada]          servlet-principals.ads
+   [Ada]          servlet-parts.adb
+   [Ada]          servlet-streams-xml.adb
+   [Ada]          servlet-resolvers.adb
+   [Ada]          servlet-security-servlets.adb
+   [Ada]          servlet-core-files.adb
+Build Libraries
+   [gprlib]       servletada.lexch
+   [archive]      libservletada.a
+   [index]        libservletada.a
+
+servletada=1.7.1 successfully retrieved and built.
+Dependencies were solved as follows:
+
+   +  elada       1.8.7  (new)
+   +b gnat        14.2.1 (new,gnat_native,indirect,binary)
+   +  security    1.5.1  (new)
+   +  utilada     2.8.0  (new)
+   +  utilada_xml 2.8.0  (new,indirect)
+   +  xmlada      25.0.0 (new,indirect)
+Found declared GPR file: servletada.gpr

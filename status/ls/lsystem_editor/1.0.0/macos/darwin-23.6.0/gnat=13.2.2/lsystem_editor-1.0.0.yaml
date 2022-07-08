@@ -1,0 +1,542 @@
+badge: false
+crate: lsystem_editor
+creation_timestamp: 1752713022.37266
+distro: darwin-23.6.0
+duration: 12.163688999999977
+gnat: 13.2.2
+last_attempt: 2025-09-29 12:43:52.018639+00:00
+log:
+- 'Test ran at 2025-09-29 12:43:52.016286+00:00
+
+
+  '
+- 'SOLUTION:
+
+  '
+- 'lsystem_editor=1.0.0: L-Systems editor in Ada
+
+  '
+- 'Origin: commit b01f05b870b2eb91e95f4868e259d9208afdbe34 from https://github.com/Heziode/lsystem-editor
+
+  '
+- 'Properties:
+
+  '
+- '   Author: Heziode
+
+  '
+- '   Description: L-Systems editor in Ada
+
+  '
+- '   Executable: lsystem-editor
+
+  '
+- '   License: MIT
+
+  '
+- '   Long_Description: <img src="https://github.com/Heziode/lsystem-editor/blob/master/share/lsystem_editor/ressources/icon.png?raw=true"
+  alt="App Icon">
+
+  '
+- '
+
+  '
+- '# L-System Editor
+
+  '
+- '
+
+  '
+- '<img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License">
+
+  '
+- '
+
+  '
+- 'A comprehensive graphical and command-line editor for creating, manipulating, and
+  visualizing Lindenmayer systems (L-systems).
+
+  '
+- '
+
+  '
+- 'This project was initially developed as part of a university project.
+
+  '
+- '
+
+  '
+- '## What are L-Systems?
+
+  '
+- '
+
+  '
+- 'L-systems (Lindenmayer systems) are a type of formal grammar introduced by biologist
+  Aristid Lindenmayer in 1968. They are particularly useful for modeling plant growth
+  and generating fractals. An L-system consists of:
+
+  '
+- '
+
+  '
+- '- An **alphabet** of symbols that can be used to make strings
+
+  '
+- '- An **axiom** (initial string) to start with
+
+  '
+- '- A set of **production rules** that expand each symbol into a larger string of
+  symbols
+
+  '
+- '
+
+  '
+- 'Through recursive application of these rules, complex structures can be generated
+  from simple initial conditions.
+
+  '
+- '
+
+  '
+- '## Features
+
+  '
+- '
+
+  '
+- '- **Interactive GUI** for creating and editing L-systems
+
+  '
+- '- **Command-line interface** for batch processing and automated workflows
+
+  '
+- '- **Real-time visualization** of the L-system at different development levels
+
+  '
+- '- **Export capabilities** to PS (PostScript) format for now
+
+  '
+- '- **Customizable rendering** with adjustable parameters (colors, margins, dimensions)
+
+  '
+- '- **Save and load** L-system definitions using `.ls` files
+
+  '
+- '
+
+  '
+- '## Installation
+
+  '
+- '
+
+  '
+- '### Using Alire (recommended)
+
+  '
+- '
+
+  '
+- '```
+
+  '
+- 'alr install lsystem_editor
+
+  '
+- '```
+
+  '
+- '
+
+  '
+- '### From Source
+
+  '
+- '
+
+  '
+- '1. Ensure you have Ada and GtkAda installed. This project depends on GNAT Lib.
+
+  '
+- '2. Clone the repository: `git clone https://github.com/Heziode/lsystem-editor.git`
+
+  '
+- '3. Build with Alire: `alr build` or manually with `make`
+
+  '
+- '
+
+  '
+- '## Usage
+
+  '
+- '
+
+  '
+- '### GUI Mode
+
+  '
+- '
+
+  '
+- 'Launch the graphical interface:
+
+  '
+- '
+
+  '
+- '```
+
+  '
+- './bin/lsystem_editor
+
+  '
+- '# Or
+
+  '
+- 'alr run
+
+  '
+- '```
+
+  '
+- '
+
+  '
+- 'The GUI offers:
+
+  '
+- '- A text editor area for defining L-system rules
+
+  '
+- '- Controls to adjust the development level
+
+  '
+- '- Real-time visualization of the L-system
+
+  '
+- '- Export options
+
+  '
+- '- Customization of colors and rendering parameters
+
+  '
+- '
+
+  '
+- '### Command-Line Mode
+
+  '
+- '
+
+  '
+- 'For automated processing or batch operations:
+
+  '
+- '
+
+  '
+- '```
+
+  '
+- 'lsystem_editor --no-gui [OPTIONS]
+
+  '
+- '```
+
+  '
+- '
+
+  '
+- '#### Command-Line Options
+
+  '
+- '
+
+  '
+- '| Option | Long Form | Description |
+
+  '
+- '|--------|-----------|-------------|
+
+  '
+- '| `-i` | `--input=FILE` | Input file containing an L-system definition |
+
+  '
+- '| `-o` | `--output=FILE` | Output file to store an L-system definition |
+
+  '
+- '| `-e` | `--export=FORMAT` | Export format for the L-system representation |
+
+  '
+- '| `-p` | `--export-file=FILE` | Output file for the exported representation |
+
+  '
+- '| `-d` | `--develop=N` | Number of development steps to apply |
+
+  '
+- '| `-w` | `--width=N` | Width of the output representation |
+
+  '
+- '| `-h` | `--height=N` | Height of the output representation |
+
+  '
+- '| `-b` | `--background-color=COLOR` | Background color in hex format (e.g., #AABBCC)
+  |
+
+  '
+- '| `-f` | `--foreground-color=COLOR` | Foreground color in hex format (e.g., #AABBCC)
+  |
+
+  '
+- '| `-mt` | `--margin-top=N` | Top margin for rendering |
+
+  '
+- '| `-mr` | `--margin-right=N` | Right margin for rendering |
+
+  '
+- '| `-mb` | `--margin-bottom=N` | Bottom margin for rendering |
+
+  '
+- '| `-ml` | `--margin-left=N` | Left margin for rendering |
+
+  '
+- '
+
+  '
+- '## L-System File Format
+
+  '
+- '
+
+  '
+- 'L-system definitions are stored in `.ls` files with the following syntax:
+
+  '
+- '
+
+  '
+- '```
+
+  '
+- '<angle> [angle in degrees]
+
+  '
+- '<axiom> [initial string]
+
+  '
+- '<rules>
+
+  '
+- '[symbol] [replacement string]
+
+  '
+- '[symbol] [replacement string]
+
+  '
+- '...
+
+  '
+- '</rules>
+
+  '
+- '```
+
+  '
+- '
+
+  '
+- '### Example L-System: Koch Curve
+
+  '
+- '
+
+  '
+- '```
+
+  '
+- '60.0
+
+  '
+- '-F++F++F
+
+  '
+- 'F F-F++F-F
+
+  '
+- '```
+
+  '
+- '
+
+  '
+- 'Where:
+
+  '
+- '- `F` means "draw forward"
+
+  '
+- '- `+` means "turn left by angle"
+
+  '
+- '- `-` means "turn right by angle"
+
+  '
+- '
+
+  '
+- '## Controls in GUI Mode
+
+  '
+- '
+
+  '
+- '- **Text Editor**: Define and edit your L-system
+
+  '
+- '- **Validate Button**: Check if your L-system definition is valid
+
+  '
+- '- **Level Spinner**: Adjust the development level
+
+  '
+- '- **Color Controls**: Change foreground and background colors
+
+  '
+- '- **Export Options**: Save visualizations
+
+  '
+- '
+
+  '
+- '## License
+
+  '
+- '
+
+  '
+- 'L-System Editor is distributed under the MIT License.
+
+  '
+- '
+
+  '
+- 'Copyright (c) 2018 Quentin Dauprat (Heziode)
+
+  '
+- '
+
+  '
+- 'See the [LICENSE](https://github.com/Heziode/lsystem-editor/blob/master/LICENSE)
+  file for full details.
+
+  '
+- '
+
+  '
+- '   Maintainer: Heziode <heziode@protonmail.com>
+
+  '
+- '   Maintainers_Logins: heziode
+
+  '
+- '   Name: lsystem_editor
+
+  '
+- '   Project_File: LSystem_Editor.gpr
+
+  '
+- '   Tag: gtk
+
+  '
+- '   Tag: gtk3
+
+  '
+- '   Tag: ada
+
+  '
+- '   Tag: l-systems
+
+  '
+- '   Tag: gtkada
+
+  '
+- '   Tag: l-system
+
+  '
+- '   Tag: editor
+
+  '
+- '   Tag: gui
+
+  '
+- '   Version: 1.0.0
+
+  '
+- '   Website: https://github.com/Heziode/lsystem-editor
+
+  '
+- 'Dependencies (direct):
+
+  '
+- '   gtkada^25.0.1
+
+  '
+- '   resources~0.1.0
+
+  '
+- 'Dependencies (solution):
+
+  '
+- '   gtkada=25.0.1
+
+  '
+- '   libgtk3=3.24.50
+
+  '
+- '   make=4.4.1
+
+  '
+- '   resources=0.1.0
+
+  '
+- 'Dependencies (missing):
+
+  '
+- '   pkg_config* (indirect,missed:skipped)
+
+  '
+- 'Dependencies (graph):
+
+  '
+- '   gtkada=25.0.1        --> libgtk3=3.24.50 (>=3.24.24)
+
+  '
+- '   gtkada=25.0.1        --> make=4.4.1 (*)
+
+  '
+- '   gtkada=25.0.1        --> pkg_config*
+
+  '
+- '   lsystem_editor=1.0.0 --> gtkada=25.0.1 (^25.0.1)
+
+  '
+- '   lsystem_editor=1.0.0 --> resources=0.1.0 (~0.1.0)
+
+  '
+- 'Dependencies cannot be met
+
+  '
+- '
+
+  '
+- '
+
+  LOG:
+
+  '
+platform: macos
+status: missing-dependencies
+version: 1.0.0

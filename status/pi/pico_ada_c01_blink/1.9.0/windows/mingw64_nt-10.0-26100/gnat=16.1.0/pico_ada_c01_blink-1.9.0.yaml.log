@@ -1,0 +1,292 @@
+Test ran at 2026-10-05 12:49:35.579366+00:00
+
+SOLUTION:
+pico_ada_c01_blink=1.9.0: Chapter 1: Blinking LEDs - Getting Started on the Raspberry Pi Pico
+Origin: source archive pico_ada_c01_blink-1.9.0.tgz at https://sourceforge.net/projects/pi-ada-tutorial/files/Alire/pico_ada_c01_blink-1.9.0.tgz with hashes sha256:bab37563651e28cdfc9211ec51a19b64d35db66cced74a12fcbc0102bfaa7105, sha512:31303a8918b80b42dca26e87871d7b1b1ef0819d0445d9f60d290a80946c87dd68705ce1df631099ed3489532b3c47afe056418e60cb7adace7bcbc33ec3541a
+Properties:
+   Author: Martin Krischik <krischik@users.sourceforge.net>
+   Build Switches: 
+   Config set: pico_xbsp {Event_Log_Output := uart}
+   Configuration: no modifiers
+   Description: Chapter 1: Blinking LEDs - Getting Started on the Raspberry Pi Pico
+   Executable: blink
+   Executable: sketch_01_1_blink
+   Executable: sketch_01_2_blink
+   License: GPL-3.0-or-later
+   Long_Description: My first steps into Ada programming on the Pico: from Jeremy Grosser's classic
+blink example through explicit pin control to using an external LED, plus thoughts on the elegant (but still
+experimental) Ravenscar profile.
+
+Starting simple with LED blinking in Ada - internal LED, external LED with proper renaming, and a look at why Ravenscar
+looks so clean (even if it's not quite ready for everyday use yet).
+
+Contained in Chapter 01 are:
+
+1. blink	     - Jeremy Grosser Ada sample
+2. sketch_01_1_blink - Chapter 1.1 Blink internal LED
+3. sketch_01_2_blink - Chapter 1.2 Blink external LED
+
+   Maintainer: Martin Krischik <krischik@users.sourceforge.net>
+   Maintainers_Logins: krischik
+   Name: pico_ada_c01_blink
+   Notes: Read the full tutorial at [Chapter 1: Blinking LEDs - Getting Started with Ada on the Raspberry Pi
+Pico](https://pi-ada-tutorial.sourceforge.io/pico_ada_c01_blink), [GNATdoc
+documentation](https://pi-ada-tutorial.sourceforge.io/gnatdoc/pico_doc/), [SourceForge
+repository](https://sourceforge.net/p/pi-ada-tutorial/code/ci/master/tree/pico_ada_c01_blink/)
+
+   Tag: raspberry
+   Tag: pi
+   Tag: pico
+   Tag: rp2040
+   Tag: ada2022
+   Tag: embedded
+   Version: 1.9.0
+   Website: https://pi-ada-tutorial.sourceforge.io/pico_ada_c01_blink
+Dependencies (direct):
+   pico_bsp^2.2
+   pico_xbsp^1.9
+Dependencies (solution):
+   adacl_embedded=7.2.1
+   atomic=1.1.0
+   bbqueue=1.0.0
+   cortex_m=1.1.0
+   gnat=16.1.0 (gnat_arm_elf)
+   gnat_arm_elf=16.1.0
+   hal=1.0.0
+   pico_bsp=2.2.0
+   pico_xbsp=1.9.0
+   rp2040_hal=2.7.1
+   usb_embedded=1.0.1
+Dependencies (graph):
+   bbqueue=1.0.0            --> atomic=1.1.0 (^1.0.0)
+   bbqueue=1.0.0            --> gnat=16.1.0 (gnat_arm_elf) (>=10)
+   cortex_m=1.1.0           --> gnat_arm_elf=16.1.0 (>=12)
+   cortex_m=1.1.0           --> hal=1.0.0 (~0.3 | ^1.0.0)
+   pico_ada_c01_blink=1.9.0 --> pico_bsp=2.2.0 (^2.2)
+   pico_ada_c01_blink=1.9.0 --> pico_xbsp=1.9.0 (^1.9)
+   pico_bsp=2.2.0           --> rp2040_hal=2.7.1 (^2)
+   pico_xbsp=1.9.0          --> adacl_embedded=7.2.1 (^7.2)
+   pico_xbsp=1.9.0          --> pico_bsp=2.2.0 (^2.2)
+   pico_xbsp=1.9.0          --> usb_embedded=1.0.1 (^1.0.0)
+   rp2040_hal=2.7.1         --> atomic=1.1.0 (^1)
+   rp2040_hal=2.7.1         --> cortex_m=1.1.0 (^1)
+   rp2040_hal=2.7.1         --> gnat_arm_elf=16.1.0 (>=14 & /=15.1.2)
+   rp2040_hal=2.7.1         --> hal=1.0.0 (^1)
+   rp2040_hal=2.7.1         --> usb_embedded=1.0.1 (^1)
+   usb_embedded=1.0.1       --> bbqueue=1.0.0 (^1.0.0)
+   usb_embedded=1.0.1       --> hal=1.0.0 (^1.0.0)
+
+
+LOG:
+[alr test] Testing pico_ada_c01_blink=1.9.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get pico_ada_c01_blink=1.9.0
+Note: Deploying pico_ada_c01_blink=1.9.0...
+
+######################################################################## 100.0%
+######################################################################## 100.0%
+######################################################################## 100.0%
+#=#=#                                                                          
+######################################################################## 100.0%
+##=#=#                                                                         
+################################                                          45.5%
+######################################################################## 100.0%
+Note: Deploying adacl_embedded=7.2.1...
+
+######################################################################## 100.0%
+######################################################################## 100.0%
+######################################################################## 100.0%
+######################################################################## 100.0%
+#=#=#                                                                          
+##=#=#                                                                         
+######################################################################## 100.0%
+Note: Deploying atomic=1.1.0...
+Note: Deploying hal=1.0.0...
+Note: Deploying bbqueue=1.0.0...
+Note: Deploying cortex_m=1.1.0...
+Note: Deploying usb_embedded=1.0.1...
+Note: Deploying rp2040_hal=2.7.1...
+Note: Deploying pico_bsp=2.2.0...
+Note: Deploying pico_xbsp=1.9.0...
+
+######################################################################## 100.0%
+######################################################################## 100.0%
+######################################################################## 100.0%
+######################################################################## 100.0%
+#=#=#                                                                          
+##=#=#                                                                         
+######################################################################## 100.0%
+
+pico_ada_c01_blink=1.9.0 successfully retrieved.
+Dependencies were solved as follows:
+
+   +  adacl_embedded 7.2.1  (new,indirect)
+   +  atomic         1.1.0  (new,indirect)
+   +  bbqueue        1.0.0  (new,indirect)
+   +  cortex_m       1.1.0  (new,indirect)
+   +b gnat           16.1.0 (new,gnat_arm_elf,indirect,binary)
+   +b gnat_arm_elf   16.1.0 (new,indirect,binary)
+   +  hal            1.0.0  (new,indirect)
+   +  pico_bsp       2.2.0  (new)
+   +  pico_xbsp      1.9.0  (new)
+   +  rp2040_hal     2.7.1  (new,indirect)
+   +  usb_embedded   1.0.1  (new,indirect)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building pico_ada_c01_blink=1.9.0/pico_ada_c01_blink.gpr...
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\hal_1.0.0_084c6412\d0057325170789a864c22afb05d4db1bcccce3bb724098d81749b3e293e7fab0\obj" created
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\hal_1.0.0_084c6412\d0057325170789a864c22afb05d4db1bcccce3bb724098d81749b3e293e7fab0\lib" created
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\atomic_1.1.0_5e6250a0\c8c56e1c56ecf6a247210edefced6545cd68f72f6cb1d23de18fb63e5309f213\obj\release" created
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\atomic_1.1.0_5e6250a0\c8c56e1c56ecf6a247210edefced6545cd68f72f6cb1d23de18fb63e5309f213\lib" created
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\adacl_embedded_7.2.1_8becc526\c0969189cc698c7f2b01f9babec6dae7132401a163ecbc91a7261233a5c1dda2\obj\release" created
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\adacl_embedded_7.2.1_8becc526\c0969189cc698c7f2b01f9babec6dae7132401a163ecbc91a7261233a5c1dda2\lib" created
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\cortex_m_1.1.0_f2d064ae\b4befe8759ce34aacccc32ea0f95271bec9ac18c315733190cc6868792aa4534\obj\release" created
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\cortex_m_1.1.0_f2d064ae\b4befe8759ce34aacccc32ea0f95271bec9ac18c315733190cc6868792aa4534\lib" created
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\bbqueue_1.0.0_f508818c\37048f47b63cb70547d2e62f3cdb35abb8df0c87fc1364433fe3b574ef109768\obj\release" created
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\bbqueue_1.0.0_f508818c\37048f47b63cb70547d2e62f3cdb35abb8df0c87fc1364433fe3b574ef109768\lib" created
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\usb_embedded_1.0.1_dc00efac\c210053f7349f047afa1bb502519a8fbf481fa5cfcb9600f9802fabc75fed3d0\obj\release" created
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\usb_embedded_1.0.1_dc00efac\c210053f7349f047afa1bb502519a8fbf481fa5cfcb9600f9802fabc75fed3d0\lib" created
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\rp2040_hal_2.7.1_d65f4ed4\66fbe9723cb3c68e13b59ae117d6cd7c51cd3154d1ab852b7bbad8759f0a7feb\obj\release" created
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\rp2040_hal_2.7.1_d65f4ed4\66fbe9723cb3c68e13b59ae117d6cd7c51cd3154d1ab852b7bbad8759f0a7feb\lib" created
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\pico_bsp_2.2.0_42568405\2f802096f6ee959a432b0c8dd2e1fc59c322fd56dfbec2d8617f043db7dd6314\obj\release" created
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\pico_bsp_2.2.0_42568405\2f802096f6ee959a432b0c8dd2e1fc59c322fd56dfbec2d8617f043db7dd6314\lib" created
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\pico_xbsp_1.9.0_4fed4711\c40cf93ce0f8f683f25ac8bf95763daa9bf25fdddbd0ef1137d0ae6f3de84ebc\obj\release" created
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\pico_xbsp_1.9.0_4fed4711\c40cf93ce0f8f683f25ac8bf95763daa9bf25fdddbd0ef1137d0ae6f3de84ebc\lib" created
+"obj\release" created
+"bin\release" created
+[Ada Compile]     adacl-text_io.adb
+[Ada Compile]     adacl-trace_buffer.adb
+[Ada Compile]     adacl.ads
+[Ada Compile]     adacl_embedded_config.ads
+[Ada Compile]     atomic-basic_operations.adb
+[Ada Compile]     atomic-critical_section.adb
+[Ada Compile]     atomic-signed.adb
+[Archive]         libAdaCL_Embedded.a
+[Ada Compile]     atomic-signed_16.ads
+[Ada Compile]     atomic-signed_32.ads
+[Ada Compile]     atomic-signed_8.ads
+[Ada Compile]     atomic-unsigned.adb
+[Ada Compile]     atomic-unsigned_16.ads
+[Ada Compile]     atomic-unsigned_32.ads
+[Ada Compile]     atomic-unsigned_8.ads
+[Ada Compile]     atomic.adb
+[Ada Compile]     atomic_config.ads
+[Ada Compile]     bbqueue-buffers-framed.adb
+[Ada Compile]     bbqueue-buffers.adb
+[Ada Compile]     bbqueue.adb
+[Archive]         libAtomic.a
+[Ada Compile]     bbqueue_config.ads
+[Ada Compile]     cortex_m-cache.adb
+[Ada Compile]     cortex_m-debug.adb
+[Ada Compile]     cortex_m-dwt.adb
+[Archive]         libBbqueue.a
+[Ada Compile]     cortex_m-hints.adb
+[Ada Compile]     cortex_m-nvic.adb
+[Ada Compile]     cortex_m-reset.adb
+[Ada Compile]     cortex_m-systick.adb
+[Ada Compile]     cortex_m.ads
+[Ada Compile]     cortex_m_config.ads
+[Ada Compile]     cortex_m_svd-debug.ads
+[Ada Compile]     cortex_m_svd-dwt.ads
+[Ada Compile]     cortex_m_svd-nvic.ads
+[Ada Compile]     cortex_m_svd-scb.ads
+[Ada Compile]     cortex_m_svd-systick.ads
+[Ada Compile]     cortex_m_svd.ads
+[Ada Compile]     memory_barriers.adb
+[Ada Compile]     semihosting-filesystem.adb
+[Ada Compile]     semihosting.adb
+[Ada Compile]     hal-audio.ads
+[Ada Compile]     hal-bitmap.ads
+[Ada Compile]     hal-block_drivers.ads
+[Ada Compile]     hal-dsi.ads
+[Ada Compile]     hal-filesystem.ads
+[Ada Compile]     hal-flash.ads
+[Archive]         libCortex_M.a
+[Ada Compile]     hal-framebuffer.ads
+[Ada Compile]     hal-gpio.ads
+[Ada Compile]     hal-i2c.ads
+[Ada Compile]     hal-real_time_clock.ads
+[Ada Compile]     hal-sdmmc.adb
+[Ada Compile]     hal-spi.ads
+[Ada Compile]     hal-time.ads
+[Ada Compile]     hal-touch_panel.ads
+[Ada Compile]     hal-uart.ads
+[Ada Compile]     hal.ads
+[Ada Compile]     pico-audio_i2s.ads
+[Ada Compile]     pico-pimoroni-audio_pack.ads
+[Ada Compile]     pico-pimoroni-rgb_keypad.adb
+[Archive]         libhal.a
+[Ada Compile]     pico-pimoroni.ads
+[Ada Compile]     pico.ads
+[Ada Compile]     pico_bsp_config.ads
+[Ada Compile]     pico-analog-input.ads
+[Ada Compile]     pico-analog-output.adb
+[Ada Compile]     pico-analog-rgb_led.adb
+[Archive]         libPico_Bsp.a
+[Ada Compile]     pico-analog.ads
+[Ada Compile]     pico-debug_io.adb
+[Ada Compile]     pico-tone.adb
+[Ada Compile]     pico-uart_io.adb
+[Ada Compile]     pico-usb_io.adb
+C:\Users\runneradmin\AppData\Local\alire\cache\builds\pico_xbsp_1.9.0_4fed4711\c40cf93ce0f8f683f25ac8bf95763daa9bf25fdddbd0ef1137d0ae6f3de84ebc\src\uart\pico-debug_io.adb:42:17: error: "Set_Custom_Put_Line" not declared in "Device"
+C:\Users\runneradmin\AppData\Local\alire\cache\builds\pico_xbsp_1.9.0_4fed4711\c40cf93ce0f8f683f25ac8bf95763daa9bf25fdddbd0ef1137d0ae6f3de84ebc\src\uart\pico-debug_io.adb:49:62: error: "Get_Log_Event_Image" not declared in "Device"
+pico_xbsp.gpr: error: [Ada Compile] pico-debug_io.adb (pico_xbsp.gpr) failed with status 1
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "D:\a\alire-crates-ci\alire-crates-ci\test\ccc937d4-980b-4d97-8911-885d15ff9dc3\pico_ada_c01_blink_1.9.0_bab37563\pico_ada_c01_blink.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "D:\a\alire-crates-ci\alire-crates-ci\test\ccc937d4-980b-4d97-8911-885d15ff9dc3\pico_ada_c01_blink_1.9.0_bab37563\pico_ada_c01_blink.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+stderr: ALIRE.CHECKED_ERROR
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "D:\a\alire-crates-ci\alire-crates-ci\test\ccc937d4-980b-4d97-8911-885d15ff9dc3\pico_ada_c01_blink_1.9.0_bab37563\pico_ada_c01_blink.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
+[D:\a\alire-crates-ci\alire-crates-ci\alire_install\bin\alr.exe]
+0x7ff63541da2a Semantic_Versioning.Basic.Restrictions.First_Index at alire.adb:284
+0x7ff63501595b Semantic_Versioning.Basic.Restrictions.First_Index at alire-os_lib-subprocess.adb:111
+0x7ff6352ccba1 Semantic_Versioning.Basic.Restrictions.First_Index at alire-spawn.adb:22
+0x7ff6352cdd5d Semantic_Versioning.Basic.Restrictions.First_Index at alire-spawn.adb:68
+0x7ff6351f2d64 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:189
+0x7ff6351f11da Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:255
+0x7ff63521912d Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2143
+0x7ff6352882f9 Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1472
+0x7ff635287424 Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1555
+0x7ff63521922c Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2147
+0x7ff6352192fa Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2127
+0x7ff6351f17a7 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:286
+0x7ff6351f1912 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:114
+0x7ff634963baa Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:145
+0x7ff63496341e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:113
+0x7ff6349635ba Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:54
+0x7ff634a15dea Semantic_Versioning.Basic.Restrictions.First_Index at clic-subcommand-instance.adb:749
+0x7ff634a22b0e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands.adb:632
+0x7ff6348f16a0 Alr.Main at alr-main.adb:13
+0x7ff6348f5270 Main at b__alr-main.adb:2454
+0x7ff6348f133e __tmainCRTStartup at ???
+0x7ff6348f1144 mainCRTStartup at ???
+[C:\Windows\System32\KERNEL32.DLL]
+0x7ffb7c1de985
+[C:\Windows\SYSTEM32\ntdll.dll]
+0x7ffb7e4ac53a
+
+stderr: ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED
+stderr: alire-roots.adb:202
+stderr: raised ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED : alire-roots.adb:202
+[D:\a\alire-crates-ci\alire-crates-ci\alire_install\bin\alr.exe]
+0x7ff6351f313c Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:202
+0x7ff6351f11da Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:255
+0x7ff63521912d Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2143
+0x7ff6352882f9 Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1472
+0x7ff635287424 Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1555
+0x7ff63521922c Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2147
+0x7ff6352192fa Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2127
+0x7ff6351f17a7 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:286
+0x7ff6351f1912 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:114
+0x7ff634963baa Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:145
+0x7ff63496341e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:113
+0x7ff6349635ba Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:54
+0x7ff634a15dea Semantic_Versioning.Basic.Restrictions.First_Index at clic-subcommand-instance.adb:749
+0x7ff634a22b0e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands.adb:632
+0x7ff6348f16a0 Alr.Main at alr-main.adb:13
+0x7ff6348f5270 Main at b__alr-main.adb:2454
+0x7ff6348f133e __tmainCRTStartup at ???
+0x7ff6348f1144 mainCRTStartup at ???
+[C:\Windows\System32\KERNEL32.DLL]
+0x7ffb7c1de985
+[C:\Windows\SYSTEM32\ntdll.dll]
+0x7ffb7e4ac53a
+
+ERROR: Compilation failed.

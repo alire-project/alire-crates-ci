@@ -1,0 +1,119 @@
+Test ran at 2025-06-19 01:12:10.120224+00:00
+
+SOLUTION:
+bme280=1.0.0: Driver for BME280 Humidity sensor
+Origin: commit 85a38919aa896c4c2a66825a135c87149224044c from https://github.com/reznikmm/bme280.git
+Properties:
+   Author: Max Reznik
+   Build Switches: 
+   Configuration: no modifiers
+   Description: Driver for BME280 Humidity sensor
+   License: Apache-2.0 WITH LLVM-exception
+   Maintainer: Max Reznik <reznikmm@gmail.com>
+   Maintainers_Logins: reznikmm
+   Name: bme280
+   Project_File: gnat/bme280.gpr
+   Tag: sensor
+   Tag: humidity
+   Tag: temperature
+   Tag: pressure
+   Tag: driver
+   Version: 1.0.0
+   Website: https://github.com/reznikmm/bme280
+Dependencies (direct):
+   gnat>=11 & <2000
+   hal~0.3.0
+Dependencies (solution):
+   gnat=14.2.1 (gnat_external)
+   hal=0.3.1
+Dependencies (graph):
+   bme280=1.0.0 --> gnat=14.2.1 (gnat_external) (>=11 & <2000)
+   bme280=1.0.0 --> hal=0.3.1 (~0.3.0)
+
+
+LOG:
+Spawning: alr -d -n get --build bme280=1.0.0
+Note: Deploying bme280=1.0.0...
+Note: Deploying hal=0.3.1...
+Note: Alire has selected automatically this toolchain:
+   gprbuild=22.0.1
+   gnat_native=14.2.1
+You can select a different toolchain at any time with `alr toolchain --select`
+Download will start now:
+Note: Deploying gprbuild=22.0.1...
+#=#=#                                                                          
+
+################                                                          23.1%
+######################################################################## 100.0%
+Note: gprbuild=22.0.1 installed successfully.
+Note: Deploying gnat_native=14.2.1...
+#=#=#                                                                          
+
+###                                                                        5.1%
+#########                                                                 13.8%
+#################                                                         23.8%
+########################                                                  33.7%
+###############################                                           43.8%
+######################################                                    53.7%
+#############################################                             63.5%
+##################################################                        70.8%
+########################################################                  78.3%
+###############################################################           87.9%
+################################################################          89.3%
+#################################################################         90.4%
+#################################################################         90.7%
+#####################################################################     97.0%
+######################################################################## 100.0%
+Note: gnat_native=14.2.1 installed successfully.
+Note: Building bme280=1.0.0/gnat/bme280.gpr...
+gprconfig: can't find a native toolchain for language 'ada'
+gprconfig: can't find a native toolchain for language 'ada'
+Setup
+   [mkdir]        object directory for project HAL
+   [mkdir]        library directory for project HAL
+   [mkdir]        object directory for project Bme280
+   [mkdir]        library directory for project Bme280
+bme280.gpr:9:25: warning: libraries are not supported on this platform
+hal.gpr:5:24: warning: libraries are not supported on this platform
+hal.gpr:1:09: no compiler for language "Ada", cannot compile "hal-sdmmc.adb"
+gprbuild: *** compilation phase failed
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/d39ddb05-04cc-41ed-acdd-9f9d02bcf3f7/bme280_1.0.0_85a38919/gnat/bme280.gpr"] exited with code 4
+ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/d39ddb05-04cc-41ed-acdd-9f9d02bcf3f7/bme280_1.0.0_85a38919/gnat/bme280.gpr"] exited with code 4
+stderr: ALIRE.CHECKED_ERROR
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/d39ddb05-04cc-41ed-acdd-9f9d02bcf3f7/bme280_1.0.0_85a38919/gnat/bme280.gpr"] exited with code 4
+stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
+[/usr/bin/alr]
+0xe16f5e Alire.Raise_Checked_Error at alire.adb:284
+0xa845be Alire.Os_Lib.Subprocess.Checked_Spawn at alire-os_lib-subprocess.adb:111
+0xcef7be Alire.Spawn.Command at alire-spawn.adb:21
+0xcefdde Alire.Spawn.Gprbuild at alire-spawn.adb:41
+0xc31d1f Alire.Roots.Build at alire-roots.adb:186
+0xc304da Alire.Roots.Build at alire-roots.adb:252
+0xc53d6f Alire.Roots.Traverse at alire-roots.adb:2075
+0xcba1fd Alire.Solutions.Traverse.Visit at alire-solutions.adb:1480
+0xcb9344 Alire.Solutions.Traverse at alire-solutions.adb:1563
+0xc53e62 Alire.Roots.Traverse at alire-roots.adb:2079
+0xc53f21 Alire.Roots.Traverse at alire-roots.adb:2059
+0xc30a46 Alire.Roots.Build at alire-roots.adb:283
+0xc30b2b Alire.Roots.Build at alire-roots.adb:111
+0x4a5e38 Alr.Commands.Get.Retrieve at alr-commands-get.adb:205
+0x4a94f3 Alr.Commands.Get.Execute at alr-commands-get.adb:378
+0x4a96a1 Alr.Commands.Get.Execute at alr-commands-get.adb:256
+0x533c96 Alr.Commands.Sub_Cmd.Execute at clic-subcommand-instance.adb:749
+0x53eff7 Alr.Commands.Execute at alr-commands.adb:561
+0x43953a Alr.Main at alr-main.adb:13
+0x43c1d3 Main at b__alr-main.adb:2299
+[/lib64/libc.so.6]
+0x7ff367d91086
+0x7ff367d91149
+[/usr/bin/alr]
+0x4393dc _start at ???
+0xfffffffffffffffe
+
+
+Warning: bme280=1.0.0 successfully retrieved but its build failed.
+Dependencies were solved as follows:
+
+   +b gnat 14.2.1 (new,gnat_external,executable in path)
+   +  hal  0.3.1  (new)
+ERROR: Build ended with errors

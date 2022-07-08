@@ -1,0 +1,82 @@
+Test ran at 2025-11-17 13:11:19.726160+00:00
+
+SOLUTION:
+matreshka_servlet=21.0.0: Servlet API
+Origin: commit e6463c55cfc662b3f738175e855fb9bf6cdfd3b8 from https://github.com/reznikmm/matreshka-alire
+Properties:
+   Author: Vadim Godunko
+   Description: Servlet API
+   License: BSD-3-Clause
+   Maintainer: Vadim Godunko <vgodunko@gmail.com>
+   Maintainer: Maxim Reznik <reznikmm@gmail.com>
+   Maintainers_Logins: godunko
+   Maintainers_Logins: reznikmm
+   Name: matreshka_servlet
+   Project_File: build_matreshka_servlet.gpr
+   Tag: web
+   Tag: servlet
+   Tag: http
+   Version: 21.0.0
+   Website: https://github.com/godunko/matreshka
+Dependencies (direct):
+   matreshka_league21.0.0
+Dependencies (solution):
+   make=4.4.1
+   matreshka_league=21.0.0
+Dependencies (graph):
+   matreshka_league=21.0.0  --> make=4.4.1 (*)
+   matreshka_servlet=21.0.0 --> matreshka_league=21.0.0 (21.0.0)
+
+
+LOG:
+[alr test] Testing matreshka_servlet=21.0.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get matreshka_servlet=21.0.0
+Note: Deploying matreshka_servlet=21.0.0...
+
+matreshka_servlet=21.0.0 successfully retrieved.
+Dependencies were solved as follows:
+
+   +b make             4.4.1  (new,indirect,system package)
+   +  matreshka_league 21.0.0 (new)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building matreshka_servlet=21.0.0/build_matreshka_servlet.gpr...
+Setup
+   [mkdir]        object directory for project Matreshka_Servlet
+Compile
+   [Ada]          web_socket-connections.ads
+   [Ada]          web_socket-listeners.ads
+   [Ada]          web_socket-handlers.adb
+   [Ada]          web_socket.ads
+   [Ada]          servlet-http_parameter_vectors.ads
+   [Ada]          servlet-http_servlets.adb
+   [Ada]          servlet-http_responses.adb
+   [Ada]          servlet-http_upgrade_handlers.ads
+   [Ada]          servlet-http_requests.adb
+   [Ada]          servlet-http_sessions.ads
+   [Ada]          servlet-http_parameters.adb
+   [Ada]          servlet-http_cookie_sets.adb
+   [Ada]          servlet-http_cookies.adb
+   [Ada]          matreshka-rfc2616_dates.adb
+servlet-http_cookies.adb:55:13: warning: function "Create" is not referenced [-gnatwu]
+   [Ada]          servlet-responses.ads
+   [Ada]          servlet-response_wrappers.adb
+   [Ada]          servlet.ads
+   [Ada]          servlet-event_listeners.ads
+   [Ada]          servlet-context_listeners.ads
+   [Ada]          servlet-servlet_registrations.adb
+   [Ada]          servlet-requests.adb
+   [Ada]          servlet-contexts.adb
+   [Ada]          servlet-servlets.ads
+servlet-contexts.adb:56:07: warning: constant "Aux" is not referenced [-gnatwu]
+   [Ada]          servlet-write_listeners.ads
+   [Ada]          servlet-request_wrappers.adb
+   [Ada]          servlet-container_initializers.ads
+   [Ada]          servlet-configs.ads
+   [Ada]          servlet-generic_servlets.adb
+   [Ada]          servlet-output_streams.ads
+Build Libraries
+   [gprlib]       matreshka-servlet-15.2.lexch
+   [link library] libmatreshka-servlet-15.2.so
+Success: Build finished successfully in 4.20 seconds.
+Found declared GPR file: build_matreshka_servlet.gpr
+[alr test] Test completed SUCCESSFULLY

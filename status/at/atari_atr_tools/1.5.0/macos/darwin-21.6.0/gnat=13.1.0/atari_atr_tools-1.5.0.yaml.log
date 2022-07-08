@@ -1,0 +1,197 @@
+Test ran at 2024-06-08 00:39:38.863593+00:00
+
+SOLUTION:
+atari_atr_tools=1.5.0: Atari / SIO2PC tools for ATR-files
+Origin: source archive atari_atr_tools-1.5.0.tgz at https://sourceforge.net/projects/tutorial-6502/files/Alire/atari_atr_tools-1.5.0.tgz with hashes sha256:5ab5b1710dca691b2a42bf9833961e227de99f1f01140b0e150f9e2274ff801c, sha512:39108450a978f951e37df11cb01074ac0fe1abe826ecf9fcdb0196caf706e5324c3d08863b1a4b083caa6e0d0e9192471ec8319e4f3947d6a18a0611633949d6
+Properties:
+   Test run: ${CRATE_DIR}/test/alr run
+   Author: Martin Krischik <krischik@users.sourceforge.net>
+   Build Switches: 
+   Description: Atari / SIO2PC tools for ATR-files
+   Executable: atr_tools-main
+   License: GPL-3.0-or-later
+   Long_Description: This is a tool to analyse, create and convert ATR files.
+
+ATR files are used by various Atari 8bit emulators and hardware add ons. Currently implemented
+
+# Print Header
+
+```sh
+>atr_tools-main --print-header test-DD-DS-80.atr 
+File name        : test-DD-DS-80.atr
+Magic            :      16#296#
+Paragraphs       :        46056
+Sector size      :          256
+Flags            :         2#1#
+Bad Sectors      :            0
+Unused           :        16#0#
+Sectors          :         2880
+Bytes            :       736896
+Boot Sectors     : true        
+
+Floppy disk double density, double sided, 80 track
+```
+
+# Create Floppy image
+
+```sh
+>atr_tools-main --verbose --format-floppy --density=DD --side=SS --track=80 test-DD-SS-80.atr
+File created     : test-DD-SS-80.atr
+Sector size      :          256
+Sector per track :           18
+Tracks per side  :           80
+Sides per disk   :            1
+```
+
+Development versions available with:
+
+```sh
+alr index --add "git+https://github.com/krischik/alire-index.git#develop" --name krischik
+```
+
+Source code and testsuite available on [SourceForge](https://git.code.sf.net/p/tutorial-6502/git)
+
+   Maintainer: Martin Krischik <krischik@users.sourceforge.net>
+   Maintainers_Logins: krischik
+   Name: atari_atr_tools
+   Tag: atari
+   Tag: tools
+   Tag: retrocomputing
+   Tag: ada-2022
+   Version: 1.5.0
+   Website: https://sourceforge.net/projects/tutorial-6502
+Dependencies (direct):
+   adacl^5.15.1
+   gnat>=12 & <2000
+Dependencies (solution):
+   adacl=5.15.1
+   gnat=13.1.0 (gnat_native) (installed)
+Dependencies (graph):
+   adacl=5.15.1          --> gnat=13.1.0 (gnat_native) (>=12 & <2000)
+   atari_atr_tools=1.5.0 --> adacl=5.15.1 (^5.15.1)                  
+   atari_atr_tools=1.5.0 --> gnat=13.1.0 (gnat_native) (>=12 & <2000)
+
+
+LOG:
+Note: Deploying atari_atr_tools=1.5.0...
+#=#=#                                                                          
+##O#-#                                                                         
+##=O#- #                                                                       
+# #=O#- #                                                                      
+
+######################################################################## 100.0% # #=O#-  #                                                                    
+
+######################################################################## 100.0%
+Note: Deploying adacl=5.15.1...
+#=#=#                                                                          
+##=#=#                                                                         
+##-=#=-#                                                                       
+
+######################################################################## 100.0%# #-=#=-#                                                                      
+
+######################################################################## 100.0%
+
+atari_atr_tools=1.5.0 successfully retrieved.
+Dependencies were solved as follows:
+
+   +  adacl 5.15.1 (new)                      
+   +i gnat  13.1.0 (new,installed,gnat_native)
+Note: Synchronizing workspace...
+Dependencies automatically updated as follows:
+
+   +  adacl           5.15.1 (new)                      
+   +· atari_atr_tools 1.5.0  (new,path=..)              
+   +  aunit           23.0.0 (new)                      
+   +i gnat            13.1.0 (new,installed,gnat_native)
+Note: Deploying adacl=5.15.1...
+#=#=#                                                                          
+##=#=#                                                                         
+##-=#=-#                                                                       
+
+######################################################################## 100.0%# #-=#=-#                                                                      
+ # #-=#=- #                                                                    
+
+######################################################################## 100.0%
+Note: Deploying aunit=23.0.0...
+#=#=#                                                                          
+##O#-#                                                                         
+##O=#  #                                                                       
+#=#=-#  #                                                                      
+ #=#=-#   #                                                                    
+  #=#=- #   #                                                                  
+
+Note: Building atari_atr_tools/atari_atr_tools.gpr...
+Setup
+   [mkdir]        object directory for project AdaCL
+   [mkdir]        library directory for project AdaCL
+   [mkdir]        object directory for project Atari_Atr_Tools
+   [mkdir]        exec directory for project Atari_Atr_Tools
+Compile
+   [Ada]          atr_tools-main.adb
+   [Ada]          adacl_config.ads
+   [Ada]          adacl-os-low_level.ads
+   [Ada]          adacl-assert-arrays.adb
+   [Ada]          adacl-command_line.ads
+   [Ada]          adacl-strings-hex.adb
+   [Ada]          adacl-wide_strings-hex.adb
+   [Ada]          adacl-os.ads
+   [Ada]          adacl-trace-assert.ads
+   [Ada]          adacl-wide_wide_strings-hex.adb
+   [Ada]          adacl-assert-discrete.adb
+   [Ada]          adacl-assert-pointer.adb
+   [Ada]          adacl-pointer-shared_with_delete.adb
+   [Ada]          adacl-pointer-holder.adb
+   [Ada]          adacl-command_line-getopt.adb
+   [Ada]          adacl-assert.adb
+   [Ada]          adacl-pointer.ads
+   [Ada]          adacl-pointer-element.adb
+   [Ada]          adacl-trace.adb
+   [Ada]          adacl-pointer-shared.ads
+   [Ada]          adacl-wide_wide_strings.adb
+   [Ada]          adacl-base.ads
+   [Ada]          adacl-pointer-unique_with_delete.adb
+   [Ada]          adacl-limited_base.ads
+   [Ada]          adacl-wide_strings.adb
+   [Ada]          adacl-strings.adb
+   [Ada]          adacl-pointer-unique.ads
+   [Ada]          adacl.ads
+   [Ada]          atr_tools.ads
+   [Ada]          atr_tools-commandline.adb
+   [Ada]          atr_tools-create_floppy.adb
+   [Ada]          atr_tools-print_header.adb
+   [Ada]          atr_tools-byte_io.ads
+   [Ada]          atr_tools-file_body.adb
+   [Ada]          atr_tools-file_header.adb
+   [Ada]          atr_tools-boolean_text_io.ads
+   [Ada]          atr_tools-byte_text_io.ads
+   [Ada]          atr_tools-double_word_text_io.ads
+   [Ada]          atr_tools-word_text_io.ads
+Build Libraries
+   [gprlib]       AdaCL.lexch
+   [archive]      libAdaCL.a
+   [index]        libAdaCL.a
+Bind
+   [gprbind]      atr_tools-main.bexch
+   [Ada]          atr_tools-main.ali
+Link
+   [link]         atr_tools-main.adb
+-macosx_version_min has been renamed to -macos_version_min
+0  0x100342f43  __assert_rtn + 64
+1  0x100244f43  ld::AtomPlacement::findAtom(unsigned char, unsigned long long, ld::AtomPlacement::AtomLoc const*&, long long&) const + 1411
+2  0x100261431  ld::InputFiles::SliceParser::parseObjectFile(mach_o::Header const*) const + 19745
+3  0x100271b71  ld::InputFiles::parseAllFiles(void (ld::AtomFile const*) block_pointer)::$_7::operator()(unsigned long, ld::FileInfo const&) const + 657
+4  0x7ff802dd2def  _dispatch_client_callout2 + 8
+5  0x7ff802de4547  _dispatch_apply_invoke3 + 431
+6  0x7ff802dd2dbc  _dispatch_client_callout + 8
+7  0x7ff802dd404e  _dispatch_once_callout + 20
+8  0x7ff802de3740  _dispatch_apply_invoke + 184
+9  0x7ff802dd2dbc  _dispatch_client_callout + 8
+10  0x7ff802de22ca  _dispatch_root_queue_drain + 871
+11  0x7ff802de284f  _dispatch_worker_thread2 + 152
+12  0x7ff802f70b43  _pthread_wqthread + 262
+ld: Assertion failed: (resultIndex < sectData.atoms.size()), function findAtom, file Relocations.cpp, line 1336.
+collect2: error: ld returned 1 exit status
+gprbuild: link of atr_tools-main.adb failed
+gprbuild: failed command was: /users/runner/.config/alire/cache/dependencies/gnat_native_13.1.0_071d715c/bin/gcc atr_tools-main.o b__atr_tools-main.o /Users/runner/work/alire-crates-ci/alire-crates-ci/test/591d9bfb-af15-415f-9633-a4c8360707af/atari_atr_tools_1.5.0_5ab5b171/obj/release/atr_tools.o /Users/runner/work/alire-crates-ci/alire-crates-ci/test/591d9bfb-af15-415f-9633-a4c8360707af/atari_atr_tools_1.5.0_5ab5b171/obj/release/atr_tools-boolean_text_io.o /Users/runner/work/alire-crates-ci/alire-crates-ci/test/591d9bfb-af15-415f-9633-a4c8360707af/atari_atr_tools_1.5.0_5ab5b171/obj/release/atr_tools-byte_io.o /Users/runner/work/alire-crates-ci/alire-crates-ci/test/591d9bfb-af15-415f-9633-a4c8360707af/atari_atr_tools_1.5.0_5ab5b171/obj/release/atr_tools-byte_text_io.o /Users/runner/work/alire-crates-ci/alire-crates-ci/test/591d9bfb-af15-415f-9633-a4c8360707af/atari_atr_tools_1.5.0_5ab5b171/obj/release/atr_tools-double_word_text_io.o /Users/runner/work/alire-crates-ci/alire-crates-ci/test/591d9bfb-af15-415f-9633-a4c8360707af/atari_atr_tools_1.5.0_5ab5b171/obj/release/atr_tools-file_body.o /Users/runner/work/alire-crates-ci/alire-crates-ci/test/591d9bfb-af15-415f-9633-a4c8360707af/atari_atr_tools_1.5.0_5ab5b171/obj/release/atr_tools-commandline.o /Users/runner/work/alire-crates-ci/alire-crates-ci/test/591d9bfb-af15-415f-9633-a4c8360707af/atari_atr_tools_1.5.0_5ab5b171/obj/release/atr_tools-file_header.o /Users/runner/work/alire-crates-ci/alire-crates-ci/test/591d9bfb-af15-415f-9633-a4c8360707af/atari_atr_tools_1.5.0_5ab5b171/obj/release/atr_tools-create_floppy.o /Users/runner/work/alire-crates-ci/alire-crates-ci/test/591d9bfb-af15-415f-9633-a4c8360707af/atari_atr_tools_1.5.0_5ab5b171/obj/release/atr_tools-word_text_io.o /Users/runner/work/alire-crates-ci/alire-crates-ci/test/591d9bfb-af15-415f-9633-a4c8360707af/atari_atr_tools_1.5.0_5ab5b171/obj/release/atr_tools-print_header.o /Users/runner/work/alire-crates-ci/alire-crates-ci/test/591d9bfb-af15-415f-9633-a4c8360707af/atari_atr_tools_1.5.0_5ab5b171/test/alire/cache/dependencies/adacl_5.15.1_e7c1515b/lib/libAdaCL.a -L/Users/runner/work/alire-crates-ci/alire-crates-ci/test/591d9bfb-af15-415f-9633-a4c8360707af/atari_atr_tools_1.5.0_5ab5b171/obj/release/ -L/Users/runner/work/alire-crates-ci/alire-crates-ci/test/591d9bfb-af15-415f-9633-a4c8360707af/atari_atr_tools_1.5.0_5ab5b171/obj/release/ -L/Users/runner/work/alire-crates-ci/alire-crates-ci/test/591d9bfb-af15-415f-9633-a4c8360707af/atari_atr_tools_1.5.0_5ab5b171/test/alire/cache/dependencies/adacl_5.15.1_e7c1515b/lib/ -L/users/runner/.config/alire/cache/dependencies/gnat_native_13.1.0_071d715c/lib/gcc/x86_64-apple-darwin21.6.0/13.1.0/adalib/ /users/runner/.config/alire/cache/dependencies/gnat_native_13.1.0_071d715c/lib/gcc/x86_64-apple-darwin21.6.0/13.1.0/adalib/libgnarl.a /users/runner/.config/alire/cache/dependencies/gnat_native_13.1.0_071d715c/lib/gcc/x86_64-apple-darwin21.6.0/13.1.0/adalib/libgnat.a -Wl,-rpath,@executable_path/..//obj/release -Wl,-rpath,@executable_path/..//test/alire/cache/dependencies/adacl_5.15.1_e7c1515b/lib -Wl,-rpath,@executable_path/../../../../../../..//.config/alire/cache/dependencies/gnat_native_13.1.0_071d715c/lib/gcc/x86_64-apple-darwin21.6.0/13.1.0/adalib -o /Users/runner/work/alire-crates-ci/alire-crates-ci/test/591d9bfb-af15-415f-9633-a4c8360707af/atari_atr_tools_1.5.0_5ab5b171/bin//atr_tools-main
+ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/Users/runner/work/alire-crates-ci/alire-crates-ci/test/591d9bfb-af15-415f-9633-a4c8360707af/atari_atr_tools_1.5.0_5ab5b171/atari_atr_tools.gpr"] exited with code 4
+ERROR: Build failed

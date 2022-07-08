@@ -1,0 +1,71 @@
+Test ran at 2026-07-25 01:22:48.539558+00:00
+
+SOLUTION:
+spawn=26.0.0: A simple library to spawn processes and communicate with them.
+Origin: source archive v26.0.0.zip at https://github.com/AdaCore/spawn/archive/refs/tags/v26.0.0.zip with hash sha512:8114896a28acdc55b7caecdda995b99006fa88606abaea2d2c717df5baccd8187e6fc00e6c30e8921fc600e56255fb64a6e1922a3e6be30ee1b957650e2ee9e3
+Properties:
+   Author: AdaCore
+   Build Switches: 
+   Configuration: no modifiers
+   Description: A simple library to spawn processes and communicate with them.
+   GPR Scenario: SPAWN_BUILD_MODE := dev | prod | coverage | AddressSanitizer
+   GPR Scenario: SPAWN_LIBRARY_TYPE := static | static-pic | relocatable
+   GPR Scenario: SPAWN_OS := unix | osx | Windows_NT
+   case OS is
+      when Linux => GPR External: SPAWN_OS := unix
+      when Macos => GPR External: SPAWN_OS := osx
+      when Windows => GPR External: SPAWN_OS := Windows_NT
+   License: Apache-2.0 WITH LLVM-exception
+   Long_Description: This is Glib independent implementation of a spawn processes interface.
+   Maintainer: Vadim Godunko <vgodunko@gmail.com>
+   Maintainer: Max Reznik <reznikmm@gmail.com>
+   Maintainer: sagaert@adacore.com
+   Maintainers_Logins: godunko
+   Maintainers_Logins: reznikmm
+   Maintainers_Logins: AldanTanneo
+   Name: spawn
+   Project_File: gnat/spawn.gpr
+   Tag: process
+   Tag: launch
+   Tag: pipe
+   Version: 26.0.0
+   Website: https://github.com/AdaCore/spawn
+
+
+LOG:
+[alr test] Testing spawn=26.0.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get spawn=26.0.0
+Note: Deploying spawn=26.0.0...
+
+#=#=#                                                                          
+##O#-#                                                                         
+
+spawn=26.0.0 successfully retrieved.
+There are no dependencies.
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building spawn=26.0.0/gnat/spawn.gpr...
+Setup
+   [mkdir]        object directory for project Spawn
+   [mkdir]        library directory for project Spawn
+Compile
+   [Ada]          spawn.ads
+   [Ada]          spawn-windows_api.adb
+   [Ada]          spawn-string_vectors.ads
+   [Ada]          spawn-process_listeners.ads
+   [Ada]          spawn-processes.adb
+   [Ada]          spawn-processes-monitor_loop.adb
+   [Ada]          spawn-posix.ads
+   [Ada]          spawn-polls.ads
+   [Ada]          spawn-internal-windows.adb
+   [Ada]          spawn-environments.adb
+   [Ada]          spawn-common.adb
+   [Ada]          spawn-internal__windows.adb
+   [Ada]          spawn-environments-internal__windows.adb
+   [Ada]          spawn-internal-monitor__windows.adb
+Build Libraries
+   [gprlib]       spawn.lexch
+   [archive]      libspawn.a
+   [index]        libspawn.a
+Success: Build finished successfully in 5.20 seconds.
+Found declared GPR file: gnat/spawn.gpr
+[alr test] Test completed SUCCESSFULLY

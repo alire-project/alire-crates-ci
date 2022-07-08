@@ -1,0 +1,344 @@
+Test ran at 2026-05-13 01:34:06.444997+00:00
+
+SOLUTION:
+light_nrf54l_app=15.4.0: light runtime for the nRF54L series
+Origin: source archive light-nrf54l_app-15.4.0.tar.gz at https://github.com/damaki/community-bb-runtimes/releases/download/v15.4.0/light-nrf54l_app-15.4.0.tar.gz with hashes sha256:564931078f1d381429ca88b7265f67a894d315f9cf48a46abc107a8467da2c21, sha512:c27215713212d98bceb1d6d04218ab3507e50e75d180906514a9ee0fd1e7aca17d73a7112d78052ac29c6fac08037b13b14f4ca2a05d7269de0d3b109d110367
+Properties:
+   Author: AdaCore
+   Author: Daniel King
+   Config type: Device : Enum (nRF54L05, nRF54L10, nRF54L15, nRF54LS05A, nRF54LS05B, nRF54LV10A, nRF54LM20A, nRF54LM20B) default: 'nRF54L15'
+   Config type: Enable_Glitch_Detector : Boolean default: 'true'
+   Config type: Enable_SWO : Boolean default: 'true'
+   Config type: Enable_Trace : Boolean default: 'false'
+   Config type: Interrupt_Secondary_Stack_Size : Integer range 1 .. 9223372036854775807 default: '128'
+   Config type: Interrupt_Stack_Size : Integer range 1 .. 9223372036854775807 default: '1024'
+   Config type: LFCLK_Src : Enum (LFXO, LFRC, LFSYNT) default: 'LFXO'
+   Config type: MCU_Domain_Speed : Enum (CK64M, CK128M) default: 'CK64M'
+   Config type: Security_Level : Enum (Secure, Non_Secure) default: 'Secure'
+   Config type: Time_Base_GRTC_CCn : Integer range 0 .. 11 default: '11'
+   Config type: Time_Base_GRTC_IRQ : Integer range 0 .. 3 default: '3'
+   Configuration: no modifiers
+   Description: light runtime for the nRF54L series
+   License: GPL-3.0-or-later WITH GCC-exception-3.1
+   Long_Description: ## Usage
+
+First edit your `alire.toml` file and add the following elements:
+ - Add `light_nrf54l_app` in the dependency list:
+   ```toml
+   [[depends-on]]
+   light_nrf54l_app = "*"
+   ```
+
+Then edit your project file to add the following elements:
+ - "with" the run-time project files:
+   ```ada
+   with "runtime_build.gpr";
+   ```
+ - Specify the `Target` and `Runtime` attributes:
+   ```ada
+      for Target use Runtime_Build'Target;
+      for Runtime ("Ada") use Runtime_Build'Runtime ("Ada");
+   ```
+ - specify the `Linker` switches:
+   ```ada
+   package Linker is
+     for Switches ("Ada") use Runtime_Build.Linker_Switches & ("-Wl,--gc-sections");
+   end Linker;
+   ```
+
+Note that the linker switch `-Wl,--gc-sections` is optional, but its use is
+recommended since it reduces the final size of the executable by removing
+unused code.
+
+   Maintainer: Daniel King <damaki.gh@gmail.com>
+   Maintainers_Logins: damaki
+   Name: light_nrf54l_app
+   Project_File: runtime_build.gpr
+   Tag: embedded
+   Tag: runtime
+   Version: 15.4.0
+   Website: https://github.com/damaki/community-bb-runtimes
+Dependencies (direct):
+   gnat_arm_elf^15
+Dependencies (solution):
+   gnat_arm_elf=15.2.1
+Dependencies (graph):
+   light_nrf54l_app=15.4.0 --> gnat_arm_elf=15.2.1 (^15)
+
+
+LOG:
+[alr test] Testing light_nrf54l_app=15.4.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get light_nrf54l_app=15.4.0
+Note: Deploying light_nrf54l_app=15.4.0...
+
+#=#=#                                                                          
+######################################################################## 100.0%
+
+light_nrf54l_app=15.4.0 successfully retrieved.
+Dependencies were solved as follows:
+
+   +b gnat_arm_elf 15.2.1 (new,binary)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building light_nrf54l_app=15.4.0/runtime_build.gpr...
+Setup
+   [mkdir]        object directory for project Runtime_Build
+   [mkdir]        library directory for project Runtime_Build
+Compile
+   [Asm_Cpp]      start-rom.S
+   [Asm_Cpp]      breakpoint_handler-cortexm.S
+   [Ada]          s-exnllf.ads
+   [Ada]          a-strmap.adb
+   [Ada]          a-nselfu.ads
+   [Ada]          a-nbnbig.adb
+   [Ada]          s-pack62.adb
+   [Ada]          s-pack58.adb
+   [Ada]          interfac.ads
+   [Ada]          s-valuen.adb
+   [Ada]          a-numeri.ads
+   [Ada]          s-pack54.adb
+   [Ada]          s-pack43.adb
+   [Ada]          g-io.adb
+   [Ada]          s-imfi32.ads
+   [Ada]          s-pack45.adb
+   [Ada]          s-pack03.adb
+   [Ada]          s-pack29.adb
+   [Ada]          s-spark.ads
+   [Ada]          s-valspe.adb
+   [Ada]          a-strsea.adb
+   [Ada]          a-nllefu.ads
+   [Ada]          gnat.ads
+   [Ada]          s-pack41.adb
+   [Ada]          s-pack51.adb
+   [Ada]          s-memcom.adb
+   [Ada]          s-casi64.adb
+   [Ada]          g-souinf.ads
+   [Ada]          s-pack57.adb
+   [Ada]          s-valflt.ads
+   [Ada]          s-pack34.adb
+   [Ada]          s-memcop.adb
+   [Ada]          s-imgflt.ads
+   [Ada]          a-chlat1.ads
+   [Ada]          unchconv.ads
+   [Ada]          s-lidosq.adb
+   [Ada]          s-vafi64.ads
+   [Ada]          s-memmov.adb
+   [Ada]          s-imgboo.adb
+   [Ada]          s-bb.ads
+   [Ada]          s-pack05.adb
+   [Ada]          a-nubinu.ads
+   [Ada]          s-carsi8.adb
+   [Ada]          s-imfi64.ads
+   [Ada]          s-valllf.ads
+   [Ada]          s-expmod.adb
+   [Ada]          s-lisisq.adb
+   [Ada]          s-imagen.adb
+   [Ada]          s-sssita.adb
+   [Ada]          s-exnlli.ads
+   [Ada]          s-powlfl.ads
+   [Ada]          s-widlli.ads
+   [Ada]          s-vs_lli.ads
+   [Ada]          s-caun64.adb
+   [Ada]          s-pack37.adb
+   [Ada]          s-geveop.adb
+   [Ada]          a-strsup.adb
+   [Ada]          s-vaispe.adb
+   [Ada]          s-stache.adb
+   [Ada]          s-valrea.adb
+   [Ada]          i-cpoint.adb
+   [Ada]          s-carun8.adb
+   [Ada]          system.ads
+   [Ada]          s-textio.adb
+   [Ada]          unchdeal.ads
+   [Ada]          s-assert.adb
+   [Ada]          s-pack20.adb
+   [Ada]          s-pack25.adb
+   [Ada]          s-gcmain.adb
+   [Ada]          a-nlelfu.ads
+   [Ada]          s-valueu.adb
+   [Ada]          s-spcuop.adb
+   [Ada]          s-exnlfl.ads
+   [Ada]          s-widint.ads
+   [Ada]          s-exponu.adb
+   [Ada]          s-pack21.adb
+   [Ada]          s-valllu.ads
+   [Ada]          s-imgllw.ads
+   [Ada]          s-imglfl.ads
+   [Ada]          s-valuef.adb
+   [Ada]          s-imgllu.ads
+   [Ada]          s-pack26.adb
+   [Ada]          s-imagei.adb
+   [Ada]          a-textio.adb
+   [Ada]          s-vaen32.ads
+   [Ada]          s-imde64.ads
+   [Ada]          a-assert.adb
+   [Ada]          s-pack59.adb
+   [Ada]          s-pack17.adb
+   [Ada]          s-bytswa.ads
+   [Ada]          machcode.ads
+   [Ada]          s-memory.adb
+   [Ada]          s-pack09.adb
+   [Ada]          s-widuns.ads
+   [Ada]          s-libsin.adb
+   [Ada]          ada.ads
+   [Ada]          a-nuelfu.ads
+   [Ada]          s-fatflt.ads
+   [Ada]          s-pack27.adb
+   [Ada]          g-debuti.adb
+   [Ada]          s-vallli.ads
+   [Ada]          s-vafi32.ads
+   [Ada]          s-imen32.ads
+   [Ada]          s-fatllf.ads
+   [Ada]          s-pack15.adb
+   [Ada]          s-imaged.adb
+   [Ada]          a-strbou.adb
+   [Ada]          s-exponr.adb
+   [Ada]          s-arit32.adb
+   [Ada]          text_io.ads
+   [Ada]          a-except.adb
+   [Ada]          s-pack18.adb
+   [Ada]          s-bbmcpa.ads
+   [Ada]          s-valuns.ads
+   [Ada]          s-fatlfl.ads
+   [Ada]          s-fatgen.adb
+   [Ada]          s-bbbopa.ads
+   [Ada]          s-flocon.adb
+   [Ada]          s-valued.adb
+   [Ada]          s-aridou.adb
+   [Ada]          s-memset.adb
+   [Ada]          a-charac.ads
+   [Ada]          s-valint.ads
+   [Ada]          s-pack07.adb
+   [Ada]          s-caun32.adb
+   [Ada]          s-secsta.adb
+   [Ada]          a-tags.adb
+   [Ada]          s-casuti.adb
+   [Ada]          s-pack30.adb
+   [Ada]          s-pack38.adb
+   [Ada]          s-expllu.ads
+   [Ada]          s-expint.ads
+   [Ada]          s-imgint.ads
+   [Ada]          s-veboop.adb
+   [Ada]          s-expuns.ads
+   [Ada]          a-ngelfu.adb
+   [Ada]          s-pack44.adb
+   [Ada]          s-addope.adb
+   [Ada]          s-imagef.adb
+   [Ada]          s-pack36.adb
+   [Ada]          s-vade64.ads
+   [Ada]          s-pack47.adb
+   [Ada]          s-caun16.adb
+   [Ada]          s-widthu.adb
+   [Ada]          s-libdou.adb
+   [Ada]          s-imgcha.adb
+   [Ada]          s-pack06.adb
+   [Ada]          s-imager.adb
+   [Ada]          s-pack23.adb
+   [Ada]          s-imguns.ads
+   [Ada]          a-stmaco.ads
+   [Ada]          s-pack13.adb
+   [Ada]          s-imen16.ads
+   [Ada]          s-pack53.adb
+   [Ada]          s-vector.ads
+   [Ada]          i-cstrin.adb
+   [Ada]          s-pack28.adb
+   [Ada]          s-libm.adb
+   [Ada]          s-pack46.adb
+   [Ada]          s-valuei.adb
+   [Ada]          a-elchha.adb
+   [Ada]          s-vauspe.adb
+   [Ada]          s-pack12.adb
+   [Ada]          s-pack31.adb
+   [Ada]          s-atocou.adb
+   [Ada]          s-exnflt.ads
+   [Ada]          s-bbarat.adb
+   [Ada]          s-powflt.ads
+   [Ada]          s-pack39.adb
+   [Ada]          s-vs_uns.ads
+   [Ada]          s-pack42.adb
+   [Ada]          s-valboo.adb
+   [Ada]          s-memtyp.ads
+   [Ada]          s-vaen16.ads
+   [Ada]          s-arit64.adb
+   [Ada]          s-libpre.ads
+   [Ada]          s-imde32.ads
+   [Ada]          s-stoele.adb
+   [Ada]          s-semiho.adb
+   [Ada]          s-pack60.adb
+   [Ada]          s-vs_int.ads
+   [Ada]          s-valuti.adb
+   [Ada]          s-imgllf.ads
+   [Ada]          s-casi16.adb
+   [Ada]          s-vaenu8.ads
+   [Ada]          setup_board.adb
+   [Ada]          a-unccon.ads
+   [Ada]          s-maccod.ads
+   [Ada]          s-pack10.adb
+   [Ada]          s-dourea.adb
+   [Ada]          s-atopri.adb
+   [Ada]          s-casi32.adb
+   [Ada]          s-imgwiu.ads
+   [Ada]          s-imagew.adb
+   [Ada]          s-exponn.adb
+   [Ada]          s-imenu8.ads
+   [Ada]          s-pack33.adb
+   [Ada]          s-retsta.ads
+   [Ada]          s-pack11.adb
+   [Ada]          s-parame.ads
+   [Ada]          s-pack63.adb
+   [Ada]          s-unstyp.ads
+   [Ada]          s-vs_llu.ads
+   [Ada]          s-expont.adb
+   [Ada]          s-widthi.adb
+   [Ada]          s-imguti.adb
+   [Ada]          s-pack61.adb
+   [Ada]          g-sestin.ads
+   [Ada]          s-pack19.adb
+   [Ada]          a-string.ads
+   [Ada]          s-vallfl.ads
+   [Ada]          s-pack49.adb
+   [Ada]          a-numaux.ads
+   [Ada]          s-pack52.adb
+   [Ada]          i-c.adb
+   [Ada]          s-widllu.ads
+   [Ada]          a-strfix.adb
+   [Ada]          i-cexten.ads
+   [Ada]          s-pack35.adb
+   [Ada]          s-valcha.adb
+   [Ada]          s-vade32.ads
+   [Ada]          s-bitops.adb
+   [Ada]          s-pack55.adb
+   [Ada]          s-boarop.ads
+   [Ada]          s-pack14.adb
+   [Ada]          s-imglli.ads
+   [Ada]          s-valuer.adb
+   [Ada]          a-chahan.adb
+   [Ada]          s-pack50.adb
+   [Ada]          s-macres.adb
+   [Ada]          s-imageu.adb
+   [Ada]          s-pack22.adb
+   [Ada]          s-explli.ads
+   [Ada]          s-atacco.adb
+   [Ada]          s-powllf.ads
+   [Ada]          a-uncdea.ads
+   [Ada]          s-exnint.ads
+   [Ada]          light_nrf54l_app_config.ads
+   [Ada]          nrf54_app_runtime_config.ads
+   [Ada]          i-nrf54.ads
+   [Ada]          i-nrf54-cache.ads
+   [Ada]          i-nrf54-clock.ads
+   [Ada]          i-nrf54-ficr.ads
+   [Ada]          i-nrf54-glitchdet.ads
+   [Ada]          i-nrf54-gpio.ads
+   [Ada]          i-nrf54-gpiohspadctrl.ads
+   [Ada]          i-nrf54-grtc.ads
+   [Ada]          i-nrf54-kmu.ads
+   [Ada]          i-nrf54-oscillators.ads
+   [Ada]          i-nrf54-spu.ads
+   [Ada]          i-nrf54-tad.ads
+Build Libraries
+   [gprlib]       gnat.lexch
+   [archive]      libgnat.a
+   [index]        libgnat.a
+Success: Build finished successfully in 7.65 seconds.
+Found declared GPR file: runtime_build.gpr
+[alr test] Test completed SUCCESSFULLY

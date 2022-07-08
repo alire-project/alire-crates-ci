@@ -1,0 +1,446 @@
+Test ran at 2026-09-03 13:00:27.438524+00:00
+
+SOLUTION:
+lithophane=0.1.1: Create lithophane with Ada
+Origin: commit c130d911bf25618d8def97581d34a20692f9e932 from https://github.com/smionean/lithophane_ada.git
+Properties:
+   Author: Simon Beàn
+   Build Switches: 
+   Description: Create lithophane with Ada
+   Executable: lithophane
+   License: MIT OR Apache-2.0 WITH LLVM-exception
+   Long_Description: Create [lithophane](https://en.wikipedia.org/wiki/Lithophane) of your favourite picture with Ada.
+
+
+
+**Usage**
+```
+lithophane [options] <input_file>
+```
+
+`<input_file>` is the picture to convert (any format supported by
+[GID](https://gen-img-dec.sourceforge.io): PNG, JPEG, BMP, GIF, TGA, ...).
+
+**Options**
+```
+-h --help
+-v --version
+-b --save-binary          (default)
+-a --save-ascii
+-p --save-pgm
+-o<name> --output-name=<name>
+-H<height> --height=<height>
+-f<filter> --filter=<filter>
+-c<file> --config=<file>
+```
+
+| Option | Description |
+| --- | --- |
+| `-h`, `--help` | print usage and exit |
+| `-v`, `--version` | print the program version and exit |
+| `-b`, `--save-binary` | write the lithophane as a binary STL file: `<output-name>.bin.stl` (this is the default output if no `-a`/`-b`/`-p` flag is given) |
+| `-a`, `--save-ascii` | write the lithophane as an ASCII STL file: `<output-name>.ascii.stl` |
+| `-p`, `--save-pgm` | also dump the grayscale-converted image as a PGM file: `<output-name>.pgm` |
+| `-o<name>`, `--output-name=<name>` | base name used for every output file above (default: `test`) |
+| `-H<height>`, `--height=<height>` | target height of the lithophane |
+| `-f<filter>`, `--filter=<filter>` | image filter to apply before conversion |
+| `-c<file>`, `--config=<file>` | read options from a config file instead of (or in addition to) the command line; when given, it overrides any previous option |
+
+You can combine `-a`, `-b` and `-p`: each one adds its own output file, they are
+not mutually exclusive.
+
+**Config file**
+
+`-c`/`--config` points to a TOML file such as [config.toml](config.toml):
+```toml
+input-name = "foo.png"
+output-name = "test"
+filter = "threshold"
+save-ascii = false
+save-binary = true
+save-pgm = true
+height = 10
+```
+
+> [!NOTE]
+> `-f`/`--filter`, `-H`/`--height` and `-c`/`--config` are already accepted on
+> the command line but are not wired up yet: filters, height scaling and the
+> config file are parsed but have no effect on the generated STL for now
+> (see TODO below). The only filter currently applied is a fixed threshold at
+> mid-grey, done automatically when saving to binary STL.
+
+   Maintainer: Simon Beàn <smionean@gmail.com>
+   Maintainers_Logins: smionean
+   Name: lithophane
+   Tag: 3dprint
+   Tag: lithophane
+   Tag: lithography
+   Version: 0.1.1
+   Website: https://github.com/smionean/lithophane_ada
+Dependencies (direct):
+   getopt^2.0.0
+   gid^14.0.0
+Dependencies (solution):
+   getopt=2.0.0
+   gid=14.0.0
+Dependencies (graph):
+   lithophane=0.1.1 --> getopt=2.0.0 (^2.0.0)
+   lithophane=0.1.1 --> gid=14.0.0 (^14.0.0)
+
+
+LOG:
+[alr test] Testing lithophane=0.1.1
+[alr test] Spawning retrieval for remote crate: alr -d -n get lithophane=0.1.1
+Note: Deploying lithophane=0.1.1...
+Note: Deploying getopt=2.0.0...
+#=#=#                                                                          
+##O#-#                                                                         
+##O=#  #                                                                       
+Note: Deploying gid=14.0.0...
+
+######################################################################## 100.0%
+######################################################################## 100.0%
+######################################################################## 100.0%
+######################################################################## 100.0%#=#=#                                                                          
+##=#=#                                                                         
+
+#######################                                                   33.1%
+######################################################################## 100.0%
+
+lithophane=0.1.1 successfully retrieved.
+Dependencies were solved as follows:
+
+   + getopt 2.0.0  (new)
+   + gid    14.0.0 (new)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building gid=14.0.0/gid.gpr...
+Setup
+   [mkdir]        object directory for project GID
+Compile
+   [Ada]          to_png.adb
+   [Ada]          to_bmp.adb
+   [Ada]          mini.adb
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+   [Ada]          all_rgb.adb
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+   [Ada]          benchmark.adb
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+   [Ada]          clusters.adb
+clusters.adb:63:03: warning: visible declaration of "Real" at line 58 hides homonym from use clause [-gnatwh]
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+   [Ada]          color_avg.adb
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+   [Ada]          comp_img.adb
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+   [Ada]          is_opaque.adb
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+   [Ada]          recurve.adb
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+   [Ada]          steg.adb
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+   [Ada]          dumb_png.adb
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+   [Ada]          gid.adb
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+   [Ada]          color_distances.adb
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+   [Ada]          comp_img_fct.adb
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+   [Ada]          fast_io.adb
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+   [Ada]          color_statistics.adb
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+   [Ada]          gid-decoding_bmp.adb
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+   [Ada]          gid-decoding_gif.adb
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+   [Ada]          gid-decoding_jpg.adb
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+   [Ada]          gid-decoding_png.adb
+gid-decoding_png.adb:677:09: warning: variable "slide" is never read and never assigned [-gnatwu]
+gid-decoding_png.adb:680:09: warning: variable "adler_1" is never read and never assigned [-gnatwu]
+gid-decoding_png.adb:681:09: warning: variable "adler_2" is never read and never assigned [-gnatwu]
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+   [Ada]          gid-decoding_pnm.adb
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+   [Ada]          gid-decoding_qoi.adb
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+   [Ada]          gid-decoding_tga.adb
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+   [Ada]          gid-headers.adb
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+   [Ada]          gid-buffering.adb
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+   [Ada]          gid-color_tables.adb
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+   [Ada]          gid-decoding_png-huffman.adb
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+Bind
+   [gprbind]      to_png.bexch
+   [gprbind]      to_bmp.bexch
+   [gprbind]      mini.bexch
+   [Ada]          to_png.ali
+   [Ada]          to_bmp.ali
+   [Ada]          mini.ali
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+   [gprbind]      all_rgb.bexch
+   [Ada]          all_rgb.ali
+   [gprbind]      benchmark.bexch
+   [Ada]          benchmark.ali
+   [gprbind]      clusters.bexch
+   [Ada]          clusters.ali
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+   [gprbind]      color_avg.bexch
+   [Ada]          color_avg.ali
+   [gprbind]      comp_img.bexch
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+   [Ada]          comp_img.ali
+   [gprbind]      is_opaque.bexch
+   [Ada]          is_opaque.ali
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+   [gprbind]      recurve.bexch
+   [Ada]          recurve.ali
+   [gprbind]      steg.bexch
+   [Ada]          steg.ali
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+Link
+   [link]         to_png.adb
+   [link]         to_bmp.adb
+   [link]         mini.adb
+ld: warning: object file (b__mini.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (mini.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (to_png.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/fast_io.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (to_bmp.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/fast_io.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (b__to_png.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (b__to_bmp.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/fast_io.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid-buffering.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid-color_tables.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid-decoding_bmp.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid-decoding_gif.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid-decoding_jpg.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid-decoding_png-huffman.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid-decoding_png.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid-decoding_pnm.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid-decoding_qoi.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid-decoding_tga.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid-headers.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/dumb_png.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid-buffering.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid-color_tables.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid-decoding_bmp.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid-decoding_gif.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid-decoding_jpg.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid-decoding_png-huffman.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid-decoding_png.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid-decoding_pnm.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid-decoding_qoi.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid-decoding_tga.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid-headers.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/dumb_png.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid-buffering.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid-decoding_bmp.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid-decoding_gif.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid-color_tables.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid-decoding_png-huffman.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid-decoding_png.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid-decoding_pnm.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid-decoding_qoi.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid-decoding_tga.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid-headers.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid-decoding_jpg.o) was built for newer macOS version (26.0) than being linked (16.0)
+   [link]         all_rgb.adb
+   [link]         benchmark.adb
+   [link]         clusters.adb
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/color_distances.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (b__all_rgb.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/dumb_png.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (all_rgb.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid-buffering.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid-color_tables.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid-decoding_bmp.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid-decoding_gif.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid-decoding_jpg.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid-decoding_png-huffman.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid-decoding_png.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid-decoding_pnm.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid-decoding_qoi.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid-decoding_tga.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid-headers.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/fast_io.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (b__benchmark.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/color_distances.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/fast_io.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid-buffering.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid-color_tables.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid-decoding_bmp.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid-decoding_gif.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid-decoding_png-huffman.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid-decoding_jpg.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid-decoding_png.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid-decoding_pnm.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid-decoding_qoi.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid-decoding_tga.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid-headers.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/comp_img_fct.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (benchmark.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (b__clusters.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/color_distances.o) was built for newer macOS version (26.0) than being linked (16.0)ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/fast_io.o) was built for newer macOS version (26.0) than being linked (16.0)
+
+ld: warning: object file (clusters.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/dumb_png.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid-buffering.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid-color_tables.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid-decoding_gif.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid-decoding_jpg.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid-decoding_png-huffman.o) was built for newer macOS version (26.0) than being linked (16.0)
+object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid-decoding_bmp.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid-decoding_png.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid-decoding_qoi.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid-decoding_tga.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid-headers.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid-decoding_pnm.o) was built for newer macOS version (26.0) than being linked (16.0)
+   [link]         color_avg.adb
+   [link]         comp_img.adb
+   [link]         is_opaque.adb
+ld: warning: object file (b__color_avg.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid-buffering.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid-color_tables.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid-decoding_bmp.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid-decoding_gif.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid-decoding_jpg.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid-decoding_png-huffman.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid-decoding_png.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (color_avg.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid-decoding_qoi.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid-decoding_tga.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid-headers.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/color_statistics.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid-decoding_pnm.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (b__comp_img.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/color_distances.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid-buffering.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid-color_tables.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid-decoding_gif.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid-decoding_jpg.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (comp_img.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid-decoding_png-huffman.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid-decoding_png.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid-decoding_bmp.o) was built for newer macOS version (26.0) than being linked (16.0)
+object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid-decoding_pnm.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid-decoding_tga.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid-headers.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/comp_img_fct.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid-decoding_qoi.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (b__is_opaque.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (is_opaque.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid-buffering.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid-color_tables.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid-decoding_gif.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid-decoding_jpg.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid-decoding_bmp.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid-decoding_png-huffman.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid-decoding_png.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid-decoding_pnm.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid-decoding_qoi.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid-headers.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid-decoding_tga.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid.o) was built for newer macOS version (26.0) than being linked (16.0)
+   [link]         recurve.adb
+   [link]         steg.adb
+ld: warning: object file (recurve.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (b__recurve.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid-buffering.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid-color_tables.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid-decoding_bmp.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid-decoding_gif.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid-decoding_jpg.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid-decoding_png-huffman.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid-decoding_png.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid-decoding_pnm.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid-decoding_qoi.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid-decoding_tga.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid-headers.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (steg.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/fast_io.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (b__steg.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/dumb_png.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid-buffering.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid-decoding_bmp.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid-decoding_gif.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid-color_tables.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid-decoding_png-huffman.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid-decoding_png.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid-decoding_pnm.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid-decoding_qoi.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid-decoding_tga.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid-headers.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid-decoding_jpg.o) was built for newer macOS version (26.0) than being linked (16.0)
+Note: Building lithophane=0.1.1/lithophane.gpr...
+Setup
+   [mkdir]        object directory for project Getopt
+   [mkdir]        library directory for project Getopt
+   [mkdir]        object directory for project Lithophane
+   [mkdir]        exec directory for project Lithophane
+Compile
+   [Ada]          lithophane_main.adb
+   [Ada]          getopts.adb
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+   [Ada]          lithophane.adb
+   [Ada]          lithophane-filters.adb
+   [Ada]          lithophane-stl.adb
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+Build Libraries
+   [gprlib]       getopt-ada.lexch
+   [archive]      libgetopt-ada.a
+   [index]        libgetopt-ada.a
+Bind
+   [gprbind]      lithophane_main.bexch
+   [Ada]          lithophane_main.ali
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+Link
+   [link]         lithophane_main.adb
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid-buffering.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (b__lithophane_main.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (lithophane_main.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid-color_tables.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid-decoding_bmp.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid-decoding_gif.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid-decoding_jpg.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid-decoding_png-huffman.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid-decoding_png.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid-decoding_pnm.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid-decoding_qoi.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid-decoding_tga.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/210fdb72ca73954944f1148d45c442caf583029566a5a1020725a2839463d74d/obj/debug/gid-headers.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/work/alire-crates-ci/alire-crates-ci/test/6300fc0d-4311-44ee-820c-58bf5d8f20ba/lithophane_0.1.1_c130d911/obj/release/lithophane.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/work/alire-crates-ci/alire-crates-ci/test/6300fc0d-4311-44ee-820c-58bf5d8f20ba/lithophane_0.1.1_c130d911/obj/release/lithophane-filters.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/work/alire-crates-ci/alire-crates-ci/test/6300fc0d-4311-44ee-820c-58bf5d8f20ba/lithophane_0.1.1_c130d911/obj/release/lithophane-stl.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (/Users/runner/.local/share/alire/builds/getopt_2.0.0_2c081653/53cd0a6e436a664aeedbe027922a2e362734350467bae23aa8e992c7677741ca/lib/libgetopt-ada.a(getopts.o)) was built for newer macOS version (26.0) than being linked (16.0)
+Success: Build finished successfully in 78.58 seconds.
+Found declared GPR file: lithophane.gpr
+[alr test] Test completed SUCCESSFULLY
