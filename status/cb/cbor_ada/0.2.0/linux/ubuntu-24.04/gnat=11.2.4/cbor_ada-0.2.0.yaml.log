@@ -1,0 +1,120 @@
+Test ran at 2026-06-29 13:51:53.045116+00:00
+
+SOLUTION:
+cbor_ada=0.2.0: CBOR (RFC 8949) encoding/decoding library with SPARK formal verification
+Origin: commit 4149ef32aab364688f78fcbf85743b66b477fa3f from https://github.com/b-erdem/cbor_ada.git
+Properties:
+   Author: Baris Erdem
+   Description: CBOR (RFC 8949) encoding/decoding library with SPARK formal verification
+   License: Apache-2.0
+   Long_Description: SPARK-proved CBOR encoder/decoder for Ada 2022. The encoder and decoder are
+100% formally verified at SPARK Level 2 (517 proof obligations, 0 unproved).
+No heap allocation, pragma Pure, suitable for embedded and safety-critical
+systems. Uses System.Storage_Elements for constrained runtime compatibility.
+Full RFC 8949 well-formedness validation including shortest-form checking,
+configurable nesting depth, string length limits, and UTF-8 validation
+(enabled by default).
+
+   Maintainer: Baris Erdem <baris@erdem.dev>
+   Maintainers_Logins: b-erdem
+   Name: cbor_ada
+   Tag: cbor
+   Tag: rfc8949
+   Tag: serialization
+   Tag: spark
+   Tag: embedded
+   Tag: iot
+   Tag: verified
+   Version: 0.2.0
+   Website: https://github.com/b-erdem/cbor_ada
+
+
+LOG:
+[alr test] Testing cbor_ada=0.2.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get cbor_ada=0.2.0
+Note: Deploying cbor_ada=0.2.0...
+
+cbor_ada=0.2.0 successfully retrieved.
+There are no dependencies.
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building cbor_ada=0.2.0/cbor_ada.gpr...
+Setup
+   [mkdir]        object directory for project Cbor_Ada
+   [mkdir]        library directory for project Cbor_Ada
+Compile
+   [Ada]          cbor-properties.adb
+   [Ada]          cbor-requirements.ads
+   [Ada]          cbor-encoding.adb
+   [Ada]          cbor-decoding.adb
+gnat1: invalid switch: -gnat2022
+gnat1: invalid switch: -gnat2022
+gnat1: invalid switch: -gnat2022
+gnat1: invalid switch: -gnat2022
+
+   compilation of cbor-decoding.adb failed
+   compilation of cbor-encoding.adb failed
+   compilation of cbor-requirements.ads failed
+   compilation of cbor-properties.adb failed
+
+gprbuild: *** compilation phase failed
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/3b17c68f-647a-4ba8-a671-8deb53c240a9/cbor_ada_0.2.0_4149ef32/cbor_ada.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/3b17c68f-647a-4ba8-a671-8deb53c240a9/cbor_ada_0.2.0_4149ef32/cbor_ada.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+stderr: ALIRE.CHECKED_ERROR
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/3b17c68f-647a-4ba8-a671-8deb53c240a9/cbor_ada_0.2.0_4149ef32/cbor_ada.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
+[/home/runner/work/alire-crates-ci/alire-crates-ci/alire_install/bin/alr]
+0xe75bc6 Alire.Raise_Checked_Error at alire.adb:284
+0xac1a54 Alire.Os_Lib.Subprocess.Checked_Spawn at alire-os_lib-subprocess.adb:111
+0xd40276 Alire.Spawn.Command at alire-spawn.adb:22
+0xd412ee Alire.Spawn.Gprbuild at alire-spawn.adb:68
+0xc748cb Alire.Roots.Build at alire-roots.adb:189
+0xc7301a Alire.Roots.Build at alire-roots.adb:255
+0xc9832b Alire.Roots.Traverse at alire-roots.adb:2143
+0xcfee85 Alire.Solutions.Traverse.Visit at alire-solutions.adb:1472
+0xcfdfcc Alire.Solutions.Traverse at alire-solutions.adb:1555
+0xc9841e Alire.Roots.Traverse at alire-roots.adb:2147
+0xc984dd Alire.Roots.Traverse at alire-roots.adb:2127
+0xc7359b Alire.Roots.Build at alire-roots.adb:286
+0xc736d7 Alire.Roots.Build at alire-roots.adb:114
+0x49aa0d Alr.Commands.Build.Execute at alr-commands-build.adb:145
+0x49a36d Alr.Commands.Build.Execute at alr-commands-build.adb:113
+0x49a51f Alr.Commands.Build.Execute at alr-commands-build.adb:54
+0x53bbcc Alr.Commands.Sub_Cmd.Execute at clic-subcommand-instance.adb:749
+0x5472be Alr.Commands.Execute at alr-commands.adb:632
+0x43d48a Alr.Main at alr-main.adb:13
+0x4403a3 Main at b__alr-main.adb:2445
+[/lib/x86_64-linux-gnu/libc.so.6]
+0x7f419982a1c8
+0x7f419982a289
+[/home/runner/work/alire-crates-ci/alire-crates-ci/alire_install/bin/alr]
+0x43d323 _start at ???
+0xfffffffffffffffe
+
+stderr: ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED
+stderr: alire-roots.adb:202
+stderr: raised ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED : alire-roots.adb:202
+[/home/runner/work/alire-crates-ci/alire-crates-ci/alire_install/bin/alr]
+0xc74cc7 Alire.Roots.Build at alire-roots.adb:202
+0xc7301a Alire.Roots.Build at alire-roots.adb:255
+0xc9832b Alire.Roots.Traverse at alire-roots.adb:2143
+0xcfee85 Alire.Solutions.Traverse.Visit at alire-solutions.adb:1472
+0xcfdfcc Alire.Solutions.Traverse at alire-solutions.adb:1555
+0xc9841e Alire.Roots.Traverse at alire-roots.adb:2147
+0xc984dd Alire.Roots.Traverse at alire-roots.adb:2127
+0xc7359b Alire.Roots.Build at alire-roots.adb:286
+0xc736d7 Alire.Roots.Build at alire-roots.adb:114
+0x49aa0d Alr.Commands.Build.Execute at alr-commands-build.adb:145
+0x49a36d Alr.Commands.Build.Execute at alr-commands-build.adb:113
+0x49a51f Alr.Commands.Build.Execute at alr-commands-build.adb:54
+0x53bbcc Alr.Commands.Sub_Cmd.Execute at clic-subcommand-instance.adb:749
+0x5472be Alr.Commands.Execute at alr-commands.adb:632
+0x43d48a Alr.Main at alr-main.adb:13
+0x4403a3 Main at b__alr-main.adb:2445
+[/lib/x86_64-linux-gnu/libc.so.6]
+0x7f419982a1c8
+0x7f419982a289
+[/home/runner/work/alire-crates-ci/alire-crates-ci/alire_install/bin/alr]
+0x43d323 _start at ???
+0xfffffffffffffffe
+
+ERROR: Compilation failed.

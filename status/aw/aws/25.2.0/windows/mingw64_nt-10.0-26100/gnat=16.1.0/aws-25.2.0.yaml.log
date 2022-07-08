@@ -1,0 +1,444 @@
+Test ran at 2026-09-29 01:25:02.138929+00:00
+
+SOLUTION:
+aws=25.2.0: Ada Web Server
+Origin: source archive aws-25.2.0-with-templates-parser.zip at https://github.com/AdaCore/aws/releases/download/v25.2.0/aws-25.2.0-with-templates-parser.zip with hash sha512:bb26af84c502135c3ec1137c895d628e5f068810e3ad6c1cad6113256d44d764794ecfdcc12fa9efbdcfc3eaa4a971b56f35dae7c0bbe0f6d953cbaf45a40e10
+Properties:
+   Post_Fetch run: sh -c mkdir -p `gcc -dumpmachine`/setup/src (from ${CRATE_ROOT}/.)
+   Post_Fetch run: sh -c make setup ZLIB=false DEMOS=false LAL=false XMLADA=true SOCKET=openssl prefix=install_dir PRJ_BUILD=Release (from ${CRATE_ROOT}/.)
+   Post_Fetch run: sh -c mv `gcc -dumpmachine`/ build/ (from ${CRATE_ROOT}/.)
+   Author: AdaCore
+   Description: Ada Web Server
+   GPR Scenario: PRJ_TARGET := Windows_NT | UNIX | Darwin | vxworks | freebsd
+   GPR Scenario: TARGET := <string>
+   GPR Scenario: TGT_DIR := <string>
+   case OS is
+      when Freebsd => (GPR External: PRJ_TARGET := freebsd and GPR External: TARGET := build and GPR External: TGT_DIR := ../build)
+      when Linux => (GPR External: PRJ_TARGET := UNIX and GPR External: TARGET := build and GPR External: TGT_DIR := ../build)
+      when Macos => (GPR External: PRJ_TARGET := Darwin and GPR External: TARGET := build and GPR External: TGT_DIR := ../build)
+      when Windows => (GPR External: PRJ_TARGET := Windows_NT and GPR External: TARGET := build and GPR External: TGT_DIR := ../build)
+   License: GPL-3.0-only WITH GCC-exception-3.1
+   Maintainer: chouteau@adacore.com
+   Maintainers_Logins: Fabien-Chouteau
+   Name: aws
+   Project_File: aws.gpr
+   Project_File: build/projects/aws_config.gpr
+   Tag: aws
+   Tag: web
+   Tag: server
+   Tag: http
+   Tag: https
+   Tag: soap
+   Tag: wsdl
+   Tag: ssl
+   Version: 25.2.0
+   Website: https://github.com/adacore/aws
+Dependencies (direct):
+   gnat>=12
+   gnatcoll~25.0.0
+   make*
+   openssl>=1.1.0
+   xmlada~25.0.0
+Dependencies (solution):
+   gnat=16.1.0 (gnat_native)
+   gnatcoll=25.0.0
+   libgpr=25.0.0
+   make=4.4.1
+   openssl=3.6.4
+   xmlada=25.0.0
+Dependencies (graph):
+   aws=25.2.0      --> gnat=16.1.0 (gnat_native) (>=12)
+   aws=25.2.0      --> gnatcoll=25.0.0 (~25.0.0)
+   aws=25.2.0      --> make=4.4.1 (*)
+   aws=25.2.0      --> openssl=3.6.4 (>=1.1.0)
+   aws=25.2.0      --> xmlada=25.0.0 (~25.0.0)
+   gnatcoll=25.0.0 --> gnat=16.1.0 (gnat_native) (>=13)
+   gnatcoll=25.0.0 --> libgpr=25.0.0 (~25.0.0)
+   libgpr=25.0.0   --> gnat=16.1.0 (gnat_native) (/=2020)
+   libgpr=25.0.0   --> xmlada=25.0.0 (~25.0.0)
+   xmlada=25.0.0   --> gnat=16.1.0 (gnat_native) (>=11)
+
+
+LOG:
+[alr test] Testing aws=25.2.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get aws=25.2.0
+Note: Deploying aws=25.2.0...
+
+#=#=#                                                                          
+###############                                                           21.6%
+######################################################################## 100.0%
+Note: Deploying make=4.4.1...
+The system package 'make' is about to be installed.
+This action might require admin privileges and impact your system installation.
+Do you want Alire to install this system package?
+Using default: Yes
+resolving dependencies...
+looking for conflicting packages...
+
+Packages (1) make-4.4.1-3
+
+Total Download Size:   0.49 MiB
+Total Installed Size:  1.62 MiB
+
+:: Proceed with installation? [Y/n] 
+:: Retrieving packages...
+ make-4.4.1-3-x86_64 downloading...
+checking keyring...
+checking package integrity...
+loading package files...
+checking for file conflicts...
+checking available disk space...
+:: Processing package changes...
+installing make...
+:: Running post-transaction hooks...
+(1/1) Updating the info directory file...
+Note: Deploying openssl=3.6.4...
+The system package 'mingw-w64-x86_64-openssl' is about to be installed.
+This action might require admin privileges and impact your system installation.
+Do you want Alire to install this system package?
+Using default: Yes
+resolving dependencies...
+looking for conflicting packages...
+
+Packages (1) mingw-w64-x86_64-openssl-3.6.4-1
+
+Total Download Size:    7.90 MiB
+Total Installed Size:  59.03 MiB
+
+:: Proceed with installation? [Y/n] 
+:: Retrieving packages...
+ mingw-w64-x86_64-openssl-3.6.4-1-any downloading...
+checking keyring...
+checking package integrity...
+loading package files...
+checking for file conflicts...
+checking available disk space...
+:: Processing package changes...
+installing mingw-w64-x86_64-openssl...
+Optional dependencies for mingw-w64-x86_64-openssl
+    mingw-w64-x86_64-ca-certificates
+Note: Deploying xmlada=25.0.0...
+
+#=#=#                                                                          
+##O#-#                                                                         
+##O=#  #                                                                       
+#-#O=#  #                                                                      
+Note: Deploying libgpr=25.0.0...
+
+#=#=#                                                                          
+##O#-#                                                                         
+##=O#- #                                                                       
+Note: Deploying gnatcoll=25.0.0...
+
+#=#=#                                                                          
+##O#-#                                                                         
+##=O#- #                                                                       
+# #=O#- #                                                                      
+ # #=O#-  #                                                                    
+  # #=O=#   #                                                                  
+
+aws=25.2.0 successfully retrieved.
+Dependencies were solved as follows:
+
+   +b gnat     16.1.0 (new,gnat_native,binary)
+   +  gnatcoll 25.0.0 (new)
+   +  libgpr   25.0.0 (new,indirect)
+   +b make     4.4.1  (new,system package)
+   +b openssl  3.6.4  (new,system package)
+   +  xmlada   25.0.0 (new)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Running post-fetch actions for xmlada=25.0.0...
+configure: loading site script /usr/local/etc/config.site
+checking build system type... x86_64-pc-mingw64
+checking host system type... x86_64-pc-mingw64
+checking target system type... x86_64-pc-mingw64
+checking whether gnat can build shared libs... yes
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether ln -s works... no, using cp -pR
+configure: creating ./config.status
+config.status: creating xmlada_shared.gpr
+config.status: creating Makefile
+config.status: creating tests/dom/default.gpr
+Note: Running post-fetch actions for aws=25.2.0...
+make[1]: Entering directory '/d/a/alire-crates-ci/alire-crates-ci/test/599db815-5820-4e15-9cc0-ada03e6ca99b/aws_25.2.0_bb26af84/config'
+"..\x86_64-w64-mingw32\setup\bin" created
+[Ada Compile]     xoscons.adb
+[Ada Compile]     xutil.adb
+[Ada Bind]        xoscons
+[Ada Post-Bind]   b__xoscons.adb
+[Link]            xoscons.exe
+Setup OS specific definitions
+aws-os_lib-tmplt.c:128:9: warning: 'EADDRNOTAVAIL' redefined
+  128 | #define EADDRNOTAVAIL   WSAEADDRNOTAVAIL
+      |         ^~~~~~~~~~~~~
+In file included from C:/Users/runneradmin/AppData/Local/alire/cache/toolchains/gnat_native_16.1.0_bbd69633/lib/gcc/x86_64-w64-mingw32/16.1.0/include/mm_malloc.h:29,
+                 from C:/Users/runneradmin/AppData/Local/alire/cache/toolchains/gnat_native_16.1.0_bbd69633/x86_64-w64-mingw32/include/malloc.h:138,
+                 from C:/Users/runneradmin/AppData/Local/alire/cache/toolchains/gnat_native_16.1.0_bbd69633/x86_64-w64-mingw32/include/stdlib.h:724,
+                 from aws-os_lib-tmplt.c:77:
+C:/Users/runneradmin/AppData/Local/alire/cache/toolchains/gnat_native_16.1.0_bbd69633/x86_64-w64-mingw32/include/errno.h:90:9: note: this is the location of the previous definition
+   90 | #define EADDRNOTAVAIL 101
+      |         ^~~~~~~~~~~~~
+aws-os_lib-tmplt.c:129:9: warning: 'ETIMEDOUT' redefined
+  129 | #define ETIMEDOUT       WSAETIMEDOUT
+      |         ^~~~~~~~~
+C:/Users/runneradmin/AppData/Local/alire/cache/toolchains/gnat_native_16.1.0_bbd69633/x86_64-w64-mingw32/include/errno.h:223:9: note: this is the location of the previous definition
+  223 | #define ETIMEDOUT 138
+      |         ^~~~~~~~~
+aws-os_lib-tmplt.c:130:9: warning: 'ENOTCONN' redefined
+  130 | #define ENOTCONN        WSAENOTCONN
+      |         ^~~~~~~~
+C:/Users/runneradmin/AppData/Local/alire/cache/toolchains/gnat_native_16.1.0_bbd69633/x86_64-w64-mingw32/include/errno.h:150:9: note: this is the location of the previous definition
+  150 | #define ENOTCONN 126
+      |         ^~~~~~~~
+aws-os_lib-tmplt.c:131:9: warning: 'EWOULDBLOCK' redefined
+  131 | #define EWOULDBLOCK     WSAEWOULDBLOCK
+      |         ^~~~~~~~~~~
+C:/Users/runneradmin/AppData/Local/alire/cache/toolchains/gnat_native_16.1.0_bbd69633/x86_64-w64-mingw32/include/errno.h:166:9: note: this is the location of the previous definition
+  166 | #define EWOULDBLOCK 140
+      |         ^~~~~~~~~~~
+aws-os_lib-tmplt.c:132:9: warning: 'EINPROGRESS' redefined
+  132 | #define EINPROGRESS     WSAEINPROGRESS
+      |         ^~~~~~~~~~~
+C:/Users/runneradmin/AppData/Local/alire/cache/toolchains/gnat_native_16.1.0_bbd69633/x86_64-w64-mingw32/include/errno.h:158:9: note: this is the location of the previous definition
+  158 | #define EINPROGRESS 112
+      |         ^~~~~~~~~~~
+aws-os_lib-tmplt.c:133:9: warning: 'ENOBUFS' redefined
+  133 | #define ENOBUFS         WSAENOBUFS
+      |         ^~~~~~~
+C:/Users/runneradmin/AppData/Local/alire/cache/toolchains/gnat_native_16.1.0_bbd69633/x86_64-w64-mingw32/include/errno.h:98:9: note: this is the location of the previous definition
+   98 | #define ENOBUFS 119
+      |         ^~~~~~~
+aws-os_lib-tmplt.c:137:9: warning: 'ECONNRESET' redefined
+  137 | #define ECONNRESET      WSAECONNRESET
+      |         ^~~~~~~~~~
+C:/Users/runneradmin/AppData/Local/alire/cache/toolchains/gnat_native_16.1.0_bbd69633/x86_64-w64-mingw32/include/errno.h:114:9: note: this is the location of the previous definition
+  114 | #define ECONNRESET 108
+      |         ^~~~~~~~~~
+aws-os_lib-tmplt.c:138:9: warning: 'EADDRINUSE' redefined
+  138 | #define EADDRINUSE      WSAEADDRINUSE
+      |         ^~~~~~~~~~
+C:/Users/runneradmin/AppData/Local/alire/cache/toolchains/gnat_native_16.1.0_bbd69633/x86_64-w64-mingw32/include/errno.h:86:9: note: this is the location of the previous definition
+   86 | #define EADDRINUSE 100
+      |         ^~~~~~~~~~
+aws-os_lib-tmplt.c:139:9: warning: 'EAFNOSUPPORT' redefined
+  139 | #define EAFNOSUPPORT    WSAEAFNOSUPPORT
+      |         ^~~~~~~~~~~~
+C:/Users/runneradmin/AppData/Local/alire/cache/toolchains/gnat_native_16.1.0_bbd69633/x86_64-w64-mingw32/include/errno.h:82:9: note: this is the location of the previous definition
+   82 | #define EAFNOSUPPORT 102
+      |         ^~~~~~~~~~~~
+aws-os_lib-tmplt.c:140:9: warning: 'EALREADY' redefined
+  140 | #define EALREADY        WSAEALREADY
+      |         ^~~~~~~~
+C:/Users/runneradmin/AppData/Local/alire/cache/toolchains/gnat_native_16.1.0_bbd69633/x86_64-w64-mingw32/include/errno.h:106:9: note: this is the location of the previous definition
+  106 | #define EALREADY 103
+      |         ^~~~~~~~
+aws-os_lib-tmplt.c:141:9: warning: 'ECONNABORTED' redefined
+  141 | #define ECONNABORTED    WSAECONNABORTED
+      |         ^~~~~~~~~~~~
+C:/Users/runneradmin/AppData/Local/alire/cache/toolchains/gnat_native_16.1.0_bbd69633/x86_64-w64-mingw32/include/errno.h:102:9: note: this is the location of the previous definition
+  102 | #define ECONNABORTED 106
+      |         ^~~~~~~~~~~~
+aws-os_lib-tmplt.c:142:9: warning: 'ECONNREFUSED' redefined
+  142 | #define ECONNREFUSED    WSAECONNREFUSED
+      |         ^~~~~~~~~~~~
+C:/Users/runneradmin/AppData/Local/alire/cache/toolchains/gnat_native_16.1.0_bbd69633/x86_64-w64-mingw32/include/errno.h:110:9: note: this is the location of the previous definition
+  110 | #define ECONNREFUSED 107
+      |         ^~~~~~~~~~~~
+aws-os_lib-tmplt.c:143:9: warning: 'EDESTADDRREQ' redefined
+  143 | #define EDESTADDRREQ    WSAEDESTADDRREQ
+      |         ^~~~~~~~~~~~
+C:/Users/runneradmin/AppData/Local/alire/cache/toolchains/gnat_native_16.1.0_bbd69633/x86_64-w64-mingw32/include/errno.h:118:9: note: this is the location of the previous definition
+  118 | #define EDESTADDRREQ 109
+      |         ^~~~~~~~~~~~
+aws-os_lib-tmplt.c:145:9: warning: 'EHOSTUNREACH' redefined
+  145 | #define EHOSTUNREACH    WSAEHOSTUNREACH
+      |         ^~~~~~~~~~~~
+C:/Users/runneradmin/AppData/Local/alire/cache/toolchains/gnat_native_16.1.0_bbd69633/x86_64-w64-mingw32/include/errno.h:122:9: note: this is the location of the previous definition
+  122 | #define EHOSTUNREACH 110
+      |         ^~~~~~~~~~~~
+aws-os_lib-tmplt.c:146:9: warning: 'EISCONN' redefined
+  146 | #define EISCONN         WSAEISCONN
+      |         ^~~~~~~
+C:/Users/runneradmin/AppData/Local/alire/cache/toolchains/gnat_native_16.1.0_bbd69633/x86_64-w64-mingw32/include/errno.h:94:9: note: this is the location of the previous definition
+   94 | #define EISCONN 113
+      |         ^~~~~~~
+aws-os_lib-tmplt.c:147:9: warning: 'ELOOP' redefined
+  147 | #define ELOOP           WSAELOOP
+      |         ^~~~~
+C:/Users/runneradmin/AppData/Local/alire/cache/toolchains/gnat_native_16.1.0_bbd69633/x86_64-w64-mingw32/include/errno.h:227:9: note: this is the location of the previous definition
+  227 | #define ELOOP 114
+      |         ^~~~~
+aws-os_lib-tmplt.c:148:9: warning: 'EMSGSIZE' redefined
+  148 | #define EMSGSIZE        WSAEMSGSIZE
+      |         ^~~~~~~~
+C:/Users/runneradmin/AppData/Local/alire/cache/toolchains/gnat_native_16.1.0_bbd69633/x86_64-w64-mingw32/include/errno.h:126:9: note: this is the location of the previous definition
+  126 | #define EMSGSIZE 115
+      |         ^~~~~~~~
+aws-os_lib-tmplt.c:150:9: warning: 'EPROTONOSUPPORT' redefined
+  150 | #define EPROTONOSUPPORT WSAEPROTONOSUPPORT
+      |         ^~~~~~~~~~~~~~~
+C:/Users/runneradmin/AppData/Local/alire/cache/toolchains/gnat_native_16.1.0_bbd69633/x86_64-w64-mingw32/include/errno.h:178:9: note: this is the location of the previous definition
+  178 | #define EPROTONOSUPPORT 135
+      |         ^~~~~~~~~~~~~~~
+aws-os_lib-tmplt.c:151:9: warning: 'EPROTOTYPE' redefined
+  151 | #define EPROTOTYPE      WSAEPROTOTYPE
+      |         ^~~~~~~~~~
+C:/Users/runneradmin/AppData/Local/alire/cache/toolchains/gnat_native_16.1.0_bbd69633/x86_64-w64-mingw32/include/errno.h:231:9: note: this is the location of the previous definition
+  231 | #define EPROTOTYPE 136
+      |         ^~~~~~~~~~
+aws-os_lib-tmplt.c:152:9: warning: 'ENETDOWN' redefined
+  152 | #define ENETDOWN        WSAENETDOWN
+      |         ^~~~~~~~
+C:/Users/runneradmin/AppData/Local/alire/cache/toolchains/gnat_native_16.1.0_bbd69633/x86_64-w64-mingw32/include/errno.h:130:9: note: this is the location of the previous definition
+  130 | #define ENETDOWN 116
+      |         ^~~~~~~~
+aws-os_lib-tmplt.c:153:9: warning: 'ENETRESET' redefined
+  153 | #define ENETRESET       WSAENETRESET
+      |         ^~~~~~~~~
+C:/Users/runneradmin/AppData/Local/alire/cache/toolchains/gnat_native_16.1.0_bbd69633/x86_64-w64-mingw32/include/errno.h:134:9: note: this is the location of the previous definition
+  134 | #define ENETRESET 117
+      |         ^~~~~~~~~
+aws-os_lib-tmplt.c:154:9: warning: 'ENETUNREACH' redefined
+  154 | #define ENETUNREACH     WSAENETUNREACH
+      |         ^~~~~~~~~~~
+C:/Users/runneradmin/AppData/Local/alire/cache/toolchains/gnat_native_16.1.0_bbd69633/x86_64-w64-mingw32/include/errno.h:138:9: note: this is the location of the previous definition
+  138 | #define ENETUNREACH 118
+      |         ^~~~~~~~~~~
+aws-os_lib-tmplt.c:155:9: warning: 'ENOPROTOOPT' redefined
+  155 | #define ENOPROTOOPT     WSAENOPROTOOPT
+      |         ^~~~~~~~~~~
+C:/Users/runneradmin/AppData/Local/alire/cache/toolchains/gnat_native_16.1.0_bbd69633/x86_64-w64-mingw32/include/errno.h:142:9: note: this is the location of the previous definition
+  142 | #define ENOPROTOOPT 123
+      |         ^~~~~~~~~~~
+aws-os_lib-tmplt.c:156:9: warning: 'ENOTSOCK' redefined
+  156 | #define ENOTSOCK        WSAENOTSOCK
+      |         ^~~~~~~~
+C:/Users/runneradmin/AppData/Local/alire/cache/toolchains/gnat_native_16.1.0_bbd69633/x86_64-w64-mingw32/include/errno.h:146:9: note: this is the location of the previous definition
+  146 | #define ENOTSOCK 128
+      |         ^~~~~~~~
+aws-os_lib-tmplt.c:157:9: warning: 'EOPNOTSUPP' redefined
+  157 | #define EOPNOTSUPP      WSAEOPNOTSUPP
+      |         ^~~~~~~~~~
+C:/Users/runneradmin/AppData/Local/alire/cache/toolchains/gnat_native_16.1.0_bbd69633/x86_64-w64-mingw32/include/errno.h:162:9: note: this is the location of the previous definition
+  162 | #define EOPNOTSUPP 130
+      |         ^~~~~~~~~~
+make[1]: Leaving directory '/d/a/alire-crates-ci/alire-crates-ci/test/599db815-5820-4e15-9cc0-ada03e6ca99b/aws_25.2.0_bb26af84/config'
+make[1]: Entering directory '/d/a/alire-crates-ci/alire-crates-ci/test/599db815-5820-4e15-9cc0-ada03e6ca99b/aws_25.2.0_bb26af84/regtests'
+Can not generate system tags. The test are disabled
+make[1]: Leaving directory '/d/a/alire-crates-ci/alire-crates-ci/test/599db815-5820-4e15-9cc0-ada03e6ca99b/aws_25.2.0_bb26af84/regtests'
+make[1]: Entering directory '/d/a/alire-crates-ci/alire-crates-ci/test/599db815-5820-4e15-9cc0-ada03e6ca99b/aws_25.2.0_bb26af84/demos'
+make[1]: Leaving directory '/d/a/alire-crates-ci/alire-crates-ci/test/599db815-5820-4e15-9cc0-ada03e6ca99b/aws_25.2.0_bb26af84/demos'
+make[1]: Entering directory '/d/a/alire-crates-ci/alire-crates-ci/test/599db815-5820-4e15-9cc0-ada03e6ca99b/aws_25.2.0_bb26af84/templates_parser'
+make[1]: Leaving directory '/d/a/alire-crates-ci/alire-crates-ci/test/599db815-5820-4e15-9cc0-ada03e6ca99b/aws_25.2.0_bb26af84/templates_parser'
+make[1]: Entering directory '/d/a/alire-crates-ci/alire-crates-ci/test/599db815-5820-4e15-9cc0-ada03e6ca99b/aws_25.2.0_bb26af84/templates_parser'
+make[1]: Leaving directory '/d/a/alire-crates-ci/alire-crates-ci/test/599db815-5820-4e15-9cc0-ada03e6ca99b/aws_25.2.0_bb26af84/templates_parser'
+Note: Building aws=25.2.0/aws.gpr (1/2)...
+"build\debug\static\obj\zlib" created
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\gnatcoll_25.0.0_d7d84483\abbb1f22bc5c2ea4b8d2eb4381c8762f420768234e0436d2455b44bc2dc5077c\minimal\obj\gnatcoll_minimal\all" created
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\gnatcoll_25.0.0_d7d84483\abbb1f22bc5c2ea4b8d2eb4381c8762f420768234e0436d2455b44bc2dc5077c\minimal\lib\gnatcoll_core\static" created
+"build\debug\static\obj\include" created
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\gnatcoll_25.0.0_d7d84483\abbb1f22bc5c2ea4b8d2eb4381c8762f420768234e0436d2455b44bc2dc5077c\core\obj\gnatcoll_core\all" created
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\gnatcoll_25.0.0_d7d84483\abbb1f22bc5c2ea4b8d2eb4381c8762f420768234e0436d2455b44bc2dc5077c\core\lib\gnatcoll_core\static" created
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\xmlada_25.0.0_7f12fe3a\203717355baa29ae6df321c0e5fe208e221ec4ffd0b5c962070039c4a9ab04c4\sax\obj\static" created
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\xmlada_25.0.0_7f12fe3a\203717355baa29ae6df321c0e5fe208e221ec4ffd0b5c962070039c4a9ab04c4\sax\lib\static" created
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\xmlada_25.0.0_7f12fe3a\203717355baa29ae6df321c0e5fe208e221ec4ffd0b5c962070039c4a9ab04c4\schema\obj\static" created
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\libgpr_25.0.0_17669998\ace5eb072b433f5a154404dac86e259dbfe634308330b707c627153d09671946\gpr\libobj\production\static" created
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\libgpr_25.0.0_17669998\ace5eb072b433f5a154404dac86e259dbfe634308330b707c627153d09671946\gpr\lib\production\static" created
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\gnatcoll_25.0.0_d7d84483\abbb1f22bc5c2ea4b8d2eb4381c8762f420768234e0436d2455b44bc2dc5077c\projects\obj\gnatcoll_projects\all" created
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\gnatcoll_25.0.0_d7d84483\abbb1f22bc5c2ea4b8d2eb4381c8762f420768234e0436d2455b44bc2dc5077c\projects\lib\gnatcoll_projects\static" created
+"build\debug\static\obj\ssl" created
+"build\debug\static\obj\src" created
+"build\debug\static\lib\aws" created
+[Ada Compile]     gnatcoll-arg_lists.adb
+[Ada Compile]     gnatcoll-buffer.adb
+[Ada Compile]     gnatcoll-config.adb
+[Ada Compile]     gnatcoll-directed_graph.adb
+[Ada Compile]     gnatcoll-email-mailboxes.adb
+[Ada Compile]     gnatcoll-email-parser.adb
+[Ada Compile]     gnatcoll-email-utils.adb
+[Ada Compile]     gnatcoll-email.adb
+[Ada Compile]     gnatcoll-file_indexes.adb
+[Ada Compile]     gnatcoll-file_paths.adb
+[Ada Compile]     gnatcoll-format_columns_vertical.ads
+[Ada Compile]     gnatcoll-formatters.adb
+[Ada Compile]     gnatcoll-hash-blake3.adb
+[Ada Compile]     gnatcoll-hash-xxhash__generic.adb
+[Ada Compile]     gnatcoll-hash.ads
+[Ada Compile]     gnatcoll-io-native.adb
+[Ada Compile]     gnatcoll-io-remote-unix.adb
+[Ada Compile]     gnatcoll-io-remote-windows.adb
+[Ada Compile]     gnatcoll-io-remote.adb
+[Ada Compile]     gnatcoll-io.adb
+[Ada Compile]     gnatcoll-json-utility.adb
+[Ada Compile]     gnatcoll-json.adb
+[Ada Compile]     gnatcoll-mmap-system__win32.adb
+[Ada Compile]     gnatcoll-mmap.adb
+[Ada Compile]     gnatcoll-opt_parse.adb
+[Ada Compile]     gnatcoll-os-constants__windows.ads
+[Ada Compile]     gnatcoll-os-dir.adb
+[Ada Compile]     gnatcoll-os-dir_types__win32.ads
+[Ada Compile]     gnatcoll-os-fs.adb
+gnatcoll-opt_parse.adb:294:17: error: (Ada 2005) cannot copy object of a limited type (RM-2005 6.5(5.5/2))
+gnatcoll-opt_parse.adb:294:17: error: consider switching to return of access type
+gnatcoll_core.gpr: error: [Ada Compile] gnatcoll-opt_parse.adb (gnatcoll_core.gpr) failed with status 1
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "D:\a\alire-crates-ci\alire-crates-ci\test\599db815-5820-4e15-9cc0-ada03e6ca99b\aws_25.2.0_bb26af84\aws.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "D:\a\alire-crates-ci\alire-crates-ci\test\599db815-5820-4e15-9cc0-ada03e6ca99b\aws_25.2.0_bb26af84\aws.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+stderr: ALIRE.CHECKED_ERROR
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "D:\a\alire-crates-ci\alire-crates-ci\test\599db815-5820-4e15-9cc0-ada03e6ca99b\aws_25.2.0_bb26af84\aws.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
+[D:\a\alire-crates-ci\alire-crates-ci\alire_install\bin\alr.exe]
+0x7ff7d524da2a Semantic_Versioning.Basic.Restrictions.First_Index at alire.adb:284
+0x7ff7d4e4595b Semantic_Versioning.Basic.Restrictions.First_Index at alire-os_lib-subprocess.adb:111
+0x7ff7d50fcba1 Semantic_Versioning.Basic.Restrictions.First_Index at alire-spawn.adb:22
+0x7ff7d50fdd5d Semantic_Versioning.Basic.Restrictions.First_Index at alire-spawn.adb:68
+0x7ff7d5022d64 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:189
+0x7ff7d50211da Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:255
+0x7ff7d504912d Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2143
+0x7ff7d50b82f9 Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1472
+0x7ff7d50b7424 Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1555
+0x7ff7d504922c Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2147
+0x7ff7d50492fa Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2127
+0x7ff7d50217a7 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:286
+0x7ff7d5021912 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:114
+0x7ff7d4793baa Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:145
+0x7ff7d479341e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:113
+0x7ff7d47935ba Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:54
+0x7ff7d4845dea Semantic_Versioning.Basic.Restrictions.First_Index at clic-subcommand-instance.adb:749
+0x7ff7d4852b0e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands.adb:632
+0x7ff7d47216a0 Alr.Main at alr-main.adb:13
+0x7ff7d4725270 Main at b__alr-main.adb:2454
+0x7ff7d472133e __tmainCRTStartup at ???
+0x7ff7d4721144 mainCRTStartup at ???
+[C:\Windows\System32\KERNEL32.DLL]
+0x7ffe9a2ce985
+[C:\Windows\SYSTEM32\ntdll.dll]
+0x7ffe9ae2c53a
+
+stderr: ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED
+stderr: alire-roots.adb:202
+stderr: raised ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED : alire-roots.adb:202
+[D:\a\alire-crates-ci\alire-crates-ci\alire_install\bin\alr.exe]
+0x7ff7d502313c Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:202
+0x7ff7d50211da Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:255
+0x7ff7d504912d Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2143
+0x7ff7d50b82f9 Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1472
+0x7ff7d50b7424 Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1555
+0x7ff7d504922c Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2147
+0x7ff7d50492fa Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2127
+0x7ff7d50217a7 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:286
+0x7ff7d5021912 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:114
+0x7ff7d4793baa Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:145
+0x7ff7d479341e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:113
+0x7ff7d47935ba Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:54
+0x7ff7d4845dea Semantic_Versioning.Basic.Restrictions.First_Index at clic-subcommand-instance.adb:749
+0x7ff7d4852b0e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands.adb:632
+0x7ff7d47216a0 Alr.Main at alr-main.adb:13
+0x7ff7d4725270 Main at b__alr-main.adb:2454
+0x7ff7d472133e __tmainCRTStartup at ???
+0x7ff7d4721144 mainCRTStartup at ???
+[C:\Windows\System32\KERNEL32.DLL]
+0x7ffe9a2ce985
+[C:\Windows\SYSTEM32\ntdll.dll]
+0x7ffe9ae2c53a
+
+ERROR: Compilation failed.

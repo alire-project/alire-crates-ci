@@ -1,0 +1,64 @@
+Test ran at 2026-05-27 14:15:31.989360+00:00
+
+SOLUTION:
+aws=25.2.0: Ada Web Server
+Origin: source archive aws-25.2.0-with-templates-parser.zip at https://github.com/AdaCore/aws/releases/download/v25.2.0/aws-25.2.0-with-templates-parser.zip with hash sha512:bb26af84c502135c3ec1137c895d628e5f068810e3ad6c1cad6113256d44d764794ecfdcc12fa9efbdcfc3eaa4a971b56f35dae7c0bbe0f6d953cbaf45a40e10
+Properties:
+   Post_Fetch run: sh -c mkdir -p `gcc -dumpmachine`/setup/src (from ${CRATE_ROOT}/.)
+   Post_Fetch run: sh -c make setup ZLIB=false DEMOS=false LAL=false XMLADA=true SOCKET=openssl prefix=install_dir PRJ_BUILD=Release (from ${CRATE_ROOT}/.)
+   Post_Fetch run: sh -c mv `gcc -dumpmachine`/ build/ (from ${CRATE_ROOT}/.)
+   Author: AdaCore
+   Description: Ada Web Server
+   GPR Scenario: PRJ_TARGET := Windows_NT | UNIX | Darwin | vxworks | freebsd
+   GPR Scenario: TARGET := <string>
+   GPR Scenario: TGT_DIR := <string>
+   case OS is
+      when Freebsd => (GPR External: PRJ_TARGET := freebsd and GPR External: TARGET := build and GPR External: TGT_DIR := ../build)
+      when Linux => (GPR External: PRJ_TARGET := UNIX and GPR External: TARGET := build and GPR External: TGT_DIR := ../build)
+      when Macos => (GPR External: PRJ_TARGET := Darwin and GPR External: TARGET := build and GPR External: TGT_DIR := ../build)
+      when Windows => (GPR External: PRJ_TARGET := Windows_NT and GPR External: TARGET := build and GPR External: TGT_DIR := ../build)
+   License: GPL-3.0-only WITH GCC-exception-3.1
+   Maintainer: chouteau@adacore.com
+   Maintainers_Logins: Fabien-Chouteau
+   Name: aws
+   Project_File: aws.gpr
+   Project_File: build/projects/aws_config.gpr
+   Tag: aws
+   Tag: web
+   Tag: server
+   Tag: http
+   Tag: https
+   Tag: soap
+   Tag: wsdl
+   Tag: ssl
+   Version: 25.2.0
+   Website: https://github.com/adacore/aws
+Dependencies (direct):
+   gnat>=12
+   gnatcoll~25.0.0
+   make*
+   openssl>=1.1.0
+   xmlada~25.0.0
+Dependencies (solution):
+   gnat=15.2.1 (gnat_native)
+   gnatcoll=25.0.0
+   libgpr=25.0.0
+   make=4.3.0
+   xmlada=25.0.0
+Dependencies (missing):
+   openssl>=1.1.0 (direct,hinted)
+Dependencies (graph):
+   aws=25.2.0      --> gnat=15.2.1 (gnat_native) (>=12)
+   aws=25.2.0      --> gnatcoll=25.0.0 (~25.0.0)
+   aws=25.2.0      --> make=4.3.0 (*)
+   aws=25.2.0      --> openssl>=1.1.0
+   aws=25.2.0      --> xmlada=25.0.0 (~25.0.0)
+   gnatcoll=25.0.0 --> gnat=15.2.1 (gnat_native) (>=13)
+   gnatcoll=25.0.0 --> libgpr=25.0.0 (~25.0.0)
+   libgpr=25.0.0   --> gnat=15.2.1 (gnat_native) (/=2020)
+   libgpr=25.0.0   --> xmlada=25.0.0 (~25.0.0)
+   xmlada=25.0.0   --> gnat=15.2.1 (gnat_native) (>=11)
+Dependencies cannot be met
+
+
+LOG:

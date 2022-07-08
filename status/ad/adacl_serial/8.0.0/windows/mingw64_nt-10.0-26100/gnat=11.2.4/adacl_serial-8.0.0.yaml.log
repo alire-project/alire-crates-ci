@@ -1,0 +1,219 @@
+Test ran at 2026-09-25 01:24:18.546783+00:00
+
+SOLUTION:
+adacl_serial=8.0.0: AdaCL embedded: SPARK-friendly serial character and string I/O
+Origin: source archive adacl_serial-8.0.0.tgz at https://sourceforge.net/projects/adacl/files/Alire/adacl_serial-8.0.0.tgz with hashes sha256:fcb3e317c3dfd6330085f9db7fbcf2c30906e8007fec0b201db951cf8d05911e, sha512:f35a6bbc6ea9484b0ebece8c4bfa1dba775816fa5cd1a4d1b23a8c1913130d483d669952aad3319cefd13a89420839b99389256c141cd1ef14b587528e55cd68
+Properties:
+   case OS is
+      when Linux => Test run: /bin/bash ci-verify.sh (from ${CRATE_ROOT}/.)
+      when Macos => Test run: /bin/bash ci-verify.sh (from ${CRATE_ROOT}/.)
+      when Windows => Test run: powershell -ExecutionPolicy Bypass -File ci-verify.ps1 (from ${CRATE_ROOT}/.)
+      when others => (empty)
+   Author: Martin Krischik <krischik@users.sourceforge.net>
+   Build Switches: 
+   Configuration: no modifiers
+   Description: AdaCL embedded: SPARK-friendly serial character and string I/O
+   License: GPL-3.0-or-later
+   Long_Description: Thin, SPARK-friendly helpers for character and string I/O on a
+GNAT.Serial_Communications port.
+
+The package is deliberately compact - it contains only AdaCL.Serial_IO.
+
+It extends GNAT.Serial_Communications.Serial_Port (itself a descendant of Ada.Streams.Root_Stream_Type) with a
+null-record derivation, turning the type into a true class.  Consequently all operations can be written with the
+convenient Class.Method syntax (Port.Get, Port.Put_Line, Port.Expect, ...).
+
+Provided facilities:
+* Conversion helpers between Stream_Element / Stream_Element_Array and Character / String
+* Classic Get / Put / Get_Line / Put_Line operations
+* High-level Expect procedures (discard or capture skipped text until a given sequence arrives)
+* Full SPARK contracts; the package is proven to SPARK bronze level
+
+Intended for console-style protocols used by classic and modern retro calculators (SwissMicros DM-series, HP-IL
+emulators, etc.).
+
+Licensed under the GNU Library General Public License version 3 (or later).
+Integrates with the Ada Class Library (AdaCL).
+
+   Maintainer: Martin Krischik <krischik@users.sourceforge.net>
+   Maintainers_Logins: krischik
+   Name: adacl_serial
+   Tag: library
+   Tag: serial
+   Tag: io
+   Tag: streams
+   Tag: communication
+   Tag: spark
+   Tag: ada2022
+   Tag: embedded
+   Version: 8.0.0
+   Website: https://sourceforge.net/projects/adacl/
+Dependencies (direct):
+   adacl^8.0
+Dependencies (solution):
+   adacl=8.0.0
+Dependencies (graph):
+   adacl_serial=8.0.0 --> adacl=8.0.0 (^8.0)
+
+
+LOG:
+=== Ada CI Verification ===
+=== Prove Log Off ===
+Directory: prove
+Updating dependencies...
+Dependencies automatically updated as follows:
+
+   +  adacl        8.0.0  (new,indirect)
+   +. adacl_serial 8.0.0  (new,path=..)
+   +b gnatprove    16.1.0 (new,binary)
+Note: Deploying gnatprove=16.1.0...
+
+#=#=#                                                                          
+                                                                           0.0%
+#                                                                          1.9%
+##                                                                         2.9%
+##                                                                         3.7%
+###                                                                        5.0%
+###                                                                        5.5%
+####                                                                       6.5%
+#####                                                                      7.8%
+######                                                                     9.2%
+#######                                                                    9.9%
+#######                                                                   10.4%
+#######                                                                   10.9%
+#######                                                                   11.1%
+########                                                                  11.9%
+#########                                                                 12.6%
+#########                                                                 13.0%
+#########                                                                 13.6%
+##########                                                                14.6%
+###########                                                               15.5%
+###########                                                               16.5%
+############                                                              17.3%
+#############                                                             18.1%
+#############                                                             18.4%
+##############                                                            19.5%
+##############                                                            20.2%
+###############                                                           21.0%
+###############                                                           21.8%
+###############                                                           22.0%
+#################                                                         24.0%
+#################                                                         24.7%
+##################                                                        25.1%
+##################                                                        25.7%
+##################                                                        26.2%
+###################                                                       26.7%
+###################                                                       27.2%
+###################                                                       27.6%
+####################                                                      29.0%
+#####################                                                     29.9%
+######################                                                    30.9%
+######################                                                    31.3%
+#######################                                                   32.4%
+########################                                                  33.5%
+########################                                                  34.3%
+#########################                                                 34.9%
+##########################                                                36.7%
+###########################                                               37.7%
+###########################                                               38.6%
+############################                                              39.7%
+#############################                                             40.4%
+##############################                                            42.2%
+###############################                                           43.2%
+###############################                                           43.8%
+###############################                                           44.2%
+################################                                          45.5%
+#################################                                         46.5%
+##################################                                        47.7%
+###################################                                       48.7%
+###################################                                       49.6%
+####################################                                      50.7%
+#####################################                                     51.4%
+#####################################                                     52.4%
+######################################                                    53.1%
+######################################                                    53.9%
+#######################################                                   55.1%
+########################################                                  56.2%
+########################################                                  56.9%
+##########################################                                58.8%
+##########################################                                58.8%
+##########################################                                59.5%
+###########################################                               60.6%
+############################################                              61.3%
+############################################                              62.1%
+############################################                              62.4%
+#############################################                             63.5%
+##############################################                            64.3%
+###############################################                           66.1%
+################################################                          67.1%
+################################################                          68.0%
+##################################################                        69.8%
+###################################################                       71.2%
+###################################################                       71.7%
+####################################################                      72.6%
+####################################################                      73.5%
+#####################################################                     74.9%
+######################################################                    75.7%
+#######################################################                   77.1%
+########################################################                  78.1%
+########################################################                  79.0%
+#########################################################                 79.9%
+##########################################################                80.8%
+##########################################################                80.8%
+##########################################################                81.0%
+##########################################################                81.7%
+###########################################################               82.6%
+############################################################              83.7%
+############################################################              84.5%
+#############################################################             85.5%
+#############################################################             86.0%
+##############################################################            86.6%
+###############################################################           88.2%
+################################################################          89.0%
+################################################################          89.8%
+################################################################          90.1%
+#################################################################         91.0%
+##################################################################        91.8%
+##################################################################        92.7%
+###################################################################       93.5%
+###################################################################       94.3%
+####################################################################      95.3%
+####################################################################      95.5%
+#####################################################################     96.3%
+#####################################################################     97.0%
+######################################################################    97.3%
+######################################################################    98.2%
+#######################################################################   99.1%
+######################################################################## 100.0%
+Building with validation...
+Note: Building adacl_serial_prove=8.0.0/adacl_serial_prove.gpr...
+"..\obj\release" created
+"..\lib" created
+"obj\validation" created
+"bin\validation" created
+[Ada Compile]     adacl.ads
+[Ada Compile]     adacl_config.ads
+[Ada Compile]     adacl-serial_io.adb
+[Ada Compile]     adacl_serial_config.ads
+gnat1: invalid switch: -gnat2022
+adacl.gpr: error: [Ada Compile] adacl.ads (adacl.gpr) failed with status 1
+gnat1: invalid switch: -gnat2022
+adacl.gpr: error: [Ada Compile] adacl_config.ads (adacl.gpr) failed with status 1
+gnat1: invalid switch: -gnat2022
+adacl_serial.gpr: error: [Ada Compile] adacl-serial_io.adb (adacl_serial.gpr) failed with status 1
+gnat1: invalid switch: -gnat2022
+adacl_serial.gpr: error: [Ada Compile] adacl_serial_config.ads (adacl_serial.gpr) failed with status 1
+ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "D:\a\alire-crates-ci\alire-crates-ci\test\54a884c6-a6fc-4576-bde7-ce1f8c2d7be5\adacl_serial_8.0.0_fcb3e317\prove\adacl_serial_prove.gpr"] exited with code 4
+ERROR: Compilation failed.
+Running GNATprove...
+Phase 1 of 3: generation of data representation information ...
+Phase 2 of 3: generation of Global contracts ...
+Phase 3 of 3: flow analysis and proof ...
+warning: no checks generated by GNATprove
+possible reason: no bodies have been selected for analysis with SPARK_Mode
+possible fix: enable analysis of a non-generic body using SPARK_Mode
+Summary logged in D:\a\alire-crates-ci\alire-crates-ci\test\54a884c6-a6fc-4576-bde7-ce1f8c2d7be5\adacl_serial_8.0.0_fcb3e317\prove\obj\validation\gnatprove\gnatprove.out
+ERROR: Command ["gnatprove", "-P", "adacl_serial_prove.gpr", "--no-subprojects"] exited with code 1
+FAILED: Prove Log Off (Exit-Code: 1)
+Fail-Fast: Stopping on first error.
+[alr test] Test action exited with error code 1

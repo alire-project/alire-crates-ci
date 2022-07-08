@@ -1,0 +1,2133 @@
+badge: false
+crate: pico_ada_c04_pwm
+creation_timestamp: 1788612313.8110592
+distro: mingw64_nt-10.0-26100
+duration: 192.40599999999995
+gnat: 15.3.1
+last_attempt: 2026-09-12 01:25:16.614743+00:00
+log:
+- 'Test ran at 2026-09-12 01:25:16.614743+00:00
+
+
+  '
+- 'SOLUTION:
+
+  '
+- 'pico_ada_c04_pwm=1.8.0: Chapter 4: Analog LED with PWM
+
+  '
+- 'Origin: source archive pico_ada_c04_pwm-1.8.0.tgz at https://sourceforge.net/projects/pi-ada-tutorial/files/Alire/pico_ada_c04_pwm-1.8.0.tgz
+  with hashes sha256:7475a1314ae669aeefe9a0d4f5917a6ad051e5960420813cdfd7c04d0b15cf29,
+  sha512:a98e0cf3b1ab424be02bd5f8b3442e9621bf42346c0c2978ab504a3b17a106e55d8b59e117a02318239dec4850d626c864cbb6af25df2ca3d9290742ee470b53
+
+  '
+- 'Properties:
+
+  '
+- '   Author: Martin Krischik <krischik@users.sourceforge.net>
+
+  '
+- "   Build Switches: \n"
+- '   Config set: light_tasking_rp2040 {Board := rpi_pico, Max_CPUs := 2}
+
+  '
+- '   Config set: pico_xbsp {Variant := tasking}
+
+  '
+- '   Config set: rp2040_hal {Interrupts := bb_runtimes, Use_Startup := false}
+
+  '
+- '   Configuration: no modifiers
+
+  '
+- '   Description: Chapter 4: Analog LED with PWM
+
+  '
+- '   Executable: pwm
+
+  '
+- '   Executable: sketch_04_1_breathing_light
+
+  '
+- '   Executable: sketch_04_2_flowing_light_2
+
+  '
+- '   License: GPL-3.0-or-later
+
+  '
+- '   Long_Description: Building smooth breathing LEDs and flowing light bars with
+  hardware PWM on the
+
+  '
+- 'Raspberry Pi Pico using Ada. From jittery duty cycles to perfect linear dimming
+  - guided by the Voltcraft MSO-5102B
+
+  '
+- 'oscilloscope and a deep dive into PWM slice mapping on both Pico 1 and Pico 2.
+
+  '
+- '
+
+  '
+- 'In this chapter we create a reusable Pico.Analog package for PWM-based analogue
+  output. We start with a classic
+
+  '
+- 'breathing light, then move on to a flowing light bar. Along the way the MSO-5102B
+  reveals the real behaviour of our
+
+  '
+- 'code, and we discover (and fix) a subtle bug in the experimental RP2350 HAL.
+
+  '
+- '
+
+  '
+- 'Contained in Chapter 04 are:
+
+  '
+- '
+
+  '
+- "1. Pwm\t\t\t       - Original PWM sample from Jeremy Grosser\n"
+- '2. sketch_04_1_breathing_light - Chapter 4.1 Blink internal LED
+
+  '
+- '3. sketch_04_2_flowing_light_2 - Chapter 4.1 Project Meteor Flowing Light
+
+  '
+- '
+
+  '
+- 'Read the full tutorial at [Chapter 4: Analog & PWM](https://pi-ada-tutorial.sourceforge.io/pico_ada_c04_pwm),
+  [GNATdoc
+
+  '
+- 'documentation](https://pi-ada-tutorial.sourceforge.io/gnatdoc/pico_doc/), [SourceForge
+
+  '
+- 'repository](https://sourceforge.net/p/pi-ada-tutorial/code/ci/master/tree/pico_ada_c04_pwm/)
+
+  '
+- '
+
+  '
+- '   Maintainer: Martin Krischik <krischik@users.sourceforge.net>
+
+  '
+- '   Maintainers_Logins: krischik
+
+  '
+- '   Name: pico_ada_c04_pwm
+
+  '
+- '   Tag: raspberry
+
+  '
+- '   Tag: pi
+
+  '
+- '   Tag: pico
+
+  '
+- '   Tag: rp2040
+
+  '
+- '   Tag: tasking
+
+  '
+- '   Tag: light-tasking
+
+  '
+- '   Tag: ada2022
+
+  '
+- '   Tag: embedded
+
+  '
+- '   Version: 1.8.0
+
+  '
+- '   Website: https://pi-ada-tutorial.sourceforge.io/pico_ada_c04_pwm
+
+  '
+- 'Dependencies (direct):
+
+  '
+- '   light_tasking_rp2040^15.4
+
+  '
+- '   pico_bsp^2.2
+
+  '
+- '   pico_xbsp^1.8
+
+  '
+- '   rp2040_hal^2.7.1
+
+  '
+- 'Dependencies (solution):
+
+  '
+- '   adacl_embedded=7.2.1
+
+  '
+- '   atomic=1.1.0
+
+  '
+- '   bbqueue=1.0.0
+
+  '
+- '   cortex_m=1.1.0
+
+  '
+- '   gnat=15.3.1 (gnat_arm_elf)
+
+  '
+- '   gnat_arm_elf=15.3.1
+
+  '
+- '   hal=1.0.0
+
+  '
+- '   light_tasking_rp2040=15.4.0
+
+  '
+- '   pico_bsp=2.2.0
+
+  '
+- '   pico_xbsp=1.8.0
+
+  '
+- '   rp2040_hal=2.7.1
+
+  '
+- '   usb_embedded=1.0.1
+
+  '
+- 'Dependencies (graph):
+
+  '
+- '   bbqueue=1.0.0               --> atomic=1.1.0 (^1.0.0)
+
+  '
+- '   bbqueue=1.0.0               --> gnat=15.3.1 (gnat_arm_elf) (>=10)
+
+  '
+- '   cortex_m=1.1.0              --> gnat_arm_elf=15.3.1 (>=12)
+
+  '
+- '   cortex_m=1.1.0              --> hal=1.0.0 (~0.3 | ^1.0.0)
+
+  '
+- '   light_tasking_rp2040=15.4.0 --> gnat_arm_elf=15.3.1 (^15)
+
+  '
+- '   pico_ada_c04_pwm=1.8.0      --> light_tasking_rp2040=15.4.0 (^15.4)
+
+  '
+- '   pico_ada_c04_pwm=1.8.0      --> pico_bsp=2.2.0 (^2.2)
+
+  '
+- '   pico_ada_c04_pwm=1.8.0      --> pico_xbsp=1.8.0 (^1.8)
+
+  '
+- '   pico_ada_c04_pwm=1.8.0      --> rp2040_hal=2.7.1 (^2.7.1)
+
+  '
+- '   pico_bsp=2.2.0              --> rp2040_hal=2.7.1 (^2)
+
+  '
+- '   pico_xbsp=1.8.0             --> adacl_embedded=7.2.1 (^7.1.2)
+
+  '
+- '   pico_xbsp=1.8.0             --> pico_bsp=2.2.0 (^2.2)
+
+  '
+- '   pico_xbsp=1.8.0             --> usb_embedded=1.0.1 (^1.0.0)
+
+  '
+- '   rp2040_hal=2.7.1            --> atomic=1.1.0 (^1)
+
+  '
+- '   rp2040_hal=2.7.1            --> cortex_m=1.1.0 (^1)
+
+  '
+- '   rp2040_hal=2.7.1            --> gnat_arm_elf=15.3.1 (>=14 & /=15.1.2)
+
+  '
+- '   rp2040_hal=2.7.1            --> hal=1.0.0 (^1)
+
+  '
+- '   rp2040_hal=2.7.1            --> usb_embedded=1.0.1 (^1)
+
+  '
+- '   usb_embedded=1.0.1          --> bbqueue=1.0.0 (^1.0.0)
+
+  '
+- '   usb_embedded=1.0.1          --> hal=1.0.0 (^1.0.0)
+
+  '
+- '
+
+  '
+- '
+
+  LOG:
+
+  '
+- '[alr test] Testing pico_ada_c04_pwm=1.8.0
+
+  '
+- '[alr test] Spawning retrieval for remote crate: alr -d -n get pico_ada_c04_pwm=1.8.0
+
+  '
+- 'Note: Deploying pico_ada_c04_pwm=1.8.0...
+
+  '
+- '
+
+  '
+- '######################################################################## 100.0%
+
+  '
+- '######################################################################## 100.0%
+
+  '
+- '######################################################################## 100.0%
+
+  '
+- '######################################################################## 100.0%
+
+  '
+- '######################################################################## 100.0%
+
+  '
+- 'Note: Deploying adacl_embedded=7.2.1...
+
+  '
+- '
+
+  '
+- '######################################################################## 100.0%
+
+  '
+- '######################################################################## 100.0%
+
+  '
+- '######################################################################## 100.0%
+
+  '
+- '######################################################################## 100.0%
+
+  '
+- "#=#=#                                                                         \
+  \ \n"
+- "##=#=#                                                                        \
+  \ \n"
+- '######################################################################## 100.0%
+
+  '
+- 'Note: Deploying atomic=1.1.0...
+
+  '
+- 'Note: Deploying gnat_arm_elf=15.3.1...
+
+  '
+- '
+
+  '
+- "#=#=#                                                                         \
+  \ \n"
+- '                                                                           0.0%
+
+  '
+- '                                                                           1.0%
+
+  '
+- '#                                                                          2.3%
+
+  '
+- '##                                                                         3.0%
+
+  '
+- '###                                                                        4.7%
+
+  '
+- '####                                                                       5.7%
+
+  '
+- '####                                                                       6.4%
+
+  '
+- '#####                                                                      7.0%
+
+  '
+- '#####                                                                      8.1%
+
+  '
+- '######                                                                     9.2%
+
+  '
+- '######                                                                     9.4%
+
+  '
+- '########                                                                  11.7%
+
+  '
+- '#########                                                                 12.8%
+
+  '
+- '##########                                                                14.1%
+
+  '
+- '##########                                                                14.1%
+
+  '
+- '###########                                                               15.3%
+
+  '
+- '###########                                                               16.4%
+
+  '
+- '############                                                              17.8%
+
+  '
+- '#############                                                             18.9%
+
+  '
+- '###############                                                           21.1%
+
+  '
+- '################                                                          23.4%
+
+  '
+- '##################                                                        25.3%
+
+  '
+- '##################                                                        25.8%
+
+  '
+- '##################                                                        26.3%
+
+  '
+- '####################                                                      28.1%
+
+  '
+- '#####################                                                     29.2%
+
+  '
+- '#####################                                                     30.3%
+
+  '
+- '#####################                                                     30.5%
+
+  '
+- '#######################                                                   32.8%
+
+  '
+- '########################                                                  33.9%
+
+  '
+- '#########################                                                 35.0%
+
+  '
+- '#########################                                                 35.5%
+
+  '
+- '#########################                                                 35.8%
+
+  '
+- '##########################                                                36.2%
+
+  '
+- '##########################                                                37.4%
+
+  '
+- '###########################                                               37.5%
+
+  '
+- '############################                                              39.0%
+
+  '
+- '############################                                              39.8%
+
+  '
+- '#############################                                             41.2%
+
+  '
+- '##############################                                            42.2%
+
+  '
+- '###############################                                           43.6%
+
+  '
+- '################################                                          44.5%
+
+  '
+- '################################                                          45.4%
+
+  '
+- '################################                                          45.8%
+
+  '
+- '#################################                                         46.8%
+
+  '
+- '#################################                                         46.9%
+
+  '
+- '##################################                                        48.2%
+
+  '
+- '###################################                                       49.2%
+
+  '
+- '####################################                                      50.4%
+
+  '
+- '#####################################                                     51.5%
+
+  '
+- '######################################                                    52.9%
+
+  '
+- '######################################                                    53.9%
+
+  '
+- '######################################                                    54.1%
+
+  '
+- '#######################################                                   54.8%
+
+  '
+- '########################################                                  56.1%
+
+  '
+- '########################################                                  56.2%
+
+  '
+- '#########################################                                 57.8%
+
+  '
+- '##########################################                                58.6%
+
+  '
+- '###########################################                               60.5%
+
+  '
+- '############################################                              61.3%
+
+  '
+- '#############################################                             63.3%
+
+  '
+- '##############################################                            64.6%
+
+  '
+- '###############################################                           65.6%
+
+  '
+- '################################################                          67.4%
+
+  '
+- '################################################                          68.0%
+
+  '
+- '#################################################                         69.0%
+
+  '
+- '##################################################                        70.3%
+
+  '
+- '####################################################                      72.6%
+
+  '
+- '#####################################################                     73.7%
+
+  '
+- '#####################################################                     75.0%
+
+  '
+- '#######################################################                   76.9%
+
+  '
+- '#######################################################                   77.3%
+
+  '
+- '########################################################                  78.4%
+
+  '
+- '#########################################################                 79.7%
+
+  '
+- '##########################################################                81.6%
+
+  '
+- '###########################################################               82.0%
+
+  '
+- '###########################################################               82.5%
+
+  '
+- '############################################################              84.4%
+
+  '
+- '##############################################################            86.7%
+
+  '
+- '###############################################################           88.1%
+
+  '
+- '################################################################          89.0%
+
+  '
+- '################################################################          89.0%
+
+  '
+- '################################################################          89.2%
+
+  '
+- '################################################################          89.8%
+
+  '
+- '#################################################################         91.1%
+
+  '
+- '##################################################################        92.1%
+
+  '
+- '###################################################################       93.6%
+
+  '
+- '###################################################################       93.7%
+
+  '
+- '#####################################################################     95.8%
+
+  '
+- '#####################################################################     96.1%
+
+  '
+- '######################################################################    98.3%
+
+  '
+- '######################################################################    98.4%
+
+  '
+- '#######################################################################   99.6%
+
+  '
+- '######################################################################## 100.0%
+
+  '
+- 'Note: gnat_arm_elf=15.3.1 installed successfully.
+
+  '
+- 'Note: Deploying hal=1.0.0...
+
+  '
+- 'Note: Deploying bbqueue=1.0.0...
+
+  '
+- 'Note: Deploying cortex_m=1.1.0...
+
+  '
+- 'Note: Deploying light_tasking_rp2040=15.4.0...
+
+  '
+- '
+
+  '
+- "#=#=#                                                                         \
+  \ \n"
+- '#                                                                          2.5%
+
+  '
+- '######################################################################## 100.0%
+
+  '
+- 'Note: Deploying usb_embedded=1.0.1...
+
+  '
+- 'Note: Deploying rp2040_hal=2.7.1...
+
+  '
+- 'Note: Deploying pico_bsp=2.2.0...
+
+  '
+- 'Note: Deploying pico_xbsp=1.8.0...
+
+  '
+- '
+
+  '
+- '######################################################################## 100.0%
+
+  '
+- '######################################################################## 100.0%
+
+  '
+- '######################################################################## 100.0%
+
+  '
+- '######################################################################## 100.0%
+
+  '
+- '################                                                          22.9%
+
+  '
+- '######################################################################## 100.0%
+
+  '
+- '
+
+  '
+- 'pico_ada_c04_pwm=1.8.0 successfully retrieved.
+
+  '
+- 'Dependencies were solved as follows:
+
+  '
+- '
+
+  '
+- '   +  adacl_embedded       7.2.1  (new,indirect)
+
+  '
+- '   +  atomic               1.1.0  (new,indirect)
+
+  '
+- '   +  bbqueue              1.0.0  (new,indirect)
+
+  '
+- '   +  cortex_m             1.1.0  (new,indirect)
+
+  '
+- '   +b gnat                 15.3.1 (new,gnat_arm_elf,indirect,binary)
+
+  '
+- '   +b gnat_arm_elf         15.3.1 (new,indirect,binary)
+
+  '
+- '   +  hal                  1.0.0  (new,indirect)
+
+  '
+- '   +  light_tasking_rp2040 15.4.0 (new)
+
+  '
+- '   +  pico_bsp             2.2.0  (new)
+
+  '
+- '   +  pico_xbsp            1.8.0  (new)
+
+  '
+- '   +  rp2040_hal           2.7.1  (new)
+
+  '
+- '   +  usb_embedded         1.0.1  (new,indirect)
+
+  '
+- '[alr test] Spawning default test for remote crate: alr -d -n build --release --
+  -cargs:Ada -gnatwn
+
+  '
+- 'Note: Building pico_ada_c04_pwm=1.8.0/pico_ada_c04_pwm.gpr...
+
+  '
+- '"C:\Users\runneradmin\AppData\Local\alire\cache\builds\hal_1.0.0_084c6412\0604dd7579552a841fe7667b9c98739063338e98e85a6a84c4c0bdb949a19d92\obj"
+  created
+
+  '
+- '"C:\Users\runneradmin\AppData\Local\alire\cache\builds\hal_1.0.0_084c6412\0604dd7579552a841fe7667b9c98739063338e98e85a6a84c4c0bdb949a19d92\lib"
+  created
+
+  '
+- '"C:\Users\runneradmin\AppData\Local\alire\cache\builds\light_tasking_rp2040_15.4.0_c3806fc6\ed8f87ff9aebc56e00ab458bd16c9aef890024b42b874edab7447b77dac855f4\obj"
+  created
+
+  '
+- '"C:\Users\runneradmin\AppData\Local\alire\cache\builds\light_tasking_rp2040_15.4.0_c3806fc6\ed8f87ff9aebc56e00ab458bd16c9aef890024b42b874edab7447b77dac855f4\adalib"
+  created
+
+  '
+- '"C:\Users\runneradmin\AppData\Local\alire\cache\builds\atomic_1.1.0_5e6250a0\1e41f9c4d502ca519bd9219e2ce55feb7d5f6b1e1c9794c23301cb469a665a24\obj\release"
+  created
+
+  '
+- '"C:\Users\runneradmin\AppData\Local\alire\cache\builds\atomic_1.1.0_5e6250a0\1e41f9c4d502ca519bd9219e2ce55feb7d5f6b1e1c9794c23301cb469a665a24\lib"
+  created
+
+  '
+- '"C:\Users\runneradmin\AppData\Local\alire\cache\builds\adacl_embedded_7.2.1_8becc526\f13167c78cdf135aba48569b600dd8530758b083a0b65df0e288ea2d7ba989e7\obj\release"
+  created
+
+  '
+- '"C:\Users\runneradmin\AppData\Local\alire\cache\builds\adacl_embedded_7.2.1_8becc526\f13167c78cdf135aba48569b600dd8530758b083a0b65df0e288ea2d7ba989e7\lib"
+  created
+
+  '
+- '"C:\Users\runneradmin\AppData\Local\alire\cache\builds\cortex_m_1.1.0_f2d064ae\a2ec590ba731b1396ab07112f7532901d9d71febec06422b439ae32a23a3958b\obj\release"
+  created
+
+  '
+- '"C:\Users\runneradmin\AppData\Local\alire\cache\builds\cortex_m_1.1.0_f2d064ae\a2ec590ba731b1396ab07112f7532901d9d71febec06422b439ae32a23a3958b\lib"
+  created
+
+  '
+- '"C:\Users\runneradmin\AppData\Local\alire\cache\builds\bbqueue_1.0.0_f508818c\55be97c2288bc01fcd0e4cf626b4f9c463dd86b0b204a84c006900fb4b858cc1\obj\release"
+  created
+
+  '
+- '"C:\Users\runneradmin\AppData\Local\alire\cache\builds\bbqueue_1.0.0_f508818c\55be97c2288bc01fcd0e4cf626b4f9c463dd86b0b204a84c006900fb4b858cc1\lib"
+  created
+
+  '
+- '"C:\Users\runneradmin\AppData\Local\alire\cache\builds\usb_embedded_1.0.1_dc00efac\c38d70fb520b712b05ccf13aa3c55c537acf9fb45627c5a863f11481bd4d8361\obj\release"
+  created
+
+  '
+- '"C:\Users\runneradmin\AppData\Local\alire\cache\builds\usb_embedded_1.0.1_dc00efac\c38d70fb520b712b05ccf13aa3c55c537acf9fb45627c5a863f11481bd4d8361\lib"
+  created
+
+  '
+- '"C:\Users\runneradmin\AppData\Local\alire\cache\builds\rp2040_hal_2.7.1_d65f4ed4\43bf3cc71290aa82f0ee63f3842d3e33309d62c34f5e180a1a7cbf4925881165\obj\release"
+  created
+
+  '
+- '"C:\Users\runneradmin\AppData\Local\alire\cache\builds\rp2040_hal_2.7.1_d65f4ed4\43bf3cc71290aa82f0ee63f3842d3e33309d62c34f5e180a1a7cbf4925881165\lib"
+  created
+
+  '
+- '"C:\Users\runneradmin\AppData\Local\alire\cache\builds\pico_bsp_2.2.0_42568405\6e76ee7b0ee8e9dab04fc70f3b7aabdc48c196b883334881b2f07c08f5e5a9aa\obj\release"
+  created
+
+  '
+- '"C:\Users\runneradmin\AppData\Local\alire\cache\builds\pico_bsp_2.2.0_42568405\6e76ee7b0ee8e9dab04fc70f3b7aabdc48c196b883334881b2f07c08f5e5a9aa\lib"
+  created
+
+  '
+- '"C:\Users\runneradmin\AppData\Local\alire\cache\builds\pico_xbsp_1.8.0_bde7b860\44ed6aad646f6c253e6a8bf26fa03496a1c5d6fc8aad86afd4dbfc008e3b06df\obj\release"
+  created
+
+  '
+- '"C:\Users\runneradmin\AppData\Local\alire\cache\builds\pico_xbsp_1.8.0_bde7b860\44ed6aad646f6c253e6a8bf26fa03496a1c5d6fc8aad86afd4dbfc008e3b06df\lib"
+  created
+
+  '
+- '"obj\release" created
+
+  '
+- '"bin\release" created
+
+  '
+- '[Ada Compile]     adacl-text_io.adb
+
+  '
+- '[Ada Compile]     adacl-trace_buffer.adb
+
+  '
+- '[Ada Compile]     adacl.ads
+
+  '
+- '[Ada Compile]     adacl_embedded_config.ads
+
+  '
+- '[Ada Compile]     atomic-basic_operations.adb
+
+  '
+- '[Ada Compile]     atomic-critical_section.adb
+
+  '
+- '[Ada Compile]     atomic-signed.adb
+
+  '
+- '[Archive]         libAdaCL_Embedded.a
+
+  '
+- '[Ada Compile]     atomic-signed_16.ads
+
+  '
+- '[Ada Compile]     atomic-signed_32.ads
+
+  '
+- '[Ada Compile]     atomic-signed_8.ads
+
+  '
+- '[Ada Compile]     atomic-unsigned.adb
+
+  '
+- '[Ada Compile]     atomic-unsigned_16.ads
+
+  '
+- '[Ada Compile]     atomic-unsigned_32.ads
+
+  '
+- '[Ada Compile]     atomic-unsigned_8.ads
+
+  '
+- '[Ada Compile]     atomic.adb
+
+  '
+- '[Ada Compile]     atomic_config.ads
+
+  '
+- '[Ada Compile]     bbqueue-buffers-framed.adb
+
+  '
+- '[Ada Compile]     bbqueue-buffers.adb
+
+  '
+- '[Ada Compile]     bbqueue.adb
+
+  '
+- '[Archive]         libAtomic.a
+
+  '
+- '[Ada Compile]     bbqueue_config.ads
+
+  '
+- '[Ada Compile]     cortex_m-cache.adb
+
+  '
+- '[Ada Compile]     cortex_m-debug.adb
+
+  '
+- '[Ada Compile]     cortex_m-dwt.adb
+
+  '
+- '[Archive]         libBbqueue.a
+
+  '
+- '[Ada Compile]     cortex_m-hints.adb
+
+  '
+- '[Ada Compile]     cortex_m-nvic.adb
+
+  '
+- '[Ada Compile]     cortex_m-reset.adb
+
+  '
+- '[Ada Compile]     cortex_m-systick.adb
+
+  '
+- '[Ada Compile]     cortex_m.ads
+
+  '
+- '[Ada Compile]     cortex_m_config.ads
+
+  '
+- '[Ada Compile]     cortex_m_svd-debug.ads
+
+  '
+- '[Ada Compile]     cortex_m_svd-dwt.ads
+
+  '
+- '[Ada Compile]     cortex_m_svd-nvic.ads
+
+  '
+- '[Ada Compile]     cortex_m_svd-scb.ads
+
+  '
+- '[Ada Compile]     cortex_m_svd-systick.ads
+
+  '
+- '[Ada Compile]     cortex_m_svd.ads
+
+  '
+- '[Ada Compile]     memory_barriers.adb
+
+  '
+- '[Ada Compile]     semihosting-filesystem.adb
+
+  '
+- '[Ada Compile]     semihosting.adb
+
+  '
+- '[Ada Compile]     hal-audio.ads
+
+  '
+- '[Ada Compile]     hal-bitmap.ads
+
+  '
+- '[Ada Compile]     hal-block_drivers.ads
+
+  '
+- '[Archive]         libCortex_M.a
+
+  '
+- '[Ada Compile]     hal-dsi.ads
+
+  '
+- '[Ada Compile]     hal-filesystem.ads
+
+  '
+- '[Ada Compile]     hal-flash.ads
+
+  '
+- '[Ada Compile]     hal-framebuffer.ads
+
+  '
+- '[Ada Compile]     hal-gpio.ads
+
+  '
+- '[Ada Compile]     hal-i2c.ads
+
+  '
+- '[Ada Compile]     hal-real_time_clock.ads
+
+  '
+- '[Ada Compile]     hal-sdmmc.adb
+
+  '
+- '[Ada Compile]     hal-spi.ads
+
+  '
+- '[Ada Compile]     hal-time.ads
+
+  '
+- '[Ada Compile]     hal-touch_panel.ads
+
+  '
+- '[Ada Compile]     hal-uart.ads
+
+  '
+- '[Ada Compile]     hal.ads
+
+  '
+- '[Ada Compile]     a-exetim.adb
+
+  '
+- '[Ada Compile]     a-extiin.adb
+
+  '
+- '[Ada Compile]     a-interr.adb
+
+  '
+- '[Archive]         libhal.a
+
+  '
+- '[Ada Compile]     a-intnam-2.ads
+
+  '
+- '[Ada Compile]     a-reatim.adb
+
+  '
+- '[Ada Compile]     a-retide.adb
+
+  '
+- '[Ada Compile]     a-rttiev.adb
+
+  '
+- '[Ada Compile]     a-synbar.adb
+
+  '
+- '[Ada Compile]     a-sytaco.adb
+
+  '
+- '[Ada Compile]     a-taside.adb
+
+  '
+- '[Ada Compile]     a-taster.adb
+
+  '
+- '[Ada Compile]     s-bbbosu.adb
+
+  '
+- '[Ada Compile]     s-bbcppr.adb
+
+  '
+- '[Ada Compile]     s-bbcpsp.ads
+
+  '
+- '[Ada Compile]     s-bbexti.adb
+
+  '
+- '[Ada Compile]     s-bbinte.adb
+
+  '
+- '[Ada Compile]     s-bbprot.adb
+
+  '
+- '[Ada Compile]     s-bbthqu.adb
+
+  '
+- '[Ada Compile]     s-bbthre.adb
+
+  '
+- '[Ada Compile]     s-bbtiev.adb
+
+  '
+- '[Ada Compile]     s-bbtime.adb
+
+  '
+- '[Ada Compile]     s-bcpcst.adb
+
+  '
+- '[Ada Compile]     s-bcprmu.adb
+
+  '
+- '[Ada Compile]     s-interr.adb
+
+  '
+- '[Ada Compile]     s-mufalo.adb
+
+  '
+- '[Ada Compile]     s-multip.adb
+
+  '
+- '[Ada Compile]     s-musplo.adb
+
+  '
+- '[Ada Compile]     s-osinte.ads
+
+  '
+- '[Ada Compile]     s-reldel.adb
+
+  '
+- '[Ada Compile]     s-restri.adb
+
+  '
+- '[Ada Compile]     s-rident.ads
+
+  '
+- '[Ada Compile]     s-taprob.adb
+
+  '
+- '[Ada Compile]     s-taprop.adb
+
+  '
+- '[Ada Compile]     s-tarest.adb
+
+  '
+- '[Ada Compile]     s-tasdeb.adb
+
+  '
+- '[Ada Compile]     s-tasinf.adb
+
+  '
+- '[Ada Compile]     s-taskin.adb
+
+  '
+- '[Ada Compile]     s-taspri.ads
+
+  '
+- '[Ada Compile]     s-tasque.adb
+
+  '
+- '[Ada Compile]     s-tasres.ads
+
+  '
+- '[Ada Compile]     s-tpoben.adb
+
+  '
+- '[Ada Compile]     s-tpobmu.adb
+
+  '
+- '[Ada Compile]     s-tpobop.adb
+
+  '
+- '[Ada Compile]     s-tposen.adb
+
+  '
+- '[Ada Compile]     a-assert.adb
+
+  '
+- '[Ada Compile]     a-chahan.adb
+
+  '
+- '[Ada Compile]     a-charac.ads
+
+  '
+- '[Ada Compile]     a-chlat1.ads
+
+  '
+- '[Archive]         libgnarl.a
+
+  '
+- '[Ada Compile]     a-elchha.adb
+
+  '
+- '[Ada Compile]     a-except.adb
+
+  '
+- '[Ada Compile]     a-nbnbig.adb
+
+  '
+- '[Ada Compile]     a-ngelfu.adb
+
+  '
+- '[Ada Compile]     a-nlelfu.ads
+
+  '
+- '[Ada Compile]     a-nllefu.ads
+
+  '
+- '[Ada Compile]     a-nselfu.ads
+
+  '
+- '[Ada Compile]     a-nubinu.ads
+
+  '
+- '[Ada Compile]     a-nuelfu.ads
+
+  '
+- '[Ada Compile]     a-numaux.ads
+
+  '
+- '[Ada Compile]     a-numeri.ads
+
+  '
+- '[Ada Compile]     a-stmaco.ads
+
+  '
+- '[Ada Compile]     a-strbou.adb
+
+  '
+- '[Ada Compile]     a-strfix.adb
+
+  '
+- '[Ada Compile]     a-string.ads
+
+  '
+- '[Ada Compile]     a-strmap.adb
+
+  '
+- '[Ada Compile]     a-strsea.adb
+
+  '
+- '[Ada Compile]     a-strsup.adb
+
+  '
+- '[Ada Compile]     a-tags.adb
+
+  '
+- '[Ada Compile]     a-textio.adb
+
+  '
+- '[Ada Compile]     a-unccon.ads
+
+  '
+- '[Ada Compile]     a-uncdea.ads
+
+  '
+- '[Ada Compile]     ada.ads
+
+  '
+- '[Ada Compile]     g-debuti.adb
+
+  '
+- '[Ada Compile]     g-io.adb
+
+  '
+- '[Ada Compile]     g-sestin.ads
+
+  '
+- '[Ada Compile]     g-souinf.ads
+
+  '
+- '[Ada Compile]     gnat.ads
+
+  '
+- '[Ada Compile]     i-c.adb
+
+  '
+- '[Ada Compile]     i-cexten.ads
+
+  '
+- '[Ada Compile]     i-cpoint.adb
+
+  '
+- '[Ada Compile]     i-cstrin.adb
+
+  '
+- '[Ada Compile]     i-rp2040-clocks.ads
+
+  '
+- '[Ada Compile]     i-rp2040-pll_sys.ads
+
+  '
+- '[Ada Compile]     i-rp2040-psm.ads
+
+  '
+- '[Ada Compile]     i-rp2040-resets.ads
+
+  '
+- '[Ada Compile]     i-rp2040-rosc.ads
+
+  '
+- '[Ada Compile]     i-rp2040-sio.ads
+
+  '
+- '[Ada Compile]     i-rp2040-timer.ads
+
+  '
+- '[Ada Compile]     i-rp2040-watchdog.ads
+
+  '
+- '[Ada Compile]     i-rp2040-xosc.ads
+
+  '
+- '[Ada Compile]     i-rp2040.ads
+
+  '
+- '[Ada Compile]     interfac.ads
+
+  '
+- '[Ada Compile]     light_tasking_rp2040_config.ads
+
+  '
+- '[Ada Compile]     machcode.ads
+
+  '
+- '[Ada Compile]     rp2040_runtime_config.ads
+
+  '
+- '[Ada Compile]     s-addope.adb
+
+  '
+- '[Ada Compile]     s-aridou.adb
+
+  '
+- '[Ada Compile]     s-arit32.adb
+
+  '
+- '[Ada Compile]     s-arit64.adb
+
+  '
+- '[Ada Compile]     s-assert.adb
+
+  '
+- '[Ada Compile]     s-atacco.ads
+
+  '
+- '[Ada Compile]     s-atocou.adb
+
+  '
+- '[Ada Compile]     s-atopri.adb
+
+  '
+- '[Ada Compile]     s-bb.ads
+
+  '
+- '[Ada Compile]     s-bbarat.adb
+
+  '
+- '[Ada Compile]     s-bbbopa.ads
+
+  '
+- '[Ada Compile]     s-bbmcpa.ads
+
+  '
+- '[Ada Compile]     s-bbpara.ads
+
+  '
+- '[Ada Compile]     s-bbrpat.adb
+
+  '
+- '[Ada Compile]     s-bitops.adb
+
+  '
+- '[Ada Compile]     s-boarop.ads
+
+  '
+- '[Ada Compile]     s-bootro.adb
+
+  '
+- '[Ada Compile]     s-bytswa.ads
+
+  '
+- '[Ada Compile]     s-carsi8.adb
+
+  '
+- '[Ada Compile]     s-carun8.adb
+
+  '
+- '[Ada Compile]     s-casi16.adb
+
+  '
+- '[Ada Compile]     s-casi32.adb
+
+  '
+- '[Ada Compile]     s-casi64.adb
+
+  '
+- '[Ada Compile]     s-casuti.adb
+
+  '
+- '[Ada Compile]     s-caun16.adb
+
+  '
+- '[Ada Compile]     s-caun32.adb
+
+  '
+- '[Ada Compile]     s-caun64.adb
+
+  '
+- '[Ada Compile]     s-dourea.adb
+
+  '
+- '[Ada Compile]     s-exnflt.ads
+
+  '
+- '[Ada Compile]     s-exnint.ads
+
+  '
+- '[Ada Compile]     s-exnlfl.ads
+
+  '
+- '[Ada Compile]     s-exnllf.ads
+
+  '
+- '[Ada Compile]     s-exnlli.ads
+
+  '
+- '[Ada Compile]     s-expint.ads
+
+  '
+- '[Ada Compile]     s-explli.ads
+
+  '
+- '[Ada Compile]     s-expllu.ads
+
+  '
+- '[Ada Compile]     s-expmod.adb
+
+  '
+- '[Ada Compile]     s-exponn.adb
+
+  '
+- '[Ada Compile]     s-exponr.adb
+
+  '
+- '[Ada Compile]     s-expont.adb
+
+  '
+- '[Ada Compile]     s-exponu.adb
+
+  '
+- '[Ada Compile]     s-expuns.ads
+
+  '
+- '[Ada Compile]     s-fatflt.ads
+
+  '
+- '[Ada Compile]     s-fatgen.adb
+
+  '
+- '[Ada Compile]     s-fatlfl.ads
+
+  '
+- '[Ada Compile]     s-fatllf.ads
+
+  '
+- '[Ada Compile]     s-flocon.adb
+
+  '
+- '[Ada Compile]     s-gcmain.adb
+
+  '
+- '[Ada Compile]     s-geveop.adb
+
+  '
+- '[Ada Compile]     s-imaged.adb
+
+  '
+- '[Ada Compile]     s-imagef.adb
+
+  '
+- '[Ada Compile]     s-imagei.adb
+
+  '
+- '[Ada Compile]     s-imagen.adb
+
+  '
+- '[Ada Compile]     s-imager.adb
+
+  '
+- '[Ada Compile]     s-imageu.adb
+
+  '
+- '[Ada Compile]     s-imagew.adb
+
+  '
+- '[Ada Compile]     s-imde32.ads
+
+  '
+- '[Ada Compile]     s-imde64.ads
+
+  '
+- '[Ada Compile]     s-imen16.ads
+
+  '
+- '[Ada Compile]     s-imen32.ads
+
+  '
+- '[Ada Compile]     s-imenu8.ads
+
+  '
+- '[Ada Compile]     s-imfi32.ads
+
+  '
+- '[Ada Compile]     s-imfi64.ads
+
+  '
+- '[Ada Compile]     s-imgboo.adb
+
+  '
+- '[Ada Compile]     s-imgcha.adb
+
+  '
+- '[Ada Compile]     s-imgflt.ads
+
+  '
+- '[Ada Compile]     s-imgint.ads
+
+  '
+- '[Ada Compile]     s-imglfl.ads
+
+  '
+- '[Ada Compile]     s-imgllf.ads
+
+  '
+- '[Ada Compile]     s-imglli.ads
+
+  '
+- '[Ada Compile]     s-imgllu.ads
+
+  '
+- '[Ada Compile]     s-imgllw.ads
+
+  '
+- '[Ada Compile]     s-imguns.ads
+
+  '
+- '[Ada Compile]     s-imguti.adb
+
+  '
+- '[Ada Compile]     s-imgwiu.ads
+
+  '
+- '[Ada Compile]     s-libdou.adb
+
+  '
+- '[Ada Compile]     s-libm.adb
+
+  '
+- '[Ada Compile]     s-libpre.ads
+
+  '
+- '[Ada Compile]     s-libsin.adb
+
+  '
+- '[Ada Compile]     s-lidosq.adb
+
+  '
+- '[Ada Compile]     s-lisisq.adb
+
+  '
+- '[Ada Compile]     s-maccod.ads
+
+  '
+- '[Ada Compile]     s-macres.adb
+
+  '
+- '[Ada Compile]     s-memcom.adb
+
+  '
+- '[Ada Compile]     s-memcop.adb
+
+  '
+- '[Ada Compile]     s-memmov.adb
+
+  '
+- '[Ada Compile]     s-memory.adb
+
+  '
+- '[Ada Compile]     s-memset.adb
+
+  '
+- '[Ada Compile]     s-memtyp.ads
+
+  '
+- '[Ada Compile]     s-pack03.adb
+
+  '
+- '[Ada Compile]     s-pack05.adb
+
+  '
+- '[Ada Compile]     s-pack06.adb
+
+  '
+- '[Ada Compile]     s-pack07.adb
+
+  '
+- '[Ada Compile]     s-pack09.adb
+
+  '
+- '[Ada Compile]     s-pack10.adb
+
+  '
+- '[Ada Compile]     s-pack11.adb
+
+  '
+- '[Ada Compile]     s-pack12.adb
+
+  '
+- '[Ada Compile]     s-pack13.adb
+
+  '
+- '[Ada Compile]     s-pack14.adb
+
+  '
+- '[Ada Compile]     s-pack15.adb
+
+  '
+- '[Ada Compile]     s-pack17.adb
+
+  '
+- '[Ada Compile]     s-pack18.adb
+
+  '
+- '[Ada Compile]     s-pack19.adb
+
+  '
+- '[Ada Compile]     s-pack20.adb
+
+  '
+- '[Ada Compile]     s-pack21.adb
+
+  '
+- '[Ada Compile]     s-pack22.adb
+
+  '
+- '[Ada Compile]     s-pack23.adb
+
+  '
+- '[Ada Compile]     s-pack25.adb
+
+  '
+- '[Ada Compile]     s-pack26.adb
+
+  '
+- '[Ada Compile]     s-pack27.adb
+
+  '
+- '[Ada Compile]     s-pack28.adb
+
+  '
+- '[Ada Compile]     s-pack29.adb
+
+  '
+- '[Ada Compile]     s-pack30.adb
+
+  '
+- '[Ada Compile]     s-pack31.adb
+
+  '
+- '[Ada Compile]     s-pack33.adb
+
+  '
+- '[Ada Compile]     s-pack34.adb
+
+  '
+- '[Ada Compile]     s-pack35.adb
+
+  '
+- '[Ada Compile]     s-pack36.adb
+
+  '
+- '[Ada Compile]     s-pack37.adb
+
+  '
+- '[Ada Compile]     s-pack38.adb
+
+  '
+- '[Ada Compile]     s-pack39.adb
+
+  '
+- '[Ada Compile]     s-pack41.adb
+
+  '
+- '[Ada Compile]     s-pack42.adb
+
+  '
+- '[Ada Compile]     s-pack43.adb
+
+  '
+- '[Ada Compile]     s-pack44.adb
+
+  '
+- '[Ada Compile]     s-pack45.adb
+
+  '
+- '[Ada Compile]     s-pack46.adb
+
+  '
+- '[Ada Compile]     s-pack47.adb
+
+  '
+- '[Ada Compile]     s-pack49.adb
+
+  '
+- '[Ada Compile]     s-pack50.adb
+
+  '
+- '[Ada Compile]     s-pack51.adb
+
+  '
+- '[Ada Compile]     s-pack52.adb
+
+  '
+- '[Ada Compile]     s-pack53.adb
+
+  '
+- '[Ada Compile]     s-pack54.adb
+
+  '
+- '[Ada Compile]     s-pack55.adb
+
+  '
+- '[Ada Compile]     s-pack57.adb
+
+  '
+- '[Ada Compile]     s-pack58.adb
+
+  '
+- '[Ada Compile]     s-pack59.adb
+
+  '
+- '[Ada Compile]     s-pack60.adb
+
+  '
+- '[Ada Compile]     s-pack61.adb
+
+  '
+- '[Ada Compile]     s-pack62.adb
+
+  '
+- '[Ada Compile]     s-pack63.adb
+
+  '
+- '[Ada Compile]     s-parame.adb
+
+  '
+- '[Ada Compile]     s-powflt.ads
+
+  '
+- '[Ada Compile]     s-powlfl.ads
+
+  '
+- '[Ada Compile]     s-powllf.ads
+
+  '
+- '[Ada Compile]     s-retsta.ads
+
+  '
+- '[Ada Compile]     s-secsta.adb
+
+  '
+- '[Ada Compile]     s-semiho.adb
+
+  '
+- '[Ada Compile]     s-spark.ads
+
+  '
+- '[Ada Compile]     s-spcuop.adb
+
+  '
+- '[Ada Compile]     s-sssita.adb
+
+  '
+- '[Ada Compile]     s-stache.adb
+
+  '
+- '[Ada Compile]     s-stoele.ads
+
+  '
+- '[Ada Compile]     s-textio.adb
+
+  '
+- '[Ada Compile]     s-unstyp.ads
+
+  '
+- '[Ada Compile]     s-vade32.ads
+
+  '
+- '[Ada Compile]     s-vade64.ads
+
+  '
+- '[Ada Compile]     s-vaen16.ads
+
+  '
+- '[Ada Compile]     s-vaen32.ads
+
+  '
+- '[Ada Compile]     s-vaenu8.ads
+
+  '
+- '[Ada Compile]     s-vafi32.ads
+
+  '
+- '[Ada Compile]     s-vafi64.ads
+
+  '
+- '[Ada Compile]     s-vaispe.adb
+
+  '
+- '[Ada Compile]     s-valboo.adb
+
+  '
+- '[Ada Compile]     s-valcha.adb
+
+  '
+- '[Ada Compile]     s-valflt.ads
+
+  '
+- '[Ada Compile]     s-valint.ads
+
+  '
+- '[Ada Compile]     s-vallfl.ads
+
+  '
+- '[Ada Compile]     s-valllf.ads
+
+  '
+- '[Ada Compile]     s-vallli.ads
+
+  '
+- '[Ada Compile]     s-valllu.ads
+
+  '
+- '[Ada Compile]     s-valrea.adb
+
+  '
+- '[Ada Compile]     s-valspe.adb
+
+  '
+- '[Ada Compile]     s-valued.adb
+
+  '
+- '[Ada Compile]     s-valuef.adb
+
+  '
+- '[Ada Compile]     s-valuei.adb
+
+  '
+- '[Ada Compile]     s-valuen.adb
+
+  '
+- '[Ada Compile]     s-valuer.adb
+
+  '
+- '[Ada Compile]     s-valueu.adb
+
+  '
+- '[Ada Compile]     s-valuns.ads
+
+  '
+- '[Ada Compile]     s-valuti.adb
+
+  '
+- '[Ada Compile]     s-vauspe.adb
+
+  '
+- '[Ada Compile]     s-veboop.adb
+
+  '
+- '[Ada Compile]     s-vector.ads
+
+  '
+- '[Ada Compile]     s-vs_int.ads
+
+  '
+- '[Ada Compile]     s-vs_lli.ads
+
+  '
+- '[Ada Compile]     s-vs_llu.ads
+
+  '
+- '[Ada Compile]     s-vs_uns.ads
+
+  '
+- '[Ada Compile]     s-widint.ads
+
+  '
+- '[Ada Compile]     s-widlli.ads
+
+  '
+- '[Ada Compile]     s-widllu.ads
+
+  '
+- '[Ada Compile]     s-widthi.adb
+
+  '
+- '[Ada Compile]     s-widthu.adb
+
+  '
+- '[Ada Compile]     s-widuns.ads
+
+  '
+- '[Ada Compile]     setup_clocks.adb
+
+  '
+- '[Ada Compile]     system.ads
+
+  '
+- '[Ada Compile]     text_io.ads
+
+  '
+- '[Ada Compile]     unchconv.ads
+
+  '
+- '[Ada Compile]     unchdeal.ads
+
+  '
+- '[Asm_Cpp Compile] boot2-w25qxx.S
+
+  '
+- '[Asm_Cpp Compile] start-rom.S
+
+  '
+- '[Ada Compile]     pico-audio_i2s.ads
+
+  '
+- '[Ada Compile]     pico-pimoroni-audio_pack.ads
+
+  '
+- '[Ada Compile]     pico-pimoroni-rgb_keypad.adb
+
+  '
+- '[Archive]         libgnat.a
+
+  '
+- '[Ada Compile]     pico-pimoroni.ads
+
+  '
+- '[Ada Compile]     pico.ads
+
+  '
+- '[Ada Compile]     pico_bsp_config.ads
+
+  '
+- '[Ada Compile]     pico-analog-rgb_led.adb
+
+  '
+- '[Ada Compile]     pico-analog.adb
+
+  '
+- '[Ada Compile]     pico-debug_io.adb
+
+  '
+- '[Archive]         libPico_Bsp.a
+
+  '
+- '[Ada Compile]     pico-tone.adb
+
+  '
+- '[Ada Compile]     pico-uart_io.adb
+
+  '
+- '[Ada Compile]     pico-usb_io.adb
+
+  '
+- '[Ada Compile]     pico-utils.adb
+
+  '
+- 'C:\Users\runneradmin\AppData\Local\alire\cache\builds\pico_xbsp_1.8.0_bde7b860\44ed6aad646f6c253e6a8bf26fa03496a1c5d6fc8aad86afd4dbfc008e3b06df\src\tasking\pico-usb_io.adb:22:06:
+  error: "Ada.Interrupts.Names" is not a predefined library unit
+
+  '
+- 'pico_xbsp.gpr: error: [Ada Compile] pico-usb_io.adb (pico_xbsp.gpr) failed with
+  status 1
+
+  '
+- 'stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "D:\a\alire-crates-ci\alire-crates-ci\test\29b4d615-163d-419b-b49d-746cb93797bc\pico_ada_c04_pwm_1.8.0_7475a131\pico_ada_c04_pwm.gpr",
+  "-cargs:Ada", "-gnatwn"] exited with code 4
+
+  '
+- 'ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "D:\a\alire-crates-ci\alire-crates-ci\test\29b4d615-163d-419b-b49d-746cb93797bc\pico_ada_c04_pwm_1.8.0_7475a131\pico_ada_c04_pwm.gpr",
+  "-cargs:Ada", "-gnatwn"] exited with code 4
+
+  '
+- 'stderr: ALIRE.CHECKED_ERROR
+
+  '
+- 'stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "D:\a\alire-crates-ci\alire-crates-ci\test\29b4d615-163d-419b-b49d-746cb93797bc\pico_ada_c04_pwm_1.8.0_7475a131\pico_ada_c04_pwm.gpr",
+  "-cargs:Ada", "-gnatwn"] exited with code 4
+
+  '
+- 'stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
+
+  '
+- '[D:\a\alire-crates-ci\alire-crates-ci\alire_install\bin\alr.exe]
+
+  '
+- '0x7ff78daeda2a Semantic_Versioning.Basic.Restrictions.First_Index at alire.adb:284
+
+  '
+- '0x7ff78d6e595b Semantic_Versioning.Basic.Restrictions.First_Index at alire-os_lib-subprocess.adb:111
+
+  '
+- '0x7ff78d99cba1 Semantic_Versioning.Basic.Restrictions.First_Index at alire-spawn.adb:22
+
+  '
+- '0x7ff78d99dd5d Semantic_Versioning.Basic.Restrictions.First_Index at alire-spawn.adb:68
+
+  '
+- '0x7ff78d8c2d64 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:189
+
+  '
+- '0x7ff78d8c11da Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:255
+
+  '
+- '0x7ff78d8e912d Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2143
+
+  '
+- '0x7ff78d9582f9 Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1472
+
+  '
+- '0x7ff78d957424 Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1555
+
+  '
+- '0x7ff78d8e922c Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2147
+
+  '
+- '0x7ff78d8e92fa Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2127
+
+  '
+- '0x7ff78d8c17a7 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:286
+
+  '
+- '0x7ff78d8c1912 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:114
+
+  '
+- '0x7ff78d033baa Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:145
+
+  '
+- '0x7ff78d03341e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:113
+
+  '
+- '0x7ff78d0335ba Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:54
+
+  '
+- '0x7ff78d0e5dea Semantic_Versioning.Basic.Restrictions.First_Index at clic-subcommand-instance.adb:749
+
+  '
+- '0x7ff78d0f2b0e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands.adb:632
+
+  '
+- '0x7ff78cfc16a0 Alr.Main at alr-main.adb:13
+
+  '
+- '0x7ff78cfc5270 Main at b__alr-main.adb:2454
+
+  '
+- '0x7ff78cfc133e __tmainCRTStartup at ???
+
+  '
+- '0x7ff78cfc1144 mainCRTStartup at ???
+
+  '
+- '[C:\Windows\System32\KERNEL32.DLL]
+
+  '
+- '0x7ffa7a5fe8d5
+
+  '
+- '[C:\Windows\SYSTEM32\ntdll.dll]
+
+  '
+- '0x7ffa7bd4c53a
+
+  '
+- '
+
+  '
+- 'stderr: ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED
+
+  '
+- 'stderr: alire-roots.adb:202
+
+  '
+- 'stderr: raised ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED : alire-roots.adb:202
+
+  '
+- '[D:\a\alire-crates-ci\alire-crates-ci\alire_install\bin\alr.exe]
+
+  '
+- '0x7ff78d8c313c Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:202
+
+  '
+- '0x7ff78d8c11da Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:255
+
+  '
+- '0x7ff78d8e912d Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2143
+
+  '
+- '0x7ff78d9582f9 Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1472
+
+  '
+- '0x7ff78d957424 Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1555
+
+  '
+- '0x7ff78d8e922c Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2147
+
+  '
+- '0x7ff78d8e92fa Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2127
+
+  '
+- '0x7ff78d8c17a7 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:286
+
+  '
+- '0x7ff78d8c1912 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:114
+
+  '
+- '0x7ff78d033baa Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:145
+
+  '
+- '0x7ff78d03341e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:113
+
+  '
+- '0x7ff78d0335ba Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:54
+
+  '
+- '0x7ff78d0e5dea Semantic_Versioning.Basic.Restrictions.First_Index at clic-subcommand-instance.adb:749
+
+  '
+- '0x7ff78d0f2b0e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands.adb:632
+
+  '
+- '0x7ff78cfc16a0 Alr.Main at alr-main.adb:13
+
+  '
+- '0x7ff78cfc5270 Main at b__alr-main.adb:2454
+
+  '
+- '0x7ff78cfc133e __tmainCRTStartup at ???
+
+  '
+- '0x7ff78cfc1144 mainCRTStartup at ???
+
+  '
+- '[C:\Windows\System32\KERNEL32.DLL]
+
+  '
+- '0x7ffa7a5fe8d5
+
+  '
+- '[C:\Windows\SYSTEM32\ntdll.dll]
+
+  '
+- '0x7ffa7bd4c53a
+
+  '
+- '
+
+  '
+- 'ERROR: Compilation failed.
+
+  '
+platform: windows
+status: failing
+version: 1.8.0

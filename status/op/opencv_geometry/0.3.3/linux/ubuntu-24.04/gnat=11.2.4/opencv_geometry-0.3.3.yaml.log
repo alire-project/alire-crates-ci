@@ -1,0 +1,140 @@
+Test ran at 2026-10-27 12:42:12.041768+00:00
+
+SOLUTION:
+opencv_geometry=0.3.3: Thick Ada binding to OpenCV Geometry
+Origin: commit aad0b1b65814ac472bf5a9ea1b266f47aa3baf06 from https://github.com/zackboll/opencv_geometry_ada.git
+Properties:
+   Pre_Build run: sh scripts/configure_opencv.sh (from ${CRATE_ROOT}/.)
+   Test run: alr run (from ${CRATE_ROOT}/tests)
+   Author: Zack Boll
+   Description: Thick Ada binding to OpenCV Geometry
+   case Distribution is
+      when Msys2 => Environment: PATH=${CRATE_ROOT}/lib:${PATH}
+   License: Apache-2.0
+   Maintainer: Zack Boll <zackboll@gmail.com>
+   Maintainers_Logins: zackboll
+   Name: opencv_geometry
+   Tag: opencv
+   Tag: computer-vision
+   Tag: binding
+   Tag: ada
+   Version: 0.3.3
+   Website: https://github.com/zackboll/opencv_geometry_ada
+Dependencies (direct):
+   case OS is
+      when Windows => mingw_w64_gcc*
+   opencv*
+   opencv_core>=0.5.0 & <0.6.0
+   pkg_config*
+Dependencies (solution):
+   opencv=4.6.0
+   opencv_core=0.5.2
+   pkg_config=1.8.1
+Dependencies (graph):
+   opencv_core=0.5.2     --> opencv=4.6.0 (*)
+   opencv_core=0.5.2     --> pkg_config=1.8.1 (*)
+   opencv_geometry=0.3.3 --> opencv=4.6.0 (*)
+   opencv_geometry=0.3.3 --> opencv_core=0.5.2 (>=0.5.0 & <0.6.0)
+   opencv_geometry=0.3.3 --> pkg_config=1.8.1 (*)
+
+
+LOG:
+Note: Synchronizing workspace...
+Dependencies automatically updated as follows:
+
+   +  aunit           26.0.0 (new)
+   +b gnatcov         26.2.1 (new,binary)
+   +b gnatprove       16.1.0 (new,binary)
+   +b opencv          4.6.0  (new,indirect,system package)
+   +  opencv_core     0.5.2  (new,indirect)
+   +. opencv_geometry 0.3.3  (new,path=..)
+   +b pkg_config      1.8.1  (new,indirect,system package)
+Note: Deploying aunit=26.0.0...
+#=#=#                                                                          
+##O#-#                                                                         
+Note: Deploying gnatcov=26.2.1...
+#=#=#                                                                          
+
+#####                                                                      7.7%
+################                                                          23.4%
+#####################                                                     29.2%
+#############################                                             40.9%
+########################################                                  56.8%
+#####################################################                     74.6%
+#############################################################             85.6%
+#######################################################################   99.3%
+######################################################################## 100.0%
+Note: Deploying gnatprove=16.1.0...
+#=#=#                                                                          
+
+                                                                           0.8%
+#                                                                          2.0%
+###                                                                        4.4%
+######                                                                     9.5%
+##########                                                                14.8%
+##############                                                            20.5%
+###################                                                       27.0%
+######################                                                    30.6%
+#######################                                                   33.3%
+###########################                                               38.4%
+#############################                                             40.8%
+################################                                          44.5%
+###################################                                       48.8%
+#######################################                                   55.2%
+##########################################                                58.7%
+##############################################                            64.0%
+##################################################                        70.4%
+######################################################                    76.3%
+############################################################              83.5%
+#################################################################         90.5%
+######################################################################    97.6%
+######################################################################## 100.0%
+
+Note: Running pre-build actions for opencv_core=0.5.2...
+Note: Running pre-build actions for opencv_geometry=0.3.3...
+OpenCV package: opencv4
+OpenCV version: 4.6.0
+OpenCV geometry backend: imgproc
+OpenCV include: /usr/include/opencv4
+OpenCV library: /usr/lib/x86_64-linux-gnu
+Note: Building tests=0.1.0/tests.gpr...
+Setup
+   [mkdir]        object directory for project AUnit
+   [mkdir]        library directory for project AUnit
+   [mkdir]        object directory for project OpenCV_Core_Shim
+   [mkdir]        library directory for project OpenCV_Core_Shim
+   [mkdir]        object directory for project OpenCV_Core
+   [mkdir]        object directory for project OpenCV_Geometry_Shim
+   [mkdir]        library directory for project OpenCV_Geometry_Shim
+   [mkdir]        object directory for project Opencv_Geometry
+   [mkdir]        object directory for project Tests
+   [mkdir]        exec directory for project Tests
+Compile
+   [Ada]          tests.adb
+   [C++]          opencv_geometry_shim.cpp
+   [C++]          opencv_core_shim.cpp
+   [Ada]          opencv_core_config.ads
+   [Ada]          opencv-internal-c_api.adb
+   [Ada]          opencv-core-internal-typed_row_borrowing.adb
+   [Ada]          opencv-core-internal.ads
+   [Ada]          opencv-internal-safe_arithmetic.adb
+   [Ada]          opencv-core-sparse-typed_vector_iteration_impl.adb
+   [Ada]          opencv-core-sparse-typed_vector_impl.adb
+   [Ada]          opencv-core-sparse-typed_impl.adb
+   [Ada]          opencv-core-internal-object_storage.adb
+   [Ada]          opencv-internal.ads
+   [Ada]          opencv-core-internal-continuous_data.adb
+   [Ada]          opencv-core-sparse-typed_iteration_impl.adb
+   [Ada]          opencv-core-internal-typed_continuous_borrowing.adb
+   [Ada]          opencv-core-internal-typed_external_mat_view.adb
+   [Ada]          opencv-core-internal-external_view_alignment.adb
+   [Ada]          opencv-core-internal-row_data.adb
+   [Ada]          opencv-core-internal-typed_access.adb
+gnat1: invalid switch: -gnat2022
+
+   compilation of opencv-core-internal-typed_access.adb failed
+
+gprbuild: *** compilation phase failed
+ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/c982ce66-a592-443a-bf07-6411db0d0e6a/opencv_geometry_0.3.3_aad0b1b6/tests/tests.gpr"] exited with code 4
+ERROR: Build failed
+[alr test] Test action exited with error code 1

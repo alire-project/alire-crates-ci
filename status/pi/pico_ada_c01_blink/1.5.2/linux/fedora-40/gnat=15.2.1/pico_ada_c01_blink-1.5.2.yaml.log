@@ -1,0 +1,116 @@
+Test ran at 2026-04-26 01:31:07.555603+00:00
+
+SOLUTION:
+pico_ada_c01_blink=1.5.2: Chapter 1: Blinking LEDs - Getting Started on the Raspberry Pi Pico
+Origin: source archive pico_ada_c01_blink-1.5.2.tgz at https://sourceforge.net/projects/pi-ada-tutorial/files/Alire/pico_ada_c01_blink-1.5.2.tgz with hashes sha256:a3b2713a2df92dfdc7a47cdc8994d3fe03ce81902b0d0d501fccc1f748da65d4, sha512:b12bffdec925e1424fb830efece4a55263e3f487b5ee120f576979f1954a181f509f2b4c1493983ad75f0ade0f3e00d8df9aaebce3e08b2cebfcab53d8f8bb7c
+Properties:
+   Author: Martin Krischik <krischik@users.sourceforge.net>
+   Build Switches: 
+   Description: Chapter 1: Blinking LEDs - Getting Started on the Raspberry Pi Pico
+   Executable: blink
+   Executable: sketch_01_1_blink
+   Executable: sketch_01_2_blink
+   License: GPL-3.0-or-later
+   Long_Description: My first steps into Ada programming on the Pico: from Jeremy Grosser's classic
+blink example through explicit pin control to using an external LED, plus thoughts on the elegant (but still
+experimental) Ravenscar profile.
+
+Starting simple with LED blinking in Ada - internal LED, external LED with proper renaming, and a look at why Ravenscar
+looks so clean (even if it's not quite ready for everyday use yet).
+
+Contained in Chapter 01 are:
+
+1. blink             - Jeremy Grosser Ada sample
+2. sketch_01_1_blink - Chapter 1.1 Blink internal LED
+3. sketch_01_2_blink - Chapter 1.2 Blink external LED
+
+Read the full tutorial at [Chapter 1: Blinking LEDs - Getting Started with Ada on the Raspberry Pi
+Pico](https://pi-ada-tutorial.sourceforge.io/pico_ada_c01_blink), [GNATdoc
+documentation](https://pi-ada-tutorial.sourceforge.io/gnatdoc/pico_ada_c01_blink/), [SourceForge
+repository](https://sourceforge.net/p/pi-ada-tutorial/code/ci/master/tree/pico_ada_c01_blink/)
+
+   Maintainer: Martin Krischik <krischik@users.sourceforge.net>
+   Maintainers_Logins: krischik
+   Name: pico_ada_c01_blink
+   Tag: raspberry
+   Tag: pi
+   Tag: pico
+   Tag: rp2040
+   Tag: ada2022
+   Tag: embedded
+   Version: 1.5.2
+   Website: https://pi-ada-tutorial.sourceforge.io/pico_ada_c01_blink
+Dependencies (direct):
+   pico_bsp^2
+Dependencies (solution):
+   atomic=1.1.0
+   bbqueue=1.0.0
+   cortex_m=1.1.0
+   gnat=15.2.1 (gnat_arm_elf)
+   gnat_arm_elf=15.2.1
+   hal=1.0.0
+   pico_bsp=2.2.0
+   rp2040_hal=2.7.1
+   usb_embedded=1.0.1
+Dependencies (graph):
+   bbqueue=1.0.0            --> atomic=1.1.0 (^1.0.0)
+   bbqueue=1.0.0            --> gnat=15.2.1 (gnat_arm_elf) (>=10)
+   cortex_m=1.1.0           --> gnat_arm_elf=15.2.1 (>=12)
+   cortex_m=1.1.0           --> hal=1.0.0 (~0.3 | ^1.0.0)
+   pico_ada_c01_blink=1.5.2 --> pico_bsp=2.2.0 (^2)
+   pico_bsp=2.2.0           --> rp2040_hal=2.7.1 (^2)
+   rp2040_hal=2.7.1         --> atomic=1.1.0 (^1)
+   rp2040_hal=2.7.1         --> cortex_m=1.1.0 (^1)
+   rp2040_hal=2.7.1         --> gnat_arm_elf=15.2.1 (>=14 & /=15.1.2)
+   rp2040_hal=2.7.1         --> hal=1.0.0 (^1)
+   rp2040_hal=2.7.1         --> usb_embedded=1.0.1 (^1)
+   usb_embedded=1.0.1       --> bbqueue=1.0.0 (^1.0.0)
+   usb_embedded=1.0.1       --> hal=1.0.0 (^1.0.0)
+
+
+LOG:
+[alr test] Testing pico_ada_c01_blink=1.5.2
+[alr test] Spawning retrieval for remote crate: alr -d -n get pico_ada_c01_blink=1.5.2
+Note: Deploying pico_ada_c01_blink=1.5.2...
+
+######################################################################## 100.0%
+######################################################################## 100.0%
+######################################################################## 100.0%
+######################################################################## 100.0%
+######################################################################## 100.0%
+
+pico_ada_c01_blink=1.5.2 successfully retrieved.
+Dependencies were solved as follows:
+
+   +  atomic       1.1.0  (new,indirect)
+   +  bbqueue      1.0.0  (new,indirect)
+   +  cortex_m     1.1.0  (new,indirect)
+   +b gnat         15.2.1 (new,gnat_arm_elf,indirect,binary)
+   +b gnat_arm_elf 15.2.1 (new,indirect,binary)
+   +  hal          1.0.0  (new,indirect)
+   +  pico_bsp     2.2.0  (new)
+   +  rp2040_hal   2.7.1  (new,indirect)
+   +  usb_embedded 1.0.1  (new,indirect)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building pico_ada_c01_blink=1.5.2/pico_ada_c01_blink.gpr...
+Setup
+   [mkdir]        object directory for project Pico_Ada_C01_Blink
+   [mkdir]        exec directory for project Pico_Ada_C01_Blink
+Compile
+   [Ada]          blink.adb
+   [Ada]          sketch_01_1_blink.adb
+   [Ada]          sketch_01_2_blink.adb
+Bind
+   [gprbind]      blink.bexch
+   [Ada]          blink.ali
+   [gprbind]      sketch_01_1_blink.bexch
+   [Ada]          sketch_01_1_blink.ali
+   [gprbind]      sketch_01_2_blink.bexch
+   [Ada]          sketch_01_2_blink.ali
+Link
+   [link]         blink.adb
+   [link]         sketch_01_1_blink.adb
+   [link]         sketch_01_2_blink.adb
+Success: Build finished successfully in 0.78 seconds.
+Found declared GPR file: pico_ada_c01_blink.gpr
+[alr test] Test completed SUCCESSFULLY

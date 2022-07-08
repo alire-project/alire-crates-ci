@@ -1,0 +1,61 @@
+Test ran at 2026-09-30 13:21:23.411721+00:00
+
+SOLUTION:
+espidf_spiffs=0.1.0: Ada/ESP-IDF: SPIFFS filesystem bindings
+Origin: commit 1ed8d4d0aa428eddeedf20b75b7d9d9b3f507a73 from https://github.com/godunko/espidf_spiffs.git
+Properties:
+   Author: Vadim Godunko
+   Configuration: no modifiers
+   Description: Ada/ESP-IDF: SPIFFS filesystem bindings
+   License: Apache-2.0 WITH LLVM-exception
+   Long_Description: Ada bindings for the ESP-IDF SPIFFS (SPI Flash File System) component (`spiffs`).
+
+Covers registration of a SPIFFS partition in the ESP-IDF VFS (`esp_vfs_spiffs_register`),
+after which its files are accessed through the VFS.
+
+   Maintainer: Vadim Godunko <vgodunko@gmail.com>
+   Maintainers_Logins: godunko
+   Name: espidf_spiffs
+   Tag: a0b
+   Tag: embedded
+   Tag: esp
+   Tag: esp32
+   Tag: espidf
+   Tag: spiffs
+   Version: 0.1.0
+   Website: https://github.com/godunko/espidf_spiffs
+Dependencies (direct):
+   espidf^0.2.0
+Dependencies (solution):
+   a0b_base=0.5.0
+   espidf=0.2.0
+Dependencies (graph):
+   espidf=0.2.0        --> a0b_base=0.5.0 (^0.5.0)
+   espidf_spiffs=0.1.0 --> espidf=0.2.0 (^0.2.0)
+
+
+LOG:
+[alr test] Testing espidf_spiffs=0.1.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get espidf_spiffs=0.1.0
+Note: Deploying espidf_spiffs=0.1.0...
+Warning: Possible tilde intended instead of caret for a 0.x version.
+   Alire does not change the meaning of caret and tilde for pre/post-1.0 versions.
+   The suspicious dependency is: espidf^0.2.0
+   You can disable this warning by setting the option warning.caret to false.
+
+espidf_spiffs=0.1.0 successfully retrieved.
+Dependencies were solved as follows:
+
+   + a0b_base 0.5.0 (new,indirect)
+   + espidf   0.2.0 (new)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building espidf_spiffs=0.1.0/espidf_spiffs.gpr...
+".objs\x86_64-windows\none" created
+".libs\x86_64-windows\none" created
+a0b-types-big_endian.adb:10:22: warning: "Unsigned_64" is already use-visible through previous use_type_clause [enabled by default]
+espidf-c_strings.ads:130:54: (style) bad casing of "NUL" declared in Standard
+[Ada Compile]     espidf-spiffs.adb
+[Archive]         libadaespidf_spiffs.a
+Success: Build finished successfully in 1.83 seconds.
+Found declared GPR file: espidf_spiffs.gpr
+[alr test] Test completed SUCCESSFULLY

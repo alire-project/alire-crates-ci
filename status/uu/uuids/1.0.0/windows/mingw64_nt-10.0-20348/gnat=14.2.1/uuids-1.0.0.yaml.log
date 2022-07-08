@@ -1,0 +1,73 @@
+Test ran at 2026-08-31 01:19:37.053157+00:00
+
+SOLUTION:
+uuids=1.0.0: Implementation of RFC 9562 Universally Unique IDentifiers (UUIDs)
+Origin: commit d5d6d70cab4d70e3e89bc9e04ff66ee90ac93924 from https://github.com/AJ-Ianozi/uuids.git
+Properties:
+   Author: AJ Ianozi
+   Description: Implementation of RFC 9562 Universally Unique IDentifiers (UUIDs)
+   License: MIT
+   Long_Description: This library is an attempt to implement UUIDs to the RFC 9562 standard located here: https://www.ietf.org/rfc/rfc9562.html
+
+As of this writing it can identify any UUID's version or variant and create any kind of UUID in the spec:
+* UUIDv1: Gregorian Timestamp with constant data
+* UUIDv3: MD5-hashed
+* UUIDv4: Randomly-generated
+* UUIDv5: SHA1-hashed
+* UUIDv6: Gregorian Timestamp with constant data with better database locality 
+* UUIDv7: UNIX Timestamp with random data, optimized for database locality
+* UUIDv8: Custom UUIDs
+
+All of my unit tests are passing, but am open to more tests plus additional validation on other platforms, especially big endian.
+
+Refer to the [UUIDs Readme](https://github.com/AJ-Ianozi/uuids) for full description.
+
+You can also read the [full API documentation](https://aj-ianozi.github.io/uuids/toc_index.html) which has been generated with [ROBODoc](https://github.com/gumpu/ROBODoc).
+
+
+   Maintainer: AJ Ianozi <aj@ianozi.com>
+   Maintainers_Logins: aj-ianozi
+   Name: uuids
+   Tag: uuid
+   Tag: guid
+   Version: 1.0.0
+   Website: https://github.com/AJ-Ianozi/uuids
+Dependencies (direct):
+   system_random^1.0.0
+Dependencies (solution):
+   system_random=1.0.0
+Dependencies (graph):
+   uuids=1.0.0 --> system_random=1.0.0 (^1.0.0)
+
+
+LOG:
+[alr test] Testing uuids=1.0.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get uuids=1.0.0
+Note: Deploying uuids=1.0.0...
+Note: Deploying system_random=1.0.0...
+
+uuids=1.0.0 successfully retrieved.
+Dependencies were solved as follows:
+
+   + system_random 1.0.0 (new)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building uuids=1.0.0/uuids.gpr...
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\system_random_1.0.0_3db7f76e\0f680e657a72c9550109fbf063c72723465aab53f1c51de736ee7c23d7e0d67f\obj" created
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\system_random_1.0.0_3db7f76e\0f680e657a72c9550109fbf063c72723465aab53f1c51de736ee7c23d7e0d67f\lib" created
+"obj\release" created
+"lib" created
+[Ada Compile]     system_random.adb
+[Ada Compile]     uuids-v1.adb
+[Ada Compile]     uuids-v3.adb
+[Ada Compile]     uuids-v4.adb
+[Archive]         libsystem_random.a
+[Ada Compile]     uuids-v5.adb
+[Ada Compile]     uuids-v6.adb
+[Ada Compile]     uuids-v7.adb
+[Ada Compile]     uuids-v8.adb
+[Ada Compile]     uuids.adb
+[Ada Compile]     uuids_config.ads
+[Archive]         libUUIDs.a
+Success: Build finished successfully in 2.17 seconds.
+Found declared GPR file: uuids.gpr
+[alr test] Test completed SUCCESSFULLY

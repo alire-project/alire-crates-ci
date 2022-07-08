@@ -1,0 +1,425 @@
+Test ran at 2026-08-02 12:54:35.382068+00:00
+
+SOLUTION:
+libgpr2=26.0.0: Parser for GPR Project File
+Origin: source archive v26.0.0.zip at https://github.com/AdaCore/gpr/archive/refs/tags/v26.0.0.zip with hash sha512:99e9d2cd944b200d64fcbc0fca94291fa4b01d1186dfe0cb7513aa79cd5912f743b6206d0d9d2a6029149bba50a0ce90441a05c7b4485fb2a19ac56582dbecfe
+Properties:
+   Post_Fetch run: make .build/kb/collect_kb .build/kb/gpr2-kb-embedded.ads .build/kb/gpr2-kb-embedded.adb (from ${CRATE_ROOT}/.)
+   Author: AdaCore
+   Configuration: no modifiers
+   Description: Parser for GPR Project File
+   Environment: GPR2KBDIR=$$GPRCONFIG_KB_ALIRE_PREFIX//db
+   GPR Scenario: GPR2_BUILD := debug | release | release_checks | gnatcov
+   GPR Scenario: GPR2_OS := Windows_NT | UNIX
+   GPR Scenario: LIBRARY_TYPE := static | relocatable | static-pic
+   GPR External: GPR2_BUILD := release
+   case OS is
+      when Windows => GPR External: GPR2_OS := Windows_NT
+   License: Apache-2.0 WITH LLVM-exception
+   Maintainer: chouteau@adacore.com
+   Maintainer: sagaert@adacore.com
+   Maintainers_Logins: Fabien-Chouteau
+   Maintainers_Logins: AldanTanneo
+   Name: libgpr2
+   Project_File: gpr2.gpr
+   Version: 26.0.0
+   Website: https://github.com/AdaCore/gpr
+Dependencies (direct):
+   gnat<16
+   gnatcoll^26.0.0
+   gnatcoll_gmp^26.0.0
+   gnatcoll_iconv^26.0.0
+   gprconfig_kb^26.0.0
+   make*
+   xmlada^26.0.0
+Dependencies (solution):
+   gnat=15.1.2 (gnat_native)
+   gnatcoll=26.0.0
+   gnatcoll_gmp=26.0.0
+   gnatcoll_iconv=26.0.0
+   gnatcoll_minimal=26.0.0
+   gprconfig_kb=26.0.0
+   libgmp=6.3.0
+   make=4.3.0
+   xmlada=26.0.0
+Dependencies (graph):
+   gnatcoll=26.0.0         --> gnat=15.1.2 (gnat_native) (>=14)
+   gnatcoll=26.0.0         --> gnatcoll_minimal=26.0.0 (~26.0.0)
+   gnatcoll_gmp=26.0.0     --> gnatcoll_minimal=26.0.0 (~26.0.0)
+   gnatcoll_gmp=26.0.0     --> libgmp=6.3.0 (*)
+   gnatcoll_iconv=26.0.0   --> gnatcoll=26.0.0 (~26.0.0)
+   gnatcoll_minimal=26.0.0 --> gnat=15.1.2 (gnat_native) (>=14)
+   libgpr2=26.0.0          --> gnat=15.1.2 (gnat_native) (<16)
+   libgpr2=26.0.0          --> gnatcoll=26.0.0 (^26.0.0)
+   libgpr2=26.0.0          --> gnatcoll_gmp=26.0.0 (^26.0.0)
+   libgpr2=26.0.0          --> gnatcoll_iconv=26.0.0 (^26.0.0)
+   libgpr2=26.0.0          --> gprconfig_kb=26.0.0 (^26.0.0)
+   libgpr2=26.0.0          --> make=4.3.0 (*)
+   libgpr2=26.0.0          --> xmlada=26.0.0 (^26.0.0)
+   xmlada=26.0.0           --> gnat=15.1.2 (gnat_native) (>=11)
+
+
+LOG:
+[alr test] Testing libgpr2=26.0.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get libgpr2=26.0.0
+Note: Deploying libgpr2=26.0.0...
+#=#=#                                                                          
+##O#-#                                                                         
+##O=#  #                                                                       
+#=#=-#  #                                                                      
+ #=#=-#   #                                                                    
+  #=#=- #   #                                                                  
+   #=#=- #   #                                                                 
+    #=O#-  #   #                                                               
+     #=O#-   #   #                                                             
+      #=O=#   #    #                                                           
+Note: Deploying gprconfig_kb=26.0.0...
+#=#=#                                                                          
+##O#-#                                                                         
+##O=#  #                                                                       
+#=#=-#  #                                                                      
+Note: Deploying gnatcoll_gmp=26.0.0...
+#=#=#                                                                          
+##O#-#                                                                         
+##O=#  #                                                                       
+#=#=-#  #                                                                      
+ #=#=-#   #                                                                    
+Note: Deploying gnatcoll_iconv=26.0.0...
+#=#=#                                                                          
+##O#-#                                                                         
+##O=#  #                                                                       
+#-#O=#  #                                                                      
+ #-#O=#   #                                                                    
+  #-#O=-#   #                                                                  
+
+libgpr2=26.0.0 successfully retrieved.
+Dependencies were solved as follows:
+
+   +b gnat             15.1.2 (new,gnat_native,binary)
+   +  gnatcoll         26.0.0 (new)
+   +  gnatcoll_gmp     26.0.0 (new)
+   +  gnatcoll_iconv   26.0.0 (new)
+   +  gnatcoll_minimal 26.0.0 (new,indirect)
+   +b gprconfig_kb     26.0.0 (new,binary)
+   +b libgmp           6.3.0  (new,indirect,system package)
+   +b make             4.3.0  (new,system package)
+   +  xmlada           26.0.0 (new)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Running post-fetch actions for libgpr2=26.0.0...
+mkdir -p .build/kb
+gprbuild -p -P ./kb/collect_kb.gpr -XKB_BUILD_DIR=.build/kb --relocate-build-tree
+Setup
+   [mkdir]        object directory for project Collect_KB
+Compile
+   [Ada]          collect_kb.adb
+Bind
+   [gprbind]      collect_kb.bexch
+   [Ada]          collect_kb.ali
+Link
+   [link]         collect_kb.adb
+cp ./kb/gpr2-kb-embedded.ads .build/kb
+.build/kb/collect_kb -o .build/kb $GPRCONFIG_KB_ALIRE_PREFIX//db
+collect_kb: parsing /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db...
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/cpp.xml
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/ppc-vx7r2.xml
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/ppc-vx7.xml
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/ppc64-vx7.xml
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/cross.xml
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/linker.xml
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/compilers-e500v2-vx7r2.xml
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/vxworks.ent
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/asm.xml
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/vx7r2.ent
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/compilers-x86_64-vx7r2-clang.xml
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/compilers-vxworks.xml
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/compilers-ppc64-vx7.xml
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/compilers-asis.xml
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/compilers-ppc64-vx7r2-clang.xml
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/compilers-ppc-vx7.xml
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/x86-vx6.xml
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/bin_img.xml
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/gnat.xml
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/arm-vx7r2.xml
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/c.xml
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/arm-vx6.xml
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/compilers.xml
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/compilers-aarch64-vx7r2-clang.xml
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/vx7r2_compilers.xml
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/aarch64-vx7r2.xml
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/x86_64-vx7r2.xml
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/compilers-x86-vx7.xml
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/tricore-compilers.xml
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/compilers-ppc64-vx7r2.xml
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/compilers-e500v2-vx7.xml
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/ppc64-vx7r2.xml
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/0_default.xml
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/morello-vx7r2.xml
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/e500v2-vx7r2.xml
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/ppc-vx6.xml
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/vx7.ent
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/compilers-x86_64-vx7.xml
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/aarch64-vx7.xml
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/windres.xml
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/compilers-e500v2-vx6.xml
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/baselined.xml
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/e500v2-vx7.xml
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/x86_64-vx7.xml
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/compilers-ppc-vx653.xml
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/shortcuts.ent
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/x86-vx7.xml
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/vxworks.xml
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/compilers-e500v2-vx653.xml
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/compilers-baselined.xml
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/e500v2-vx653.xml
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/aamp_compilers.xml
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/aamp.xml
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/env.ent
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/vx6.ent
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/fortran.xml
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/compilers-arm-vx7.xml
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/clean.xml
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/arm-vx7.xml
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/fallback_targets.xml
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/asis.xml
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/x86-vx7r2.xml
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/vx653.ent
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/tricore-configuration.xml
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/nocompiler.xml
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/targetset.xml
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/tricore-target.xml
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/e500v2-vx6.xml
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/compilers-ppc-vx7r2.xml
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/ppc-vx653.xml
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/gprconfig.xsd
+Note: Building libgpr2=26.0.0/gpr2.gpr...
+Setup
+   [mkdir]        object directory for project GnatColl_Iconv
+   [mkdir]        library directory for project GnatColl_Iconv
+   [mkdir]        object directory for project GnatColl_GMP
+   [mkdir]        library directory for project GnatColl_GMP
+   [mkdir]        object directory for project GPR2
+   [mkdir]        library directory for project GPR2
+Compile
+   [C]            gnatcoll-gmp-mpz_sign.c
+   [C]            gnatcoll-gmp-mpz_odd_p.c
+   [C]            gmp_support.c
+   [C]            gnatcoll-gmp-mpz_even_p.c
+   [Ada]          gnatcoll-gmp-integers-root_extraction.adb
+   [Ada]          gnatcoll-gmp-integers.adb
+   [Ada]          gnatcoll-gmp-integers-misc.adb
+   [Ada]          gnatcoll-gmp-integers-io.adb
+   [Ada]          gnatcoll-gmp-lib.ads
+   [Ada]          gnatcoll-gmp.ads
+   [Ada]          gnatcoll-gmp-rational_numbers.adb
+   [Ada]          gnatcoll-gmp-integers-random.adb
+   [Ada]          gnatcoll-gmp-integers-number_theoretic.adb
+   [Ada]          gnatcoll-gmp-random_state.adb
+   [C]            iconv_support.c
+   [Ada]          gnatcoll-iconv.adb
+   [C]            gpr_parser-gdb.c
+   [Ada]          gpr_parser_support-generic_bump_ptr.adb
+   [Ada]          gpr_parser_support-images.adb
+   [Ada]          gpr_parser_support-token_data_handlers.adb
+   [Ada]          gpr_parser-public_converters.adb
+   [Ada]          gpr_parser_support-adalog.ads
+   [Ada]          gpr_parser_adasat-builders.adb
+   [Ada]          gpr_parser_adasat.adb
+   [Ada]          gpr_parser_support-internal-descriptor.ads
+   [Ada]          gpr_parser-lexer_state_machine.adb
+   [Ada]          gpr_parser-generic_impl.adb
+   [Ada]          gpr_parser_adasat-theory.ads
+   [Ada]          gpr_parser_adasat-vectors.adb
+   [Ada]          gpr_parser-analysis.adb
+   [Ada]          gpr_parser-iterators.adb
+   [Ada]          gpr_parser_adasat-dpll.adb
+   [Ada]          gpr_parser_support-errors.ads
+   [Ada]          gpr_parser_support-text.adb
+   [Ada]          gpr_parser_adasat-decisions.adb
+   [Ada]          gpr_parser_support-adalog-logic_var.adb
+   [Ada]          gpr_parser_support-diagnostics.adb
+   [Ada]          gpr_parser_support-types.ads
+   [Ada]          gpr_parser_support-bump_ptr_vectors.adb
+   [Ada]          gpr_parser_support-relative_get.adb
+   [Ada]          gpr_parser-rewriting.adb
+   [Ada]          gpr_parser_support-vectors.adb
+   [Ada]          gpr_parser_support-generic_api.adb
+   [Ada]          gpr_parser_support-boxes.adb
+   [Ada]          gpr_parser-lexer_implementation.adb
+   [Ada]          gpr_parser_support-adalog-solver_interface.adb
+   [Ada]          gpr_parser-unparsing_implementation.adb
+   [Ada]          gpr_parser-rewriting_implementation.adb
+   [Ada]          gpr_parser_support-names-maps.adb
+   [Ada]          gpr_parser-implementation-c.adb
+   [Ada]          gpr_parser_support-symbols-precomputed.adb
+   [Ada]          gpr_parser_support-internal-analysis.adb
+   [Ada]          gpr_parser-generic_introspection.adb
+   [Ada]          gpr_parser-private_converters.adb
+   [Ada]          gpr_parser_adasat-helpers.adb
+   [Ada]          gpr_parser_support-lexical_envs_impl.adb
+   [Ada]          gpr_parser_support-file_readers.adb
+   [Ada]          gpr_parser_support-iterators.adb
+   [Ada]          gpr_parser_support-hashes.adb
+   [Ada]          gpr_parser-debug.adb
+   [Ada]          gpr_parser_support-tree_traversal_iterator.adb
+   [Ada]          gpr_parser_support-diagnostics-output.adb
+   [Ada]          gpr_parser_support.ads
+   [Ada]          gpr_parser_support-packrat.adb
+   [Ada]          gpr_parser_support-adalog-main_support.ads
+   [Ada]          gpr_parser_adasat-formulas.adb
+   [Ada]          gpr_parser-generic_api-introspection.ads
+   [Ada]          gpr_parser_adasat-internals.ads
+   [Ada]          gpr_parser-common.adb
+   [Ada]          gpr_parser_support-symbols.adb
+   [Ada]          gpr_parser_support-adalog-debug.adb
+   [Ada]          gpr_parser-implementation.adb
+   [Ada]          gpr_parser_support-generic_api-introspection.adb
+   [Ada]          gpr_parser_support-bump_ptr.ads
+   [Ada]          gpr_parser-lexer.adb
+   [Ada]          gpr_parser_support-names.adb
+   [Ada]          gpr_parser_support-array_utils.adb
+   [Ada]          gpr_parser_support-adalog-generic_main_support.adb
+   [Ada]          gpr_parser-generic_api.adb
+   [Ada]          gpr_parser-unparsing.adb
+   [Ada]          gpr_parser_support-internal-conversions.ads
+   [Ada]          gpr_parser-c.adb
+   [Ada]          gpr_parser_support-cheap_sets.adb
+   [Ada]          gpr_parser_support-internal.ads
+   [Ada]          gpr_parser.ads
+   [Ada]          gpr_parser_support-adalog-solver.adb
+   [Ada]          gpr_parser_support-internal-introspection.adb
+   [Ada]          gpr_parser_support-slocs.adb
+   [Ada]          gpr_parser_support-generic_api-analysis.adb
+   [Ada]          gpr_parser-parsers.adb
+   [Ada]          gpr_parser_support-lexical_envs.ads
+   [Ada]          gpr2-kb-embedded.adb
+   [Ada]          gpr2-view_internal.adb
+   [Ada]          gpr2-build-view_tables.adb
+   [Ada]          gpr2-pack_internal.ads
+   [Ada]          gpr2-project_parser.adb
+   [Ada]          gpr2-build-jobserver_protocol-pipe.adb
+   [Ada]          gpr2-tree_internal-view_builder.adb
+   [Ada]          gpr2-build-jobserver_protocol.ads
+   [Ada]          gpr2-project_parser-create.adb
+   [Ada]          gpr2-project_parser-registry.adb
+   [Ada]          gpr2-project_parser-set.ads
+   [Ada]          gpr2-configuration_internal.adb
+   [Ada]          gpr2-view_base_internal.ads
+   [Ada]          gpr2-tree_internal.adb
+   [Ada]          gpr2-build-options.ads
+   [Ada]          gpr2-build-actions-link.adb
+   [Ada]          gpr2-build-process_manager.adb
+   [Ada]          gpr2-build-actions-link_options_extract.adb
+   [Ada]          gpr2-build-actions_population.adb
+   [Ada]          gpr2-build-source.ads
+   [Ada]          gpr2-build-makefile_parser.adb
+   [Ada]          gpr2-build-response_files.adb
+   [Ada]          gpr2-build-ali_parser.adb
+   [Ada]          gpr2-build-source_base-vectors.ads
+   [Ada]          gpr2-build-actions-ada_bind.adb
+   [Ada]          gpr2-build-unit_info-list.adb
+   [Ada]          gpr2-build-actions-post_bind.adb
+   [Ada]          gpr2-build-process_manager-json.adb
+   [Ada]          gpr2-build-actions-sets.ads
+   [Ada]          gpr2-build-artifacts-key_value.adb
+   [Ada]          gpr2-build-signature.adb
+   [Ada]          gpr2-build-artifacts-object_file.ads
+   [Ada]          gpr2-build-compilation_unit.adb
+   [Ada]          gpr2-build.ads
+   [Ada]          gpr2-build-jobserver.adb
+   [Ada]          gpr2-build-actions-compile-ada.adb
+   [Ada]          gpr2-build-actions-archive_extract.adb
+   [Ada]          gpr2-build-unit_info.adb
+   [Ada]          gpr2-build-source_base.adb
+   [Ada]          gpr2-build-actions-compile.adb
+   [Ada]          gpr2-build-actions.adb
+   [Ada]          gpr2-build-view_db.adb
+   [Ada]          gpr2-build-actions-link-partial.adb
+   [Ada]          gpr2-build-compilation_unit-maps.ads
+   [Ada]          gpr2-build-tree_db.adb
+   [Ada]          gpr2-build-command_line.adb
+   [Ada]          gpr2-build-source_base-ada_parser.adb
+   [Ada]          gpr2-build-actions-link_options_insert.adb
+   [Ada]          gpr2-build-artifacts-files.adb
+   [Ada]          gpr2-build-artifacts-library.ads
+   [Ada]          gpr2-build-artifacts.adb
+   [Ada]          gpr2-build-source-sets.adb
+   [Ada]          gpr2-build-actions-archive_table_list.adb
+   [Ada]          gpr2-build-external_options.adb
+   [Ada]          gpr2-source_reference-attribute.ads
+   [Ada]          gpr2-kb-compiler_iterator.adb
+   [Ada]          gpr2-message.adb
+   [Ada]          gpr2-project-variable.adb
+   [Ada]          gpr2-file_readers.adb
+   [Ada]          gpr2-builtin.adb
+   [Ada]          gpr2-project-view-vector.ads
+   [Ada]          gpr2-source_reference-identifier-set.ads
+   [Ada]          gpr2-project-external-set.ads
+   [Ada]          gpr2-utils-hash.adb
+   [Ada]          gpr2-project-import.adb
+   [Ada]          gpr2-project-name_values.adb
+   [Ada]          gpr2-project-registry-exchange.adb
+   [Ada]          gpr2-project-attribute-set.adb
+   [Ada]          gpr2-project.adb
+   [Ada]          gpr2-source_reference-pack.ads
+   [Ada]          gpr2-project-attribute_cache.adb
+   [Ada]          gpr2-context.adb
+   [Ada]          gpr2-reporter-holders.ads
+   [Ada]          gpr2-project-attribute_index.adb
+   [Ada]          gpr2-project-registry-pack.adb
+   [Ada]          gpr2-project-tree.adb
+   [Ada]          gpr2-containers.adb
+   [Ada]          gpr2-environment.adb
+   [Ada]          gpr2-project-attr_values.adb
+   [Ada]          gpr2-version.adb
+   [Ada]          gpr2-project-registry-attribute-description.adb
+   [Ada]          gpr_parser-basic_ada_parser.adb
+   [Ada]          gpr2-project-pretty_printer.adb
+   [Ada]          gpr2-kb-parsing.adb
+   [Ada]          gpr2-reporter-log.adb
+   [Ada]          gpr2-project-view.adb
+   [Ada]          gpr2-view_ids-set.ads
+   [Ada]          gpr2-project-attribute.adb
+   [Ada]          gpr2-source_reference-text_value.adb
+   [Ada]          gpr2-project-view-set.ads
+   [Ada]          gpr2.adb
+   [Ada]          gpr2-project-typ-set.ads
+   [Ada]          gpr2-source_reference-scalar_value.ads
+   [Ada]          gpr2-log.adb
+   [Ada]          gpr2-source_reference-value.ads
+   [Ada]          gpr2-options.adb
+   [Ada]          gpr2-utils.ads
+   [Ada]          gpr2-source_reference-text_value-g_set.ads
+   [Ada]          gpr2-project-external.adb
+   [Ada]          gpr2-source_reference-identifier.ads
+   [Ada]          gpr2-path_name-set.adb
+   [Ada]          gpr2-project-registry-pack-description.adb
+   [Ada]          gpr2-view_ids-vector.ads
+   [Ada]          gpr2-view_ids-dags.adb
+   [Ada]          gpr2-project-import-set.adb
+   [Ada]          gpr2-reporter.adb
+   [Ada]          gpr2-project-registry.ads
+   [Ada]          gpr2-project-registry-attribute.adb
+   [Ada]          gpr2-view_ids.adb
+   [Ada]          gpr2-project-variable-set.ads
+   [Ada]          gpr2-project-typ.adb
+   [Ada]          gpr2-options-opt_parse.adb
+   [Ada]          gpr2-project-configuration.adb
+   [Ada]          gpr2-kb.adb
+   [Ada]          gpr2-source_reference.adb
+   [Ada]          gpr2-path_name.adb
+   [Ada]          gpr2-reporter-console.adb
+   [Ada]          gpr2-project-tree-view_builder.adb
+   [Ada]          gpr2-build-jobserver_protocol-semaphore__dummy.adb
+Build Libraries
+   [gprlib]       gnatcoll_iconv.lexch
+   [gprlib]       gnatcoll_gmp.lexch
+   [archive]      libgnatcoll_iconv.a
+   [archive]      libgnatcoll_gmp.a
+   [index]        libgnatcoll_iconv.a
+   [gprlib]       gpr2.lexch
+   [index]        libgnatcoll_gmp.a
+   [archive]      libgpr2.a
+   [index]        libgpr2.a
+Success: Build finished successfully in 214.27 seconds.
+Found declared GPR file: gpr2.gpr
+[alr test] Test completed SUCCESSFULLY

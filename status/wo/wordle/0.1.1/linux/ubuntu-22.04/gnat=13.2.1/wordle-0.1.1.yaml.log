@@ -1,0 +1,131 @@
+Test ran at 2024-03-24 13:09:08.116474+00:00
+
+SOLUTION:
+wordle=0.1.1: Wordle for the terminal
+Origin: commit e2a960d82bce0914d3ed7ac5e4b0a6cd13d41b21 from https://github.com/mosteo/wordle_ada.git
+Properties:
+   Author: Alejandro R. Mosteo
+   Description: Wordle for the terminal
+   Executable: wordle
+   License: MIT
+   Maintainer: Alejandro R. Mosteo <alejandro@mosteo.com>
+   Maintainers_Logins: mosteo
+   Name: wordle
+   Tag: wordle
+   Tag: console
+   Tag: terminal
+   Tag: game
+   Version: 0.1.1
+Dependencies (direct):
+   aaa~0.2.6
+   ansiada^1.0.0
+   wordlelib~0.1.0
+   wordlist~0.1.2
+Dependencies (solution):
+   aaa=0.2.6
+   ada_toml=0.3.0
+   ansiada=1.0.0
+   gnat=13.2.1 (gnat_native)
+   resources=0.1.0
+   wordlelib=0.1.0
+   wordlist=0.1.3
+Dependencies (graph):
+   wordle=0.1.1    --> aaa=0.2.6 (~0.2.6)
+   wordle=0.1.1    --> ansiada=1.0.0 (^1.0.0)
+   wordle=0.1.1    --> wordlelib=0.1.0 (~0.1.0)
+   wordle=0.1.1    --> wordlist=0.1.3 (~0.1.2)
+   wordlelib=0.1.0 --> aaa=0.2.6 (~0.2.5)
+   wordlist=0.1.3  --> aaa=0.2.6 (~0.2.5)
+   wordlist=0.1.3  --> ada_toml=0.3.0 (~0.3.0)
+   wordlist=0.1.3  --> gnat=13.2.1 (gnat_native) (>=11 & <2000)
+   wordlist=0.1.3  --> resources=0.1.0 (~0.1.0)
+
+
+LOG:
+Spawning: alr -d -n get --build wordle=0.1.1
+Note: Deploying wordle=0.1.1...
+Note: Deploying aaa=0.2.6...
+Note: Deploying ada_toml=0.3.0...
+#=#=#                                                                         
+##O#-#                                                                        
+##O=#  #                                                                      
+Note: Deploying ansiada=1.0.0...
+Note: Deploying resources=0.1.0...
+Note: Deploying wordlelib=0.1.0...
+Note: Deploying wordlist=0.1.3...
+Note: Building wordle=0.1.1/wordle.gpr...
+Setup
+   [mkdir]        object directory for project Aaa
+   [mkdir]        library directory for project Aaa
+   [mkdir]        object directory for project Ansiada
+   [mkdir]        library directory for project Ansiada
+   [mkdir]        object directory for project Wordlelib
+   [mkdir]        library directory for project Wordlelib
+   [mkdir]        object directory for project Ada_TOML
+   [mkdir]        library directory for project Ada_TOML
+   [mkdir]        object directory for project Resources
+   [mkdir]        library directory for project Resources
+   [mkdir]        object directory for project Wordlist
+   [mkdir]        library directory for project Wordlist
+   [mkdir]        object directory for project Wordle
+   [mkdir]        exec directory for project Wordle
+Compile
+   [Ada]          wordle.adb
+   [C]            whereami.c
+   [Ada]          resources.adb
+   [Ada]          toml-generic_dump.adb
+   [Ada]          toml-generic_parse.adb
+   [Ada]          toml.adb
+   [Ada]          toml-file_io.adb
+   [Ada]          wordlist_config.ads
+   [Ada]          wordlist.adb
+wordlist.adb:45:16: too many arguments in call to "Intrnd.Random"
+
+   compilation of wordlist.adb failed
+
+gprbuild: *** compilation phase failed
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/7b3355d7-22d9-4ea5-bc10-528ea37625b6/wordle_0.1.1_e2a960d8/wordle.gpr"] exited with code 4
+ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/7b3355d7-22d9-4ea5-bc10-528ea37625b6/wordle_0.1.1_e2a960d8/wordle.gpr"] exited with code 4
+stderr: ALIRE.CHECKED_ERROR
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/7b3355d7-22d9-4ea5-bc10-528ea37625b6/wordle_0.1.1_e2a960d8/wordle.gpr"] exited with code 4
+stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
+[/usr/bin/alr]
+0xe4810a Alire.Raise_Checked_Error at alire.adb:272
+0xa90404 Alire.Os_Lib.Subprocess.Checked_Spawn at alire-os_lib-subprocess.adb:111
+0xd153f3 Alire.Spawn.Command at alire-spawn.adb:21
+0xd15b11 Alire.Spawn.Gprbuild at alire-spawn.adb:41
+0xc45693 Alire.Roots.Build at alire-roots.adb:182
+0xc43936 Alire.Roots.Build at alire-roots.adb:248
+0xc6b083 Alire.Roots.Traverse at alire-roots.adb:2053
+0xcd9c00 Alire.Solutions.Traverse.Visit at alire-solutions.adb:1480
+0xcd8a70 Alire.Solutions.Traverse at alire-solutions.adb:1563
+0xc6b1be Alire.Roots.Traverse at alire-roots.adb:2057
+0xc6b3f5 Alire.Roots.Traverse at alire-roots.adb:2037
+0xc440f1 Alire.Roots.Build at alire-roots.adb:281
+0xc441d7 Alire.Roots.Build at alire-roots.adb:107
+0x4a4206 Alr.Commands.Get.Retrieve at alr-commands-get.adb:195
+0x4a87b2 Alr.Commands.Get.Execute at alr-commands-get.adb:368
+0x4a8a49 Alr.Commands.Get.Execute at alr-commands-get.adb:246
+0x53939b Alr.Commands.Sub_Cmd.Execute at clic-subcommand-instance.adb:749
+0x54587e Alr.Commands.Execute at alr-commands.adb:561
+0x436183 Alr.Main at alr-main.adb:13
+0x438de1 Main at b__alr-main.adb:2257
+[/lib/x86_64-linux-gnu/libc.so.6]
+0x7f9c1d3c6d8e
+0x7f9c1d3c6e3e
+[/usr/bin/alr]
+0x43601c _start at ???
+0xfffffffffffffffe
+
+
+Warning: wordle=0.1.1 successfully retrieved but its build failed.
+Dependencies were solved as follows:
+
+   +  aaa       0.2.6  (new)
+   +  ada_toml  0.3.0  (new,indirect)
+   +  ansiada   1.0.0  (new)
+   +b gnat      13.2.1 (new,gnat_native,indirect,binary)
+   +  resources 0.1.0  (new,indirect)
+   +  wordlelib 0.1.0  (new)
+   +  wordlist  0.1.3  (new)
+ERROR: Build ended with errors

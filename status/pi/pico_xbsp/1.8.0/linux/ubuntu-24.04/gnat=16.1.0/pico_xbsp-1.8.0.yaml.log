@@ -1,0 +1,153 @@
+Test ran at 2026-09-19 01:10:37.432159+00:00
+
+SOLUTION:
+pico_xbsp=1.8.0: Extended board support package for Raspberry Pi Pico
+Origin: source archive pico_xbsp-1.8.0.tgz at https://sourceforge.net/projects/pi-ada-tutorial/files/Alire/pico_xbsp-1.8.0.tgz with hashes sha256:bde7b8601f37d7002f7929fd003682941aa42c582e8cf268ba9139500d440c19, sha512:5807b90337e323729bc985ace234dfe51d2af190631c9829e0d7d3255c395d4dc7150b466caf9e8b845d098dd03bea2c3b90c9cea4dfe020da670ee84cc14c2c
+Properties:
+   Author: Martin Krischik <krischik@users.sourceforge.net>
+   Build Switches: 
+   Config type: Event_Log_Output : Enum (none, swd, usb, uart) default: 'none'
+   Config type: USB_RX_Buffer_Size : Integer range 64 .. 1024 default: '128'
+   Config type: USB_TX_Buffer_Size : Integer range 64 .. 1024 default: '128'
+   Config type: Variant : Enum (tasking, no_tasking) default: 'no_tasking'
+   Configuration: no modifiers
+   Description: Extended board support package for Raspberry Pi Pico
+   License: GPL-3.0-or-later
+   Long_Description: Extended board support package (XBSP) for the Raspberry Pi Pico.
+
+This crate builds upon Jeremy Grosser's official pico_bsp and adds a growing set of clean, reusable components for Ada
+developers targeting the RP2040. It is developed alongside the [Pi Ada
+Tutorial](https://pi-ada-tutorial.sourceforge.io/) but is equally suitable for any standalone embedded Ada project.
+
+Current components:
+* Pico.Analog	      - Analogue GPIO using PWM
+* Pico.Analog.RGB_LED - Analogue RGB LED control using PWM
+* Pico.Debug_IO       - Multi output interface for debug output
+* Pico.Tone	      - Square-wave tone generation using PWM
+* Pico.UART_IO	      - Simple UART text I/O for the Debug Probe (115200 8N1 on GP0/GP1)
+* Pico.USB_IO	      - Simple USB text I/O for direct connection to a PC terminal
+* Pico.Utils	      - Miscellaneous utilities
+
+The crate is available in two variants:
+* `no_tasking` (default) - small, fast, and compatible with the light runtime
+* `tasking`		 - thread-safe using protected objects (requires a tasking runtime)
+
+* Event_Log_Output
+  * "none"	- deactivate output entirely.
+  * "swd"	- use Ada.Text_IO which uses semihosting to output to GDB. Don't forget to activate with
+		  `arm semihosting enable`.
+  * "usb"	- use `Pico.USB_IO` which in turn uses `USB.Device.Serial` for output. You will need a serial terminal
+		  to read the output.
+  * "uart"	- use `Pico.UART_IO` which in turn uses `RP.UART` for output. You will need a Debug Probe or a RS232C to
+		  USB interface as well as a serial terminal to read the output.
+
+* USB_TX_Buffer_Size & USB_RX_Buffer_Size
+  Read and write buffers can be configured separately for greater flexibility.
+  The default value of 128 bytes equals two USB block sizes and enables reliable bulk transfers.
+  The minimum supported size is 64 bytes (one USB block). Larger multi-block transfers may fail if the buffer
+  is set too small.
+
+All packages include full GNATdoc annotations.
+
+Useful links:
+* [GNATdoc documentation](https://pi-ada-tutorial.sourceforge.io/gnatdoc/pico_doc)
+* [SourceForge repository](https://sourceforge.net/projects/pi-ada-tutorial/)
+* [Tutorial homepage](https://pi-ada-tutorial.sourceforge.io/)
+
+The library will continue to grow with each new tutorial chapter while remaining a clean, independent crate.
+
+   Maintainer: Martin Krischik <krischik@users.sourceforge.net>
+   Maintainers_Logins: krischik
+   Name: pico_xbsp
+   Tag: raspberry
+   Tag: pi
+   Tag: pico
+   Tag: rp2040
+   Tag: tasking
+   Tag: light-tasking
+   Tag: ada2022
+   Tag: embedded
+   Version: 1.8.0
+   Website: https://pi-ada-tutorial.sourceforge.io/
+Dependencies (direct):
+   adacl_embedded^7.1.2
+   pico_bsp^2.2
+   usb_embedded^1.0.0
+Dependencies (solution):
+   adacl_embedded=7.2.1
+   atomic=1.1.0
+   bbqueue=1.0.0
+   cortex_m=1.1.0
+   gnat=16.1.0 (gnat_arm_elf)
+   gnat_arm_elf=16.1.0
+   hal=1.0.0
+   pico_bsp=2.2.0
+   rp2040_hal=2.7.1
+   usb_embedded=1.0.1
+Dependencies (graph):
+   bbqueue=1.0.0      --> atomic=1.1.0 (^1.0.0)
+   bbqueue=1.0.0      --> gnat=16.1.0 (gnat_arm_elf) (>=10)
+   cortex_m=1.1.0     --> gnat_arm_elf=16.1.0 (>=12)
+   cortex_m=1.1.0     --> hal=1.0.0 (~0.3 | ^1.0.0)
+   pico_bsp=2.2.0     --> rp2040_hal=2.7.1 (^2)
+   pico_xbsp=1.8.0    --> adacl_embedded=7.2.1 (^7.1.2)
+   pico_xbsp=1.8.0    --> pico_bsp=2.2.0 (^2.2)
+   pico_xbsp=1.8.0    --> usb_embedded=1.0.1 (^1.0.0)
+   rp2040_hal=2.7.1   --> atomic=1.1.0 (^1)
+   rp2040_hal=2.7.1   --> cortex_m=1.1.0 (^1)
+   rp2040_hal=2.7.1   --> gnat_arm_elf=16.1.0 (>=14 & /=15.1.2)
+   rp2040_hal=2.7.1   --> hal=1.0.0 (^1)
+   rp2040_hal=2.7.1   --> usb_embedded=1.0.1 (^1)
+   usb_embedded=1.0.1 --> bbqueue=1.0.0 (^1.0.0)
+   usb_embedded=1.0.1 --> hal=1.0.0 (^1.0.0)
+
+
+LOG:
+[alr test] Testing pico_xbsp=1.8.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get pico_xbsp=1.8.0
+Note: Deploying pico_xbsp=1.8.0...
+#=#=#                                                                          
+
+######################################################################## 100.0%
+######################################################################## 100.0%
+######################################################################## 100.0%
+######################################################################## 100.0%##O#-#                                                                         
+##=O#- #                                                                       
+
+##################################################################        93.0%
+######################################################################## 100.0%
+
+pico_xbsp=1.8.0 successfully retrieved.
+Dependencies were solved as follows:
+
+   +  adacl_embedded 7.2.1  (new)
+   +  atomic         1.1.0  (new,indirect)
+   +  bbqueue        1.0.0  (new,indirect)
+   +  cortex_m       1.1.0  (new,indirect)
+   +b gnat           16.1.0 (new,gnat_arm_elf,indirect,binary)
+   +b gnat_arm_elf   16.1.0 (new,indirect,binary)
+   +  hal            1.0.0  (new,indirect)
+   +  pico_bsp       2.2.0  (new)
+   +  rp2040_hal     2.7.1  (new,indirect)
+   +  usb_embedded   1.0.1  (new)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building pico_xbsp=1.8.0/pico_xbsp.gpr...
+Setup
+   [mkdir]        object directory for project Pico_XBSP
+   [mkdir]        library directory for project Pico_XBSP
+Compile
+   [Ada]          pico_xbsp_config.ads
+   [Ada]          pico-debug_io.adb
+   [Ada]          pico-uart_io.adb
+   [Ada]          pico-usb_io.adb
+   [Ada]          pico-utils.adb
+   [Ada]          pico-analog.adb
+   [Ada]          pico-tone.adb
+   [Ada]          pico-analog-rgb_led.adb
+Build Libraries
+   [gprlib]       Pico_XBSP.lexch
+   [archive]      libPico_XBSP.a
+   [index]        libPico_XBSP.a
+Success: Build finished successfully in 0.83 seconds.
+Found declared GPR file: pico_xbsp.gpr
+[alr test] Test completed SUCCESSFULLY

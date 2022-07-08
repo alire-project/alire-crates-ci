@@ -1,0 +1,85 @@
+Test ran at 2024-10-12 00:50:25.938799+00:00
+
+SOLUTION:
+ncursesada=6.3.0: Ada binding to the ncurses text user interface library
+Origin: commit c6c68b5b2a7ac94d7fa980d2fc3e7d78c50b55e3 from https://github.com/Blady-Com/ncurses.git
+Available when: (case OS is Linux => True, Macos => True, Windows => False, others => False)
+Properties:
+   Post_Fetch run: ${CRATE_DIR}/./sh configure
+   Post_Fetch run: ${CRATE_DIR}/./make libs
+   Author: Thomas E. Dickey
+   Author: Juergen Pfeifer
+   Author: Eric S Raymond
+   Author: Alexander V Lukyanov
+   Author: Philippe Blain
+   Author: Sven Verdoolaege
+   Author: Nicolas Boulenguez
+   Description: Ada binding to the ncurses text user interface library
+   License: X11 OR MIT
+   Maintainer: Pascal Pignard <blady.net@orange.fr>
+   Maintainers_Logins: Blady-Com
+   Name: ncursesada
+   Project_File: Ada95/lib_adacurses.gpr
+   Tag: ncurses
+   Tag: binding
+   Version: 6.3.0
+   Website: https://github.com/Blady-Com/ncurses
+Dependencies (direct):
+   m4_tool*
+Dependencies (solution):
+   m4_tool=1.4.19
+Dependencies (graph):
+   ncursesada=6.3.0 --> m4_tool=1.4.19 (*)
+
+
+LOG:
+Note: Deploying ncursesada=6.3.0...
+Note: Deploying m4_tool=1.4.19...
+Note: Running post_fetch actions for ncursesada=6.3.0...
+checking for ggrep... no
+checking for grep... grep
+checking for egrep... grep -E
+Configuring NCURSES 6.3 ABI 6 (Sat Oct 12 00:50:25 UTC 2024)
+checking for package version... 6.3
+checking for package patch date... 20211021
+checking build system type... x86_64-pc-linux-gnu
+checking host system type... x86_64-pc-linux-gnu
+checking target system type... x86_64-pc-linux-gnu
+Configuring for linux-gnu
+checking for fgrep... grep -F
+checking for prefix... /usr
+checking for gnatgcc... no
+checking for gcc... gcc
+checking for C compiler default output... configure: error: C compiler cannot create executables
+stderr: Command ["sh", "configure"] exited with code 77
+stderr: ALIRE.CHECKED_ERROR
+stderr: Command ["sh", "configure"] exited with code 77
+stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
+[/home/runner/work/alire-crates-ci/alire-crates-ci/alire_install/bin/alr]
+0xd7ada2 Alire.Raise_Checked_Error at alire.adb:251
+0xa423cf Alire.Os_Lib.Subprocess.Checked_Spawn at alire-os_lib-subprocess.adb:110
+0xa4a085 Alire.Properties.Actions.Executor.Execute_Run at alire-properties-actions-executor.adb:40
+0xa4b07f Alire.Properties.Actions.Executor.Execute_Actions at alire-properties-actions-executor.adb:94
+0xa4a689 Alire.Properties.Actions.Executor.Execute_Actions at alire-properties-actions-executor.adb:58
+0xbc4d2c Alire.Roots.Deploy_Dependencies.Deploy_Release.Run_Post_Fetch at alire-roots.adb:346
+0xbc5401 Alire.Roots.Deploy_Dependencies.Deploy_Release at alire-roots.adb:377
+0xbdb95e Alire.Roots.Traverse.Traverse_Wrap at alire-roots.adb:1364
+0xc25a8b Alire.Solutions.Traverse.Visit at alire-solutions.adb:1443
+0xc246a2 Alire.Solutions.Traverse at alire-solutions.adb:1518
+0xbdbaac Alire.Roots.Traverse at alire-roots.adb:1368
+0xbc5d8e Alire.Roots.Deploy_Dependencies at alire-roots.adb:434
+0x4b0337 Alr.Commands.Get.Retrieve at alr-commands-get.adb:173
+0x4b4e77 Alr.Commands.Get.Execute at alr-commands-get.adb:348
+0x53bb7e Alr.Commands.Sub_Cmd.Execute at clic-subcommand-instance.adb:742
+0x54756f Alr.Commands.Execute at alr-commands.adb:492
+0x43cb1a Alr.Main at alr-main.adb:10
+0x43f3e7 Main at b__alr-main.adb:2132
+[/lib/x86_64-linux-gnu/libc.so.6]
+0x7f970722a1c8
+0x7f970722a289
+[/home/runner/work/alire-crates-ci/alire-crates-ci/alire_install/bin/alr]
+0x43c9f8 _start at ???
+0xfffffffffffffffe
+
+stderr: A post-fetch action failed, re-run with -vv -d for details
+ERROR: A post-fetch action failed, re-run with -vv -d for details

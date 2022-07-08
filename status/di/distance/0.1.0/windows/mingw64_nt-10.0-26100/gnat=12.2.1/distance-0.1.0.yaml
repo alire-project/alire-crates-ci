@@ -1,0 +1,502 @@
+badge: false
+crate: distance
+creation_timestamp: 1764722545.5044541
+distro: mingw64_nt-10.0-26100
+duration: 3.9220000000000255
+gnat: 12.2.1
+last_attempt: 2026-11-11 13:02:39.114166+00:00
+log:
+- 'Test ran at 2026-11-11 13:02:39.114166+00:00
+
+
+  '
+- 'SOLUTION:
+
+  '
+- 'distance=0.1.0: A formally verified library for calculating numeric, text distances
+
+  '
+- 'Origin: commit e265e32656db1284ef750cbd473db95424e5b215 from https://github.com/adarium-labs/distance.git
+
+  '
+- 'Properties:
+
+  '
+- '   Author: Heziode
+
+  '
+- '   Description: A formally verified library for calculating numeric, text distances
+
+  '
+- '   License: Apache-2.0 WITH LLVM-exception
+
+  '
+- '   Long_Description: # Distance
+
+  '
+- '
+
+  '
+- 'A formally verified Ada/SPARK library for computing distance and similarity metrics.
+
+  '
+- '
+
+  '
+- '## Features
+
+  '
+- '
+
+  '
+- '- **Numeric Distances**: Euclidean, Manhattan, Minkowski, Chebyshev, Canberra
+
+  '
+- '- **Statistical Measures**: Cosine Similarity
+
+  '
+- "- **Text Distances**: Levenshtein, Damerau-Levenshtein, Hamming, Jaro-Winkler,\
+  \ S\xF8rensen-Dice\n"
+- '
+
+  '
+- '## Highlights
+
+  '
+- '
+
+  '
+- '- Pure Ada 2012 with SPARK annotations
+
+  '
+- '- Generic implementations for flexible type support
+
+  '
+- '- No external dependencies (test suite uses AUnit)
+
+  '
+- '- Comprehensive preconditions and postconditions
+
+  '
+- '
+
+  '
+- '## Usage
+
+  '
+- '
+
+  '
+- '```ada
+
+  '
+- 'with Ada.Numerics.Elementary_Functions;
+
+  '
+- 'with Distance.Numeric.Signatures;
+
+  '
+- 'with Distance.Numeric.Euclidean_Generic;
+
+  '
+- '
+
+  '
+- 'procedure Example is
+
+  '
+- '   type Float_Vector is array (Positive range <>) of Float;
+
+  '
+- '
+
+  '
+- '   package Float_Math is new Ada.Numerics.Elementary_Functions (Float);
+
+  '
+- '   package Float_Sig is new Distance.Numeric.Signatures
+
+  '
+- '     (Element_Type => Float,
+
+  '
+- '      Zero         => 0.0,
+
+  '
+- '      One          => 1.0,
+
+  '
+- '      Sqrt         => Float_Math.Sqrt,
+
+  '
+- '      "**"         => Float_Math."**",
+
+  '
+- '      Max_Element  => Float''Last);
+
+  '
+- '
+
+  '
+- '   function Euclidean is new Distance.Numeric.Euclidean_Generic
+
+  '
+- '     (Numeric_Ops => Float_Sig, Index_Type => Positive, Vector => Float_Vector);
+
+  '
+- '
+
+  '
+- '   D : Float := Euclidean ((0.0, 0.0), (3.0, 4.0));  --  D = 5.0
+
+  '
+- 'begin
+
+  '
+- '   null;
+
+  '
+- 'end Example;
+
+  '
+- '```
+
+  '
+- '
+
+  '
+- 'For fixed-point and integer types, you can use [Spark_Math](https://github.com/adarium-labs/spark_math)
+  to provide the required operations.
+
+  '
+- '
+
+  '
+- '   Maintainer: Heziode <heziode@protonmail.com>
+
+  '
+- '   Maintainers_Logins: heziode
+
+  '
+- '   Name: distance
+
+  '
+- '   Tag: ada
+
+  '
+- '   Tag: spark
+
+  '
+- '   Tag: distance
+
+  '
+- '   Tag: metrics
+
+  '
+- '   Tag: algorithms
+
+  '
+- '   Tag: mathematics
+
+  '
+- '   Tag: string
+
+  '
+- '   Tag: similarity
+
+  '
+- '   Tag: levenshtein
+
+  '
+- '   Tag: geospatial
+
+  '
+- '   Tag: high-integrity
+
+  '
+- '   Tag: alire
+
+  '
+- '   Tag: data-science
+
+  '
+- '   Version: 0.1.0
+
+  '
+- "   Website: \n"
+- '
+
+  '
+- '
+
+  LOG:
+
+  '
+- '[alr test] Testing distance=0.1.0
+
+  '
+- '[alr test] Spawning retrieval for remote crate: alr -d -n get distance=0.1.0
+
+  '
+- 'Note: Deploying distance=0.1.0...
+
+  '
+- '
+
+  '
+- 'distance=0.1.0 successfully retrieved.
+
+  '
+- 'There are no dependencies.
+
+  '
+- '[alr test] Spawning default test for remote crate: alr -d -n build --release --
+  -cargs:Ada -gnatwn
+
+  '
+- 'Note: Building distance=0.1.0/distance.gpr...
+
+  '
+- '"obj\release" created
+
+  '
+- '"lib" created
+
+  '
+- '[Ada Compile]     distance-numeric-canberra_generic.adb
+
+  '
+- '[Ada Compile]     distance-numeric-chebyshev_generic.adb
+
+  '
+- '[Ada Compile]     distance-numeric-euclidean_generic.adb
+
+  '
+- '[Ada Compile]     distance-numeric-manhattan_generic.adb
+
+  '
+- 'distance-numeric-canberra_generic.adb:28:07: error: pragma "Loop_Invariant" must
+  appear next to pragma at line 21
+
+  '
+- 'distance.gpr: error: [Ada Compile] distance-numeric-canberra_generic.adb (distance.gpr)
+  failed with status 1
+
+  '
+- 'distance-numeric-chebyshev_generic.adb:27:07: error: pragma "Loop_Invariant" must
+  appear next to pragma at line 20
+
+  '
+- 'distance.gpr: error: [Ada Compile] distance-numeric-chebyshev_generic.adb (distance.gpr)
+  failed with status 1
+
+  '
+- 'distance-numeric-euclidean_generic.adb:26:07: error: pragma "Loop_Invariant" must
+  appear next to pragma at line 19
+
+  '
+- 'distance-numeric-euclidean_generic.adb:33:07: error: pragma "Loop_Invariant" must
+  appear next to pragma at line 19
+
+  '
+- 'distance.gpr: error: [Ada Compile] distance-numeric-euclidean_generic.adb (distance.gpr)
+  failed with status 1
+
+  '
+- 'distance-numeric-manhattan_generic.adb:26:07: error: pragma "Loop_Invariant" must
+  appear next to pragma at line 19
+
+  '
+- 'distance.gpr: error: [Ada Compile] distance-numeric-manhattan_generic.adb (distance.gpr)
+  failed with status 1
+
+  '
+- 'stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "D:\a\alire-crates-ci\alire-crates-ci\test\cad5c99d-693c-4d89-9019-ea6f26e77480\distance_0.1.0_e265e326\distance.gpr",
+  "-cargs:Ada", "-gnatwn"] exited with code 4
+
+  '
+- 'ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "D:\a\alire-crates-ci\alire-crates-ci\test\cad5c99d-693c-4d89-9019-ea6f26e77480\distance_0.1.0_e265e326\distance.gpr",
+  "-cargs:Ada", "-gnatwn"] exited with code 4
+
+  '
+- 'stderr: ALIRE.CHECKED_ERROR
+
+  '
+- 'stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "D:\a\alire-crates-ci\alire-crates-ci\test\cad5c99d-693c-4d89-9019-ea6f26e77480\distance_0.1.0_e265e326\distance.gpr",
+  "-cargs:Ada", "-gnatwn"] exited with code 4
+
+  '
+- 'stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
+
+  '
+- '[D:\a\alire-crates-ci\alire-crates-ci\alire_install\bin\alr.exe]
+
+  '
+- '0x7ff63836da2a Semantic_Versioning.Basic.Restrictions.First_Index at alire.adb:284
+
+  '
+- '0x7ff637f6595b Semantic_Versioning.Basic.Restrictions.First_Index at alire-os_lib-subprocess.adb:111
+
+  '
+- '0x7ff63821cba1 Semantic_Versioning.Basic.Restrictions.First_Index at alire-spawn.adb:22
+
+  '
+- '0x7ff63821dd5d Semantic_Versioning.Basic.Restrictions.First_Index at alire-spawn.adb:68
+
+  '
+- '0x7ff638142d64 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:189
+
+  '
+- '0x7ff6381411da Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:255
+
+  '
+- '0x7ff63816912d Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2143
+
+  '
+- '0x7ff6381d82f9 Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1472
+
+  '
+- '0x7ff6381d7424 Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1555
+
+  '
+- '0x7ff63816922c Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2147
+
+  '
+- '0x7ff6381692fa Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2127
+
+  '
+- '0x7ff6381417a7 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:286
+
+  '
+- '0x7ff638141912 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:114
+
+  '
+- '0x7ff6378b3baa Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:145
+
+  '
+- '0x7ff6378b341e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:113
+
+  '
+- '0x7ff6378b35ba Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:54
+
+  '
+- '0x7ff637965dea Semantic_Versioning.Basic.Restrictions.First_Index at clic-subcommand-instance.adb:749
+
+  '
+- '0x7ff637972b0e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands.adb:632
+
+  '
+- '0x7ff6378416a0 Alr.Main at alr-main.adb:13
+
+  '
+- '0x7ff637845270 Main at b__alr-main.adb:2454
+
+  '
+- '0x7ff63784133e __tmainCRTStartup at ???
+
+  '
+- '0x7ff637841144 mainCRTStartup at ???
+
+  '
+- '[C:\Windows\System32\KERNEL32.DLL]
+
+  '
+- '0x7ffaa817dd35
+
+  '
+- '[C:\Windows\SYSTEM32\ntdll.dll]
+
+  '
+- '0x7ffaa9dbf2ba
+
+  '
+- '
+
+  '
+- 'stderr: ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED
+
+  '
+- 'stderr: alire-roots.adb:202
+
+  '
+- 'stderr: raised ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED : alire-roots.adb:202
+
+  '
+- '[D:\a\alire-crates-ci\alire-crates-ci\alire_install\bin\alr.exe]
+
+  '
+- '0x7ff63814313c Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:202
+
+  '
+- '0x7ff6381411da Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:255
+
+  '
+- '0x7ff63816912d Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2143
+
+  '
+- '0x7ff6381d82f9 Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1472
+
+  '
+- '0x7ff6381d7424 Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1555
+
+  '
+- '0x7ff63816922c Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2147
+
+  '
+- '0x7ff6381692fa Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2127
+
+  '
+- '0x7ff6381417a7 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:286
+
+  '
+- '0x7ff638141912 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:114
+
+  '
+- '0x7ff6378b3baa Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:145
+
+  '
+- '0x7ff6378b341e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:113
+
+  '
+- '0x7ff6378b35ba Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:54
+
+  '
+- '0x7ff637965dea Semantic_Versioning.Basic.Restrictions.First_Index at clic-subcommand-instance.adb:749
+
+  '
+- '0x7ff637972b0e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands.adb:632
+
+  '
+- '0x7ff6378416a0 Alr.Main at alr-main.adb:13
+
+  '
+- '0x7ff637845270 Main at b__alr-main.adb:2454
+
+  '
+- '0x7ff63784133e __tmainCRTStartup at ???
+
+  '
+- '0x7ff637841144 mainCRTStartup at ???
+
+  '
+- '[C:\Windows\System32\KERNEL32.DLL]
+
+  '
+- '0x7ffaa817dd35
+
+  '
+- '[C:\Windows\SYSTEM32\ntdll.dll]
+
+  '
+- '0x7ffaa9dbf2ba
+
+  '
+- '
+
+  '
+- 'ERROR: Compilation failed.
+
+  '
+platform: windows
+status: failing
+version: 0.1.0

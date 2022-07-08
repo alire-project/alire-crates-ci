@@ -1,0 +1,2574 @@
+badge: true
+badge_color: green
+crate: pico_ada_c05_rgb
+creation_timestamp: 1777122888.3367007
+distro: debian-13
+duration: 31.933759735999956
+gnat: 15.2.1
+last_attempt: 2026-04-27 01:24:03.753337+00:00
+log:
+- 'Test ran at 2026-04-27 01:24:03.753303+00:00
+
+
+  '
+- 'SOLUTION:
+
+  '
+- 'pico_ada_c05_rgb=1.5.2: Chapter 5: Controlling an RGB LED with PWM
+
+  '
+- 'Origin: source archive pico_ada_c05_rgb-1.5.2.tgz at https://sourceforge.net/projects/pi-ada-tutorial/files/Alire/pico_ada_c05_rgb-1.5.2.tgz
+  with hashes sha256:38e197d0eb80efa9b428967aa313841cb733279422a30a19427900b3ff087337,
+  sha512:aad119e7df8f299c57c86c85716d8ce93ec33e9760a50d9879779339bfd8a2368fbef471e8329088e2a2b666ca91c4cc81491d55817a5a463474f0834e1ce4d0
+
+  '
+- 'Properties:
+
+  '
+- '   Author: Martin Krischik <krischik@users.sourceforge.net>
+
+  '
+- "   Build Switches: \n"
+- '   Config set: embedded_rp2040 {Board := rpi_pico, Max_CPUs := 2}
+
+  '
+- '   Config set: rp2040_hal {Interrupts := bb_runtimes, Use_Startup := false}
+
+  '
+- '   Configuration: no modifiers
+
+  '
+- '   Description: Chapter 5: Controlling an RGB LED with PWM
+
+  '
+- '   Executable: sketch_05_1_random_color_light
+
+  '
+- '   Executable: sketch_05_2_gradient_color_light
+
+  '
+- '   License: GPL-3.0-or-later
+
+  '
+- '   Long_Description: Learn how to drive a common-cathode RGB LED using the RP2040''s
+  PWM peripherals.
+
+  '
+- 'This chapter introduces a reusable Ada package for colour control and demonstrates
+  both random colours and a smooth
+
+  '
+- 'colour-wheel gradient.
+
+  '
+- '
+
+  '
+- 'Extend the simple LED examples to full-colour control with an RGB LED. Create a
+  reusable `Pico.Analog.RGB_LED` package
+
+  '
+- 'and explore two sketches: random colours (using the embedded runtime) and a smooth
+  colour-wheel transition.
+
+  '
+- '
+
+  '
+- 'Contained in Chapter 05 are:
+
+  '
+- '
+
+  '
+- '2. sketch_05_1_random_color_light.adb   - Chapter 5.1 Random Color Light
+
+  '
+- '3. sketch_05_2_gradient_color_light.adb - Chapter 5.2 Gradient Color Light
+
+  '
+- '
+
+  '
+- 'Read the full tutorial at [Chapter 5: Controlling an RGB LED with
+
+  '
+- 'PWM](https://pi-ada-tutorial.sourceforge.io/pico_ada_c05_rgb), [GNATdoc
+
+  '
+- 'documentation](https://pi-ada-tutorial.sourceforge.io/gnatdoc/pico_ada_c05_rgb/),
+  [SourceForge
+
+  '
+- 'repository](https://sourceforge.net/p/pi-ada-tutorial/code/ci/master/tree/pico_ada_c05_rgb/)
+
+  '
+- '
+
+  '
+- '   Maintainer: Martin Krischik <krischik@users.sourceforge.net>
+
+  '
+- '   Maintainers_Logins: krischik
+
+  '
+- '   Name: pico_ada_c05_rgb
+
+  '
+- '   Tag: raspberry
+
+  '
+- '   Tag: pi
+
+  '
+- '   Tag: pico
+
+  '
+- '   Tag: rp2040
+
+  '
+- '   Tag: tasking
+
+  '
+- '   Tag: light-tasking
+
+  '
+- '   Tag: ada2022
+
+  '
+- '   Tag: embedded
+
+  '
+- '   Version: 1.5.2
+
+  '
+- '   Website: https://pi-ada-tutorial.sourceforge.io/pico_ada_c05_rgb
+
+  '
+- 'Dependencies (direct):
+
+  '
+- '   embedded_rp2040^15.3
+
+  '
+- '   pico_bsp^2.2
+
+  '
+- '   pico_xbsp^1.5
+
+  '
+- '   rp2040_hal^2.7.1
+
+  '
+- 'Dependencies (solution):
+
+  '
+- '   atomic=1.1.0
+
+  '
+- '   bbqueue=1.0.0
+
+  '
+- '   cortex_m=1.1.0
+
+  '
+- '   embedded_rp2040=15.3.0
+
+  '
+- '   gnat=15.2.1 (gnat_arm_elf)
+
+  '
+- '   gnat_arm_elf=15.2.1
+
+  '
+- '   hal=1.0.0
+
+  '
+- '   pico_bsp=2.2.0
+
+  '
+- '   pico_xbsp=1.5.2
+
+  '
+- '   rp2040_hal=2.7.1
+
+  '
+- '   usb_embedded=1.0.1
+
+  '
+- 'Dependencies (graph):
+
+  '
+- '   bbqueue=1.0.0          --> atomic=1.1.0 (^1.0.0)
+
+  '
+- '   bbqueue=1.0.0          --> gnat=15.2.1 (gnat_arm_elf) (>=10)
+
+  '
+- '   cortex_m=1.1.0         --> gnat_arm_elf=15.2.1 (>=12)
+
+  '
+- '   cortex_m=1.1.0         --> hal=1.0.0 (~0.3 | ^1.0.0)
+
+  '
+- '   embedded_rp2040=15.3.0 --> gnat_arm_elf=15.2.1 (^15)
+
+  '
+- '   pico_ada_c05_rgb=1.5.2 --> embedded_rp2040=15.3.0 (^15.3)
+
+  '
+- '   pico_ada_c05_rgb=1.5.2 --> pico_bsp=2.2.0 (^2.2)
+
+  '
+- '   pico_ada_c05_rgb=1.5.2 --> pico_xbsp=1.5.2 (^1.5)
+
+  '
+- '   pico_ada_c05_rgb=1.5.2 --> rp2040_hal=2.7.1 (^2.7.1)
+
+  '
+- '   pico_bsp=2.2.0         --> rp2040_hal=2.7.1 (^2)
+
+  '
+- '   pico_xbsp=1.5.2        --> pico_bsp=2.2.0 (^2.2)
+
+  '
+- '   rp2040_hal=2.7.1       --> atomic=1.1.0 (^1)
+
+  '
+- '   rp2040_hal=2.7.1       --> cortex_m=1.1.0 (^1)
+
+  '
+- '   rp2040_hal=2.7.1       --> gnat_arm_elf=15.2.1 (>=14 & /=15.1.2)
+
+  '
+- '   rp2040_hal=2.7.1       --> hal=1.0.0 (^1)
+
+  '
+- '   rp2040_hal=2.7.1       --> usb_embedded=1.0.1 (^1)
+
+  '
+- '   usb_embedded=1.0.1     --> bbqueue=1.0.0 (^1.0.0)
+
+  '
+- '   usb_embedded=1.0.1     --> hal=1.0.0 (^1.0.0)
+
+  '
+- '
+
+  '
+- '
+
+  LOG:
+
+  '
+- '[alr test] Testing pico_ada_c05_rgb=1.5.2
+
+  '
+- '[alr test] Spawning retrieval for remote crate: alr -d -n get pico_ada_c05_rgb=1.5.2
+
+  '
+- 'Note: Deploying pico_ada_c05_rgb=1.5.2...
+
+  '
+- '
+
+  '
+- '######################################################################## 100.0%
+
+  '
+- '######################################################################## 100.0%
+
+  '
+- '######################################################################## 100.0%
+
+  '
+- '######################################################################## 100.0%
+
+  '
+- '######################################################################## 100.0%
+
+  '
+- '
+
+  '
+- 'pico_ada_c05_rgb=1.5.2 successfully retrieved.
+
+  '
+- 'Dependencies were solved as follows:
+
+  '
+- '
+
+  '
+- '   +  atomic          1.1.0  (new,indirect)
+
+  '
+- '   +  bbqueue         1.0.0  (new,indirect)
+
+  '
+- '   +  cortex_m        1.1.0  (new,indirect)
+
+  '
+- '   +  embedded_rp2040 15.3.0 (new)
+
+  '
+- '   +b gnat            15.2.1 (new,gnat_arm_elf,indirect,binary)
+
+  '
+- '   +b gnat_arm_elf    15.2.1 (new,indirect,binary)
+
+  '
+- '   +  hal             1.0.0  (new,indirect)
+
+  '
+- '   +  pico_bsp        2.2.0  (new)
+
+  '
+- '   +  pico_xbsp       1.5.2  (new)
+
+  '
+- '   +  rp2040_hal      2.7.1  (new)
+
+  '
+- '   +  usb_embedded    1.0.1  (new,indirect)
+
+  '
+- '[alr test] Spawning default test for remote crate: alr -d -n build --release --
+  -cargs:Ada -gnatwn
+
+  '
+- 'Note: Building pico_ada_c05_rgb=1.5.2/pico_ada_c05_rgb.gpr...
+
+  '
+- 'Setup
+
+  '
+- '   [mkdir]        object directory for project Runtime_Build
+
+  '
+- '   [mkdir]        library directory for project Runtime_Build
+
+  '
+- '   [mkdir]        object directory for project Pico_Ada_C05_RGB
+
+  '
+- '   [mkdir]        exec directory for project Pico_Ada_C05_RGB
+
+  '
+- 'Compile
+
+  '
+- '   [Ada]          sketch_05_1_random_color_light.adb
+
+  '
+- '   [Ada]          sketch_05_2_gradient_color_light.adb
+
+  '
+- '   [C]            raise-gcc.c
+
+  '
+- '   [C]            newlib-bb.c
+
+  '
+- '   [C]            adaint-xi.c
+
+  '
+- '   [Asm_Cpp]      start-rom.S
+
+  '
+- '   [Asm_Cpp]      boot2-w25qxx.S
+
+  '
+- '   [Ada]          s-exnllf.ads
+
+  '
+- '   [Ada]          a-nudira.adb
+
+  '
+- '   [Ada]          a-strmap.adb
+
+  '
+- '   [Ada]          g-shshco.adb
+
+  '
+- '   [Ada]          s-shabig.ads
+
+  '
+- '   [Ada]          a-nselfu.ads
+
+  '
+- '   [Ada]          a-costso.adb
+
+  '
+- '   [Ada]          a-nbnbig.adb
+
+  '
+- '   [Ada]          s-pack62.adb
+
+  '
+- '   [Ada]          a-stunha.adb
+
+  '
+- '   [Ada]          s-pack58.adb
+
+  '
+- '   [Ada]          a-ciormu.adb
+
+  '
+- '   [Ada]          a-sulcin.adb
+
+  '
+- '   [Ada]          g-cpp.ads
+
+  '
+- '   [Ada]          a-coinve.adb
+
+  '
+- '   [Ada]          interfac.ads
+
+  '
+- '   [Ada]          a-chacon.adb
+
+  '
+- '   [Ada]          a-ioexce.ads
+
+  '
+- '   [Ada]          s-genbig.adb
+
+  '
+- '   [Ada]          a-chzla1.ads
+
+  '
+- '   [Ada]          s-fore_d.adb
+
+  '
+- '   [Ada]          s-valuen.adb
+
+  '
+- '   [Ada]          g-casuti.adb
+
+  '
+- '   [Ada]          g-dyntab.adb
+
+  '
+- '   [Ada]          a-numeri.ads
+
+  '
+- '   [Ada]          s-pack54.adb
+
+  '
+- '   [Ada]          a-swunau.adb
+
+  '
+- '   [Ada]          s-pack43.adb
+
+  '
+- '   [Ada]          g-io.adb
+
+  '
+- '   [Ada]          s-imfi32.ads
+
+  '
+- '   [Ada]          g-except.ads
+
+  '
+- '   [Ada]          a-nurear.ads
+
+  '
+- '   [Ada]          a-stbubo.adb
+
+  '
+- '   [Ada]          g-wistsp.ads
+
+  '
+- '   [Ada]          s-htable.adb
+
+  '
+- '   [Ada]          a-cohase.adb
+
+  '
+- '   [Ada]          s-statxd.adb
+
+  '
+- '   [Ada]          s-pack45.adb
+
+  '
+- '   [Ada]          s-pack03.adb
+
+  '
+- '   [Ada]          s-widenu.adb
+
+  '
+- '   [Ada]          a-cohata.ads
+
+  '
+- '   [Ada]          g-hesora.adb
+
+  '
+- '   [Ada]          s-pack29.adb
+
+  '
+- '   [Ada]          s-spark.ads
+
+  '
+- '   [Ada]          a-stzsea.adb
+
+  '
+- '   [Ada]          s-valspe.adb
+
+  '
+- '   [Ada]          a-ngrear.adb
+
+  '
+- '   [Ada]          a-strsea.adb
+
+  '
+- '   [Ada]          g-sha512.ads
+
+  '
+- '   [Ada]          a-suhcin.adb
+
+  '
+- '   [Ada]          a-nllefu.ads
+
+  '
+- '   [Ada]          s-fofi32.ads
+
+  '
+- '   [Ada]          gnat.ads
+
+  '
+- '   [Ada]          s-pack41.adb
+
+  '
+- '   [Ada]          a-cbhase.adb
+
+  '
+- '   [Ada]          s-traceb.adb
+
+  '
+- '   [Ada]          s-restri.adb
+
+  '
+- '   [Ada]          s-pack51.adb
+
+  '
+- '   [Ada]          a-einuoc.adb
+
+  '
+- '   [Ada]          s-casi64.adb
+
+  '
+- '   [Ada]          g-souinf.ads
+
+  '
+- '   [Ada]          s-pack57.adb
+
+  '
+- '   [Ada]          a-ngcoar.adb
+
+  '
+- '   [Ada]          s-widwch.adb
+
+  '
+- '   [Ada]          g-comver.adb
+
+  '
+- '   [Ada]          s-valflt.ads
+
+  '
+- '   [Ada]          a-coprnu.adb
+
+  '
+- '   [Ada]          s-pack34.adb
+
+  '
+- '   [Ada]          s-imgflt.ads
+
+  '
+- '   [Ada]          a-chlat1.ads
+
+  '
+- '   [Ada]          a-swfwha.ads
+
+  '
+- '   [Ada]          unchconv.ads
+
+  '
+- '   [Ada]          a-swuwha.adb
+
+  '
+- '   [Ada]          s-mantis.adb
+
+  '
+- '   [Ada]          s-lidosq.adb
+
+  '
+- '   [Ada]          g-table.adb
+
+  '
+- '   [Ada]          s-vafi64.ads
+
+  '
+- '   [Ada]          a-ncelfu.ads
+
+  '
+- '   [Ada]          a-zchara.ads
+
+  '
+- '   [Ada]          s-imgboo.adb
+
+  '
+- '   [Ada]          a-stfiha.ads
+
+  '
+- '   [Ada]          s-bb.ads
+
+  '
+- '   [Ada]          s-pack05.adb
+
+  '
+- '   [Ada]          a-nubinu.ads
+
+  '
+- '   [Ada]          a-coorse.adb
+
+  '
+- '   [Ada]          a-stzhas.adb
+
+  '
+- '   [Ada]          s-regexp.adb
+
+  '
+- '   [Ada]          s-carsi8.adb
+
+  '
+- '   [Ada]          a-suenco.adb
+
+  '
+- '   [Ada]          a-coboho.adb
+
+  '
+- '   [Ada]          s-imfi64.ads
+
+  '
+- '   [Ada]          a-nllcty.ads
+
+  '
+- '   [Ada]          g-shsh32.adb
+
+  '
+- '   [Ada]          a-suenst.adb
+
+  '
+- '   [Ada]          s-valllf.ads
+
+  '
+- '   [Ada]          s-expmod.adb
+
+  '
+- '   [Ada]          s-lisisq.adb
+
+  '
+- '   [Ada]          i-cobol.adb
+
+  '
+- '   [Ada]          s-imagen.adb
+
+  '
+- '   [Ada]          s-wwdenu.adb
+
+  '
+- '   [Ada]          s-wchwts.adb
+
+  '
+- '   [Ada]          i-fortra.adb
+
+  '
+- '   [Ada]          s-bbrpat.adb
+
+  '
+- '   [Ada]          a-suezst.adb
+
+  '
+- '   [Ada]          s-exnlli.ads
+
+  '
+- '   [Ada]          a-sfhcin.ads
+
+  '
+- '   [Ada]          s-powlfl.ads
+
+  '
+- '   [Ada]          a-stuten.adb
+
+  '
+- '   [Ada]          s-widlli.ads
+
+  '
+- '   [Ada]          a-nucoty.ads
+
+  '
+- '   [Ada]          a-cborse.adb
+
+  '
+- '   [Ada]          s-vs_lli.ads
+
+  '
+- '   [Ada]          s-caun64.adb
+
+  '
+- '   [Ada]          s-pack37.adb
+
+  '
+- '   [Ada]          s-geveop.adb
+
+  '
+- '   [Ada]          s-rident.ads
+
+  '
+- '   [Ada]          a-strsup.adb
+
+  '
+- '   [Ada]          s-wchjis.adb
+
+  '
+- '   [Ada]          s-vaispe.adb
+
+  '
+- '   [Ada]          a-stzsup.adb
+
+  '
+- '   [Ada]          a-coormu.adb
+
+  '
+- '   [Ada]          s-bootro.adb
+
+  '
+- '   [Ada]          s-stache.adb
+
+  '
+- '   [Ada]          s-valrea.adb
+
+  '
+- '   [Ada]          g-bytswa.adb
+
+  '
+- '   [Ada]          i-cpoint.adb
+
+  '
+- '   [Ada]          s-wchcon.adb
+
+  '
+- '   [Ada]          s-carun8.adb
+
+  '
+- '   [Ada]          a-szuzha.adb
+
+  '
+- '   [Ada]          a-conhel.adb
+
+  '
+- '   [Ada]          s-oslock.ads
+
+  '
+- '   [Ada]          system.ads
+
+  '
+- '   [Ada]          s-textio.adb
+
+  '
+- '   [Ada]          unchdeal.ads
+
+  '
+- '   [Ada]          g-md5.adb
+
+  '
+- '   [Ada]          s-assert.adb
+
+  '
+- '   [Ada]          s-pack20.adb
+
+  '
+- '   [Ada]          a-suecin.adb
+
+  '
+- '   [Ada]          s-pack25.adb
+
+  '
+- '   [Ada]          a-exctra.adb
+
+  '
+- '   [Ada]          g-sha384.ads
+
+  '
+- '   [Ada]          g-cppexc.adb
+
+  '
+- '   [Ada]          a-contai.ads
+
+  '
+- '   [Ada]          a-ciorma.adb
+
+  '
+- '   [Ada]          g-regexp.ads
+
+  '
+- '   [Ada]          s-gcmain.adb
+
+  '
+- '   [Ada]          g-heasor.adb
+
+  '
+- '   [Ada]          a-nlelfu.ads
+
+  '
+- '   [Ada]          s-valueu.adb
+
+  '
+- '   [Ada]          a-secain.adb
+
+  '
+- '   [Ada]          s-spcuop.adb
+
+  '
+- '   [Ada]          s-widcha.adb
+
+  '
+- '   [Ada]          s-pooloc.adb
+
+  '
+- '   [Ada]          a-calend.adb
+
+  '
+- '   [Ada]          s-imad32.ads
+
+  '
+- '   [Ada]          s-exnlfl.ads
+
+  '
+- '   [Ada]          s-widint.ads
+
+  '
+- '   [Ada]          g-bubsor.adb
+
+  '
+- '   [Ada]          a-cborma.adb
+
+  '
+- '   [Ada]          a-zchhan.adb
+
+  '
+- '   [Ada]          s-exponu.adb
+
+  '
+- '   [Ada]          s-pack21.adb
+
+  '
+- '   [Ada]          g-strspl.ads
+
+  '
+- '   [Ada]          a-cbhama.adb
+
+  '
+- '   [Ada]          s-addima.adb
+
+  '
+- '   [Ada]          s-valllu.ads
+
+  '
+- '   [Ada]          s-imgllw.ads
+
+  '
+- '   [Ada]          a-rbtgso.adb
+
+  '
+- '   [Ada]          s-imglfl.ads
+
+  '
+- '   [Ada]          s-valuef.adb
+
+  '
+- '   [Ada]          g-sha224.ads
+
+  '
+- '   [Ada]          s-fofi64.ads
+
+  '
+- '   [Ada]          s-imgllu.ads
+
+  '
+- '   [Ada]          a-crbtgo.adb
+
+  '
+- '   [Ada]          s-poosiz.adb
+
+  '
+- '   [Ada]          s-pack26.adb
+
+  '
+- '   [Ada]          s-imagei.adb
+
+  '
+- '   [Ada]          a-textio.adb
+
+  '
+- '   [Ada]          a-rbtgbo.adb
+
+  '
+- '   [Ada]          s-wwdwch.adb
+
+  '
+- '   [Ada]          a-stzmap.adb
+
+  '
+- '   [Ada]          a-nllcar.ads
+
+  '
+- '   [Ada]          s-vaen32.ads
+
+  '
+- '   [Ada]          a-szmzco.ads
+
+  '
+- '   [Ada]          s-imde64.ads
+
+  '
+- '   [Ada]          s-wwdcha.adb
+
+  '
+- '   [Ada]          a-stunau.adb
+
+  '
+- '   [Ada]          a-assert.adb
+
+  '
+- '   [Ada]          s-pack59.adb
+
+  '
+- '   [Ada]          s-pack17.adb
+
+  '
+- '   [Ada]          s-bytswa.ads
+
+  '
+- '   [Ada]          s-stalib.adb
+
+  '
+- '   [Ada]          s-crc32.adb
+
+  '
+- '   [Ada]          machcode.ads
+
+  '
+- '   [Ada]          s-memory.adb
+
+  '
+- '   [Ada]          a-cbdlli.adb
+
+  '
+- '   [Ada]          a-iteint.ads
+
+  '
+- '   [Ada]          s-pack09.adb
+
+  '
+- '   [Ada]          s-widuns.ads
+
+  '
+- '   [Ada]          s-libsin.adb
+
+  '
+- '   [Ada]          ada.ads
+
+  '
+- '   [Ada]          a-nuelfu.ads
+
+  '
+- '   [Ada]          g-sha256.ads
+
+  '
+- '   [Ada]          s-fatflt.ads
+
+  '
+- '   [Ada]          a-strhas.adb
+
+  '
+- '   [Ada]          s-pack27.adb
+
+  '
+- '   [Ada]          g-debuti.adb
+
+  '
+- '   [Ada]          a-szfzha.ads
+
+  '
+- '   [Ada]          a-stzbou.adb
+
+  '
+- '   [Ada]          s-vallli.ads
+
+  '
+- '   [Ada]          s-vafi32.ads
+
+  '
+- '   [Ada]          s-fode64.ads
+
+  '
+- '   [Ada]          a-decima.adb
+
+  '
+- '   [Ada]          a-stzunb.adb
+
+  '
+- '   [Ada]          s-imen32.ads
+
+  '
+- '   [Ada]          s-imad64.ads
+
+  '
+- '   [Ada]          a-ciorse.adb
+
+  '
+- '   [Ada]          s-fatllf.ads
+
+  '
+- '   [Ada]          s-pack15.adb
+
+  '
+- '   [Ada]          s-imagea.adb
+
+  '
+- '   [Ada]          a-undesu.adb
+
+  '
+- '   [Ada]          s-imaged.adb
+
+  '
+- '   [Ada]          a-strbou.adb
+
+  '
+- '   [Ada]          a-nlcoty.ads
+
+  '
+- '   [Ada]          i-pacdec.adb
+
+  '
+- '   [Ada]          a-cihama.adb
+
+  '
+- '   [Ada]          g-moreex.adb
+
+  '
+- '   [Ada]          a-sfecin.ads
+
+  '
+- '   [Ada]          s-exponr.adb
+
+  '
+- '   [Ada]          s-arit32.adb
+
+  '
+- '   [Ada]          text_io.ads
+
+  '
+- '   [Ada]          g-tasloc.ads
+
+  '
+- '   [Ada]          a-except.adb
+
+  '
+- '   [Ada]          s-pack18.adb
+
+  '
+- '   [Ada]          s-bbmcpa.ads
+
+  '
+- '   [Ada]          s-valuns.ads
+
+  '
+- '   [Ada]          s-fatlfl.ads
+
+  '
+- '   [Ada]          a-sblcin.adb
+
+  '
+- '   [Ada]          a-chtgbo.adb
+
+  '
+- '   [Ada]          s-fatgen.adb
+
+  '
+- '   [Ada]          a-chtgbk.adb
+
+  '
+- '   [Ada]          s-bbbopa.ads
+
+  '
+- '   [Ada]          ioexcept.ads
+
+  '
+- '   [Ada]          g-string.ads
+
+  '
+- '   [Ada]          s-flocon.adb
+
+  '
+- '   [Ada]          s-fode32.ads
+
+  '
+- '   [Ada]          a-csquin.ads
+
+  '
+- '   [Ada]          s-valued.adb
+
+  '
+- '   [Ada]          a-nscoty.ads
+
+  '
+- '   [Ada]          s-utf_32.adb
+
+  '
+- '   [Ada]          s-aridou.adb
+
+  '
+- '   [Ada]          a-sttebu.adb
+
+  '
+- '   [Ada]          a-ngcoty.adb
+
+  '
+- '   [Ada]          s-chepoo.ads
+
+  '
+- '   [Ada]          s-strhas.adb
+
+  '
+- '   [Ada]          a-charac.ads
+
+  '
+- '   [Ada]          s-forrea.adb
+
+  '
+- '   [Ada]          s-valint.ads
+
+  '
+- '   [Ada]          s-pack07.adb
+
+  '
+- '   [Ada]          s-caun32.adb
+
+  '
+- '   [Ada]          a-stwisu.adb
+
+  '
+- '   [Ada]          a-slcain.adb
+
+  '
+- '   [Ada]          s-secsta.adb
+
+  '
+- '   [Ada]          g-crc32.adb
+
+  '
+- '   [Ada]          s-gearop.adb
+
+  '
+- '   [Ada]          a-cohama.adb
+
+  '
+- '   [Ada]          a-tags.adb
+
+  '
+- '   [Ada]          s-ransee.adb
+
+  '
+- '   [Ada]          s-casuti.adb
+
+  '
+- '   [Ada]          s-excmac.adb
+
+  '
+- '   [Ada]          s-pack30.adb
+
+  '
+- '   [Ada]          s-pack38.adb
+
+  '
+- '   [Ada]          s-expllu.ads
+
+  '
+- '   [Ada]          s-expint.ads
+
+  '
+- '   [Ada]          s-fore_f.adb
+
+  '
+- '   [Ada]          s-imgint.ads
+
+  '
+- '   [Ada]          s-veboop.adb
+
+  '
+- '   [Ada]          s-expuns.ads
+
+  '
+- '   [Ada]          s-mastop.adb
+
+  '
+- '   [Ada]          a-ngelfu.adb
+
+  '
+- '   [Ada]          a-wichun.adb
+
+  '
+- '   [Ada]          s-pack44.adb
+
+  '
+- '   [Ada]          s-addope.adb
+
+  '
+- '   [Ada]          s-imagef.adb
+
+  '
+- '   [Ada]          s-pack36.adb
+
+  '
+- '   [Ada]          s-vade64.ads
+
+  '
+- '   [Ada]          s-finroo.adb
+
+  '
+- '   [Ada]          a-stboha.adb
+
+  '
+- '   [Ada]          a-crbltr.ads
+
+  '
+- '   [Ada]          s-io.adb
+
+  '
+- '   [Ada]          s-pack47.adb
+
+  '
+- '   [Ada]          g-sehamd.adb
+
+  '
+- '   [Ada]          a-finali.adb
+
+  '
+- '   [Ada]          s-caun16.adb
+
+  '
+- '   [Ada]          a-strunb.adb
+
+  '
+- '   [Ada]          s-exctab.adb
+
+  '
+- '   [Ada]          s-widthu.adb
+
+  '
+- '   [Ada]          s-libdou.adb
+
+  '
+- '   [Ada]          s-imgcha.adb
+
+  '
+- '   [Ada]          s-pack06.adb
+
+  '
+- '   [Ada]          s-bbpara.ads
+
+  '
+- '   [Ada]          g-sha1.adb
+
+  '
+- '   [Ada]          a-crdlli.adb
+
+  '
+- '   [Ada]          s-imager.adb
+
+  '
+- '   [Ada]          s-pack23.adb
+
+  '
+- '   [Ada]          s-imguns.ads
+
+  '
+- '   [Ada]          a-stmaco.ads
+
+  '
+- '   [Ada]          s-pack13.adb
+
+  '
+- '   [Ada]          s-imen16.ads
+
+  '
+- '   [Ada]          g-hesorg.adb
+
+  '
+- '   [Ada]          a-cihase.adb
+
+  '
+- '   [Ada]          a-nllrar.ads
+
+  '
+- '   [Ada]          s-pack53.adb
+
+  '
+- '   [Ada]          s-vector.ads
+
+  '
+- '   [Ada]          s-valwch.adb
+
+  '
+- '   [Ada]          s-finpri.adb
+
+  '
+- '   [Ada]          i-cstrin.adb
+
+  '
+- '   [Ada]          s-pack28.adb
+
+  '
+- '   [Ada]          a-cwila1.ads
+
+  '
+- '   [Ada]          a-stbuun.adb
+
+  '
+- '   [Ada]          g-busora.adb
+
+  '
+- '   [Ada]          a-storio.adb
+
+  '
+- '   [Ada]          a-chzla9.ads
+
+  '
+- '   [Ada]          s-libm.adb
+
+  '
+- '   [Ada]          a-szunau.adb
+
+  '
+- '   [Ada]          s-widboo.adb
+
+  '
+- '   [Ada]          s-pack46.adb
+
+  '
+- '   [Ada]          s-valuei.adb
+
+  '
+- '   [Ada]          a-elchha.adb
+
+  '
+- '   [Ada]          s-vauspe.adb
+
+  '
+- '   [Ada]          s-pack12.adb
+
+  '
+- '   [Ada]          a-comutr.adb
+
+  '
+- '   [Ada]          a-stwiha.adb
+
+  '
+- '   [Ada]          s-pack31.adb
+
+  '
+- '   [Ada]          s-atocou.adb
+
+  '
+- '   [Ada]          g-htable.adb
+
+  '
+- '   [Ada]          s-exnflt.ads
+
+  '
+- '   [Ada]          s-bbarat.adb
+
+  '
+- '   [Ada]          a-nucoar.ads
+
+  '
+- '   [Ada]          s-powflt.ads
+
+  '
+- '   [Ada]          s-pack39.adb
+
+  '
+- '   [Ada]          a-nlrear.ads
+
+  '
+- '   [Ada]          s-vs_uns.ads
+
+  '
+- '   [Ada]          s-pack42.adb
+
+  '
+- '   [Ada]          s-valboo.adb
+
+  '
+- '   [Ada]          s-traent.adb
+
+  '
+- '   [Ada]          s-vaen16.ads
+
+  '
+- '   [Ada]          s-tasloc.adb
+
+  '
+- '   [Ada]          s-arit64.adb
+
+  '
+- '   [Ada]          s-libpre.ads
+
+  '
+- '   [Ada]          s-imde32.ads
+
+  '
+- '   [Ada]          a-cgaaso.adb
+
+  '
+- '   [Ada]          s-stoele.adb
+
+  '
+- '   [Ada]          s-semiho.adb
+
+  '
+- '   [Ada]          a-calcon.adb
+
+  '
+- '   [Ada]          s-pack60.adb
+
+  '
+- '   [Ada]          s-vs_int.ads
+
+  '
+- '   [Ada]          s-except.adb
+
+  '
+- '   [Ada]          a-nlcefu.ads
+
+  '
+- '   [Ada]          s-valuti.adb
+
+  '
+- '   [Ada]          a-suewst.adb
+
+  '
+- '   [Ada]          s-imgllf.ads
+
+  '
+- '   [Ada]          a-zchuni.adb
+
+  '
+- '   [Ada]          s-excdeb.adb
+
+  '
+- '   [Ada]          s-casi16.adb
+
+  '
+- '   [Ada]          s-vaenu8.ads
+
+  '
+- '   [Ada]          g-sechas.adb
+
+  '
+- '   [Ada]          a-unccon.ads
+
+  '
+- '   [Ada]          s-parame.adb
+
+  '
+- '   [Ada]          a-crbtgk.adb
+
+  '
+- '   [Ada]          a-chlat9.ads
+
+  '
+- '   [Ada]          a-nllcef.ads
+
+  '
+- '   [Ada]          s-stopoo.adb
+
+  '
+- '   [Ada]          s-maccod.ads
+
+  '
+- '   [Ada]          s-wchcnv.adb
+
+  '
+- '   [Ada]          a-nbnbre.adb
+
+  '
+- '   [Ada]          a-rbtgbk.adb
+
+  '
+- '   [Ada]          a-convec.adb
+
+  '
+- '   [Ada]          s-pack10.adb
+
+  '
+- '   [Ada]          a-szbzha.adb
+
+  '
+- '   [Ada]          s-dourea.adb
+
+  '
+- '   [Ada]          a-chtgop.adb
+
+  '
+- '   [Ada]          s-atopri.adb
+
+  '
+- '   [Ada]          s-wchstw.adb
+
+  '
+- '   [Ada]          s-vercon.adb
+
+  '
+- '   [Ada]          s-casi32.adb
+
+  '
+- '   [Ada]          s-imgwiu.ads
+
+  '
+- '   [Ada]          s-imagew.adb
+
+  '
+- '   [Ada]          s-imgwch.adb
+
+  '
+- '   [Ada]          s-exponn.adb
+
+  '
+- '   [Ada]          s-imenu8.ads
+
+  '
+- '   [Ada]          a-nuflra.adb
+
+  '
+- '   [Ada]          a-swmwco.ads
+
+  '
+- '   [Ada]          a-wichha.adb
+
+  '
+- '   [Ada]          s-pooglo.adb
+
+  '
+- '   [Ada]          s-pack33.adb
+
+  '
+- '   [Ada]          s-retsta.ads
+
+  '
+- '   [Ada]          s-pack11.adb
+
+  '
+- '   [Ada]          a-cdlili.adb
+
+  '
+- '   [Ada]          a-sbhcin.adb
+
+  '
+- '   [Ada]          g-shsh64.adb
+
+  '
+- '   [Ada]          a-btgbso.adb
+
+  '
+- '   [Ada]          s-scaval.adb
+
+  '
+- '   [Ada]          a-cgcaso.adb
+
+  '
+- '   [Ada]          a-nscefu.ads
+
+  '
+- '   [Ada]          a-stwibo.adb
+
+  '
+- '   [Ada]          s-stposu.adb
+
+  '
+- '   [Ada]          s-pack63.adb
+
+  '
+- '   [Ada]          a-coinho.adb
+
+  '
+- '   [Ada]          s-unstyp.ads
+
+  '
+- '   [Ada]          s-soflin.adb
+
+  '
+- '   [Ada]          s-vs_llu.ads
+
+  '
+- '   [Ada]          g-cstyin.adb
+
+  '
+- '   [Ada]          s-expont.adb
+
+  '
+- '   [Ada]          s-widthi.adb
+
+  '
+- '   [Ada]          s-imguti.adb
+
+  '
+- '   [Ada]          a-cimutr.adb
+
+  '
+- '   [Ada]          s-pack61.adb
+
+  '
+- '   [Ada]          setup_clocks.adb
+
+  '
+- '   [Ada]          g-sestin.ads
+
+  '
+- '   [Ada]          a-chtgke.adb
+
+  '
+- '   [Ada]          s-pack19.adb
+
+  '
+- '   [Ada]          a-cbmutr.adb
+
+  '
+- '   [Ada]          a-string.ads
+
+  '
+- '   [Ada]          s-vallfl.ads
+
+  '
+- '   [Ada]          a-cwila9.ads
+
+  '
+- '   [Ada]          g-cppstd.adb
+
+  '
+- '   [Ada]          g-arrspl.adb
+
+  '
+- '   [Ada]          a-shcain.adb
+
+  '
+- '   [Ada]          a-cogeso.adb
+
+  '
+- '   [Ada]          s-pack49.adb
+
+  '
+- '   [Ada]          a-cidlli.adb
+
+  '
+- '   [Ada]          a-stwifi.adb
+
+  '
+- '   [Ada]          a-stzfix.adb
+
+  '
+- '   [Ada]          a-stbuut.adb
+
+  '
+- '   [Ada]          s-rannum.adb
+
+  '
+- '   [Ada]          a-numaux.ads
+
+  '
+- '   [Ada]          s-pack52.adb
+
+  '
+- '   [Ada]          s-init.adb
+
+  '
+- '   [Ada]          a-nbnbin.adb
+
+  '
+- '   [Ada]          s-putima.adb
+
+  '
+- '   [Ada]          a-sflcin.ads
+
+  '
+- '   [Ada]          i-c.adb
+
+  '
+- '   [Ada]          s-widllu.ads
+
+  '
+- '   [Ada]          g-sehash.adb
+
+  '
+- '   [Ada]          a-strfix.adb
+
+  '
+- '   [Ada]          s-trasym.adb
+
+  '
+- '   [Ada]          g-busorg.adb
+
+  '
+- '   [Ada]          a-ngcefu.adb
+
+  '
+- '   [Ada]          a-stwise.adb
+
+  '
+- '   [Ada]          i-cexten.ads
+
+  '
+- '   [Ada]          s-pack35.adb
+
+  '
+- '   [Ada]          s-stratt.adb
+
+  '
+- '   [Ada]          a-cgarso.adb
+
+  '
+- '   [Ada]          s-valcha.adb
+
+  '
+- '   [Ada]          a-stwiun.adb
+
+  '
+- '   [Ada]          s-vade32.ads
+
+  '
+- '   [Ada]          s-bitops.adb
+
+  '
+- '   [Ada]          a-coorma.adb
+
+  '
+- '   [Ada]          s-pack55.adb
+
+  '
+- '   [Ada]          a-stream.adb
+
+  '
+- '   [Ada]          s-boarop.ads
+
+  '
+- '   [Ada]          s-pack14.adb
+
+  '
+- '   [Ada]          s-imglli.ads
+
+  '
+- '   [Ada]          s-valuer.adb
+
+  '
+- '   [Ada]          a-chahan.adb
+
+  '
+- '   [Ada]          s-spsufi.adb
+
+  '
+- '   [Ada]          s-pack50.adb
+
+  '
+- '   [Ada]          s-macres.adb
+
+  '
+- '   [Ada]          s-imageu.adb
+
+  '
+- '   [Ada]          s-pack22.adb
+
+  '
+- '   [Ada]          s-explli.ads
+
+  '
+- '   [Ada]          s-atacco.adb
+
+  '
+- '   [Ada]          s-powllf.ads
+
+  '
+- '   [Ada]          a-nlcoar.ads
+
+  '
+- '   [Ada]          a-widcha.ads
+
+  '
+- '   [Ada]          a-uncdea.ads
+
+  '
+- '   [Ada]          a-swbwha.adb
+
+  '
+- '   [Ada]          s-string.adb
+
+  '
+- '   [Ada]          s-exnint.ads
+
+  '
+- '   [Ada]          a-cobove.adb
+
+  '
+- '   [Ada]          a-stwima.adb
+
+  '
+- '   [Ada]          a-sbecin.adb
+
+  '
+- '   [Ada]          embedded_rp2040_config.ads
+
+  '
+- '   [Ada]          rp2040_runtime_config.ads
+
+  '
+- '   [Ada]          i-rp2040.ads
+
+  '
+- '   [Ada]          i-rp2040-clocks.ads
+
+  '
+- '   [Ada]          i-rp2040-pll_sys.ads
+
+  '
+- '   [Ada]          i-rp2040-psm.ads
+
+  '
+- '   [Ada]          i-rp2040-resets.ads
+
+  '
+- '   [Ada]          i-rp2040-rosc.ads
+
+  '
+- '   [Ada]          i-rp2040-sio.ads
+
+  '
+- '   [Ada]          i-rp2040-timer.ads
+
+  '
+- '   [Ada]          i-rp2040-watchdog.ads
+
+  '
+- '   [Ada]          i-rp2040-xosc.ads
+
+  '
+- '   [Ada]          a-rttiev.adb
+
+  '
+- '   [Ada]          s-bbexti.adb
+
+  '
+- '   [Ada]          s-tasinf.adb
+
+  '
+- '   [Ada]          s-taskin.adb
+
+  '
+- '   [Ada]          s-tarest.adb
+
+  '
+- '   [Ada]          s-multip.adb
+
+  '
+- '   [Ada]          a-reatim.adb
+
+  '
+- '   [Ada]          s-bbcpsp.ads
+
+  '
+- '   [Ada]          s-taprob.adb
+
+  '
+- '   [Ada]          a-extiin.adb
+
+  '
+- '   [Ada]          s-tpobmu.adb
+
+  '
+- '   [Ada]          g-boumai.ads
+
+  '
+- '   [Ada]          s-tasres.ads
+
+  '
+- '   [Ada]          s-bbbosu.adb
+
+  '
+- '   [Ada]          s-btstch.adb
+
+  '
+- '   [Ada]          a-sytaco.adb
+
+  '
+- '   [Ada]          s-mufalo.adb
+
+  '
+- '   [Ada]          s-osinte.ads
+
+  '
+- '   [Ada]          a-interr.adb
+
+  '
+- '   [Ada]          s-tpoben.adb
+
+  '
+- '   [Ada]          s-bbtiev.adb
+
+  '
+- '   [Ada]          g-boubuf.adb
+
+  '
+- '   [Ada]          s-tasdeb.adb
+
+  '
+- '   [Ada]          s-bcprmu.adb
+
+  '
+- '   [Ada]          s-tposen.adb
+
+  '
+- '   [Ada]          s-taspri.ads
+
+  '
+- '   [Ada]          a-taside.adb
+
+  '
+- '   [Ada]          s-bcpcst.adb
+
+  '
+- '   [Ada]          s-bbinte.adb
+
+  '
+- '   [Ada]          a-exetim.adb
+
+  '
+- '   [Ada]          s-interr.adb
+
+  '
+- '   [Ada]          s-bbthre.adb
+
+  '
+- '   [Ada]          s-tasque.adb
+
+  '
+- '   [Ada]          s-tpobop.adb
+
+  '
+- '   [Ada]          s-bbthqu.adb
+
+  '
+- '   [Ada]          a-taster.adb
+
+  '
+- '   [Ada]          a-retide.adb
+
+  '
+- '   [Ada]          g-semaph.adb
+
+  '
+- '   [Ada]          s-bbcppr.adb
+
+  '
+- '   [Ada]          s-putaim.adb
+
+  '
+- '   [Ada]          a-synbar.adb
+
+  '
+- '   [Ada]          s-bbprot.adb
+
+  '
+- '   [Ada]          s-bbtime.adb
+
+  '
+- '   [Ada]          s-taprop.adb
+
+  '
+- '   [Ada]          s-musplo.adb
+
+  '
+- '   [Ada]          s-reldel.adb
+
+  '
+- '   [Ada]          a-intnam-2.ads
+
+  '
+- '   [Ada]          pico_xbsp_config.ads
+
+  '
+- '   [Ada]          pico-analog.adb
+
+  '
+- '   [Ada]          pico-utils.adb
+
+  '
+- '   [Ada]          pico-analog-rgb_led.adb
+
+  '
+- '   [Ada]          pico-uart_io.adb
+
+  '
+- '   [Ada]          bbqueue_config.ads
+
+  '
+- '   [Ada]          bbqueue-buffers.adb
+
+  '
+- '   [Ada]          bbqueue-buffers-framed.adb
+
+  '
+- '   [Ada]          bbqueue.adb
+
+  '
+- '   [Ada]          usb_embedded_config.ads
+
+  '
+- '   [Ada]          usb-utils.adb
+
+  '
+- '   [Ada]          usb.adb
+
+  '
+- '   [Ada]          usb-device-hid-keyboard.adb
+
+  '
+- '   [Ada]          usb-device-midi.adb
+
+  '
+- '   [Ada]          usb-device-serial.adb
+
+  '
+- '   [Ada]          usb-device-control.adb
+
+  '
+- '   [Ada]          usb-hal.ads
+
+  '
+- '   [Ada]          usb-device-hid-joystick.adb
+
+  '
+- '   [Ada]          usb-device-hid.adb
+
+  '
+- '   [Ada]          usb-hal-device.ads
+
+  '
+- '   [Ada]          usb-device.adb
+
+  '
+- '   [Ada]          usb-device-hid-gamepad.adb
+
+  '
+- '   [Ada]          usb-logging.ads
+
+  '
+- '   [Ada]          usb-lang.ads
+
+  '
+- '   [Ada]          usb-device-hid-mouse.adb
+
+  '
+- '   [Ada]          usb-logging-device__null.adb
+
+  '
+- '   [Ada]          hal.ads
+
+  '
+- '   [Ada]          hal-flash.ads
+
+  '
+- '   [Ada]          hal-time.ads
+
+  '
+- '   [Ada]          hal-spi.ads
+
+  '
+- '   [Ada]          hal-framebuffer.ads
+
+  '
+- '   [Ada]          hal-gpio.ads
+
+  '
+- '   [Ada]          hal-real_time_clock.ads
+
+  '
+- '   [Ada]          hal-bitmap.ads
+
+  '
+- '   [Ada]          hal-touch_panel.ads
+
+  '
+- '   [Ada]          hal-sdmmc.adb
+
+  '
+- '   [Ada]          hal-dsi.ads
+
+  '
+- '   [Ada]          hal-filesystem.ads
+
+  '
+- '   [Ada]          hal-audio.ads
+
+  '
+- '   [Ada]          hal-block_drivers.ads
+
+  '
+- '   [Ada]          hal-uart.ads
+
+  '
+- '   [Ada]          hal-i2c.ads
+
+  '
+- '   [Ada]          cortex_m-nvic.adb
+
+  '
+- '   [Ada]          cortex_m-cache.adb
+
+  '
+- '   [Ada]          cortex_m_svd.ads
+
+  '
+- '   [Ada]          cortex_m_svd-systick.ads
+
+  '
+- '   [Ada]          cortex_m_svd-debug.ads
+
+  '
+- '   [Ada]          cortex_m_svd-nvic.ads
+
+  '
+- '   [Ada]          cortex_m_svd-scb.ads
+
+  '
+- '   [Ada]          cortex_m_svd-dwt.ads
+
+  '
+- '   [Ada]          cortex_m_config.ads
+
+  '
+- '   [Ada]          cortex_m-hints.adb
+
+  '
+- '   [Ada]          semihosting-filesystem.adb
+
+  '
+- '   [Ada]          semihosting.adb
+
+  '
+- '   [Ada]          cortex_m-systick.adb
+
+  '
+- '   [Ada]          cortex_m-debug.adb
+
+  '
+- '   [Ada]          cortex_m.ads
+
+  '
+- '   [Ada]          memory_barriers.adb
+
+  '
+- '   [Ada]          cortex_m-reset.adb
+
+  '
+- '   [Ada]          cortex_m-dwt.adb
+
+  '
+- '   [Ada]          atomic-critical_section.adb
+
+  '
+- '   [Ada]          atomic-unsigned.adb
+
+  '
+- '   [Ada]          atomic-basic_operations.adb
+
+  '
+- '   [Ada]          atomic-signed.adb
+
+  '
+- '   [Ada]          atomic.adb
+
+  '
+- '   [Ada]          atomic_config.ads
+
+  '
+- '   [Ada]          atomic-signed_16.ads
+
+  '
+- '   [Ada]          atomic-signed_8.ads
+
+  '
+- '   [Ada]          atomic-unsigned_32.ads
+
+  '
+- '   [Ada]          atomic-unsigned_8.ads
+
+  '
+- '   [Ada]          atomic-unsigned_16.ads
+
+  '
+- '   [Ada]          atomic-signed_32.ads
+
+  '
+- '   [Ada]          rp2040_hal_config.ads
+
+  '
+- '   [Ada]          rp-timer-interrupts.adb
+
+  '
+- '   [Ada]          rp-device.ads
+
+  '
+- '   [Ada]          rp2040_svd-usbctrl_regs.ads
+
+  '
+- '   [Ada]          rp2040_svd-uart.ads
+
+  '
+- '   [Ada]          rp2040_svd-syscfg.ads
+
+  '
+- '   [Ada]          rp2040_svd-usbctrl_dpram.ads
+
+  '
+- '   [Ada]          rp2040_svd-ppb.ads
+
+  '
+- '   [Ada]          rp2040_svd-resets.ads
+
+  '
+- '   [Ada]          rp2040_svd-sio.ads
+
+  '
+- '   [Ada]          rp2040_svd-xip_ssi.ads
+
+  '
+- '   [Ada]          rp2040_svd-io_qspi.ads
+
+  '
+- '   [Ada]          rp2040_svd-psm.ads
+
+  '
+- '   [Ada]          rp2040_svd-adc.ads
+
+  '
+- '   [Ada]          rp2040_svd-sysinfo.ads
+
+  '
+- '   [Ada]          rp2040_svd-clocks.ads
+
+  '
+- '   [Ada]          rp2040_svd-dma.ads
+
+  '
+- '   [Ada]          rp2040_svd-pwm.ads
+
+  '
+- '   [Ada]          rp2040_svd-pll.ads
+
+  '
+- '   [Ada]          rp2040_svd-pads_qspi.ads
+
+  '
+- '   [Ada]          rp2040_svd-rtc.ads
+
+  '
+- '   [Ada]          rp2040_svd-spi.ads
+
+  '
+- '   [Ada]          rp2040_svd-rosc.ads
+
+  '
+- '   [Ada]          rp2040_svd.ads
+
+  '
+- '   [Ada]          rp2040_svd-pio.ads
+
+  '
+- '   [Ada]          rp2040_svd-xip_ctrl.ads
+
+  '
+- '   [Ada]          rp2040_svd-timer.ads
+
+  '
+- '   [Ada]          rp2040_svd-xosc.ads
+
+  '
+- '   [Ada]          rp2040_svd-pads_bank0.ads
+
+  '
+- '   [Ada]          rp2040_svd-watchdog.ads
+
+  '
+- '   [Ada]          rp2040_svd-i2c.ads
+
+  '
+- '   [Ada]          rp2040_svd-busctrl.ads
+
+  '
+- '   [Ada]          rp2040_svd-tbman.ads
+
+  '
+- '   [Ada]          rp2040_svd-interrupts.ads
+
+  '
+- '   [Ada]          rp2040_svd-io_bank0.ads
+
+  '
+- '   [Ada]          rp2040_svd-vreg_and_chip_reset.ads
+
+  '
+- '   [Ada]          rp-adc.adb
+
+  '
+- '   [Ada]          rp-flash.adb
+
+  '
+- '   [Ada]          rp-pio-touch_sense_discharge_pio.ads
+
+  '
+- '   [Ada]          rp-rom.adb
+
+  '
+- '   [Ada]          rp-pio-touch_sense.adb
+
+  '
+- '   [Ada]          rp-pio-touch_sense_charge_pio.ads
+
+  '
+- '   [Ada]          rp-rtc.adb
+
+  '
+- '   [Ada]          rp-pio-audio_i2s_pio.ads
+
+  '
+- '   [Ada]          rp-pwm.adb
+
+  '
+- '   [Ada]          rp-reset.adb
+
+  '
+- '   [Ada]          rp-gpio.adb
+
+  '
+- '   [Ada]          rp-interpolator.ads
+
+  '
+- '   [Ada]          rp-uart.adb
+
+  '
+- '   [Ada]          rp-pio-audio_i2s.adb
+
+  '
+- '   [Ada]          rp-pio-ws2812_pio.ads
+
+  '
+- '   [Ada]          rp-watchdog.adb
+
+  '
+- '   [Ada]          rp-i2c.adb
+
+  '
+- '   [Ada]          rp-spi.adb
+
+  '
+- '   [Ada]          rp-i2c_master.adb
+
+  '
+- '   [Ada]          rp-clock.adb
+
+  '
+- '   [Ada]          rp-multicore-fifo.adb
+
+  '
+- '   [Ada]          rp-multicore-spinlocks.adb
+
+  '
+- '   [Ada]          rp-multicore.adb
+
+  '
+- '   [Ada]          rp-timer.adb
+
+  '
+- '   [Ada]          rp-rom-floating_point.adb
+
+  '
+- '   [Ada]          rp-dma.adb
+
+  '
+- '   [Ada]          rp-pio.adb
+
+  '
+- '   [Ada]          rp-flash-cache.adb
+
+  '
+- '   [Ada]          rp-pio-encoding.ads
+
+  '
+- '   [Ada]          rp-pio-ws2812.adb
+
+  '
+- '   [Ada]          rp-usb_device.adb
+
+  '
+- '   [Ada]          rp.ads
+
+  '
+- '   [Ada]          pico_bsp_config.ads
+
+  '
+- '   [Ada]          pico-pimoroni.ads
+
+  '
+- '   [Ada]          pico-pimoroni-audio_pack.ads
+
+  '
+- '   [Ada]          pico-pimoroni-rgb_keypad.adb
+
+  '
+- '   [Ada]          pico.ads
+
+  '
+- '   [Ada]          pico-audio_i2s.ads
+
+  '
+- 'Build Libraries
+
+  '
+- '   [gprlib]       Atomic.lexch
+
+  '
+- '   [gprlib]       hal.lexch
+
+  '
+- '   [gprlib]       Cortex_M.lexch
+
+  '
+- '   [archive]      libAtomic.a
+
+  '
+- '   [archive]      libhal.a
+
+  '
+- '   [index]        libAtomic.a
+
+  '
+- '   [index]        libhal.a
+
+  '
+- '   [gprlib]       Bbqueue.lexch
+
+  '
+- '   [archive]      libCortex_M.a
+
+  '
+- '   [index]        libCortex_M.a
+
+  '
+- '   [gprlib]       Usb_Embedded.lexch
+
+  '
+- '   [archive]      libBbqueue.a
+
+  '
+- '   [index]        libBbqueue.a
+
+  '
+- '   [gprlib]       Rp2040_Hal.lexch
+
+  '
+- '   [archive]      libUsb_Embedded.a
+
+  '
+- '   [index]        libUsb_Embedded.a
+
+  '
+- '   [gprlib]       Pico_Bsp.lexch
+
+  '
+- '   [archive]      libRp2040_Hal.a
+
+  '
+- '   [index]        libRp2040_Hal.a
+
+  '
+- '   [gprlib]       Pico_XBSP.lexch
+
+  '
+- '   [archive]      libPico_Bsp.a
+
+  '
+- '   [index]        libPico_Bsp.a
+
+  '
+- '   [archive]      libPico_XBSP.a
+
+  '
+- '   [index]        libPico_XBSP.a
+
+  '
+- '   [gprlib]       gnat.lexch
+
+  '
+- '   [gprlib]       gnarl.lexch
+
+  '
+- '   [archive]      libgnat.a
+
+  '
+- '   [index]        libgnat.a
+
+  '
+- '   [archive]      libgnarl.a
+
+  '
+- '   [index]        libgnarl.a
+
+  '
+- 'Bind
+
+  '
+- '   [gprbind]      sketch_05_1_random_color_light.bexch
+
+  '
+- '   [Ada]          sketch_05_1_random_color_light.ali
+
+  '
+- '   [gprbind]      sketch_05_2_gradient_color_light.bexch
+
+  '
+- '   [Ada]          sketch_05_2_gradient_color_light.ali
+
+  '
+- 'Link
+
+  '
+- '   [link]         sketch_05_1_random_color_light.adb
+
+  '
+- '   [link]         sketch_05_2_gradient_color_light.adb
+
+  '
+- 'Success: Build finished successfully in 30.53 seconds.
+
+  '
+- 'Found declared GPR file: pico_ada_c05_rgb.gpr
+
+  '
+- '[alr test] Test completed SUCCESSFULLY
+
+  '
+platform: linux
+status: success
+version: 1.5.2

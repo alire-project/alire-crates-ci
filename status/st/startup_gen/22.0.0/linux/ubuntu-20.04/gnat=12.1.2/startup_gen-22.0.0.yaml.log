@@ -1,0 +1,161 @@
+Test ran at 2022-09-01 01:21:55.982950+00:00
+
+SOLUTION:
+startup_gen=22.0.0: Generates startup files (crt0 and linker script)
+Origin: source archive startup-gen-22.0.0.zip at https://github.com/AdaCore/startup-gen/archive/v22.0.0/startup-gen-22.0.0.zip with hash sha512:85f5a12201bda7438a505a866a4d1208940da45639344e38a1270fd9e0ebc6f4b7525cec74d3df0cde5453afe796713f94a7ff5b5896b7023adebe24cfefa087
+Properties:
+   Author: AdaCore
+   Configuration: no modifiers
+   Description: Generates startup files (crt0 and linker script)
+   Executable: startup-gen
+   License: GPL-3.0-or-later
+   Maintainer: chouteau@adacore.com
+   Maintainers_Logins: Fabien-Chouteau
+   Name: startup_gen
+   Project_File: startup_gen.gpr
+   Tag: embedded
+   Tag: zfp
+   Tag: nostd
+   Version: 22.0.0
+   Website: https://github.com/AdaCore/startup-gen
+Dependencies (direct):
+   gnatcoll~22.0.0
+   libgpr~22.0.0
+   templates_parser~22.0.0
+Dependencies (solution):
+   gnat=12.1.2 (gnat_arm_elf) (installed)
+   gnatcoll=22.0.0
+   libgpr=22.0.0
+   templates_parser=22.0.0
+   xmlada=22.0.0
+Dependencies (graph):
+   gnatcoll=22.0.0         --> libgpr=22.0.0 (~22.0.0)            
+   libgpr=22.0.0           --> gnat=12.1.2 (gnat_arm_elf) (/=2020)
+   libgpr=22.0.0           --> xmlada=22.0.0 (~22.0.0)            
+   startup_gen=22.0.0      --> gnatcoll=22.0.0 (~22.0.0)          
+   startup_gen=22.0.0      --> libgpr=22.0.0 (~22.0.0)            
+   startup_gen=22.0.0      --> templates_parser=22.0.0 (~22.0.0)  
+   templates_parser=22.0.0 --> xmlada=22.0.0 (~22.0.0)            
+   xmlada=22.0.0           --> gnat=12.1.2 (gnat_arm_elf) (>=11)  
+
+
+LOG:
+Note: Deploying startup_gen=22.0.0...
+#=#=#                                                                         
+##O#-#                                                                        
+##O=#  #                                                                      
+#=#=-#  #                                                                     
+Note: Deploying xmlada=22.0.0...
+#=#=#                                                                         
+##O#-#                                                                        
+
+####                                                                       6.8%
+###################################                                       49.3%
+######################################################################## 100.0%
+Note: Running post_fetch actions for xmlada=22.0.0...
+checking build system type... x86_64-unknown-linux-gnu
+checking host system type... x86_64-unknown-linux-gnu
+checking target system type... x86_64-unknown-linux-gnu
+checking whether gnat can build shared libs... yes
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether ln -s works... yes
+configure: creating ./config.status
+config.status: creating xmlada_shared.gpr
+config.status: creating Makefile
+config.status: creating tests/dom/default.gpr
+Note: Deploying libgpr=22.0.0...
+#=#=#                                                                         
+##O#-#                                                                        
+
+##                                                                         3.8%
+############################                                              40.1%
+######################################################################## 100.0%
+Note: Deploying templates_parser=22.0.0...
+#=#=#                                                                         
+##O#-#                                                                        
+##O=#  #                                                                      
+#-#O=#  #                                                                     
+Note: Running post_fetch actions for templates_parser=22.0.0...
+Note: Deploying gnatcoll=22.0.0...
+#=#=#                                                                         
+##O#-#                                                                        
+##O=#  #                                                                      
+#-#O=#  #                                                                     
+Note: Building startup_gen/startup_gen.gpr...
+gnatcoll.gpr:254:07: warning: value "windows" is not used as label
+Setup
+   [mkdir]        object directory for project XmlAda_Sax
+   [mkdir]        library directory for project XmlAda_Sax
+   [mkdir]        object directory for project XmlAda_Schema
+   [mkdir]        object directory for project Templates_Parser
+   [mkdir]        library directory for project Templates_Parser
+   [mkdir]        object directory for project GPR
+   [mkdir]        library directory for project GPR
+   [mkdir]        object directory for project GnatColl
+   [mkdir]        library directory for project GnatColl
+   [mkdir]        object directory for project Startup_Gen
+Compile
+   [Ada]          main.adb
+   [C]            gpr_imports.c
+   [Ada]          gpr-debug.adb
+   [Ada]          gpr-pp.adb
+   [Ada]          gpr-compilation.adb
+   [Ada]          gpr-sinput.adb
+   [Ada]          gpr-opt.ads
+   [Ada]          gpr-compilation-process-waiter.adb
+   [Ada]          gpr-strt.adb
+   [Ada]          gpr-script.adb
+   [Ada]          gpr-compilation-slave.adb
+   [Ada]          gpr-names.adb
+   [Ada]          gpr-knowledge.adb
+sax-pointers.ads:57:58: missing ";"
+sax-pointers.ads:62:46: "Encapsulated" is undefined (more references follow)
+sax-utils.ads:171:53: "Smart_Pointers" is not the name of a generic package
+sax-utils.ads:174:28: "Symbol_Table_Pointers" is undefined (more references follow)
+schema-validators.ads:912:44: "Smart_Pointers" is not the name of a generic package
+schema-validators.ads:914:28: "XML_Grammars" is undefined (more references follow)
+schema-validators.ads:914:28: possible misspelling of "XML_Grammar"
+
+   compilation of gpr-knowledge.adb failed
+
+gprbuild: *** compilation phase failed
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/32be5756-3a02-40c8-8957-7cd09550a04f/startup_gen_22.0.0_85f5a122/startup_gen.gpr"] exited with code 4
+ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/32be5756-3a02-40c8-8957-7cd09550a04f/startup_gen_22.0.0_85f5a122/startup_gen.gpr"] exited with code 4
+stderr: ALIRE.CHECKED_ERROR
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/32be5756-3a02-40c8-8957-7cd09550a04f/startup_gen_22.0.0_85f5a122/startup_gen.gpr"] exited with code 4
+stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
+[/usr/bin/alr]
+0xd65c78 Alire.Raise_Checked_Error at alire.adb:251
+0xa2f08f Alire.Os_Lib.Subprocess.Checked_Spawn at alire-os_lib-subprocess.adb:110
+0xc49318 Alire.Spawn.Command at alire-spawn.adb:21
+0xc49a46 Alire.Spawn.Gprbuild at alire-spawn.adb:41
+0xbada9c Alire.Roots.Build.Build_Single_Release.Call_Gprbuild at alire-roots.adb:140
+0xbac0fb Alire.Roots.Build.Build_Single_Release at alire-roots.adb:171
+0xbc7eaa Alire.Roots.Traverse.Traverse_Wrap at alire-roots.adb:1364
+0xc11fbb Alire.Solutions.Traverse.Visit at alire-solutions.adb:1434
+0xc10bd2 Alire.Solutions.Traverse at alire-solutions.adb:1509
+0xbc7ff8 Alire.Roots.Traverse at alire-roots.adb:1368
+0xbac48c Alire.Roots.Build at alire-roots.adb:196
+0x48f1e4 Alr.Commands.Build.Execute at alr-commands-build.adb:58
+0x49f50a Alr.Commands.Get.Retrieve at alr-commands-get.adb:187
+0x4a3d27 Alr.Commands.Get.Execute at alr-commands-get.adb:348
+0x52aa2e Alr.Commands.Sub_Cmd.Execute at clic-subcommand-instance.adb:742
+0x53641f Alr.Commands.Execute at alr-commands.adb:492
+0x42b9ca Alr.Main at alr-main.adb:10
+0x42e297 Main at b__alr-main.adb:2132
+[/lib/x86_64-linux-gnu/libc.so.6]
+0x7f77df2ecd08
+[/usr/bin/alr]
+0x42b8a8 _start at ???
+0xfffffffffffffffe
+
+
+Warning: startup_gen=22.0.0 successfully retrieved but its build failed.
+Dependencies were solved as follows:
+
+   +i gnat             12.1.2 (new,installed,gnat_arm_elf,indirect)
+   +  gnatcoll         22.0.0 (new)                                
+   +  libgpr           22.0.0 (new)                                
+   +  templates_parser 22.0.0 (new)                                
+   +  xmlada           22.0.0 (new,indirect)                       
+ERROR: Build ended with errors

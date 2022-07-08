@@ -1,0 +1,260 @@
+badge: false
+crate: bigints
+creation_timestamp: 1773103690.5076401
+distro: darwin-24.6.0
+duration: 7.084152332999992
+gnat: 13.2.2
+last_attempt: 2026-03-11 12:26:56.517925+00:00
+log:
+- 'Test ran at 2026-03-11 12:26:56.517829+00:00
+
+
+  '
+- 'SOLUTION:
+
+  '
+- 'bigints=0.2.0: Experimental SPARK Constant Time Big Integer library
+
+  '
+- 'Origin: commit 414589c10e5dec87aebf9cfe8fda675a047d45b1 from https://github.com/AldanTanneo/bigints.git
+
+  '
+- 'Properties:
+
+  '
+- "   Author: C\xE9sar SAGAERT\n"
+- "   Build Switches: \n"
+- '   Description: Experimental SPARK Constant Time Big Integer library
+
+  '
+- '   License: MIT
+
+  '
+- '   Long_Description: # SPARK Constant Time Big Integer library
+
+  '
+- '
+
+  '
+- 'Implementation of a constant time big integer library, inspired by [crypto-bigint](https://github.com/RustCrypto/crypto-bigint).
+
+  '
+- '
+
+  '
+- 'All functions are implemented in constant time, except those with an explicit `_Vartime`
+  suffix. Overloaded operators are also constant time.
+
+  '
+- '
+
+  '
+- "> \u26A0\uFE0F The constant time choice primitives like `Ct_Eq`, `Ct_Gt`, `Cond_Select`\
+  \ and `CSwap` rely on best-effort optimisation barriers.\n"
+- '
+
+  '
+- '## Usage
+
+  '
+- '
+
+  '
+- 'The implementations are generic over the size of the integer:
+
+  '
+- '
+
+  '
+- '```ada
+
+  '
+- 'package U256 is new Bigints.Uint (256);
+
+  '
+- 'package U1024 is new Bigints.Uint (1024);
+
+  '
+- '```
+
+  '
+- '
+
+  '
+- 'There is also a generic package to deal with modular integers (over a prime field):
+
+  '
+- '
+
+  '
+- '```ada
+
+  '
+- 'P : U256.Uint := ... --  a big prime, like 2**255 - 19
+
+  '
+- 'package GF_P is new Bigints.Modular (U256, P);
+
+  '
+- '```
+
+  '
+- '
+
+  '
+- 'It is up to the user of the library to ensure the chosen modulus is effectively
+  prime. Otherwise, operations like field inversion become invalid (as it relies on
+  Fermat''s little theorem).
+
+  '
+- '
+
+  '
+- '## Formal proof
+
+  '
+- '
+
+  '
+- 'The preinstantations in the library (packages `U256s` and `F25519`), as well as
+  the constant time primitives and basic limb primitives, are formally checked using
+  GNATprove.
+
+  '
+- '
+
+  '
+- "   Maintainer: C\xE9sar SAGAERT <sagaert@adacore.com>\n"
+- '   Maintainers_Logins: AldanTanneo
+
+  '
+- '   Name: bigints
+
+  '
+- '   Tag: bigint
+
+  '
+- '   Tag: cryptography
+
+  '
+- '   Tag: constant-time
+
+  '
+- '   Tag: spark
+
+  '
+- '   Tag: ada2022
+
+  '
+- '   Version: 0.2.0
+
+  '
+- '   Website: https://github.com/AldanTanneo/bigints
+
+  '
+- '
+
+  '
+- '
+
+  LOG:
+
+  '
+- '[alr test] Testing bigints=0.2.0
+
+  '
+- '[alr test] Spawning retrieval for remote crate: alr -d -n get bigints=0.2.0
+
+  '
+- 'Note: Deploying bigints=0.2.0...
+
+  '
+- '
+
+  '
+- 'bigints=0.2.0 successfully retrieved.
+
+  '
+- 'There are no dependencies.
+
+  '
+- '[alr test] Spawning default test for remote crate: alr -d -n build --release --
+  -cargs:Ada -gnatwn
+
+  '
+- 'Note: Building bigints=0.2.0/bigints.gpr...
+
+  '
+- 'Setup
+
+  '
+- '   [mkdir]        object directory for project Bigints
+
+  '
+- '   [mkdir]        library directory for project Bigints
+
+  '
+- 'Compile
+
+  '
+- '   [Ada]          bigints_config.ads
+
+  '
+- '   [Ada]          bigints-u256_modulo.ads
+
+  '
+- '   [Ada]          bigints-uints-modulo_ops.adb
+
+  '
+- '   [Ada]          bigints.ads
+
+  '
+- '   [Ada]          bigints-uints.adb
+
+  '
+- '   [Ada]          bigints-primitives.adb
+
+  '
+- '   [Ada]          bigints-modular.adb
+
+  '
+- '   [Ada]          bigints-f25519.ads
+
+  '
+- '   [Ada]          bigints-const_choice.adb
+
+  '
+- '   [Ada]          bigints-machine_ints.adb
+
+  '
+- '   [Ada]          bigints-u256s.ads
+
+  '
+- 'bigints-const_choice.adb:32:43: warning: "Always_Terminates" is not a valid aspect
+  identifier [enabled by default]
+
+  '
+- 'Build Libraries
+
+  '
+- '   [gprlib]       Bigints.lexch
+
+  '
+- '   [archive]      libBigints.a
+
+  '
+- '   [index]        libBigints.a
+
+  '
+- 'Success: Build finished successfully in 6.00 seconds.
+
+  '
+- 'Found declared GPR file: bigints.gpr
+
+  '
+- '[alr test] Test completed SUCCESSFULLY
+
+  '
+platform: macos
+status: success
+version: 0.2.0

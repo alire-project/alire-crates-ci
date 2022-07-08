@@ -1,0 +1,218 @@
+Test ran at 2025-10-03 12:37:02.950024+00:00
+
+SOLUTION:
+apdf=8.0.0: Portable package for producing dynamically PDF documents
+Origin: source archive apdf_008.zip at https://sourceforge.net/projects/apdf/files/apdf_008.zip with hash sha512:7dddb047dc67854f9c0879715704f66dda3ea19c31bf4f81f5de91b72a9367720d3f170131ea61e380acffc5a2f0d3bcb0d2bf31ffb8376173be293514851d1c
+Properties:
+   Author: Gautier de Montmollin
+   Description: Portable package for producing dynamically PDF documents
+   Executable: pdf_out_demo
+   Executable: koch_curve
+   Executable: sierpinski_arrowhead_curve
+   GPR Scenario: PDF_Build_Mode := Debug | Fast
+   License: MIT
+   Long_Description: **PDF_Out** is an Ada package for producing easily and automatically PDF files, from an Ada program, with text, vector graphics and raster graphics.
+
+![Ada PDF Screenshot](https://apdf.sourceforge.io/pw_ari_delivery_m.png "Screenshot of a page produced by PDF_Out")
+![Ada PDF Screenshot](https://apdf.sourceforge.io/pw_sowebio_m.jpg      "Screenshot of a report produced by PDF_Out")
+
+* Ideal for the dynamic production of reports, invoices, tickets, labels, delivery notes, charts, maps etc.
+* Vector graphics
+* Inclusion of JPEG images
+* Object oriented
+* Task safe
+* Endian-neutral
+* Multi-platform, but native code build
+* Unconditionally portable code: OS-, CPU-, compiler- independent code
+* Pure Ada 2012: this package can be used in projects in Ada 2012 and later language versions
+* *Free*, open-source 
+
+The creation of a PDF file is as simple as this small procedure:
+
+```ada
+with PDF_Out;
+
+procedure Small_Demo is
+  pdf : PDF_Out.PDF_Out_File;
+begin
+  pdf.Create ("small.pdf");
+  pdf.Put_Line ("This is a very small demo for PDF_Out...");
+  pdf.Close;
+end Small_Demo;
+```
+
+
+   Maintainer: gdemont@hotmail.com
+   Maintainers_Logins: zertovitch
+   Maintainers_Logins: Fabien-Chouteau
+   Name: apdf
+   Project_File: pdf_out_w_gid.gpr
+   Tag: pdf
+   Tag: adobe
+   Tag: acrobat
+   Version: 8.0.0
+   Website: https://github.com/zertovitch/ada-pdf-writer
+Dependencies (direct):
+   gid>=13.0.1
+Dependencies (solution):
+   gid=13.0.1
+Dependencies (graph):
+   apdf=8.0.0 --> gid=13.0.1 (>=13.0.1)
+
+
+LOG:
+[alr test] Testing apdf=8.0.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get apdf=8.0.0
+Note: Deploying apdf=8.0.0...
+
+######################################################################## 100.0%
+######################################################################## 100.0%
+######################################################################## 100.0%
+######################################################################## 100.0%
+#                                                                          2.2%
+##########################################                                58.5%
+######################################################################## 100.0%
+Note: Deploying gid=13.0.1...
+
+######################################################################## 100.0%
+######################################################################## 100.0%
+######################################################################## 100.0%
+######################################################################## 100.0%#=#=#                                                                          
+##=#=#                                                                         
+
+####################################                                      50.9%
+######################################################################## 100.0%
+
+apdf=8.0.0 successfully retrieved.
+Dependencies were solved as follows:
+
+   + gid 13.0.1 (new)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building gid=13.0.1/gid.gpr...
+Setup
+   [mkdir]        object directory for project GID
+Compile
+   [Ada]          to_png.adb
+   [Ada]          to_bmp.adb
+   [Ada]          mini.adb
+   [Ada]          all_rgb.adb
+   [Ada]          benchmark.adb
+   [Ada]          color_avg.adb
+   [Ada]          comp_img.adb
+   [Ada]          is_opaque.adb
+   [Ada]          recurve.adb
+   [Ada]          steg.adb
+   [Ada]          dumb_png.adb
+   [Ada]          gid.adb
+   [Ada]          color_distances.adb
+   [Ada]          comp_img_fct.adb
+   [Ada]          fast_io.adb
+fast_io.ads:11:64: (style) trailing spaces not permitted [-gnatyb]
+   [Ada]          color_statistics.adb
+   [Ada]          gid-decoding_bmp.adb
+   [Ada]          gid-decoding_gif.adb
+   [Ada]          gid-decoding_jpg.adb
+   [Ada]          gid-decoding_png.adb
+   [Ada]          gid-decoding_pnm.adb
+   [Ada]          gid-decoding_qoi.adb
+   [Ada]          gid-decoding_tga.adb
+   [Ada]          gid-headers.adb
+   [Ada]          gid-buffering.adb
+   [Ada]          gid-color_tables.adb
+   [Ada]          gid-decoding_png-huffman.adb
+Bind
+   [gprbind]      to_png.bexch
+   [gprbind]      to_bmp.bexch
+   [gprbind]      mini.bexch
+   [Ada]          to_png.ali
+   [Ada]          mini.ali
+   [Ada]          to_bmp.ali
+   [gprbind]      all_rgb.bexch
+   [gprbind]      benchmark.bexch
+   [Ada]          all_rgb.ali
+   [Ada]          benchmark.ali
+   [gprbind]      color_avg.bexch
+   [Ada]          color_avg.ali
+   [gprbind]      comp_img.bexch
+   [Ada]          comp_img.ali
+   [gprbind]      is_opaque.bexch
+   [Ada]          is_opaque.ali
+   [gprbind]      recurve.bexch
+   [Ada]          recurve.ali
+   [gprbind]      steg.bexch
+   [Ada]          steg.ali
+Link
+   [link]         to_png.adb
+   [link]         to_bmp.adb
+   [link]         mini.adb
+   [link]         all_rgb.adb
+   [link]         benchmark.adb
+   [link]         color_avg.adb
+   [link]         comp_img.adb
+   [link]         is_opaque.adb
+   [link]         recurve.adb
+   [link]         steg.adb
+Note: Building apdf=8.0.0/pdf_out_w_gid.gpr...
+Setup
+   [mkdir]        object directory for project PDF_Out_w_GID
+Compile
+   [Ada]          pdf_out_demo.adb
+   [Ada]          color_pinstripe_printer.adb
+   [Ada]          hilbert_curve.adb
+   [Ada]          k_means.adb
+   [Ada]          koch_curve.adb
+   [Ada]          peano_curve.adb
+   [Ada]          pinstripe_printer.adb
+   [Ada]          sierpinski_arrowhead_curve.adb
+   [Ada]          img2pdf.adb
+   [Ada]          arc_test.adb
+   [Ada]          page_test.adb
+   [Ada]          validation_test.adb
+   [Ada]          pdf_out.adb
+   [Ada]          bar_code.ads
+   [Ada]          fancy_page.adb
+   [Ada]          insert_mascot.adb
+   [Ada]          qr_code.ads
+   [Ada]          pdf_out-fonts.adb
+   [Ada]          pdf_out-images.adb
+Bind
+   [gprbind]      pdf_out_demo.bexch
+   [gprbind]      color_pinstripe_printer.bexch
+   [gprbind]      hilbert_curve.bexch
+   [Ada]          pdf_out_demo.ali
+   [Ada]          color_pinstripe_printer.ali
+   [Ada]          hilbert_curve.ali
+   [gprbind]      k_means.bexch
+   [Ada]          k_means.ali
+   [gprbind]      koch_curve.bexch
+   [gprbind]      peano_curve.bexch
+   [Ada]          koch_curve.ali
+   [Ada]          peano_curve.ali
+   [gprbind]      pinstripe_printer.bexch
+   [Ada]          pinstripe_printer.ali
+   [gprbind]      sierpinski_arrowhead_curve.bexch
+   [gprbind]      img2pdf.bexch
+   [Ada]          img2pdf.ali
+   [Ada]          sierpinski_arrowhead_curve.ali
+   [gprbind]      arc_test.bexch
+   [Ada]          arc_test.ali
+   [gprbind]      page_test.bexch
+   [Ada]          page_test.ali
+   [gprbind]      validation_test.bexch
+   [Ada]          validation_test.ali
+Link
+   [link]         pdf_out_demo.adb
+   [link]         color_pinstripe_printer.adb
+   [link]         hilbert_curve.adb
+   [link]         k_means.adb
+   [link]         koch_curve.adb
+   [link]         peano_curve.adb
+   [link]         pinstripe_printer.adb
+   [link]         sierpinski_arrowhead_curve.adb
+   [link]         img2pdf.adb
+   [link]         arc_test.adb
+   [link]         page_test.adb
+   [link]         validation_test.adb
+Success: Build finished successfully in 66.88 seconds.
+Found declared GPR file: pdf_out_w_gid.gpr
+[alr test] Test completed SUCCESSFULLY

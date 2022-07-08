@@ -1,4 +1,4 @@
-Test ran at 2022-07-06 00:55:21.616260+00:00
+Test ran at 2022-07-27 00:56:32.493274+00:00
 
 SOLUTION:
 gnatcoll=22.0.0: GNAT Components Collection - Core packages
@@ -15,6 +15,7 @@ Properties:
       when Linux => GPR External: GNATCOLL_OS := unix
       when Macos => GPR External: GNATCOLL_OS := osx
       when Windows => GPR External: GNATCOLL_OS := windows
+   GPR External: GNATCOLL_BUILD_MODE := PROD
    GPR External: GNATCOLL_VERSION := 22.0.0
    License: GPL-3.0-or-later WITH GCC-exception-3.1
    Maintainer: chouteau@adacore.com
@@ -47,21 +48,11 @@ LOG:
 Note: Deploying gnatcoll=22.0.0...
 #=#=#                                                                         
 ##O#-#                                                                        
-##O=#  #                                                                      
-#=#=-#  #                                                                     
--#O#- #   #                                                                   
--=#=#   #   #                                                                 
- -=#=#   #   #                                                                
-  -=#=-#   #   #                                                              
-   -=#=-#    #   #                                                            
+##=O#- #                                                                      
 Note: Deploying xmlada=22.0.0...
 #=#=#                                                                         
 ##O#-#                                                                        
-##O=#  #                                                                      
-#=#=-#  #                                                                     
- #=#=-#   #                                                                   
-  #=#=- #   #                                                                 
-   #=#=- #   #                                                                
+##=O#- #                                                                      
 Note: Running post_fetch actions for xmlada=22.0.0...
 configure: loading site script /usr/local/etc/config.site
 checking build system type... x86_64-w64-mingw32
@@ -77,13 +68,7 @@ config.status: creating tests/dom/default.gpr
 Note: Deploying libgpr=22.0.0...
 #=#=#                                                                         
 ##O#-#                                                                        
-##O=#  #                                                                      
-#=#=-#  #                                                                     
--#O#- #   #                                                                   
--=#=#   #   #                                                                 
- -=#=#   #   #                                                                
-  -=#=-#   #   #                                                              
-   -=#=-#    #   #                                                            
+##=O#- #                                                                      
 Note: Building gnatcoll/gnatcoll.gpr...
 gnatcoll.gpr:254:07: warning: value "windows" is not used as label
 Setup
@@ -494,6 +479,10 @@ Compile
    [Ada]          gnatcoll-remote.ads
    [Ada]          gnatcoll-remote-db.adb
    [Ada]          gnatcoll-refcount.adb
+gnatcoll-refcount.ads:90:04: warning: in instantiation at gnatcoll-storage_pools-headers.adb:57
+gnatcoll-refcount.ads:90:04: warning: possible aliasing problem for type "Header_Access"
+gnatcoll-refcount.ads:90:04: warning: use -fno-strict-aliasing switch for references
+gnatcoll-refcount.ads:90:04: warning: or use "pragma No_Strict_Aliasing (Header_Access);"
    [Ada]          gnatcoll-refcount-weakref.adb
    [Ada]          gnatcoll-promises.adb
    [Ada]          gnatcoll-projects.adb
@@ -558,7 +547,7 @@ Build Libraries
    [index]        libgpr.a
    [archive]      libgnatcoll.a
    [index]        libgnatcoll.a
-Build finished successfully in 159.97 seconds.
+Build finished successfully in 209.98 seconds.
 
 gnatcoll=22.0.0 successfully retrieved and built.
 Dependencies were solved as follows:

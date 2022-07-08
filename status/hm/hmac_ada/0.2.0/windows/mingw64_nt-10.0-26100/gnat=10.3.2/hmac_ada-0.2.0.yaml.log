@@ -1,0 +1,110 @@
+Test ran at 2026-11-13 12:48:29.181536+00:00
+
+SOLUTION:
+hmac_ada=0.2.0: SPARK-proved HMAC (RFC 2104) implementation for Ada/SPARK
+Origin: commit 6cab790417b3672fe821fdd68f6668026c8e26cb from https://github.com/b-erdem/hmac_ada.git
+Properties:
+   Author: Baris Erdem
+   Description: SPARK-proved HMAC (RFC 2104) implementation for Ada/SPARK
+   License: Apache-2.0
+   Long_Description: SPARK-proved HMAC (RFC 2104) with standalone SHA-256 (FIPS 180-4) for Ada 2022.
+175 proof obligations fully discharged at Level 2 with zero pragma Assume.
+Constant-time digest comparison (the default `=` operator), secure wipe of
+key material, no heap allocation, pragma Pure. Suitable for embedded and
+safety-critical systems. Includes streaming and one-shot APIs, plus a generic
+HMAC package for other hash functions.
+
+   Maintainer: Baris Erdem <baris@erdem.dev>
+   Maintainers_Logins: b-erdem
+   Name: hmac_ada
+   Tag: hmac
+   Tag: rfc2104
+   Tag: cryptography
+   Tag: spark
+   Tag: embedded
+   Tag: security
+   Version: 0.2.0
+   Website: https://github.com/b-erdem/hmac_ada
+
+
+LOG:
+[alr test] Testing hmac_ada=0.2.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get hmac_ada=0.2.0
+Note: Deploying hmac_ada=0.2.0...
+
+hmac_ada=0.2.0 successfully retrieved.
+There are no dependencies.
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building hmac_ada=0.2.0/hmac_ada.gpr...
+"obj" created
+"lib" created
+[Ada Compile]     hmac.adb
+[Ada Compile]     hmac_sha256.adb
+[Ada Compile]     sha256.adb
+gnat1: invalid switch: -gnat2022
+hmac_ada.gpr: error: [Ada Compile] hmac.adb (hmac_ada.gpr) failed with status 1
+gnat1: invalid switch: -gnat2022
+hmac_ada.gpr: error: [Ada Compile] hmac_sha256.adb (hmac_ada.gpr) failed with status 1
+gnat1: invalid switch: -gnat2022
+hmac_ada.gpr: error: [Ada Compile] sha256.adb (hmac_ada.gpr) failed with status 1
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "D:\a\alire-crates-ci\alire-crates-ci\test\372952ac-81e3-4943-970c-8365ef8c75b8\hmac_ada_0.2.0_6cab7904\hmac_ada.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "D:\a\alire-crates-ci\alire-crates-ci\test\372952ac-81e3-4943-970c-8365ef8c75b8\hmac_ada_0.2.0_6cab7904\hmac_ada.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+stderr: ALIRE.CHECKED_ERROR
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "D:\a\alire-crates-ci\alire-crates-ci\test\372952ac-81e3-4943-970c-8365ef8c75b8\hmac_ada_0.2.0_6cab7904\hmac_ada.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
+[D:\a\alire-crates-ci\alire-crates-ci\alire_install\bin\alr.exe]
+0x7ff6d868da2a Semantic_Versioning.Basic.Restrictions.First_Index at alire.adb:284
+0x7ff6d828595b Semantic_Versioning.Basic.Restrictions.First_Index at alire-os_lib-subprocess.adb:111
+0x7ff6d853cba1 Semantic_Versioning.Basic.Restrictions.First_Index at alire-spawn.adb:22
+0x7ff6d853dd5d Semantic_Versioning.Basic.Restrictions.First_Index at alire-spawn.adb:68
+0x7ff6d8462d64 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:189
+0x7ff6d84611da Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:255
+0x7ff6d848912d Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2143
+0x7ff6d84f82f9 Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1472
+0x7ff6d84f7424 Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1555
+0x7ff6d848922c Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2147
+0x7ff6d84892fa Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2127
+0x7ff6d84617a7 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:286
+0x7ff6d8461912 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:114
+0x7ff6d7bd3baa Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:145
+0x7ff6d7bd341e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:113
+0x7ff6d7bd35ba Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:54
+0x7ff6d7c85dea Semantic_Versioning.Basic.Restrictions.First_Index at clic-subcommand-instance.adb:749
+0x7ff6d7c92b0e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands.adb:632
+0x7ff6d7b616a0 Alr.Main at alr-main.adb:13
+0x7ff6d7b65270 Main at b__alr-main.adb:2454
+0x7ff6d7b6133e __tmainCRTStartup at ???
+0x7ff6d7b61144 mainCRTStartup at ???
+[C:\Windows\System32\KERNEL32.DLL]
+0x7ffa5cb2dd35
+[C:\Windows\SYSTEM32\ntdll.dll]
+0x7ffa5d93f2ba
+
+stderr: ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED
+stderr: alire-roots.adb:202
+stderr: raised ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED : alire-roots.adb:202
+[D:\a\alire-crates-ci\alire-crates-ci\alire_install\bin\alr.exe]
+0x7ff6d846313c Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:202
+0x7ff6d84611da Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:255
+0x7ff6d848912d Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2143
+0x7ff6d84f82f9 Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1472
+0x7ff6d84f7424 Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1555
+0x7ff6d848922c Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2147
+0x7ff6d84892fa Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2127
+0x7ff6d84617a7 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:286
+0x7ff6d8461912 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:114
+0x7ff6d7bd3baa Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:145
+0x7ff6d7bd341e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:113
+0x7ff6d7bd35ba Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:54
+0x7ff6d7c85dea Semantic_Versioning.Basic.Restrictions.First_Index at clic-subcommand-instance.adb:749
+0x7ff6d7c92b0e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands.adb:632
+0x7ff6d7b616a0 Alr.Main at alr-main.adb:13
+0x7ff6d7b65270 Main at b__alr-main.adb:2454
+0x7ff6d7b6133e __tmainCRTStartup at ???
+0x7ff6d7b61144 mainCRTStartup at ???
+[C:\Windows\System32\KERNEL32.DLL]
+0x7ffa5cb2dd35
+[C:\Windows\SYSTEM32\ntdll.dll]
+0x7ffa5d93f2ba
+
+ERROR: Compilation failed.

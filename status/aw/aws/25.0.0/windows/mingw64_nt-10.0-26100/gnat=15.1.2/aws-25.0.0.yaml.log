@@ -1,0 +1,1646 @@
+Test ran at 2025-11-09 00:50:39.501996+00:00
+
+SOLUTION:
+aws=25.0.0: Ada Web Server
+Origin: source archive aws-25.0.0-with-templates-parser.zip at https://github.com/AdaCore/aws/releases/download/v25.0.0/aws-25.0.0-with-templates-parser.zip with hash sha512:cf1dc186d2ca7545ae776332e3f03198e920e48dba974275b7c1161786a0af7de823cd2053aeda5ee31072f42db13494b69d51e9879298981fa2a2ae5c94aa38
+Properties:
+   Post_Fetch run: sh -c mkdir -p `gcc -dumpmachine`/setup/src (from ${CRATE_ROOT}/.)
+   Post_Fetch run: sh -c make setup ZLIB=false DEMOS=false LAL=false XMLADA=true SOCKET=openssl prefix=install_dir PRJ_BUILD=Release (from ${CRATE_ROOT}/.)
+   Post_Fetch run: sh -c mv `gcc -dumpmachine`/ build/ (from ${CRATE_ROOT}/.)
+   Author: AdaCore
+   Description: Ada Web Server
+   GPR Scenario: PRJ_TARGET := Windows_NT | UNIX | Darwin | vxworks | freebsd
+   GPR Scenario: TARGET := <string>
+   GPR Scenario: TGT_DIR := <string>
+   case OS is
+      when Freebsd => (GPR External: PRJ_TARGET := freebsd and GPR External: TARGET := build and GPR External: TGT_DIR := ../build)
+      when Linux => (GPR External: PRJ_TARGET := UNIX and GPR External: TARGET := build and GPR External: TGT_DIR := ../build)
+      when Macos => (GPR External: PRJ_TARGET := Darwin and GPR External: TARGET := build and GPR External: TGT_DIR := ../build)
+      when Windows => (GPR External: PRJ_TARGET := Windows_NT and GPR External: TARGET := build and GPR External: TGT_DIR := ../build)
+   License: GPL-3.0-only WITH GCC-exception-3.1
+   Maintainer: chouteau@adacore.com
+   Maintainers_Logins: Fabien-Chouteau
+   Name: aws
+   Project_File: aws.gpr
+   Project_File: build/projects/aws_config.gpr
+   Tag: aws
+   Tag: web
+   Tag: server
+   Tag: http
+   Tag: https
+   Tag: soap
+   Tag: wsdl
+   Tag: ssl
+   Version: 25.0.0
+   Website: https://github.com/adacore/aws
+Dependencies (direct):
+   gnat>=12
+   gnatcoll~25.0.0
+   make*
+   openssl>=1.1.0
+   xmlada~25.0.0
+Dependencies (solution):
+   gnat=15.1.2 (gnat_native)
+   gnatcoll=25.0.0
+   libgpr=25.0.0
+   make=4.4.1
+   openssl=3.5.1
+   xmlada=25.0.0
+Dependencies (graph):
+   aws=25.0.0      --> gnat=15.1.2 (gnat_native) (>=12)
+   aws=25.0.0      --> gnatcoll=25.0.0 (~25.0.0)
+   aws=25.0.0      --> make=4.4.1 (*)
+   aws=25.0.0      --> openssl=3.5.1 (>=1.1.0)
+   aws=25.0.0      --> xmlada=25.0.0 (~25.0.0)
+   gnatcoll=25.0.0 --> gnat=15.1.2 (gnat_native) (>=13)
+   gnatcoll=25.0.0 --> libgpr=25.0.0 (~25.0.0)
+   libgpr=25.0.0   --> gnat=15.1.2 (gnat_native) (/=2020)
+   libgpr=25.0.0   --> xmlada=25.0.0 (~25.0.0)
+   xmlada=25.0.0   --> gnat=15.1.2 (gnat_native) (>=11)
+
+
+LOG:
+[alr test] Testing aws=25.0.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get aws=25.0.0
+Note: Deploying aws=25.0.0...
+
+#=#=#                                                                          
+######################################################                    75.3%
+######################################################################## 100.0%
+Note: Deploying make=4.4.1...
+The system package 'make' is about to be installed.
+This action might require admin privileges and impact your system installation.
+Do you want Alire to install this system package?
+Using default: Yes
+resolving dependencies...
+looking for conflicting packages...
+
+Packages (1) make-4.4.1-2
+
+Total Download Size:   0.50 MiB
+Total Installed Size:  1.61 MiB
+
+:: Proceed with installation? [Y/n] 
+:: Retrieving packages...
+ make-4.4.1-2-x86_64 downloading...
+checking keyring...
+checking package integrity...
+loading package files...
+checking for file conflicts...
+checking available disk space...
+:: Processing package changes...
+installing make...
+:: Running post-transaction hooks...
+(1/1) Updating the info directory file...
+Note: Deploying openssl=3.5.1...
+The system package 'mingw-w64-x86_64-openssl' is about to be installed.
+This action might require admin privileges and impact your system installation.
+Do you want Alire to install this system package?
+Using default: Yes
+resolving dependencies...
+looking for conflicting packages...
+
+Packages (1) mingw-w64-x86_64-openssl-3.5.1-1
+
+Total Download Size:    7.86 MiB
+Total Installed Size:  58.49 MiB
+
+:: Proceed with installation? [Y/n] 
+:: Retrieving packages...
+ mingw-w64-x86_64-openssl-3.5.1-1-any downloading...
+checking keyring...
+checking package integrity...
+loading package files...
+checking for file conflicts...
+checking available disk space...
+:: Processing package changes...
+installing mingw-w64-x86_64-openssl...
+Optional dependencies for mingw-w64-x86_64-openssl
+    mingw-w64-x86_64-ca-certificates
+Note: Deploying xmlada=25.0.0...
+
+#=#=#                                                                          
+##O#-#                                                                         
+##=O#- #                                                                       
+Note: Deploying libgpr=25.0.0...
+
+#=#=#                                                                          
+                                                                           1.2%
+##################################################################        91.7%
+######################################################################## 100.0%
+Note: Deploying gnatcoll=25.0.0...
+
+#=#=#                                                                          
+##O#-#                                                                         
+##=O#- #                                                                       
+# #=O#- #                                                                      
+ # #=O#-  #                                                                    
+  # #=O=#   #                                                                  
+   # #=O=#   #                                                                 
+
+aws=25.0.0 successfully retrieved.
+Dependencies were solved as follows:
+
+   +b gnat     15.1.2 (new,gnat_native,binary)
+   +  gnatcoll 25.0.0 (new)
+   +  libgpr   25.0.0 (new,indirect)
+   +b make     4.4.1  (new,system package)
+   +b openssl  3.5.1  (new,system package)
+   +  xmlada   25.0.0 (new)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Running post-fetch actions for xmlada=25.0.0...
+configure: loading site script /usr/local/etc/config.site
+checking build system type... x86_64-pc-mingw64
+checking host system type... x86_64-pc-mingw64
+checking target system type... x86_64-pc-mingw64
+checking whether gnat can build shared libs... yes
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether ln -s works... no, using cp -pR
+configure: creating ./config.status
+config.status: creating xmlada_shared.gpr
+config.status: creating Makefile
+config.status: creating tests/dom/default.gpr
+Note: Running post-fetch actions for aws=25.0.0...
+make[1]: Entering directory '/d/a/alire-crates-ci/alire-crates-ci/test/89a56d51-078e-464e-8ffd-c793fcffecfa/aws_25.0.0_cf1dc186/config'
+Setup
+   [mkdir]        exec directory for project Setup
+Bind
+   [gprbind]      xoscons.bexch
+   [Ada]          xoscons.ali
+Link
+   [link]         xoscons.adb
+Setup OS specific definitions
+aws-os_lib-tmplt.c:128:9: warning: 'EADDRNOTAVAIL' redefined
+  128 | #define EADDRNOTAVAIL   WSAEADDRNOTAVAIL
+      |         ^~~~~~~~~~~~~
+In file included from C:/Users/runneradmin/AppData/Local/alire/cache/toolchains/gnat_native_15.1.2_85aa1632/lib/gcc/x86_64-w64-mingw32/15.1.0/include/mm_malloc.h:29,
+                 from C:/Users/runneradmin/AppData/Local/alire/cache/toolchains/gnat_native_15.1.2_85aa1632/x86_64-w64-mingw32/include/malloc.h:84,
+                 from C:/Users/runneradmin/AppData/Local/alire/cache/toolchains/gnat_native_15.1.2_85aa1632/x86_64-w64-mingw32/include/stdlib.h:770,
+                 from aws-os_lib-tmplt.c:77:
+C:/Users/runneradmin/AppData/Local/alire/cache/toolchains/gnat_native_15.1.2_85aa1632/x86_64-w64-mingw32/include/errno.h:90:9: note: this is the location of the previous definition
+   90 | #define EADDRNOTAVAIL 101
+      |         ^~~~~~~~~~~~~
+aws-os_lib-tmplt.c:129:9: warning: 'ETIMEDOUT' redefined
+  129 | #define ETIMEDOUT       WSAETIMEDOUT
+      |         ^~~~~~~~~
+C:/Users/runneradmin/AppData/Local/alire/cache/toolchains/gnat_native_15.1.2_85aa1632/x86_64-w64-mingw32/include/errno.h:223:9: note: this is the location of the previous definition
+  223 | #define ETIMEDOUT 138
+      |         ^~~~~~~~~
+aws-os_lib-tmplt.c:130:9: warning: 'ENOTCONN' redefined
+  130 | #define ENOTCONN        WSAENOTCONN
+      |         ^~~~~~~~
+C:/Users/runneradmin/AppData/Local/alire/cache/toolchains/gnat_native_15.1.2_85aa1632/x86_64-w64-mingw32/include/errno.h:150:9: note: this is the location of the previous definition
+  150 | #define ENOTCONN 126
+      |         ^~~~~~~~
+aws-os_lib-tmplt.c:131:9: warning: 'EWOULDBLOCK' redefined
+  131 | #define EWOULDBLOCK     WSAEWOULDBLOCK
+      |         ^~~~~~~~~~~
+C:/Users/runneradmin/AppData/Local/alire/cache/toolchains/gnat_native_15.1.2_85aa1632/x86_64-w64-mingw32/include/errno.h:166:9: note: this is the location of the previous definition
+  166 | #define EWOULDBLOCK 140
+      |         ^~~~~~~~~~~
+aws-os_lib-tmplt.c:132:9: warning: 'EINPROGRESS' redefined
+  132 | #define EINPROGRESS     WSAEINPROGRESS
+      |         ^~~~~~~~~~~
+C:/Users/runneradmin/AppData/Local/alire/cache/toolchains/gnat_native_15.1.2_85aa1632/x86_64-w64-mingw32/include/errno.h:158:9: note: this is the location of the previous definition
+  158 | #define EINPROGRESS 112
+      |         ^~~~~~~~~~~
+aws-os_lib-tmplt.c:133:9: warning: 'ENOBUFS' redefined
+  133 | #define ENOBUFS         WSAENOBUFS
+      |         ^~~~~~~
+C:/Users/runneradmin/AppData/Local/alire/cache/toolchains/gnat_native_15.1.2_85aa1632/x86_64-w64-mingw32/include/errno.h:98:9: note: this is the location of the previous definition
+   98 | #define ENOBUFS 119
+      |         ^~~~~~~
+aws-os_lib-tmplt.c:137:9: warning: 'ECONNRESET' redefined
+  137 | #define ECONNRESET      WSAECONNRESET
+      |         ^~~~~~~~~~
+C:/Users/runneradmin/AppData/Local/alire/cache/toolchains/gnat_native_15.1.2_85aa1632/x86_64-w64-mingw32/include/errno.h:114:9: note: this is the location of the previous definition
+  114 | #define ECONNRESET 108
+      |         ^~~~~~~~~~
+aws-os_lib-tmplt.c:138:9: warning: 'EADDRINUSE' redefined
+  138 | #define EADDRINUSE      WSAEADDRINUSE
+      |         ^~~~~~~~~~
+C:/Users/runneradmin/AppData/Local/alire/cache/toolchains/gnat_native_15.1.2_85aa1632/x86_64-w64-mingw32/include/errno.h:86:9: note: this is the location of the previous definition
+   86 | #define EADDRINUSE 100
+      |         ^~~~~~~~~~
+aws-os_lib-tmplt.c:139:9: warning: 'EAFNOSUPPORT' redefined
+  139 | #define EAFNOSUPPORT    WSAEAFNOSUPPORT
+      |         ^~~~~~~~~~~~
+C:/Users/runneradmin/AppData/Local/alire/cache/toolchains/gnat_native_15.1.2_85aa1632/x86_64-w64-mingw32/include/errno.h:82:9: note: this is the location of the previous definition
+   82 | #define EAFNOSUPPORT 102
+      |         ^~~~~~~~~~~~
+aws-os_lib-tmplt.c:140:9: warning: 'EALREADY' redefined
+  140 | #define EALREADY        WSAEALREADY
+      |         ^~~~~~~~
+C:/Users/runneradmin/AppData/Local/alire/cache/toolchains/gnat_native_15.1.2_85aa1632/x86_64-w64-mingw32/include/errno.h:106:9: note: this is the location of the previous definition
+  106 | #define EALREADY 103
+      |         ^~~~~~~~
+aws-os_lib-tmplt.c:141:9: warning: 'ECONNABORTED' redefined
+  141 | #define ECONNABORTED    WSAECONNABORTED
+      |         ^~~~~~~~~~~~
+C:/Users/runneradmin/AppData/Local/alire/cache/toolchains/gnat_native_15.1.2_85aa1632/x86_64-w64-mingw32/include/errno.h:102:9: note: this is the location of the previous definition
+  102 | #define ECONNABORTED 106
+      |         ^~~~~~~~~~~~
+aws-os_lib-tmplt.c:142:9: warning: 'ECONNREFUSED' redefined
+  142 | #define ECONNREFUSED    WSAECONNREFUSED
+      |         ^~~~~~~~~~~~
+C:/Users/runneradmin/AppData/Local/alire/cache/toolchains/gnat_native_15.1.2_85aa1632/x86_64-w64-mingw32/include/errno.h:110:9: note: this is the location of the previous definition
+  110 | #define ECONNREFUSED 107
+      |         ^~~~~~~~~~~~
+aws-os_lib-tmplt.c:143:9: warning: 'EDESTADDRREQ' redefined
+  143 | #define EDESTADDRREQ    WSAEDESTADDRREQ
+      |         ^~~~~~~~~~~~
+C:/Users/runneradmin/AppData/Local/alire/cache/toolchains/gnat_native_15.1.2_85aa1632/x86_64-w64-mingw32/include/errno.h:118:9: note: this is the location of the previous definition
+  118 | #define EDESTADDRREQ 109
+      |         ^~~~~~~~~~~~
+aws-os_lib-tmplt.c:145:9: warning: 'EHOSTUNREACH' redefined
+  145 | #define EHOSTUNREACH    WSAEHOSTUNREACH
+      |         ^~~~~~~~~~~~
+C:/Users/runneradmin/AppData/Local/alire/cache/toolchains/gnat_native_15.1.2_85aa1632/x86_64-w64-mingw32/include/errno.h:122:9: note: this is the location of the previous definition
+  122 | #define EHOSTUNREACH 110
+      |         ^~~~~~~~~~~~
+aws-os_lib-tmplt.c:146:9: warning: 'EISCONN' redefined
+  146 | #define EISCONN         WSAEISCONN
+      |         ^~~~~~~
+C:/Users/runneradmin/AppData/Local/alire/cache/toolchains/gnat_native_15.1.2_85aa1632/x86_64-w64-mingw32/include/errno.h:94:9: note: this is the location of the previous definition
+   94 | #define EISCONN 113
+      |         ^~~~~~~
+aws-os_lib-tmplt.c:147:9: warning: 'ELOOP' redefined
+  147 | #define ELOOP           WSAELOOP
+      |         ^~~~~
+C:/Users/runneradmin/AppData/Local/alire/cache/toolchains/gnat_native_15.1.2_85aa1632/x86_64-w64-mingw32/include/errno.h:227:9: note: this is the location of the previous definition
+  227 | #define ELOOP 114
+      |         ^~~~~
+aws-os_lib-tmplt.c:148:9: warning: 'EMSGSIZE' redefined
+  148 | #define EMSGSIZE        WSAEMSGSIZE
+      |         ^~~~~~~~
+C:/Users/runneradmin/AppData/Local/alire/cache/toolchains/gnat_native_15.1.2_85aa1632/x86_64-w64-mingw32/include/errno.h:126:9: note: this is the location of the previous definition
+  126 | #define EMSGSIZE 115
+      |         ^~~~~~~~
+aws-os_lib-tmplt.c:150:9: warning: 'EPROTONOSUPPORT' redefined
+  150 | #define EPROTONOSUPPORT WSAEPROTONOSUPPORT
+      |         ^~~~~~~~~~~~~~~
+C:/Users/runneradmin/AppData/Local/alire/cache/toolchains/gnat_native_15.1.2_85aa1632/x86_64-w64-mingw32/include/errno.h:178:9: note: this is the location of the previous definition
+  178 | #define EPROTONOSUPPORT 135
+      |         ^~~~~~~~~~~~~~~
+aws-os_lib-tmplt.c:151:9: warning: 'EPROTOTYPE' redefined
+  151 | #define EPROTOTYPE      WSAEPROTOTYPE
+      |         ^~~~~~~~~~
+C:/Users/runneradmin/AppData/Local/alire/cache/toolchains/gnat_native_15.1.2_85aa1632/x86_64-w64-mingw32/include/errno.h:231:9: note: this is the location of the previous definition
+  231 | #define EPROTOTYPE 136
+      |         ^~~~~~~~~~
+aws-os_lib-tmplt.c:152:9: warning: 'ENETDOWN' redefined
+  152 | #define ENETDOWN        WSAENETDOWN
+      |         ^~~~~~~~
+C:/Users/runneradmin/AppData/Local/alire/cache/toolchains/gnat_native_15.1.2_85aa1632/x86_64-w64-mingw32/include/errno.h:130:9: note: this is the location of the previous definition
+  130 | #define ENETDOWN 116
+      |         ^~~~~~~~
+aws-os_lib-tmplt.c:153:9: warning: 'ENETRESET' redefined
+  153 | #define ENETRESET       WSAENETRESET
+      |         ^~~~~~~~~
+C:/Users/runneradmin/AppData/Local/alire/cache/toolchains/gnat_native_15.1.2_85aa1632/x86_64-w64-mingw32/include/errno.h:134:9: note: this is the location of the previous definition
+  134 | #define ENETRESET 117
+      |         ^~~~~~~~~
+aws-os_lib-tmplt.c:154:9: warning: 'ENETUNREACH' redefined
+  154 | #define ENETUNREACH     WSAENETUNREACH
+      |         ^~~~~~~~~~~
+C:/Users/runneradmin/AppData/Local/alire/cache/toolchains/gnat_native_15.1.2_85aa1632/x86_64-w64-mingw32/include/errno.h:138:9: note: this is the location of the previous definition
+  138 | #define ENETUNREACH 118
+      |         ^~~~~~~~~~~
+aws-os_lib-tmplt.c:155:9: warning: 'ENOPROTOOPT' redefined
+  155 | #define ENOPROTOOPT     WSAENOPROTOOPT
+      |         ^~~~~~~~~~~
+C:/Users/runneradmin/AppData/Local/alire/cache/toolchains/gnat_native_15.1.2_85aa1632/x86_64-w64-mingw32/include/errno.h:142:9: note: this is the location of the previous definition
+  142 | #define ENOPROTOOPT 123
+      |         ^~~~~~~~~~~
+aws-os_lib-tmplt.c:156:9: warning: 'ENOTSOCK' redefined
+  156 | #define ENOTSOCK        WSAENOTSOCK
+      |         ^~~~~~~~
+C:/Users/runneradmin/AppData/Local/alire/cache/toolchains/gnat_native_15.1.2_85aa1632/x86_64-w64-mingw32/include/errno.h:146:9: note: this is the location of the previous definition
+  146 | #define ENOTSOCK 128
+      |         ^~~~~~~~
+aws-os_lib-tmplt.c:157:9: warning: 'EOPNOTSUPP' redefined
+  157 | #define EOPNOTSUPP      WSAEOPNOTSUPP
+      |         ^~~~~~~~~~
+C:/Users/runneradmin/AppData/Local/alire/cache/toolchains/gnat_native_15.1.2_85aa1632/x86_64-w64-mingw32/include/errno.h:162:9: note: this is the location of the previous definition
+  162 | #define EOPNOTSUPP 130
+      |         ^~~~~~~~~~
+make[1]: Leaving directory '/d/a/alire-crates-ci/alire-crates-ci/test/89a56d51-078e-464e-8ffd-c793fcffecfa/aws_25.0.0_cf1dc186/config'
+make[1]: Entering directory '/d/a/alire-crates-ci/alire-crates-ci/test/89a56d51-078e-464e-8ffd-c793fcffecfa/aws_25.0.0_cf1dc186/regtests'
+Can not generate system tags. The test are disabled
+make[1]: Leaving directory '/d/a/alire-crates-ci/alire-crates-ci/test/89a56d51-078e-464e-8ffd-c793fcffecfa/aws_25.0.0_cf1dc186/regtests'
+make[1]: Entering directory '/d/a/alire-crates-ci/alire-crates-ci/test/89a56d51-078e-464e-8ffd-c793fcffecfa/aws_25.0.0_cf1dc186/demos'
+make[1]: Leaving directory '/d/a/alire-crates-ci/alire-crates-ci/test/89a56d51-078e-464e-8ffd-c793fcffecfa/aws_25.0.0_cf1dc186/demos'
+make[1]: Entering directory '/d/a/alire-crates-ci/alire-crates-ci/test/89a56d51-078e-464e-8ffd-c793fcffecfa/aws_25.0.0_cf1dc186/templates_parser'
+make[1]: Leaving directory '/d/a/alire-crates-ci/alire-crates-ci/test/89a56d51-078e-464e-8ffd-c793fcffecfa/aws_25.0.0_cf1dc186/templates_parser'
+make[1]: Entering directory '/d/a/alire-crates-ci/alire-crates-ci/test/89a56d51-078e-464e-8ffd-c793fcffecfa/aws_25.0.0_cf1dc186/templates_parser'
+make[1]: Leaving directory '/d/a/alire-crates-ci/alire-crates-ci/test/89a56d51-078e-464e-8ffd-c793fcffecfa/aws_25.0.0_cf1dc186/templates_parser'
+Note: Building aws=25.0.0/aws.gpr (1/2)...
+Setup
+   [mkdir]        object directory for project Zlib
+   [mkdir]        library directory for project Zlib
+   [mkdir]        object directory for project Include
+   [mkdir]        library directory for project Include
+   [mkdir]        object directory for project XmlAda_Sax
+   [mkdir]        library directory for project XmlAda_Sax
+   [mkdir]        object directory for project XmlAda_Schema
+   [mkdir]        object directory for project GNATCOLL_Minimal
+   [mkdir]        library directory for project GNATCOLL_Minimal
+   [mkdir]        object directory for project GNATCOLL_Core
+   [mkdir]        library directory for project GNATCOLL_Core
+   [mkdir]        object directory for project GPR
+   [mkdir]        library directory for project GPR
+   [mkdir]        object directory for project GNATCOLL_Projects
+   [mkdir]        library directory for project GNATCOLL_Projects
+   [mkdir]        object directory for project SSL
+   [mkdir]        library directory for project SSL
+   [mkdir]        object directory for project Src
+   [mkdir]        library directory for project Src
+   [mkdir]        library directory for project AWS
+Compile
+   [Ada]          zlib.adb
+   [Ada]          zlib-thin.adb
+   [Ada]          zlib-streams.adb
+   [Ada]          memory_streams.adb
+   [C]            gai_strerror.c
+   [Ada]          aws-ldap.ads
+   [Ada]          aws-ldap-thin.adb
+   [Ada]          aws-ldap-client.adb
+   [Ada]          templates_parser-xml.adb
+   [Ada]          soap.ads
+   [Ada]          soap-xml.adb
+   [Ada]          soap-wsdl.adb
+   [Ada]          soap-wsdl-schema.adb
+   [Ada]          soap-wsdl-name_spaces.adb
+   [Ada]          soap-utils.adb
+   [Ada]          soap-types.adb
+   [Ada]          soap-types-untyped.adb
+   [Ada]          soap-parameters.adb
+   [Ada]          soap-name_space.adb
+   [Ada]          soap-message.adb
+   [Ada]          soap-message-xml.adb
+   [Ada]          soap-message-response.adb
+   [Ada]          soap-message-response-error.adb
+   [Ada]          soap-message-reader.adb
+   [Ada]          soap-message-payload.adb
+   [Ada]          soap-dispatchers.adb
+   [Ada]          soap-dispatchers-callback.adb
+   [Ada]          soap-client.adb
+   [Ada]          soap-client-callback.ads
+   [Ada]          aws-jabber.ads
+   [Ada]          aws-jabber-digest_md5.adb
+   [Ada]          aws-jabber-client.adb
+   [Ada]          aws-client-xml.ads
+   [Ada]          aws-client-xml-input_sources.adb
+   [Ada]          aws-os_lib.ads
+   [Ada]          templates_parser.adb
+   [Ada]          templates_parser-utils.adb
+   [Ada]          templates_parser-query.adb
+   [Ada]          templates_parser-debug.adb
+   [Ada]          aws-http2.adb
+   [Ada]          aws-http2-stream.adb
+   [Ada]          aws-http2-stream-set.ads
+   [Ada]          aws-http2-message.adb
+   [Ada]          aws-http2-message-list.ads
+   [Ada]          aws-http2-hpack.adb
+   [Ada]          aws-http2-hpack-table.adb
+   [Ada]          aws-http2-hpack-huffman.adb
+   [Ada]          aws-http2-frame.adb
+   [Ada]          aws-http2-frame-window_update.adb
+   [Ada]          aws-http2-frame-settings.adb
+   [Ada]          aws-http2-frame-rst_stream.adb
+   [Ada]          aws-http2-frame-push_promise.adb
+   [Ada]          aws-http2-frame-priority.adb
+   [Ada]          aws-http2-frame-ping.adb
+   [Ada]          aws-http2-frame-list.ads
+   [Ada]          aws-http2-frame-headers.adb
+   [Ada]          aws-http2-frame-goaway.adb
+   [Ada]          aws-http2-frame-data.adb
+   [Ada]          aws-http2-frame-continuation.adb
+   [Ada]          aws-http2-connection.adb
+   [Ada]          aws-status-translate_table.adb
+   [Ada]          aws-smtp.adb
+   [Ada]          aws-smtp-server.adb
+   [Ada]          aws-smtp-messages.adb
+   [Ada]          aws-smtp-messages-set.adb
+   [Ada]          aws-smtp-client.adb
+   [Ada]          aws-smtp-authentication.ads
+   [Ada]          aws-smtp-authentication-plain.adb
+   [Ada]          aws-services-web_mail.adb
+   [Ada]          aws-services-web_block.ads
+   [Ada]          aws-services-web_block-registry.adb
+   [Ada]          aws-services-web_block-context.adb
+   [Ada]          aws-services-split_pages.adb
+   [Ada]          aws-services-split_pages-uniform.adb
+   [Ada]          aws-services-split_pages-uniform-overlapping.adb
+   [Ada]          aws-services-split_pages-uniform-alpha.adb
+   [Ada]          aws-services-split_pages-shared.adb
+   [Ada]          aws-services-split_pages-alpha.adb
+   [Ada]          aws-services-split_pages-alpha-bounded.adb
+   [Ada]          aws-services-page_server.adb
+   [Ada]          aws-services-download.adb
+   [Ada]          aws-services-dispatchers.ads
+   [Ada]          aws-services-dispatchers-virtual_host.adb
+   [Ada]          aws-services-dispatchers-uri.adb
+   [Ada]          aws-services-dispatchers-transient_pages.adb
+   [Ada]          aws-services-dispatchers-timer.adb
+   [Ada]          aws-services-dispatchers-method.adb
+   [Ada]          aws-services-dispatchers-linker.adb
+   [Ada]          aws-services-directory.adb
+   [Ada]          aws-services-callbacks.adb
+   [Ada]          aws-server-push.adb
+   [Ada]          aws-server-hotplug.adb
+   [Ada]          aws-resources-streams-pipe.adb
+   [Ada]          aws-pop.adb
+   [Ada]          aws-net-stream_io.adb
+   [Ada]          aws-net-sets.ads
+   [Ada]          aws-net-log-callbacks.adb
+   [Ada]          aws-cookie.adb
+   [Ada]          aws-communication.adb
+   [Ada]          aws-communication-server.adb
+   [Ada]          aws-communication-client.adb
+   [Ada]          aws-client-hotplug.adb
+   [Ada]          aws.ads
+   [Ada]          aws-utils.adb
+   [Ada]          aws-utils-streams.adb
+   [Ada]          aws-url.adb
+   [Ada]          aws-url-set.adb
+   [Ada]          aws-url-raise_url_error.adb
+   [Ada]          aws-translator.adb
+   [Ada]          aws-templates.ads
+   [Ada]          aws-status.adb
+   [Ada]          aws-status-translate_set.adb
+   [Ada]          aws-status-set.adb
+   [Ada]          aws-session.adb
+   [Ada]          aws-session-control.adb
+   [Ada]          aws-services.ads
+   [Ada]          aws-services-transient_pages.adb
+   [Ada]          aws-services-transient_pages-control.adb
+   [Ada]          aws-server.adb
+   [Ada]          aws-server-status.adb
+   [Ada]          aws-server-log.adb
+   [Ada]          aws-server-http_utils.adb
+   [Ada]          aws-server-get_status.adb
+   [Ada]          aws-server-context.ads
+   [Ada]          aws-response.adb
+   [Ada]          aws-response-set.adb
+   [Ada]          aws-resources.adb
+   [Ada]          aws-resources-streams.adb
+   [Ada]          aws-resources-streams-zlib.adb
+   [Ada]          aws-resources-streams-memory.adb
+   [Ada]          aws-resources-streams-memory-zlib.adb
+   [Ada]          aws-resources-streams-disk.adb
+   [Ada]          aws-resources-streams-disk-once.adb
+   [Ada]          aws-resources-files.adb
+   [Ada]          aws-resources-embedded.adb
+   [Ada]          aws-parameters.adb
+   [Ada]          aws-parameters-set.adb
+   [Ada]          aws-net.adb
+   [Ada]          aws-net-websocket.adb
+   [Ada]          aws-net-websocket-registry.adb
+   [Ada]          aws-net-websocket-registry-utils.adb
+   [Ada]          aws-net-websocket-registry-control.adb
+   [Ada]          aws-net-websocket-protocol.ads
+   [Ada]          aws-net-websocket-protocol-rfc6455.adb
+   [Ada]          aws-net-websocket-protocol-draft76.adb
+   [Ada]          aws-net-websocket-handshake_error.adb
+   [Ada]          aws-net-ssl-rsa_dh_generators.adb
+   [Ada]          aws-net-ssl-common.adb
+   [Ada]          aws-net-ssl-certificate.adb
+   [Ada]          aws-net-poll_events.adb
+   [Ada]          aws-net-poll_events-g_poll.adb
+   [Ada]          aws-net-memory.adb
+   [Ada]          aws-net-log.adb
+   [Ada]          aws-net-generic_sets.adb
+   [Ada]          aws-net-buffered.adb
+   [Ada]          aws-net-acceptors.adb
+   [Ada]          aws-mime.adb
+   [Ada]          aws-messages.adb
+   [Ada]          aws-log.adb
+   [Ada]          aws-hotplug.adb
+   [Ada]          aws-hotplug-get_status.adb
+   [Ada]          aws-headers.adb
+   [Ada]          aws-headers-values.adb
+   [Ada]          aws-headers-set.adb
+   [Ada]          aws-exceptions.ads
+   [Ada]          aws-dispatchers.adb
+   [Ada]          aws-dispatchers-callback.adb
+   [Ada]          aws-digest.adb
+   [Ada]          aws-default.ads
+   [Ada]          aws-containers.ads
+   [Ada]          aws-containers-tables.adb
+   [Ada]          aws-containers-tables-set.ads
+   [Ada]          aws-containers-string_vectors.ads
+   [Ada]          aws-containers-memory_streams.ads
+   [Ada]          aws-containers-key_value.ads
+   [Ada]          aws-config.adb
+   [Ada]          aws-config-utils.adb
+   [Ada]          aws-config-set.adb
+   [Ada]          aws-config-ini.adb
+   [Ada]          aws-client.adb
+   [Ada]          aws-client-http_utils.adb
+   [Ada]          aws-attachments.adb
+   [Ada]          templates_parser-input__aws.adb
+   [Ada]          templates_parser_tasking__standard_tasking.adb
+   [Ada]          aws-net-std__gnat.adb
+   [Ada]          aws-net-ssl__dummy.adb
+   [Ada]          aws-net-ssl-certificate-impl__dummy.adb
+   [Ada]          templates_parser-configuration__aws.ads
+   [Ada]          schema.adb
+   [Ada]          schema-validators.adb
+   [Ada]          schema-validators-xsd_grammar.adb
+   [Ada]          schema-simple_types.adb
+   [Ada]          schema-schema_readers.adb
+   [Ada]          schema-readers.adb
+   [Ada]          schema-dom_readers.adb
+   [Ada]          schema-decimal.adb
+   [Ada]          schema-date_time.adb
+   [Ada]          dom.ads
+   [Ada]          dom-readers.adb
+   [Ada]          dom-core.adb
+   [Ada]          dom-core-texts.adb
+   [Ada]          dom-core-processing_instructions.ads
+   [Ada]          dom-core-notations.adb
+   [Ada]          dom-core-nodes.adb
+   [Ada]          dom-core-entity_references.ads
+   [Ada]          dom-core-elements.adb
+   [Ada]          dom-core-document_types.adb
+   [Ada]          dom-core-document_fragments.ads
+   [Ada]          dom-core-documents.adb
+   [Ada]          dom-core-comments.ads
+   [Ada]          dom-core-character_datas.adb
+   [Ada]          dom-core-cdata_sections.ads
+   [Ada]          dom-core-attrs.adb
+   [Ada]          input_sources.adb
+   [Ada]          input_sources-strings.adb
+   [Ada]          input_sources-socket.adb
+   [Ada]          input_sources-http.adb
+   [Ada]          input_sources-file.adb
+   [Ada]          sax.ads
+   [Ada]          sax-utils.adb
+   [Ada]          sax-symbols.adb
+   [Ada]          sax-state_machines.adb
+   [Ada]          sax-readers.adb
+   [Ada]          sax-pointers.adb
+   [Ada]          sax-models.adb
+   [Ada]          sax-locators.adb
+   [Ada]          sax-htable.adb
+   [Ada]          sax-exceptions.adb
+   [Ada]          sax-encodings.ads
+   [Ada]          sax-attributes.adb
+   [Ada]          unicode.adb
+   [Ada]          unicode-names.ads
+   [Ada]          unicode-names-yi_syllables.ads
+   [Ada]          unicode-names-yi_radicals.ads
+   [Ada]          unicode-names-yijing_hexagram_symbols.ads
+   [Ada]          unicode-names-warang_citi.ads
+   [Ada]          unicode-names-vertical_forms.ads
+   [Ada]          unicode-names-vedic_extensions.ads
+   [Ada]          unicode-names-variation_selectors_sup.ads
+   [Ada]          unicode-names-variation_selectors.ads
+   [Ada]          unicode-names-vai.ads
+   [Ada]          unicode-names-ugaritic.ads
+   [Ada]          unicode-names-transport_and_map_symbols.ads
+   [Ada]          unicode-names-tirhuta.ads
+   [Ada]          unicode-names-tifinagh.ads
+   [Ada]          unicode-names-tibetan.ads
+   [Ada]          unicode-names-thai.ads
+   [Ada]          unicode-names-thaana.ads
+   [Ada]          unicode-names-telugu.ads
+   [Ada]          unicode-names-tamil.ads
+   [Ada]          unicode-names-takri.ads
+   [Ada]          unicode-names-tai_xuan_jing_symbols.ads
+   [Ada]          unicode-names-tai_viet.ads
+   [Ada]          unicode-names-tai_tham.ads
+   [Ada]          unicode-names-tai_le.ads
+   [Ada]          unicode-names-tags.ads
+   [Ada]          unicode-names-tagbanwa.ads
+   [Ada]          unicode-names-tagalog.ads
+   [Ada]          unicode-names-syriac.ads
+   [Ada]          unicode-names-syloti_nagri.ads
+   [Ada]          unicode-names-sutton_signwriting.ads
+   [Ada]          unicode-names-sup_symbols_pictographs.ads
+   [Ada]          unicode-names-sup_math_operators.ads
+   [Ada]          unicode-names-supplemental_punctuation.ads
+   [Ada]          unicode-names-supplemental_arrows_c.ads
+   [Ada]          unicode-names-supplemental_arrows_b.ads
+   [Ada]          unicode-names-supplemental_arrows_a.ads
+   [Ada]          unicode-names-super_and_sub_scripts.ads
+   [Ada]          unicode-names-sundanese_supplement.ads
+   [Ada]          unicode-names-sundanese.ads
+   [Ada]          unicode-names-specials.ads
+   [Ada]          unicode-names-spacing_modifier_letters.ads
+   [Ada]          unicode-names-sora_sompeng.ads
+   [Ada]          unicode-names-small_form_variants.ads
+   [Ada]          unicode-names-sinhala_archaic_numbers.ads
+   [Ada]          unicode-names-sinhala.ads
+   [Ada]          unicode-names-siddham.ads
+   [Ada]          unicode-names-shorthand_format_controls.ads
+   [Ada]          unicode-names-shavian.ads
+   [Ada]          unicode-names-sharada.ads
+   [Ada]          unicode-names-saurashtra.ads
+   [Ada]          unicode-names-samaritan.ads
+   [Ada]          unicode-names-runic.ads
+   [Ada]          unicode-names-rumi_numeral_symbols.ads
+   [Ada]          unicode-names-rejang.ads
+   [Ada]          unicode-names-psalter_pahlavi.ads
+   [Ada]          unicode-names-playing_cards.ads
+   [Ada]          unicode-names-phonetic_ext_sup.ads
+   [Ada]          unicode-names-phonetic_extensions.ads
+   [Ada]          unicode-names-phoenician.ads
+   [Ada]          unicode-names-phaistos_disc.ads
+   [Ada]          unicode-names-phags_pa.ads
+   [Ada]          unicode-names-pau_cin_hau.ads
+   [Ada]          unicode-names-palmyrene.ads
+   [Ada]          unicode-names-pahawh_hmong.ads
+   [Ada]          unicode-names-osmanya.ads
+   [Ada]          unicode-names-ornamental_dingbats.ads
+   [Ada]          unicode-names-oriya.ads
+   [Ada]          unicode-names-optical_chars_recognition.ads
+   [Ada]          unicode-names-ol_chiki.ads
+   [Ada]          unicode-names-old_turkic.ads
+   [Ada]          unicode-names-old_south_arabian.ads
+   [Ada]          unicode-names-old_persian.ads
+   [Ada]          unicode-names-old_permic.ads
+   [Ada]          unicode-names-old_north_arabian.ads
+   [Ada]          unicode-names-old_italic.ads
+   [Ada]          unicode-names-old_hungarian.ads
+   [Ada]          unicode-names-ogham.ads
+   [Ada]          unicode-names-number_forms.ads
+   [Ada]          unicode-names-nko.ads
+   [Ada]          unicode-names-new_tai_lue.ads
+   [Ada]          unicode-names-nabataean.ads
+   [Ada]          unicode-names-myanmar_extended_b.ads
+   [Ada]          unicode-names-myanmar_extended_a.ads
+   [Ada]          unicode-names-myanmar.ads
+   [Ada]          unicode-names-musical_symbols.ads
+   [Ada]          unicode-names-multani.ads
+   [Ada]          unicode-names-mro.ads
+   [Ada]          unicode-names-mongolian.ads
+   [Ada]          unicode-names-modifier_tone_letters.ads
+   [Ada]          unicode-names-modi.ads
+   [Ada]          unicode-names-misc_symbols_pictographs.ads
+   [Ada]          unicode-names-misc_symbols_and_arrows.ads
+   [Ada]          unicode-names-misc_math_symbols_b.ads
+   [Ada]          unicode-names-misc_math_symbols_a.ads
+   [Ada]          unicode-names-miscellaneous_technical.ads
+   [Ada]          unicode-names-miscellaneous_symbols.ads
+   [Ada]          unicode-names-miao.ads
+   [Ada]          unicode-names-meroitic_hieroglyphs.ads
+   [Ada]          unicode-names-meroitic_cursive.ads
+   [Ada]          unicode-names-mende_kikakui.ads
+   [Ada]          unicode-names-meetei_mayek_extensions.ads
+   [Ada]          unicode-names-meetei_mayek.ads
+   [Ada]          unicode-names-math_alphanumeric_symb.ads
+   [Ada]          unicode-names-mathematical_operators.ads
+   [Ada]          unicode-names-manichaean.ads
+   [Ada]          unicode-names-mandaic.ads
+   [Ada]          unicode-names-malayalam.ads
+   [Ada]          unicode-names-mahjong_tiles.ads
+   [Ada]          unicode-names-mahajani.ads
+   [Ada]          unicode-names-lydian.ads
+   [Ada]          unicode-names-lycian.ads
+   [Ada]          unicode-names-lisu.ads
+   [Ada]          unicode-names-linear_b_syllabary.ads
+   [Ada]          unicode-names-linear_b_ideograms.ads
+   [Ada]          unicode-names-linear_a.ads
+   [Ada]          unicode-names-limbu.ads
+   [Ada]          unicode-names-letterlike_symbols.ads
+   [Ada]          unicode-names-lepcha.ads
+   [Ada]          unicode-names-latin_extended_e.ads
+   [Ada]          unicode-names-latin_extended_d.ads
+   [Ada]          unicode-names-latin_extended_c.ads
+   [Ada]          unicode-names-latin_extended_b.ads
+   [Ada]          unicode-names-latin_extended_additional.ads
+   [Ada]          unicode-names-latin_extended_a.ads
+   [Ada]          unicode-names-latin_1_supplement.ads
+   [Ada]          unicode-names-lao.ads
+   [Ada]          unicode-names-khudawadi.ads
+   [Ada]          unicode-names-khojki.ads
+   [Ada]          unicode-names-khmer_symbols.ads
+   [Ada]          unicode-names-khmer.ads
+   [Ada]          unicode-names-kharoshthi.ads
+   [Ada]          unicode-names-kayah_li.ads
+   [Ada]          unicode-names-katakana_phonetic_ext.ads
+   [Ada]          unicode-names-katakana.ads
+   [Ada]          unicode-names-kannada.ads
+   [Ada]          unicode-names-kangxi_radicals.ads
+   [Ada]          unicode-names-kanbun.ads
+   [Ada]          unicode-names-kana_supplement.ads
+   [Ada]          unicode-names-kaithi.ads
+   [Ada]          unicode-names-javanese.ads
+   [Ada]          unicode-names-ipa_extensions.ads
+   [Ada]          unicode-names-inscriptional_parthian.ads
+   [Ada]          unicode-names-inscriptional_pahlavi.ads
+   [Ada]          unicode-names-imperial_aramaic.ads
+   [Ada]          unicode-names-ideograph_descr_chars.ads
+   [Ada]          unicode-names-hiragana.ads
+   [Ada]          unicode-names-hebrew.ads
+   [Ada]          unicode-names-hatran.ads
+   [Ada]          unicode-names-hanunoo.ads
+   [Ada]          unicode-names-hangul_jamo_extended_b.ads
+   [Ada]          unicode-names-hangul_jamo_extended_a.ads
+   [Ada]          unicode-names-hangul_jamo.ads
+   [Ada]          unicode-names-hangul_compatibility_jamo.ads
+   [Ada]          unicode-names-half_full_width_forms.ads
+   [Ada]          unicode-names-gurmukhi.ads
+   [Ada]          unicode-names-gujarati.ads
+   [Ada]          unicode-names-greek_extended.ads
+   [Ada]          unicode-names-greek_and_coptic.ads
+   [Ada]          unicode-names-grantha.ads
+   [Ada]          unicode-names-gothic.ads
+   [Ada]          unicode-names-glagolitic.ads
+   [Ada]          unicode-names-georgian_supplement.ads
+   [Ada]          unicode-names-georgian.ads
+   [Ada]          unicode-names-geometric_shapes_extended.ads
+   [Ada]          unicode-names-geometric_shapes.ads
+   [Ada]          unicode-names-general_punctuation.ads
+   [Ada]          unicode-names-ethiopic_supplement.ads
+   [Ada]          unicode-names-ethiopic_extended_a.ads
+   [Ada]          unicode-names-ethiopic_extended.ads
+   [Ada]          unicode-names-ethiopic.ads
+   [Ada]          unicode-names-enclosed_ideographic_sup.ads
+   [Ada]          unicode-names-enclosed_alphanum_sup.ads
+   [Ada]          unicode-names-enclosed_alphanumerics.ads
+   [Ada]          unicode-names-emoticons.ads
+   [Ada]          unicode-names-elbasan.ads
+   [Ada]          unicode-names-egyptian_hieroglyphs.ads
+   [Ada]          unicode-names-early_dynastic_cuneiform.ads
+   [Ada]          unicode-names-duployan.ads
+   [Ada]          unicode-names-domino_tiles.ads
+   [Ada]          unicode-names-dingbats.ads
+   [Ada]          unicode-names-devanagari_extended.ads
+   [Ada]          unicode-names-devanagari.ads
+   [Ada]          unicode-names-deseret.ads
+   [Ada]          unicode-names-cyrillic_supplement.ads
+   [Ada]          unicode-names-cyrillic_extended_b.ads
+   [Ada]          unicode-names-cyrillic_extended_a.ads
+   [Ada]          unicode-names-cyrillic.ads
+   [Ada]          unicode-names-cypriot_syllabary.ads
+   [Ada]          unicode-names-currency_symbols.ads
+   [Ada]          unicode-names-cuneiform_num_punctuation.ads
+   [Ada]          unicode-names-cuneiform.ads
+   [Ada]          unicode-names-counting_rod_numerals.ads
+   [Ada]          unicode-names-coptic_epact_numbers.ads
+   [Ada]          unicode-names-coptic.ads
+   [Ada]          unicode-names-control_pictures.ads
+   [Ada]          unicode-names-common_indic_number_forms.ads
+   [Ada]          unicode-names-combining_half_marks.ads
+   [Ada]          unicode-names-combining_diacritical_sym.ads
+   [Ada]          unicode-names-combining_diacritical_sup.ads
+   [Ada]          unicode-names-combining_diacritical_ext.ads
+   [Ada]          unicode-names-combining_diacritical.ads
+   [Ada]          unicode-names-cjk_symbols_and_punct.ads
+   [Ada]          unicode-names-cjk_strokes.ads
+   [Ada]          unicode-names-cjk_radicals_supplement.ads
+   [Ada]          unicode-names-cjk_letters_months.ads
+   [Ada]          unicode-names-cjk_compat_ideo_sup.ads
+   [Ada]          unicode-names-cjk_compat_ideographs.ads
+   [Ada]          unicode-names-cjk_compatibility_forms.ads
+   [Ada]          unicode-names-cjk_compatibility.ads
+   [Ada]          unicode-names-cherokee_supplement.ads
+   [Ada]          unicode-names-cherokee.ads
+   [Ada]          unicode-names-cham.ads
+   [Ada]          unicode-names-chakma.ads
+   [Ada]          unicode-names-caucasian_albanian.ads
+   [Ada]          unicode-names-carian.ads
+   [Ada]          unicode-names-canadian_aboriginal_ext.ads
+   [Ada]          unicode-names-canadian_aboriginal.ads
+   [Ada]          unicode-names-byzantine_musical_symbols.ads
+   [Ada]          unicode-names-buhid.ads
+   [Ada]          unicode-names-buginese.ads
+   [Ada]          unicode-names-braille_patterns.ads
+   [Ada]          unicode-names-brahmi.ads
+   [Ada]          unicode-names-box_drawing.ads
+   [Ada]          unicode-names-bopomofo_extended.ads
+   [Ada]          unicode-names-bopomofo.ads
+   [Ada]          unicode-names-block_elements.ads
+   [Ada]          unicode-names-bengali.ads
+   [Ada]          unicode-names-batak.ads
+   [Ada]          unicode-names-bassa_vah.ads
+   [Ada]          unicode-names-basic_latin.ads
+   [Ada]          unicode-names-bamum_supplement.ads
+   [Ada]          unicode-names-bamum.ads
+   [Ada]          unicode-names-balinese.ads
+   [Ada]          unicode-names-avestan.ads
+   [Ada]          unicode-names-arrows.ads
+   [Ada]          unicode-names-armenian.ads
+   [Ada]          unicode-names-arabic_supplement.ads
+   [Ada]          unicode-names-arabic_present_formsb.ads
+   [Ada]          unicode-names-arabic_present_formsa.ads
+   [Ada]          unicode-names-arabic_math_alpha_symb.ads
+   [Ada]          unicode-names-arabic_extended_a.ads
+   [Ada]          unicode-names-arabic.ads
+   [Ada]          unicode-names-ancient_symbols.ads
+   [Ada]          unicode-names-ancient_greek_numbers.ads
+   [Ada]          unicode-names-ancient_greek_music.ads
+   [Ada]          unicode-names-anatolian_hieroglyphs.ads
+   [Ada]          unicode-names-alpha_presentation_forms.ads
+   [Ada]          unicode-names-alchemical_symbols.ads
+   [Ada]          unicode-names-ahom.ads
+   [Ada]          unicode-names-aegean_numbers.ads
+   [Ada]          unicode-encodings.adb
+   [Ada]          unicode-ces.adb
+   [Ada]          unicode-ces-utf8.adb
+   [Ada]          unicode-ces-utf32.adb
+   [Ada]          unicode-ces-utf16.adb
+   [Ada]          unicode-ces-basic_8bit.adb
+   [Ada]          unicode-ccs.adb
+   [Ada]          unicode-ccs-windows_1252.adb
+   [Ada]          unicode-ccs-windows_1251.adb
+   [Ada]          unicode-ccs-iso_8859_4.adb
+   [Ada]          unicode-ccs-iso_8859_3.adb
+   [Ada]          unicode-ccs-iso_8859_2.adb
+   [Ada]          unicode-ccs-iso_8859_15.adb
+   [Ada]          unicode-ccs-iso_8859_1.adb
+   [C]            gpr_imports.c
+   [Ada]          gpr_build_util.adb
+   [Ada]          gpr.adb
+   [Ada]          gpr-version.adb
+   [Ada]          gpr-util.adb
+   [Ada]          gpr-util-aux.adb
+   [Ada]          gpr-tree.adb
+   [Ada]          gpr-tempdir.adb
+   [Ada]          gpr-strt.adb
+   [Ada]          gpr-snames.adb
+   [Ada]          gpr-sinput.adb
+   [Ada]          gpr-sdefault.adb
+   [Ada]          gpr-script.adb
+gpr-sdefault.adb:29:06: warning: "System.OS_Constants" is an internal GNAT unit [-gnatwi]
+gpr-sdefault.adb:29:06: warning: use of this unit is non-portable and version-dependent [-gnatwi]
+   [Ada]          gpr-scans.adb
+   [Ada]          gpr-proc.adb
+   [Ada]          gpr-pp.adb
+   [Ada]          gpr-part.adb
+   [Ada]          gpr-output.adb
+   [Ada]          gpr-osint.adb
+gpr-osint.adb:30:06: warning: "System.CRTL" is an internal GNAT unit [-gnatwi]
+gpr-osint.adb:30:06: warning: use of this unit is non-portable and version-dependent [-gnatwi]
+gpr-osint.adb:31:06: warning: "System.OS_Constants" is an internal GNAT unit [-gnatwi]
+gpr-osint.adb:31:06: warning: use of this unit is non-portable and version-dependent [-gnatwi]
+   [Ada]          gpr-opt.ads
+   [Ada]          gpr-nmsc.adb
+   [Ada]          gpr-names.adb
+   [Ada]          gpr-knowledge.adb
+   [Ada]          gpr-ext.adb
+   [Ada]          gpr-erroutc.adb
+   [Ada]          gpr-err.adb
+   [Ada]          gpr-env.adb
+   [Ada]          gpr-dect.adb
+   [Ada]          gpr-debug.adb
+   [Ada]          gpr-cset.adb
+   [Ada]          gpr-conf.adb
+   [Ada]          gpr-compilation.adb
+   [Ada]          gpr-compilation-sync.adb
+   [Ada]          gpr-compilation-slave.adb
+   [Ada]          gpr-compilation-protocol.adb
+   [Ada]          gpr-compilation-process.adb
+   [Ada]          gpr-compilation-process-waiter.adb
+   [Ada]          gpr-com.ads
+   [Ada]          gpr-attr.adb
+   [Ada]          gpr-attr-pm.adb
+   [Ada]          gpr-ali.adb
+   [Ada]          gpr-jobserver__win.adb
+   [Ada]          gnatcoll-scripts-projects.adb
+gpr-jobserver__win.adb:36:06: warning: "System.Win32" is an internal GNAT unit [-gnatwi]
+gpr-jobserver__win.adb:36:06: warning: use of this unit is non-portable and version-dependent [-gnatwi]
+   [Ada]          gnatcoll-scripts-files.adb
+   [Ada]          gnatcoll-projects.adb
+   [Ada]          gnatcoll-projects-normalize.adb
+   [Ada]          gnatcoll-projects-krunch.adb
+   [Ada]          gnatcoll-projects-aux.adb
+   [C]            gnatcoll_support.c
+   [C]            getrss.c
+   [Ada]          gnatcoll.ads
+   [Ada]          gnatcoll-tribooleans.adb
+   [Ada]          gnatcoll-storage_pools.ads
+   [Ada]          gnatcoll-storage_pools-headers.adb
+   [Ada]          gnatcoll-storage_pools-alignment.adb
+   [Ada]          gnatcoll-refcount.adb
+   [Ada]          gnatcoll-refcount-weakref.adb
+gnatcoll-refcount.ads:90:04: warning: in instantiation at gnatcoll-storage_pools-headers.adb:57 [enabled by default]
+gnatcoll-refcount.ads:90:04: warning: possible aliasing problem for type "Header_Access" [enabled by default]
+gnatcoll-refcount.ads:90:04: warning: use -fno-strict-aliasing switch for references [enabled by default]
+gnatcoll-refcount.ads:90:04: warning: or use "pragma No_Strict_Aliasing (Header_Access);" [enabled by default]
+   [Ada]          gnatcoll-promises.adb
+   [Ada]          gnatcoll-memory.adb
+   [Ada]          gnatcoll-locks.adb
+   [Ada]          gnatcoll-damerau_levenshtein_generic.adb
+   [Ada]          gnatcoll-damerau_levenshtein_distance.ads
+   [Ada]          gnatcoll-coders.adb
+   [Ada]          gnatcoll-coders-streams.adb
+   [Ada]          gnatcoll-coders-base64.adb
+   [Ada]          gnatcoll-boyer_moore.adb
+   [Ada]          gnatcoll-atomic.adb
+   [Ada]          gnatcoll-asserts.adb
+   [Ada]          gnatcoll-any_types.adb
+   [C]            win32-wrappers.c
+   [C]            xxhash.c
+   [C]            blake3_portable.c
+   [C]            blake3_dispatch.c
+   [C]            blake3.c
+   [C]            update_path.c
+   [C]            terminals.c
+   [C]            set_std_prefix.c
+   [C]            separate_run_path_option.c
+   [C]            run_path_option.c
+   [C]            objlist_file.c
+   [C]            link_max.c
+   [C]            gnatcoll_support.c
+   [C]            executable_path.c
+   [Ada]          gnatcoll-os-win32.adb
+   [Ada]          gnatcoll-os-win32-strings.adb
+   [Ada]          gnatcoll-os-win32-process.ads
+   [Ada]          gnatcoll-os-win32-files.adb
+   [Ada]          gnatcoll-hash-blake3.adb
+   [Ada]          gnatcoll-hash.ads
+   [Ada]          gnatcoll-paragraph_filling.adb
+   [Ada]          gnatcoll-paragraph_filling-words.adb
+   [Ada]          gnatcoll-paragraph_filling-badnesses.adb
+   [Ada]          gnatcoll-os.ads
+   [Ada]          gnatcoll-os-stat.adb
+   [Ada]          gnatcoll-os-process.adb
+   [Ada]          gnatcoll-os-fsutil.adb
+   [Ada]          gnatcoll-os-fs.adb
+   [Ada]          gnatcoll-os-dir.adb
+   [Ada]          gnatcoll-wstring_list_builders.adb
+   [Ada]          gnatcoll-wstring_builders.adb
+   [Ada]          gnatcoll-vfs_utils.adb
+   [Ada]          gnatcoll-vfs_types.ads
+   [Ada]          gnatcoll-vfs.adb
+   [Ada]          gnatcoll-utils.adb
+   [Ada]          gnatcoll-traces.adb
+   [Ada]          gnatcoll-terminal.adb
+   [Ada]          gnatcoll-templates.adb
+   [Ada]          gnatcoll-symbols.adb
+   [Ada]          gnatcoll-string_list_builders.adb
+   [Ada]          gnatcoll-string_builders.adb
+   [Ada]          gnatcoll-strings_impl.adb
+   [Ada]          gnatcoll-strings.ads
+   [Ada]          gnatcoll-scripts.adb
+   [Ada]          gnatcoll-scripts-utils.adb
+   [Ada]          gnatcoll-scripts-impl.adb
+   [Ada]          gnatcoll-remote.ads
+   [Ada]          gnatcoll-remote-db.adb
+   [Ada]          gnatcoll-random.adb
+   [Ada]          gnatcoll-pools.adb
+   [Ada]          gnatcoll-path.adb
+   [Ada]          gnatcoll-opt_parse.adb
+   [Ada]          gnatcoll-mmap.adb
+   [Ada]          gnatcoll-json.adb
+   [Ada]          gnatcoll-json-utility.adb
+   [Ada]          gnatcoll-io.adb
+   [Ada]          gnatcoll-io-remote.adb
+   [Ada]          gnatcoll-io-remote-windows.adb
+   [Ada]          gnatcoll-io-remote-unix.adb
+   [Ada]          gnatcoll-io-native.adb
+   [Ada]          gnatcoll-format_columns_vertical.ads
+   [Ada]          gnatcoll-formatters.adb
+   [Ada]          gnatcoll-file_paths.adb
+   [Ada]          gnatcoll-file_indexes.adb
+   [Ada]          gnatcoll-email.adb
+   [Ada]          gnatcoll-email-utils.adb
+   [Ada]          gnatcoll-email-parser.adb
+   [Ada]          gnatcoll-email-mailboxes.adb
+   [Ada]          gnatcoll-directed_graph.adb
+   [Ada]          gnatcoll-config.adb
+   [Ada]          gnatcoll-buffer.adb
+   [Ada]          gnatcoll-arg_lists.adb
+   [Ada]          gnatcoll-hash-xxhash__generic.adb
+   [Ada]          gnatcoll-mmap-system__win32.adb
+   [Ada]          gnatcoll-plugins__windows.adb
+   [Ada]          gnatcoll-os-process_types__win32.adb
+   [Ada]          gnatcoll-os-random__win32.adb
+   [Ada]          gnatcoll-os-constants__windows.ads
+   [Ada]          gnatcoll-os-dir_types__win32.ads
+   [Ada]          ssl.ads
+   [Ada]          ssl-thin__dummy.ads
+   [C]            zutil.c
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\zutil.c: In function 'zError':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\zutil.c:133:22: warning: old-style function definition [-Wold-style-definition]
+  133 | const char * ZEXPORT zError(err)
+      |                      ^~~~~~
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\zutil.c: In function 'zcalloc':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\zutil.c:305:22: warning: old-style function definition [-Wold-style-definition]
+  305 | voidpf ZLIB_INTERNAL zcalloc (opaque, items, size)
+      |                      ^~~~~~~
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\zutil.c: In function 'zcfree':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\zutil.c:315:20: warning: old-style function definition [-Wold-style-definition]
+  315 | void ZLIB_INTERNAL zcfree (opaque, ptr)
+      |                    ^~~~~~
+   [C]            uncompr.c
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\uncompr.c: In function 'uncompress2':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\uncompr.c:27:13: warning: old-style function definition [-Wold-style-definition]
+   27 | int ZEXPORT uncompress2 (dest, destLen, source, sourceLen)
+      |             ^~~~~~~~~~~
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\uncompr.c: In function 'uncompress':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\uncompr.c:86:13: warning: old-style function definition [-Wold-style-definition]
+   86 | int ZEXPORT uncompress (dest, destLen, source, sourceLen)
+      |             ^~~~~~~~~~
+   [C]            trees.c
+   [C]            inftrees.c
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\trees.c: In function '_tr_init':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\trees.c:379:20: warning: old-style function definition [-Wold-style-definition]
+  379 | void ZLIB_INTERNAL _tr_init(s)
+      |                    ^~~~~~~~
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\trees.c: In function 'init_block':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\trees.c:407:12: warning: old-style function definition [-Wold-style-definition]
+  407 | local void init_block(s)
+      |            ^~~~~~~~~~
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\trees.c: In function 'pqdownheap':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\trees.c:451:12: warning: old-style function definition [-Wold-style-definition]
+  451 | local void pqdownheap(s, tree, k)
+      |            ^~~~~~~~~~
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\trees.c: In function 'gen_bitlen':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\trees.c:486:12: warning: old-style function definition [-Wold-style-definition]
+  486 | local void gen_bitlen(s, desc)
+      |            ^~~~~~~~~~
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\trees.c: In function 'gen_codes':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\trees.c:572:12: warning: old-style function definition [-Wold-style-definition]
+  572 | local void gen_codes (tree, max_code, bl_count)
+      |            ^~~~~~~~~
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\trees.c: In function 'build_tree':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\trees.c:615:12: warning: old-style function definition [-Wold-style-definition]
+  615 | local void build_tree(s, desc)
+      |            ^~~~~~~~~~
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\trees.c: In function 'scan_tree':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\trees.c:703:12: warning: old-style function definition [-Wold-style-definition]
+  703 | local void scan_tree (s, tree, max_code)
+      |            ^~~~~~~~~
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\trees.c: In function 'send_tree':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\trees.c:748:12: warning: old-style function definition [-Wold-style-definition]
+  748 | local void send_tree (s, tree, max_code)
+      |            ^~~~~~~~~
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\trees.c: In function 'build_bl_tree':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\trees.c:799:11: warning: old-style function definition [-Wold-style-definition]
+  799 | local int build_bl_tree(s)
+      |           ^~~~~~~~~~~~~
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\trees.c: In function 'send_all_trees':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\trees.c:834:12: warning: old-style function definition [-Wold-style-definition]
+  834 | local void send_all_trees(s, lcodes, dcodes, blcodes)
+      |            ^~~~~~~~~~~~~~
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\trees.c: In function '_tr_stored_block':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\trees.c:863:20: warning: old-style function definition [-Wold-style-definition]
+  863 | void ZLIB_INTERNAL _tr_stored_block(s, buf, stored_len, last)
+      |                    ^~~~~~~~~~~~~~~~
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\trees.c: In function '_tr_flush_bits':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\trees.c:886:20: warning: old-style function definition [-Wold-style-definition]
+  886 | void ZLIB_INTERNAL _tr_flush_bits(s)
+      |                    ^~~~~~~~~~~~~~
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\trees.c: In function '_tr_align':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\trees.c:896:20: warning: old-style function definition [-Wold-style-definition]
+  896 | void ZLIB_INTERNAL _tr_align(s)
+      |                    ^~~~~~~~~
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\trees.c: In function '_tr_flush_block':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\trees.c:911:20: warning: old-style function definition [-Wold-style-definition]
+  911 | void ZLIB_INTERNAL _tr_flush_block(s, buf, stored_len, last)
+      |                    ^~~~~~~~~~~~~~~
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\trees.c: In function '_tr_tally':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\trees.c:1014:19: warning: old-style function definition [-Wold-style-definition]
+ 1014 | int ZLIB_INTERNAL _tr_tally (s, dist, lc)
+      |                   ^~~~~~~~~
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\trees.c: In function 'compress_block':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\trees.c:1064:12: warning: old-style function definition [-Wold-style-definition]
+ 1064 | local void compress_block(s, ltree, dtree)
+      |            ^~~~~~~~~~~~~~
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\trees.c: In function 'detect_data_type':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\trees.c:1124:11: warning: old-style function definition [-Wold-style-definition]
+ 1124 | local int detect_data_type(s)
+      |           ^~~~~~~~~~~~~~~~
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\trees.c: In function 'bi_reverse':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\trees.c:1158:16: warning: old-style function definition [-Wold-style-definition]
+ 1158 | local unsigned bi_reverse(code, len)
+      |                ^~~~~~~~~~
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\trees.c: In function 'bi_flush':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\trees.c:1173:12: warning: old-style function definition [-Wold-style-definition]
+ 1173 | local void bi_flush(s)
+      |            ^~~~~~~~
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\trees.c: In function 'bi_windup':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\trees.c:1190:12: warning: old-style function definition [-Wold-style-definition]
+ 1190 | local void bi_windup(s)
+      |            ^~~~~~~~~
+   [C]            inflate.c
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\inftrees.c: In function 'inflate_table':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\inftrees.c:32:19: warning: old-style function definition [-Wold-style-definition]
+   32 | int ZLIB_INTERNAL inflate_table(type, lens, codes, table, bits, work)
+      |                   ^~~~~~~~~~~~~
+   [C]            inffast.c
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\inffast.c: In function 'inflate_fast':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\inffast.c:50:20: warning: old-style function definition [-Wold-style-definition]
+   50 | void ZLIB_INTERNAL inflate_fast(strm, start)
+      |                    ^~~~~~~~~~~~
+   [C]            infback.c
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\inflate.c: In function 'inflateStateCheck':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\inflate.c:105:11: warning: old-style function definition [-Wold-style-definition]
+  105 | local int inflateStateCheck(strm)
+      |           ^~~~~~~~~~~~~~~~~
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\inflate.c: In function 'inflateResetKeep':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\inflate.c:119:13: warning: old-style function definition [-Wold-style-definition]
+  119 | int ZEXPORT inflateResetKeep(strm)
+      |             ^~~~~~~~~~~~~~~~
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\inflate.c: In function 'inflateReset':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\inflate.c:144:13: warning: old-style function definition [-Wold-style-definition]
+  144 | int ZEXPORT inflateReset(strm)
+      |             ^~~~~~~~~~~~
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\inflate.c: In function 'inflateReset2':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\inflate.c:157:13: warning: old-style function definition [-Wold-style-definition]
+  157 | int ZEXPORT inflateReset2(strm, windowBits)
+      |             ^~~~~~~~~~~~~
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\inflate.c: In function 'inflateInit2_':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\inflate.c:195:13: warning: old-style function definition [-Wold-style-definition]
+  195 | int ZEXPORT inflateInit2_(strm, windowBits, version, stream_size)
+      |             ^~~~~~~~~~~~~
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\inflate.c: In function 'inflateInit_':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\inflate.c:239:13: warning: old-style function definition [-Wold-style-definition]
+  239 | int ZEXPORT inflateInit_(strm, version, stream_size)
+      |             ^~~~~~~~~~~~
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\inflate.c: In function 'inflatePrime':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\inflate.c:247:13: warning: old-style function definition [-Wold-style-definition]
+  247 | int ZEXPORT inflatePrime(strm, bits, value)
+      |             ^~~~~~~~~~~~
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\inflate.c: In function 'fixedtables':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\inflate.c:278:12: warning: old-style function definition [-Wold-style-definition]
+  278 | local void fixedtables(state)
+      |            ^~~~~~~~~~~
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\inflate.c: In function 'updatewindow':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\inflate.c:396:11: warning: old-style function definition [-Wold-style-definition]
+  396 | local int updatewindow(strm, end, copy)
+      |           ^~~~~~~~~~~~
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\inflate.c: In function 'inflate':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\inflate.c:622:13: warning: old-style function definition [-Wold-style-definition]
+  622 | int ZEXPORT inflate(strm, flush)
+      |             ^~~~~~~
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\inflate.c: In function 'inflateEnd':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\inflate.c:1277:13: warning: old-style function definition [-Wold-style-definition]
+ 1277 | int ZEXPORT inflateEnd(strm)
+      |             ^~~~~~~~~~
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\inflate.c: In function 'inflateGetDictionary':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\inflate.c:1291:13: warning: old-style function definition [-Wold-style-definition]
+ 1291 | int ZEXPORT inflateGetDictionary(strm, dictionary, dictLength)
+      |             ^~~~~~~~~~~~~~~~~~~~
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\inflate.c: In function 'inflateSetDictionary':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\inflate.c:1314:13: warning: old-style function definition [-Wold-style-definition]
+ 1314 | int ZEXPORT inflateSetDictionary(strm, dictionary, dictLength)
+      |             ^~~~~~~~~~~~~~~~~~~~
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\inflate.c: In function 'inflateGetHeader':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\inflate.c:1349:13: warning: old-style function definition [-Wold-style-definition]
+ 1349 | int ZEXPORT inflateGetHeader(strm, head)
+      |             ^~~~~~~~~~~~~~~~
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\inflate.c: In function 'syncsearch':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\inflate.c:1377:16: warning: old-style function definition [-Wold-style-definition]
+ 1377 | local unsigned syncsearch(have, buf, len)
+      |                ^~~~~~~~~~
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\inflate.c: In function 'inflateSync':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\inflate.c:1400:13: warning: old-style function definition [-Wold-style-definition]
+ 1400 | int ZEXPORT inflateSync(strm)
+      |             ^~~~~~~~~~~
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\inflate.c: In function 'inflateSyncPoint':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\inflate.c:1451:13: warning: old-style function definition [-Wold-style-definition]
+ 1451 | int ZEXPORT inflateSyncPoint(strm)
+      |             ^~~~~~~~~~~~~~~~
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\inflate.c: In function 'inflateCopy':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\inflate.c:1461:13: warning: old-style function definition [-Wold-style-definition]
+ 1461 | int ZEXPORT inflateCopy(dest, source)
+      |             ^~~~~~~~~~~
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\inflate.c: In function 'inflateUndermine':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\inflate.c:1508:13: warning: old-style function definition [-Wold-style-definition]
+ 1508 | int ZEXPORT inflateUndermine(strm, subvert)
+      |             ^~~~~~~~~~~~~~~~
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\inflate.c: In function 'inflateValidate':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\inflate.c:1526:13: warning: old-style function definition [-Wold-style-definition]
+ 1526 | int ZEXPORT inflateValidate(strm, check)
+      |             ^~~~~~~~~~~~~~~
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\inflate.c: In function 'inflateMark':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\inflate.c:1541:14: warning: old-style function definition [-Wold-style-definition]
+ 1541 | long ZEXPORT inflateMark(strm)
+      |              ^~~~~~~~~~~
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\inflate.c: In function 'inflateCodesUsed':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\inflate.c:1554:23: warning: old-style function definition [-Wold-style-definition]
+ 1554 | unsigned long ZEXPORT inflateCodesUsed(strm)
+      |                       ^~~~~~~~~~~~~~~~
+   [C]            gzwrite.c
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\infback.c: In function 'inflateBackInit_':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\infback.c:28:13: warning: old-style function definition [-Wold-style-definition]
+   28 | int ZEXPORT inflateBackInit_(strm, windowBits, window, version, stream_size)
+      |             ^~~~~~~~~~~~~~~~
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\infback.c: In function 'fixedtables':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\infback.c:82:12: warning: old-style function definition [-Wold-style-definition]
+   82 | local void fixedtables(state)
+      |            ^~~~~~~~~~~
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\infback.c: In function 'inflateBack':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\infback.c:250:13: warning: old-style function definition [-Wold-style-definition]
+  250 | int ZEXPORT inflateBack(strm, in, in_desc, out, out_desc)
+      |             ^~~~~~~~~~~
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\infback.c: In function 'inflateBackEnd':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\infback.c:631:13: warning: old-style function definition [-Wold-style-definition]
+  631 | int ZEXPORT inflateBackEnd(strm)
+      |             ^~~~~~~~~~~~~~
+   [C]            gzread.c
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\gzwrite.c: In function 'gz_init':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\gzwrite.c:17:11: warning: old-style function definition [-Wold-style-definition]
+   17 | local int gz_init(state)
+      |           ^~~~~~~
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\gzwrite.c: In function 'gz_comp':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\gzwrite.c:73:11: warning: old-style function definition [-Wold-style-definition]
+   73 | local int gz_comp(state, flush)
+      |           ^~~~~~~
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\gzwrite.c: In function 'gz_zero':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\gzwrite.c:145:11: warning: old-style function definition [-Wold-style-definition]
+  145 | local int gz_zero(state, len)
+      |           ^~~~~~~
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\gzwrite.c: In function 'gz_write':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\gzwrite.c:178:16: warning: old-style function definition [-Wold-style-definition]
+  178 | local z_size_t gz_write(state, buf, len)
+      |                ^~~~~~~~
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\gzwrite.c: In function 'gzwrite':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\gzwrite.c:246:13: warning: old-style function definition [-Wold-style-definition]
+  246 | int ZEXPORT gzwrite(file, buf, len)
+      |             ^~~~~~~
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\gzwrite.c: In function 'gzfwrite':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\gzwrite.c:274:18: warning: old-style function definition [-Wold-style-definition]
+  274 | z_size_t ZEXPORT gzfwrite(buf, size, nitems, file)
+      |                  ^~~~~~~~
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\gzwrite.c: In function 'gzputc':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\gzwrite.c:304:13: warning: old-style function definition [-Wold-style-definition]
+  304 | int ZEXPORT gzputc(file, c)
+      |             ^~~~~~
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\gzwrite.c: In function 'gzputs':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\gzwrite.c:352:13: warning: old-style function definition [-Wold-style-definition]
+  352 | int ZEXPORT gzputs(file, str)
+      |             ^~~~~~
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\gzwrite.c: In function 'gzflush':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\gzwrite.c:553:13: warning: old-style function definition [-Wold-style-definition]
+  553 | int ZEXPORT gzflush(file, flush)
+      |             ^~~~~~~
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\gzwrite.c: In function 'gzsetparams':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\gzwrite.c:585:13: warning: old-style function definition [-Wold-style-definition]
+  585 | int ZEXPORT gzsetparams(file, level, strategy)
+      |             ^~~~~~~~~~~
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\gzwrite.c: In function 'gzclose_w':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\gzwrite.c:627:13: warning: old-style function definition [-Wold-style-definition]
+  627 | int ZEXPORT gzclose_w(file)
+      |             ^~~~~~~~~
+   [C]            gzlib.c
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\gzread.c: In function 'gz_load':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\gzread.c:21:11: warning: old-style function definition [-Wold-style-definition]
+   21 | local int gz_load(state, buf, len, have)
+      |           ^~~~~~~
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\gzread.c: In function 'gz_avail':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\gzread.c:56:11: warning: old-style function definition [-Wold-style-definition]
+   56 | local int gz_avail(state)
+      |           ^~~~~~~~
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\gzread.c: In function 'gz_look':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\gzread.c:91:11: warning: old-style function definition [-Wold-style-definition]
+   91 | local int gz_look(state)
+      |           ^~~~~~~
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\gzread.c: In function 'gz_decomp':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\gzread.c:175:11: warning: old-style function definition [-Wold-style-definition]
+  175 | local int gz_decomp(state)
+      |           ^~~~~~~~~
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\gzread.c: In function 'gz_fetch':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\gzread.c:229:11: warning: old-style function definition [-Wold-style-definition]
+  229 | local int gz_fetch(state)
+      |           ^~~~~~~~
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\gzread.c: In function 'gz_skip':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\gzread.c:259:11: warning: old-style function definition [-Wold-style-definition]
+  259 | local int gz_skip(state, len)
+      |           ^~~~~~~
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\gzread.c: In function 'gz_read':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\gzread.c:294:16: warning: old-style function definition [-Wold-style-definition]
+  294 | local z_size_t gz_read(state, buf, len)
+      |                ^~~~~~~
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\gzread.c: In function 'gzread':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\gzread.c:375:13: warning: old-style function definition [-Wold-style-definition]
+  375 | int ZEXPORT gzread(file, buf, len)
+      |             ^~~~~~
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\gzread.c: In function 'gzfread':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\gzread.c:411:18: warning: old-style function definition [-Wold-style-definition]
+  411 | z_size_t ZEXPORT gzfread(buf, size, nitems, file)
+      |                  ^~~~~~~
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\gzread.c: In function 'gzgetc':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\gzread.c:447:13: warning: old-style function definition [-Wold-style-definition]
+  447 | int ZEXPORT gzgetc(file)
+      |             ^~~~~~
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\gzread.c: In function 'gzgetc_':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\gzread.c:476:13: warning: old-style function definition [-Wold-style-definition]
+  476 | int ZEXPORT gzgetc_(file)
+      |             ^~~~~~~
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\gzread.c: In function 'gzungetc':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\gzread.c:483:13: warning: old-style function definition [-Wold-style-definition]
+  483 | int ZEXPORT gzungetc(c, file)
+      |             ^~~~~~~~
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\gzread.c: In function 'gzgets':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\gzread.c:543:16: warning: old-style function definition [-Wold-style-definition]
+  543 | char * ZEXPORT gzgets(file, buf, len)
+      |                ^~~~~~
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\gzread.c: In function 'gzdirect':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\gzread.c:607:13: warning: old-style function definition [-Wold-style-definition]
+  607 | int ZEXPORT gzdirect(file)
+      |             ^~~~~~~~
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\gzread.c: In function 'gzclose_r':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\gzread.c:627:13: warning: old-style function definition [-Wold-style-definition]
+  627 | int ZEXPORT gzclose_r(file)
+      |             ^~~~~~~~~
+   [C]            gzclose.c
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\gzlib.c: In function 'gz_reset':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\gzlib.c:75:12: warning: old-style function definition [-Wold-style-definition]
+   75 | local void gz_reset(state)
+      |            ^~~~~~~~
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\gzlib.c: In function 'gz_open':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\gzlib.c:91:14: warning: old-style function definition [-Wold-style-definition]
+   91 | local gzFile gz_open(path, fd, mode)
+      |              ^~~~~~~
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\gzlib.c: In function 'gzopen':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\gzlib.c:270:16: warning: old-style function definition [-Wold-style-definition]
+  270 | gzFile ZEXPORT gzopen(path, mode)
+      |                ^~~~~~
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\gzlib.c: In function 'gzopen64':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\gzlib.c:278:16: warning: old-style function definition [-Wold-style-definition]
+  278 | gzFile ZEXPORT gzopen64(path, mode)
+      |                ^~~~~~~~
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\gzlib.c: In function 'gzdopen':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\gzlib.c:286:16: warning: old-style function definition [-Wold-style-definition]
+  286 | gzFile ZEXPORT gzdopen(fd, mode)
+      |                ^~~~~~~
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\gzlib.c: In function 'gzopen_w':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\gzlib.c:307:16: warning: old-style function definition [-Wold-style-definition]
+  307 | gzFile ZEXPORT gzopen_w(path, mode)
+      |                ^~~~~~~~
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\gzlib.c: In function 'gzbuffer':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\gzlib.c:316:13: warning: old-style function definition [-Wold-style-definition]
+  316 | int ZEXPORT gzbuffer(file, size)
+      |             ^~~~~~~~
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\gzlib.c: In function 'gzrewind':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\gzlib.c:343:13: warning: old-style function definition [-Wold-style-definition]
+  343 | int ZEXPORT gzrewind(file)
+      |             ^~~~~~~~
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\gzlib.c: In function 'gzseek64':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\gzlib.c:366:19: warning: old-style function definition [-Wold-style-definition]
+  366 | z_off64_t ZEXPORT gzseek64(file, offset, whence)
+      |                   ^~~~~~~~
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\gzlib.c: In function 'gzseek':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\gzlib.c:443:17: warning: old-style function definition [-Wold-style-definition]
+  443 | z_off_t ZEXPORT gzseek(file, offset, whence)
+      |                 ^~~~~~
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\gzlib.c: In function 'gztell64':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\gzlib.c:455:19: warning: old-style function definition [-Wold-style-definition]
+  455 | z_off64_t ZEXPORT gztell64(file)
+      |                   ^~~~~~~~
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\gzlib.c: In function 'gztell':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\gzlib.c:472:17: warning: old-style function definition [-Wold-style-definition]
+  472 | z_off_t ZEXPORT gztell(file)
+      |                 ^~~~~~
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\gzlib.c: In function 'gzoffset64':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\gzlib.c:482:19: warning: old-style function definition [-Wold-style-definition]
+  482 | z_off64_t ZEXPORT gzoffset64(file)
+      |                   ^~~~~~~~~~
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\gzlib.c: In function 'gzoffset':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\gzlib.c:505:17: warning: old-style function definition [-Wold-style-definition]
+  505 | z_off_t ZEXPORT gzoffset(file)
+      |                 ^~~~~~~~
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\gzlib.c: In function 'gzeof':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\gzlib.c:515:13: warning: old-style function definition [-Wold-style-definition]
+  515 | int ZEXPORT gzeof(file)
+      |             ^~~~~
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\gzlib.c: In function 'gzerror':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\gzlib.c:532:22: warning: old-style function definition [-Wold-style-definition]
+  532 | const char * ZEXPORT gzerror(file, errnum)
+      |                      ^~~~~~~
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\gzlib.c: In function 'gzclearerr':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\gzlib.c:553:14: warning: old-style function definition [-Wold-style-definition]
+  553 | void ZEXPORT gzclearerr(file)
+      |              ^~~~~~~~~~
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\gzlib.c: In function 'gz_error':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\gzlib.c:579:20: warning: old-style function definition [-Wold-style-definition]
+  579 | void ZLIB_INTERNAL gz_error(state, err, msg)
+      |                    ^~~~~~~~
+   [C]            deflate.c
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\gzclose.c: In function 'gzclose':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\gzclose.c:11:13: warning: old-style function definition [-Wold-style-definition]
+   11 | int ZEXPORT gzclose(file)
+      |             ^~~~~~~
+   [C]            crc32.c
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\crc32.c: In function 'crc32_z':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\crc32.c:202:23: warning: old-style function definition [-Wold-style-definition]
+  202 | unsigned long ZEXPORT crc32_z(crc, buf, len)
+      |                       ^~~~~~~
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\crc32.c: In function 'crc32':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\crc32.c:237:23: warning: old-style function definition [-Wold-style-definition]
+  237 | unsigned long ZEXPORT crc32(crc, buf, len)
+      |                       ^~~~~
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\crc32.c: In function 'crc32_little':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\crc32.c:266:21: warning: old-style function definition [-Wold-style-definition]
+  266 | local unsigned long crc32_little(crc, buf, len)
+      |                     ^~~~~~~~~~~~
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\crc32.c: In function 'crc32_big':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\crc32.c:306:21: warning: old-style function definition [-Wold-style-definition]
+  306 | local unsigned long crc32_big(crc, buf, len)
+      |                     ^~~~~~~~~
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\crc32.c: In function 'gf2_matrix_times':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\crc32.c:344:21: warning: old-style function definition [-Wold-style-definition]
+  344 | local unsigned long gf2_matrix_times(mat, vec)
+      |                     ^~~~~~~~~~~~~~~~
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\crc32.c: In function 'gf2_matrix_square':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\crc32.c:361:12: warning: old-style function definition [-Wold-style-definition]
+  361 | local void gf2_matrix_square(square, mat)
+      |            ^~~~~~~~~~~~~~~~~
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\crc32.c: In function 'crc32_combine_':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\crc32.c:372:13: warning: old-style function definition [-Wold-style-definition]
+  372 | local uLong crc32_combine_(crc1, crc2, len2)
+      |             ^~~~~~~~~~~~~~
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\crc32.c: In function 'crc32_combine':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\crc32.c:428:15: warning: old-style function definition [-Wold-style-definition]
+  428 | uLong ZEXPORT crc32_combine(crc1, crc2, len2)
+      |               ^~~~~~~~~~~~~
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\crc32.c: In function 'crc32_combine64':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\crc32.c:436:15: warning: old-style function definition [-Wold-style-definition]
+  436 | uLong ZEXPORT crc32_combine64(crc1, crc2, len2)
+      |               ^~~~~~~~~~~~~~~
+   [C]            compress.c
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\compress.c: In function 'compress2':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\compress.c:22:13: warning: old-style function definition [-Wold-style-definition]
+   22 | int ZEXPORT compress2 (dest, destLen, source, sourceLen, level)
+      |             ^~~~~~~~~
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\compress.c: In function 'compress':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\compress.c:68:13: warning: old-style function definition [-Wold-style-definition]
+   68 | int ZEXPORT compress (dest, destLen, source, sourceLen)
+      |             ^~~~~~~~
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\compress.c: In function 'compressBound':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\compress.c:81:15: warning: old-style function definition [-Wold-style-definition]
+   81 | uLong ZEXPORT compressBound (sourceLen)
+      |               ^~~~~~~~~~~~~
+   [C]            adler32.c
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\deflate.c: In function 'slide_hash':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\deflate.c:201:12: warning: old-style function definition [-Wold-style-definition]
+  201 | local void slide_hash(s)
+      |            ^~~~~~~~~~
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\deflate.c: In function 'deflateInit_':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\deflate.c:228:13: warning: old-style function definition [-Wold-style-definition]
+  228 | int ZEXPORT deflateInit_(strm, level, version, stream_size)
+      |             ^~~~~~~~~~~~
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\deflate.c: In function 'deflateInit2_':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\deflate.c:240:13: warning: old-style function definition [-Wold-style-definition]
+  240 | int ZEXPORT deflateInit2_(strm, level, method, windowBits, memLevel, strategy,
+      |             ^~~~~~~~~~~~~
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\deflate.c: In function 'deflateStateCheck':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\deflate.c:353:11: warning: old-style function definition [-Wold-style-definition]
+  353 | local int deflateStateCheck (strm)
+      |           ^~~~~~~~~~~~~~~~~
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\deflate.c: In function 'deflateSetDictionary':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\deflate.c:376:13: warning: old-style function definition [-Wold-style-definition]
+  376 | int ZEXPORT deflateSetDictionary (strm, dictionary, dictLength)
+      |             ^~~~~~~~~~~~~~~~~~~~
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\deflate.c: In function 'deflateGetDictionary':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\deflate.c:445:13: warning: old-style function definition [-Wold-style-definition]
+  445 | int ZEXPORT deflateGetDictionary (strm, dictionary, dictLength)
+      |             ^~~~~~~~~~~~~~~~~~~~
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\deflate.c: In function 'deflateResetKeep':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\deflate.c:467:13: warning: old-style function definition [-Wold-style-definition]
+  467 | int ZEXPORT deflateResetKeep (strm)
+      |             ^~~~~~~~~~~~~~~~
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\deflate.c: In function 'deflateReset':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\deflate.c:505:13: warning: old-style function definition [-Wold-style-definition]
+  505 | int ZEXPORT deflateReset (strm)
+      |             ^~~~~~~~~~~~
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\deflate.c: In function 'deflateSetHeader':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\deflate.c:517:13: warning: old-style function definition [-Wold-style-definition]
+  517 | int ZEXPORT deflateSetHeader (strm, head)
+      |             ^~~~~~~~~~~~~~~~
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\deflate.c: In function 'deflatePending':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\deflate.c:528:13: warning: old-style function definition [-Wold-style-definition]
+  528 | int ZEXPORT deflatePending (strm, pending, bits)
+      |             ^~~~~~~~~~~~~~
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\deflate.c: In function 'deflatePrime':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\deflate.c:542:13: warning: old-style function definition [-Wold-style-definition]
+  542 | int ZEXPORT deflatePrime (strm, bits, value)
+      |             ^~~~~~~~~~~~
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\deflate.c: In function 'deflateParams':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\deflate.c:568:13: warning: old-style function definition [-Wold-style-definition]
+  568 | int ZEXPORT deflateParams(strm, level, strategy)
+      |             ^~~~~~~~~~~~~
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\deflate.c: In function 'deflateTune':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\deflate.c:617:13: warning: old-style function definition [-Wold-style-definition]
+  617 | int ZEXPORT deflateTune(strm, good_length, max_lazy, nice_length, max_chain)
+      |             ^~~~~~~~~~~
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\deflate.c: In function 'deflateBound':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\deflate.c:652:15: warning: old-style function definition [-Wold-style-definition]
+  652 | uLong ZEXPORT deflateBound(strm, sourceLen)
+      |               ^~~~~~~~~~~~
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\deflate.c: In function 'putShortMSB':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\deflate.c:716:12: warning: old-style function definition [-Wold-style-definition]
+  716 | local void putShortMSB (s, b)
+      |            ^~~~~~~~~~~
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\deflate.c: In function 'flush_pending':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\deflate.c:730:12: warning: old-style function definition [-Wold-style-definition]
+  730 | local void flush_pending(strm)
+      |            ^~~~~~~~~~~~~
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\deflate.c: In function 'deflate':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\deflate.c:763:13: warning: old-style function definition [-Wold-style-definition]
+  763 | int ZEXPORT deflate (strm, flush)
+      |             ^~~~~~~
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\deflate.c: In function 'deflateEnd':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\deflate.c:1076:13: warning: old-style function definition [-Wold-style-definition]
+ 1076 | int ZEXPORT deflateEnd (strm)
+      |             ^~~~~~~~~~
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\deflate.c: In function 'deflateCopy':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\deflate.c:1102:13: warning: old-style function definition [-Wold-style-definition]
+ 1102 | int ZEXPORT deflateCopy (dest, source)
+      |             ^~~~~~~~~~~
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\deflate.c: In function 'read_buf':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\deflate.c:1164:16: warning: old-style function definition [-Wold-style-definition]
+ 1164 | local unsigned read_buf(strm, buf, size)
+      |                ^~~~~~~~
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\deflate.c: In function 'lm_init':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\deflate.c:1194:12: warning: old-style function definition [-Wold-style-definition]
+ 1194 | local void lm_init (s)
+      |            ^~~~~~~
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\deflate.c: In function 'longest_match':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\deflate.c:1236:12: warning: old-style function definition [-Wold-style-definition]
+ 1236 | local uInt longest_match(s, cur_match)
+      |            ^~~~~~~~~~~~~
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\deflate.c: In function 'fill_window':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\deflate.c:1482:12: warning: old-style function definition [-Wold-style-definition]
+ 1482 | local void fill_window(s)
+      |            ^~~~~~~~~~~
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\deflate.c: In function 'deflate_stored':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\deflate.c:1643:19: warning: old-style function definition [-Wold-style-definition]
+ 1643 | local block_state deflate_stored(s, flush)
+      |                   ^~~~~~~~~~~~~~
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\deflate.c: In function 'deflate_fast':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\deflate.c:1824:19: warning: old-style function definition [-Wold-style-definition]
+ 1824 | local block_state deflate_fast(s, flush)
+      |                   ^~~~~~~~~~~~
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\deflate.c: In function 'deflate_slow':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\deflate.c:1926:19: warning: old-style function definition [-Wold-style-definition]
+ 1926 | local block_state deflate_slow(s, flush)
+      |                   ^~~~~~~~~~~~
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\deflate.c: In function 'deflate_rle':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\deflate.c:2057:19: warning: old-style function definition [-Wold-style-definition]
+ 2057 | local block_state deflate_rle(s, flush)
+      |                   ^~~~~~~~~~~
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\deflate.c: In function 'deflate_huff':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\deflate.c:2130:19: warning: old-style function definition [-Wold-style-definition]
+ 2130 | local block_state deflate_huff(s, flush)
+      |                   ^~~~~~~~~~~~
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\adler32.c: In function 'adler32_z':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\adler32.c:63:15: warning: old-style function definition [-Wold-style-definition]
+   63 | uLong ZEXPORT adler32_z(adler, buf, len)
+      |               ^~~~~~~~~
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\adler32.c: In function 'adler32':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\adler32.c:134:15: warning: old-style function definition [-Wold-style-definition]
+  134 | uLong ZEXPORT adler32(adler, buf, len)
+      |               ^~~~~~~
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\adler32.c: In function 'adler32_combine_':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\adler32.c:143:13: warning: old-style function definition [-Wold-style-definition]
+  143 | local uLong adler32_combine_(adler1, adler2, len2)
+      |             ^~~~~~~~~~~~~~~~
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\adler32.c: In function 'adler32_combine':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\adler32.c:172:15: warning: old-style function definition [-Wold-style-definition]
+  172 | uLong ZEXPORT adler32_combine(adler1, adler2, len2)
+      |               ^~~~~~~~~~~~~~~
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\adler32.c: In function 'adler32_combine64':
+D:\a\alire-crates-ci\alire-crates-ci\test\89a56d51-078e-464e-8ffd-c793fcffecfa\aws_25.0.0_cf1dc186\include\zlib\adler32.c:180:15: warning: old-style function definition [-Wold-style-definition]
+  180 | uLong ZEXPORT adler32_combine64(adler1, adler2, len2)
+      |               ^~~~~~~~~~~~~~~~~
+Build Libraries
+   [gprlib]       z.lexch
+   [gprlib]       xmlada_unicode.lexch
+   [gprlib]       xmlada_input_sources.lexch
+   [archive]      libz.a
+   [index]        libz.a
+   [archive]      libxmlada_unicode.a
+   [index]        libxmlada_unicode.a
+   [gprlib]       xmlada_sax.lexch
+   [archive]      libxmlada_input_sources.a
+   [index]        libxmlada_input_sources.a
+   [gprlib]       xmlada_dom.lexch
+   [archive]      libxmlada_sax.a
+   [index]        libxmlada_sax.a
+   [gprlib]       xmlada_schema.lexch
+   [archive]      libxmlada_dom.a
+   [index]        libxmlada_dom.a
+   [gprlib]       gnatcoll_minimal.lexch
+   [gprlib]       gnatcoll_core.lexch
+   [archive]      libxmlada_schema.a
+   [archive]      libgnatcoll_minimal.a
+   [index]        libxmlada_schema.a
+   [index]        libgnatcoll_minimal.a
+   [gprlib]       gpr.lexch
+   [gprlib]       gnatcoll_projects.lexch
+   [archive]      libgnatcoll_core.a
+   [archive]      libgpr.a
+   [index]        libgnatcoll_core.a
+   [index]        libgpr.a
+   [gprlib]       aws_ssl.lexch
+   [archive]      libgnatcoll_projects.a
+   [index]        libgnatcoll_projects.a
+   [gprlib]       aws.lexch
+   [archive]      libaws_ssl.a
+   [index]        libaws_ssl.a
+   [archive]      libaws.a
+   [index]        libaws.a
+Note: Building aws=25.0.0/build/projects/aws_config.gpr (2/2)...
+gprbuild: no sources to compile
+Success: Build finished successfully in 250.62 seconds.
+Found declared GPR file: aws.gpr
+Found declared GPR file: build/projects/aws_config.gpr
+[alr test] Test completed SUCCESSFULLY

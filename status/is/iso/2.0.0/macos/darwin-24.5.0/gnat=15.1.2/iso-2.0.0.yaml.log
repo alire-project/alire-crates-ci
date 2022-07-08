@@ -1,0 +1,59 @@
+Test ran at 2025-09-07 01:04:06.187923+00:00
+
+SOLUTION:
+iso=2.0.0: ISO Standard references for Ada such as 1366 & 4217 (Country & Currency)
+Origin: commit abd8a59c80ac32f42afc2e912a4b2c5d5654e253 from https://github.com/ada-iso/ada_iso.git
+Properties:
+   Author: AJ Ianozi
+   Description: ISO Standard references for Ada such as 1366 & 4217 (Country & Currency)
+   License: MIT
+   Maintainer: AJ Ianozi <aj@ianozi.com>
+   Maintainers_Logins: AJ-Ianozi
+   Name: iso
+   Tag: countries
+   Tag: currencies
+   Tag: iso-1366
+   Tag: iso-4217
+   Version: 2.0.0
+   Website: https://github.com/ada-iso/ada_iso/
+
+
+LOG:
+[alr test] Testing iso=2.0.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get iso=2.0.0
+Note: Deploying iso=2.0.0...
+
+iso=2.0.0 successfully retrieved.
+There are no dependencies.
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building iso=2.0.0/iso.gpr...
+Setup
+   [mkdir]        object directory for project ISO
+   [mkdir]        library directory for project ISO
+Compile
+   [Ada]          iso_config.ads
+   [Ada]          iso-countries.adb
+   [Ada]          iso.ads
+   [Ada]          iso-currencies.adb
+iso-currencies.adb:244:34: error: literal out of range of type Standard.Character
+
+   compilation of iso-currencies.adb failed
+
+gprbuild: *** compilation phase failed
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/Users/runner/work/alire-crates-ci/alire-crates-ci/test/6ff3aa6a-411a-4297-85d3-24e91b56e9ca/iso_2.0.0_abd8a59c/iso.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/Users/runner/work/alire-crates-ci/alire-crates-ci/test/6ff3aa6a-411a-4297-85d3-24e91b56e9ca/iso_2.0.0_abd8a59c/iso.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+stderr: ALIRE.CHECKED_ERROR
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/Users/runner/work/alire-crates-ci/alire-crates-ci/test/6ff3aa6a-411a-4297-85d3-24e91b56e9ca/iso_2.0.0_abd8a59c/iso.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
+Load address: 0x100420000
+Call stack traceback locations:
+0x10112c0cc 0x10112c12c 0x100e8066c 0x100ac5568 0x100d4a594 0x100d4b4f4 0x100c8933c 0x100c87b08 0x100cab78c 0x100d0b56c 0x100d0a99c 0x100cab868 0x100cab950 0x100c8800c 0x100c88174 0x100491730 0x100491070 0x1004911e4 0x10052eb38 0x100539c78 0x1004229f8 0x100427a2c
+
+stderr: ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED
+stderr: alire-roots.adb:202
+stderr: raised ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED : alire-roots.adb:202
+Load address: 0x100420000
+Call stack traceback locations:
+0x10112c0cc 0x10112c12c 0x100c89640 0x100c87b08 0x100cab78c 0x100d0b56c 0x100d0a99c 0x100cab868 0x100cab950 0x100c8800c 0x100c88174 0x100491730 0x100491070 0x1004911e4 0x10052eb38 0x100539c78 0x1004229f8 0x100427a2c
+
+ERROR: Compilation failed.

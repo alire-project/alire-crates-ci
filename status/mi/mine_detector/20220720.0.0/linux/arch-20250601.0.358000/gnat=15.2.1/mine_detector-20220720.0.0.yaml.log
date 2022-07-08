@@ -1,0 +1,77 @@
+Test ran at 2026-03-15 13:29:52.168398+00:00
+
+SOLUTION:
+mine_detector=20220720.0.0: The Gnoga/Ada-GUI version of Mine Detector
+Origin: commit 9bd51e7b08536c836e7f37a3a5c2b23b6590d4e8 from https://github.com/bracke/Mine_Detector.git
+Properties:
+   Author: Jeff Carter
+   Build Switches: 
+   Description: The Gnoga/Ada-GUI version of Mine Detector
+   Executable: mine_detector
+   License: GPL-3.0-or-later
+   Long_Description: # Mine_Detector
+The Ada-GUI (https://github.com/jrcarter/Ada_GUI) version of Mine Detector, an intellectually-challenging game
+
+   Maintainer: Bent Bracke <bent@bracke.dk>
+   Maintainers_Logins: bracke
+   Name: mine_detector
+   Tag: minedetector
+   Tag: game
+   Version: 20220720
+   Website: https://github.com/bracke/Mine_Detector
+Dependencies (direct):
+   ada_gui^20240224.0.0
+   gnat<13.0 | >=13.3
+   ssl^3.0.2
+Dependencies (solution):
+   ada_gui=20240224.0.1
+   gnat=15.2.1 (gnat_native)
+   libgnutls=3.8.9
+   simple_components=4.68.0
+   ssl=3.2.4
+   unixodbc=2.3.12
+Dependencies (graph):
+   ada_gui=20240224.0.1       --> gnat=15.2.1 (gnat_native) (<13.0 | >=13.3)
+   ada_gui=20240224.0.1       --> simple_components=4.68.0 (^4.68.0)
+   mine_detector=20220720.0.0 --> ada_gui=20240224.0.1 (^20240224.0.0)
+   mine_detector=20220720.0.0 --> gnat=15.2.1 (gnat_native) (<13.0 | >=13.3)
+   mine_detector=20220720.0.0 --> ssl=3.2.4 (^3.0.2)
+   simple_components=4.68.0   --> gnat=15.2.1 (gnat_native) (>=2021 | (>=12 & <2000))
+   simple_components=4.68.0   --> libgnutls=3.8.9 (^3.7)
+   simple_components=4.68.0   --> unixodbc=2.3.12 (^2.3)
+
+
+LOG:
+[alr test] Testing mine_detector=20220720.0.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get mine_detector=20220720.0.0
+Note: Deploying mine_detector=20220720.0.0...
+
+mine_detector=20220720.0.0 successfully retrieved.
+Dependencies were solved as follows:
+
+   +  ada_gui           20240224.0.1 (new)
+   +b gnat              15.2.1       (new,gnat_native,binary)
+   +b libgnutls         3.8.9        (new,indirect,system package)
+   +  simple_components 4.68.0       (new,indirect)
+   +b ssl               3.2.4        (new,system package)
+   +b unixodbc          2.3.12       (new,indirect,system package)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building mine_detector=20220720.0.0/mine_detector.gpr...
+Setup
+   [mkdir]        object directory for project Mine_Detector
+   [mkdir]        exec directory for project Mine_Detector
+Compile
+   [Ada]          mine_detector.adb
+   [Ada]          user_if.adb
+   [Ada]          field.ads
+   [Ada]          field-operations.adb
+Bind
+   [gprbind]      mine_detector.bexch
+   [Ada]          mine_detector.ali
+Link
+   [archive]      libmine_detector.a
+   [index]        libmine_detector.a
+   [link]         mine_detector.adb
+Success: Build finished successfully in 2.05 seconds.
+Found declared GPR file: mine_detector.gpr
+[alr test] Test completed SUCCESSFULLY

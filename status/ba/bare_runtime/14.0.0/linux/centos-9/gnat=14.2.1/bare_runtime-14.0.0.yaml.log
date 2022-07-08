@@ -1,0 +1,316 @@
+Test ran at 2026-07-14 12:51:44.408539+00:00
+
+SOLUTION:
+bare_runtime=14.0.0: Minimal Ada/SPARK run-time for embedded or other restricted targets
+Origin: commit 095db6f0be63e3ee266b8dea6d00e8d0e07e7144 from https://github.com/Fabien-Chouteau/bare_runtime.git
+Properties:
+   Author: AdaCore
+   Config type: LCH_Print_Info : Boolean default: 'false'
+   Config type: LCH_Reset : Boolean default: 'false'
+   Configuration: no modifiers
+   Description: Minimal Ada/SPARK run-time for embedded or other restricted targets
+   License: GPL-3.0-or-later WITH GCC-exception-3.1
+   Long_Description: ## Usage
+
+First edit you `alire.toml` file and add the following elements:
+ - Add `bare_runtime` in the dependency list:
+   ```toml
+   [[depends-on]]
+   bare_runtime = "*"
+   ```
+ - Add cross GNAT in the dependency list (e.g. gnat_arm_elf):
+   ```toml
+   [[depends-on]]
+   gnat_arm_elf = "*"
+   ```
+ - Set the architecture build switches, we use ARM Cortex-M4F as an example here:
+   ```toml
+   [gpr-set-externals]
+   BARE_RUNTIME_SWITCHES = "-mlittle-endian -mthumb -mfloat-abi=hard -mcpu=cortex-m4 -mfpu=fpv4-sp-d16"
+   ```
+
+Then edit your project file to add the following elements:
+ - "with" the run-time project file. With this, gprbuild will compile the run-time before your application
+   ```ada
+   with "bare_runtime.gpr";
+   ```
+ - Specify the `Target` and `Runtime` attributes:
+   ```ada
+      for Target use "arm-eabi";
+      for Runtime ("Ada") use Bare_Runtime'Runtime ("Ada");
+
+   Maintainer: Fabien Chouteau <fabien.chouteau@gmail.com>
+   Maintainers_Logins: Fabien-Chouteau
+   Name: bare_runtime
+   Tag: embedded
+   Tag: runtime
+   Version: 14.0.0
+   Website: https://github.com/Fabien-Chouteau/bare_runtime
+Dependencies (direct):
+   gnat^14
+Dependencies (solution):
+   gnat=14.2.1 (gnat_native)
+Dependencies (graph):
+   bare_runtime=14.0.0 --> gnat=14.2.1 (gnat_native) (^14)
+
+
+LOG:
+[alr test] Testing bare_runtime=14.0.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get bare_runtime=14.0.0
+Note: Deploying bare_runtime=14.0.0...
+
+bare_runtime=14.0.0 successfully retrieved.
+Dependencies were solved as follows:
+
+   +b gnat 14.2.1 (new,gnat_native,binary)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building bare_runtime=14.0.0/bare_runtime.gpr...
+Setup
+   [mkdir]        object directory for project Bare_Runtime
+   [mkdir]        library directory for project Bare_Runtime
+Compile
+   [Ada]          s-vade32.ads
+   [Ada]          s-atacco.adb
+   [Ada]          s-explli.ads
+   [Ada]          s-imgint.ads
+   [Ada]          s-vaispe.adb
+   [Ada]          s-fatgen.adb
+   [Ada]          s-exnlfl.ads
+   [Ada]          a-stmaco.ads
+   [Ada]          s-pack26.adb
+   [Ada]          s-valrea.adb
+   [Ada]          s-exnlli.ads
+   [Ada]          s-vade64.ads
+   [Ada]          a-strfix.adb
+   [Ada]          s-powflt.ads
+   [Ada]          a-strsea.adb
+   [Ada]          s-pack48.adb
+   [Ada]          s-widthu.adb
+   [Ada]          s-pack37.adb
+   [Ada]          s-geveop.adb
+   [Ada]          s-lidosq.adb
+   [Ada]          s-memmov.adb
+   [Ada]          i-cstrin.adb
+   [Ada]          unchconv.ads
+   [Ada]          a-string.ads
+   [Ada]          s-pack51.adb
+   [Ada]          s-pack14.adb
+   [Ada]          s-maccod.ads
+   [Ada]          s-caun64.adb
+   [Ada]          s-imagen.adb
+   [Ada]          interfac.ads
+   [Ada]          s-pack38.adb
+   [Ada]          s-stache.adb
+   [Ada]          s-pack17.adb
+   [Ada]          s-vaen16.ads
+   [Ada]          s-memory.adb
+   [Ada]          s-widthi.adb
+   [Ada]          s-imglli.ads
+   [Ada]          a-nubinu.ads
+   [Ada]          s-pack36.adb
+   [Ada]          s-pack05.adb
+   [Ada]          s-imgwiu.ads
+   [Ada]          s-pack61.adb
+   [Ada]          s-imgboo.adb
+   [Ada]          s-imde64.ads
+   [Ada]          s-unstyp.ads
+   [Ada]          s-vafi64.ads
+   [Ada]          s-expuns.ads
+   [Ada]          s-vaen32.ads
+   [Ada]          s-imenu8.ads
+   [Ada]          s-imgllf.ads
+   [Ada]          s-memcom.adb
+   [Ada]          s-imagei.adb
+   [Ada]          s-sssita.adb
+   [Ada]          s-imguns.ads
+   [Ada]          a-ngelfu.adb
+   [Ada]          s-imen32.ads
+   [Ada]          system.ads
+   [Ada]          s-pack27.adb
+   [Ada]          s-bb.ads
+   [Ada]          s-pack15.adb
+   [Ada]          s-pack41.adb
+   [Ada]          s-imager.adb
+   [Ada]          s-arit64.adb
+   [Ada]          s-atocou.adb
+   [Ada]          s-gcmain.adb
+   [Ada]          a-unccon.ads
+   [Ada]          s-veboop.adb
+   [Ada]          s-libdou.adb
+   [Ada]          s-assert.adb
+   [Ada]          s-macres.adb
+   [Ada]          s-memcop.adb
+   [Ada]          s-fatflt.ads
+   [Ada]          s-valcha.adb
+   [Ada]          s-dourea.adb
+   [Ada]          s-pack56.adb
+   [Ada]          s-pack46.adb
+   [Ada]          s-imgllw.ads
+   [Ada]          a-numaux.ads
+   [Ada]          s-imageu.adb
+   [Ada]          s-spark.ads
+   [Ada]          s-expint.ads
+   [Ada]          s-retsta.ads
+   [Ada]          a-strbou.adb
+   [Ada]          s-textio.adb
+   [Ada]          s-pack58.adb
+   [Ada]          s-widlli.ads
+   [Ada]          s-carun8.adb
+   [Ada]          s-secsta.adb
+   [Ada]          s-pack63.adb
+   [Ada]          s-pack60.adb
+   [Ada]          a-charac.ads
+   [Ada]          s-fatsfl.ads
+   [Ada]          s-pack47.adb
+   [Ada]          a-nlelfu.ads
+   [Ada]          s-pack22.adb
+   [Ada]          s-imguti.adb
+   [Ada]          g-sestin.ads
+   [Ada]          s-pack62.adb
+   [Ada]          s-expllu.ads
+   [Ada]          s-exponn.adb
+   [Ada]          s-exponr.adb
+   [Ada]          s-pack29.adb
+   [Ada]          s-imgbiu.ads
+   [Ada]          s-pack49.adb
+   [Ada]          s-pack25.adb
+   [Ada]          g-souinf.ads
+   [Ada]          s-pack52.adb
+   [Ada]          s-vs_llu.ads
+   [Ada]          s-vs_lli.ads
+   [Ada]          a-strsup.adb
+   [Ada]          s-pack03.adb
+   [Ada]          s-pack55.adb
+   [Ada]          s-valflt.ads
+   [Ada]          s-caun32.adb
+   [Ada]          s-spcuop.adb
+   [Ada]          a-numeri.ads
+   [Ada]          s-flocon.adb
+   [Ada]          s-pack45.adb
+   [Ada]          s-imde32.ads
+   [Ada]          s-valuen.adb
+   [Ada]          s-expont.adb
+   [Ada]          s-imagef.adb
+   [Ada]          s-valuei.adb
+   [Ada]          s-pack34.adb
+   [Ada]          s-pack19.adb
+   [Ada]          a-nselfu.ads
+   [Ada]          s-valllu.ads
+   [Ada]          s-arit32.adb
+   [Ada]          s-valuns.ads
+   [Ada]          s-pack12.adb
+   [Ada]          s-pack31.adb
+   [Ada]          s-memtyp.ads
+   [Ada]          s-exponu.adb
+   [Ada]          s-pack43.adb
+   [Ada]          s-vallfl.ads
+   [Ada]          a-strmap.adb
+   [Ada]          s-memset.adb
+   [Ada]          a-assert.adb
+   [Ada]          s-parame.ads
+   [Ada]          s-pack35.adb
+   [Ada]          s-widuns.ads
+   [Ada]          s-powllf.ads
+   [Ada]          s-imglfl.ads
+   [Ada]          s-vector.ads
+   [Ada]          s-valspe.adb
+   [Ada]          s-pack42.adb
+   [Ada]          s-imgflt.ads
+   [Ada]          s-expmod.adb
+   [Ada]          s-lisisq.adb
+   [Ada]          s-pack57.adb
+   [Ada]          s-valboo.adb
+   [Ada]          s-valueu.adb
+   [Ada]          s-imagew.adb
+   [Ada]          s-boarop.ads
+   [Ada]          i-cpoint.adb
+   [Ada]          text_io.ads
+   [Ada]          s-vaenu8.ads
+   [Ada]          s-widllu.ads
+   [Ada]          s-valued.adb
+   [Ada]          s-pack39.adb
+   [Ada]          s-stoele.adb
+   [Ada]          s-valuer.adb
+   [Ada]          s-aridou.adb
+   [Ada]          s-casi32.adb
+   [Ada]          s-imen16.ads
+   [Ada]          s-imageb.adb
+   [Ada]          s-vafi32.ads
+   [Ada]          s-imgllb.ads
+   [Ada]          s-pack23.adb
+   [Ada]          s-pack07.adb
+   [Ada]          unchdeal.ads
+   [Ada]          s-caun16.adb
+   [Ada]          a-chahan.adb
+   [Ada]          s-pack28.adb
+   [Ada]          s-pack44.adb
+   [Ada]          s-vs_uns.ads
+   [Ada]          s-pack53.adb
+   [Ada]          s-valuti.adb
+   [Ada]          s-valint.ads
+   [Ada]          s-atopri.adb
+   [Ada]          s-casi64.adb
+   [Ada]          s-exnint.ads
+   [Ada]          s-powlfl.ads
+   [Ada]          s-pack24.adb
+   [Ada]          s-libpre.ads
+   [Ada]          s-fatllf.ads
+   [Ada]          a-nuelfu.ads
+   [Ada]          s-widint.ads
+   [Ada]          s-pack18.adb
+   [Ada]          s-vauspe.adb
+   [Ada]          g-debuti.adb
+   [Ada]          s-pack40.adb
+   [Ada]          s-casuti.adb
+   [Ada]          s-valuef.adb
+   [Ada]          a-uncdea.ads
+   [Ada]          s-pack10.adb
+   [Ada]          ada.ads
+   [Ada]          a-nbnbig.adb
+   [Ada]          s-pack06.adb
+   [Ada]          s-imgcha.adb
+   [Ada]          s-pack59.adb
+   [Ada]          gnat.ads
+   [Ada]          s-libsin.adb
+   [Ada]          s-imfi32.ads
+   [Ada]          s-pack33.adb
+   [Ada]          i-c.adb
+   [Ada]          s-imfi64.ads
+   [Ada]          s-exnflt.ads
+   [Ada]          a-except.adb
+   [Ada]          s-bitops.adb
+   [Ada]          s-libm.adb
+   [Ada]          g-io.adb
+   [Ada]          s-exnllf.ads
+   [Ada]          s-valllf.ads
+   [Ada]          a-chlat1.ads
+   [Ada]          s-imgllu.ads
+   [Ada]          machcode.ads
+   [Ada]          s-pack21.adb
+   [Ada]          a-tags.adb
+   [Ada]          s-imgrea.ads
+   [Ada]          s-casi16.adb
+   [Ada]          s-imaged.adb
+   [Ada]          s-pack13.adb
+   [Ada]          a-nllefu.ads
+   [Ada]          s-pack09.adb
+   [Ada]          s-pack50.adb
+   [Ada]          s-pack30.adb
+   [Ada]          a-elchha.adb
+   [Ada]          i-cexten.ads
+   [Ada]          s-fatlfl.ads
+   [Ada]          s-vallli.ads
+   [Ada]          s-pack11.adb
+   [Ada]          s-carsi8.adb
+   [Ada]          a-textio.adb
+   [Ada]          s-vs_int.ads
+   [Ada]          s-pack54.adb
+   [Ada]          s-addope.adb
+   [Ada]          s-pack20.adb
+Build Libraries
+   [gprlib]       gnat.lexch
+   [archive]      libgnat.a
+   [index]        libgnat.a
+Success: Build finished successfully in 6.77 seconds.
+Found declared GPR file: bare_runtime.gpr
+[alr test] Test completed SUCCESSFULLY

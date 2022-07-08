@@ -1,0 +1,486 @@
+badge: false
+crate: muntsos_raspberrypi1
+creation_timestamp: 1764246745.7007563
+distro: mingw64_nt-10.0-26100
+duration: 2.2029999999999745
+gnat: 12.2.1
+last_attempt: 2025-11-29 00:42:54.412568+00:00
+log:
+- 'Test ran at 2025-11-29 00:42:54.412568+00:00
+
+
+  '
+- 'SOLUTION:
+
+  '
+- 'muntsos_raspberrypi1=11.0.0: MuntsOS Embedded Linux support for ARMv6 Raspberry
+  Pi 1 targets
+
+  '
+- 'Origin: source archive muntsos_raspberrypi1-11.0.0.tbz2 at https://raw.githubusercontent.com/pmunts/alire-crates/e11cfb6abed15d2daf4272b335ec7db2ec96fe03/muntsos_raspberrypi1/muntsos_raspberrypi1-11.0.0.tbz2
+  with hashes sha256:9c97871c8ed96550918dd3558617e747da254f067a8ccecba7a4c5c436262dbe,
+  sha512:9ef92328139ea1e26931d20a001fc05246c893e90b3678244a10374c38b44acb77338ea8e001d186d4fa97c746f4159cb5b81d06a8635ac84c6475d6cebf2431
+
+  '
+- 'Available when: (case OS is Linux => True, Windows => True, others => False)
+
+  '
+- 'Properties:
+
+  '
+- '   case OS is
+
+  '
+- '      when Linux => Post_Fetch run: sh -c ./postfetch.linux (from ${CRATE_ROOT}/.)
+
+  '
+- '      when Windows => Post_Fetch run: sh -c ./postfetch.windows (from ${CRATE_ROOT}/.)
+
+  '
+- '   Author: Philip Munts
+
+  '
+- '   Configuration: no modifiers
+
+  '
+- '   Description: MuntsOS Embedded Linux support for ARMv6 Raspberry Pi 1 targets
+
+  '
+- '   License: BSD-1-Clause
+
+  '
+- '   Long_Description: # Introduction
+
+  '
+- '
+
+  '
+- 'This crate modifies an Alire program project to build a cross-compiled
+
+  '
+- 'program for a **[MuntsOS Embedded
+
+  '
+- 'Linux](https://github.com/pmunts/muntsos)** ARMv6 Raspberry Pi 1 target
+
+  '
+- 'computer.
+
+  '
+- '
+
+  '
+- 'The **MuntsOS Embedded Linux** cross toolchain packages must be
+
+  '
+- 'installed on your development computer before you can use this crate.
+
+  '
+- 'See:
+
+  '
+- '
+
+  '
+- '[Application Note
+
+  '
+- '#1](https://repo.munts.com/muntsos/doc/AppNote1-Setup-Debian.pdf) for
+
+  '
+- "Debian Linux distributions  \n"
+- '[Application Note
+
+  '
+- '#2](https://repo.munts.com/muntsos/doc/AppNote2-Setup-RPM.pdf) for RPM
+
+  '
+- "Linux distributions  \n"
+- '[Application Note
+
+  '
+- '#24](https://repo.munts.com/muntsos/doc/AppNote24-Setup-RPM.pdf) for
+
+  '
+- 'x86-64 Windows 10 or 11.
+
+  '
+- '
+
+  '
+- '# Environment Variables
+
+  '
+- '
+
+  '
+- 'If **`ALIRE_DISABLESTYLECHECKS`** is set to **`yes`**, the postfetch
+
+  '
+- 'script will disable style checking in the project **`.gpr`** file.
+
+  '
+- '
+
+  '
+- 'If **`ALIRE_INSTALLMAKEFILE`** is set to **`yes`**, the postfetch script
+
+  '
+- 'will install an optional but useful **`Makefile`** to the project
+
+  '
+- 'directory.
+
+  '
+- '
+
+  '
+- 'You can add the following to **`~/.bashrc`** or its equivalent to
+
+  '
+- 'permanently define these environment variables:
+
+  '
+- '
+
+  '
+- '    export ALIRE_DISABLESTYLECHECKS=yes
+
+  '
+- '    export ALIRE_INSTALLMAKEFILE=yes
+
+  '
+- '
+
+  '
+- '# Example
+
+  '
+- '
+
+  '
+- 'The following commands illustrate how to create an Alire program project
+
+  '
+- 'that will cross-compile a program to run on a **MuntsOS Embedded Linux**
+
+  '
+- 'target computer. The result is a pristine (*i.e.* all temporary, working
+
+  '
+- 'and deliverable files removed) project, suitable for checking into a
+
+  '
+- 'source code control repository.
+
+  '
+- '
+
+  '
+- '    alr -n init --bin myexample
+
+  '
+- '    cd myexample
+
+  '
+- '    alr -n with muntsos_raspberrypi1
+
+  '
+- '    ALIRE_DISABLESTYLECHECKS=yes ALIRE_INSTALLMAKEFILE=yes alr action -r post-fetch
+
+  '
+- '    make reallyclean
+
+  '
+- '
+
+  '
+- 'See also [Application Note
+
+  '
+- '#7](https://repo.munts.com/muntsos/doc/AppNote7-Flash-LED-Ada-Alire.pdf).
+
+  '
+- '
+
+  '
+- '   Maintainer: Philip Munts <phil@munts.net>
+
+  '
+- '   Maintainers_Logins: pmunts
+
+  '
+- '   Name: muntsos_raspberrypi1
+
+  '
+- '   Project_File: aws.gpr
+
+  '
+- '   Project_File: libsimpleio.gpr
+
+  '
+- '   Tag: muntsos
+
+  '
+- '   Tag: embedded
+
+  '
+- '   Tag: linux
+
+  '
+- '   Tag: arm
+
+  '
+- '   Tag: raspberrypi1
+
+  '
+- '   Version: 11.0.0
+
+  '
+- '   Website: https://github.com/pmunts/muntsos
+
+  '
+- 'Dependencies (direct):
+
+  '
+- '   case OS is
+
+  '
+- '      when Linux => muntsos_dev_raspberrypi1*
+
+  '
+- '
+
+  '
+- '
+
+  LOG:
+
+  '
+- '[alr test] Testing muntsos_raspberrypi1=11.0.0
+
+  '
+- '[alr test] Spawning retrieval for remote crate: alr -d -n get muntsos_raspberrypi1=11.0.0
+
+  '
+- 'Note: Deploying muntsos_raspberrypi1=11.0.0...
+
+  '
+- '
+
+  '
+- '######################################################################## 100.0%
+
+  '
+- '
+
+  '
+- 'muntsos_raspberrypi1=11.0.0 successfully retrieved.
+
+  '
+- 'There are no dependencies.
+
+  '
+- '[alr test] Spawning default test for remote crate: alr -d -n build --release --
+  -cargs:Ada -gnatwn
+
+  '
+- 'Note: Running post-fetch actions for muntsos_raspberrypi1=11.0.0...
+
+  '
+- 'Note: Building muntsos_raspberrypi1=11.0.0/aws.gpr (1/2)...
+
+  '
+- 'gprbuild.exe: project file "D:\a\alire-crates-ci\alire-crates-ci\test\a29df80a-bcb2-4f0b-93f4-3bf029d366c7\muntsos_raspberrypi1_11.0.0_9c97871c\aws.gpr"
+  not found in .;D:\a\alire-crates-ci\alire-crates-ci\test\a29df80a-bcb2-4f0b-93f4-3bf029d366c7\muntsos_raspberrypi1_11.0.0_9c97871c
+
+  '
+- 'stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "D:\a\alire-crates-ci\alire-crates-ci\test\a29df80a-bcb2-4f0b-93f4-3bf029d366c7\muntsos_raspberrypi1_11.0.0_9c97871c\aws.gpr",
+  "-cargs:Ada", "-gnatwn"] exited with code 4
+
+  '
+- 'ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "D:\a\alire-crates-ci\alire-crates-ci\test\a29df80a-bcb2-4f0b-93f4-3bf029d366c7\muntsos_raspberrypi1_11.0.0_9c97871c\aws.gpr",
+  "-cargs:Ada", "-gnatwn"] exited with code 4
+
+  '
+- 'stderr: ALIRE.CHECKED_ERROR
+
+  '
+- 'stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "D:\a\alire-crates-ci\alire-crates-ci\test\a29df80a-bcb2-4f0b-93f4-3bf029d366c7\muntsos_raspberrypi1_11.0.0_9c97871c\aws.gpr",
+  "-cargs:Ada", "-gnatwn"] exited with code 4
+
+  '
+- 'stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
+
+  '
+- '[D:\a\alire-crates-ci\alire-crates-ci\alire_install\bin\alr.exe]
+
+  '
+- '0x7ff719a2da2a Semantic_Versioning.Basic.Restrictions.First_Index at alire.adb:284
+
+  '
+- '0x7ff71962595b Semantic_Versioning.Basic.Restrictions.First_Index at alire-os_lib-subprocess.adb:111
+
+  '
+- '0x7ff7198dcba1 Semantic_Versioning.Basic.Restrictions.First_Index at alire-spawn.adb:22
+
+  '
+- '0x7ff7198ddd5d Semantic_Versioning.Basic.Restrictions.First_Index at alire-spawn.adb:68
+
+  '
+- '0x7ff719802d64 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:189
+
+  '
+- '0x7ff7198011da Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:255
+
+  '
+- '0x7ff71982912d Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2143
+
+  '
+- '0x7ff7198982f9 Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1472
+
+  '
+- '0x7ff719897424 Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1555
+
+  '
+- '0x7ff71982922c Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2147
+
+  '
+- '0x7ff7198292fa Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2127
+
+  '
+- '0x7ff7198017a7 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:286
+
+  '
+- '0x7ff719801912 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:114
+
+  '
+- '0x7ff718f73baa Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:145
+
+  '
+- '0x7ff718f7341e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:113
+
+  '
+- '0x7ff718f735ba Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:54
+
+  '
+- '0x7ff719025dea Semantic_Versioning.Basic.Restrictions.First_Index at clic-subcommand-instance.adb:749
+
+  '
+- '0x7ff719032b0e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands.adb:632
+
+  '
+- '0x7ff718f016a0 Alr.Main at alr-main.adb:13
+
+  '
+- '0x7ff718f05270 Main at b__alr-main.adb:2454
+
+  '
+- '0x7ff718f0133e __tmainCRTStartup at ???
+
+  '
+- '0x7ff718f01144 mainCRTStartup at ???
+
+  '
+- '[C:\Windows\System32\KERNEL32.DLL]
+
+  '
+- '0x7ffd70b2e8d5
+
+  '
+- '[C:\Windows\SYSTEM32\ntdll.dll]
+
+  '
+- '0x7ffd7234c53a
+
+  '
+- '
+
+  '
+- 'stderr: ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED
+
+  '
+- 'stderr: alire-roots.adb:202
+
+  '
+- 'stderr: raised ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED : alire-roots.adb:202
+
+  '
+- '[D:\a\alire-crates-ci\alire-crates-ci\alire_install\bin\alr.exe]
+
+  '
+- '0x7ff71980313c Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:202
+
+  '
+- '0x7ff7198011da Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:255
+
+  '
+- '0x7ff71982912d Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2143
+
+  '
+- '0x7ff7198982f9 Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1472
+
+  '
+- '0x7ff719897424 Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1555
+
+  '
+- '0x7ff71982922c Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2147
+
+  '
+- '0x7ff7198292fa Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2127
+
+  '
+- '0x7ff7198017a7 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:286
+
+  '
+- '0x7ff719801912 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:114
+
+  '
+- '0x7ff718f73baa Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:145
+
+  '
+- '0x7ff718f7341e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:113
+
+  '
+- '0x7ff718f735ba Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:54
+
+  '
+- '0x7ff719025dea Semantic_Versioning.Basic.Restrictions.First_Index at clic-subcommand-instance.adb:749
+
+  '
+- '0x7ff719032b0e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands.adb:632
+
+  '
+- '0x7ff718f016a0 Alr.Main at alr-main.adb:13
+
+  '
+- '0x7ff718f05270 Main at b__alr-main.adb:2454
+
+  '
+- '0x7ff718f0133e __tmainCRTStartup at ???
+
+  '
+- '0x7ff718f01144 mainCRTStartup at ???
+
+  '
+- '[C:\Windows\System32\KERNEL32.DLL]
+
+  '
+- '0x7ffd70b2e8d5
+
+  '
+- '[C:\Windows\SYSTEM32\ntdll.dll]
+
+  '
+- '0x7ffd7234c53a
+
+  '
+- '
+
+  '
+- 'ERROR: Compilation failed.
+
+  '
+platform: windows
+status: failing
+version: 11.0.0
