@@ -1,0 +1,115 @@
+Test ran at 2026-08-07 12:47:39.443853+00:00
+
+SOLUTION:
+ml_kem=1.0.0: SPARK-proved ML-KEM (FIPS 203) lattice-based key encapsulation
+Origin: commit 0b46ce23243d75f11746112c70a6d80799d85e58 from https://github.com/b-erdem/ml_kem_ada.git
+Properties:
+   Author: Baris Erdem
+   Config type: parameter_set : Enum (ML_KEM_512, ML_KEM_768, ML_KEM_1024) default: 'ML_KEM_768'
+   Configuration: no modifiers
+   Description: SPARK-proved ML-KEM (FIPS 203) lattice-based key encapsulation
+   License: GPL-3.0-only
+   Long_Description: SPARK-proved ML-KEM (Module-Lattice-Based Key-Encapsulation Mechanism)
+implementing NIST FIPS 203. Formally verified at SPARK level 2 with zero
+pragma Assume, zero unproved VCs. The 7-layer Cooley-Tukey NTT, BaseMul,
+IndCPA, and FO transform are all proved end-to-end with no escape hatches.
+
+All three FIPS 203 parameter sets -- ML-KEM-512, ML-KEM-768, ML-KEM-1024
+-- are supported and selected at build time via the `parameter_set`
+crate configuration variable; default is ML-KEM-768 (NIST Category III).
+
+Proof techniques are documented in PROOF_NOTES.md and reusable for similar
+lattice / ARX cryptography.
+
+Built on sha3_ada for SHA-3/SHAKE. No heap allocation, pragma Pure, suitable
+for embedded and safety-critical systems. Constant-time execution
+empirically verified via cachegrind (LLd byte-identical). FIPS 140-3
+validation is out of scope. See SECURITY.md for the full threat model.
+
+   Maintainer: Baris Erdem <baris@erdem.dev>
+   Maintainers_Logins: b-erdem
+   Name: ml_kem
+   Project_File: ml_kem_ada.gpr
+   Tag: ml-kem
+   Tag: post-quantum
+   Tag: cryptography
+   Tag: spark
+   Tag: embedded
+   Tag: security
+   Tag: verified
+   Version: 1.0.0
+   Website: https://github.com/b-erdem/ml_kem_ada
+Dependencies (direct):
+   gnat>=14.2.1
+   sha3~1.0
+Dependencies (solution):
+   gnat=15.1.2 (gnat_native)
+   sha3=1.0.0
+Dependencies (graph):
+   ml_kem=1.0.0 --> gnat=15.1.2 (gnat_native) (>=14.2.1)
+   ml_kem=1.0.0 --> sha3=1.0.0 (~1.0)
+   sha3=1.0.0   --> gnat=15.1.2 (gnat_native) (>=14.2.1)
+
+
+LOG:
+[alr test] Testing ml_kem=1.0.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get ml_kem=1.0.0
+Note: Deploying ml_kem=1.0.0...
+Note: Deploying sha3=1.0.0...
+
+ml_kem=1.0.0 successfully retrieved.
+Dependencies were solved as follows:
+
+   +b gnat 15.1.2 (new,gnat_native,binary)
+   +  sha3 1.0.0  (new)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building ml_kem=1.0.0/ml_kem_ada.gpr...
+Setup
+   [mkdir]        object directory for project SHA3_Ada
+   [mkdir]        library directory for project SHA3_Ada
+   [mkdir]        object directory for project ML_KEM_Ada
+   [mkdir]        library directory for project ML_KEM_Ada
+Compile
+   [Ada]          sha3-wipe.adb
+   [Ada]          sha3-keccak.adb
+   [Ada]          sha3.adb
+   [Ada]          ml_kem_config.ads
+   [Ada]          ml_kem.ads
+   [Ada]          ml_kem-reduce.adb
+ml_kem.ads:13:04: warning: use clause for type "Interfaces.Unsigned_8" has no effect [-gnatwu]
+   [Ada]          ml_kem-symmetric.adb
+   [Ada]          ml_kem-sampling.adb
+   [Ada]          ml_kem-wipe.adb
+   [Ada]          ml_kem-poly.adb
+   [Ada]          ml_kem-ntt.adb
+   [Ada]          ml_kem-indcpa.adb
+   [Ada]          ml_kem-polyvec.adb
+ml_kem-polyvec.adb:1:06: warning: redundant with clause in body [-gnatwr]
+ml_kem-polyvec.ads:1:12: warning: unit "ML_KEM.NTT" is not referenced in spec [-gnatwu]
+ml_kem-polyvec.ads:1:12: warning: with clause might be moved to body [-gnatwu]
+   [Ada]          ml_kem-serialize.adb
+ml_kem-ntt.adb:43:07: warning: formal parameter "B_In" is not referenced [-gnatwf]
+ml_kem-ntt.adb:174:07: warning: formal parameter "B_In" is not referenced [-gnatwf]
+ml_kem-ntt.adb:176:07: warning: "T" is not modified, could be declared constant [-gnatwk]
+   [Ada]          ml_kem-verify.adb
+   [Ada]          ml_kem-kem.adb
+ml_kem-indcpa.adb:408:27: warning: condition is always True [-gnatwc]
+ml_kem-indcpa.adb:426:24: warning: condition is always True [-gnatwc]
+ml_kem-indcpa.adb:483:24: warning: condition is always True [-gnatwc]
+ml_kem-indcpa.adb:507:21: warning: condition is always True [-gnatwc]
+ml_kem-indcpa.ads:8:04: warning: use clause for type "Interfaces.Unsigned_8" has no effect [-gnatwu]
+   [Ada]          ml_kem-ntt_zetas.ads
+   [Ada]          ml_kem-cbd.adb
+   [Ada]          ml_kem-serialize-properties.adb
+ml_kem-cbd.adb:62:22: warning: condition is always True [-gnatwc]
+ml_kem-kem.ads:8:04: warning: use clause for type "Interfaces.Unsigned_8" has no effect [-gnatwu]
+Build Libraries
+   [gprlib]       sha3_ada.lexch
+   [gprlib]       ml_kem_ada.lexch
+   [archive]      libsha3_ada.a
+   [index]        libsha3_ada.a
+   [archive]      libml_kem_ada.a
+   [index]        libml_kem_ada.a
+Success: Build finished successfully in 0.97 seconds.
+Found declared GPR file: ml_kem_ada.gpr
+[alr test] Test completed SUCCESSFULLY

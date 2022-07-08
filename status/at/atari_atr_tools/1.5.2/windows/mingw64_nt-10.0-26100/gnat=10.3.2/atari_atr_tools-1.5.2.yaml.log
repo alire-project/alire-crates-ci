@@ -1,0 +1,97 @@
+Test ran at 2026-07-16 01:15:06.494339+00:00
+
+SOLUTION:
+atari_atr_tools=1.5.2: Cross-platform tool for ATR disk images for Atari 8-bit systems
+Origin: source archive atari_atr_tools-1.5.2.tgz at https://sourceforge.net/projects/tutorial-6502/files/Alire/atari_atr_tools-1.5.2.tgz with hashes sha256:2dd660ea6cd895dd06a7d2a644c6f31cc8955bdaf8cde4fc7287e0fab259ec4a, sha512:9451eaa0a84c282c4063a8939ff3b95e80d503a329e5768f13702fa6589e90054aa44a91b7d97a798fe9a69874cb2137dfc7cd4f00ed8c970d5c7b66d0c84268
+Properties:
+   Test run: alr --chdir=test run (from ${CRATE_ROOT}/.)
+   Author: Martin Krischik <krischik@users.sourceforge.net>
+   Build Switches: 
+   Description: Cross-platform tool for ATR disk images for Atari 8-bit systems
+   Executable: atr_tools-main
+   License: GPL-3.0-or-later
+   Long_Description: Atari ATR Tools is a versatile, cross-platform utility written in Ada 2022 for managing ATR disk image files used by Atari 8-bit emulators (e.g., Altirra, Atari800) and hardware add-ons like SIO2PC. Unlike most existing tools, which are Windows-only, this tool runs seamlessly on macOS, Linux, and Windows, making it ideal for retro computing enthusiasts across all major platforms.
+
+Key features include:
+
+**Header Analysis**: Display detailed metadata of ATR files, including sector
+size, disk density, track count, and boot sector presence.
+
+```sh
+  > atr_tools-main --print-header test-DD-DS-80.atr
+  File name	   : test-DD-DS-80.atr
+  Magic		   :	  16#296#
+  Paragraphs	   :	    46056
+  Sector size	   :	      256
+  Flags		   :	     2#1#
+  Bad Sectors	   :		0
+  Unused	   :	    16#0#
+  Sectors	   :	     2880
+  Bytes		   :	   736896
+  Boot Sectors	   : true
+  Floppy disk double density, double sided, 80 track
+```
+
+**Floppy Image Creation**: Format and create ATR files for various disk
+configurations (e.g., single-sided, double-density, 80 tracks).
+
+```sh
+> atr_tools-main --verbose --format-floppy --density=DD --side=SS --track=80 test-DD-SS-80.atr
+File created	 : test-DD-SS-80.atr
+Sector size	 :	    256
+Sector per track :	     18
+Tracks per side  :	     80
+Sides per disk	 :	      1
+```
+
+The tool includes a comprehensive test suite to ensure reliability across platforms and configurations. Source code and tests are available on SourceForge. Detailed GNATdoc documentation can be found at [6502 Tutorial](https://tutorial-6502.sourceforge.io/gnatdoc/atr_tools/index.html).
+
+   Maintainer: Martin Krischik <krischik@users.sourceforge.net>
+   Maintainers_Logins: krischik
+   Name: atari_atr_tools
+   Tag: atari
+   Tag: tools
+   Tag: retrocomputing
+   Tag: ada-2022
+   Version: 1.5.2
+   Website: https://sourceforge.net/projects/tutorial-6502
+Dependencies (direct):
+   adacl^7.2.0
+Dependencies (solution):
+   adacl=7.2.0
+Dependencies (graph):
+   atari_atr_tools=1.5.2 --> adacl=7.2.0 (^7.2.0)
+
+
+LOG:
+Note: Synchronizing workspace...
+Dependencies automatically updated as follows:
+
+   +  adacl           7.2.0  (new)
+   +  adacl_aunit     7.2.0  (new)
+   +. atari_atr_tools 1.5.2  (new,path=..)
+   +  aunit           26.0.0 (new,indirect)
+
+Note: Building atari_atr_tools=1.5.2/atari_atr_tools.gpr...
+Setup
+   [mkdir]        object directory for project Atari_Atr_Tools
+   [mkdir]        exec directory for project Atari_Atr_Tools
+Compile
+   [Ada]          atr_tools-main.adb
+   [Ada]          adacl_config.ads
+   [Ada]          adacl-os-to_wide_wide_string.adb
+   [Ada]          adacl-os-to_utf_string.adb
+gnat1: invalid switch: -gnat2022
+gnat1: invalid switch: -gnat2022
+gnat1: invalid switch: -gnat2022
+gnat1: invalid switch: -gnat2022
+
+   compilation of atr_tools-main.adb failed
+   compilation of adacl-os-to_utf_string.adb failed
+   compilation of adacl-os-to_wide_wide_string.adb failed
+   compilation of adacl_config.ads failed
+
+gprbuild: *** compilation phase failed
+ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "D:\a\alire-crates-ci\alire-crates-ci\test\545fbbeb-f59c-41b1-b158-009a26c3fcad\atari_atr_tools_1.5.2_2dd660ea\atari_atr_tools.gpr"] exited with code 4
+ERROR: Build failed
+[alr test] Test action exited with error code 1

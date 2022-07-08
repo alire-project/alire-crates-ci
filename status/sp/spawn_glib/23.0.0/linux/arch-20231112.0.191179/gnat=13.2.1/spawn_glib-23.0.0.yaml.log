@@ -1,0 +1,1926 @@
+Test ran at 2024-05-12 01:23:50.766738+00:00
+
+SOLUTION:
+spawn_glib=23.0.0: A simple library to spawn processes and communicate with them.
+Origin: source archive v23.0.0.tar.gz at https://github.com/AdaCore/spawn/archive/refs/tags/v23.0.0.tar.gz with hash sha512:440f8b8a45b7a322a5715a195f7e37e6f2641af8190166229e89a11ce6ab60511eb058432f4c3ffcdd670ec71b2509d5e23a80ac2e8dd6b7960bc42385bab86e
+Properties:
+   Author: AdaCore
+   Configuration: no modifiers
+   Description: A simple library to spawn processes and communicate with them.
+   GPR Scenario: OS := unix | osx | Windows_NT
+   case OS is
+      when Linux => GPR External: OS := unix
+      when Macos => GPR External: OS := osx
+      when Windows => GPR External: OS := Windows_NT
+   License: Apache-2.0
+   Long_Description: This is Glib integrated implementation of a spawn processes interface.
+   Maintainer: Vadim Godunko <vgodunko@gmail.com>
+   Maintainer: Max Reznik <reznikmm@gmail.com>
+   Maintainers_Logins: godunko
+   Maintainers_Logins: reznikmm
+   Name: spawn_glib
+   Project_File: gnat/spawn_glib.gpr
+   Tag: process
+   Tag: launch
+   Tag: pipe
+   Tag: glib
+   Version: 23.0.0
+   Website: https://github.com/AdaCore/spawn
+Dependencies (direct):
+   gtkada>=23
+Dependencies (solution):
+   gtkada=24.0.0
+   libgtk3=3.24.41
+   make=4.4.1
+   pkg_config=1.9.5
+Dependencies (graph):
+   gtkada=24.0.0     --> libgtk3=3.24.41 (>=3.24.24)
+   gtkada=24.0.0     --> make=4.4.1 (*)             
+   gtkada=24.0.0     --> pkg_config=1.9.5 (*)       
+   spawn_glib=23.0.0 --> gtkada=24.0.0 (>=23)       
+
+
+LOG:
+Note: Deploying spawn_glib=23.0.0...
+#=#=#                                                                         
+##O#-#                                                                        
+Note: Deploying libgtk3=3.24.41...
+The system package 'gtk3-devel' is about to be installed.
+This action might require admin privileges and impact your system installation.
+Do you want Alire to install this system package?
+Using default: Yes
+Last metadata expiration check: 0:15:06 ago on Sun May 12 01:07:03 2024.
+Dependencies resolved.
+============================================================================================
+ Package                                   Arch    Version                    Repo      Size
+============================================================================================
+Installing:
+ gtk3-devel                                x86_64  3.24.41-1.fc39             updates  4.3 M
+Upgrading:
+ libblkid                                  x86_64  2.39.4-1.fc39              updates  116 k
+ libfdisk                                  x86_64  2.39.4-1.fc39              updates  161 k
+ libmount                                  x86_64  2.39.4-1.fc39              updates  154 k
+ libsmartcols                              x86_64  2.39.4-1.fc39              updates   67 k
+ libuuid                                   x86_64  2.39.4-1.fc39              updates   28 k
+ util-linux                                x86_64  2.39.4-1.fc39              updates  1.2 M
+ util-linux-core                           x86_64  2.39.4-1.fc39              updates  507 k
+Installing dependencies:
+ ModemManager-glib                         x86_64  1.20.6-3.fc39              fedora   326 k
+ NetworkManager-libnm                      x86_64  1:1.44.2-1.fc39            updates  1.8 M
+ abattis-cantarell-vf-fonts                noarch  0.301-10.fc39              fedora   121 k
+ adwaita-cursor-theme                      noarch  45.0-1.fc39                fedora   678 k
+ adwaita-icon-theme                        noarch  45.0-1.fc39                fedora   407 k
+ alsa-lib                                  x86_64  1.2.11-2.fc39              updates  521 k
+ at-spi2-atk                               x86_64  2.50.2-1.fc39              updates   86 k
+ at-spi2-atk-devel                         x86_64  2.50.2-1.fc39              updates   10 k
+ at-spi2-core                              x86_64  2.50.2-1.fc39              updates  371 k
+ at-spi2-core-devel                        x86_64  2.50.2-1.fc39              updates  318 k
+ atk                                       x86_64  2.50.2-1.fc39              updates   81 k
+ atk-devel                                 x86_64  2.50.2-1.fc39              updates  437 k
+ avahi-glib                                x86_64  0.8-24.fc39                fedora    15 k
+ avahi-libs                                x86_64  0.8-24.fc39                fedora    67 k
+ bluez-libs                                x86_64  5.75-1.fc39                updates   84 k
+ brotli                                    x86_64  1.1.0-1.fc39               fedora    20 k
+ brotli-devel                              x86_64  1.1.0-1.fc39               fedora    34 k
+ bzip2-devel                               x86_64  1.0.8-16.fc39              fedora   214 k
+ cairo                                     x86_64  1.18.0-1.fc39              fedora   710 k
+ cairo-devel                               x86_64  1.18.0-1.fc39              fedora   193 k
+ cairo-gobject                             x86_64  1.18.0-1.fc39              fedora    19 k
+ cairo-gobject-devel                       x86_64  1.18.0-1.fc39              fedora    11 k
+ cdparanoia-libs                           x86_64  10.2-42.fc39               fedora    54 k
+ cmake-filesystem                          x86_64  3.27.7-1.fc39              fedora    19 k
+ colord-libs                               x86_64  1.4.6-6.fc39               fedora   233 k
+ crypto-policies-scripts                   noarch  20231204-1.git1e3a2e4.fc39 updates  117 k
+ cups-libs                                 x86_64  1:2.4.7-13.fc39            updates  267 k
+ dbus-devel                                x86_64  1:1.14.10-1.fc39           fedora    40 k
+ dbus-libs                                 x86_64  1:1.14.10-1.fc39           fedora   156 k
+ default-fonts-core-sans                   noarch  4.0-9.fc39                 fedora    32 k
+ duktape                                   x86_64  2.7.0-5.fc39               fedora   170 k
+ exempi                                    x86_64  2.6.4-2.fc39               fedora   578 k
+ exiv2-libs                                x86_64  0.27.6-5.fc39              fedora   782 k
+ fdk-aac-free                              x86_64  2.0.0-11.fc39              fedora   336 k
+ flac-libs                                 x86_64  1.4.3-2.fc39               fedora   264 k
+ fontconfig                                x86_64  2.14.2-6.fc39              updates  296 k
+ fontconfig-devel                          x86_64  2.14.2-6.fc39              updates  164 k
+ fonts-filesystem                          noarch  1:2.0.5-12.fc39            fedora   8.2 k
+ freetype                                  x86_64  2.13.1-2.fc39              fedora   414 k
+ freetype-devel                            x86_64  2.13.1-2.fc39              fedora   950 k
+ fribidi                                   x86_64  1.0.13-2.fc39              fedora    91 k
+ fribidi-devel                             x86_64  1.0.13-2.fc39              fedora    30 k
+ fuse-common                               x86_64  3.16.1-1.fc39              fedora   8.3 k
+ fuse3                                     x86_64  3.16.1-1.fc39              fedora    57 k
+ fuse3-libs                                x86_64  3.16.1-1.fc39              fedora    94 k
+ gdk-pixbuf2                               x86_64  2.42.10-5.fc39             fedora   484 k
+ gdk-pixbuf2-devel                         x86_64  2.42.10-5.fc39             fedora   366 k
+ gdk-pixbuf2-modules                       x86_64  2.42.10-5.fc39             fedora    85 k
+ geoclue2                                  x86_64  2.7.0-2.fc39               fedora   138 k
+ gettext                                   x86_64  0.22-2.fc39                fedora   1.1 M
+ gettext-envsubst                          x86_64  0.22-2.fc39                fedora    36 k
+ gettext-libs                              x86_64  0.22-2.fc39                fedora   328 k
+ gettext-runtime                           x86_64  0.22-2.fc39                fedora   120 k
+ giflib                                    x86_64  5.2.2-1.fc39               updates   52 k
+ glib2-devel                               x86_64  2.78.3-1.fc39              updates  596 k
+ gobject-introspection                     x86_64  1.78.1-1.fc39              fedora   261 k
+ google-noto-fonts-common                  noarch  20240101-1.fc39            updates   17 k
+ google-noto-sans-vf-fonts                 noarch  20240101-1.fc39            updates  593 k
+ graphene                                  x86_64  1.10.6-6.fc39              fedora    61 k
+ graphite2                                 x86_64  1.3.14-12.fc39             fedora    95 k
+ graphite2-devel                           x86_64  1.3.14-12.fc39             fedora    20 k
+ gsettings-desktop-schemas                 x86_64  45.0-1.fc39                fedora   737 k
+ gsm                                       x86_64  1.0.22-3.fc39              fedora    35 k
+ gstreamer1                                x86_64  1.22.12-1.fc39             updates  1.4 M
+ gstreamer1-plugins-base                   x86_64  1.22.12-1.fc39             updates  2.2 M
+ gtk-update-icon-cache                     x86_64  3.24.41-1.fc39             updates   34 k
+ gtk3                                      x86_64  3.24.41-1.fc39             updates  5.6 M
+ harfbuzz                                  x86_64  8.2.1-2.fc39               fedora   975 k
+ harfbuzz-devel                            x86_64  8.2.1-2.fc39               fedora   450 k
+ harfbuzz-icu                              x86_64  8.2.1-2.fc39               fedora    17 k
+ hicolor-icon-theme                        noarch  0.17-16.fc39               fedora    66 k
+ highway                                   x86_64  1.1.0-1.fc39               updates  496 k
+ hwdata                                    noarch  0.381-1.fc39               updates  1.6 M
+ iso-codes                                 noarch  4.15.0-2.fc39              fedora   3.5 M
+ jbigkit-libs                              x86_64  2.1-26.fc39                fedora    53 k
+ json-glib                                 x86_64  1.8.0-1.fc39               fedora   166 k
+ lame-libs                                 x86_64  3.100-15.fc39              fedora   337 k
+ lcms2                                     x86_64  2.15-2.fc39                fedora   177 k
+ libX11                                    x86_64  1.8.9-1.fc39               updates  650 k
+ libX11-common                             noarch  1.8.9-1.fc39               updates  176 k
+ libX11-devel                              x86_64  1.8.9-1.fc39               updates  1.0 M
+ libX11-xcb                                x86_64  1.8.9-1.fc39               updates   12 k
+ libXau                                    x86_64  1.0.11-3.fc39              fedora    31 k
+ libXau-devel                              x86_64  1.0.11-3.fc39              fedora    14 k
+ libXcomposite                             x86_64  0.4.5-10.fc39              fedora    23 k
+ libXcomposite-devel                       x86_64  0.4.5-10.fc39              fedora    16 k
+ libXcursor                                x86_64  1.2.1-4.fc39               fedora    30 k
+ libXcursor-devel                          x86_64  1.2.1-4.fc39               fedora    40 k
+ libXdamage                                x86_64  1.1.5-10.fc39              fedora    22 k
+ libXdamage-devel                          x86_64  1.1.5-10.fc39              fedora   9.3 k
+ libXext                                   x86_64  1.3.5-3.fc39               fedora    39 k
+ libXext-devel                             x86_64  1.3.5-3.fc39               fedora    85 k
+ libXfixes                                 x86_64  6.0.0-6.fc39               fedora    19 k
+ libXfixes-devel                           x86_64  6.0.0-6.fc39               fedora    12 k
+ libXft                                    x86_64  2.3.8-3.fc39               fedora    72 k
+ libXft-devel                              x86_64  2.3.8-3.fc39               fedora    50 k
+ libXi                                     x86_64  1.8.1-2.fc39               fedora    40 k
+ libXi-devel                               x86_64  1.8.1-2.fc39               fedora   116 k
+ libXinerama                               x86_64  1.1.5-3.fc39               fedora    14 k
+ libXinerama-devel                         x86_64  1.1.5-3.fc39               fedora    13 k
+ libXrandr                                 x86_64  1.5.4-1.fc39               updates   27 k
+ libXrandr-devel                           x86_64  1.5.4-1.fc39               updates   19 k
+ libXrender                                x86_64  0.9.11-3.fc39              fedora    27 k
+ libXrender-devel                          x86_64  0.9.11-3.fc39              fedora    19 k
+ libXtst                                   x86_64  1.2.4-3.fc39               fedora    20 k
+ libXtst-devel                             x86_64  1.2.4-3.fc39               fedora    16 k
+ libXv                                     x86_64  1.0.11-19.fc39             fedora    18 k
+ libXxf86vm                                x86_64  1.1.5-3.fc39               fedora    18 k
+ libaom                                    x86_64  3.8.2-1.fc39               updates  1.8 M
+ libasyncns                                x86_64  0.8-25.fc39                fedora    30 k
+ libavif                                   x86_64  0.11.1-11.fc39             fedora    84 k
+ libblkid-devel                            x86_64  2.39.4-1.fc39              updates   18 k
+ libcanberra                               x86_64  0.30-32.fc39               fedora    85 k
+ libcloudproviders                         x86_64  0.3.5-1.fc39               updates   46 k
+ libcloudproviders-devel                   x86_64  0.3.5-1.fc39               updates   49 k
+ libcue                                    x86_64  2.2.1-13.fc39              fedora    34 k
+ libdatrie                                 x86_64  0.2.13-7.fc39              fedora    32 k
+ libdatrie-devel                           x86_64  0.2.13-7.fc39              fedora   148 k
+ libdav1d                                  x86_64  1.2.1-2.fc39               fedora   618 k
+ libdrm                                    x86_64  2.4.120-1.fc39             updates  157 k
+ libepoxy                                  x86_64  1.5.10-4.fc39              fedora   234 k
+ libepoxy-devel                            x86_64  1.5.10-4.fc39              fedora   133 k
+ libexif                                   x86_64  0.6.24-5.fc39              fedora   461 k
+ libffi-devel                              x86_64  3.4.4-4.fc39               fedora    29 k
+ libgexiv2                                 x86_64  0.14.2-1.fc39              fedora    98 k
+ libglvnd                                  x86_64  1:1.7.0-1.fc39             fedora   133 k
+ libglvnd-core-devel                       x86_64  1:1.7.0-1.fc39             fedora    17 k
+ libglvnd-devel                            x86_64  1:1.7.0-1.fc39             fedora   162 k
+ libglvnd-egl                              x86_64  1:1.7.0-1.fc39             fedora    36 k
+ libglvnd-gles                             x86_64  1:1.7.0-1.fc39             fedora    31 k
+ libglvnd-glx                              x86_64  1:1.7.0-1.fc39             fedora   142 k
+ libglvnd-opengl                           x86_64  1:1.7.0-1.fc39             fedora    42 k
+ libgrss                                   x86_64  0.7.0-17.fc39              fedora    62 k
+ libgsf                                    x86_64  1.14.51-1.fc39             updates  297 k
+ libgudev                                  x86_64  238-2.fc39                 fedora    35 k
+ libgusb                                   x86_64  0.4.9-1.fc39               updates   65 k
+ libgxps                                   x86_64  0.3.2-6.fc39               fedora    77 k
+ libicu                                    x86_64  73.2-2.fc39                fedora    11 M
+ libicu-devel                              x86_64  73.2-2.fc39                fedora   924 k
+ libiptcdata                               x86_64  1.0.5-15.fc39              fedora    61 k
+ libjpeg-turbo                             x86_64  2.1.4-3.fc39               fedora   183 k
+ libjpeg-turbo-devel                       x86_64  2.1.4-3.fc39               fedora    98 k
+ libjxl                                    x86_64  1:0.8.2-3.fc39             fedora   1.2 M
+ liblc3                                    x86_64  1.0.4-2.fc39               updates   80 k
+ libldac                                   x86_64  2.0.2.3-13.fc39            fedora    41 k
+ liblerc                                   x86_64  4.0.0-4.fc39               fedora   201 k
+ libmount-devel                            x86_64  2.39.4-1.fc39              updates   18 k
+ libnotify                                 x86_64  0.8.3-1.fc39               updates   51 k
+ libogg                                    x86_64  2:1.3.5-6.fc39             fedora    33 k
+ libosinfo                                 x86_64  1.11.0-1.fc39              updates  314 k
+ libpciaccess                              x86_64  0.16-9.fc39                fedora    26 k
+ libpng                                    x86_64  2:1.6.37-15.fc39           fedora   119 k
+ libpng-devel                              x86_64  2:1.6.37-15.fc39           fedora   291 k
+ libproxy                                  x86_64  0.5.5-1.fc39               updates   48 k
+ librsvg2                                  x86_64  2.57.1-1.fc39              updates  1.6 M
+ libsbc                                    x86_64  2.0-3.fc39                 fedora    47 k
+ libselinux-devel                          x86_64  3.5-5.fc39                 fedora   151 k
+ libsepol-devel                            x86_64  3.5-2.fc39                 fedora    49 k
+ libsndfile                                x86_64  1.1.0-9.fc39               fedora   215 k
+ libsoup                                   x86_64  2.74.3-3.fc39              fedora   400 k
+ libsoup3                                  x86_64  3.4.4-1.fc39               updates  389 k
+ libstemmer                                x86_64  2.2.0-7.fc39               fedora   171 k
+ libtdb                                    x86_64  1.4.9-1.fc39               fedora    51 k
+ libthai                                   x86_64  0.1.29-6.fc39              fedora   213 k
+ libthai-devel                             x86_64  0.1.29-6.fc39              fedora   139 k
+ libtheora                                 x86_64  1:1.1.1-34.fc39            fedora   166 k
+ libtiff                                   x86_64  4.4.0-8.fc39               fedora   202 k
+ libtiff-devel                             x86_64  4.4.0-8.fc39               fedora   545 k
+ libtracker-sparql                         x86_64  3.6.0-1.fc39               fedora   374 k
+ libunwind                                 x86_64  1.7.0-0.2.rc2.fc39         fedora    70 k
+ libusb1                                   x86_64  1.0.27-1.fc39              updates   76 k
+ libvisual                                 x86_64  1:0.4.1-2.fc39             fedora   151 k
+ libvmaf                                   x86_64  2.3.0-6.fc39               fedora   180 k
+ libvorbis                                 x86_64  1:1.3.7-8.fc39             fedora   195 k
+ libwayland-client                         x86_64  1.22.0-2.fc39              fedora    34 k
+ libwayland-cursor                         x86_64  1.22.0-2.fc39              fedora    19 k
+ libwayland-egl                            x86_64  1.22.0-2.fc39              fedora    13 k
+ libwayland-server                         x86_64  1.22.0-2.fc39              fedora    42 k
+ libwebp                                   x86_64  1.3.2-2.fc39               fedora   284 k
+ libxcb                                    x86_64  1.13.1-12.fc39             fedora   233 k
+ libxcb-devel                              x86_64  1.13.1-12.fc39             fedora   1.4 M
+ libxkbcommon-devel                        x86_64  1.6.0-1.fc39               updates   66 k
+ libxml2-devel                             x86_64  2.10.4-3.fc39              fedora   527 k
+ libxshmfence                              x86_64  1.3-13.fc39                fedora    12 k
+ libxslt                                   x86_64  1.1.39-1.fc39              updates  187 k
+ llvm-libs                                 x86_64  17.0.6-3.fc39              updates   27 M
+ lm_sensors-libs                           x86_64  3.6.0-14.fc39              fedora    41 k
+ mesa-filesystem                           x86_64  23.3.6-1.fc39              updates   19 k
+ mesa-libEGL                               x86_64  23.3.6-1.fc39              updates  134 k
+ mesa-libGL                                x86_64  23.3.6-1.fc39              updates  176 k
+ mesa-libgbm                               x86_64  23.3.6-1.fc39              updates   46 k
+ mesa-libglapi                             x86_64  23.3.6-1.fc39              updates   53 k
+ mpg123-libs                               x86_64  1.31.3-2.fc39              fedora   340 k
+ nspr                                      x86_64  4.35.0-19.fc39             updates  137 k
+ nss                                       x86_64  3.99.0-1.fc39              updates  702 k
+ nss-softokn                               x86_64  3.99.0-1.fc39              updates  419 k
+ nss-softokn-freebl                        x86_64  3.99.0-1.fc39              updates  381 k
+ nss-sysinit                               x86_64  3.99.0-1.fc39              updates   18 k
+ nss-util                                  x86_64  3.99.0-1.fc39              updates   87 k
+ openjpeg2                                 x86_64  2.5.2-1.fc39               updates  178 k
+ opus                                      x86_64  1.3.1-13.fc39              fedora   205 k
+ orc                                       x86_64  0.4.33-3.fc39              fedora   202 k
+ osinfo-db                                 noarch  20231215-1.fc39            updates  445 k
+ osinfo-db-tools                           x86_64  1.11.0-1.fc39              updates   73 k
+ pango                                     x86_64  1.51.0-1.fc39              fedora   343 k
+ pango-devel                               x86_64  1.51.0-1.fc39              fedora   161 k
+ pcre2-devel                               x86_64  10.42-1.fc39.2             fedora   505 k
+ pcre2-utf16                               x86_64  10.42-1.fc39.2             fedora   212 k
+ pcre2-utf32                               x86_64  10.42-1.fc39.2             fedora   200 k
+ pipewire-jack-audio-connection-kit-libs   x86_64  1.0.5-1.fc39               updates  144 k
+ pipewire-libs                             x86_64  1.0.5-1.fc39               updates  1.9 M
+ pixman                                    x86_64  0.42.2-2.fc39              fedora   288 k
+ pixman-devel                              x86_64  0.42.2-2.fc39              fedora    17 k
+ polkit                                    x86_64  123-1.fc39.1               updates  153 k
+ polkit-libs                               x86_64  123-1.fc39.1               updates   64 k
+ polkit-pkla-compat                        x86_64  0.1-26.fc39                fedora    44 k
+ poppler                                   x86_64  23.08.0-1.fc39             fedora   1.2 M
+ poppler-data                              noarch  0.4.11-5.fc39              fedora   2.0 M
+ poppler-glib                              x86_64  23.08.0-1.fc39             fedora   185 k
+ pulseaudio-libs                           x86_64  16.1-5.fc39                fedora   694 k
+ rav1e-libs                                x86_64  0.7.1-1.fc39               updates  1.0 M
+ rtkit                                     x86_64  0.11-61.fc39               updates   55 k
+ shared-mime-info                          x86_64  2.2-4.fc39                 fedora   380 k
+ sound-theme-freedesktop                   noarch  0.8-20.fc39                fedora   383 k
+ svt-av1-libs                              x86_64  1.4.1-3.fc39               fedora   2.0 M
+ sysprof-capture-devel                     x86_64  45.1-1.fc39                updates   59 k
+ systemd-boot-unsigned                     x86_64  254.10-1.fc39              updates   96 k
+ totem-pl-parser                           x86_64  3.26.6-7.fc39              fedora   145 k
+ tracker                                   x86_64  3.6.0-1.fc39               fedora   586 k
+ uchardet                                  x86_64  0.0.8-4.fc39               fedora   108 k
+ upower-libs                               x86_64  1.90.2-3.fc39              fedora    58 k
+ wayland-devel                             x86_64  1.22.0-2.fc39              fedora   148 k
+ webrtc-audio-processing                   x86_64  0.3.1-11.fc39              fedora   307 k
+ wireplumber                               x86_64  0.4.17-1.fc39              updates   99 k
+ wireplumber-libs                          x86_64  0.4.17-1.fc39              updates  346 k
+ xdg-desktop-portal                        x86_64  1.18.2-6.fc39              updates  483 k
+ xml-common                                noarch  0.6.3-61.fc39              fedora    31 k
+ xorg-x11-proto-devel                      noarch  2023.2-2.fc39              fedora   298 k
+ xprop                                     x86_64  1.2.5-4.fc39               fedora    35 k
+ xz-devel                                  x86_64  5.4.4-1.fc39               fedora    66 k
+ zlib-devel                                x86_64  1.2.13-4.fc39              fedora    45 k
+Installing weak dependencies:
+ adobe-source-code-pro-fonts               noarch  2.042.1.062.1.026-2.fc39   fedora   806 k
+ avif-pixbuf-loader                        x86_64  0.11.1-11.fc39             fedora    16 k
+ dconf                                     x86_64  0.40.0-9.fc39              fedora   109 k
+ exiv2                                     x86_64  0.27.6-5.fc39              fedora   981 k
+ glib-networking                           x86_64  2.78.1-1.fc39              updates  195 k
+ jxl-pixbuf-loader                         x86_64  1:0.8.2-3.fc39             fedora    61 k
+ libcanberra-gtk3                          x86_64  0.30-32.fc39               fedora    31 k
+ low-memory-monitor                        x86_64  2.1-8.fc39                 fedora    34 k
+ mesa-dri-drivers                          x86_64  23.3.6-1.fc39              updates   25 M
+ mesa-va-drivers                           x86_64  23.3.6-1.fc39              updates  3.9 M
+ pipewire                                  x86_64  1.0.5-1.fc39               updates  122 k
+ pipewire-alsa                             x86_64  1.0.5-1.fc39               updates   63 k
+ pipewire-jack-audio-connection-kit        x86_64  1.0.5-1.fc39               updates   16 k
+ pipewire-pulseaudio                       x86_64  1.0.5-1.fc39               updates  201 k
+ rsvg-pixbuf-loader                        x86_64  2.57.1-1.fc39              updates   16 k
+ sdubby                                    noarch  1.0-4.fc39                 fedora    18 k
+ tracker-miners                            x86_64  3.6.2-1.fc39               updates  964 k
+ webp-pixbuf-loader                        x86_64  0.2.7-1.fc39               updates   20 k
+ xdg-desktop-portal-gtk                    x86_64  1.15.1-1.fc39              updates  146 k
+
+Transaction Summary
+============================================================================================
+Install  261 Packages
+Upgrade    7 Packages
+
+Total download size: 148 M
+Downloading Packages:
+(1/268): abattis-cantarell-vf-fonts-0.301-10.fc 234 kB/s | 121 kB     00:00    
+(2/268): ModemManager-glib-1.20.6-3.fc39.x86_64 505 kB/s | 326 kB     00:00    
+(3/268): adobe-source-code-pro-fonts-2.042.1.06 1.0 MB/s | 806 kB     00:00    
+(4/268): adwaita-icon-theme-45.0-1.fc39.noarch. 2.2 MB/s | 407 kB     00:00    
+(5/268): adwaita-cursor-theme-45.0-1.fc39.noarc 2.1 MB/s | 678 kB     00:00    
+(6/268): avahi-glib-0.8-24.fc39.x86_64.rpm      179 kB/s |  15 kB     00:00    
+(7/268): avahi-libs-0.8-24.fc39.x86_64.rpm      754 kB/s |  67 kB     00:00    
+(8/268): avif-pixbuf-loader-0.11.1-11.fc39.x86_ 194 kB/s |  16 kB     00:00    
+(9/268): brotli-1.1.0-1.fc39.x86_64.rpm         199 kB/s |  20 kB     00:00    
+(10/268): brotli-devel-1.1.0-1.fc39.x86_64.rpm  359 kB/s |  34 kB     00:00    
+(11/268): bzip2-devel-1.0.8-16.fc39.x86_64.rpm  2.0 MB/s | 214 kB     00:00    
+(12/268): cairo-1.18.0-1.fc39.x86_64.rpm        5.1 MB/s | 710 kB     00:00    
+(13/268): cairo-gobject-1.18.0-1.fc39.x86_64.rp 222 kB/s |  19 kB     00:00    
+(14/268): cairo-devel-1.18.0-1.fc39.x86_64.rpm  1.7 MB/s | 193 kB     00:00    
+(15/268): cairo-gobject-devel-1.18.0-1.fc39.x86 121 kB/s |  11 kB     00:00    
+(16/268): cdparanoia-libs-10.2-42.fc39.x86_64.r 617 kB/s |  54 kB     00:00    
+(17/268): cmake-filesystem-3.27.7-1.fc39.x86_64 227 kB/s |  19 kB     00:00    
+(18/268): colord-libs-1.4.6-6.fc39.x86_64.rpm   2.3 MB/s | 233 kB     00:00    
+(19/268): dbus-devel-1.14.10-1.fc39.x86_64.rpm  421 kB/s |  40 kB     00:00    
+(20/268): dbus-libs-1.14.10-1.fc39.x86_64.rpm   1.6 MB/s | 156 kB     00:00    
+(21/268): dconf-0.40.0-9.fc39.x86_64.rpm        1.2 MB/s | 109 kB     00:00    
+(22/268): default-fonts-core-sans-4.0-9.fc39.no 378 kB/s |  32 kB     00:00    
+(23/268): duktape-2.7.0-5.fc39.x86_64.rpm       1.7 MB/s | 170 kB     00:00    
+(24/268): exempi-2.6.4-2.fc39.x86_64.rpm        4.6 MB/s | 578 kB     00:00    
+(25/268): exiv2-0.27.6-5.fc39.x86_64.rpm        6.0 MB/s | 981 kB     00:00    
+(26/268): exiv2-libs-0.27.6-5.fc39.x86_64.rpm   5.1 MB/s | 782 kB     00:00    
+(27/268): fdk-aac-free-2.0.0-11.fc39.x86_64.rpm 3.1 MB/s | 336 kB     00:00    
+(28/268): fonts-filesystem-2.0.5-12.fc39.noarch  98 kB/s | 8.2 kB     00:00    
+(29/268): flac-libs-1.4.3-2.fc39.x86_64.rpm     2.6 MB/s | 264 kB     00:00    
+(30/268): freetype-2.13.1-2.fc39.x86_64.rpm     3.7 MB/s | 414 kB     00:00    
+(31/268): fribidi-1.0.13-2.fc39.x86_64.rpm      1.0 MB/s |  91 kB     00:00    
+(32/268): freetype-devel-2.13.1-2.fc39.x86_64.r 5.9 MB/s | 950 kB     00:00    
+(33/268): fribidi-devel-1.0.13-2.fc39.x86_64.rp 314 kB/s |  30 kB     00:00    
+(34/268): fuse-common-3.16.1-1.fc39.x86_64.rpm  100 kB/s | 8.3 kB     00:00    
+(35/268): fuse3-3.16.1-1.fc39.x86_64.rpm        668 kB/s |  57 kB     00:00    
+(36/268): fuse3-libs-3.16.1-1.fc39.x86_64.rpm   1.0 MB/s |  94 kB     00:00    
+(37/268): gdk-pixbuf2-2.42.10-5.fc39.x86_64.rpm 4.3 MB/s | 484 kB     00:00    
+(38/268): gdk-pixbuf2-modules-2.42.10-5.fc39.x8 970 kB/s |  85 kB     00:00    
+(39/268): gdk-pixbuf2-devel-2.42.10-5.fc39.x86_ 2.9 MB/s | 366 kB     00:00    
+(40/268): geoclue2-2.7.0-2.fc39.x86_64.rpm      1.5 MB/s | 138 kB     00:00    
+(41/268): gettext-envsubst-0.22-2.fc39.x86_64.r 425 kB/s |  36 kB     00:00    
+(42/268): gettext-libs-0.22-2.fc39.x86_64.rpm   3.2 MB/s | 328 kB     00:00    
+(43/268): gettext-0.22-2.fc39.x86_64.rpm        6.8 MB/s | 1.1 MB     00:00    
+(44/268): gettext-runtime-0.22-2.fc39.x86_64.rp 1.3 MB/s | 120 kB     00:00    
+(45/268): gobject-introspection-1.78.1-1.fc39.x 2.6 MB/s | 261 kB     00:00    
+(46/268): graphene-1.10.6-6.fc39.x86_64.rpm     714 kB/s |  61 kB     00:00    
+(47/268): graphite2-1.3.14-12.fc39.x86_64.rpm   1.1 MB/s |  95 kB     00:00    
+(48/268): graphite2-devel-1.3.14-12.fc39.x86_64 212 kB/s |  20 kB     00:00    
+(49/268): gsettings-desktop-schemas-45.0-1.fc39 5.6 MB/s | 737 kB     00:00    
+(50/268): gsm-1.0.22-3.fc39.x86_64.rpm          412 kB/s |  35 kB     00:00    
+(51/268): harfbuzz-8.2.1-2.fc39.x86_64.rpm      6.8 MB/s | 975 kB     00:00    
+(52/268): harfbuzz-icu-8.2.1-2.fc39.x86_64.rpm  174 kB/s |  17 kB     00:00    
+(53/268): harfbuzz-devel-8.2.1-2.fc39.x86_64.rp 3.9 MB/s | 450 kB     00:00    
+(54/268): hicolor-icon-theme-0.17-16.fc39.noarc 765 kB/s |  66 kB     00:00    
+(55/268): jbigkit-libs-2.1-26.fc39.x86_64.rpm   624 kB/s |  53 kB     00:00    
+(56/268): json-glib-1.8.0-1.fc39.x86_64.rpm     1.7 MB/s | 166 kB     00:00    
+(57/268): jxl-pixbuf-loader-0.8.2-3.fc39.x86_64 715 kB/s |  61 kB     00:00    
+(58/268): iso-codes-4.15.0-2.fc39.noarch.rpm     14 MB/s | 3.5 MB     00:00    
+(59/268): lcms2-2.15-2.fc39.x86_64.rpm          1.9 MB/s | 177 kB     00:00    
+(60/268): lame-libs-3.100-15.fc39.x86_64.rpm    3.3 MB/s | 337 kB     00:00    
+(61/268): libXau-1.0.11-3.fc39.x86_64.rpm       375 kB/s |  31 kB     00:00    
+(62/268): libXcomposite-0.4.5-10.fc39.x86_64.rp 276 kB/s |  23 kB     00:00    
+(63/268): libXau-devel-1.0.11-3.fc39.x86_64.rpm 139 kB/s |  14 kB     00:00    
+(64/268): libXcomposite-devel-0.4.5-10.fc39.x86 171 kB/s |  16 kB     00:00    
+(65/268): libXcursor-1.2.1-4.fc39.x86_64.rpm    358 kB/s |  30 kB     00:00    
+(66/268): libXcursor-devel-1.2.1-4.fc39.x86_64. 457 kB/s |  40 kB     00:00    
+(67/268): libXdamage-1.1.5-10.fc39.x86_64.rpm   262 kB/s |  22 kB     00:00    
+(68/268): libXdamage-devel-1.1.5-10.fc39.x86_64 111 kB/s | 9.3 kB     00:00    
+(69/268): libXext-1.3.5-3.fc39.x86_64.rpm       455 kB/s |  39 kB     00:00    
+(70/268): libXext-devel-1.3.5-3.fc39.x86_64.rpm 954 kB/s |  85 kB     00:00    
+(71/268): libXfixes-6.0.0-6.fc39.x86_64.rpm     223 kB/s |  19 kB     00:00    
+(72/268): libXfixes-devel-6.0.0-6.fc39.x86_64.r 124 kB/s |  12 kB     00:00    
+(73/268): libXft-2.3.8-3.fc39.x86_64.rpm        860 kB/s |  72 kB     00:00    
+(74/268): libXft-devel-2.3.8-3.fc39.x86_64.rpm  529 kB/s |  50 kB     00:00    
+(75/268): libXi-1.8.1-2.fc39.x86_64.rpm         470 kB/s |  40 kB     00:00    
+(76/268): libXi-devel-1.8.1-2.fc39.x86_64.rpm   1.2 MB/s | 116 kB     00:00    
+(77/268): libXinerama-1.1.5-3.fc39.x86_64.rpm   168 kB/s |  14 kB     00:00    
+(78/268): libXinerama-devel-1.1.5-3.fc39.x86_64 155 kB/s |  13 kB     00:00    
+(79/268): libXrender-0.9.11-3.fc39.x86_64.rpm   322 kB/s |  27 kB     00:00    
+(80/268): libXrender-devel-0.9.11-3.fc39.x86_64 200 kB/s |  19 kB     00:00    
+(81/268): libXtst-1.2.4-3.fc39.x86_64.rpm       241 kB/s |  20 kB     00:00    
+(82/268): libXtst-devel-1.2.4-3.fc39.x86_64.rpm 185 kB/s |  16 kB     00:00    
+(83/268): libXv-1.0.11-19.fc39.x86_64.rpm       219 kB/s |  18 kB     00:00    
+(84/268): libXxf86vm-1.1.5-3.fc39.x86_64.rpm    188 kB/s |  18 kB     00:00    
+(85/268): libasyncns-0.8-25.fc39.x86_64.rpm     353 kB/s |  30 kB     00:00    
+(86/268): libavif-0.11.1-11.fc39.x86_64.rpm     963 kB/s |  84 kB     00:00    
+(87/268): libcanberra-0.30-32.fc39.x86_64.rpm   977 kB/s |  85 kB     00:00    
+(88/268): libcanberra-gtk3-0.30-32.fc39.x86_64. 372 kB/s |  31 kB     00:00    
+(89/268): libcue-2.2.1-13.fc39.x86_64.rpm       401 kB/s |  34 kB     00:00    
+(90/268): libdatrie-0.2.13-7.fc39.x86_64.rpm    380 kB/s |  32 kB     00:00    
+(91/268): libdatrie-devel-0.2.13-7.fc39.x86_64. 1.3 MB/s | 148 kB     00:00    
+(92/268): libepoxy-1.5.10-4.fc39.x86_64.rpm     2.4 MB/s | 234 kB     00:00    
+(93/268): libdav1d-1.2.1-2.fc39.x86_64.rpm      5.2 MB/s | 618 kB     00:00    
+(94/268): libepoxy-devel-1.5.10-4.fc39.x86_64.r 1.4 MB/s | 133 kB     00:00    
+(95/268): libffi-devel-3.4.4-4.fc39.x86_64.rpm  322 kB/s |  29 kB     00:00    
+(96/268): libexif-0.6.24-5.fc39.x86_64.rpm      4.2 MB/s | 461 kB     00:00    
+(97/268): libgexiv2-0.14.2-1.fc39.x86_64.rpm    1.1 MB/s |  98 kB     00:00    
+(98/268): libglvnd-1.7.0-1.fc39.x86_64.rpm      1.4 MB/s | 133 kB     00:00    
+(99/268): libglvnd-core-devel-1.7.0-1.fc39.x86_ 181 kB/s |  17 kB     00:00    
+(100/268): libglvnd-devel-1.7.0-1.fc39.x86_64.r 1.6 MB/s | 162 kB     00:00    
+(101/268): libglvnd-egl-1.7.0-1.fc39.x86_64.rpm 424 kB/s |  36 kB     00:00    
+(102/268): libglvnd-gles-1.7.0-1.fc39.x86_64.rp 361 kB/s |  31 kB     00:00    
+(103/268): libglvnd-glx-1.7.0-1.fc39.x86_64.rpm 1.6 MB/s | 142 kB     00:00    
+(104/268): libglvnd-opengl-1.7.0-1.fc39.x86_64. 496 kB/s |  42 kB     00:00    
+(105/268): libgrss-0.7.0-17.fc39.x86_64.rpm     725 kB/s |  62 kB     00:00    
+(106/268): libgudev-238-2.fc39.x86_64.rpm       412 kB/s |  35 kB     00:00    
+(107/268): libgxps-0.3.2-6.fc39.x86_64.rpm      886 kB/s |  77 kB     00:00    
+(108/268): libicu-devel-73.2-2.fc39.x86_64.rpm  8.7 MB/s | 924 kB     00:00    
+(109/268): libiptcdata-1.0.5-15.fc39.x86_64.rpm 630 kB/s |  61 kB     00:00    
+(110/268): libjpeg-turbo-2.1.4-3.fc39.x86_64.rp 2.1 MB/s | 183 kB     00:00    
+(111/268): libjpeg-turbo-devel-2.1.4-3.fc39.x86 938 kB/s |  98 kB     00:00    
+(112/268): libjxl-0.8.2-3.fc39.x86_64.rpm        11 MB/s | 1.2 MB     00:00    
+(113/268): libldac-2.0.2.3-13.fc39.x86_64.rpm   486 kB/s |  41 kB     00:00    
+(114/268): liblerc-4.0.0-4.fc39.x86_64.rpm      2.3 MB/s | 201 kB     00:00    
+(115/268): libicu-73.2-2.fc39.x86_64.rpm         23 MB/s |  11 MB     00:00    
+(116/268): libogg-1.3.5-6.fc39.x86_64.rpm       317 kB/s |  33 kB     00:00    
+(117/268): libpciaccess-0.16-9.fc39.x86_64.rpm  265 kB/s |  26 kB     00:00    
+(118/268): libpng-1.6.37-15.fc39.x86_64.rpm     1.3 MB/s | 119 kB     00:00    
+(119/268): libpng-devel-1.6.37-15.fc39.x86_64.r 3.1 MB/s | 291 kB     00:00    
+(120/268): libsbc-2.0-3.fc39.x86_64.rpm         564 kB/s |  47 kB     00:00    
+(121/268): libselinux-devel-3.5-5.fc39.x86_64.r 1.5 MB/s | 151 kB     00:00    
+(122/268): libsepol-devel-3.5-2.fc39.x86_64.rpm 497 kB/s |  49 kB     00:00    
+(123/268): libsndfile-1.1.0-9.fc39.x86_64.rpm   2.4 MB/s | 215 kB     00:00    
+(124/268): libstemmer-2.2.0-7.fc39.x86_64.rpm   2.0 MB/s | 171 kB     00:00    
+(125/268): libsoup-2.74.3-3.fc39.x86_64.rpm     3.7 MB/s | 400 kB     00:00    
+(126/268): libtdb-1.4.9-1.fc39.x86_64.rpm       603 kB/s |  51 kB     00:00    
+(127/268): libthai-0.1.29-6.fc39.x86_64.rpm     2.4 MB/s | 213 kB     00:00    
+(128/268): libthai-devel-0.1.29-6.fc39.x86_64.r 1.4 MB/s | 139 kB     00:00    
+(129/268): libtheora-1.1.1-34.fc39.x86_64.rpm   1.9 MB/s | 166 kB     00:00    
+(130/268): libtiff-4.4.0-8.fc39.x86_64.rpm      2.3 MB/s | 202 kB     00:00    
+(131/268): libtracker-sparql-3.6.0-1.fc39.x86_6 4.1 MB/s | 374 kB     00:00    
+(132/268): libtiff-devel-4.4.0-8.fc39.x86_64.rp 4.2 MB/s | 545 kB     00:00    
+(133/268): libunwind-1.7.0-0.2.rc2.fc39.x86_64. 832 kB/s |  70 kB     00:00    
+(134/268): libvisual-0.4.1-2.fc39.x86_64.rpm    1.7 MB/s | 151 kB     00:00    
+(135/268): libvmaf-2.3.0-6.fc39.x86_64.rpm      1.9 MB/s | 180 kB     00:00    
+(136/268): libvorbis-1.3.7-8.fc39.x86_64.rpm    2.2 MB/s | 195 kB     00:00    
+(137/268): libwayland-cursor-1.22.0-2.fc39.x86_ 226 kB/s |  19 kB     00:00    
+(138/268): libwayland-client-1.22.0-2.fc39.x86_ 316 kB/s |  34 kB     00:00    
+(139/268): libwayland-egl-1.22.0-2.fc39.x86_64. 148 kB/s |  13 kB     00:00    
+(140/268): libwayland-server-1.22.0-2.fc39.x86_ 493 kB/s |  42 kB     00:00    
+(141/268): libxcb-1.13.1-12.fc39.x86_64.rpm     2.6 MB/s | 233 kB     00:00    
+(142/268): libwebp-1.3.2-2.fc39.x86_64.rpm      3.1 MB/s | 284 kB     00:00    
+(143/268): libxshmfence-1.3-13.fc39.x86_64.rpm  123 kB/s |  12 kB     00:00    
+(144/268): libxml2-devel-2.10.4-3.fc39.x86_64.r 5.2 MB/s | 527 kB     00:00    
+(145/268): libxcb-devel-1.13.1-12.fc39.x86_64.r 8.2 MB/s | 1.4 MB     00:00    
+(146/268): lm_sensors-libs-3.6.0-14.fc39.x86_64 410 kB/s |  41 kB     00:00    
+(147/268): low-memory-monitor-2.1-8.fc39.x86_64 353 kB/s |  34 kB     00:00    
+(148/268): mpg123-libs-1.31.3-2.fc39.x86_64.rpm 3.4 MB/s | 340 kB     00:00    
+(149/268): orc-0.4.33-3.fc39.x86_64.rpm         2.3 MB/s | 202 kB     00:00    
+(150/268): opus-1.3.1-13.fc39.x86_64.rpm        2.3 MB/s | 205 kB     00:00    
+(151/268): pango-1.51.0-1.fc39.x86_64.rpm       3.5 MB/s | 343 kB     00:00    
+(152/268): pango-devel-1.51.0-1.fc39.x86_64.rpm 1.6 MB/s | 161 kB     00:00    
+(153/268): pcre2-devel-10.42-1.fc39.2.x86_64.rp 4.1 MB/s | 505 kB     00:00    
+(154/268): pcre2-utf16-10.42-1.fc39.2.x86_64.rp 2.0 MB/s | 212 kB     00:00    
+(155/268): pcre2-utf32-10.42-1.fc39.2.x86_64.rp 2.2 MB/s | 200 kB     00:00    
+(156/268): pixman-0.42.2-2.fc39.x86_64.rpm      3.2 MB/s | 288 kB     00:00    
+(157/268): pixman-devel-0.42.2-2.fc39.x86_64.rp 183 kB/s |  17 kB     00:00    
+(158/268): polkit-pkla-compat-0.1-26.fc39.x86_6 373 kB/s |  44 kB     00:00    
+(159/268): poppler-23.08.0-1.fc39.x86_64.rpm     11 MB/s | 1.2 MB     00:00    
+(160/268): poppler-glib-23.08.0-1.fc39.x86_64.r 2.1 MB/s | 185 kB     00:00    
+(161/268): pulseaudio-libs-16.1-5.fc39.x86_64.r 7.4 MB/s | 694 kB     00:00    
+(162/268): poppler-data-0.4.11-5.fc39.noarch.rp  12 MB/s | 2.0 MB     00:00    
+(163/268): sdubby-1.0-4.fc39.noarch.rpm         174 kB/s |  18 kB     00:00    
+(164/268): shared-mime-info-2.2-4.fc39.x86_64.r 4.2 MB/s | 380 kB     00:00    
+(165/268): sound-theme-freedesktop-0.8-20.fc39. 3.9 MB/s | 383 kB     00:00    
+(166/268): totem-pl-parser-3.26.6-7.fc39.x86_64 1.7 MB/s | 145 kB     00:00    
+(167/268): svt-av1-libs-1.4.1-3.fc39.x86_64.rpm  17 MB/s | 2.0 MB     00:00    
+(168/268): tracker-3.6.0-1.fc39.x86_64.rpm      5.7 MB/s | 586 kB     00:00    
+(169/268): uchardet-0.0.8-4.fc39.x86_64.rpm     1.2 MB/s | 108 kB     00:00    
+(170/268): upower-libs-1.90.2-3.fc39.x86_64.rpm 685 kB/s |  58 kB     00:00    
+(171/268): wayland-devel-1.22.0-2.fc39.x86_64.r 1.5 MB/s | 148 kB     00:00    
+(172/268): webrtc-audio-processing-0.3.1-11.fc3 3.4 MB/s | 307 kB     00:00    
+(173/268): xml-common-0.6.3-61.fc39.noarch.rpm  371 kB/s |  31 kB     00:00    
+(174/268): xorg-x11-proto-devel-2023.2-2.fc39.n 2.9 MB/s | 298 kB     00:00    
+(175/268): xprop-1.2.5-4.fc39.x86_64.rpm        421 kB/s |  35 kB     00:00    
+(176/268): xz-devel-5.4.4-1.fc39.x86_64.rpm     688 kB/s |  66 kB     00:00    
+(177/268): zlib-devel-1.2.13-4.fc39.x86_64.rpm  530 kB/s |  45 kB     00:00    
+(178/268): at-spi2-atk-2.50.2-1.fc39.x86_64.rpm 184 kB/s |  86 kB     00:00    
+(179/268): alsa-lib-1.2.11-2.fc39.x86_64.rpm    736 kB/s | 521 kB     00:00    
+(180/268): at-spi2-atk-devel-2.50.2-1.fc39.x86_  36 kB/s |  10 kB     00:00    
+(181/268): NetworkManager-libnm-1.44.2-1.fc39.x 1.8 MB/s | 1.8 MB     00:00    
+(182/268): at-spi2-core-2.50.2-1.fc39.x86_64.rp 1.5 MB/s | 371 kB     00:00    
+(183/268): at-spi2-core-devel-2.50.2-1.fc39.x86 1.9 MB/s | 318 kB     00:00    
+(184/268): atk-2.50.2-1.fc39.x86_64.rpm         1.0 MB/s |  81 kB     00:00    
+(185/268): atk-devel-2.50.2-1.fc39.x86_64.rpm   3.0 MB/s | 437 kB     00:00    
+(186/268): bluez-libs-5.75-1.fc39.x86_64.rpm    599 kB/s |  84 kB     00:00    
+(187/268): crypto-policies-scripts-20231204-1.g 1.4 MB/s | 117 kB     00:00    
+(188/268): cups-libs-2.4.7-13.fc39.x86_64.rpm   1.7 MB/s | 267 kB     00:00    
+(189/268): fontconfig-2.14.2-6.fc39.x86_64.rpm  1.9 MB/s | 296 kB     00:00    
+(190/268): fontconfig-devel-2.14.2-6.fc39.x86_6 1.1 MB/s | 164 kB     00:00    
+(191/268): giflib-5.2.2-1.fc39.x86_64.rpm       653 kB/s |  52 kB     00:00    
+(192/268): glib-networking-2.78.1-1.fc39.x86_64 2.4 MB/s | 195 kB     00:00    
+(193/268): glib2-devel-2.78.3-1.fc39.x86_64.rpm 7.0 MB/s | 596 kB     00:00    
+(194/268): google-noto-fonts-common-20240101-1. 214 kB/s |  17 kB     00:00    
+(195/268): google-noto-sans-vf-fonts-20240101-1 6.9 MB/s | 593 kB     00:00    
+(196/268): gstreamer1-1.22.12-1.fc39.x86_64.rpm  16 MB/s | 1.4 MB     00:00    
+(197/268): gstreamer1-plugins-base-1.22.12-1.fc  23 MB/s | 2.2 MB     00:00    
+(198/268): gtk-update-icon-cache-3.24.41-1.fc39 368 kB/s |  34 kB     00:00    
+(199/268): highway-1.1.0-1.fc39.x86_64.rpm      2.7 MB/s | 496 kB     00:00    
+(200/268): gtk3-3.24.41-1.fc39.x86_64.rpm        18 MB/s | 5.6 MB     00:00    
+(201/268): gtk3-devel-3.24.41-1.fc39.x86_64.rpm  13 MB/s | 4.3 MB     00:00    
+(202/268): hwdata-0.381-1.fc39.noarch.rpm       7.6 MB/s | 1.6 MB     00:00    
+(203/268): libX11-1.8.9-1.fc39.x86_64.rpm       3.7 MB/s | 650 kB     00:00    
+(204/268): libX11-common-1.8.9-1.fc39.noarch.rp 2.2 MB/s | 176 kB     00:00    
+(205/268): libX11-devel-1.8.9-1.fc39.x86_64.rpm  12 MB/s | 1.0 MB     00:00    
+(206/268): libX11-xcb-1.8.9-1.fc39.x86_64.rpm   136 kB/s |  12 kB     00:00    
+(207/268): libXrandr-1.5.4-1.fc39.x86_64.rpm    340 kB/s |  27 kB     00:00    
+(208/268): libXrandr-devel-1.5.4-1.fc39.x86_64. 242 kB/s |  19 kB     00:00    
+(209/268): libaom-3.8.2-1.fc39.x86_64.rpm        14 MB/s | 1.8 MB     00:00    
+(210/268): libblkid-devel-2.39.4-1.fc39.x86_64. 134 kB/s |  18 kB     00:00    
+(211/268): libcloudproviders-0.3.5-1.fc39.x86_6 585 kB/s |  46 kB     00:00    
+(212/268): libcloudproviders-devel-0.3.5-1.fc39 623 kB/s |  49 kB     00:00    
+(213/268): libdrm-2.4.120-1.fc39.x86_64.rpm     1.9 MB/s | 157 kB     00:00    
+(214/268): libgsf-1.14.51-1.fc39.x86_64.rpm     2.6 MB/s | 297 kB     00:00    
+(215/268): libgusb-0.4.9-1.fc39.x86_64.rpm      822 kB/s |  65 kB     00:00    
+(216/268): liblc3-1.0.4-2.fc39.x86_64.rpm       1.0 MB/s |  80 kB     00:00    
+(217/268): libmount-devel-2.39.4-1.fc39.x86_64. 229 kB/s |  18 kB     00:00    
+(218/268): libnotify-0.8.3-1.fc39.x86_64.rpm    647 kB/s |  51 kB     00:00    
+(219/268): libosinfo-1.11.0-1.fc39.x86_64.rpm   3.8 MB/s | 314 kB     00:00    
+(220/268): libproxy-0.5.5-1.fc39.x86_64.rpm     604 kB/s |  48 kB     00:00    
+(221/268): librsvg2-2.57.1-1.fc39.x86_64.rpm     13 MB/s | 1.6 MB     00:00    
+(222/268): libsoup3-3.4.4-1.fc39.x86_64.rpm     3.0 MB/s | 389 kB     00:00    
+(223/268): libusb1-1.0.27-1.fc39.x86_64.rpm     961 kB/s |  76 kB     00:00    
+(224/268): libxkbcommon-devel-1.6.0-1.fc39.x86_ 836 kB/s |  66 kB     00:00    
+(225/268): libxslt-1.1.39-1.fc39.x86_64.rpm     2.3 MB/s | 187 kB     00:00    
+(226/268): mesa-filesystem-23.3.6-1.fc39.x86_64 108 kB/s |  19 kB     00:00    
+(227/268): mesa-libEGL-23.3.6-1.fc39.x86_64.rpm 861 kB/s | 134 kB     00:00    
+(228/268): mesa-libGL-23.3.6-1.fc39.x86_64.rpm  1.2 MB/s | 176 kB     00:00    
+(229/268): mesa-libgbm-23.3.6-1.fc39.x86_64.rpm 486 kB/s |  46 kB     00:00    
+(230/268): mesa-libglapi-23.3.6-1.fc39.x86_64.r 335 kB/s |  53 kB     00:00    
+(231/268): llvm-libs-17.0.6-3.fc39.x86_64.rpm    25 MB/s |  27 MB     00:01    
+(232/268): mesa-va-drivers-23.3.6-1.fc39.x86_64  11 MB/s | 3.9 MB     00:00    
+(233/268): nspr-4.35.0-19.fc39.x86_64.rpm       1.0 MB/s | 137 kB     00:00    
+(234/268): nss-softokn-3.99.0-1.fc39.x86_64.rpm 3.7 MB/s | 419 kB     00:00    
+(235/268): nss-3.99.0-1.fc39.x86_64.rpm         4.1 MB/s | 702 kB     00:00    
+(236/268): nss-softokn-freebl-3.99.0-1.fc39.x86 2.6 MB/s | 381 kB     00:00    
+(237/268): nss-sysinit-3.99.0-1.fc39.x86_64.rpm 139 kB/s |  18 kB     00:00    
+(238/268): nss-util-3.99.0-1.fc39.x86_64.rpm    993 kB/s |  87 kB     00:00    
+(239/268): openjpeg2-2.5.2-1.fc39.x86_64.rpm    1.9 MB/s | 178 kB     00:00    
+(240/268): osinfo-db-20231215-1.fc39.noarch.rpm 2.8 MB/s | 445 kB     00:00    
+(241/268): mesa-dri-drivers-23.3.6-1.fc39.x86_6  15 MB/s |  25 MB     00:01    
+(242/268): osinfo-db-tools-1.11.0-1.fc39.x86_64 349 kB/s |  73 kB     00:00    
+(243/268): pipewire-1.0.5-1.fc39.x86_64.rpm     1.5 MB/s | 122 kB     00:00    
+(244/268): pipewire-alsa-1.0.5-1.fc39.x86_64.rp 802 kB/s |  63 kB     00:00    
+(245/268): pipewire-jack-audio-connection-kit-1 196 kB/s |  16 kB     00:00    
+(246/268): pipewire-jack-audio-connection-kit-l 1.8 MB/s | 144 kB     00:00    
+(247/268): pipewire-libs-1.0.5-1.fc39.x86_64.rp  21 MB/s | 1.9 MB     00:00    
+(248/268): pipewire-pulseaudio-1.0.5-1.fc39.x86 2.2 MB/s | 201 kB     00:00    
+(249/268): polkit-123-1.fc39.1.x86_64.rpm       1.9 MB/s | 153 kB     00:00    
+(250/268): polkit-libs-123-1.fc39.1.x86_64.rpm  801 kB/s |  64 kB     00:00    
+(251/268): rav1e-libs-0.7.1-1.fc39.x86_64.rpm    12 MB/s | 1.0 MB     00:00    
+(252/268): rsvg-pixbuf-loader-2.57.1-1.fc39.x86 206 kB/s |  16 kB     00:00    
+(253/268): rtkit-0.11-61.fc39.x86_64.rpm        687 kB/s |  55 kB     00:00    
+(254/268): sysprof-capture-devel-45.1-1.fc39.x8 478 kB/s |  59 kB     00:00    
+(255/268): systemd-boot-unsigned-254.10-1.fc39. 779 kB/s |  96 kB     00:00    
+(256/268): tracker-miners-3.6.2-1.fc39.x86_64.r 9.2 MB/s | 964 kB     00:00    
+(257/268): webp-pixbuf-loader-0.2.7-1.fc39.x86_ 254 kB/s |  20 kB     00:00    
+(258/268): wireplumber-0.4.17-1.fc39.x86_64.rpm 1.2 MB/s |  99 kB     00:00    
+(259/268): wireplumber-libs-0.4.17-1.fc39.x86_6 4.1 MB/s | 346 kB     00:00    
+(260/268): xdg-desktop-portal-1.18.2-6.fc39.x86 3.2 MB/s | 483 kB     00:00    
+(261/268): xdg-desktop-portal-gtk-1.15.1-1.fc39 988 kB/s | 146 kB     00:00    
+(262/268): libblkid-2.39.4-1.fc39.x86_64.rpm    1.2 MB/s | 116 kB     00:00    
+(263/268): libfdisk-2.39.4-1.fc39.x86_64.rpm    2.0 MB/s | 161 kB     00:00    
+(264/268): libmount-2.39.4-1.fc39.x86_64.rpm    1.9 MB/s | 154 kB     00:00    
+(265/268): libsmartcols-2.39.4-1.fc39.x86_64.rp 834 kB/s |  67 kB     00:00    
+(266/268): libuuid-2.39.4-1.fc39.x86_64.rpm     355 kB/s |  28 kB     00:00    
+(267/268): util-linux-2.39.4-1.fc39.x86_64.rpm   13 MB/s | 1.2 MB     00:00    
+(268/268): util-linux-core-2.39.4-1.fc39.x86_64 5.6 MB/s | 507 kB     00:00    
+--------------------------------------------------------------------------------
+Total                                            12 MB/s | 148 MB     00:11     
+Running transaction check
+Transaction check succeeded.
+Running transaction test
+Transaction test succeeded.
+Running transaction
+  Preparing        :                                                        1/1 
+  Installing       : xorg-x11-proto-devel-2023.2-2.fc39.noarch            1/275 
+  Installing       : libpng-2:1.6.37-15.fc39.x86_64                       2/275 
+  Installing       : dbus-libs-1:1.14.10-1.fc39.x86_64                    3/275 
+  Installing       : libjpeg-turbo-2.1.4-3.fc39.x86_64                    4/275 
+  Installing       : nspr-4.35.0-19.fc39.x86_64                           5/275 
+  Installing       : zlib-devel-1.2.13-4.fc39.x86_64                      6/275 
+  Installing       : json-glib-1.8.0-1.fc39.x86_64                        7/275 
+  Installing       : avahi-libs-0.8-24.fc39.x86_64                        8/275 
+  Upgrading        : libuuid-2.39.4-1.fc39.x86_64                         9/275 
+  Upgrading        : libblkid-2.39.4-1.fc39.x86_64                       10/275 
+  Installing       : libX11-xcb-1.8.9-1.fc39.x86_64                      11/275 
+  Installing       : libwayland-client-1.22.0-2.fc39.x86_64              12/275 
+  Installing       : libogg-2:1.3.5-6.fc39.x86_64                        13/275 
+  Installing       : libglvnd-1:1.7.0-1.fc39.x86_64                      14/275 
+  Installing       : libvorbis-1:1.3.7-8.fc39.x86_64                     15/275 
+  Installing       : libpng-devel-2:1.6.37-15.fc39.x86_64                16/275 
+  Installing       : nss-util-3.99.0-1.fc39.x86_64                       17/275 
+  Installing       : alsa-lib-1.2.11-2.fc39.x86_64                       18/275 
+  Installing       : libicu-73.2-2.fc39.x86_64                           19/275 
+  Installing       : fonts-filesystem-1:2.0.5-12.fc39.noarch             20/275 
+  Installing       : libwayland-cursor-1.22.0-2.fc39.x86_64              21/275 
+  Upgrading        : libmount-2.39.4-1.fc39.x86_64                       22/275 
+  Installing       : hwdata-0.381-1.fc39.noarch                          23/275 
+  Running scriptlet: xml-common-0.6.3-61.fc39.noarch                     24/275 
+  Installing       : xml-common-0.6.3-61.fc39.noarch                     24/275 
+  Installing       : shared-mime-info-2.2-4.fc39.x86_64                  25/275 
+  Running scriptlet: shared-mime-info-2.2-4.fc39.x86_64                  25/275 
+  Installing       : gdk-pixbuf2-2.42.10-5.fc39.x86_64                   26/275 
+  Installing       : opus-1.3.1-13.fc39.x86_64                           27/275 
+  Installing       : libxshmfence-1.3-13.fc39.x86_64                     28/275 
+  Installing       : libwayland-server-1.22.0-2.fc39.x86_64              29/275 
+  Installing       : libwayland-egl-1.22.0-2.fc39.x86_64                 30/275 
+  Installing       : libepoxy-1.5.10-4.fc39.x86_64                       31/275 
+  Installing       : lcms2-2.15-2.fc39.x86_64                            32/275 
+  Installing       : fribidi-1.0.13-2.fc39.x86_64                        33/275 
+  Installing       : cmake-filesystem-3.27.7-1.fc39.x86_64               34/275 
+  Installing       : dbus-devel-1:1.14.10-1.fc39.x86_64                  35/275 
+  Installing       : fribidi-devel-1.0.13-2.fc39.x86_64                  36/275 
+  Installing       : abattis-cantarell-vf-fonts-0.301-10.fc39.noarch     37/275 
+  Upgrading        : libsmartcols-2.39.4-1.fc39.x86_64                   38/275 
+  Installing       : polkit-libs-123-1.fc39.1.x86_64                     39/275 
+  Installing       : mesa-filesystem-23.3.6-1.fc39.x86_64                40/275 
+  Installing       : llvm-libs-17.0.6-3.fc39.x86_64                      41/275 
+  Installing       : libusb1-1.0.27-1.fc39.x86_64                        42/275 
+  Installing       : libcloudproviders-0.3.5-1.fc39.x86_64               43/275 
+  Installing       : pixman-0.42.2-2.fc39.x86_64                         44/275 
+  Installing       : pixman-devel-0.42.2-2.fc39.x86_64                   45/275 
+  Installing       : libwebp-1.3.2-2.fc39.x86_64                         46/275 
+  Installing       : libtdb-1.4.9-1.fc39.x86_64                          47/275 
+  Installing       : libffi-devel-3.4.4-4.fc39.x86_64                    48/275 
+  Installing       : libdatrie-0.2.13-7.fc39.x86_64                      49/275 
+  Installing       : libthai-0.1.29-6.fc39.x86_64                        50/275 
+  Installing       : libXau-1.0.11-3.fc39.x86_64                         51/275 
+  Installing       : libxcb-1.13.1-12.fc39.x86_64                        52/275 
+  Installing       : graphite2-1.3.14-12.fc39.x86_64                     53/275 
+  Installing       : gettext-libs-0.22-2.fc39.x86_64                     54/275 
+  Installing       : fuse3-libs-3.16.1-1.fc39.x86_64                     55/275 
+  Installing       : duktape-2.7.0-5.fc39.x86_64                         56/275 
+  Running scriptlet: polkit-123-1.fc39.1.x86_64                          57/275 
+  Installing       : polkit-123-1.fc39.1.x86_64                          57/275 
+  Running scriptlet: polkit-123-1.fc39.1.x86_64                          57/275 
+  Installing       : polkit-pkla-compat-0.1-26.fc39.x86_64               58/275 
+  Running scriptlet: rtkit-0.11-61.fc39.x86_64                           59/275 
+  Installing       : rtkit-0.11-61.fc39.x86_64                           59/275 
+  Running scriptlet: rtkit-0.11-61.fc39.x86_64                           59/275 
+Created symlink /etc/systemd/system/graphical.target.wants/rtkit-daemon.service → /usr/lib/systemd/system/rtkit-daemon.service.
+
+  Installing       : libproxy-0.5.5-1.fc39.x86_64                        60/275 
+  Installing       : graphite2-devel-1.3.14-12.fc39.x86_64               61/275 
+  Installing       : libXau-devel-1.0.11-3.fc39.x86_64                   62/275 
+  Installing       : libxcb-devel-1.13.1-12.fc39.x86_64                  63/275 
+  Installing       : libdatrie-devel-0.2.13-7.fc39.x86_64                64/275 
+  Installing       : libthai-devel-0.1.29-6.fc39.x86_64                  65/275 
+  Installing       : wayland-devel-1.22.0-2.fc39.x86_64                  66/275 
+  Installing       : webp-pixbuf-loader-0.2.7-1.fc39.x86_64              67/275 
+  Installing       : libcloudproviders-devel-0.3.5-1.fc39.x86_64         68/275 
+  Installing       : libgusb-0.4.9-1.fc39.x86_64                         69/275 
+  Installing       : colord-libs-1.4.6-6.fc39.x86_64                     70/275 
+  Upgrading        : util-linux-core-2.39.4-1.fc39.x86_64                71/275 
+  Installing       : libjpeg-turbo-devel-2.1.4-3.fc39.x86_64             72/275 
+  Installing       : gtk-update-icon-cache-3.24.41-1.fc39.x86_64         73/275 
+  Installing       : libgsf-1.14.51-1.fc39.x86_64                        74/275 
+  Installing       : libnotify-0.8.3-1.fc39.x86_64                       75/275 
+  Installing       : iso-codes-4.15.0-2.fc39.noarch                      76/275 
+  Installing       : libpciaccess-0.16-9.fc39.x86_64                     77/275 
+  Installing       : libdrm-2.4.120-1.fc39.x86_64                        78/275 
+  Installing       : mesa-va-drivers-23.3.6-1.fc39.x86_64                79/275 
+  Installing       : osinfo-db-20231215-1.fc39.noarch                    80/275 
+  Installing       : adobe-source-code-pro-fonts-2.042.1.062.1.026-2.    81/275 
+  Installing       : gsettings-desktop-schemas-45.0-1.fc39.x86_64        82/275 
+  Installing       : glib-networking-2.78.1-1.fc39.x86_64                83/275 
+  Installing       : libsoup3-3.4.4-1.fc39.x86_64                        84/275 
+  Installing       : osinfo-db-tools-1.11.0-1.fc39.x86_64                85/275 
+  Installing       : libsoup-2.74.3-3.fc39.x86_64                        86/275 
+  Installing       : libgrss-0.7.0-17.fc39.x86_64                        87/275 
+  Installing       : libicu-devel-73.2-2.fc39.x86_64                     88/275 
+  Installing       : nss-softokn-freebl-3.99.0-1.fc39.x86_64             89/275 
+  Installing       : nss-softokn-3.99.0-1.fc39.x86_64                    90/275 
+  Installing       : libglvnd-opengl-1:1.7.0-1.fc39.x86_64               91/275 
+  Installing       : flac-libs-1.4.3-2.fc39.x86_64                       92/275 
+  Installing       : libtheora-1:1.1.1-34.fc39.x86_64                    93/275 
+  Installing       : libblkid-devel-2.39.4-1.fc39.x86_64                 94/275 
+  Upgrading        : libfdisk-2.39.4-1.fc39.x86_64                       95/275 
+  Upgrading        : util-linux-2.39.4-1.fc39.x86_64                     96/275 
+  Running scriptlet: util-linux-2.39.4-1.fc39.x86_64                     96/275 
+  Installing       : avahi-glib-0.8-24.fc39.x86_64                       97/275 
+  Installing       : cups-libs-1:2.4.7-13.fc39.x86_64                    98/275 
+  Installing       : exiv2-libs-0.27.6-5.fc39.x86_64                     99/275 
+  Installing       : exiv2-0.27.6-5.fc39.x86_64                         100/275 
+  Installing       : libgexiv2-0.14.2-1.fc39.x86_64                     101/275 
+  Installing       : systemd-boot-unsigned-254.10-1.fc39.x86_64         102/275 
+  Installing       : sdubby-1.0-4.fc39.noarch                           103/275 
+  Running scriptlet: sdubby-1.0-4.fc39.noarch                           103/275 
+  Installing       : crypto-policies-scripts-20231204-1.git1e3a2e4.fc   104/275 
+  Installing       : nss-sysinit-3.99.0-1.fc39.x86_64                   105/275 
+  Installing       : nss-3.99.0-1.fc39.x86_64                           106/275 
+  Running scriptlet: nss-3.99.0-1.fc39.x86_64                           106/275 
+  Installing       : sysprof-capture-devel-45.1-1.fc39.x86_64           107/275 
+  Installing       : rav1e-libs-0.7.1-1.fc39.x86_64                     108/275 
+  Installing       : openjpeg2-2.5.2-1.fc39.x86_64                      109/275 
+  Installing       : libxslt-1.1.39-1.fc39.x86_64                       110/275 
+  Installing       : libosinfo-1.11.0-1.fc39.x86_64                     111/275 
+  Installing       : liblc3-1.0.4-2.fc39.x86_64                         112/275 
+  Installing       : libX11-common-1.8.9-1.fc39.noarch                  113/275 
+  Installing       : libX11-1.8.9-1.fc39.x86_64                         114/275 
+  Installing       : libX11-devel-1.8.9-1.fc39.x86_64                   115/275 
+  Installing       : libXext-1.3.5-3.fc39.x86_64                        116/275 
+  Installing       : libXext-devel-1.3.5-3.fc39.x86_64                  117/275 
+  Installing       : libXrender-0.9.11-3.fc39.x86_64                    118/275 
+  Installing       : libXrender-devel-0.9.11-3.fc39.x86_64              119/275 
+  Installing       : libXi-1.8.1-2.fc39.x86_64                          120/275 
+  Installing       : libXfixes-6.0.0-6.fc39.x86_64                      121/275 
+  Installing       : libXfixes-devel-6.0.0-6.fc39.x86_64                122/275 
+  Installing       : libXi-devel-1.8.1-2.fc39.x86_64                    123/275 
+  Installing       : libXcursor-1.2.1-4.fc39.x86_64                     124/275 
+  Installing       : libXdamage-1.1.5-10.fc39.x86_64                    125/275 
+  Installing       : libXtst-1.2.4-3.fc39.x86_64                        126/275 
+  Installing       : libXrandr-1.5.4-1.fc39.x86_64                      127/275 
+  Installing       : libXinerama-1.1.5-3.fc39.x86_64                    128/275 
+  Installing       : libXcomposite-0.4.5-10.fc39.x86_64                 129/275 
+  Installing       : libXcomposite-devel-0.4.5-10.fc39.x86_64           130/275 
+  Installing       : libXinerama-devel-1.1.5-3.fc39.x86_64              131/275 
+  Installing       : libXrandr-devel-1.5.4-1.fc39.x86_64                132/275 
+  Installing       : libXtst-devel-1.2.4-3.fc39.x86_64                  133/275 
+  Installing       : libXdamage-devel-1.1.5-10.fc39.x86_64              134/275 
+  Installing       : libXcursor-devel-1.2.1-4.fc39.x86_64               135/275 
+  Installing       : libXv-1.0.11-19.fc39.x86_64                        136/275 
+  Installing       : libXxf86vm-1.1.5-3.fc39.x86_64                     137/275 
+  Installing       : xprop-1.2.5-4.fc39.x86_64                          138/275 
+  Installing       : at-spi2-core-2.50.2-1.fc39.x86_64                  139/275 
+  Installing       : atk-2.50.2-1.fc39.x86_64                           140/275 
+  Installing       : at-spi2-atk-2.50.2-1.fc39.x86_64                   141/275 
+  Installing       : highway-1.1.0-1.fc39.x86_64                        142/275 
+  Installing       : libjxl-1:0.8.2-3.fc39.x86_64                       143/275 
+  Installing       : jxl-pixbuf-loader-1:0.8.2-3.fc39.x86_64            144/275 
+  Installing       : google-noto-fonts-common-20240101-1.fc39.noarch    145/275 
+  Installing       : google-noto-sans-vf-fonts-20240101-1.fc39.noarch   146/275 
+  Installing       : default-fonts-core-sans-4.0-9.fc39.noarch          147/275 
+  Installing       : cairo-1.18.0-1.fc39.x86_64                         148/275 
+  Installing       : harfbuzz-8.2.1-2.fc39.x86_64                       149/275 
+  Installing       : freetype-2.13.1-2.fc39.x86_64                      150/275 
+  Installing       : fontconfig-2.14.2-6.fc39.x86_64                    151/275 
+  Running scriptlet: fontconfig-2.14.2-6.fc39.x86_64                    151/275 
+  Installing       : cairo-gobject-1.18.0-1.fc39.x86_64                 152/275 
+  Installing       : libXft-2.3.8-3.fc39.x86_64                         153/275 
+  Installing       : pango-1.51.0-1.fc39.x86_64                         154/275 
+  Installing       : librsvg2-2.57.1-1.fc39.x86_64                      155/275 
+  Installing       : rsvg-pixbuf-loader-2.57.1-1.fc39.x86_64            156/275 
+  Installing       : harfbuzz-icu-8.2.1-2.fc39.x86_64                   157/275 
+  Installing       : giflib-5.2.2-1.fc39.x86_64                         158/275 
+  Installing       : bluez-libs-5.75-1.fc39.x86_64                      159/275 
+  Installing       : NetworkManager-libnm-1:1.44.2-1.fc39.x86_64        160/275 
+  Installing       : xz-devel-5.4.4-1.fc39.x86_64                       161/275 
+  Installing       : libxml2-devel-2.10.4-3.fc39.x86_64                 162/275 
+  Installing       : libxkbcommon-devel-1.6.0-1.fc39.x86_64             163/275 
+  Installing       : webrtc-audio-processing-0.3.1-11.fc39.x86_64       164/275 
+  Installing       : uchardet-0.0.8-4.fc39.x86_64                       165/275 
+  Installing       : totem-pl-parser-3.26.6-7.fc39.x86_64               166/275 
+  Installing       : svt-av1-libs-1.4.1-3.fc39.x86_64                   167/275 
+  Installing       : sound-theme-freedesktop-0.8-20.fc39.noarch         168/275 
+  Running scriptlet: sound-theme-freedesktop-0.8-20.fc39.noarch         168/275 
+  Installing       : poppler-data-0.4.11-5.fc39.noarch                  169/275 
+  Installing       : pcre2-utf32-10.42-1.fc39.2.x86_64                  170/275 
+  Installing       : pcre2-utf16-10.42-1.fc39.2.x86_64                  171/275 
+  Installing       : pcre2-devel-10.42-1.fc39.2.x86_64                  172/275 
+  Installing       : orc-0.4.33-3.fc39.x86_64                           173/275 
+  Installing       : mpg123-libs-1.31.3-2.fc39.x86_64                   174/275 
+  Installing       : low-memory-monitor-2.1-8.fc39.x86_64               175/275 
+  Running scriptlet: low-memory-monitor-2.1-8.fc39.x86_64               175/275 
+  Installing       : lm_sensors-libs-3.6.0-14.fc39.x86_64               176/275 
+  Installing       : mesa-libglapi-23.3.6-1.fc39.x86_64                 177/275 
+  Installing       : mesa-dri-drivers-23.3.6-1.fc39.x86_64              178/275 
+  Installing       : mesa-libgbm-23.3.6-1.fc39.x86_64                   179/275 
+  Installing       : libglvnd-egl-1:1.7.0-1.fc39.x86_64                 180/275 
+  Installing       : mesa-libEGL-23.3.6-1.fc39.x86_64                   181/275 
+  Installing       : libglvnd-gles-1:1.7.0-1.fc39.x86_64                182/275 
+  Installing       : libglvnd-glx-1:1.7.0-1.fc39.x86_64                 183/275 
+  Installing       : mesa-libGL-23.3.6-1.fc39.x86_64                    184/275 
+  Installing       : libvmaf-2.3.0-6.fc39.x86_64                        185/275 
+  Installing       : libaom-3.8.2-1.fc39.x86_64                         186/275 
+  Installing       : libvisual-1:0.4.1-2.fc39.x86_64                    187/275 
+  Installing       : libunwind-1.7.0-0.2.rc2.fc39.x86_64                188/275 
+  Installing       : gstreamer1-1.22.12-1.fc39.x86_64                   189/275 
+  Installing       : libstemmer-2.2.0-7.fc39.x86_64                     190/275 
+  Installing       : libsepol-devel-3.5-2.fc39.x86_64                   191/275 
+  Installing       : libselinux-devel-3.5-5.fc39.x86_64                 192/275 
+  Installing       : libmount-devel-2.39.4-1.fc39.x86_64                193/275 
+  Installing       : glib2-devel-2.78.3-1.fc39.x86_64                   194/275 
+  Installing       : atk-devel-2.50.2-1.fc39.x86_64                     195/275 
+  Installing       : at-spi2-core-devel-2.50.2-1.fc39.x86_64            196/275 
+  Installing       : at-spi2-atk-devel-2.50.2-1.fc39.x86_64             197/275 
+  Installing       : libsbc-2.0-3.fc39.x86_64                           198/275 
+  Installing       : liblerc-4.0.0-4.fc39.x86_64                        199/275 
+  Installing       : libldac-2.0.2.3-13.fc39.x86_64                     200/275 
+  Installing       : libiptcdata-1.0.5-15.fc39.x86_64                   201/275 
+  Installing       : libgudev-238-2.fc39.x86_64                         202/275 
+  Installing       : libglvnd-core-devel-1:1.7.0-1.fc39.x86_64          203/275 
+  Installing       : libglvnd-devel-1:1.7.0-1.fc39.x86_64               204/275 
+  Installing       : libepoxy-devel-1.5.10-4.fc39.x86_64                205/275 
+  Installing       : libexif-0.6.24-5.fc39.x86_64                       206/275 
+  Installing       : libdav1d-1.2.1-2.fc39.x86_64                       207/275 
+  Installing       : libavif-0.11.1-11.fc39.x86_64                      208/275 
+  Installing       : avif-pixbuf-loader-0.11.1-11.fc39.x86_64           209/275 
+  Installing       : libcue-2.2.1-13.fc39.x86_64                        210/275 
+  Installing       : libasyncns-0.8-25.fc39.x86_64                      211/275 
+  Installing       : lame-libs-3.100-15.fc39.x86_64                     212/275 
+  Installing       : jbigkit-libs-2.1-26.fc39.x86_64                    213/275 
+  Installing       : libtiff-4.4.0-8.fc39.x86_64                        214/275 
+  Installing       : gdk-pixbuf2-modules-2.42.10-5.fc39.x86_64          215/275 
+  Installing       : libgxps-0.3.2-6.fc39.x86_64                        216/275 
+  Installing       : libtiff-devel-4.4.0-8.fc39.x86_64                  217/275 
+  Installing       : gdk-pixbuf2-devel-2.42.10-5.fc39.x86_64            218/275 
+  Installing       : poppler-23.08.0-1.fc39.x86_64                      219/275 
+  Installing       : poppler-glib-23.08.0-1.fc39.x86_64                 220/275 
+  Installing       : hicolor-icon-theme-0.17-16.fc39.noarch             221/275 
+  Installing       : gsm-1.0.22-3.fc39.x86_64                           222/275 
+  Installing       : libsndfile-1.1.0-9.fc39.x86_64                     223/275 
+  Installing       : pulseaudio-libs-16.1-5.fc39.x86_64                 224/275 
+  Installing       : libcanberra-0.30-32.fc39.x86_64                    225/275 
+  Running scriptlet: libcanberra-0.30-32.fc39.x86_64                    225/275 
+  Installing       : graphene-1.10.6-6.fc39.x86_64                      226/275 
+  Installing       : gobject-introspection-1.78.1-1.fc39.x86_64         227/275 
+  Installing       : upower-libs-1.90.2-3.fc39.x86_64                   228/275 
+  Installing       : gettext-envsubst-0.22-2.fc39.x86_64                229/275 
+  Installing       : gettext-runtime-0.22-2.fc39.x86_64                 230/275 
+  Installing       : gettext-0.22-2.fc39.x86_64                         231/275 
+  Installing       : fuse-common-3.16.1-1.fc39.x86_64                   232/275 
+  Installing       : fuse3-3.16.1-1.fc39.x86_64                         233/275 
+  Installing       : fdk-aac-free-2.0.0-11.fc39.x86_64                  234/275 
+  Running scriptlet: pipewire-1.0.5-1.fc39.x86_64                       235/275 
+  Installing       : pipewire-1.0.5-1.fc39.x86_64                       235/275 
+  Running scriptlet: pipewire-1.0.5-1.fc39.x86_64                       235/275 
+Created symlink /etc/systemd/user/sockets.target.wants/pipewire.socket → /usr/lib/systemd/user/pipewire.socket.
+
+  Installing       : pipewire-libs-1.0.5-1.fc39.x86_64                  236/275 
+  Installing       : wireplumber-0.4.17-1.fc39.x86_64                   237/275 
+  Installing       : wireplumber-libs-0.4.17-1.fc39.x86_64              238/275 
+  Installing       : pipewire-jack-audio-connection-kit-libs-1.0.5-1.   239/275 
+  Installing       : exempi-2.6.4-2.fc39.x86_64                         240/275 
+  Installing       : dconf-0.40.0-9.fc39.x86_64                         241/275 
+  Running scriptlet: dconf-0.40.0-9.fc39.x86_64                         241/275 
+  Installing       : cdparanoia-libs-10.2-42.fc39.x86_64                242/275 
+  Installing       : gstreamer1-plugins-base-1.22.12-1.fc39.x86_64      243/275 
+  Installing       : libtracker-sparql-3.6.0-1.fc39.x86_64              244/275 
+  Installing       : tracker-3.6.0-1.fc39.x86_64                        245/275 
+  Running scriptlet: tracker-3.6.0-1.fc39.x86_64                        245/275 
+  Installing       : tracker-miners-3.6.2-1.fc39.x86_64                 246/275 
+  Running scriptlet: tracker-miners-3.6.2-1.fc39.x86_64                 246/275 
+  Installing       : bzip2-devel-1.0.8-16.fc39.x86_64                   247/275 
+  Installing       : brotli-1.1.0-1.fc39.x86_64                         248/275 
+  Installing       : brotli-devel-1.1.0-1.fc39.x86_64                   249/275 
+  Installing       : freetype-devel-2.13.1-2.fc39.x86_64                250/275 
+  Installing       : harfbuzz-devel-8.2.1-2.fc39.x86_64                 251/275 
+  Installing       : fontconfig-devel-2.14.2-6.fc39.x86_64              252/275 
+  Installing       : cairo-devel-1.18.0-1.fc39.x86_64                   253/275 
+  Installing       : cairo-gobject-devel-1.18.0-1.fc39.x86_64           254/275 
+  Installing       : libXft-devel-2.3.8-3.fc39.x86_64                   255/275 
+  Installing       : pango-devel-1.51.0-1.fc39.x86_64                   256/275 
+  Installing       : adwaita-cursor-theme-45.0-1.fc39.noarch            257/275 
+  Installing       : adwaita-icon-theme-45.0-1.fc39.noarch              258/275 
+  Installing       : ModemManager-glib-1.20.6-3.fc39.x86_64             259/275 
+  Running scriptlet: geoclue2-2.7.0-2.fc39.x86_64                       260/275 
+  Installing       : geoclue2-2.7.0-2.fc39.x86_64                       260/275 
+  Running scriptlet: geoclue2-2.7.0-2.fc39.x86_64                       260/275 
+  Installing       : xdg-desktop-portal-1.18.2-6.fc39.x86_64            261/275 
+  Running scriptlet: xdg-desktop-portal-1.18.2-6.fc39.x86_64            261/275 
+  Installing       : libcanberra-gtk3-0.30-32.fc39.x86_64               262/275 
+  Installing       : gtk3-3.24.41-1.fc39.x86_64                         263/275 
+  Installing       : xdg-desktop-portal-gtk-1.15.1-1.fc39.x86_64        264/275 
+  Running scriptlet: xdg-desktop-portal-gtk-1.15.1-1.fc39.x86_64        264/275 
+  Installing       : gtk3-devel-3.24.41-1.fc39.x86_64                   265/275 
+  Installing       : pipewire-jack-audio-connection-kit-1.0.5-1.fc39.   266/275 
+  Installing       : pipewire-alsa-1.0.5-1.fc39.x86_64                  267/275 
+  Installing       : pipewire-pulseaudio-1.0.5-1.fc39.x86_64            268/275 
+  Running scriptlet: pipewire-pulseaudio-1.0.5-1.fc39.x86_64            268/275 
+Created symlink /etc/systemd/user/sockets.target.wants/pipewire-pulse.socket → /usr/lib/systemd/user/pipewire-pulse.socket.
+
+  Running scriptlet: util-linux-2.39.3-6.fc39.x86_64                    269/275 
+  Cleanup          : util-linux-2.39.3-6.fc39.x86_64                    269/275 
+  Running scriptlet: util-linux-2.39.3-6.fc39.x86_64                    269/275 
+  Cleanup          : util-linux-core-2.39.3-6.fc39.x86_64               270/275 
+  Cleanup          : libmount-2.39.3-6.fc39.x86_64                      271/275 
+  Cleanup          : libfdisk-2.39.3-6.fc39.x86_64                      272/275 
+  Cleanup          : libblkid-2.39.3-6.fc39.x86_64                      273/275 
+  Cleanup          : libuuid-2.39.3-6.fc39.x86_64                       274/275 
+  Cleanup          : libsmartcols-2.39.3-6.fc39.x86_64                  275/275 
+  Running scriptlet: crypto-policies-scripts-20231204-1.git1e3a2e4.fc   275/275 
+  Running scriptlet: nss-3.99.0-1.fc39.x86_64                           275/275 
+  Running scriptlet: fontconfig-2.14.2-6.fc39.x86_64                    275/275 
+  Running scriptlet: wireplumber-0.4.17-1.fc39.x86_64                   275/275 
+Created symlink /etc/systemd/user/pipewire-session-manager.service → /usr/lib/systemd/user/wireplumber.service.
+Created symlink /etc/systemd/user/pipewire.service.wants/wireplumber.service → /usr/lib/systemd/user/wireplumber.service.
+
+  Running scriptlet: dconf-0.40.0-9.fc39.x86_64                         275/275 
+  Running scriptlet: libsmartcols-2.39.3-6.fc39.x86_64                  275/275 
+  Verifying        : ModemManager-glib-1.20.6-3.fc39.x86_64               1/275 
+  Verifying        : abattis-cantarell-vf-fonts-0.301-10.fc39.noarch      2/275 
+  Verifying        : adobe-source-code-pro-fonts-2.042.1.062.1.026-2.     3/275 
+  Verifying        : adwaita-cursor-theme-45.0-1.fc39.noarch              4/275 
+  Verifying        : adwaita-icon-theme-45.0-1.fc39.noarch                5/275 
+  Verifying        : avahi-glib-0.8-24.fc39.x86_64                        6/275 
+  Verifying        : avahi-libs-0.8-24.fc39.x86_64                        7/275 
+  Verifying        : avif-pixbuf-loader-0.11.1-11.fc39.x86_64             8/275 
+  Verifying        : brotli-1.1.0-1.fc39.x86_64                           9/275 
+  Verifying        : brotli-devel-1.1.0-1.fc39.x86_64                    10/275 
+  Verifying        : bzip2-devel-1.0.8-16.fc39.x86_64                    11/275 
+  Verifying        : cairo-1.18.0-1.fc39.x86_64                          12/275 
+  Verifying        : cairo-devel-1.18.0-1.fc39.x86_64                    13/275 
+  Verifying        : cairo-gobject-1.18.0-1.fc39.x86_64                  14/275 
+  Verifying        : cairo-gobject-devel-1.18.0-1.fc39.x86_64            15/275 
+  Verifying        : cdparanoia-libs-10.2-42.fc39.x86_64                 16/275 
+  Verifying        : cmake-filesystem-3.27.7-1.fc39.x86_64               17/275 
+  Verifying        : colord-libs-1.4.6-6.fc39.x86_64                     18/275 
+  Verifying        : dbus-devel-1:1.14.10-1.fc39.x86_64                  19/275 
+  Verifying        : dbus-libs-1:1.14.10-1.fc39.x86_64                   20/275 
+  Verifying        : dconf-0.40.0-9.fc39.x86_64                          21/275 
+  Verifying        : default-fonts-core-sans-4.0-9.fc39.noarch           22/275 
+  Verifying        : duktape-2.7.0-5.fc39.x86_64                         23/275 
+  Verifying        : exempi-2.6.4-2.fc39.x86_64                          24/275 
+  Verifying        : exiv2-0.27.6-5.fc39.x86_64                          25/275 
+  Verifying        : exiv2-libs-0.27.6-5.fc39.x86_64                     26/275 
+  Verifying        : fdk-aac-free-2.0.0-11.fc39.x86_64                   27/275 
+  Verifying        : flac-libs-1.4.3-2.fc39.x86_64                       28/275 
+  Verifying        : fonts-filesystem-1:2.0.5-12.fc39.noarch             29/275 
+  Verifying        : freetype-2.13.1-2.fc39.x86_64                       30/275 
+  Verifying        : freetype-devel-2.13.1-2.fc39.x86_64                 31/275 
+  Verifying        : fribidi-1.0.13-2.fc39.x86_64                        32/275 
+  Verifying        : fribidi-devel-1.0.13-2.fc39.x86_64                  33/275 
+  Verifying        : fuse-common-3.16.1-1.fc39.x86_64                    34/275 
+  Verifying        : fuse3-3.16.1-1.fc39.x86_64                          35/275 
+  Verifying        : fuse3-libs-3.16.1-1.fc39.x86_64                     36/275 
+  Verifying        : gdk-pixbuf2-2.42.10-5.fc39.x86_64                   37/275 
+  Verifying        : gdk-pixbuf2-devel-2.42.10-5.fc39.x86_64             38/275 
+  Verifying        : gdk-pixbuf2-modules-2.42.10-5.fc39.x86_64           39/275 
+  Verifying        : geoclue2-2.7.0-2.fc39.x86_64                        40/275 
+  Verifying        : gettext-0.22-2.fc39.x86_64                          41/275 
+  Verifying        : gettext-envsubst-0.22-2.fc39.x86_64                 42/275 
+  Verifying        : gettext-libs-0.22-2.fc39.x86_64                     43/275 
+  Verifying        : gettext-runtime-0.22-2.fc39.x86_64                  44/275 
+  Verifying        : gobject-introspection-1.78.1-1.fc39.x86_64          45/275 
+  Verifying        : graphene-1.10.6-6.fc39.x86_64                       46/275 
+  Verifying        : graphite2-1.3.14-12.fc39.x86_64                     47/275 
+  Verifying        : graphite2-devel-1.3.14-12.fc39.x86_64               48/275 
+  Verifying        : gsettings-desktop-schemas-45.0-1.fc39.x86_64        49/275 
+  Verifying        : gsm-1.0.22-3.fc39.x86_64                            50/275 
+  Verifying        : harfbuzz-8.2.1-2.fc39.x86_64                        51/275 
+  Verifying        : harfbuzz-devel-8.2.1-2.fc39.x86_64                  52/275 
+  Verifying        : harfbuzz-icu-8.2.1-2.fc39.x86_64                    53/275 
+  Verifying        : hicolor-icon-theme-0.17-16.fc39.noarch              54/275 
+  Verifying        : iso-codes-4.15.0-2.fc39.noarch                      55/275 
+  Verifying        : jbigkit-libs-2.1-26.fc39.x86_64                     56/275 
+  Verifying        : json-glib-1.8.0-1.fc39.x86_64                       57/275 
+  Verifying        : jxl-pixbuf-loader-1:0.8.2-3.fc39.x86_64             58/275 
+  Verifying        : lame-libs-3.100-15.fc39.x86_64                      59/275 
+  Verifying        : lcms2-2.15-2.fc39.x86_64                            60/275 
+  Verifying        : libXau-1.0.11-3.fc39.x86_64                         61/275 
+  Verifying        : libXau-devel-1.0.11-3.fc39.x86_64                   62/275 
+  Verifying        : libXcomposite-0.4.5-10.fc39.x86_64                  63/275 
+  Verifying        : libXcomposite-devel-0.4.5-10.fc39.x86_64            64/275 
+  Verifying        : libXcursor-1.2.1-4.fc39.x86_64                      65/275 
+  Verifying        : libXcursor-devel-1.2.1-4.fc39.x86_64                66/275 
+  Verifying        : libXdamage-1.1.5-10.fc39.x86_64                     67/275 
+  Verifying        : libXdamage-devel-1.1.5-10.fc39.x86_64               68/275 
+  Verifying        : libXext-1.3.5-3.fc39.x86_64                         69/275 
+  Verifying        : libXext-devel-1.3.5-3.fc39.x86_64                   70/275 
+  Verifying        : libXfixes-6.0.0-6.fc39.x86_64                       71/275 
+  Verifying        : libXfixes-devel-6.0.0-6.fc39.x86_64                 72/275 
+  Verifying        : libXft-2.3.8-3.fc39.x86_64                          73/275 
+  Verifying        : libXft-devel-2.3.8-3.fc39.x86_64                    74/275 
+  Verifying        : libXi-1.8.1-2.fc39.x86_64                           75/275 
+  Verifying        : libXi-devel-1.8.1-2.fc39.x86_64                     76/275 
+  Verifying        : libXinerama-1.1.5-3.fc39.x86_64                     77/275 
+  Verifying        : libXinerama-devel-1.1.5-3.fc39.x86_64               78/275 
+  Verifying        : libXrender-0.9.11-3.fc39.x86_64                     79/275 
+  Verifying        : libXrender-devel-0.9.11-3.fc39.x86_64               80/275 
+  Verifying        : libXtst-1.2.4-3.fc39.x86_64                         81/275 
+  Verifying        : libXtst-devel-1.2.4-3.fc39.x86_64                   82/275 
+  Verifying        : libXv-1.0.11-19.fc39.x86_64                         83/275 
+  Verifying        : libXxf86vm-1.1.5-3.fc39.x86_64                      84/275 
+  Verifying        : libasyncns-0.8-25.fc39.x86_64                       85/275 
+  Verifying        : libavif-0.11.1-11.fc39.x86_64                       86/275 
+  Verifying        : libcanberra-0.30-32.fc39.x86_64                     87/275 
+  Verifying        : libcanberra-gtk3-0.30-32.fc39.x86_64                88/275 
+  Verifying        : libcue-2.2.1-13.fc39.x86_64                         89/275 
+  Verifying        : libdatrie-0.2.13-7.fc39.x86_64                      90/275 
+  Verifying        : libdatrie-devel-0.2.13-7.fc39.x86_64                91/275 
+  Verifying        : libdav1d-1.2.1-2.fc39.x86_64                        92/275 
+  Verifying        : libepoxy-1.5.10-4.fc39.x86_64                       93/275 
+  Verifying        : libepoxy-devel-1.5.10-4.fc39.x86_64                 94/275 
+  Verifying        : libexif-0.6.24-5.fc39.x86_64                        95/275 
+  Verifying        : libffi-devel-3.4.4-4.fc39.x86_64                    96/275 
+  Verifying        : libgexiv2-0.14.2-1.fc39.x86_64                      97/275 
+  Verifying        : libglvnd-1:1.7.0-1.fc39.x86_64                      98/275 
+  Verifying        : libglvnd-core-devel-1:1.7.0-1.fc39.x86_64           99/275 
+  Verifying        : libglvnd-devel-1:1.7.0-1.fc39.x86_64               100/275 
+  Verifying        : libglvnd-egl-1:1.7.0-1.fc39.x86_64                 101/275 
+  Verifying        : libglvnd-gles-1:1.7.0-1.fc39.x86_64                102/275 
+  Verifying        : libglvnd-glx-1:1.7.0-1.fc39.x86_64                 103/275 
+  Verifying        : libglvnd-opengl-1:1.7.0-1.fc39.x86_64              104/275 
+  Verifying        : libgrss-0.7.0-17.fc39.x86_64                       105/275 
+  Verifying        : libgudev-238-2.fc39.x86_64                         106/275 
+  Verifying        : libgxps-0.3.2-6.fc39.x86_64                        107/275 
+  Verifying        : libicu-73.2-2.fc39.x86_64                          108/275 
+  Verifying        : libicu-devel-73.2-2.fc39.x86_64                    109/275 
+  Verifying        : libiptcdata-1.0.5-15.fc39.x86_64                   110/275 
+  Verifying        : libjpeg-turbo-2.1.4-3.fc39.x86_64                  111/275 
+  Verifying        : libjpeg-turbo-devel-2.1.4-3.fc39.x86_64            112/275 
+  Verifying        : libjxl-1:0.8.2-3.fc39.x86_64                       113/275 
+  Verifying        : libldac-2.0.2.3-13.fc39.x86_64                     114/275 
+  Verifying        : liblerc-4.0.0-4.fc39.x86_64                        115/275 
+  Verifying        : libogg-2:1.3.5-6.fc39.x86_64                       116/275 
+  Verifying        : libpciaccess-0.16-9.fc39.x86_64                    117/275 
+  Verifying        : libpng-2:1.6.37-15.fc39.x86_64                     118/275 
+  Verifying        : libpng-devel-2:1.6.37-15.fc39.x86_64               119/275 
+  Verifying        : libsbc-2.0-3.fc39.x86_64                           120/275 
+  Verifying        : libselinux-devel-3.5-5.fc39.x86_64                 121/275 
+  Verifying        : libsepol-devel-3.5-2.fc39.x86_64                   122/275 
+  Verifying        : libsndfile-1.1.0-9.fc39.x86_64                     123/275 
+  Verifying        : libsoup-2.74.3-3.fc39.x86_64                       124/275 
+  Verifying        : libstemmer-2.2.0-7.fc39.x86_64                     125/275 
+  Verifying        : libtdb-1.4.9-1.fc39.x86_64                         126/275 
+  Verifying        : libthai-0.1.29-6.fc39.x86_64                       127/275 
+  Verifying        : libthai-devel-0.1.29-6.fc39.x86_64                 128/275 
+  Verifying        : libtheora-1:1.1.1-34.fc39.x86_64                   129/275 
+  Verifying        : libtiff-4.4.0-8.fc39.x86_64                        130/275 
+  Verifying        : libtiff-devel-4.4.0-8.fc39.x86_64                  131/275 
+  Verifying        : libtracker-sparql-3.6.0-1.fc39.x86_64              132/275 
+  Verifying        : libunwind-1.7.0-0.2.rc2.fc39.x86_64                133/275 
+  Verifying        : libvisual-1:0.4.1-2.fc39.x86_64                    134/275 
+  Verifying        : libvmaf-2.3.0-6.fc39.x86_64                        135/275 
+  Verifying        : libvorbis-1:1.3.7-8.fc39.x86_64                    136/275 
+  Verifying        : libwayland-client-1.22.0-2.fc39.x86_64             137/275 
+  Verifying        : libwayland-cursor-1.22.0-2.fc39.x86_64             138/275 
+  Verifying        : libwayland-egl-1.22.0-2.fc39.x86_64                139/275 
+  Verifying        : libwayland-server-1.22.0-2.fc39.x86_64             140/275 
+  Verifying        : libwebp-1.3.2-2.fc39.x86_64                        141/275 
+  Verifying        : libxcb-1.13.1-12.fc39.x86_64                       142/275 
+  Verifying        : libxcb-devel-1.13.1-12.fc39.x86_64                 143/275 
+  Verifying        : libxml2-devel-2.10.4-3.fc39.x86_64                 144/275 
+  Verifying        : libxshmfence-1.3-13.fc39.x86_64                    145/275 
+  Verifying        : lm_sensors-libs-3.6.0-14.fc39.x86_64               146/275 
+  Verifying        : low-memory-monitor-2.1-8.fc39.x86_64               147/275 
+  Verifying        : mpg123-libs-1.31.3-2.fc39.x86_64                   148/275 
+  Verifying        : opus-1.3.1-13.fc39.x86_64                          149/275 
+  Verifying        : orc-0.4.33-3.fc39.x86_64                           150/275 
+  Verifying        : pango-1.51.0-1.fc39.x86_64                         151/275 
+  Verifying        : pango-devel-1.51.0-1.fc39.x86_64                   152/275 
+  Verifying        : pcre2-devel-10.42-1.fc39.2.x86_64                  153/275 
+  Verifying        : pcre2-utf16-10.42-1.fc39.2.x86_64                  154/275 
+  Verifying        : pcre2-utf32-10.42-1.fc39.2.x86_64                  155/275 
+  Verifying        : pixman-0.42.2-2.fc39.x86_64                        156/275 
+  Verifying        : pixman-devel-0.42.2-2.fc39.x86_64                  157/275 
+  Verifying        : polkit-pkla-compat-0.1-26.fc39.x86_64              158/275 
+  Verifying        : poppler-23.08.0-1.fc39.x86_64                      159/275 
+  Verifying        : poppler-data-0.4.11-5.fc39.noarch                  160/275 
+  Verifying        : poppler-glib-23.08.0-1.fc39.x86_64                 161/275 
+  Verifying        : pulseaudio-libs-16.1-5.fc39.x86_64                 162/275 
+  Verifying        : sdubby-1.0-4.fc39.noarch                           163/275 
+  Verifying        : shared-mime-info-2.2-4.fc39.x86_64                 164/275 
+  Verifying        : sound-theme-freedesktop-0.8-20.fc39.noarch         165/275 
+  Verifying        : svt-av1-libs-1.4.1-3.fc39.x86_64                   166/275 
+  Verifying        : totem-pl-parser-3.26.6-7.fc39.x86_64               167/275 
+  Verifying        : tracker-3.6.0-1.fc39.x86_64                        168/275 
+  Verifying        : uchardet-0.0.8-4.fc39.x86_64                       169/275 
+  Verifying        : upower-libs-1.90.2-3.fc39.x86_64                   170/275 
+  Verifying        : wayland-devel-1.22.0-2.fc39.x86_64                 171/275 
+  Verifying        : webrtc-audio-processing-0.3.1-11.fc39.x86_64       172/275 
+  Verifying        : xml-common-0.6.3-61.fc39.noarch                    173/275 
+  Verifying        : xorg-x11-proto-devel-2023.2-2.fc39.noarch          174/275 
+  Verifying        : xprop-1.2.5-4.fc39.x86_64                          175/275 
+  Verifying        : xz-devel-5.4.4-1.fc39.x86_64                       176/275 
+  Verifying        : zlib-devel-1.2.13-4.fc39.x86_64                    177/275 
+  Verifying        : NetworkManager-libnm-1:1.44.2-1.fc39.x86_64        178/275 
+  Verifying        : alsa-lib-1.2.11-2.fc39.x86_64                      179/275 
+  Verifying        : at-spi2-atk-2.50.2-1.fc39.x86_64                   180/275 
+  Verifying        : at-spi2-atk-devel-2.50.2-1.fc39.x86_64             181/275 
+  Verifying        : at-spi2-core-2.50.2-1.fc39.x86_64                  182/275 
+  Verifying        : at-spi2-core-devel-2.50.2-1.fc39.x86_64            183/275 
+  Verifying        : atk-2.50.2-1.fc39.x86_64                           184/275 
+  Verifying        : atk-devel-2.50.2-1.fc39.x86_64                     185/275 
+  Verifying        : bluez-libs-5.75-1.fc39.x86_64                      186/275 
+  Verifying        : crypto-policies-scripts-20231204-1.git1e3a2e4.fc   187/275 
+  Verifying        : cups-libs-1:2.4.7-13.fc39.x86_64                   188/275 
+  Verifying        : fontconfig-2.14.2-6.fc39.x86_64                    189/275 
+  Verifying        : fontconfig-devel-2.14.2-6.fc39.x86_64              190/275 
+  Verifying        : giflib-5.2.2-1.fc39.x86_64                         191/275 
+  Verifying        : glib-networking-2.78.1-1.fc39.x86_64               192/275 
+  Verifying        : glib2-devel-2.78.3-1.fc39.x86_64                   193/275 
+  Verifying        : google-noto-fonts-common-20240101-1.fc39.noarch    194/275 
+  Verifying        : google-noto-sans-vf-fonts-20240101-1.fc39.noarch   195/275 
+  Verifying        : gstreamer1-1.22.12-1.fc39.x86_64                   196/275 
+  Verifying        : gstreamer1-plugins-base-1.22.12-1.fc39.x86_64      197/275 
+  Verifying        : gtk-update-icon-cache-3.24.41-1.fc39.x86_64        198/275 
+  Verifying        : gtk3-3.24.41-1.fc39.x86_64                         199/275 
+  Verifying        : gtk3-devel-3.24.41-1.fc39.x86_64                   200/275 
+  Verifying        : highway-1.1.0-1.fc39.x86_64                        201/275 
+  Verifying        : hwdata-0.381-1.fc39.noarch                         202/275 
+  Verifying        : libX11-1.8.9-1.fc39.x86_64                         203/275 
+  Verifying        : libX11-common-1.8.9-1.fc39.noarch                  204/275 
+  Verifying        : libX11-devel-1.8.9-1.fc39.x86_64                   205/275 
+  Verifying        : libX11-xcb-1.8.9-1.fc39.x86_64                     206/275 
+  Verifying        : libXrandr-1.5.4-1.fc39.x86_64                      207/275 
+  Verifying        : libXrandr-devel-1.5.4-1.fc39.x86_64                208/275 
+  Verifying        : libaom-3.8.2-1.fc39.x86_64                         209/275 
+  Verifying        : libblkid-devel-2.39.4-1.fc39.x86_64                210/275 
+  Verifying        : libcloudproviders-0.3.5-1.fc39.x86_64              211/275 
+  Verifying        : libcloudproviders-devel-0.3.5-1.fc39.x86_64        212/275 
+  Verifying        : libdrm-2.4.120-1.fc39.x86_64                       213/275 
+  Verifying        : libgsf-1.14.51-1.fc39.x86_64                       214/275 
+  Verifying        : libgusb-0.4.9-1.fc39.x86_64                        215/275 
+  Verifying        : liblc3-1.0.4-2.fc39.x86_64                         216/275 
+  Verifying        : libmount-devel-2.39.4-1.fc39.x86_64                217/275 
+  Verifying        : libnotify-0.8.3-1.fc39.x86_64                      218/275 
+  Verifying        : libosinfo-1.11.0-1.fc39.x86_64                     219/275 
+  Verifying        : libproxy-0.5.5-1.fc39.x86_64                       220/275 
+  Verifying        : librsvg2-2.57.1-1.fc39.x86_64                      221/275 
+  Verifying        : libsoup3-3.4.4-1.fc39.x86_64                       222/275 
+  Verifying        : libusb1-1.0.27-1.fc39.x86_64                       223/275 
+  Verifying        : libxkbcommon-devel-1.6.0-1.fc39.x86_64             224/275 
+  Verifying        : libxslt-1.1.39-1.fc39.x86_64                       225/275 
+  Verifying        : llvm-libs-17.0.6-3.fc39.x86_64                     226/275 
+  Verifying        : mesa-dri-drivers-23.3.6-1.fc39.x86_64              227/275 
+  Verifying        : mesa-filesystem-23.3.6-1.fc39.x86_64               228/275 
+  Verifying        : mesa-libEGL-23.3.6-1.fc39.x86_64                   229/275 
+  Verifying        : mesa-libGL-23.3.6-1.fc39.x86_64                    230/275 
+  Verifying        : mesa-libgbm-23.3.6-1.fc39.x86_64                   231/275 
+  Verifying        : mesa-libglapi-23.3.6-1.fc39.x86_64                 232/275 
+  Verifying        : mesa-va-drivers-23.3.6-1.fc39.x86_64               233/275 
+  Verifying        : nspr-4.35.0-19.fc39.x86_64                         234/275 
+  Verifying        : nss-3.99.0-1.fc39.x86_64                           235/275 
+  Verifying        : nss-softokn-3.99.0-1.fc39.x86_64                   236/275 
+  Verifying        : nss-softokn-freebl-3.99.0-1.fc39.x86_64            237/275 
+  Verifying        : nss-sysinit-3.99.0-1.fc39.x86_64                   238/275 
+  Verifying        : nss-util-3.99.0-1.fc39.x86_64                      239/275 
+  Verifying        : openjpeg2-2.5.2-1.fc39.x86_64                      240/275 
+  Verifying        : osinfo-db-20231215-1.fc39.noarch                   241/275 
+  Verifying        : osinfo-db-tools-1.11.0-1.fc39.x86_64               242/275 
+  Verifying        : pipewire-1.0.5-1.fc39.x86_64                       243/275 
+  Verifying        : pipewire-alsa-1.0.5-1.fc39.x86_64                  244/275 
+  Verifying        : pipewire-jack-audio-connection-kit-1.0.5-1.fc39.   245/275 
+  Verifying        : pipewire-jack-audio-connection-kit-libs-1.0.5-1.   246/275 
+  Verifying        : pipewire-libs-1.0.5-1.fc39.x86_64                  247/275 
+  Verifying        : pipewire-pulseaudio-1.0.5-1.fc39.x86_64            248/275 
+  Verifying        : polkit-123-1.fc39.1.x86_64                         249/275 
+  Verifying        : polkit-libs-123-1.fc39.1.x86_64                    250/275 
+  Verifying        : rav1e-libs-0.7.1-1.fc39.x86_64                     251/275 
+  Verifying        : rsvg-pixbuf-loader-2.57.1-1.fc39.x86_64            252/275 
+  Verifying        : rtkit-0.11-61.fc39.x86_64                          253/275 
+  Verifying        : sysprof-capture-devel-45.1-1.fc39.x86_64           254/275 
+  Verifying        : systemd-boot-unsigned-254.10-1.fc39.x86_64         255/275 
+  Verifying        : tracker-miners-3.6.2-1.fc39.x86_64                 256/275 
+  Verifying        : webp-pixbuf-loader-0.2.7-1.fc39.x86_64             257/275 
+  Verifying        : wireplumber-0.4.17-1.fc39.x86_64                   258/275 
+  Verifying        : wireplumber-libs-0.4.17-1.fc39.x86_64              259/275 
+  Verifying        : xdg-desktop-portal-1.18.2-6.fc39.x86_64            260/275 
+  Verifying        : xdg-desktop-portal-gtk-1.15.1-1.fc39.x86_64        261/275 
+  Verifying        : libblkid-2.39.4-1.fc39.x86_64                      262/275 
+  Verifying        : libblkid-2.39.3-6.fc39.x86_64                      263/275 
+  Verifying        : libfdisk-2.39.4-1.fc39.x86_64                      264/275 
+  Verifying        : libfdisk-2.39.3-6.fc39.x86_64                      265/275 
+  Verifying        : libmount-2.39.4-1.fc39.x86_64                      266/275 
+  Verifying        : libmount-2.39.3-6.fc39.x86_64                      267/275 
+  Verifying        : libsmartcols-2.39.4-1.fc39.x86_64                  268/275 
+  Verifying        : libsmartcols-2.39.3-6.fc39.x86_64                  269/275 
+  Verifying        : libuuid-2.39.4-1.fc39.x86_64                       270/275 
+  Verifying        : libuuid-2.39.3-6.fc39.x86_64                       271/275 
+  Verifying        : util-linux-2.39.4-1.fc39.x86_64                    272/275 
+  Verifying        : util-linux-2.39.3-6.fc39.x86_64                    273/275 
+  Verifying        : util-linux-core-2.39.4-1.fc39.x86_64               274/275 
+  Verifying        : util-linux-core-2.39.3-6.fc39.x86_64               275/275 
+
+Upgraded:
+  libblkid-2.39.4-1.fc39.x86_64            libfdisk-2.39.4-1.fc39.x86_64        
+  libmount-2.39.4-1.fc39.x86_64            libsmartcols-2.39.4-1.fc39.x86_64    
+  libuuid-2.39.4-1.fc39.x86_64             util-linux-2.39.4-1.fc39.x86_64      
+  util-linux-core-2.39.4-1.fc39.x86_64    
+Installed:
+  ModemManager-glib-1.20.6-3.fc39.x86_64                                        
+  NetworkManager-libnm-1:1.44.2-1.fc39.x86_64                                   
+  abattis-cantarell-vf-fonts-0.301-10.fc39.noarch                               
+  adobe-source-code-pro-fonts-2.042.1.062.1.026-2.fc39.noarch                   
+  adwaita-cursor-theme-45.0-1.fc39.noarch                                       
+  adwaita-icon-theme-45.0-1.fc39.noarch                                         
+  alsa-lib-1.2.11-2.fc39.x86_64                                                 
+  at-spi2-atk-2.50.2-1.fc39.x86_64                                              
+  at-spi2-atk-devel-2.50.2-1.fc39.x86_64                                        
+  at-spi2-core-2.50.2-1.fc39.x86_64                                             
+  at-spi2-core-devel-2.50.2-1.fc39.x86_64                                       
+  atk-2.50.2-1.fc39.x86_64                                                      
+  atk-devel-2.50.2-1.fc39.x86_64                                                
+  avahi-glib-0.8-24.fc39.x86_64                                                 
+  avahi-libs-0.8-24.fc39.x86_64                                                 
+  avif-pixbuf-loader-0.11.1-11.fc39.x86_64                                      
+  bluez-libs-5.75-1.fc39.x86_64                                                 
+  brotli-1.1.0-1.fc39.x86_64                                                    
+  brotli-devel-1.1.0-1.fc39.x86_64                                              
+  bzip2-devel-1.0.8-16.fc39.x86_64                                              
+  cairo-1.18.0-1.fc39.x86_64                                                    
+  cairo-devel-1.18.0-1.fc39.x86_64                                              
+  cairo-gobject-1.18.0-1.fc39.x86_64                                            
+  cairo-gobject-devel-1.18.0-1.fc39.x86_64                                      
+  cdparanoia-libs-10.2-42.fc39.x86_64                                           
+  cmake-filesystem-3.27.7-1.fc39.x86_64                                         
+  colord-libs-1.4.6-6.fc39.x86_64                                               
+  crypto-policies-scripts-20231204-1.git1e3a2e4.fc39.noarch                     
+  cups-libs-1:2.4.7-13.fc39.x86_64                                              
+  dbus-devel-1:1.14.10-1.fc39.x86_64                                            
+  dbus-libs-1:1.14.10-1.fc39.x86_64                                             
+  dconf-0.40.0-9.fc39.x86_64                                                    
+  default-fonts-core-sans-4.0-9.fc39.noarch                                     
+  duktape-2.7.0-5.fc39.x86_64                                                   
+  exempi-2.6.4-2.fc39.x86_64                                                    
+  exiv2-0.27.6-5.fc39.x86_64                                                    
+  exiv2-libs-0.27.6-5.fc39.x86_64                                               
+  fdk-aac-free-2.0.0-11.fc39.x86_64                                             
+  flac-libs-1.4.3-2.fc39.x86_64                                                 
+  fontconfig-2.14.2-6.fc39.x86_64                                               
+  fontconfig-devel-2.14.2-6.fc39.x86_64                                         
+  fonts-filesystem-1:2.0.5-12.fc39.noarch                                       
+  freetype-2.13.1-2.fc39.x86_64                                                 
+  freetype-devel-2.13.1-2.fc39.x86_64                                           
+  fribidi-1.0.13-2.fc39.x86_64                                                  
+  fribidi-devel-1.0.13-2.fc39.x86_64                                            
+  fuse-common-3.16.1-1.fc39.x86_64                                              
+  fuse3-3.16.1-1.fc39.x86_64                                                    
+  fuse3-libs-3.16.1-1.fc39.x86_64                                               
+  gdk-pixbuf2-2.42.10-5.fc39.x86_64                                             
+  gdk-pixbuf2-devel-2.42.10-5.fc39.x86_64                                       
+  gdk-pixbuf2-modules-2.42.10-5.fc39.x86_64                                     
+  geoclue2-2.7.0-2.fc39.x86_64                                                  
+  gettext-0.22-2.fc39.x86_64                                                    
+  gettext-envsubst-0.22-2.fc39.x86_64                                           
+  gettext-libs-0.22-2.fc39.x86_64                                               
+  gettext-runtime-0.22-2.fc39.x86_64                                            
+  giflib-5.2.2-1.fc39.x86_64                                                    
+  glib-networking-2.78.1-1.fc39.x86_64                                          
+  glib2-devel-2.78.3-1.fc39.x86_64                                              
+  gobject-introspection-1.78.1-1.fc39.x86_64                                    
+  google-noto-fonts-common-20240101-1.fc39.noarch                               
+  google-noto-sans-vf-fonts-20240101-1.fc39.noarch                              
+  graphene-1.10.6-6.fc39.x86_64                                                 
+  graphite2-1.3.14-12.fc39.x86_64                                               
+  graphite2-devel-1.3.14-12.fc39.x86_64                                         
+  gsettings-desktop-schemas-45.0-1.fc39.x86_64                                  
+  gsm-1.0.22-3.fc39.x86_64                                                      
+  gstreamer1-1.22.12-1.fc39.x86_64                                              
+  gstreamer1-plugins-base-1.22.12-1.fc39.x86_64                                 
+  gtk-update-icon-cache-3.24.41-1.fc39.x86_64                                   
+  gtk3-3.24.41-1.fc39.x86_64                                                    
+  gtk3-devel-3.24.41-1.fc39.x86_64                                              
+  harfbuzz-8.2.1-2.fc39.x86_64                                                  
+  harfbuzz-devel-8.2.1-2.fc39.x86_64                                            
+  harfbuzz-icu-8.2.1-2.fc39.x86_64                                              
+  hicolor-icon-theme-0.17-16.fc39.noarch                                        
+  highway-1.1.0-1.fc39.x86_64                                                   
+  hwdata-0.381-1.fc39.noarch                                                    
+  iso-codes-4.15.0-2.fc39.noarch                                                
+  jbigkit-libs-2.1-26.fc39.x86_64                                               
+  json-glib-1.8.0-1.fc39.x86_64                                                 
+  jxl-pixbuf-loader-1:0.8.2-3.fc39.x86_64                                       
+  lame-libs-3.100-15.fc39.x86_64                                                
+  lcms2-2.15-2.fc39.x86_64                                                      
+  libX11-1.8.9-1.fc39.x86_64                                                    
+  libX11-common-1.8.9-1.fc39.noarch                                             
+  libX11-devel-1.8.9-1.fc39.x86_64                                              
+  libX11-xcb-1.8.9-1.fc39.x86_64                                                
+  libXau-1.0.11-3.fc39.x86_64                                                   
+  libXau-devel-1.0.11-3.fc39.x86_64                                             
+  libXcomposite-0.4.5-10.fc39.x86_64                                            
+  libXcomposite-devel-0.4.5-10.fc39.x86_64                                      
+  libXcursor-1.2.1-4.fc39.x86_64                                                
+  libXcursor-devel-1.2.1-4.fc39.x86_64                                          
+  libXdamage-1.1.5-10.fc39.x86_64                                               
+  libXdamage-devel-1.1.5-10.fc39.x86_64                                         
+  libXext-1.3.5-3.fc39.x86_64                                                   
+  libXext-devel-1.3.5-3.fc39.x86_64                                             
+  libXfixes-6.0.0-6.fc39.x86_64                                                 
+  libXfixes-devel-6.0.0-6.fc39.x86_64                                           
+  libXft-2.3.8-3.fc39.x86_64                                                    
+  libXft-devel-2.3.8-3.fc39.x86_64                                              
+  libXi-1.8.1-2.fc39.x86_64                                                     
+  libXi-devel-1.8.1-2.fc39.x86_64                                               
+  libXinerama-1.1.5-3.fc39.x86_64                                               
+  libXinerama-devel-1.1.5-3.fc39.x86_64                                         
+  libXrandr-1.5.4-1.fc39.x86_64                                                 
+  libXrandr-devel-1.5.4-1.fc39.x86_64                                           
+  libXrender-0.9.11-3.fc39.x86_64                                               
+  libXrender-devel-0.9.11-3.fc39.x86_64                                         
+  libXtst-1.2.4-3.fc39.x86_64                                                   
+  libXtst-devel-1.2.4-3.fc39.x86_64                                             
+  libXv-1.0.11-19.fc39.x86_64                                                   
+  libXxf86vm-1.1.5-3.fc39.x86_64                                                
+  libaom-3.8.2-1.fc39.x86_64                                                    
+  libasyncns-0.8-25.fc39.x86_64                                                 
+  libavif-0.11.1-11.fc39.x86_64                                                 
+  libblkid-devel-2.39.4-1.fc39.x86_64                                           
+  libcanberra-0.30-32.fc39.x86_64                                               
+  libcanberra-gtk3-0.30-32.fc39.x86_64                                          
+  libcloudproviders-0.3.5-1.fc39.x86_64                                         
+  libcloudproviders-devel-0.3.5-1.fc39.x86_64                                   
+  libcue-2.2.1-13.fc39.x86_64                                                   
+  libdatrie-0.2.13-7.fc39.x86_64                                                
+  libdatrie-devel-0.2.13-7.fc39.x86_64                                          
+  libdav1d-1.2.1-2.fc39.x86_64                                                  
+  libdrm-2.4.120-1.fc39.x86_64                                                  
+  libepoxy-1.5.10-4.fc39.x86_64                                                 
+  libepoxy-devel-1.5.10-4.fc39.x86_64                                           
+  libexif-0.6.24-5.fc39.x86_64                                                  
+  libffi-devel-3.4.4-4.fc39.x86_64                                              
+  libgexiv2-0.14.2-1.fc39.x86_64                                                
+  libglvnd-1:1.7.0-1.fc39.x86_64                                                
+  libglvnd-core-devel-1:1.7.0-1.fc39.x86_64                                     
+  libglvnd-devel-1:1.7.0-1.fc39.x86_64                                          
+  libglvnd-egl-1:1.7.0-1.fc39.x86_64                                            
+  libglvnd-gles-1:1.7.0-1.fc39.x86_64                                           
+  libglvnd-glx-1:1.7.0-1.fc39.x86_64                                            
+  libglvnd-opengl-1:1.7.0-1.fc39.x86_64                                         
+  libgrss-0.7.0-17.fc39.x86_64                                                  
+  libgsf-1.14.51-1.fc39.x86_64                                                  
+  libgudev-238-2.fc39.x86_64                                                    
+  libgusb-0.4.9-1.fc39.x86_64                                                   
+  libgxps-0.3.2-6.fc39.x86_64                                                   
+  libicu-73.2-2.fc39.x86_64                                                     
+  libicu-devel-73.2-2.fc39.x86_64                                               
+  libiptcdata-1.0.5-15.fc39.x86_64                                              
+  libjpeg-turbo-2.1.4-3.fc39.x86_64                                             
+  libjpeg-turbo-devel-2.1.4-3.fc39.x86_64                                       
+  libjxl-1:0.8.2-3.fc39.x86_64                                                  
+  liblc3-1.0.4-2.fc39.x86_64                                                    
+  libldac-2.0.2.3-13.fc39.x86_64                                                
+  liblerc-4.0.0-4.fc39.x86_64                                                   
+  libmount-devel-2.39.4-1.fc39.x86_64                                           
+  libnotify-0.8.3-1.fc39.x86_64                                                 
+  libogg-2:1.3.5-6.fc39.x86_64                                                  
+  libosinfo-1.11.0-1.fc39.x86_64                                                
+  libpciaccess-0.16-9.fc39.x86_64                                               
+  libpng-2:1.6.37-15.fc39.x86_64                                                
+  libpng-devel-2:1.6.37-15.fc39.x86_64                                          
+  libproxy-0.5.5-1.fc39.x86_64                                                  
+  librsvg2-2.57.1-1.fc39.x86_64                                                 
+  libsbc-2.0-3.fc39.x86_64                                                      
+  libselinux-devel-3.5-5.fc39.x86_64                                            
+  libsepol-devel-3.5-2.fc39.x86_64                                              
+  libsndfile-1.1.0-9.fc39.x86_64                                                
+  libsoup-2.74.3-3.fc39.x86_64                                                  
+  libsoup3-3.4.4-1.fc39.x86_64                                                  
+  libstemmer-2.2.0-7.fc39.x86_64                                                
+  libtdb-1.4.9-1.fc39.x86_64                                                    
+  libthai-0.1.29-6.fc39.x86_64                                                  
+  libthai-devel-0.1.29-6.fc39.x86_64                                            
+  libtheora-1:1.1.1-34.fc39.x86_64                                              
+  libtiff-4.4.0-8.fc39.x86_64                                                   
+  libtiff-devel-4.4.0-8.fc39.x86_64                                             
+  libtracker-sparql-3.6.0-1.fc39.x86_64                                         
+  libunwind-1.7.0-0.2.rc2.fc39.x86_64                                           
+  libusb1-1.0.27-1.fc39.x86_64                                                  
+  libvisual-1:0.4.1-2.fc39.x86_64                                               
+  libvmaf-2.3.0-6.fc39.x86_64                                                   
+  libvorbis-1:1.3.7-8.fc39.x86_64                                               
+  libwayland-client-1.22.0-2.fc39.x86_64                                        
+  libwayland-cursor-1.22.0-2.fc39.x86_64                                        
+  libwayland-egl-1.22.0-2.fc39.x86_64                                           
+  libwayland-server-1.22.0-2.fc39.x86_64                                        
+  libwebp-1.3.2-2.fc39.x86_64                                                   
+  libxcb-1.13.1-12.fc39.x86_64                                                  
+  libxcb-devel-1.13.1-12.fc39.x86_64                                            
+  libxkbcommon-devel-1.6.0-1.fc39.x86_64                                        
+  libxml2-devel-2.10.4-3.fc39.x86_64                                            
+  libxshmfence-1.3-13.fc39.x86_64                                               
+  libxslt-1.1.39-1.fc39.x86_64                                                  
+  llvm-libs-17.0.6-3.fc39.x86_64                                                
+  lm_sensors-libs-3.6.0-14.fc39.x86_64                                          
+  low-memory-monitor-2.1-8.fc39.x86_64                                          
+  mesa-dri-drivers-23.3.6-1.fc39.x86_64                                         
+  mesa-filesystem-23.3.6-1.fc39.x86_64                                          
+  mesa-libEGL-23.3.6-1.fc39.x86_64                                              
+  mesa-libGL-23.3.6-1.fc39.x86_64                                               
+  mesa-libgbm-23.3.6-1.fc39.x86_64                                              
+  mesa-libglapi-23.3.6-1.fc39.x86_64                                            
+  mesa-va-drivers-23.3.6-1.fc39.x86_64                                          
+  mpg123-libs-1.31.3-2.fc39.x86_64                                              
+  nspr-4.35.0-19.fc39.x86_64                                                    
+  nss-3.99.0-1.fc39.x86_64                                                      
+  nss-softokn-3.99.0-1.fc39.x86_64                                              
+  nss-softokn-freebl-3.99.0-1.fc39.x86_64                                       
+  nss-sysinit-3.99.0-1.fc39.x86_64                                              
+  nss-util-3.99.0-1.fc39.x86_64                                                 
+  openjpeg2-2.5.2-1.fc39.x86_64                                                 
+  opus-1.3.1-13.fc39.x86_64                                                     
+  orc-0.4.33-3.fc39.x86_64                                                      
+  osinfo-db-20231215-1.fc39.noarch                                              
+  osinfo-db-tools-1.11.0-1.fc39.x86_64                                          
+  pango-1.51.0-1.fc39.x86_64                                                    
+  pango-devel-1.51.0-1.fc39.x86_64                                              
+  pcre2-devel-10.42-1.fc39.2.x86_64                                             
+  pcre2-utf16-10.42-1.fc39.2.x86_64                                             
+  pcre2-utf32-10.42-1.fc39.2.x86_64                                             
+  pipewire-1.0.5-1.fc39.x86_64                                                  
+  pipewire-alsa-1.0.5-1.fc39.x86_64                                             
+  pipewire-jack-audio-connection-kit-1.0.5-1.fc39.x86_64                        
+  pipewire-jack-audio-connection-kit-libs-1.0.5-1.fc39.x86_64                   
+  pipewire-libs-1.0.5-1.fc39.x86_64                                             
+  pipewire-pulseaudio-1.0.5-1.fc39.x86_64                                       
+  pixman-0.42.2-2.fc39.x86_64                                                   
+  pixman-devel-0.42.2-2.fc39.x86_64                                             
+  polkit-123-1.fc39.1.x86_64                                                    
+  polkit-libs-123-1.fc39.1.x86_64                                               
+  polkit-pkla-compat-0.1-26.fc39.x86_64                                         
+  poppler-23.08.0-1.fc39.x86_64                                                 
+  poppler-data-0.4.11-5.fc39.noarch                                             
+  poppler-glib-23.08.0-1.fc39.x86_64                                            
+  pulseaudio-libs-16.1-5.fc39.x86_64                                            
+  rav1e-libs-0.7.1-1.fc39.x86_64                                                
+  rsvg-pixbuf-loader-2.57.1-1.fc39.x86_64                                       
+  rtkit-0.11-61.fc39.x86_64                                                     
+  sdubby-1.0-4.fc39.noarch                                                      
+  shared-mime-info-2.2-4.fc39.x86_64                                            
+  sound-theme-freedesktop-0.8-20.fc39.noarch                                    
+  svt-av1-libs-1.4.1-3.fc39.x86_64                                              
+  sysprof-capture-devel-45.1-1.fc39.x86_64                                      
+  systemd-boot-unsigned-254.10-1.fc39.x86_64                                    
+  totem-pl-parser-3.26.6-7.fc39.x86_64                                          
+  tracker-3.6.0-1.fc39.x86_64                                                   
+  tracker-miners-3.6.2-1.fc39.x86_64                                            
+  uchardet-0.0.8-4.fc39.x86_64                                                  
+  upower-libs-1.90.2-3.fc39.x86_64                                              
+  wayland-devel-1.22.0-2.fc39.x86_64                                            
+  webp-pixbuf-loader-0.2.7-1.fc39.x86_64                                        
+  webrtc-audio-processing-0.3.1-11.fc39.x86_64                                  
+  wireplumber-0.4.17-1.fc39.x86_64                                              
+  wireplumber-libs-0.4.17-1.fc39.x86_64                                         
+  xdg-desktop-portal-1.18.2-6.fc39.x86_64                                       
+  xdg-desktop-portal-gtk-1.15.1-1.fc39.x86_64                                   
+  xml-common-0.6.3-61.fc39.noarch                                               
+  xorg-x11-proto-devel-2023.2-2.fc39.noarch                                     
+  xprop-1.2.5-4.fc39.x86_64                                                     
+  xz-devel-5.4.4-1.fc39.x86_64                                                  
+  zlib-devel-1.2.13-4.fc39.x86_64                                               
+
+Complete!
+Note: Deploying make=4.4.1...
+Note: Deploying pkg_config=1.9.5...
+Note: Deploying gtkada=24.0.0...
+#=#=#                                                                         
+##O#-#                                                                        
+##=O#- #                                                                      
+# #=O#- #                                                                     
+ # #=O#-  #                                                                   
+  # #=O=#   #                                                                 
+   # #=O=#   #                                                                
+    # -#O=-#   #                                                              
+     # -#O=- #   #                                                            
+Note: Running post_fetch actions for gtkada=24.0.0...
+checking build system type... x86_64-pc-linux-gnu
+checking host system type... x86_64-pc-linux-gnu
+checking target system type... x86_64-pc-linux-gnu
+checking for pkg-config... /usr/bin/pkg-config
+checking pkg-config is at least version 0.9.0... yes
+checking for gcc... gcc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ISO C89... none needed
+checking for gprbuild... /usr/bin/gprbuild
+checking for gprinstall... /usr/bin/gprinstall
+checking that your gnat compiler works with a simple example... yes
+checking whether NLS is requested... yes
+checking for gettext in libc... yes
+checking for GTK... yes
+checking for pkg-config... (cached) /usr/bin/pkg-config
+checking pkg-config is at least version 0.16... yes
+checking for GTK+ - version >= 3.24.24... yes (version 3.24.41)
+checking for GMODULE... yes
+checking for FONTCONFIG... yes
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating gtkada_shared.gpr
+config.status: creating po/Makefile
+config.status: creating docs/gtkada_rm/html/static/index.html
+configure: --------- Summary for Gtkada 18.0w -----------------
+configure:   Shared libraries:       yes (default: static)
+configure: --------------------------------------------
+gnatprep -DGETTEXT_INTL=False -DHAVE_GETTEXT=True src/gtkada-intl.gpb src/gtkada-intl.adb
+Note: Building spawn_glib/gnat/spawn_glib.gpr...
+Setup
+   [mkdir]        object directory for project GtkAda
+   [mkdir]        library directory for project GtkAda
+   [mkdir]        object directory for project Spawn_Glib
+   [mkdir]        library directory for project Spawn_Glib
+Compile
+   [Ada]          gtk-marshallers.adb
+   [Ada]          gtkada.ads
+   [Ada]          glib-module.adb
+   [Ada]          pango-cairo.adb
+   [Ada]          glib-key_file.adb
+   [Ada]          glib-main.adb
+   [Ada]          gtkada-abstract_list_model.adb
+   [Ada]          gtk-text_child.adb
+   [Ada]          cairo-scaled_font.ads
+   [Ada]          cairo-pattern.ads
+   [Ada]          gdk-types-keysyms.ads
+   [Ada]          gtk-dnd.adb
+   [Ada]          gtkada-bindings.adb
+   [Ada]          gtkada-canvas_view-views.adb
+   [Ada]          gtkada-file_selection.adb
+   [Ada]          gdk-rectangle.adb
+   [Ada]          gtkada-c.adb
+   [Ada]          gtkada-printing.adb
+   [Ada]          gtkada-application.adb
+   [Ada]          gtkada-canvas_view-objects.adb
+   [Ada]          cairo-surface.adb
+   [Ada]          cairo-image_surface.adb
+   [Ada]          glib-properties-creation.adb
+   [Ada]          gdk.ads
+   [Ada]          gtkada-dialogs.adb
+   [Ada]          cairo-region.adb
+   [Ada]          glib-type_conversion_hooks.adb
+   [Ada]          glib-object.adb
+   [Ada]          glib.adb
+   [Ada]          cairo.adb
+   [Ada]          glib-values.adb
+   [Ada]          gtk-arguments.adb
+   [Ada]          gtkada-canvas_view-models-layers.adb
+   [Ada]          fontconfig.adb
+   [Ada]          gtkada-style.adb
+   [Ada]          cairo-svg.adb
+   [Ada]          glib-enums.ads
+   [Ada]          gtkada-abstract_tree_model.adb
+   [Ada]          glib-gnodes.adb
+   [Ada]          gtk-tree_model-utils.adb
+   [Ada]          gtkada-canvas.adb
+   [Ada]          gdk-types.ads
+   [Ada]          glib-graphs-layouts.adb
+   [Ada]          glib-graphs.adb
+   [Ada]          gdk-display_manager.adb
+   [Ada]          glib-properties.adb
+   [Ada]          gtk-bindings.adb
+   [Ada]          pango.ads
+   [Ada]          cairo-pdf.adb
+   [Ada]          gtkada-canvas_view-rtrees.adb
+   [Ada]          gtk-rc.adb
+   [Ada]          gtkada-handlers.ads
+   [Ada]          gtkada-canvas_view-models.adb
+   [Ada]          gtkada-mdi.adb
+   [Ada]          gtkada-types.adb
+   [Ada]          gtkada-builder.adb
+   [Ada]          gtkada-canvas_view-astar.adb
+   [Ada]          gtk-type_conversion.adb
+   [Ada]          gdk-visual.adb
+   [Ada]          gdk-threads.ads
+   [Ada]          glib-xml_int.ads
+   [Ada]          glib-gslist.adb
+   [Ada]          glib-unicode.adb
+   [Ada]          cairo-png.adb
+   [Ada]          gtkada-canvas_view-links.adb
+   [Ada]          glib-error.adb
+   [Ada]          gdk-window_attr.adb
+   [Ada]          cairo-font_face.ads
+   [Ada]          glib-xml.adb
+   [Ada]          gdk-property.adb
+   [Ada]          cairo-matrix.ads
+   [Ada]          glib-convert.adb
+   [Ada]          glib-messages.adb
+   [Ada]          gtk-handlers.adb
+   [Ada]          gtkada-canvas_view.adb
+   [Ada]          gtkada-multi_paned.adb
+   [Ada]          gtk.ads
+   [Ada]          gtkada-pixmaps.ads
+   [Ada]          gtkada-multiline_entry.adb
+   [Ada]          gdk-main.adb
+   [Ada]          gdk-pixbuf.adb
+   [Ada]          gdk-input.ads
+   [Ada]          gtkada-intl.adb
+   [Ada]          gdk-keyval.adb
+   [Ada]          glib-generic_properties.adb
+   [Ada]          gdk-color.adb
+   [Ada]          glib-types.adb
+   [Ada]          gdk-dnd.adb
+   [Ada]          glib-glist.adb
+   [Ada]          gdk-cairo.adb
+   [Ada]          cairo-font_options.adb
+   [Ada]          gtk-scrolled_window.adb
+   [Ada]          gdk-seat.adb
+   [Ada]          gtk-builder.adb
+   [Ada]          gtk-color_chooser.adb
+   [Ada]          gtk-gesture_multi_press.adb
+   [Ada]          gtk-scale_button.adb
+   [Ada]          gtk-color_selection.adb
+   [Ada]          gtk-tool_palette.adb
+   [Ada]          gtk-link_button.adb
+   [Ada]          gtk-text_tag_table.adb
+   [Ada]          gtk-about_dialog.adb
+   [Ada]          gtk-toggle_tool_button.adb
+   [Ada]          gdk-display.adb
+   [Ada]          pango-font_family.adb
+   [Ada]          pango-font_map.adb
+   [Ada]          gtk-text_child_anchor.adb
+   [Ada]          gtk-style.adb
+   [Ada]          gtk-menu_tool_button.adb
+   [Ada]          gtk-switch.adb
+   [Ada]          gdk-drag_contexts.adb
+   [Ada]          gtk-gesture_long_press.adb
+   [Ada]          pango-attributes.adb
+   [Ada]          gtk-widget.adb
+   [Ada]          gtk-bin.adb
+   [Ada]          glib-string.adb
+   [Ada]          gtk-cell_editable.adb
+   [Ada]          gtk-radio_button.adb
+   [Ada]          gtk-frame.adb
+   [Ada]          gtk-stack_switcher.adb
+   [Ada]          gtk-cell_renderer_spin.adb
+   [Ada]          gtk-search_bar.adb
+   [Ada]          gtk-tree_sortable.adb
+   [Ada]          gtk-font_selection.adb
+   [Ada]          gtk-cell_area_context.adb
+   [Ada]          gtk-gesture_drag.adb
+   [Ada]          gtk-event_controller.adb
+   [Ada]          gtk-action_bar.adb
+   [Ada]          gtk-font_button.adb
+   [Ada]          gtk-popover.adb
+   [Ada]          gtk-notebook.adb
+   [Ada]          gtk-separator_tool_item.adb
+   [Ada]          gtk-gesture_zoom.adb
+   [Ada]          gtk-dialog.adb
+   [Ada]          glib-notification.adb
+   [Ada]          gdk-drawing_context.adb
+   [Ada]          gtk-spinner.adb
+   [Ada]          gtk-tree_row_reference.adb
+   [Ada]          gtk-check_button.adb
+   [Ada]          gtk-radio_menu_item.adb
+   [Ada]          gtk-recent_chooser_widget.adb
+   [Ada]          gtk-cell_layout.adb
+   [Ada]          gtk-tree_selection.adb
+   [Ada]          gtk-im_context_simple.adb
+   [Ada]          gtk-main.adb
+   [Ada]          gtk-cell_renderer.adb
+   [Ada]          gtk-icon_set.adb
+   [Ada]          gtk-vbutton_box.adb
+   [Ada]          gtk-tree_model.adb
+   [Ada]          gtk-container.adb
+   [Ada]          gtk-page_setup.adb
+   [Ada]          gtk-gradient.adb
+   [Ada]          gtk-image_menu_item.adb
+   [Ada]          gtk-scrollbar.adb
+   [Ada]          gtk-stack.adb
+   [Ada]          gtk-target_entry.adb
+   [Ada]          gtk-separator_menu_item.adb
+   [Ada]          gtk-cell_renderer_pixbuf.adb
+   [Ada]          gtk-icon_source.adb
+   [Ada]          gtk-window.adb
+   [Ada]          gtk-im_multi_context.adb
+   [Ada]          gtk-file_chooser.adb
+   [Ada]          gtk-file_filter.adb
+   [Ada]          gtk-recent_chooser_dialog.adb
+   [Ada]          gtk-recent_chooser.adb
+   [Ada]          gtk-settings.adb
+   [Ada]          gtk-button_box.adb
+   [Ada]          gtk-tree_model_sort.adb
+   [Ada]          gtk-cell_renderer_text.adb
+   [Ada]          gtk-arrow.adb
+   [Ada]          glib-menu_model.adb
+   [Ada]          gtk-text_attributes.adb
+   [Ada]          gtk-css_section.adb
+   [Ada]          gtk-text_tag.adb
+   [Ada]          gtk-gesture.adb
+   [Ada]          gtk-clipboard.adb
+   [Ada]          gtk-list_store.adb
+   [Ada]          gtk-text_iter.adb
+   [Ada]          gdk-cursor.adb
+   [Ada]          glib-option.adb
+   [Ada]          gtk-header_bar.adb
+   [Ada]          gtk-font_chooser_widget.adb
+   [Ada]          pango-coverage.adb
+   [Ada]          gtk-paper_size.adb
+   [Ada]          gtk-icon_view.adb
+   [Ada]          pango-font_face.adb
+   [Ada]          gtk-aspect_frame.adb
+   [Ada]          gdk-device_manager.adb
+   [Ada]          glib-poll.adb
+   [Ada]          gtk-cell_area_box.adb
+   [Ada]          gtk-menu_item.adb
+   [Ada]          gtk-progress_bar.adb
+   [Ada]          gtk-font_chooser.adb
+   [Ada]          gtk-style_provider.adb
+   [Ada]          gtk-overlay.adb
+   [Ada]          gtk-accel_label.adb
+   [Ada]          gtk-drawing_area.adb
+   [Ada]          gtk-print_operation.adb
+   [Ada]          gtk-shortcuts_window.adb
+   [Ada]          gtk-recent_filter.adb
+   [Ada]          gtk-menu_shell.adb
+   [Ada]          pango-font_metrics.adb
+   [Ada]          gtk-accel_map.adb
+   [Ada]          gtk-cell_renderer_spinner.adb
+   [Ada]          gtk-label.adb
+   [Ada]          gtk-scrollable.adb
+   [Ada]          glib-menu.adb
+   [Ada]          gdk-event.adb
+   [Ada]          gtk-paned.adb
+   [Ada]          gtk-icon_theme.adb
+   [Ada]          gtk-combo_box.adb
+   [Ada]          glib-application.adb
+   [Ada]          gtk-menu_bar.adb
+   [Ada]          glib-simple_action_group.adb
+   [Ada]          gtk-action.adb
+   [Ada]          gtk-toggle_button.adb
+   [Ada]          gtk-accel_group.adb
+   [Ada]          gtk-tree_drag_source.adb
+   [Ada]          gdk-rgba.adb
+   [Ada]          gtk-enums.adb
+   [Ada]          gtk-print_operation_preview.adb
+   [Ada]          gdk-frame_clock.adb
+   [Ada]          gtk-calendar.adb
+   [Ada]          glib-list_model.adb
+   [Ada]          gtk-editable.adb
+gtk-enums.adb:38:04: warning: possible aliasing problem for type "Chars_Ptr" [enabled by default]
+gtk-enums.adb:38:04: warning: use -fno-strict-aliasing switch for references [enabled by default]
+gtk-enums.adb:38:04: warning: or use "pragma No_Strict_Aliasing (Chars_Ptr);" [enabled by default]
+   [Ada]          gtk-tree_store.adb
+   [Ada]          pango-tabs.adb
+   [Ada]          gtk-hsv.adb
+   [Ada]          gtk-file_chooser_dialog.adb
+   [Ada]          gdk-window.adb
+   [Ada]          gdk-screen.adb
+   [Ada]          gtk-list_box_row.adb
+   [Ada]          gtk-list_box.adb
+   [Ada]          glib-iochannel.adb
+   [Ada]          gtk-print_context.adb
+   [Ada]          gtk-glarea.adb
+   [Ada]          gtk-application.adb
+   [Ada]          gtk-tool_shell.adb
+   [Ada]          gtk-size_group.adb
+   [Ada]          gtk-grid.adb
+   [Ada]          glib-action.adb
+   [Ada]          gtk-viewport.adb
+   [Ada]          glib-utils.adb
+   [Ada]          gtk-buildable.adb
+   [Ada]          gtk-color_chooser_widget.adb
+   [Ada]          gtk-cell_area.adb
+   [Ada]          pango-font.adb
+   [Ada]          gtk-activatable.adb
+   [Ada]          gtk-stock.adb
+   [Ada]          gtk-ui_manager.adb
+   [Ada]          gtk-color_chooser_dialog.adb
+   [Ada]          gtk-theming_engine.adb
+   [Ada]          gtk-toggle_action.adb
+   [Ada]          gtk-info_bar.adb
+   [Ada]          glib-variant.adb
+   [Ada]          gtk-adjustment.adb
+   [Ada]          gtk-symbolic_color.adb
+   [Ada]          gtk-gesture_swipe.adb
+   [Ada]          gtk-tooltip.adb
+   [Ada]          gtk-volume_button.adb
+   [Ada]          gtk-style_properties.adb
+   [Ada]          gtk-radio_action.adb
+   [Ada]          gtk-combo_box_text.adb
+   [Ada]          gtk-cell_renderer_accel.adb
+   [Ada]          gtk-text_mark.adb
+   [Ada]          gtk-radio_tool_button.adb
+   [Ada]          gtk-check_menu_item.adb
+   [Ada]          gtk-selection_data.adb
+   [Ada]          gtk-table.adb
+   [Ada]          gtk-spin_button.adb
+   [Ada]          glib-action_map.adb
+   [Ada]          gtk-tool_item_group.adb
+   [Ada]          gtk-binding_set.adb
+   [Ada]          glib-simple_action.adb
+   [Ada]          pango-context.adb
+   [Ada]          gtk-tree_model_filter.adb
+   [Ada]          gtk-target_list.adb
+   [Ada]          gtk-recent_info.adb
+   [Ada]          gtk-menu_button.adb
+   [Ada]          gtk-css_provider.adb
+   [Ada]          gtk-alignment.adb
+   [Ada]          gtk-menu.adb
+   [Ada]          gtk-cell_renderer_combo.adb
+   [Ada]          gtk-text_buffer.adb
+   [Ada]          gtk-fixed.adb
+   [Ada]          gtk-text_view.adb
+   [Ada]          gtk-handle_box.adb
+   [Ada]          gtk-action_group.adb
+   [Ada]          gdk-device_tool.adb
+   [Ada]          gtk-message_dialog.adb
+   [Ada]          gtk-tree_view.adb
+   [Ada]          gtk-toolbar.adb
+   [Ada]          gtk-cell_renderer_progress.adb
+   [Ada]          gtk-entry_completion.adb
+   [Ada]          glib-g_icon.adb
+   [Ada]          gtk-gentry.adb
+   [Ada]          gdk-frame_timings.adb
+   [Ada]          gtk-image.adb
+   [Ada]          gtk-tool_item.adb
+   [Ada]          gtk-font_chooser_dialog.adb
+   [Ada]          gtk-file_chooser_button.adb
+   [Ada]          gtk-gesture_pan.adb
+   [Ada]          gtk-level_bar.adb
+   [Ada]          gtk-recent_manager.adb
+   [Ada]          gtk-actionable.adb
+   [Ada]          gtk-flow_box.adb
+   [Ada]          gtk-event_box.adb
+   [Ada]          gtk-misc.adb
+   [Ada]          gtk-cell_renderer_toggle.adb
+   [Ada]          gtk-separator.adb
+   [Ada]          glib-spawn.adb
+   [Ada]          gtk-file_chooser_widget.adb
+   [Ada]          gtk-entry_buffer.adb
+   [Ada]          gtk-style_context.adb
+   [Ada]          gtk-grange.adb
+   [Ada]          pango-layout.adb
+   [Ada]          gtk-status_bar.adb
+   [Ada]          gdk-device.adb
+   [Ada]          gtk-tool_button.adb
+   [Ada]          pango-fontset.adb
+   [Ada]          gtk-hbutton_box.adb
+   [Ada]          gtk-assistant.adb
+   [Ada]          gtk-recent_action.adb
+   [Ada]          gtk-button.adb
+   [Ada]          gdk-monitor.adb
+   [Ada]          gtk-tree_view_column.adb
+   [Ada]          gtk-print_settings.adb
+   [Ada]          gtk-orientable.adb
+   [Ada]          gtk-color_button.adb
+   [Ada]          gtk-status_icon.adb
+   [Ada]          gtk-scale.adb
+   [Ada]          glib-cancellable.adb
+   [Ada]          gtk-expander.adb
+   [Ada]          gtk-gesture_single.adb
+   [Ada]          gtk-layout.adb
+   [Ada]          gtk-invisible.adb
+   [Ada]          gtk-tearoff_menu_item.adb
+   [Ada]          gtk-color_selection_dialog.adb
+   [Ada]          gtk-flow_box_child.adb
+   [Ada]          gtk-im_context.adb
+   [Ada]          gtk-recent_chooser_menu.adb
+   [Ada]          pango-matrix.adb
+   [Ada]          glib-action_group.adb
+   [Ada]          pango-enums.adb
+   [Ada]          pango-language.adb
+   [Ada]          gtk-search_entry.adb
+   [Ada]          gdk-glcontext.adb
+   [Ada]          gtk-offscreen_window.adb
+   [Ada]          gtk-cell_view.adb
+   [Ada]          gtk-application_window.adb
+   [Ada]          gtk-revealer.adb
+   [Ada]          gtk-box.adb
+   [Ada]          gtk-tree_drag_dest.adb
+   [Ada]          gtk-font_selection_dialog.adb
+   [Ada]          gtk-gesture_rotate.adb
+   [Ada]          gtk-icon_factory.adb
+   [C]            misc_generated.c
+   [C]            misc.c
+   [c]            pipe2.c
+   [c]            posix_const.c
+   [Ada]          spawn-channels.adb
+   [Ada]          spawn-string_vectors.ads
+   [Ada]          spawn-environments.adb
+   [Ada]          spawn-posix.ads
+   [Ada]          spawn-processes.adb
+/home/runner/work/alire-crates-ci/alire-crates-ci/test/0f4bba48-4615-4c80-8442-d2b66101ce77/spawn_glib_23.0.0_440f8b8a/alire/cache/dependencies/gtkada_24.0.0_80c56171/src/misc.c: In function ‘ada_g_module_build_path’:
+/home/runner/work/alire-crates-ci/alire-crates-ci/test/0f4bba48-4615-4c80-8442-d2b66101ce77/spawn_glib_23.0.0_440f8b8a/alire/cache/dependencies/gtkada_24.0.0_80c56171/src/misc.c:216:3: warning: ‘g_module_build_path’ is deprecated [-Wdeprecated-declarations]
+  216 |   return g_module_build_path (directory, module_name);
+      |   ^~~~~~
+In file included from /usr/include/glib-2.0/gio/giomodule.h:31,
+                 from /usr/include/glib-2.0/gio/gio.h:102,
+                 from /usr/include/gtk-3.0/gdk/gdkapplaunchcontext.h:28,
+                 from /usr/include/gtk-3.0/gdk/gdk.h:32,
+                 from /home/runner/work/alire-crates-ci/alire-crates-ci/test/0f4bba48-4615-4c80-8442-d2b66101ce77/spawn_glib_23.0.0_440f8b8a/alire/cache/dependencies/gtkada_24.0.0_80c56171/src/misc.c:38:
+/usr/include/glib-2.0/gmodule.h:142:23: note: declared here
+  142 | gchar*                g_module_build_path    (const gchar  *directory,
+      |                       ^~~~~~~~~~~~~~~~~~~
+   [Ada]          spawn.ads
+   [Ada]          spawn-internal__posix.adb
+   [Ada]          spawn-environments-internal__glib.adb
+Build Libraries
+   [gprlib]       gtkada.lexch
+   [gprlib]       spawn_glib.lexch
+   [archive]      libgtkada.a
+   [index]        libgtkada.a
+   [archive]      libspawn_glib.a
+   [index]        libspawn_glib.a
+Build finished successfully in 73.99 seconds.
+
+spawn_glib=23.0.0 successfully retrieved and built.
+Dependencies were solved as follows:
+
+   + gtkada     24.0.0  (new)         
+   + libgtk3    3.24.41 (new,indirect)
+   + make       4.4.1   (new,indirect)
+   + pkg_config 1.9.5   (new,indirect)
+Found declared GPR file: gnat/spawn_glib.gpr

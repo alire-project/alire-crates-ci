@@ -1,0 +1,96 @@
+Test ran at 2026-08-14 00:58:11.658173+00:00
+
+SOLUTION:
+ulid=20240921.0.0: Universally Unique Lexicographically Sortable Identifier
+Origin: source archive ulid-2024-09-21.zip at https://sourceforge.net/projects/ulid-ada/files/ulid-2024-09-21.zip with hash sha512:b7822a403e879c6363551e2f13e6f44a9f78253ab1ec33138070213bca2fc0177c793968566d125845806acc6971ffff5408daafa454eb195a054534e1308dd3
+Properties:
+   Author: Gautier de Montmollin
+   Description: Universally Unique Lexicographically Sortable Identifier
+   Executable: ulid_test
+   License: MIT
+   Long_Description: <img src="https://github.com/ulid/spec/raw/master/logo.png" alt="image" width="100" height="auto">
+
+In a nutshell, a ULID code (Universally Unique Lexicographically Sortable Identifier) is
+a combination of a 48-bit time stamp (most significant part, with a millisecond accuracy),
+and a 80-bit random number (least significant part), totalling 128 bits, that is 16 bytes (octets).
+
+The ULID code generation is sort of UUID (Universally Unique Identifier) system, also know as GUID (Globally Unique Identifier).
+The characteristic of ULID numbers is that they can be compared and sorted by their timestamps.
+
+The package ULID provides a `Generate` function using the method described above, plus a `Generate_Monotonic` function that enables the production of a monotonically increasing sequence of ULID numbers within the same millisecond.
+
+The preferred (canonical) representation of a ULID is a certain version of the Base32 encoding (example of output: 01J80P3NJDN0Y5YX7D05421X0G).
+The ULID package also provides a function `Encode_as_8_4_4_4_12` that outputs a text representation in the usual UUID 8-4-4-4-12 format (like: 01920161-d64d-5a3e-589e-c45df155547b).
+Both formats are also recognized by the `Decode` function.
+
+   Maintainer: gdemont@hotmail.com
+   Maintainers_Logins: zertovitch
+   Name: ulid
+   Project_File: ulid.gpr
+   Tag: ulid
+   Tag: uuid
+   Tag: guid
+   Tag: identifier
+   Tag: timestamp
+   Version: 20240921.0.0
+   Website: https://github.com/zertovitch/ulid
+Dependencies (direct):
+   gnat(>=11 & <2000) | >=2021
+Dependencies (solution):
+   gnat=15.1.2 (gnat_native)
+Dependencies (graph):
+   ulid=20240921.0.0 --> gnat=15.1.2 (gnat_native) ((>=11 & <2000) | >=2021)
+
+
+LOG:
+[alr test] Testing ulid=20240921.0.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get ulid=20240921.0.0
+Note: Deploying ulid=20240921.0.0...
+
+######################################################################## 100.0%
+######################################################################## 100.0%
+######################################################################## 100.0%
+######################################################################## 100.0%
+######################################################################## 100.0%
+
+ulid=20240921.0.0 successfully retrieved.
+Dependencies were solved as follows:
+
+   +b gnat 15.1.2 (new,gnat_native,binary)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building ulid=20240921.0.0/ulid.gpr...
+Setup
+   [mkdir]        object directory for project ULID
+   [mkdir]        exec directory for project ULID
+Compile
+   [Ada]          ulid_test.adb
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+   [Ada]          ulid.adb
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+Bind
+   [gprbind]      ulid_test.bexch
+   [Ada]          ulid_test.ali
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+Link
+   [link]         ulid_test.adb
+ld: library not found for -lSystem
+collect2: error: ld returned 1 exit status
+gprbuild: link of ulid_test.adb failed
+gprbuild: failed command was: /users/runner/.local/share/alire/toolchains/gnat_native_15.1.2_60748c54/bin/gcc ulid_test.o b__ulid_test.o /Users/runner/work/alire-crates-ci/alire-crates-ci/test/4557b8fc-d172-4fbf-aa87-7530578abbaf/ulid_20240921.0.0_b7822a40/obj/ulid.o -L/Users/runner/work/alire-crates-ci/alire-crates-ci/test/4557b8fc-d172-4fbf-aa87-7530578abbaf/ulid_20240921.0.0_b7822a40/obj/ -L/Users/runner/work/alire-crates-ci/alire-crates-ci/test/4557b8fc-d172-4fbf-aa87-7530578abbaf/ulid_20240921.0.0_b7822a40/obj/ -L/users/runner/.local/share/alire/toolchains/gnat_native_15.1.2_60748c54/lib/gcc/aarch64-apple-darwin23.6.0/15.0.1/adalib/ -static-libgcc /users/runner/.local/share/alire/toolchains/gnat_native_15.1.2_60748c54/lib/gcc/aarch64-apple-darwin23.6.0/15.0.1/adalib/libgnat.a -Wl,-rpath,@executable_path/..//obj -Wl,-rpath,@executable_path/../../../../../../..//.local/share/alire/toolchains/gnat_native_15.1.2_60748c54/lib/gcc/aarch64-apple-darwin23.6.0/15.0.1/adalib -o /Users/runner/work/alire-crates-ci/alire-crates-ci/test/4557b8fc-d172-4fbf-aa87-7530578abbaf/ulid_20240921.0.0_b7822a40/bin//ulid_test
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/Users/runner/work/alire-crates-ci/alire-crates-ci/test/4557b8fc-d172-4fbf-aa87-7530578abbaf/ulid_20240921.0.0_b7822a40/ulid.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/Users/runner/work/alire-crates-ci/alire-crates-ci/test/4557b8fc-d172-4fbf-aa87-7530578abbaf/ulid_20240921.0.0_b7822a40/ulid.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+stderr: ALIRE.CHECKED_ERROR
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/Users/runner/work/alire-crates-ci/alire-crates-ci/test/4557b8fc-d172-4fbf-aa87-7530578abbaf/ulid_20240921.0.0_b7822a40/ulid.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
+Load address: 0x100098000
+Call stack traceback locations:
+0x100da40cc 0x100da412c 0x100af866c 0x10073d568 0x1009c2594 0x1009c34f4 0x10090133c 0x1008ffb08 0x10092378c 0x10098356c 0x10098299c 0x100923868 0x100923950 0x10090000c 0x100900174 0x100109730 0x100109070 0x1001091e4 0x1001a6b38 0x1001b1c78 0x10009a9f8 0x10009fa2c
+
+stderr: ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED
+stderr: alire-roots.adb:202
+stderr: raised ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED : alire-roots.adb:202
+Load address: 0x100098000
+Call stack traceback locations:
+0x100da40cc 0x100da412c 0x100901640 0x1008ffb08 0x10092378c 0x10098356c 0x10098299c 0x100923868 0x100923950 0x10090000c 0x100900174 0x100109730 0x100109070 0x1001091e4 0x1001a6b38 0x1001b1c78 0x10009a9f8 0x10009fa2c
+
+ERROR: Compilation failed.

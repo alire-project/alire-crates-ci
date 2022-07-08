@@ -1,0 +1,88 @@
+Test ran at 2026-09-19 01:09:20.965248+00:00
+
+SOLUTION:
+hostarm=26.5.2: CGI provider for Ada Reference Manual (ARM)
+Origin: commit ec3fb45466686869ef050462174dfde1d2d58ab0 from https://github.com/jquorning/hostarm.git
+Properties:
+   Author: Jesper Quorning
+   Description: CGI provider for Ada Reference Manual (ARM)
+   Executable: hostarm
+   License: MIT
+   Long_Description: HostARM is a CGI program providing
+- Ada Reference Manual 2012
+- Ada Reference Manual 2022
+- Annotated Ada Reference Manual 202Y (Draft 5)
+
+HostARM focuses on user friendliness and more modern look of the manuals.
+
+Benefits
+- Search not dependant on external hosts
+- Keypress navigation
+- Shorter URL: Remove two levels of the URL and no html ending
+- Optional stripping of navigation bars
+- Optional modernized navigation bar
+- Alphabet navigation bar in index
+
+   Maintainer: Jesper Quorning <jesper.quorning@gmail.com>
+   Maintainers_Logins: jquorning
+   Name: hostarm
+   Tag: arm
+   Tag: aarm
+   Tag: reference
+   Tag: manual
+   Tag: ada202y
+   Version: 26.5.2
+   Website: https://github.com/jquorning/hostarm
+Dependencies (direct):
+   resources=0.1.0
+   templates_parser=26.0.0
+Dependencies (solution):
+   gnat=16.1.0 (gnat_native)
+   resources=0.1.0
+   templates_parser=26.0.0
+   xmlada=26.0.0
+Dependencies (graph):
+   hostarm=26.5.2          --> resources=0.1.0 (=0.1.0)
+   hostarm=26.5.2          --> templates_parser=26.0.0 (=26.0.0)
+   templates_parser=26.0.0 --> xmlada=26.0.0 (~26.0.0)
+   xmlada=26.0.0           --> gnat=16.1.0 (gnat_native) (>=11)
+
+
+LOG:
+[alr test] Testing hostarm=26.5.2
+[alr test] Spawning retrieval for remote crate: alr -d -n get hostarm=26.5.2
+Note: Deploying hostarm=26.5.2...
+
+hostarm=26.5.2 successfully retrieved.
+Dependencies were solved as follows:
+
+   +b gnat             16.1.0 (new,gnat_native,indirect,binary)
+   +  resources        0.1.0  (new)
+   +  templates_parser 26.0.0 (new)
+   +  xmlada           26.0.0 (new,indirect)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building hostarm=26.5.2/hostarm.gpr...
+Setup
+   [mkdir]        object directory for project Hostarm
+   [mkdir]        exec directory for project Hostarm
+Compile
+   [Ada]          hostarm.adb
+   [Ada]          hostarm_config.ads
+   [Ada]          hostarm_configuration.adb
+   [Ada]          hostarm_dispatcher.adb
+   [Ada]          hostarm_tipue.adb
+   [Ada]          hostarm_tools.adb
+   [Ada]          hostarm_cookie.adb
+   [Ada]          hostarm_navigate.adb
+   [Ada]          hostarm_pyning.adb
+   [Ada]          hostarm_rfc3875.ads
+   [Ada]          cgi.adb
+   [Ada]          hostarm_modern.adb
+Bind
+   [gprbind]      hostarm.bexch
+   [Ada]          hostarm.ali
+Link
+   [link]         hostarm.adb
+Success: Build finished successfully in 1.31 seconds.
+Found declared GPR file: hostarm.gpr
+[alr test] Test completed SUCCESSFULLY

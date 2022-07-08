@@ -1,0 +1,689 @@
+badge: false
+crate: file_formats_java_class
+creation_timestamp: 1739190154.7152689
+distro: ubuntu-24.04
+duration: 1.9377308240000275
+gnat: 10.3.2
+last_attempt: 2026-07-31 01:08:16.259084+00:00
+log:
+- 'Test ran at 2026-07-31 01:08:16.259050+00:00
+
+
+  '
+- 'SOLUTION:
+
+  '
+- 'file_formats_java_class=7.0.0: File format reader for the Java programming language
+  CLASS file format
+
+  '
+- 'Origin: commit 1d232835ecd6829259d9124859fcaf62f111f924 from https://github.com/Bread-Experts-Group/file_formats_java_class.git
+
+  '
+- 'Properties:
+
+  '
+- '   Author: Miko Elbrecht
+
+  '
+- '   Description: File format reader for the Java programming language CLASS file
+  format
+
+  '
+- '   License: Apache-2.0 WITH LLVM-exception
+
+  '
+- '   Long_Description: `file_formats_java_class` provides the facilities for reading
+  CLASS files defined
+
+  '
+- 'in the [Java Virtual Machine Specification](https://docs.oracle.com/javase/specs/),
+
+  '
+- '[Java SE 7, CLASS major file version 51](https://docs.oracle.com/javase/specs/jvms/se7/html/index.html),
+
+  '
+- '[chapter 4](https://docs.oracle.com/javase/specs/jvms/se7/html/jvms-4.html).
+
+  '
+- '
+
+  '
+- 'Supported Elements (Java SE 7)
+
+  '
+- '------------------------------
+
+  '
+- '- Class Access Flags (Table 4.1)
+
+  '
+- '  - `ACC_PUBLIC`
+
+  '
+- '  - `ACC_FINAL`
+
+  '
+- '  - `ACC_SUPER`
+
+  '
+- '  - `ACC_INTERFACE`
+
+  '
+- '  - `ACC_ABSTRACT`
+
+  '
+- '  - `ACC_SYNTHETIC`
+
+  '
+- '  - `ACC_ANNOTATION`
+
+  '
+- '  - `ACC_ENUM`
+
+  '
+- '- Constant Pool (Table 4.3)
+
+  '
+- '  - `CONSTANT_Class_info`
+
+  '
+- '  - `CONSTANT_Fieldref_info`
+
+  '
+- '  - `CONSTANT_Methodref_info`
+
+  '
+- '  - `CONSTANT_InterfaceMethodref_info`
+
+  '
+- '  - `CONSTANT_String_info`
+
+  '
+- '  - `CONSTANT_Integer_info`
+
+  '
+- '  - `CONSTANT_Float_info`
+
+  '
+- '  - `CONSTANT_Long_info`
+
+  '
+- '  - `CONSTANT_Double_info`
+
+  '
+- '  - `CONSTANT_NameAndType_info`
+
+  '
+- '  - `CONSTANT_Utf8_info`
+
+  '
+- '  - `CONSTANT_MethodHandle_info`
+
+  '
+- '  - `CONSTANT_MethodType_info`
+
+  '
+- '  - `CONSTANT_InvokeDynamic_info`
+
+  '
+- '- Field Access Flags (Table 4.4)
+
+  '
+- '  - `ACC_PUBLIC`
+
+  '
+- '  - `ACC_PRIVATE`
+
+  '
+- '  - `ACC_PROTECTED`
+
+  '
+- '  - `ACC_STATIC`
+
+  '
+- '  - `ACC_FINAL`
+
+  '
+- '  - `ACC_VOLATILE`
+
+  '
+- '  - `ACC_TRANSIENT`
+
+  '
+- '  - `ACC_SYNTHETIC`
+
+  '
+- '  - `ACC_ENUM`
+
+  '
+- '- Method Access Flags (Table 4.5)
+
+  '
+- '  - `ACC_PUBLIC`
+
+  '
+- '  - `ACC_PRIVATE`
+
+  '
+- '  - `ACC_PROTECTED`
+
+  '
+- '  - `ACC_STATIC`
+
+  '
+- '  - `ACC_FINAL`
+
+  '
+- '  - `ACC_SYNCHRONIZED`
+
+  '
+- '  - `ACC_BRIDGE`
+
+  '
+- '  - `ACC_VARARGS`
+
+  '
+- '  - `ACC_NATIVE`
+
+  '
+- '  - `ACC_ABSTRACT`
+
+  '
+- '  - `ACC_STRICT`
+
+  '
+- '  - `ACC_SYNTHETIC`
+
+  '
+- '- Attributes (Table 4.6)
+
+  '
+- '  - `ConstantValue`
+
+  '
+- '  - `Code`
+
+  '
+- '  - `StackMapTable`
+
+  '
+- '  - `Exceptions`
+
+  '
+- '  - `InnerClasses`
+
+  '
+- '  - `EnclosingMethod`
+
+  '
+- '  - `Synthetic`
+
+  '
+- '  - `Signature`
+
+  '
+- '  - `SourceFile`
+
+  '
+- '  - `SourceDebugExtension`
+
+  '
+- '  - `LineNumberTable`
+
+  '
+- '  - `LocalVariableTable`
+
+  '
+- '  - `LocalVariableTypeTable`
+
+  '
+- '  - `Deprecated`
+
+  '
+- '  - `RuntimeVisibleAnnotations`
+
+  '
+- '  - `RuntimeInvisibleAnnotations`
+
+  '
+- '  - `RuntimeVisibleParameterAnnotations`
+
+  '
+- '  - `RuntimeInvisibleParameterAnnotations`
+
+  '
+- '  - `AnnotationDefault`
+
+  '
+- '  - `BootstrapMethods`
+
+  '
+- '  - `Other` - Used for unrecognized/private attributes
+
+  '
+- '  - **NOTE:** All restrictions put in place of each attribute for determining the
+  validity of a CLASS file may not be fully implemented at the current time.
+
+  '
+- '
+
+  '
+- 'Example Use
+
+  '
+- '-----------
+
+  '
+- "All pertinent types and subprograms are available within the package \n"
+- '`File_Formats_Java_Class`. Reading `Class_File` is done primarily through the `Input`
+  aspect,
+
+  '
+- 'as shown below.
+
+  '
+- '```ada
+
+  '
+- 'with Ada.Text_IO;
+
+  '
+- '
+
+  '
+- 'with File_Formats_Java_Class;
+
+  '
+- 'use  File_Formats_Java_Class;
+
+  '
+- '
+
+  '
+- 'procedure Read_Class_File is
+
+  '
+- '    F : File_Type;
+
+  '
+- '    S : Stream_Access;
+
+  '
+- 'begin
+
+  '
+- '    Open (F, In_File, "Example.class");
+
+  '
+- '    S := Stream (F);
+
+  '
+- '    Ada.Text_IO.Put_Line (Class_File''Input (S));
+
+  '
+- '    Close (F);
+
+  '
+- 'end Read_Class_File;
+
+  '
+- '```
+
+  '
+- '
+
+  '
+- 'Development Status
+
+  '
+- '------------------
+
+  '
+- 'This crate does not yet define operations for writing to CLASS files, but this
+  is a priority.
+
+  '
+- 'After writing is complete, this crate will be updated to support CLASS files of
+  Java SE 8+.
+
+  '
+- 'You are free to report issues and contribute at the crate''s [GitHub repository](https://github.com/Bread-Experts-Group/file_formats_java_class).
+
+  '
+- '
+
+  '
+- '   Maintainer: Miko Elbrecht <pmt.mailservice@gmail.com>
+
+  '
+- '   Maintainers_Logins: ATPStorages
+
+  '
+- '   Name: file_formats_java_class
+
+  '
+- '   Tag: file
+
+  '
+- '   Tag: formats
+
+  '
+- '   Tag: java
+
+  '
+- '   Tag: class
+
+  '
+- '   Version: 7.0.0
+
+  '
+- '   Website: https://github.com/Bread-Experts-Group/file_formats_java_class
+
+  '
+- 'Dependencies (direct):
+
+  '
+- '   byteflippers^1.0.0
+
+  '
+- 'Dependencies (solution):
+
+  '
+- '   byteflippers=1.1.0
+
+  '
+- 'Dependencies (graph):
+
+  '
+- '   file_formats_java_class=7.0.0 --> byteflippers=1.1.0 (^1.0.0)
+
+  '
+- '
+
+  '
+- '
+
+  LOG:
+
+  '
+- '[alr test] Testing file_formats_java_class=7.0.0
+
+  '
+- '[alr test] Spawning retrieval for remote crate: alr -d -n get file_formats_java_class=7.0.0
+
+  '
+- 'Note: Deploying file_formats_java_class=7.0.0...
+
+  '
+- 'Note: Deploying byteflippers=1.1.0...
+
+  '
+- '
+
+  '
+- 'file_formats_java_class=7.0.0 successfully retrieved.
+
+  '
+- 'Dependencies were solved as follows:
+
+  '
+- '
+
+  '
+- '   + byteflippers 1.1.0 (new)
+
+  '
+- '[alr test] Spawning default test for remote crate: alr -d -n build --release --
+  -cargs:Ada -gnatwn
+
+  '
+- 'Note: Building file_formats_java_class=7.0.0/file_formats_java_class.gpr...
+
+  '
+- 'Setup
+
+  '
+- '   [mkdir]        object directory for project Byteflippers
+
+  '
+- '   [mkdir]        library directory for project Byteflippers
+
+  '
+- '   [mkdir]        object directory for project File_Formats_Java_Class
+
+  '
+- '   [mkdir]        library directory for project File_Formats_Java_Class
+
+  '
+- 'Compile
+
+  '
+- '   [Ada]          byteflippers_config.ads
+
+  '
+- '   [Ada]          byteflipper_generics.adb
+
+  '
+- '   [Ada]          byteflippers.ads
+
+  '
+- '   [Ada]          file_formats_java_class_config.ads
+
+  '
+- 'gnat1: invalid switch: -gnat2022
+
+  '
+- 'gnat1: invalid switch: -gnat2022
+
+  '
+- 'gnat1: invalid switch: -gnat2022
+
+  '
+- '
+
+  '
+- '   compilation of byteflippers.ads failed
+
+  '
+- '   compilation of byteflipper_generics.adb failed
+
+  '
+- '   compilation of byteflippers_config.ads failed
+
+  '
+- '
+
+  '
+- 'gprbuild: *** compilation phase failed
+
+  '
+- 'stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/003941df-f7c5-4630-8b3f-71f829070bcf/file_formats_java_class_7.0.0_1d232835/file_formats_java_class.gpr",
+  "-cargs:Ada", "-gnatwn"] exited with code 4
+
+  '
+- 'ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/003941df-f7c5-4630-8b3f-71f829070bcf/file_formats_java_class_7.0.0_1d232835/file_formats_java_class.gpr",
+  "-cargs:Ada", "-gnatwn"] exited with code 4
+
+  '
+- 'stderr: ALIRE.CHECKED_ERROR
+
+  '
+- 'stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/003941df-f7c5-4630-8b3f-71f829070bcf/file_formats_java_class_7.0.0_1d232835/file_formats_java_class.gpr",
+  "-cargs:Ada", "-gnatwn"] exited with code 4
+
+  '
+- 'stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
+
+  '
+- '[/home/runner/work/alire-crates-ci/alire-crates-ci/alire_install/bin/alr]
+
+  '
+- '0xe75bc6 Alire.Raise_Checked_Error at alire.adb:284
+
+  '
+- '0xac1a54 Alire.Os_Lib.Subprocess.Checked_Spawn at alire-os_lib-subprocess.adb:111
+
+  '
+- '0xd40276 Alire.Spawn.Command at alire-spawn.adb:22
+
+  '
+- '0xd412ee Alire.Spawn.Gprbuild at alire-spawn.adb:68
+
+  '
+- '0xc748cb Alire.Roots.Build at alire-roots.adb:189
+
+  '
+- '0xc7301a Alire.Roots.Build at alire-roots.adb:255
+
+  '
+- '0xc9832b Alire.Roots.Traverse at alire-roots.adb:2143
+
+  '
+- '0xcfee85 Alire.Solutions.Traverse.Visit at alire-solutions.adb:1472
+
+  '
+- '0xcfdfcc Alire.Solutions.Traverse at alire-solutions.adb:1555
+
+  '
+- '0xc9841e Alire.Roots.Traverse at alire-roots.adb:2147
+
+  '
+- '0xc984dd Alire.Roots.Traverse at alire-roots.adb:2127
+
+  '
+- '0xc7359b Alire.Roots.Build at alire-roots.adb:286
+
+  '
+- '0xc736d7 Alire.Roots.Build at alire-roots.adb:114
+
+  '
+- '0x49aa0d Alr.Commands.Build.Execute at alr-commands-build.adb:145
+
+  '
+- '0x49a36d Alr.Commands.Build.Execute at alr-commands-build.adb:113
+
+  '
+- '0x49a51f Alr.Commands.Build.Execute at alr-commands-build.adb:54
+
+  '
+- '0x53bbcc Alr.Commands.Sub_Cmd.Execute at clic-subcommand-instance.adb:749
+
+  '
+- '0x5472be Alr.Commands.Execute at alr-commands.adb:632
+
+  '
+- '0x43d48a Alr.Main at alr-main.adb:13
+
+  '
+- '0x4403a3 Main at b__alr-main.adb:2445
+
+  '
+- '[/lib/x86_64-linux-gnu/libc.so.6]
+
+  '
+- '0x7fd22702a1c8
+
+  '
+- '0x7fd22702a289
+
+  '
+- '[/home/runner/work/alire-crates-ci/alire-crates-ci/alire_install/bin/alr]
+
+  '
+- '0x43d323 _start at ???
+
+  '
+- '0xfffffffffffffffe
+
+  '
+- '
+
+  '
+- 'stderr: ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED
+
+  '
+- 'stderr: alire-roots.adb:202
+
+  '
+- 'stderr: raised ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED : alire-roots.adb:202
+
+  '
+- '[/home/runner/work/alire-crates-ci/alire-crates-ci/alire_install/bin/alr]
+
+  '
+- '0xc74cc7 Alire.Roots.Build at alire-roots.adb:202
+
+  '
+- '0xc7301a Alire.Roots.Build at alire-roots.adb:255
+
+  '
+- '0xc9832b Alire.Roots.Traverse at alire-roots.adb:2143
+
+  '
+- '0xcfee85 Alire.Solutions.Traverse.Visit at alire-solutions.adb:1472
+
+  '
+- '0xcfdfcc Alire.Solutions.Traverse at alire-solutions.adb:1555
+
+  '
+- '0xc9841e Alire.Roots.Traverse at alire-roots.adb:2147
+
+  '
+- '0xc984dd Alire.Roots.Traverse at alire-roots.adb:2127
+
+  '
+- '0xc7359b Alire.Roots.Build at alire-roots.adb:286
+
+  '
+- '0xc736d7 Alire.Roots.Build at alire-roots.adb:114
+
+  '
+- '0x49aa0d Alr.Commands.Build.Execute at alr-commands-build.adb:145
+
+  '
+- '0x49a36d Alr.Commands.Build.Execute at alr-commands-build.adb:113
+
+  '
+- '0x49a51f Alr.Commands.Build.Execute at alr-commands-build.adb:54
+
+  '
+- '0x53bbcc Alr.Commands.Sub_Cmd.Execute at clic-subcommand-instance.adb:749
+
+  '
+- '0x5472be Alr.Commands.Execute at alr-commands.adb:632
+
+  '
+- '0x43d48a Alr.Main at alr-main.adb:13
+
+  '
+- '0x4403a3 Main at b__alr-main.adb:2445
+
+  '
+- '[/lib/x86_64-linux-gnu/libc.so.6]
+
+  '
+- '0x7fd22702a1c8
+
+  '
+- '0x7fd22702a289
+
+  '
+- '[/home/runner/work/alire-crates-ci/alire-crates-ci/alire_install/bin/alr]
+
+  '
+- '0x43d323 _start at ???
+
+  '
+- '0xfffffffffffffffe
+
+  '
+- '
+
+  '
+- 'ERROR: Compilation failed.
+
+  '
+platform: linux
+status: failing
+version: 7.0.0

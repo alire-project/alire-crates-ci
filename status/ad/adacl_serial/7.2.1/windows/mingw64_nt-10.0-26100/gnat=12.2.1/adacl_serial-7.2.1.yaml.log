@@ -1,0 +1,202 @@
+Test ran at 2026-08-28 03:54:42.460040+00:00
+
+SOLUTION:
+adacl_serial=7.2.1: SPARK-friendly character and string I/O helpers for GNAT serial ports
+Origin: source archive adacl_serial-7.2.1.tgz at https://sourceforge.net/projects/adacl/files/Alire/adacl_serial-7.2.1.tgz with hashes sha256:a26641a601db3703fabd9e250e7f67c12c1a3e6554f8fb1ef5d89744edab43c3, sha512:681dd4a01056389da8a0735efa30f2212e260bff4bbf3ca3f10abba8ac0526890ccdf8ae151309f990212a631b976deec248940a28ef460ffac3d4ec36320420
+Properties:
+   case OS is
+      when Linux => Test run: /bin/bash ci-verify.sh (from ${CRATE_ROOT}/.)
+      when Macos => Test run: /bin/bash ci-verify.sh (from ${CRATE_ROOT}/.)
+      when Windows => Test run: powershell -ExecutionPolicy Bypass -File ci-verify.ps1 (from ${CRATE_ROOT}/.)
+      when others => (empty)
+   Author: Martin Krischik <krischik@users.sourceforge.net>
+   Build Switches: 
+   Configuration: no modifiers
+   Description: SPARK-friendly character and string I/O helpers for GNAT serial ports
+   License: GPL-3.0-or-later
+   Long_Description: Thin, SPARK-friendly helpers for character and string I/O on a
+GNAT.Serial_Communications port.
+
+The package is deliberately compact - it contains only AdaCL.Serial_IO.
+
+It extends GNAT.Serial_Communications.Serial_Port (itself a descendant of Ada.Streams.Root_Stream_Type) with a
+null-record derivation, turning the type into a true class.  Consequently all operations can be written with the
+convenient Class.Method syntax (Port.Get, Port.Put_Line, Port.Expect, ...).
+
+Provided facilities:
+* Conversion helpers between Stream_Element / Stream_Element_Array and Character / String
+* Classic Get / Put / Get_Line / Put_Line operations
+* High-level Expect procedures (discard or capture skipped text until a given sequence arrives)
+* Full SPARK contracts; the package is proven to SPARK bronze level
+
+Intended for console-style protocols used by classic and modern retro calculators (SwissMicros DM-series, HP-IL
+emulators, etc.).
+
+Licensed under the GNU Library General Public License version 3 (or later).
+Integrates with the Ada Class Library (AdaCL).
+
+   Maintainer: Martin Krischik <krischik@users.sourceforge.net>
+   Maintainers_Logins: krischik
+   Name: adacl_serial
+   Tag: library
+   Tag: serial
+   Tag: io
+   Tag: streams
+   Tag: communication
+   Tag: spark
+   Tag: ada2022
+   Version: 7.2.1
+   Website: https://sourceforge.net/projects/adacl/
+Dependencies (direct):
+   adacl^7.2
+Dependencies (solution):
+   adacl=7.2.1
+Dependencies (graph):
+   adacl_serial=7.2.1 --> adacl=7.2.1 (^7.2)
+
+
+LOG:
+=== Ada CI Verification ===
+=== Prove Log Off ===
+Directory: prove
+Updating dependencies...
+Dependencies automatically updated as follows:
+
+   +  adacl     7.2.1  (new)
+   +b gnatprove 16.1.0 (new,binary)
+Note: Deploying gnatprove=16.1.0...
+
+#=#=#                                                                          
+###                                                                        4.5%
+########                                                                  12.5%
+################                                                          23.2%
+###################                                                       27.5%
+#######################                                                   32.5%
+############################                                              39.0%
+################################                                          44.7%
+###################################                                       49.8%
+#######################################                                   54.9%
+#############################################                             62.8%
+#################################################                         68.5%
+#####################################################                     74.1%
+##########################################################                81.7%
+#############################################################             85.4%
+#################################################################         91.3%
+######################################################################    97.7%
+######################################################################## 100.0%
+Building with validation...
+Note: Building adacl_serial_prove=7.2.1/adacl_serial_prove.gpr...
+"obj\validation" created
+"bin\validation" created
+C:\Users\runneradmin\AppData\Local\alire\cache\builds\adacl_7.2.1_0da4360d\5e3969c2f7d3059ca0e26fee71294ea15f6d151aff7f093ab3b644a40a167e80\src\adacl-calendar.ads:78:62: (style) trailing spaces not permitted
+C:\Users\runneradmin\AppData\Local\alire\cache\builds\adacl_7.2.1_0da4360d\5e3969c2f7d3059ca0e26fee71294ea15f6d151aff7f093ab3b644a40a167e80\src\adacl-calendar.ads:91:34: warning: lower bound test optimized away [enabled by default]
+C:\Users\runneradmin\AppData\Local\alire\cache\builds\adacl_7.2.1_0da4360d\5e3969c2f7d3059ca0e26fee71294ea15f6d151aff7f093ab3b644a40a167e80\src\adacl-calendar.ads:91:34: warning: value is known to be in range [enabled by default]
+C:\Users\runneradmin\AppData\Local\alire\cache\builds\adacl_7.2.1_0da4360d\5e3969c2f7d3059ca0e26fee71294ea15f6d151aff7f093ab3b644a40a167e80\src\adacl-calendar.ads:107:34: warning: lower bound test optimized away [enabled by default]
+C:\Users\runneradmin\AppData\Local\alire\cache\builds\adacl_7.2.1_0da4360d\5e3969c2f7d3059ca0e26fee71294ea15f6d151aff7f093ab3b644a40a167e80\src\adacl-calendar.ads:107:34: warning: value is known to be in range [enabled by default]
+C:\Users\runneradmin\AppData\Local\alire\cache\builds\adacl_7.2.1_0da4360d\5e3969c2f7d3059ca0e26fee71294ea15f6d151aff7f093ab3b644a40a167e80\src\adacl-calendar.ads:123:34: warning: lower bound test optimized away [enabled by default]
+C:\Users\runneradmin\AppData\Local\alire\cache\builds\adacl_7.2.1_0da4360d\5e3969c2f7d3059ca0e26fee71294ea15f6d151aff7f093ab3b644a40a167e80\src\adacl-calendar.ads:123:34: warning: value is known to be in range [enabled by default]
+C:\Users\runneradmin\AppData\Local\alire\cache\builds\adacl_7.2.1_0da4360d\5e3969c2f7d3059ca0e26fee71294ea15f6d151aff7f093ab3b644a40a167e80\src\adacl-calendar.ads:170:34: warning: lower bound test optimized away [enabled by default]
+C:\Users\runneradmin\AppData\Local\alire\cache\builds\adacl_7.2.1_0da4360d\5e3969c2f7d3059ca0e26fee71294ea15f6d151aff7f093ab3b644a40a167e80\src\adacl-calendar.ads:170:34: warning: value is known to be in range [enabled by default]
+C:\Users\runneradmin\AppData\Local\alire\cache\builds\adacl_7.2.1_0da4360d\5e3969c2f7d3059ca0e26fee71294ea15f6d151aff7f093ab3b644a40a167e80\src\adacl-calendar.ads:189:34: warning: lower bound test optimized away [enabled by default]
+C:\Users\runneradmin\AppData\Local\alire\cache\builds\adacl_7.2.1_0da4360d\5e3969c2f7d3059ca0e26fee71294ea15f6d151aff7f093ab3b644a40a167e80\src\adacl-calendar.ads:189:34: warning: value is known to be in range [enabled by default]
+C:\Users\runneradmin\AppData\Local\alire\cache\builds\adacl_7.2.1_0da4360d\5e3969c2f7d3059ca0e26fee71294ea15f6d151aff7f093ab3b644a40a167e80\src\adacl-calendar.ads:208:34: warning: lower bound test optimized away [enabled by default]
+C:\Users\runneradmin\AppData\Local\alire\cache\builds\adacl_7.2.1_0da4360d\5e3969c2f7d3059ca0e26fee71294ea15f6d151aff7f093ab3b644a40a167e80\src\adacl-calendar.ads:208:34: warning: value is known to be in range [enabled by default]
+C:\Users\runneradmin\AppData\Local\alire\cache\builds\adacl_7.2.1_0da4360d\5e3969c2f7d3059ca0e26fee71294ea15f6d151aff7f093ab3b644a40a167e80\src\adacl-trace.ads:189:07: warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+C:\Users\runneradmin\AppData\Local\alire\cache\builds\adacl_7.2.1_0da4360d\5e3969c2f7d3059ca0e26fee71294ea15f6d151aff7f093ab3b644a40a167e80\src\adacl-trace.ads:203:07: warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+C:\Users\runneradmin\AppData\Local\alire\cache\builds\adacl_7.2.1_0da4360d\5e3969c2f7d3059ca0e26fee71294ea15f6d151aff7f093ab3b644a40a167e80\src\adacl-trace.ads:217:07: warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+C:\Users\runneradmin\AppData\Local\alire\cache\builds\adacl_7.2.1_0da4360d\5e3969c2f7d3059ca0e26fee71294ea15f6d151aff7f093ab3b644a40a167e80\src\adacl-trace.ads:231:07: warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+C:\Users\runneradmin\AppData\Local\alire\cache\builds\adacl_7.2.1_0da4360d\5e3969c2f7d3059ca0e26fee71294ea15f6d151aff7f093ab3b644a40a167e80\src\adacl-trace.ads:248:15: warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+C:\Users\runneradmin\AppData\Local\alire\cache\builds\adacl_7.2.1_0da4360d\5e3969c2f7d3059ca0e26fee71294ea15f6d151aff7f093ab3b644a40a167e80\src\adacl-trace.ads:266:07: warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+[Ada Compile]     dummy-main.adb
+[Ada Compile]     dummy.adb
+[Ada Bind]        dummy-main
+[Ada Post-Bind]   b__dummy-main.adb
+[Link]            dummy-main.exe
+Success: Build finished successfully in 2.34 seconds.
+Running GNATprove...
+Phase 1 of 3: generation of data representation information ...
+Phase 2 of 3: generation of Global contracts ...
+Phase 3 of 3: analysis of data and information flow ...
+Success: all checks proved (47 checks).
+Summary logged in D:\a\alire-crates-ci\alire-crates-ci\test\6609944c-1b5d-4861-b009-9cc6174e301a\adacl_serial_7.2.1_a26641a6\prove\obj\validation\gnatprove\gnatprove.out
+SUCCESS: Prove Log Off
+--------------------------------------------------
+=== Test Log Off ===
+Directory: test
+Updating dependencies...
+Dependencies automatically updated as follows:
+
+   +  adacl        7.2.1  (new,indirect)
+   +. adacl_serial 7.2.1  (new,path=..)
+   +  aunit        26.0.0 (new)
+Building with validation...
+Note: Building adacl_serial_test=7.2.1/adacl_serial_test.gpr...
+"..\obj\validation" created
+"..\lib" created
+"obj\validation" created
+"bin\validation" created
+C:\Users\runneradmin\AppData\Local\alire\cache\builds\adacl_7.2.1_0da4360d\5e3969c2f7d3059ca0e26fee71294ea15f6d151aff7f093ab3b644a40a167e80\src\adacl-calendar.ads:78:62: (style) trailing spaces not permitted
+C:\Users\runneradmin\AppData\Local\alire\cache\builds\adacl_7.2.1_0da4360d\5e3969c2f7d3059ca0e26fee71294ea15f6d151aff7f093ab3b644a40a167e80\src\adacl-calendar.ads:91:34: warning: lower bound test optimized away [enabled by default]
+C:\Users\runneradmin\AppData\Local\alire\cache\builds\adacl_7.2.1_0da4360d\5e3969c2f7d3059ca0e26fee71294ea15f6d151aff7f093ab3b644a40a167e80\src\adacl-calendar.ads:91:34: warning: value is known to be in range [enabled by default]
+C:\Users\runneradmin\AppData\Local\alire\cache\builds\adacl_7.2.1_0da4360d\5e3969c2f7d3059ca0e26fee71294ea15f6d151aff7f093ab3b644a40a167e80\src\adacl-calendar.ads:107:34: warning: lower bound test optimized away [enabled by default]
+C:\Users\runneradmin\AppData\Local\alire\cache\builds\adacl_7.2.1_0da4360d\5e3969c2f7d3059ca0e26fee71294ea15f6d151aff7f093ab3b644a40a167e80\src\adacl-calendar.ads:107:34: warning: value is known to be in range [enabled by default]
+C:\Users\runneradmin\AppData\Local\alire\cache\builds\adacl_7.2.1_0da4360d\5e3969c2f7d3059ca0e26fee71294ea15f6d151aff7f093ab3b644a40a167e80\src\adacl-calendar.ads:123:34: warning: lower bound test optimized away [enabled by default]
+C:\Users\runneradmin\AppData\Local\alire\cache\builds\adacl_7.2.1_0da4360d\5e3969c2f7d3059ca0e26fee71294ea15f6d151aff7f093ab3b644a40a167e80\src\adacl-calendar.ads:123:34: warning: value is known to be in range [enabled by default]
+C:\Users\runneradmin\AppData\Local\alire\cache\builds\adacl_7.2.1_0da4360d\5e3969c2f7d3059ca0e26fee71294ea15f6d151aff7f093ab3b644a40a167e80\src\adacl-calendar.ads:170:34: warning: lower bound test optimized away [enabled by default]
+C:\Users\runneradmin\AppData\Local\alire\cache\builds\adacl_7.2.1_0da4360d\5e3969c2f7d3059ca0e26fee71294ea15f6d151aff7f093ab3b644a40a167e80\src\adacl-calendar.ads:170:34: warning: value is known to be in range [enabled by default]
+C:\Users\runneradmin\AppData\Local\alire\cache\builds\adacl_7.2.1_0da4360d\5e3969c2f7d3059ca0e26fee71294ea15f6d151aff7f093ab3b644a40a167e80\src\adacl-calendar.ads:189:34: warning: lower bound test optimized away [enabled by default]
+C:\Users\runneradmin\AppData\Local\alire\cache\builds\adacl_7.2.1_0da4360d\5e3969c2f7d3059ca0e26fee71294ea15f6d151aff7f093ab3b644a40a167e80\src\adacl-calendar.ads:189:34: warning: value is known to be in range [enabled by default]
+C:\Users\runneradmin\AppData\Local\alire\cache\builds\adacl_7.2.1_0da4360d\5e3969c2f7d3059ca0e26fee71294ea15f6d151aff7f093ab3b644a40a167e80\src\adacl-calendar.ads:208:34: warning: lower bound test optimized away [enabled by default]
+C:\Users\runneradmin\AppData\Local\alire\cache\builds\adacl_7.2.1_0da4360d\5e3969c2f7d3059ca0e26fee71294ea15f6d151aff7f093ab3b644a40a167e80\src\adacl-calendar.ads:208:34: warning: value is known to be in range [enabled by default]
+C:\Users\runneradmin\AppData\Local\alire\cache\builds\adacl_7.2.1_0da4360d\5e3969c2f7d3059ca0e26fee71294ea15f6d151aff7f093ab3b644a40a167e80\src\adacl-trace.ads:189:07: warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+C:\Users\runneradmin\AppData\Local\alire\cache\builds\adacl_7.2.1_0da4360d\5e3969c2f7d3059ca0e26fee71294ea15f6d151aff7f093ab3b644a40a167e80\src\adacl-trace.ads:203:07: warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+C:\Users\runneradmin\AppData\Local\alire\cache\builds\adacl_7.2.1_0da4360d\5e3969c2f7d3059ca0e26fee71294ea15f6d151aff7f093ab3b644a40a167e80\src\adacl-trace.ads:217:07: warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+C:\Users\runneradmin\AppData\Local\alire\cache\builds\adacl_7.2.1_0da4360d\5e3969c2f7d3059ca0e26fee71294ea15f6d151aff7f093ab3b644a40a167e80\src\adacl-trace.ads:231:07: warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+C:\Users\runneradmin\AppData\Local\alire\cache\builds\adacl_7.2.1_0da4360d\5e3969c2f7d3059ca0e26fee71294ea15f6d151aff7f093ab3b644a40a167e80\src\adacl-trace.ads:248:15: warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+C:\Users\runneradmin\AppData\Local\alire\cache\builds\adacl_7.2.1_0da4360d\5e3969c2f7d3059ca0e26fee71294ea15f6d151aff7f093ab3b644a40a167e80\src\adacl-trace.ads:266:07: warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+[Ada Compile]     adacl-serial_io.adb
+[Ada Compile]     adacl_serial_config.ads
+[Ada Compile]     adacl_serial_test-main.adb
+[Ada Compile]     adacl_serial_test-suite.adb
+[Ada Compile]     adacl_serial_test.ads
+D:\a\alire-crates-ci\alire-crates-ci\test\6609944c-1b5d-4861-b009-9cc6174e301a\adacl_serial_7.2.1_a26641a6\src\adacl-serial_io.adb:307:121: (style) this line is too long
+D:\a\alire-crates-ci\alire-crates-ci\test\6609944c-1b5d-4861-b009-9cc6174e301a\adacl_serial_7.2.1_a26641a6\src\adacl-serial_io.ads:135:15: warning: "Side_Effects" is not a valid aspect identifier [enabled by default]
+[Archive]         libAdaCL_Serial.a
+[Ada Bind]        adacl_serial_test-main
+[Ada Post-Bind]   b__adacl_serial_test-main.adb
+[Link]            adacl_serial_test-main.exe
+Success: Build finished successfully in 3.05 seconds.
+Running tests...
+Note: Building adacl_serial_test=7.2.1/adacl_serial_test.gpr...
+C:\Users\runneradmin\AppData\Local\alire\cache\builds\adacl_7.2.1_0da4360d\5e3969c2f7d3059ca0e26fee71294ea15f6d151aff7f093ab3b644a40a167e80\src\adacl-calendar.ads:78:62: (style) trailing spaces not permitted
+C:\Users\runneradmin\AppData\Local\alire\cache\builds\adacl_7.2.1_0da4360d\5e3969c2f7d3059ca0e26fee71294ea15f6d151aff7f093ab3b644a40a167e80\src\adacl-calendar.ads:91:34: warning: lower bound test optimized away [enabled by default]
+C:\Users\runneradmin\AppData\Local\alire\cache\builds\adacl_7.2.1_0da4360d\5e3969c2f7d3059ca0e26fee71294ea15f6d151aff7f093ab3b644a40a167e80\src\adacl-calendar.ads:91:34: warning: value is known to be in range [enabled by default]
+C:\Users\runneradmin\AppData\Local\alire\cache\builds\adacl_7.2.1_0da4360d\5e3969c2f7d3059ca0e26fee71294ea15f6d151aff7f093ab3b644a40a167e80\src\adacl-calendar.ads:107:34: warning: lower bound test optimized away [enabled by default]
+C:\Users\runneradmin\AppData\Local\alire\cache\builds\adacl_7.2.1_0da4360d\5e3969c2f7d3059ca0e26fee71294ea15f6d151aff7f093ab3b644a40a167e80\src\adacl-calendar.ads:107:34: warning: value is known to be in range [enabled by default]
+C:\Users\runneradmin\AppData\Local\alire\cache\builds\adacl_7.2.1_0da4360d\5e3969c2f7d3059ca0e26fee71294ea15f6d151aff7f093ab3b644a40a167e80\src\adacl-calendar.ads:123:34: warning: lower bound test optimized away [enabled by default]
+C:\Users\runneradmin\AppData\Local\alire\cache\builds\adacl_7.2.1_0da4360d\5e3969c2f7d3059ca0e26fee71294ea15f6d151aff7f093ab3b644a40a167e80\src\adacl-calendar.ads:123:34: warning: value is known to be in range [enabled by default]
+C:\Users\runneradmin\AppData\Local\alire\cache\builds\adacl_7.2.1_0da4360d\5e3969c2f7d3059ca0e26fee71294ea15f6d151aff7f093ab3b644a40a167e80\src\adacl-calendar.ads:170:34: warning: lower bound test optimized away [enabled by default]
+C:\Users\runneradmin\AppData\Local\alire\cache\builds\adacl_7.2.1_0da4360d\5e3969c2f7d3059ca0e26fee71294ea15f6d151aff7f093ab3b644a40a167e80\src\adacl-calendar.ads:170:34: warning: value is known to be in range [enabled by default]
+C:\Users\runneradmin\AppData\Local\alire\cache\builds\adacl_7.2.1_0da4360d\5e3969c2f7d3059ca0e26fee71294ea15f6d151aff7f093ab3b644a40a167e80\src\adacl-calendar.ads:189:34: warning: lower bound test optimized away [enabled by default]
+C:\Users\runneradmin\AppData\Local\alire\cache\builds\adacl_7.2.1_0da4360d\5e3969c2f7d3059ca0e26fee71294ea15f6d151aff7f093ab3b644a40a167e80\src\adacl-calendar.ads:189:34: warning: value is known to be in range [enabled by default]
+C:\Users\runneradmin\AppData\Local\alire\cache\builds\adacl_7.2.1_0da4360d\5e3969c2f7d3059ca0e26fee71294ea15f6d151aff7f093ab3b644a40a167e80\src\adacl-calendar.ads:208:34: warning: lower bound test optimized away [enabled by default]
+C:\Users\runneradmin\AppData\Local\alire\cache\builds\adacl_7.2.1_0da4360d\5e3969c2f7d3059ca0e26fee71294ea15f6d151aff7f093ab3b644a40a167e80\src\adacl-calendar.ads:208:34: warning: value is known to be in range [enabled by default]
+C:\Users\runneradmin\AppData\Local\alire\cache\builds\adacl_7.2.1_0da4360d\5e3969c2f7d3059ca0e26fee71294ea15f6d151aff7f093ab3b644a40a167e80\src\adacl-trace.ads:189:07: warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+C:\Users\runneradmin\AppData\Local\alire\cache\builds\adacl_7.2.1_0da4360d\5e3969c2f7d3059ca0e26fee71294ea15f6d151aff7f093ab3b644a40a167e80\src\adacl-trace.ads:203:07: warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+C:\Users\runneradmin\AppData\Local\alire\cache\builds\adacl_7.2.1_0da4360d\5e3969c2f7d3059ca0e26fee71294ea15f6d151aff7f093ab3b644a40a167e80\src\adacl-trace.ads:217:07: warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+C:\Users\runneradmin\AppData\Local\alire\cache\builds\adacl_7.2.1_0da4360d\5e3969c2f7d3059ca0e26fee71294ea15f6d151aff7f093ab3b644a40a167e80\src\adacl-trace.ads:231:07: warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+C:\Users\runneradmin\AppData\Local\alire\cache\builds\adacl_7.2.1_0da4360d\5e3969c2f7d3059ca0e26fee71294ea15f6d151aff7f093ab3b644a40a167e80\src\adacl-trace.ads:248:15: warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+C:\Users\runneradmin\AppData\Local\alire\cache\builds\adacl_7.2.1_0da4360d\5e3969c2f7d3059ca0e26fee71294ea15f6d151aff7f093ab3b644a40a167e80\src\adacl-trace.ads:266:07: warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+D:\a\alire-crates-ci\alire-crates-ci\test\6609944c-1b5d-4861-b009-9cc6174e301a\adacl_serial_7.2.1_a26641a6\src\adacl-serial_io.adb:307:121: (style) this line is too long
+D:\a\alire-crates-ci\alire-crates-ci\test\6609944c-1b5d-4861-b009-9cc6174e301a\adacl_serial_7.2.1_a26641a6\src\adacl-serial_io.ads:135:15: warning: "Side_Effects" is not a valid aspect identifier [enabled by default]
+"adacl_serial_test-main.exe" up to date
+Success: Build finished successfully in 2.03 seconds.
+
+Total Tests Run:   0
+Successful Tests:  0
+Failed Assertions: 0
+Unexpected Errors: 0
+SUCCESS: Test Log Off
+--------------------------------------------------
+All steps completed.
+[alr test] Test completed SUCCESSFULLY

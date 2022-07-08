@@ -1,0 +1,122 @@
+Test ran at 2026-07-27 13:38:18.092881+00:00
+
+SOLUTION:
+mavlink_common_v2=1.0.0: MAVLink v2-- Micro Air Vehicle Message Marshalling Library.
+Origin: commit e408c73796392f43174372df0166e0db50bed886 from https://github.com/reznikmm/mavlink_common.git
+Properties:
+   Author: Fil Andrii
+   Author: Max Reznik
+   Build Switches: 
+   Description: MAVLink v2-- Micro Air Vehicle Message Marshalling Library.
+   License: MIT
+   Maintainer: Fil Andrii <root.fi36@gmail.com>
+   Maintainer: Max Reznik <reznikmm@gmail.com>
+   Maintainers_Logins: python36
+   Maintainers_Logins: reznikmm
+   Name: mavlink_common_v2
+   Project_File: gnat/mavlink_common_v2.gpr
+   Tag: embedded
+   Tag: network
+   Tag: drone
+   Version: 1.0.0
+   Website: https://mavlink.io
+Dependencies (direct):
+   mavlink_shared^1.0
+Dependencies (solution):
+   mavlink_shared=1.0.0
+Dependencies (graph):
+   mavlink_common_v2=1.0.0 --> mavlink_shared=1.0.0 (^1.0)
+
+
+LOG:
+[alr test] Testing mavlink_common_v2=1.0.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get mavlink_common_v2=1.0.0
+Note: Deploying mavlink_common_v2=1.0.0...
+Note: Deploying mavlink_shared=1.0.0...
+
+mavlink_common_v2=1.0.0 successfully retrieved.
+Dependencies were solved as follows:
+
+   + mavlink_shared 1.0.0 (new)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building mavlink_common_v2=1.0.0/gnat/mavlink_common_v2.gpr...
+Setup
+   [mkdir]        object directory for project Mavlink_Shared
+   [mkdir]        library directory for project Mavlink_Shared
+   [mkdir]        object directory for project Mavlink_Common_V2
+   [mkdir]        library directory for project Mavlink_Common_V2
+Compile
+   [Ada]          mavlink-raw_long_floats.ads
+   [Ada]          mavlink.ads
+   [Ada]          mavlink-x25crc.adb
+   [Ada]          mavlink-raw_floats.ads
+mavlink.ads:4:08: warning: unrecognized pragma "Ada_2022"
+   [Ada]          mavlink_common_v2_config.ads
+gnat1: invalid switch: -gnat2022
+mavlink-raw_floats.ads:2:08: warning: unrecognized pragma "Ada_2022"
+mavlink-raw_long_floats.ads:2:08: warning: unrecognized pragma "Ada_2022"
+
+   compilation of mavlink_common_v2_config.ads failed
+
+gprbuild: *** compilation phase failed
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/8c9db1cd-9cad-4d7f-9ebf-2a733c1075aa/mavlink_common_v2_1.0.0_e408c737/gnat/mavlink_common_v2.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/8c9db1cd-9cad-4d7f-9ebf-2a733c1075aa/mavlink_common_v2_1.0.0_e408c737/gnat/mavlink_common_v2.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+stderr: ALIRE.CHECKED_ERROR
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/8c9db1cd-9cad-4d7f-9ebf-2a733c1075aa/mavlink_common_v2_1.0.0_e408c737/gnat/mavlink_common_v2.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
+[/home/runner/work/alire-crates-ci/alire-crates-ci/alire_install/bin/alr]
+0xe75bc6 Alire.Raise_Checked_Error at alire.adb:284
+0xac1a54 Alire.Os_Lib.Subprocess.Checked_Spawn at alire-os_lib-subprocess.adb:111
+0xd40276 Alire.Spawn.Command at alire-spawn.adb:22
+0xd412ee Alire.Spawn.Gprbuild at alire-spawn.adb:68
+0xc748cb Alire.Roots.Build at alire-roots.adb:189
+0xc7301a Alire.Roots.Build at alire-roots.adb:255
+0xc9832b Alire.Roots.Traverse at alire-roots.adb:2143
+0xcfee85 Alire.Solutions.Traverse.Visit at alire-solutions.adb:1472
+0xcfdfcc Alire.Solutions.Traverse at alire-solutions.adb:1555
+0xc9841e Alire.Roots.Traverse at alire-roots.adb:2147
+0xc984dd Alire.Roots.Traverse at alire-roots.adb:2127
+0xc7359b Alire.Roots.Build at alire-roots.adb:286
+0xc736d7 Alire.Roots.Build at alire-roots.adb:114
+0x49aa0d Alr.Commands.Build.Execute at alr-commands-build.adb:145
+0x49a36d Alr.Commands.Build.Execute at alr-commands-build.adb:113
+0x49a51f Alr.Commands.Build.Execute at alr-commands-build.adb:54
+0x53bbcc Alr.Commands.Sub_Cmd.Execute at clic-subcommand-instance.adb:749
+0x5472be Alr.Commands.Execute at alr-commands.adb:632
+0x43d48a Alr.Main at alr-main.adb:13
+0x4403a3 Main at b__alr-main.adb:2445
+[/lib/x86_64-linux-gnu/libc.so.6]
+0x7fdd2262a1c8
+0x7fdd2262a289
+[/home/runner/work/alire-crates-ci/alire-crates-ci/alire_install/bin/alr]
+0x43d323 _start at ???
+0xfffffffffffffffe
+
+stderr: ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED
+stderr: alire-roots.adb:202
+stderr: raised ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED : alire-roots.adb:202
+[/home/runner/work/alire-crates-ci/alire-crates-ci/alire_install/bin/alr]
+0xc74cc7 Alire.Roots.Build at alire-roots.adb:202
+0xc7301a Alire.Roots.Build at alire-roots.adb:255
+0xc9832b Alire.Roots.Traverse at alire-roots.adb:2143
+0xcfee85 Alire.Solutions.Traverse.Visit at alire-solutions.adb:1472
+0xcfdfcc Alire.Solutions.Traverse at alire-solutions.adb:1555
+0xc9841e Alire.Roots.Traverse at alire-roots.adb:2147
+0xc984dd Alire.Roots.Traverse at alire-roots.adb:2127
+0xc7359b Alire.Roots.Build at alire-roots.adb:286
+0xc736d7 Alire.Roots.Build at alire-roots.adb:114
+0x49aa0d Alr.Commands.Build.Execute at alr-commands-build.adb:145
+0x49a36d Alr.Commands.Build.Execute at alr-commands-build.adb:113
+0x49a51f Alr.Commands.Build.Execute at alr-commands-build.adb:54
+0x53bbcc Alr.Commands.Sub_Cmd.Execute at clic-subcommand-instance.adb:749
+0x5472be Alr.Commands.Execute at alr-commands.adb:632
+0x43d48a Alr.Main at alr-main.adb:13
+0x4403a3 Main at b__alr-main.adb:2445
+[/lib/x86_64-linux-gnu/libc.so.6]
+0x7fdd2262a1c8
+0x7fdd2262a289
+[/home/runner/work/alire-crates-ci/alire-crates-ci/alire_install/bin/alr]
+0x43d323 _start at ???
+0xfffffffffffffffe
+
+ERROR: Compilation failed.

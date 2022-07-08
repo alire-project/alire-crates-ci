@@ -1,0 +1,117 @@
+Test ran at 2025-12-11 01:00:35.620777+00:00
+
+SOLUTION:
+gnatcoll_readline=25.0.0: GNAT Components Collection - readline binding
+Origin: source archive gnatcoll-bindings-25.0.0.zip at https://github.com/adacore/gnatcoll-bindings/archive/v25.0.0/gnatcoll-bindings-25.0.0.zip with hash sha512:0848cc59092c9ef66645f113762beb049554fa58371e062a90a2a432e6a1d6d08c8f3f162b1de1033d77fb62c0f85257fe96abb8129feef67967f6eb6b52f1ce
+Properties:
+   Author: AdaCore
+   Configuration: no modifiers
+   Description: GNAT Components Collection - readline binding
+   GPR Scenario: GNATCOLL_BUILD_MODE := DEBUG | PROD
+   GPR Scenario: LIBRARY_TYPE := static | relocatable | static-pic
+   License: GPL-3.0-or-later WITH GCC-exception-3.1
+   Maintainer: chouteau@adacore.com
+   Maintainers_Logins: Fabien-Chouteau
+   Name: gnatcoll_readline
+   Project_File: readline/gnatcoll_readline.gpr
+   Tag: gnatcoll
+   Tag: bindings
+   Tag: readline
+   Tag: cli
+   Version: 25.0.0
+   Website: https://github.com/adacore/gnatcoll-bindings
+Dependencies (direct):
+   gnatcoll~25.0.0
+   libreadline*
+Dependencies (solution):
+   gnat=14.2.1 (gnat_native)
+   gnatcoll=25.0.0
+   libgpr=25.0.0
+   libreadline=8.2.0
+   xmlada=25.0.0
+Dependencies (graph):
+   gnatcoll=25.0.0          --> gnat=14.2.1 (gnat_native) (>=13)
+   gnatcoll=25.0.0          --> libgpr=25.0.0 (~25.0.0)
+   gnatcoll_readline=25.0.0 --> gnatcoll=25.0.0 (~25.0.0)
+   gnatcoll_readline=25.0.0 --> libreadline=8.2.0 (*)
+   libgpr=25.0.0            --> gnat=14.2.1 (gnat_native) (/=2020)
+   libgpr=25.0.0            --> xmlada=25.0.0 (~25.0.0)
+   xmlada=25.0.0            --> gnat=14.2.1 (gnat_native) (>=11)
+
+
+LOG:
+[alr test] Testing gnatcoll_readline=25.0.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get gnatcoll_readline=25.0.0
+Note: Deploying gnatcoll_readline=25.0.0...
+#=#=#                                                                          
+
+##                                                                         3.1%
+######################################################################## 100.0%
+Note: Deploying libreadline=8.2.0...
+The system package 'libreadline-dev' is about to be installed.
+This action might require admin privileges and impact your system installation.
+Do you want Alire to install this system package?
+Using default: Yes
+Selecting previously unselected package libreadline-dev:amd64.
+(Reading database ... 
+(Reading database ... 5%
+(Reading database ... 10%
+(Reading database ... 15%
+(Reading database ... 20%
+(Reading database ... 25%
+(Reading database ... 30%
+(Reading database ... 35%
+(Reading database ... 40%
+(Reading database ... 45%
+(Reading database ... 50%
+(Reading database ... 55%
+(Reading database ... 60%
+(Reading database ... 65%
+(Reading database ... 70%
+(Reading database ... 75%
+(Reading database ... 80%
+(Reading database ... 85%
+(Reading database ... 90%
+(Reading database ... 95%
+(Reading database ... 100%
+(Reading database ... 217049 files and directories currently installed.)
+Preparing to unpack .../libreadline-dev_8.2-4build1_amd64.deb ...
+Unpacking libreadline-dev:amd64 (8.2-4build1) ...
+Setting up libreadline-dev:amd64 (8.2-4build1) ...
+Processing triggers for install-info (7.1-3build2) ...
+
+Running kernel seems to be up-to-date.
+
+Restarting services...
+
+Service restarts being deferred:
+ systemctl restart hosted-compute-agent.service
+
+No containers need to be restarted.
+
+No user sessions are running outdated binaries.
+
+No VM guests are running outdated hypervisor (qemu) binaries on this host.
+
+gnatcoll_readline=25.0.0 successfully retrieved.
+Dependencies were solved as follows:
+
+   +b gnat        14.2.1 (new,gnat_native,indirect,binary)
+   +  gnatcoll    25.0.0 (new)
+   +  libgpr      25.0.0 (new,indirect)
+   +b libreadline 8.2.0  (new,system package)
+   +  xmlada      25.0.0 (new,indirect)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building gnatcoll_readline=25.0.0/readline/gnatcoll_readline.gpr...
+Setup
+   [mkdir]        object directory for project GnatColl_Readline
+   [mkdir]        library directory for project GnatColl_Readline
+Compile
+   [Ada]          gnatcoll-readline.adb
+Build Libraries
+   [gprlib]       gnatcoll_readline.lexch
+   [archive]      libgnatcoll_readline.a
+   [index]        libgnatcoll_readline.a
+Success: Build finished successfully in 0.52 seconds.
+Found declared GPR file: readline/gnatcoll_readline.gpr
+[alr test] Test completed SUCCESSFULLY

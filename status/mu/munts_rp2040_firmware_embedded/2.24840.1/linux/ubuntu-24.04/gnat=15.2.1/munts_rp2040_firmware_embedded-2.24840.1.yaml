@@ -1,0 +1,1032 @@
+badge: true
+badge_color: green
+crate: munts_rp2040_firmware_embedded
+creation_timestamp: 1776775229.534892
+distro: ubuntu-24.04
+duration: 10.119867071000044
+gnat: 15.2.1
+last_attempt: 2026-04-22 01:33:24.407774+00:00
+log:
+- 'Test ran at 2026-04-22 01:33:24.407747+00:00
+
+
+  '
+- 'SOLUTION:
+
+  '
+- 'munts_rp2040_firmware_embedded=2.24840.1: Phil''s RP2040 Microcontroller Embedded
+  Profile Firmware Template
+
+  '
+- 'Origin: source archive munts_rp2040_firmware_embedded-2.24840.1.tbz2 at https://raw.githubusercontent.com/pmunts/alire-crates/10e528130a5013f04155770fc2d94aa938928b0b/munts_rp2040_firmware_embedded/munts_rp2040_firmware_embedded-2.24840.1.tbz2
+  with hashes sha256:3c19be3af0d8612068342d677e5b1f2565ec350bb7ff824a2a21382a194c2cf1,
+  sha512:80ac59a4e67a305108e296e4e6f420f3ccc3259fa905c90f840852f02984edb357e3e0faff3e8c579f3785544932bbc8f289db9040d16a022414bc7d86053705
+
+  '
+- 'Properties:
+
+  '
+- '   Post_Build run: sh -c ./postbuild.sh (from ${CRATE_ROOT}/.)
+
+  '
+- '   Author: Philip Munts
+
+  '
+- '   Config set: embedded_rp2040 {Board := generic_board, Max_CPUs := 2}
+
+  '
+- '   Config set: rp2040_hal {Interrupts := bb_runtimes, Use_Startup := false}
+
+  '
+- '   Configuration: no modifiers
+
+  '
+- '   Description: Phil''s RP2040 Microcontroller Embedded Profile Firmware Template
+
+  '
+- '   Executable: munts_rp2040_firmware_embedded
+
+  '
+- '   License: BSD-1-Clause
+
+  '
+- '   Long_Description: # Introduction
+
+  '
+- '
+
+  '
+- 'This crate provides a comprehensive template for developing Ada firmware
+
+  '
+- 'for the [RP2040 ARM 32-bit
+
+  '
+- 'microcontroller](https://www.raspberrypi.com/products/rp2040), using the
+
+  '
+- '[GNAT Predefined Embedded
+
+  '
+- 'Runtime](https://docs.adacore.com/gnat_ugx-docs/html/gnat_ugx/gnat_ugx/gnat_runtimes.html#embedded-run-time)
+
+  '
+- 'implemented by the
+
+  '
+- '[`embedded_rp2040`](https://alire.ada.dev/crates/embedded_rp2040.html)
+
+  '
+- 'and [`rp2040_hal`](https://alire.ada.dev/crates/rp2040_hal.html) crates
+
+  '
+- 'and their dependencies.
+
+  '
+- '
+
+  '
+- 'Ada firmware for a microcontroller is realized as a main program
+
+  '
+- 'procedure that is called by otherwise invisible runtime startup code,
+
+  '
+- 'exactly as C firmware is realized by a function `main()` that is called
+
+  '
+- 'by otherwise invisible runtime startup code.
+
+  '
+- '
+
+  '
+- '# Post-Build Script
+
+  '
+- '
+
+  '
+- 'An Alire project directory created by
+
+  '
+- '`alr get munts_rp2040_firmware_embedded` will include a post-build
+
+  '
+- 'script named `postbuild.sh`. This script will install the newly built
+
+  '
+- 'firmware to a mounted RP2040 ROM boot USB file system. The RP2040 ROM
+
+  '
+- 'boot code implements USB mass storage emulation, in a fashion first
+
+  '
+- 'popularized by the late and lamented [Mbed
+
+  '
+- 'OS](https://os.mbed.com/mbed-os). To flash RP2040 firmware, you just
+
+  '
+- 'assert `BOOTSEL` and `RESET` hardware signals to force the RP2040 into
+
+  '
+- 'ROM boot mode, mount the USB mass storage device (usually done
+
+  '
+- 'automatically by the development machine operating system), and then
+
+  '
+- 'copy a [UF2](https://github.com/microsoft/uf2) firmware image file it.
+
+  '
+- '`postbuild.sh` uses the [`elf2uf2`](https://github.com/rej696/elf2uf2)
+
+  '
+- 'utility program to copy the firmware image to the RP2040.
+
+  '
+- '
+
+  '
+- 'You can explicitly specify the RP2040 mount point *aka* destination
+
+  '
+- 'directory with the `RP2040_DESTDIR` environment variable before running
+
+  '
+- '`alr build`. Otherwise `postbuild.sh` will search for the RP2040 mount
+
+  '
+- 'point at expected locations for ChromeOS, Linux, macOS, and Microsoft
+
+  '
+- 'Windows.
+
+  '
+- '
+
+  '
+- 'If an RP2040 mount point cannot be found, `postbuild.sh` does nothing.
+
+  '
+- '
+
+  '
+- '# Makefile
+
+  '
+- '
+
+  '
+- 'An Alire project directory created by
+
+  '
+- '`alr get munts_rp2040_firmware_embedded` will include an optional but
+
+  '
+- 'useful GNU `Makefile` (also available at
+
+  '
+- '<https://github.com/pmunts/alire-goodies>) containing the following
+
+  '
+- '*goals* or *targets*:
+
+  '
+- '
+
+  '
+- '- `build` -- Accomplished by the command `gmake build`. Runs `alr build`
+
+  '
+- '  to build the firmware image. Result (upon success) is a 32-bit ARM ELF
+
+  '
+- '  executable file in the `bin/` subdirectory.
+
+  '
+- '- `clean` -- Accomplished by the command `gmake clean`. Removes all
+
+  '
+- '  generated working files. What is left will be suitable for checking
+
+  '
+- '  into a source control system.
+
+  '
+- '- `distclean` -- Accomplished by the command `gmake distclean`. Removes
+
+  '
+- '  all generated working files *and* removes Alire''s crate download and
+
+  '
+- '  build caches.
+
+  '
+- '
+
+  '
+- '*Note: `make` is often a synonym (symbolic link, shell alias, etc.) for
+
+  '
+- '`gmake` on Linux machines, meaning that `make build` behaves exactly the
+
+  '
+- 'same as `gmake build`.*
+
+  '
+- '
+
+  '
+- '# Visual Studio Code
+
+  '
+- '
+
+  '
+- 'An Alire project directory created by
+
+  '
+- '`alr get munts_rp2040_firmware_embedded` will include an optional but
+
+  '
+- 'useful `.vscode/tasks.json` (also available at
+
+  '
+- '<https://github.com/pmunts/alire-goodies>) which provides some build
+
+  '
+- 'tasks for [Visual Studio Code](https://code.visualstudio.com).
+
+  '
+- '
+
+  '
+- 'You can invoke a Visual Studio build task from the application menu
+
+  '
+- '`Terminal => Run Task...` or `Terminal => Run Build Task...`
+
+  '
+- '
+
+  '
+- 'The most straightforward way to build *and* install RP2040 firmware from
+
+  '
+- 'within Visual Studio Code is to simply press **CONTROL + SHIFT + B**.
+
+  '
+- 'This key code invokes the default build task which executes the command
+
+  '
+- '`make clean build` which executes the command `alr build` which executes
+
+  '
+- 'script `postbuild.sh`.
+
+  '
+- '
+
+  '
+- '# Examples
+
+  '
+- '
+
+  '
+- '## Command line
+
+  '
+- '
+
+  '
+- '    alr -n get munts_rp2040_firmware_embedded
+
+  '
+- '    alire-rename munts_rp2040_firmware_embedded_2.24820.1_45796fc8 myfirmware  #
+  optional
+
+  '
+- '    cd myfirmware
+
+  '
+- '    alr -n with munts_rp2040_lib_embedded  # optional
+
+  '
+- '    alr build
+
+  '
+- '
+
+  '
+- '## Visual Studio Code
+
+  '
+- '
+
+  '
+- '    alr -n get munts_rp2040_firmware_embedded
+
+  '
+- '    alire-rename munts_rp2040_firmware_embedded_2.24820.1_45796fc8 myfirmware  #
+  optional
+
+  '
+- '    cd myfirmware
+
+  '
+- '    alr -n with munts_rp2040_lib_embedded  # optional
+
+  '
+- '    code .
+
+  '
+- '
+
+  '
+- '*Note: The Alire project rename script `alire-rename` is available at
+
+  '
+- '<https://github.com/pmunts/alire-goodies>.*
+
+  '
+- '
+
+  '
+- '   Maintainer: Philip Munts <phil@munts.net>
+
+  '
+- '   Maintainers_Logins: pmunts
+
+  '
+- '   Name: munts_rp2040_firmware_embedded
+
+  '
+- '   Version: 2.24840.1
+
+  '
+- '   Website: https://github.com/pmunts/arm-mcu
+
+  '
+- 'Dependencies (direct):
+
+  '
+- '   embedded_rp2040^15
+
+  '
+- '   rp2040_hal^2
+
+  '
+- 'Dependencies (solution):
+
+  '
+- '   atomic=1.1.0
+
+  '
+- '   bbqueue=1.0.0
+
+  '
+- '   cortex_m=1.1.0
+
+  '
+- '   embedded_rp2040=15.3.0
+
+  '
+- '   gnat=15.2.1 (gnat_arm_elf)
+
+  '
+- '   gnat_arm_elf=15.2.1
+
+  '
+- '   hal=1.0.0
+
+  '
+- '   rp2040_hal=2.7.1
+
+  '
+- '   usb_embedded=1.0.1
+
+  '
+- 'Dependencies (graph):
+
+  '
+- '   bbqueue=1.0.0                            --> atomic=1.1.0 (^1.0.0)
+
+  '
+- '   bbqueue=1.0.0                            --> gnat=15.2.1 (gnat_arm_elf) (>=10)
+
+  '
+- '   cortex_m=1.1.0                           --> gnat_arm_elf=15.2.1 (>=12)
+
+  '
+- '   cortex_m=1.1.0                           --> hal=1.0.0 (~0.3 | ^1.0.0)
+
+  '
+- '   embedded_rp2040=15.3.0                   --> gnat_arm_elf=15.2.1 (^15)
+
+  '
+- '   munts_rp2040_firmware_embedded=2.24840.1 --> embedded_rp2040=15.3.0 (^15)
+
+  '
+- '   munts_rp2040_firmware_embedded=2.24840.1 --> rp2040_hal=2.7.1 (^2)
+
+  '
+- '   rp2040_hal=2.7.1                         --> atomic=1.1.0 (^1)
+
+  '
+- '   rp2040_hal=2.7.1                         --> cortex_m=1.1.0 (^1)
+
+  '
+- '   rp2040_hal=2.7.1                         --> gnat_arm_elf=15.2.1 (>=14 & /=15.1.2)
+
+  '
+- '   rp2040_hal=2.7.1                         --> hal=1.0.0 (^1)
+
+  '
+- '   rp2040_hal=2.7.1                         --> usb_embedded=1.0.1 (^1)
+
+  '
+- '   usb_embedded=1.0.1                       --> bbqueue=1.0.0 (^1.0.0)
+
+  '
+- '   usb_embedded=1.0.1                       --> hal=1.0.0 (^1.0.0)
+
+  '
+- '
+
+  '
+- '
+
+  LOG:
+
+  '
+- '[alr test] Testing munts_rp2040_firmware_embedded=2.24840.1
+
+  '
+- '[alr test] Spawning retrieval for remote crate: alr -d -n get munts_rp2040_firmware_embedded=2.24840.1
+
+  '
+- 'Note: Deploying munts_rp2040_firmware_embedded=2.24840.1...
+
+  '
+- '
+
+  '
+- '######################################################################## 100.0%
+
+  '
+- '
+
+  '
+- 'munts_rp2040_firmware_embedded=2.24840.1 successfully retrieved.
+
+  '
+- 'Dependencies were solved as follows:
+
+  '
+- '
+
+  '
+- '   +  atomic          1.1.0  (new,indirect)
+
+  '
+- '   +  bbqueue         1.0.0  (new,indirect)
+
+  '
+- '   +  cortex_m        1.1.0  (new,indirect)
+
+  '
+- '   +  embedded_rp2040 15.3.0 (new)
+
+  '
+- '   +b gnat            15.2.1 (new,gnat_arm_elf,indirect,binary)
+
+  '
+- '   +b gnat_arm_elf    15.2.1 (new,indirect,binary)
+
+  '
+- '   +  hal             1.0.0  (new,indirect)
+
+  '
+- '   +  rp2040_hal      2.7.1  (new)
+
+  '
+- '   +  usb_embedded    1.0.1  (new,indirect)
+
+  '
+- '[alr test] Spawning default test for remote crate: alr -d -n build --release --
+  -cargs:Ada -gnatwn
+
+  '
+- 'Note: Building munts_rp2040_firmware_embedded=2.24840.1/munts_rp2040_firmware_embedded.gpr...
+
+  '
+- 'Setup
+
+  '
+- '   [mkdir]        object directory for project munts_rp2040_firmware_embedded
+
+  '
+- '   [mkdir]        exec directory for project munts_rp2040_firmware_embedded
+
+  '
+- 'Compile
+
+  '
+- '   [Ada]          munts_rp2040_firmware_embedded.adb
+
+  '
+- '   [Ada]          bbqueue_config.ads
+
+  '
+- '   [Ada]          bbqueue-buffers.adb
+
+  '
+- '   [Ada]          bbqueue-buffers-framed.adb
+
+  '
+- '   [Ada]          bbqueue.adb
+
+  '
+- '   [Ada]          usb_embedded_config.ads
+
+  '
+- '   [Ada]          usb-utils.adb
+
+  '
+- '   [Ada]          usb.adb
+
+  '
+- '   [Ada]          usb-device-hid-keyboard.adb
+
+  '
+- '   [Ada]          usb-device-midi.adb
+
+  '
+- '   [Ada]          usb-device-serial.adb
+
+  '
+- '   [Ada]          usb-device-control.adb
+
+  '
+- '   [Ada]          usb-hal.ads
+
+  '
+- '   [Ada]          usb-device-hid-joystick.adb
+
+  '
+- '   [Ada]          usb-device-hid.adb
+
+  '
+- '   [Ada]          usb-hal-device.ads
+
+  '
+- '   [Ada]          usb-device.adb
+
+  '
+- '   [Ada]          usb-device-hid-gamepad.adb
+
+  '
+- '   [Ada]          usb-logging.ads
+
+  '
+- '   [Ada]          usb-lang.ads
+
+  '
+- '   [Ada]          usb-device-hid-mouse.adb
+
+  '
+- '   [Ada]          usb-logging-device__null.adb
+
+  '
+- '   [Ada]          hal.ads
+
+  '
+- '   [Ada]          hal-flash.ads
+
+  '
+- '   [Ada]          hal-time.ads
+
+  '
+- '   [Ada]          hal-spi.ads
+
+  '
+- '   [Ada]          hal-framebuffer.ads
+
+  '
+- '   [Ada]          hal-gpio.ads
+
+  '
+- '   [Ada]          hal-real_time_clock.ads
+
+  '
+- '   [Ada]          hal-bitmap.ads
+
+  '
+- '   [Ada]          hal-touch_panel.ads
+
+  '
+- '   [Ada]          hal-sdmmc.adb
+
+  '
+- '   [Ada]          hal-dsi.ads
+
+  '
+- '   [Ada]          hal-filesystem.ads
+
+  '
+- '   [Ada]          hal-audio.ads
+
+  '
+- '   [Ada]          hal-block_drivers.ads
+
+  '
+- '   [Ada]          hal-uart.ads
+
+  '
+- '   [Ada]          hal-i2c.ads
+
+  '
+- '   [Ada]          cortex_m-nvic.adb
+
+  '
+- '   [Ada]          cortex_m-cache.adb
+
+  '
+- '   [Ada]          cortex_m_svd.ads
+
+  '
+- '   [Ada]          cortex_m_svd-systick.ads
+
+  '
+- '   [Ada]          cortex_m_svd-debug.ads
+
+  '
+- '   [Ada]          cortex_m_svd-nvic.ads
+
+  '
+- '   [Ada]          cortex_m_svd-scb.ads
+
+  '
+- '   [Ada]          cortex_m_svd-dwt.ads
+
+  '
+- '   [Ada]          cortex_m_config.ads
+
+  '
+- '   [Ada]          cortex_m-hints.adb
+
+  '
+- '   [Ada]          semihosting-filesystem.adb
+
+  '
+- '   [Ada]          semihosting.adb
+
+  '
+- '   [Ada]          cortex_m-systick.adb
+
+  '
+- '   [Ada]          cortex_m-debug.adb
+
+  '
+- '   [Ada]          cortex_m.ads
+
+  '
+- '   [Ada]          memory_barriers.adb
+
+  '
+- '   [Ada]          cortex_m-reset.adb
+
+  '
+- '   [Ada]          cortex_m-dwt.adb
+
+  '
+- '   [Ada]          atomic-critical_section.adb
+
+  '
+- '   [Ada]          atomic-unsigned.adb
+
+  '
+- '   [Ada]          atomic-basic_operations.adb
+
+  '
+- '   [Ada]          atomic-signed.adb
+
+  '
+- '   [Ada]          atomic.adb
+
+  '
+- '   [Ada]          atomic_config.ads
+
+  '
+- '   [Ada]          atomic-signed_16.ads
+
+  '
+- '   [Ada]          atomic-signed_8.ads
+
+  '
+- '   [Ada]          atomic-unsigned_32.ads
+
+  '
+- '   [Ada]          atomic-unsigned_8.ads
+
+  '
+- '   [Ada]          atomic-unsigned_16.ads
+
+  '
+- '   [Ada]          atomic-signed_32.ads
+
+  '
+- '   [Ada]          rp2040_hal_config.ads
+
+  '
+- '   [Ada]          rp-timer-interrupts.adb
+
+  '
+- '   [Ada]          rp-device.ads
+
+  '
+- '   [Ada]          rp2040_svd-usbctrl_regs.ads
+
+  '
+- '   [Ada]          rp2040_svd-uart.ads
+
+  '
+- '   [Ada]          rp2040_svd-syscfg.ads
+
+  '
+- '   [Ada]          rp2040_svd-usbctrl_dpram.ads
+
+  '
+- '   [Ada]          rp2040_svd-ppb.ads
+
+  '
+- '   [Ada]          rp2040_svd-resets.ads
+
+  '
+- '   [Ada]          rp2040_svd-sio.ads
+
+  '
+- '   [Ada]          rp2040_svd-xip_ssi.ads
+
+  '
+- '   [Ada]          rp2040_svd-io_qspi.ads
+
+  '
+- '   [Ada]          rp2040_svd-psm.ads
+
+  '
+- '   [Ada]          rp2040_svd-adc.ads
+
+  '
+- '   [Ada]          rp2040_svd-sysinfo.ads
+
+  '
+- '   [Ada]          rp2040_svd-clocks.ads
+
+  '
+- '   [Ada]          rp2040_svd-dma.ads
+
+  '
+- '   [Ada]          rp2040_svd-pwm.ads
+
+  '
+- '   [Ada]          rp2040_svd-pll.ads
+
+  '
+- '   [Ada]          rp2040_svd-pads_qspi.ads
+
+  '
+- '   [Ada]          rp2040_svd-rtc.ads
+
+  '
+- '   [Ada]          rp2040_svd-spi.ads
+
+  '
+- '   [Ada]          rp2040_svd-rosc.ads
+
+  '
+- '   [Ada]          rp2040_svd.ads
+
+  '
+- '   [Ada]          rp2040_svd-pio.ads
+
+  '
+- '   [Ada]          rp2040_svd-xip_ctrl.ads
+
+  '
+- '   [Ada]          rp2040_svd-timer.ads
+
+  '
+- '   [Ada]          rp2040_svd-xosc.ads
+
+  '
+- '   [Ada]          rp2040_svd-pads_bank0.ads
+
+  '
+- '   [Ada]          rp2040_svd-watchdog.ads
+
+  '
+- '   [Ada]          rp2040_svd-i2c.ads
+
+  '
+- '   [Ada]          rp2040_svd-busctrl.ads
+
+  '
+- '   [Ada]          rp2040_svd-tbman.ads
+
+  '
+- '   [Ada]          rp2040_svd-interrupts.ads
+
+  '
+- '   [Ada]          rp2040_svd-io_bank0.ads
+
+  '
+- '   [Ada]          rp2040_svd-vreg_and_chip_reset.ads
+
+  '
+- '   [Ada]          rp-adc.adb
+
+  '
+- '   [Ada]          rp-flash.adb
+
+  '
+- '   [Ada]          rp-pio-touch_sense_discharge_pio.ads
+
+  '
+- '   [Ada]          rp-rom.adb
+
+  '
+- '   [Ada]          rp-pio-touch_sense.adb
+
+  '
+- '   [Ada]          rp-pio-touch_sense_charge_pio.ads
+
+  '
+- '   [Ada]          rp-rtc.adb
+
+  '
+- '   [Ada]          rp-pio-audio_i2s_pio.ads
+
+  '
+- '   [Ada]          rp-pwm.adb
+
+  '
+- '   [Ada]          rp-reset.adb
+
+  '
+- '   [Ada]          rp-gpio.adb
+
+  '
+- '   [Ada]          rp-interpolator.ads
+
+  '
+- '   [Ada]          rp-uart.adb
+
+  '
+- '   [Ada]          rp-pio-audio_i2s.adb
+
+  '
+- '   [Ada]          rp-pio-ws2812_pio.ads
+
+  '
+- '   [Ada]          rp-watchdog.adb
+
+  '
+- '   [Ada]          rp-i2c.adb
+
+  '
+- '   [Ada]          rp-spi.adb
+
+  '
+- '   [Ada]          rp-i2c_master.adb
+
+  '
+- '   [Ada]          rp-clock.adb
+
+  '
+- '   [Ada]          rp-multicore-fifo.adb
+
+  '
+- '   [Ada]          rp-multicore-spinlocks.adb
+
+  '
+- '   [Ada]          rp-multicore.adb
+
+  '
+- '   [Ada]          rp-timer.adb
+
+  '
+- '   [Ada]          rp-rom-floating_point.adb
+
+  '
+- '   [Ada]          rp-dma.adb
+
+  '
+- '   [Ada]          rp-pio.adb
+
+  '
+- '   [Ada]          rp-flash-cache.adb
+
+  '
+- '   [Ada]          rp-pio-encoding.ads
+
+  '
+- '   [Ada]          rp-pio-ws2812.adb
+
+  '
+- '   [Ada]          rp-usb_device.adb
+
+  '
+- '   [Ada]          rp.ads
+
+  '
+- 'Build Libraries
+
+  '
+- '   [gprlib]       Atomic.lexch
+
+  '
+- '   [gprlib]       hal.lexch
+
+  '
+- '   [gprlib]       Cortex_M.lexch
+
+  '
+- '   [archive]      libhal.a
+
+  '
+- '   [archive]      libAtomic.a
+
+  '
+- '   [index]        libhal.a
+
+  '
+- '   [index]        libAtomic.a
+
+  '
+- '   [gprlib]       Bbqueue.lexch
+
+  '
+- '   [gprlib]       Usb_Embedded.lexch
+
+  '
+- '   [archive]      libCortex_M.a
+
+  '
+- '   [archive]      libBbqueue.a
+
+  '
+- '   [index]        libBbqueue.a
+
+  '
+- '   [index]        libCortex_M.a
+
+  '
+- '   [gprlib]       Rp2040_Hal.lexch
+
+  '
+- '   [archive]      libUsb_Embedded.a
+
+  '
+- '   [index]        libUsb_Embedded.a
+
+  '
+- '   [archive]      libRp2040_Hal.a
+
+  '
+- '   [index]        libRp2040_Hal.a
+
+  '
+- 'Bind
+
+  '
+- '   [gprbind]      munts_rp2040_firmware_embedded.bexch
+
+  '
+- '   [Ada]          munts_rp2040_firmware_embedded.ali
+
+  '
+- 'Link
+
+  '
+- '   [link]         munts_rp2040_firmware_embedded.adb
+
+  '
+- 'Note: Running post-build actions for munts_rp2040_firmware_embedded=2.24840.1...
+
+  '
+- 'Success: Build finished successfully in 8.88 seconds.
+
+  '
+- 'Found declared GPR file: munts_rp2040_firmware_embedded.gpr
+
+  '
+- '[alr test] Test completed SUCCESSFULLY
+
+  '
+platform: linux
+status: success
+version: 2.24840.1

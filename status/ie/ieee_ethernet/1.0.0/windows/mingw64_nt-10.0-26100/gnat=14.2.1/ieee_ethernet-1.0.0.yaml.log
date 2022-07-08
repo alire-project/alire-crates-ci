@@ -1,0 +1,53 @@
+Test ran at 2026-08-13 12:33:06.457485+00:00
+
+SOLUTION:
+ieee_ethernet=1.0.0: IEEE 802.3 Ethernet declarations, with the SMI and PHY interfaces
+Origin: commit f0724274fec7077e4203c6be4fe9c8690d4823ac from https://github.com/pat-rogers/ieee_ethernet.git
+Properties:
+   Author: Pat Rogers
+   Configuration: no modifiers
+   Description: IEEE 802.3 Ethernet declarations, with the SMI and PHY interfaces
+   License: Apache-2.0 WITH LLVM-exception
+   Long_Description: Declarations from the IEEE 802.3 standard: frame and MTU lengths, Ethernet and IPv4 addresses, subnet masks, and the MII and RMII signal names.
+
+Also provided are two abstractions defined by clause 22 of the standard, and therefore not vendor-specific:
+
+  The Serial Management Interface (SMI, also known as MDIO), including the Basic Register Set indexes and record representations of the Basic Control and Basic Status registers
+
+  An abstract PHY transceiver, whose auto-negotiation, loopback, power, reset, and link-state operations are concrete because the standard specifies them
+
+A target supplies the concrete SMI I/O driver, and a vendor supplies the concrete PHY. Nothing here is architecture-specific: the project file sets neither Target nor Runtime, taking both from the client project.
+
+   Maintainer: Pat Rogers <progers@classwide.com>
+   Maintainers_Logins: pat-rogers
+   Name: ieee_ethernet
+   Project_File: ieee_ethernet.gpr
+   Tag: ethernet
+   Tag: networking
+   Tag: embedded
+   Tag: ieee802-3
+   Tag: phy
+   Version: 1.0.0
+   Website: https://github.com/pat-rogers/ieee_ethernet
+
+
+LOG:
+[alr test] Testing ieee_ethernet=1.0.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get ieee_ethernet=1.0.0
+Note: Deploying ieee_ethernet=1.0.0...
+
+ieee_ethernet=1.0.0 successfully retrieved.
+There are no dependencies.
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building ieee_ethernet=1.0.0/ieee_ethernet.gpr...
+Setup
+   [mkdir]        object directory for project IEEE_Ethernet
+Compile
+   [Ada]          ieee_ethernet.adb
+   [Ada]          ieee_ethernet-smi.ads
+   [Ada]          ieee_ethernet-smi-io.adb
+   [Ada]          ieee_ethernet-phy.adb
+   [Ada]          ieee_ethernet-media.ads
+Success: Build finished successfully in 1.59 seconds.
+Found declared GPR file: ieee_ethernet.gpr
+[alr test] Test completed SUCCESSFULLY
