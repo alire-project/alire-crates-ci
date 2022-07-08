@@ -1,0 +1,117 @@
+Test ran at 2025-11-20 12:29:51.785076+00:00
+
+SOLUTION:
+stm32f0x2_hal=0.1.0: Drivers and HAL for stm32f0x2 mcu family
+Origin: commit 85eaea484c5010ac2fdb6b8849b20af4ae77a101 from https://github.com/dkm/stm32f0x2_hal-ada.git
+Properties:
+   Author: AdaCore
+   Author: Marc Poulhiès
+   Config set: atomic {backend := armv6m}
+   Config set: cortex_m {core := m0}
+   Config type: Use_Startup : Boolean default: 'true'
+   Configuration: no modifiers
+   Description: Drivers and HAL for stm32f0x2 mcu family
+   License: GPL-3.0-or-later AND BSD-3-Clause
+   Maintainer: Marc Poulhiès <dkm@kataplop.net>
+   Maintainers_Logins: dkm
+   Name: stm32f0x2_hal
+   Tag: embedded
+   Tag: stm32f0
+   Tag: nostd
+   Tag: drivers
+   Version: 0.1.0
+   Website: https://github.com/dkm/stm32f0x2_hal-ada
+Dependencies (direct):
+   cortex_m~0.5
+   gnat_arm_elf^12
+   hal~0.3
+   usb_embedded~0.3
+Dependencies (solution):
+   atomic=0.5.0
+   bbqueue=0.3.2
+   cortex_m=0.5.0
+   gnat=12.2.1 (gnat_arm_elf)
+   gnat_arm_elf=12.2.1
+   hal=0.3.1
+   usb_embedded=0.3.0
+Dependencies (graph):
+   bbqueue=0.3.2       --> atomic=0.5.0 (~0.5)
+   bbqueue=0.3.2       --> gnat=12.2.1 (gnat_arm_elf) (>=10)
+   cortex_m=0.5.0      --> gnat_arm_elf=12.2.1 (>=12)
+   cortex_m=0.5.0      --> hal=0.3.1 (~0.3)
+   stm32f0x2_hal=0.1.0 --> cortex_m=0.5.0 (~0.5)
+   stm32f0x2_hal=0.1.0 --> gnat_arm_elf=12.2.1 (^12)
+   stm32f0x2_hal=0.1.0 --> hal=0.3.1 (~0.3)
+   stm32f0x2_hal=0.1.0 --> usb_embedded=0.3.0 (~0.3)
+   usb_embedded=0.3.0  --> bbqueue=0.3.2 (~0.3.0)
+   usb_embedded=0.3.0  --> hal=0.3.1 (~0.3)
+
+
+LOG:
+[alr test] Testing stm32f0x2_hal=0.1.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get stm32f0x2_hal=0.1.0
+Note: Deploying stm32f0x2_hal=0.1.0...
+
+stm32f0x2_hal=0.1.0 successfully retrieved.
+Dependencies were solved as follows:
+
+   +  atomic       0.5.0  (new,indirect)
+   +  bbqueue      0.3.2  (new,indirect)
+   +  cortex_m     0.5.0  (new)
+   +b gnat         12.2.1 (new,gnat_arm_elf,indirect,binary)
+   +b gnat_arm_elf 12.2.1 (new,binary)
+   +  hal          0.3.1  (new)
+   +  usb_embedded 0.3.0  (new)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building stm32f0x2_hal=0.1.0/stm32f0x2_hal.gpr...
+Setup
+   [mkdir]        object directory for project Stm32f0x2_Hal
+   [mkdir]        library directory for project Stm32f0x2_Hal
+Compile
+   [Asm_Cpp]      crt0.S
+   [Ada]          stm32-device.adb
+   [Ada]          stm32_svd-cec.ads
+   [Ada]          stm32_svd-iwdg.ads
+   [Ada]          stm32_svd-exti.ads
+   [Ada]          stm32_svd-crc.ads
+   [Ada]          stm32_svd-crs.ads
+   [Ada]          stm32_svd-gpio.ads
+   [Ada]          stm32_svd-adc.ads
+   [Ada]          stm32_svd-tsc.ads
+   [Ada]          stm32_svd-wwdg.ads
+   [Ada]          stm32_svd-rcc.ads
+   [Ada]          stm32_svd-usb.ads
+   [Ada]          stm32_svd-can.ads
+   [Ada]          stm32_svd-flash.ads
+   [Ada]          stm32_svd-usart.ads
+   [Ada]          stm32_svd-syscfg.ads
+   [Ada]          stm32_svd-dac.ads
+   [Ada]          stm32_svd-tim.ads
+   [Ada]          stm32_svd-pwr.ads
+   [Ada]          stm32_svd-spi.ads
+   [Ada]          stm32_svd-dma.ads
+   [Ada]          stm32_svd-dbgmcu.ads
+   [Ada]          stm32_svd-nvic.ads
+   [Ada]          stm32_svd-rtc.ads
+   [Ada]          stm32_svd.ads
+   [Ada]          stm32_svd-stk.ads
+   [Ada]          stm32_svd-i2c.ads
+   [Ada]          stm32_svd-scb.ads
+   [Ada]          stm32.ads
+   [Ada]          stm32-usarts.adb
+   [Ada]          stm32-usb_btable.ads
+   [Ada]          stm32-usb_serialtrace.adb
+   [Ada]          stm32-exti.adb
+   [Ada]          stm32-usb_device.adb
+   [Ada]          stm32-spi.adb
+   [Ada]          stm32-rcc.adb
+   [Ada]          stm32-gpio.adb
+   [Ada]          stm32-syscfg.adb
+   [Ada]          stm32-timers.adb
+Build Libraries
+   [gprlib]       stm32f0x2_hal.lexch
+   [archive]      libstm32f0x2_hal.a
+   [index]        libstm32f0x2_hal.a
+Success: Build finished successfully in 2.58 seconds.
+Found declared GPR file: stm32f0x2_hal.gpr
+[alr test] Test completed SUCCESSFULLY

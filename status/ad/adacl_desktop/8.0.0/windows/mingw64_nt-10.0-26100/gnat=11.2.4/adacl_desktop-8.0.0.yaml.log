@@ -1,0 +1,130 @@
+Test ran at 2026-09-25 01:18:36.024317+00:00
+
+SOLUTION:
+adacl_desktop=8.0.0: AdaCL desktop: Getopt, strings, calendar, tracing, queues, pointers
+Origin: source archive adacl_desktop-8.0.0.tgz at https://sourceforge.net/projects/adacl/files/Alire/adacl_desktop-8.0.0.tgz with hashes sha256:f8165a624e63840470a698194dcadd98a9e6de4ca08c3f1692efa05cf28420ae, sha512:89d745b359f69367ded9efdf2b45e4df6782e35c18f292408b17f6254c2f1932585c4006aab2481f3a87a03dd324dcbe2cf1bbea501dbcc3aa6231d800765c6c
+Properties:
+   case OS is
+      when Linux => Test run: /bin/bash ci-verify.sh (from ${CRATE_ROOT}/.)
+      when Macos => Test run: /bin/bash ci-verify.sh (from ${CRATE_ROOT}/.)
+      when Windows => Test run: powershell -ExecutionPolicy Bypass -File ci-verify.ps1 (from ${CRATE_ROOT}/.)
+      when others => (empty)
+   Author: Martin Krischik <krischik@users.sourceforge.net>
+   Build Switches: 
+   Description: AdaCL desktop: Getopt, strings, calendar, tracing, queues, pointers
+   License: GPL-3.0-or-later
+   Long_Description: Ada Class Library desktop crate for Ada 2022.
+
+This crate holds the former `adacl` desktop API. Use it for hosted
+applications that need command-line handling, wide-character text,
+diagnostics, queues, or smart pointers. It depends on the SPARK-proven
+`adacl` core.
+
+Features:
+
+- Getopt: command-line argument parser with wide character support
+- Strings: utilities for String, Wide_String, and Wide_Wide_String
+- Calendar: time and date utilities with wide character support
+- Tracing: diagnostic trace utility with wide character support
+- Protected Queue: finish, wait, and abort operations
+- Smart Pointers:
+  - Reference-counted pointers
+  - Unique pointers (C++-style)
+  - Shared pointers (C++-style)
+
+Source: [SourceForge](https://sourceforge.net/p/adacl/git/ci/master/tree/adacl_desktop/src/)
+Documentation: [GNATdoc](https://adacl.sourceforge.net/gnatdoc/adacl_desktop/index.html)
+
+   Maintainer: Martin Krischik <krischik@users.sourceforge.net>
+   Maintainers_Logins: krischik
+   Name: adacl_desktop
+   Notes: New crate in 8.0.0: this is the former `adacl` desktop API.
+
+Replace:
+
+    [[depends-on]]
+    adacl = "^7.2"
+
+with:
+
+    [[depends-on]]
+    adacl_desktop = "^8.0"
+
+`adacl` remains in the tree as the shared SPARK gold core; do not drop it
+from the solution, only from direct application dependencies that expected
+Getopt, Strings, Calendar, Tracing, queues, or smart pointers.
+
+   Tag: library
+   Tag: command-line
+   Tag: trace
+   Tag: logging
+   Tag: string
+   Tag: container
+   Tag: smart-pointer
+   Tag: ada2022
+   Version: 8.0.0
+   Website: https://adacl.sourceforge.net/
+Dependencies (direct):
+   adacl^8.0
+Dependencies (solution):
+   adacl=8.0.0
+Dependencies (graph):
+   adacl_desktop=8.0.0 --> adacl=8.0.0 (^8.0)
+
+
+LOG:
+=== Ada CI Verification ===
+=== adacl_test ===
+Directory: test
+Updating dependencies...
+Dependencies automatically updated as follows:
+
+   +  adacl         8.0.0  (new)
+   +  adacl_aunit   8.0.0  (new)
+   +. adacl_desktop 8.0.0  (new,path=..)
+   +  aunit         26.0.0 (new,indirect)
+Building with validation...
+Note: Building adacl_desktop_test=8.0.0/adacl_desktop_test.gpr...
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\adacl_8.0.0_99495ecb\cc5ebf1ef8db69ee601ca4264fff22f93e89522d95a592e716e9d358966c5323\obj\validation" created
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\adacl_8.0.0_99495ecb\cc5ebf1ef8db69ee601ca4264fff22f93e89522d95a592e716e9d358966c5323\lib\validation" created
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\aunit_26.0.0_b882e96a\9b330cbe0835e411ef3a293afb7a33998808edaed362781c82e940240c61a4aa\lib\aunit-obj\native-full" created
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\aunit_26.0.0_b882e96a\9b330cbe0835e411ef3a293afb7a33998808edaed362781c82e940240c61a4aa\lib\aunit\native-full" created
+"..\obj\validation" created
+"..\lib\validation" created
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\adacl_aunit_8.0.0_0347c69c\e7831573103db68c47d3aec2a4288848809e0cbf23fa44e4cfe1588086803ae3\obj\release" created
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\adacl_aunit_8.0.0_0347c69c\e7831573103db68c47d3aec2a4288848809e0cbf23fa44e4cfe1588086803ae3\lib" created
+"obj\validation" created
+"bin\validation" created
+[Ada Compile]     adacl.ads
+[Ada Compile]     adacl_config.ads
+[Ada Compile]     adacl-assert-arrays.adb
+[Ada Compile]     adacl-assert-decimal.adb
+gnat1: invalid switch: -gnat2022
+adacl.gpr: error: [Ada Compile] adacl.ads (adacl.gpr) failed with status 1
+gnat1: invalid switch: -gnat2022
+adacl.gpr: error: [Ada Compile] adacl_config.ads (adacl.gpr) failed with status 1
+gnat1: invalid switch: -gnat2022
+adacl_aunit.gpr: error: [Ada Compile] adacl-assert-arrays.adb (adacl_aunit.gpr) failed with status 1
+gnat1: invalid switch: -gnat2022
+adacl_aunit.gpr: error: [Ada Compile] adacl-assert-decimal.adb (adacl_aunit.gpr) failed with status 1
+ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "D:\a\alire-crates-ci\alire-crates-ci\test\10d24f02-2050-40ae-9d84-d18e350e47c7\adacl_desktop_8.0.0_f8165a62\test\adacl_desktop_test.gpr"] exited with code 4
+ERROR: Compilation failed.
+Running tests...
+Note: Building adacl_desktop_test=8.0.0/adacl_desktop_test.gpr...
+[Ada Compile]     adacl.ads
+[Ada Compile]     adacl_config.ads
+[Ada Compile]     adacl-assert-arrays.adb
+[Ada Compile]     adacl-assert-decimal.adb
+gnat1: invalid switch: -gnat2022
+adacl.gpr: error: [Ada Compile] adacl.ads (adacl.gpr) failed with status 1
+gnat1: invalid switch: -gnat2022
+adacl.gpr: error: [Ada Compile] adacl_config.ads (adacl.gpr) failed with status 1
+gnat1: invalid switch: -gnat2022
+adacl_aunit.gpr: error: [Ada Compile] adacl-assert-arrays.adb (adacl_aunit.gpr) failed with status 1
+gnat1: invalid switch: -gnat2022
+adacl_aunit.gpr: error: [Ada Compile] adacl-assert-decimal.adb (adacl_aunit.gpr) failed with status 1
+ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "D:\a\alire-crates-ci\alire-crates-ci\test\10d24f02-2050-40ae-9d84-d18e350e47c7\adacl_desktop_8.0.0_f8165a62\test\adacl_desktop_test.gpr"] exited with code 4
+ERROR: Build failed
+FAILED: adacl_test (Exit-Code: 1)
+Stopping on first error.
+[alr test] Test action exited with error code 1

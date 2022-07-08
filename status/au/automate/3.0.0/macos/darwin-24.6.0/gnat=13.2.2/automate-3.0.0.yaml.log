@@ -1,0 +1,61 @@
+Test ran at 2026-01-11 00:53:18.380609+00:00
+
+SOLUTION:
+automate=3.0.0: Ada finite-state machine generator
+Origin: commit b83dfb7701b9f27aaa2c6b40467c99c55f1ee92f from https://github.com/Blady-Com/Automate.git
+Properties:
+   Author: Pascal Pignard
+   Description: Ada finite-state machine generator
+   Executable: genauto
+   case OS is
+      when Macos => GPR External: GENAUTO_LINKER_FLAGS := -Wl,-no_pie
+   License: CECILL-2.1
+   Maintainer: Pascal Pignard <blady.net@orange.fr>
+   Maintainers_Logins: Blady-Com
+   Name: automate
+   Tag: automaton
+   Tag: generator
+   Version: 3.0.0
+   Website: https://github.com/Blady-Com/Automate
+Dependencies (direct):
+   uxstrings>=0.6
+Dependencies (solution):
+   gnat=13.2.2 (gnat_native)
+   uxstrings=0.9.0+alpha-20250903
+Dependencies (graph):
+   automate=3.0.0                 --> uxstrings=0.9.0+alpha-20250903 (>=0.6)
+   uxstrings=0.9.0+alpha-20250903 --> gnat=13.2.2 (gnat_native) (>=13)
+
+
+LOG:
+[alr test] Testing automate=3.0.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get automate=3.0.0
+Note: Deploying automate=3.0.0...
+Note: Deploying uxstrings=0.9.0+alpha-20250903...
+
+automate=3.0.0 successfully retrieved.
+Dependencies were solved as follows:
+
+   +b gnat      13.2.2               (new,gnat_native,indirect,binary)
+   +  uxstrings 0.9.0+alpha-20250903 (new)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building automate=3.0.0/automate.gpr...
+automate.gpr:1:06: imported project file "lib_uxstrings3.gpr" not found
+gprbuild: "/Users/runner/work/alire-crates-ci/alire-crates-ci/test/040f3ada-ca62-4325-811d-4479c518b949/automate_3.0.0_b83dfb77/automate.gpr" processing failed
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/Users/runner/work/alire-crates-ci/alire-crates-ci/test/040f3ada-ca62-4325-811d-4479c518b949/automate_3.0.0_b83dfb77/automate.gpr", "-cargs:Ada", "-gnatwn"] exited with code 5
+ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/Users/runner/work/alire-crates-ci/alire-crates-ci/test/040f3ada-ca62-4325-811d-4479c518b949/automate_3.0.0_b83dfb77/automate.gpr", "-cargs:Ada", "-gnatwn"] exited with code 5
+stderr: ALIRE.CHECKED_ERROR
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/Users/runner/work/alire-crates-ci/alire-crates-ci/test/040f3ada-ca62-4325-811d-4479c518b949/automate_3.0.0_b83dfb77/automate.gpr", "-cargs:Ada", "-gnatwn"] exited with code 5
+stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
+Load address: 0x100e68000
+Call stack traceback locations:
+0x101b740cc 0x101b7412c 0x1018c866c 0x10150d568 0x101792594 0x1017934f4 0x1016d133c 0x1016cfb08 0x1016f378c 0x10175356c 0x10175299c 0x1016f3868 0x1016f3950 0x1016d000c 0x1016d0174 0x100ed9730 0x100ed9070 0x100ed91e4 0x100f76b38 0x100f81c78 0x100e6a9f8 0x100e6fa2c
+
+stderr: ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED
+stderr: alire-roots.adb:202
+stderr: raised ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED : alire-roots.adb:202
+Load address: 0x100e68000
+Call stack traceback locations:
+0x101b740cc 0x101b7412c 0x1016d1640 0x1016cfb08 0x1016f378c 0x10175356c 0x10175299c 0x1016f3868 0x1016f3950 0x1016d000c 0x1016d0174 0x100ed9730 0x100ed9070 0x100ed91e4 0x100f76b38 0x100f81c78 0x100e6a9f8 0x100e6fa2c
+
+ERROR: Compilation failed.

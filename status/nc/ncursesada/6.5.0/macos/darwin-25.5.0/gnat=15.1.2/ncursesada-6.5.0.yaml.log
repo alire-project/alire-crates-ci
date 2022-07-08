@@ -1,0 +1,92 @@
+Test ran at 2026-08-01 12:58:10.686006+00:00
+
+SOLUTION:
+ncursesada=6.5.0: Ada binding to the ncurses text user interface library
+Origin: commit 1ea33215ed820c6b2fef21c526cf20a3b2c124c5 from https://github.com/Blady-Com/ncurses-snapshots.git
+Available when: (case OS is Linux => True, Macos => True, Windows => False, others => False)
+Properties:
+   Post_Fetch run: sh configure --with-ada-libname=adacurses (from ${CRATE_ROOT}/.)
+   Post_Fetch run: make libs (from ${CRATE_ROOT}/.)
+   Author: Thomas E. Dickey
+   Author: Juergen Pfeifer
+   Author: Eric S Raymond
+   Author: Alexander V Lukyanov
+   Author: Philippe Blain
+   Author: Sven Verdoolaege
+   Author: Nicolas Boulenguez
+   Description: Ada binding to the ncurses text user interface library
+   License: X11 OR MIT
+   Maintainer: Pascal Pignard <blady.net@orange.fr>
+   Maintainers_Logins: Blady-Com
+   Name: ncursesada
+   Project_File: Ada95/lib_adacurses.gpr
+   Tag: ncurses
+   Tag: binding
+   Version: 6.5.0
+   Website: https://github.com/Blady-Com/ncurses
+Dependencies (direct):
+   m4_tool*
+Dependencies (solution):
+   m4_tool=1.4.21
+Dependencies (graph):
+   ncursesada=6.5.0 --> m4_tool=1.4.21 (*)
+
+
+LOG:
+[alr test] Testing ncursesada=6.5.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get ncursesada=6.5.0
+Note: Deploying ncursesada=6.5.0...
+Note: Deploying m4_tool=1.4.21...
+The system package 'm4' is about to be installed.
+This action might require admin privileges and impact your system installation.
+Do you want Alire to install this system package?
+Using default: Yes
+::warning::The following taps are not trusted:%0A  aws/tap%0A%0AHomebrew is currently ignoring formulae, casks and commands from these taps because tap trust is required.%0A%0AUntap them with:%0A  brew untap aws/tap%0ATrust specific formulae, casks and commands with:%0A  brew trust --formula <user>/<tap>/<formula>%0A  brew trust --cask <user>/<tap>/<cask>%0A  brew trust --command <user>/<tap>/<command>%0AWhole-tap trust is broader and includes all current and future formulae,%0Acasks and commands from the listed taps. Trust whole taps with:%0A  brew trust aws/tap%0ATo disable trust checks:%0A  export HOMEBREW_NO_REQUIRE_TAP_TRUST=1%0AThis is not recommended and will be removed in a later release.%0AFor more information, see:%0A  https://docs.brew.sh/Tap-Trust
+[34m==>[0m [1mWould install 1 formula:[0m
+m4
+[34m==>[0m [1mDownloading https://ghcr.io/v2/homebrew/core/m4/manifests/1.4.21[0m
+[32m==>[0m [1mFetching downloads for: [32mm4[39m[0m
+✔︎ Bottle m4 (1.4.21)
+[34m==>[0m [1mPouring m4--1.4.21.arm64_tahoe.bottle.tar.gz[0m
+[34m==>[0m [1mCaveats[0m
+m4 is keg-only, which means it was not symlinked into /opt/homebrew,
+because macOS already provides this software and installing another version in
+parallel can cause all kinds of trouble.
+
+If you need to have m4 first in your PATH, run:
+  echo 'export PATH="/opt/homebrew/opt/m4/bin:$PATH"' >> /Users/runner/.bash_profile
+[34m==>[0m [1mSummary[0m
+🍺  /opt/homebrew/Cellar/m4/1.4.21: 14 files, 815.7KB
+
+ncursesada=6.5.0 successfully retrieved.
+Dependencies were solved as follows:
+
+   +b m4_tool 1.4.21 (new,system package)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Running post-fetch actions for ncursesada=6.5.0...
+checking for ggrep... no
+checking for grep... grep
+checking for egrep... grep -E
+Configuring NCURSES 6.5 ABI 6 (Sat Aug  1 12:58:09 UTC 2026)
+checking for package version... 6.5
+checking for package patch date... 20240427
+checking build system type... aarch64-apple-darwin25.5.0
+checking host system type... aarch64-apple-darwin25.5.0
+checking target system type... aarch64-apple-darwin25.5.0
+Configuring for darwin25.5.0
+checking for fgrep... grep -F
+checking for prefix... /usr/local
+checking for gnatgcc... no
+checking for gcc... gcc
+checking for C compiler default output... configure: error: C compiler cannot create executables
+Warning: Execution failed for action: Post_Fetch run: sh configure --with-ada-libname=adacurses (from ${CRATE_ROOT}/.)
+Warning: Exit code: 77
+Warning: Action output not captured, check it above.
+stderr: ALIRE.PROPERTIES.ACTIONS.ACTION_FAILED
+stderr: Action failed with exit code 77
+stderr: raised ALIRE.PROPERTIES.ACTIONS.ACTION_FAILED : Action failed with exit code 77
+Load address: 0x104590000
+Call stack traceback locations:
+0x10529c0cc 0x10529c12c 0x104c3ffe4 0x104c3e788 0x104df79c0 0x104e1b78c 0x104e7b56c 0x104e7a99c 0x104e1b868 0x104e1b950 0x104df800c 0x104df8174 0x104601730 0x104601070 0x1046011e4 0x10469eb38 0x1046a9c78 0x1045929f8 0x104597a2c
+
+ERROR: Compilation failed.

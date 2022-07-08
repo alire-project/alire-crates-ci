@@ -1,0 +1,96 @@
+Test ran at 2022-09-11 01:17:05.107715+00:00
+
+SOLUTION:
+freetypeada=0.1.0: Thick binding to the FreeType library
+Origin: commit 4fd90f573dc83a9b23e462520a60eb6a8dd92878 from https://github.com/flyx/FreeTypeAda.git
+Properties:
+   Author: Felix Krause
+   Description: Thick binding to the FreeType library
+   case OS is
+      when Linux => GPR External: FreeType_Linker_Param := -lfreetype
+      when Macos => GPR External: FreeType_Linker_Param := -lfreetype
+      when Windows => GPR External: FreeType_Linker_Param := -lfreetype-6
+   License: MIT
+   Maintainer: Felix Krause <contact@flyx.org>
+   Maintainers_Logins: flyx
+   Name: freetypeada
+   Project_File: freetype.gpr
+   Tag: fonts
+   Tag: rendering
+   Version: 0.1.0
+   Website: https://github.com/flyx/FreeTypeAda
+Dependencies (direct):
+   case OS is
+      when Linux => libfreetype^2
+      when Windows => libfreetype^2
+Dependencies (solution):
+   libfreetype=2.12.1
+Dependencies (graph):
+   freetypeada=0.1.0 --> libfreetype=2.12.1 (^2)
+
+
+LOG:
+Note: Deploying freetypeada=0.1.0...
+Note: Migrating lockfile from /home/runner/work/alire-crates-ci/alire-crates-ci/test/db574e8f-59b3-41ef-971e-8f48dee480c4/freetypeada_0.1.0_4fd90f57/alire.lock to /home/runner/work/alire-crates-ci/alire-crates-ci/test/db574e8f-59b3-41ef-971e-8f48dee480c4/freetypeada_0.1.0_4fd90f57/alire/alire.lock
+Note: Deploying libfreetype=2.12.1...
+The system package 'freetype2' is about to be installed.
+This action might require admin privileges and impact your system installation.
+Do you want Alire to install this system package?
+Using default: Yes
+resolving dependencies...
+looking for conflicting packages...
+warning: dependency cycle detected:
+warning: harfbuzz will be installed before its freetype2 dependency
+
+Package (4)      New Version  Net Change  Download Size
+
+extra/graphite   1:1.3.14-2     0.67 MiB       0.21 MiB
+extra/harfbuzz   5.1.0-1        6.05 MiB       1.02 MiB
+extra/libpng     1.6.37-3       0.55 MiB       0.24 MiB
+extra/freetype2  2.12.1-1       1.63 MiB       0.49 MiB
+
+Total Download Size:   1.96 MiB
+Total Installed Size:  8.90 MiB
+
+:: Proceed with installation? [Y/n] 
+:: Retrieving packages...
+ harfbuzz-5.1.0-1-x86_64 downloading...
+ freetype2-2.12.1-1-x86_64 downloading...
+ libpng-1.6.37-3-x86_64 downloading...
+ graphite-1:1.3.14-2-x86_64 downloading...
+checking keyring...
+checking package integrity...
+loading package files...
+checking for file conflicts...
+:: Processing package changes...
+installing libpng...
+installing graphite...
+installing harfbuzz...
+Optional dependencies for harfbuzz
+    cairo: hb-view program
+    chafa: hb-view program
+installing freetype2...
+:: Running post-transaction hooks...
+(1/1) Arming ConditionNeedsUpdate...
+Note: Building freetypeada/freetype.gpr...
+Setup
+   [mkdir]        object directory for project FreeType
+   [mkdir]        library directory for project FreeType
+Compile
+   [ada]          ft.adb
+   [ada]          ft-api-glyphs.ads
+   [ada]          ft-glyphs.adb
+   [ada]          ft-faces.adb
+   [ada]          ft-utilities.adb
+   [ada]          ft-api.ads
+   [ada]          ft-errors.adb
+Build Libraries
+   [gprlib]       FreeTypeAda.lexch
+   [archive]      libFreeTypeAda.a
+   [index]        libFreeTypeAda.a
+Build finished successfully in 0.74 seconds.
+
+freetypeada=0.1.0 successfully retrieved and built.
+Dependencies were solved as follows:
+
+   + libfreetype 2.12.1 (new)

@@ -1,0 +1,65 @@
+Test ran at 2026-10-05 12:51:25.188946+00:00
+
+SOLUTION:
+espidf=0.2.0: Ada/ESP-IDF: common types and utilities for ESP-IDF bindings
+Origin: commit 180c1c28078d5e6ce432c48d9d1f35fe668b6047 from https://github.com/godunko/espidf.git
+Properties:
+   Author: Vadim Godunko
+   Config type: Build_Environment : Enum (ada_only, espidf) default: 'ada_only'
+   Configuration: no modifiers
+   Description: Ada/ESP-IDF: common types and utilities for ESP-IDF bindings
+   License: Apache-2.0 WITH LLVM-exception
+   Long_Description: Root crate of the Ada bindings for the Espressif IoT Development Framework (ESP-IDF).
+
+Provides definitions shared by all `espidf_*` binding crates:
+- C types used across ESP-IDF APIs (`esp_err_t`, `size_t`, ...);
+- conversion of strings between Ada and C;
+- conversion of `esp_err_t` error codes into Ada exceptions.
+
+   Maintainer: Vadim Godunko <vgodunko@gmail.com>
+   Maintainers_Logins: godunko
+   Name: espidf
+   Tag: a0b
+   Tag: embedded
+   Tag: esp
+   Tag: esp32
+   Tag: espidf
+   Version: 0.2.0
+   Website: https://github.com/godunko/espidf
+Dependencies (direct):
+   a0b_base^0.5.0
+Dependencies (solution):
+   a0b_base=0.5.0
+Dependencies (graph):
+   espidf=0.2.0 --> a0b_base=0.5.0 (^0.5.0)
+
+
+LOG:
+[alr test] Testing espidf=0.2.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get espidf=0.2.0
+Note: Deploying espidf=0.2.0...
+Warning: Possible tilde intended instead of caret for a 0.x version.
+   Alire does not change the meaning of caret and tilde for pre/post-1.0 versions.
+   The suspicious dependency is: a0b_base^0.5.0
+   You can disable this warning by setting the option warning.caret to false.
+
+espidf=0.2.0 successfully retrieved.
+Dependencies were solved as follows:
+
+   + a0b_base 0.5.0 (new)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building espidf=0.2.0/espidf.gpr...
+".objs\x86_64-windows\none" created
+".libs\x86_64-windows\none" created
+a0b-types-big_endian.adb:10:04: warning: "Unsigned_64" is already use-visible through previous use_type_clause at a0b-types.ads:297 [enabled by default]
+a0b-types-big_endian.adb:10:04: warning: use clause for type "Unsigned_64" defined at a0b-types.ads:88 has no effect [-gnatwu]
+[Ada Compile]     espidf-ada_esp_check_error.adb
+[Ada Compile]     espidf-c_strings.adb
+[Ada Compile]     espidf-driver.ads
+[Ada Compile]     espidf-hal.ads
+[Ada Compile]     espidf.ads
+espidf-c_strings.ads:130:54: (style) bad casing of "NUL" declared in Standard
+[Archive]         libadaespidf.a
+Success: Build finished successfully in 1.90 seconds.
+Found declared GPR file: espidf.gpr
+[alr test] Test completed SUCCESSFULLY

@@ -1,0 +1,220 @@
+Test ran at 2026-10-09 01:36:51.983448+00:00
+
+SOLUTION:
+apdf=9.0.0: Portable package for producing dynamically PDF documents
+Origin: source archive apdf_009.zip at https://sourceforge.net/projects/apdf/files/apdf_009.zip with hash sha512:d62bdc1365f387a761de8eca59fbcb1b4757dea39b214592e2c8951edec0dcf826efa6c2b6b581059bf16ce23ba9f1779a9fe0dc0c12d471494a78a907df86db
+Properties:
+   Author: Gautier de Montmollin
+   Description: Portable package for producing dynamically PDF documents
+   Executable: pdf_out_demo
+   Executable: koch_curve
+   Executable: sierpinski_arrowhead_curve
+   GPR Scenario: PDF_Build_Mode := Debug | Fast
+   License: MIT
+   Long_Description: **PDF_Out** is an Ada package for producing easily and automatically PDF files, from an Ada program, with text, vector graphics and raster graphics.
+
+![Ada PDF Screenshot](https://apdf.sourceforge.io/pw_ari_delivery_m.png "Screenshot of a page produced by PDF_Out")
+![Ada PDF Screenshot](https://apdf.sourceforge.io/pw_sowebio_m.jpg      "Screenshot of a report produced by PDF_Out")
+
+* Ideal for the dynamic production of reports, invoices, tickets, labels, delivery notes, charts, maps etc.
+* Vector graphics
+* Inclusion of JPEG images
+* Object oriented
+* Task safe
+* Endian-neutral
+* Multi-platform, but native code build
+* Unconditionally portable code: OS-, CPU-, compiler- independent code
+* Pure Ada 2012: this package can be used in projects in Ada 2012 and later language versions
+* *Free*, open-source 
+
+The creation of a PDF file is as simple as this small procedure:
+
+```ada
+with PDF_Out;
+
+procedure Small_Demo is
+  pdf : PDF_Out.PDF_Out_File;
+begin
+  pdf.Create ("small.pdf");
+  pdf.Put_Line ("This is a very small demo for PDF_Out...");
+  pdf.Close;
+end Small_Demo;
+```
+
+
+   Maintainer: gdemont@hotmail.com
+   Maintainers_Logins: zertovitch
+   Maintainers_Logins: Fabien-Chouteau
+   Name: apdf
+   Project_File: pdf_out_project_tree.gpr
+   Tag: pdf
+   Tag: adobe
+   Tag: acrobat
+   Version: 9.0.0
+   Website: https://github.com/zertovitch/ada-pdf-writer
+Dependencies (direct):
+   gid>=13.0.1
+Dependencies (solution):
+   gid=14.0.0
+Dependencies (graph):
+   apdf=9.0.0 --> gid=14.0.0 (>=13.0.1)
+
+
+LOG:
+[alr test] Testing apdf=9.0.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get apdf=9.0.0
+Note: Deploying apdf=9.0.0...
+
+######################################################################## 100.0%
+######################################################################## 100.0%
+######################################################################## 100.0%
+######################################################################## 100.0%
+#=#=#                                                                          
+##=#=#                                                                         
+##                                                                         2.9%
+######                                                                     8.7%
+##############                                                            20.3%
+###############################                                           43.7%
+##########################################################                81.5%
+######################################################################## 100.0%
+Note: Deploying gid=14.0.0...
+
+######################################################################## 100.0%
+######################################################################## 100.0%
+######################################################################## 100.0%
+######################################################################## 100.0%
+#=#=#                                                                          
+######################################################################## 100.0%
+
+apdf=9.0.0 successfully retrieved.
+Dependencies were solved as follows:
+
+   + gid 14.0.0 (new)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building gid=14.0.0/gid.gpr...
+"obj\debug" created
+[Ada Compile]     all_rgb.adb
+[Ada Compile]     benchmark.adb
+[Ada Compile]     clusters.adb
+[Ada Compile]     color_avg.adb
+[Ada Compile]     color_distances.adb
+[Ada Compile]     color_statistics.adb
+[Ada Compile]     comp_img.adb
+[Ada Compile]     comp_img_fct.adb
+[Ada Compile]     dumb_png.adb
+[Ada Compile]     fast_io.adb
+[Ada Compile]     gid-buffering.adb
+[Ada Compile]     gid-color_tables.adb
+[Ada Compile]     gid-decoding_bmp.adb
+[Ada Compile]     gid-decoding_gif.adb
+[Ada Compile]     gid-decoding_jpg.adb
+[Ada Compile]     gid-decoding_png-huffman.adb
+[Ada Compile]     gid-decoding_png.adb
+[Ada Compile]     gid-decoding_pnm.adb
+[Ada Compile]     gid-decoding_qoi.adb
+[Ada Compile]     gid-decoding_tga.adb
+[Ada Compile]     gid-headers.adb
+[Ada Compile]     gid.adb
+[Ada Compile]     is_opaque.adb
+[Ada Compile]     mini.adb
+[Ada Bind]        all_rgb
+[Ada Bind]        clusters
+[Ada Bind]        color_avg
+[Ada Compile]     recurve.adb
+[Ada Bind]        benchmark
+[Ada Bind]        comp_img
+[Ada Compile]     steg.adb
+[Ada Bind]        is_opaque
+[Ada Compile]     to_bmp.adb
+[Ada Bind]        mini
+[Ada Compile]     to_png.adb
+[Ada Bind]        recurve
+[Ada Post-Bind]   b__all_rgb.adb
+[Link]            all_rgb.exe
+[Ada Post-Bind]   b__benchmark.adb
+[Link]            benchmark.exe
+[Ada Bind]        steg
+[Ada Post-Bind]   b__clusters.adb
+[Link]            clusters.exe
+[Ada Post-Bind]   b__color_avg.adb
+[Link]            color_avg.exe
+[Ada Post-Bind]   b__comp_img.adb
+[Ada Post-Bind]   b__is_opaque.adb
+[Link]            comp_img.exe
+[Link]            is_opaque.exe
+[Ada Post-Bind]   b__mini.adb
+[Ada Post-Bind]   b__recurve.adb
+[Link]            mini.exe
+[Link]            recurve.exe
+[Ada Post-Bind]   b__steg.adb
+[Link]            steg.exe
+[Ada Bind]        to_bmp
+[Ada Post-Bind]   b__to_bmp.adb
+[Link]            to_bmp.exe
+[Ada Bind]        to_png
+[Ada Post-Bind]   b__to_png.adb
+[Link]            to_png.exe
+Note: Building apdf=9.0.0/pdf_out_project_tree.gpr...
+"obj\debug" created
+[Ada Compile]     arc_test.adb
+[Ada Compile]     bar_code.ads
+[Ada Compile]     color_pinstripe_printer.adb
+[Ada Compile]     coord_test.adb
+[Ada Compile]     fancy_page.adb
+[Ada Compile]     hilbert_curve.adb
+[Ada Compile]     img2pdf.adb
+[Ada Compile]     insert_mascot.adb
+[Ada Compile]     k_means.adb
+[Ada Compile]     koch_curve.adb
+[Ada Compile]     page_test.adb
+[Ada Compile]     pdf_out-fonts.adb
+[Ada Compile]     pdf_out-images.adb
+[Ada Compile]     pdf_out.adb
+[Ada Compile]     pdf_out_demo.adb
+[Ada Compile]     peano_curve.adb
+[Ada Compile]     pinstripe_printer.adb
+[Ada Compile]     qr_code.ads
+[Ada Compile]     sierpinski_arrowhead_curve.adb
+[Ada Compile]     validation_test.adb
+[Ada Bind]        arc_test
+[Ada Bind]        color_pinstripe_printer
+[Ada Bind]        coord_test
+[Ada Bind]        hilbert_curve
+[Ada Bind]        img2pdf
+[Ada Bind]        k_means
+[Ada Bind]        koch_curve
+[Ada Bind]        page_test
+[Ada Bind]        pdf_out_demo
+[Ada Bind]        peano_curve
+[Ada Bind]        pinstripe_printer
+[Ada Bind]        sierpinski_arrowhead_curve
+[Ada Bind]        validation_test
+[Ada Post-Bind]   b__arc_test.adb
+[Ada Post-Bind]   b__color_pinstripe_printer.adb
+[Ada Post-Bind]   b__coord_test.adb
+[Ada Post-Bind]   b__hilbert_curve.adb
+[Link]            arc_test.exe
+[Link]            color_pinstripe_printer.exe
+[Link]            coord_test.exe
+[Link]            hilbert_curve.exe
+[Ada Post-Bind]   b__img2pdf.adb
+[Ada Post-Bind]   b__k_means.adb
+[Ada Post-Bind]   b__koch_curve.adb
+[Ada Post-Bind]   b__page_test.adb
+[Link]            img2pdf.exe
+[Link]            k_means.exe
+[Link]            koch_curve.exe
+[Link]            page_test.exe
+[Ada Post-Bind]   b__pdf_out_demo.adb
+[Ada Post-Bind]   b__peano_curve.adb
+[Ada Post-Bind]   b__pinstripe_printer.adb
+[Link]            pdf_out_demo.exe
+[Ada Post-Bind]   b__sierpinski_arrowhead_curve.adb
+[Link]            peano_curve.exe
+[Link]            pinstripe_printer.exe
+[Link]            sierpinski_arrowhead_curve.exe
+[Ada Post-Bind]   b__validation_test.adb
+[Link]            validation_test.exe
+Success: Build finished successfully in 68.32 seconds.
+Found declared GPR file: pdf_out_project_tree.gpr
+[alr test] Test completed SUCCESSFULLY

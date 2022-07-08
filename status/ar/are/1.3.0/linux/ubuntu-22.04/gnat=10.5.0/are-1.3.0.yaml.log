@@ -1,0 +1,83 @@
+Test ran at 2024-02-08 12:53:29.372770+00:00
+
+SOLUTION:
+are=1.3.0: Advanced Resource Embedder
+Origin: commit 7102b4b8270334d570428a5e220c40b22c5c3274 from https://gitlab.com/stcarrez/resource-embedder.git
+Available when: (case OS is Linux => True, Macos => True, Windows => True, others => False)
+Properties:
+   Author: Stephane.Carrez@gmail.com
+   Configuration: no modifiers
+   Description: Advanced Resource Embedder
+   Environment: MANPATH=${CRATE_ROOT}/man:${MANPATH}
+   Environment: PATH=${CRATE_ROOT}/bin:${PATH}
+   Executable: are
+   GPR Scenario: ARE_BUILD := distrib | debug | optimize | profile | coverage
+   GPR Scenario: ARE_SWITCH := NO_CALLBACK | HAS_CALLBACK
+   GPR Scenario: UTIL_OS := win32 | win64 | linux32 | linux64 | macos64 | netbsd32 | netbsd64 | freebsd32 | freebsd64
+   case OS is
+      when Linux => (case Word_Size is Bits_32 => GPR External: UTIL_OS := linux32, Bits_64 => GPR External: UTIL_OS := linux64)
+      when Macos => GPR External: UTIL_OS := macos64
+      when Windows => (case Word_Size is Bits_32 => GPR External: UTIL_OS := win32, Bits_64 => GPR External: UTIL_OS := win64)
+   GPR External: ARE_BUILD := distrib
+   GPR External: ARE_SWITCH := HAS_CALLBACK
+   License: Apache-2.0
+   Long_Description: [![Build Status](https://img.shields.io/endpoint?url=https://porion.vacs.fr/porion/api/v1/projects/resource-embedder/badges/build.json)](https://porion.vacs.fr/porion/projects/view/resource-embedder)
+[![Test Status](https://img.shields.io/endpoint?url=https://porion.vacs.fr/porion/api/v1/projects/resource-embedder/badges/tests.json)](https://porion.vacs.fr/porion/projects/view/resource-embedder)
+[![Coverage](https://img.shields.io/endpoint?url=https://porion.vacs.fr/porion/api/v1/projects/resource-embedder/badges/coverage.json)](https://porion.vacs.fr/porion/projects/view/resource-embedder)
+[![Documentation Status](https://readthedocs.org/projects/resource-embedder/badge/?version=latest)](https://resource-embedder.readthedocs.io/en/latest/?badge=latest)
+
+The resource embedder allows to embed files in binaries by producing C, Ada or Go source
+files that contain the original files.
+
+To generate a `config.ads` and `config.adb` Ada package with the resources, you may use:
+
+```
+are --lang=Ada -o src --resource=config --name-access --fileset='**/*.conf' config
+```
+
+Complex resource integrations are best described with and XML and are generated with:
+
+```
+are --lang=Ada -o src --rule=package.xml --name-access .
+```
+
+For Ada, it generates the following package declaration with the `Get_Content` function
+that gives access to the files.  The Ada body contains the content of each embedded file.
+
+```Ada
+package Config is
+  function Get_Content (Name : in String)
+    return access constant String;
+end Config;
+```
+
+
+   Maintainer: Stephane.Carrez@gmail.com
+   Maintainers_Logins: stcarrez
+   Name: are
+   Project_File: are_tool.gpr
+   Tag: resource
+   Tag: embedder
+   Tag: generator
+   Version: 1.3.0
+   Website: https://gitlab.com/stcarrez/resource-embedder
+Dependencies (direct):
+   elada^1.8.6
+   utilada^2.6.0
+   xmlada~23.0.0
+Dependencies (solution):
+   elada=1.8.6
+   utilada=2.6.0
+   xmlada=23.0.0
+Dependencies (external):
+   gnat>=11 (indirect,hinted)
+Dependencies (graph):
+   are=1.3.0     --> elada=1.8.6 (^1.8.6)   
+   are=1.3.0     --> utilada=2.6.0 (^2.6.0) 
+   are=1.3.0     --> xmlada=23.0.0 (~23.0.0)
+   elada=1.8.6   --> utilada=2.6.0 (^2.5.0) 
+   xmlada=23.0.0 --> gnat>=11               
+Dependencies cannot be met
+
+
+LOG:

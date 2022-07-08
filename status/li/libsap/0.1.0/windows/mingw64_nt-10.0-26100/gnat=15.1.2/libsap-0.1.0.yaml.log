@@ -1,0 +1,85 @@
+Test ran at 2026-05-19 01:47:46.372373+00:00
+
+SOLUTION:
+libsap=0.1.0: Asynchronous message passing for protocol stacks
+Origin: commit fb0eba34ec8d8eb1f2bc0d7985d46a8c8c759c46 from https://github.com/damaki/libsap.git
+Properties:
+   Author: Daniel King
+   Build Switches: 
+   Config type: Tasking_Supported : Boolean default: 'true'
+   Configuration: no modifiers
+   Description: Asynchronous message passing for protocol stacks
+   License: Apache-2.0 WITH LLVM-exception
+   Long_Description: Provides utilities to create _Service Access Points_ (SAP) for asynchronous,
+zero-copy message passing between tasks based on _Service Primitive_ messages
+(request, confirm, indication, and response primitives).
+
+   Maintainer: Daniel King <damaki.gh@gmail.com>
+   Maintainers_Logins: damaki
+   Name: libsap
+   Tag: protocol
+   Tag: protocols
+   Tag: nostd
+   Tag: spark
+   Version: 0.1.0
+   Website: https://github.com/damaki/libsap
+Dependencies (direct):
+   atomic^1.1.0
+   gnat>=14
+Dependencies (solution):
+   atomic=1.1.0
+   gnat=15.1.2 (gnat_native)
+Dependencies (graph):
+   libsap=0.1.0 --> atomic=1.1.0 (^1.1.0)
+   libsap=0.1.0 --> gnat=15.1.2 (gnat_native) (>=14)
+
+
+LOG:
+[alr test] Testing libsap=0.1.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get libsap=0.1.0
+Note: Deploying libsap=0.1.0...
+Note: Deploying atomic=1.1.0...
+
+libsap=0.1.0 successfully retrieved.
+Dependencies were solved as follows:
+
+   +  atomic 1.1.0  (new)
+   +b gnat   15.1.2 (new,gnat_native,binary)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building libsap=0.1.0/libsap.gpr...
+Setup
+   [mkdir]        object directory for project Atomic
+   [mkdir]        library directory for project Atomic
+   [mkdir]        object directory for project LibSAP
+   [mkdir]        library directory for project LibSAP
+Compile
+   [Ada]          atomic.adb
+   [Ada]          atomic-unsigned.adb
+   [Ada]          atomic-signed.adb
+   [Ada]          atomic-basic_operations.adb
+   [Ada]          atomic_config.ads
+   [Ada]          atomic-unsigned_8.ads
+   [Ada]          atomic-unsigned_32.ads
+   [Ada]          atomic-unsigned_16.ads
+   [Ada]          atomic-signed_8.ads
+   [Ada]          atomic-signed_32.ads
+   [Ada]          atomic-signed_16.ads
+   [Ada]          libsap-synchronous_user_service_access_point.adb
+   [Ada]          libsap-synchronous_provider_service_access_point.adb
+   [Ada]          libsap_config.ads
+   [Ada]          libsap.ads
+   [Ada]          libsap-singleton_transaction_queues.adb
+   [Ada]          libsap-pointer_queues.adb
+   [Ada]          libsap-pointer_holders.adb
+   [Ada]          libsap-light_user_service_access_point.adb
+   [Ada]          libsap-light_provider_service_access_point.adb
+Build Libraries
+   [gprlib]       Atomic.lexch
+   [gprlib]       sap.lexch
+   [archive]      libAtomic.a
+   [index]        libAtomic.a
+   [archive]      libsap.a
+   [index]        libsap.a
+Success: Build finished successfully in 2.07 seconds.
+Found declared GPR file: libsap.gpr
+[alr test] Test completed SUCCESSFULLY

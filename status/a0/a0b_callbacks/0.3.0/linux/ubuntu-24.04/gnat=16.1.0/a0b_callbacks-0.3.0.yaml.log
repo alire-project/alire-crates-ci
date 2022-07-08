@@ -1,0 +1,90 @@
+Test ran at 2026-10-29 12:34:52.192310+00:00
+
+SOLUTION:
+a0b_callbacks=0.3.0: A0B Callbacks
+Origin: commit a7a1644543aba2797fbe68911d7cd26ced336a62 from https://github.com/godunko/a0b-callbacks.git
+Properties:
+   Author: Vadim Godunko
+   Configuration: no modifiers
+   Description: A0B Callbacks
+   License: Apache-2.0 WITH LLVM-exception
+   Long_Description: Provides type-safe mechanisms to invoke user-defined callback subprograms with optional user data, designed specifically for embedded systems and light runtimes without tasking constructs.
+
+The library offers a core `Callback` type alongside several generic child packages tailored for different parameter types:
+- `Generic_Parameterless`: For parameterless procedures.
+- `Generic_Subprogram`: For procedures accepting parameters of unconstrained limited types.
+- `Generic_Non_Dispatching`: For procedures with class-wide type parameters.
+- `Generic_Dispatching`: For procedures with unconstrained abstract tagged type parameters.
+- `Generic_Discrete`: For procedures with discrete type parameters.
+
+Ideal for interrupt handlers, event-driven device drivers, and lightweight task synchronization in bare-metal environments.
+
+   Maintainer: Vadim Godunko <vgodunko@gmail.com>
+   Maintainers_Logins: godunko
+   Name: a0b_callbacks
+   Tag: a0b
+   Tag: callbacks
+   Version: 0.3.0
+   Website: https://github.com/godunko/a0b-callbacks
+Dependencies (direct):
+   a0b_base^0.6.0
+Dependencies (solution):
+   a0b_base=0.6.0
+   gnat=16.1.0 (gnat_native)
+Dependencies (graph):
+   a0b_base=0.6.0      --> gnat=16.1.0 (gnat_native) (>16)
+   a0b_callbacks=0.3.0 --> a0b_base=0.6.0 (^0.6.0)
+
+
+LOG:
+[alr test] Testing a0b_callbacks=0.3.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get a0b_callbacks=0.3.0
+Note: Deploying a0b_callbacks=0.3.0...
+Note: Deploying a0b_base=0.6.0...
+Warning: Possible tilde intended instead of caret for a 0.x version.
+   Alire does not change the meaning of caret and tilde for pre/post-1.0 versions.
+   The suspicious dependency is: a0b_base^0.6.0
+   You can disable this warning by setting the option warning.caret to false.
+
+a0b_callbacks=0.3.0 successfully retrieved.
+Dependencies were solved as follows:
+
+   +  a0b_base 0.6.0  (new)
+   +b gnat     16.1.0 (new,gnat_native,indirect,binary)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building a0b_callbacks=0.3.0/a0b_callbacks.gpr...
+Setup
+   [mkdir]        object directory for project A0B_Base
+   [mkdir]        library directory for project A0B_Base
+   [mkdir]        object directory for project A0B_Callbacks
+   [mkdir]        library directory for project A0B_Callbacks
+Compile
+   [Ada]          a0b-storage.ads
+   [Ada]          a0b-storage-address_to_access_conversions.ads
+   [Ada]          a0b-types-gcc_builtins.ads
+   [Ada]          a0b.ads
+   [Ada]          a0b-types-enumerable.ads
+   [Ada]          a0b-types.ads
+   [Ada]          a0b-peripherals.ads
+   [Ada]          a0b-types-svd.ads
+   [Ada]          a0b-types-big_endian.adb
+   [Ada]          a0b-types-arrays.ads
+   [Ada]          a0b-callbacks-generic_parameterless.adb
+   [Ada]          a0b-callbacks-generic_subprogram.adb
+   [Ada]          a0b-callbacks-generic_object_aliased.adb
+   [Ada]          a0b-callbacks-empty.ads
+   [Ada]          a0b-callbacks-generic_discrete.adb
+   [Ada]          a0b-callbacks.adb
+   [Ada]          a0b-callbacks-no_operation.adb
+   [Ada]          a0b-callbacks-generic_non_dispatching.adb
+   [Ada]          a0b-callbacks-generic_dispatching.adb
+Build Libraries
+   [gprlib]       a0b_base.lexch
+   [gprlib]       a0b_callbacks.lexch
+   [archive]      liba0b_base.a
+   [index]        liba0b_base.a
+   [archive]      liba0b_callbacks.a
+   [index]        liba0b_callbacks.a
+Success: Build finished successfully in 0.71 seconds.
+Found declared GPR file: a0b_callbacks.gpr
+[alr test] Test completed SUCCESSFULLY

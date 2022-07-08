@@ -1,0 +1,81 @@
+Test ran at 2026-07-20 13:06:15.989933+00:00
+
+SOLUTION:
+cashe=1.0.0: A fixed-point decimal money library written in Ada.
+Origin: commit d142893b6036e384daa3e8a9172f133c204ee5a7 from https://github.com/AJ-Ianozi/Cashe.git
+Properties:
+   Author: AJ Ianozi
+   Description: A fixed-point decimal money library written in Ada.
+   License: MIT
+   Maintainer: AJ Ianozi <aj@ianozi.com>
+   Maintainers_Logins: AJ-Ianozi
+   Name: cashe
+   Tag: currency
+   Tag: money
+   Tag: decimal
+   Tag: finance
+   Version: 1.0.0
+   Website: https://github.com/AJ-Ianozi/Cashe/
+Dependencies (direct):
+   gnat>=12 & <2000
+   iso^2.0.0
+Dependencies (solution):
+   gnat=13.2.2 (gnat_native)
+   iso=2.0.0
+Dependencies (graph):
+   cashe=1.0.0 --> gnat=13.2.2 (gnat_native) (>=12 & <2000)
+   cashe=1.0.0 --> iso=2.0.0 (^2.0.0)
+
+
+LOG:
+[alr test] Testing cashe=1.0.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get cashe=1.0.0
+Note: Deploying cashe=1.0.0...
+Note: Deploying iso=2.0.0...
+
+cashe=1.0.0 successfully retrieved.
+Dependencies were solved as follows:
+
+   +b gnat 13.2.2 (new,gnat_native,binary)
+   +  iso  2.0.0  (new)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building cashe=1.0.0/cashe.gpr...
+Setup
+   [mkdir]        object directory for project ISO
+   [mkdir]        library directory for project ISO
+   [mkdir]        object directory for project Cashe
+   [mkdir]        library directory for project Cashe
+Compile
+   [Ada]          iso_config.ads
+   [Ada]          iso-countries.adb
+   [Ada]          iso.ads
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+   [Ada]          iso-currencies.adb
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+   [Ada]          cashe_config.ads
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+   [Ada]          cashe-exchange.adb
+iso-currencies.adb:244:34: error: literal out of range of type Standard.Character
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+
+   compilation of iso-currencies.adb failed
+
+gprbuild: *** compilation phase failed
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/Users/runner/work/alire-crates-ci/alire-crates-ci/test/f1b2af34-0bd9-4992-b54b-8c35edb3350d/cashe_1.0.0_d142893b/cashe.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/Users/runner/work/alire-crates-ci/alire-crates-ci/test/f1b2af34-0bd9-4992-b54b-8c35edb3350d/cashe_1.0.0_d142893b/cashe.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+stderr: ALIRE.CHECKED_ERROR
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/Users/runner/work/alire-crates-ci/alire-crates-ci/test/f1b2af34-0bd9-4992-b54b-8c35edb3350d/cashe_1.0.0_d142893b/cashe.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
+Load address: 0x1002f8000
+Call stack traceback locations:
+0x1010040cc 0x10100412c 0x100d5866c 0x10099d568 0x100c22594 0x100c234f4 0x100b6133c 0x100b5fb08 0x100b8378c 0x100be356c 0x100be299c 0x100b83868 0x100b83950 0x100b6000c 0x100b60174 0x100369730 0x100369070 0x1003691e4 0x100406b38 0x100411c78 0x1002fa9f8 0x1002ffa2c
+
+stderr: ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED
+stderr: alire-roots.adb:202
+stderr: raised ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED : alire-roots.adb:202
+Load address: 0x1002f8000
+Call stack traceback locations:
+0x1010040cc 0x10100412c 0x100b61640 0x100b5fb08 0x100b8378c 0x100be356c 0x100be299c 0x100b83868 0x100b83950 0x100b6000c 0x100b60174 0x100369730 0x100369070 0x1003691e4 0x100406b38 0x100411c78 0x1002fa9f8 0x1002ffa2c
+
+ERROR: Compilation failed.

@@ -1,0 +1,68 @@
+Test ran at 2024-04-29 12:42:18.968355+00:00
+
+SOLUTION:
+utf8test=0.1.0: Test the terminal behavior when outputting Latin-1 and UTF-8 strings
+Origin: commit 245c2b3bec48ff6e2b94733419a42c7d77f054bf from https://github.com/mosteo/utf8test.git
+Properties:
+   Author: Alejandro R. Mosteo
+   Description: Test the terminal behavior when outputting Latin-1 and UTF-8 strings
+   Executable: utf8test
+   License: MIT OR Apache-2.0
+   Maintainer: Alejandro R. Mosteo <alejandro@mosteo.com>
+   Maintainers_Logins: mosteo
+   Name: utf8test
+   Tag: unicode
+   Tag: utf-8
+   Tag: latin-1
+   Tag: terminal
+   Version: 0.1.0
+   Website: 
+
+
+LOG:
+Note: Deploying utf8test=0.1.0...
+Note: Building utf8test/utf8test.gpr...
+Setup
+   [mkdir]        object directory for project Utf8test
+   [mkdir]        exec directory for project Utf8test
+Compile
+   [Ada]          utf8test.adb
+utf8test.adb:64:80: (style) this line is too long
+utf8test.adb:67:80: (style) this line is too long
+Bind
+   [gprbind]      utf8test.bexch
+   [Ada]          utf8test.ali
+Link
+   [link]         utf8test.adb
+-macosx_version_min has been renamed to -macos_version_min
+ld: warning: ignoring duplicate libraries: '-lSystem'
+0  0x1029d7f43  __assert_rtn + 64
+1  0x1028d9f43  ld::AtomPlacement::findAtom(unsigned char, unsigned long long, ld::AtomPlacement::AtomLoc const*&, long long&) const + 1411
+2  0x1028f6431  ld::InputFiles::SliceParser::parseObjectFile(mach_o::Header const*) const + 19745
+3  0x102906b71  ld::InputFiles::parseAllFiles(void (ld::AtomFile const*) block_pointer)::$_7::operator()(unsigned long, ld::FileInfo const&) const + 657
+4  0x7ff809606def  _dispatch_client_callout2 + 8
+5  0x7ff809618547  _dispatch_apply_invoke3 + 431
+6  0x7ff809606dbc  _dispatch_client_callout + 8
+7  0x7ff80960804e  _dispatch_once_callout + 20
+8  0x7ff809618a9b  _dispatch_apply_invoke_and_wait + 278
+9  0x7ff809617cf8  _dispatch_apply_with_attr_f + 1225
+10  0x7ff809617eaf  dispatch_apply + 45
+11  0x10299f972  ld::AtomFileConsolidator::parseFiles(bool) + 370
+12  0x102926d67  main + 12263
+ld: Assertion failed: (resultIndex < sectData.atoms.size()), function findAtom, file Relocations.cpp, line 1336.
+collect2: error: ld returned 1 exit status
+gprbuild: link of utf8test.adb failed
+gprbuild: failed command was: /users/runner/.config/alire/cache/dependencies/gnat_native_11.2.4_9800548d/bin/gcc utf8test.o b__utf8test.o -L/Users/runner/work/alire-crates-ci/alire-crates-ci/test/31c38a70-0e2a-4b89-93a8-93710ddd38b1/utf8test_0.1.0_245c2b3b/obj/development/ -L/Users/runner/work/alire-crates-ci/alire-crates-ci/test/31c38a70-0e2a-4b89-93a8-93710ddd38b1/utf8test_0.1.0_245c2b3b/obj/development/ -L/users/runner/.config/alire/cache/dependencies/gnat_native_11.2.4_9800548d/lib/gcc/x86_64-apple-darwin19.6.0/11.2.0/adalib/ /users/runner/.config/alire/cache/dependencies/gnat_native_11.2.4_9800548d/lib/gcc/x86_64-apple-darwin19.6.0/11.2.0/adalib/libgnat.a -Wl,-rpath,@executable_path/..//obj/development -Wl,-rpath,@executable_path/../../../../../../..//.config/alire/cache/dependencies/gnat_native_11.2.4_9800548d/lib/gcc/x86_64-apple-darwin19.6.0/11.2.0/adalib -o /Users/runner/work/alire-crates-ci/alire-crates-ci/test/31c38a70-0e2a-4b89-93a8-93710ddd38b1/utf8test_0.1.0_245c2b3b/bin//utf8test
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/Users/runner/work/alire-crates-ci/alire-crates-ci/test/31c38a70-0e2a-4b89-93a8-93710ddd38b1/utf8test_0.1.0_245c2b3b/utf8test.gpr"] exited with code 4
+ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/Users/runner/work/alire-crates-ci/alire-crates-ci/test/31c38a70-0e2a-4b89-93a8-93710ddd38b1/utf8test_0.1.0_245c2b3b/utf8test.gpr"] exited with code 4
+stderr: ALIRE.CHECKED_ERROR
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/Users/runner/work/alire-crates-ci/alire-crates-ci/test/31c38a70-0e2a-4b89-93a8-93710ddd38b1/utf8test_0.1.0_245c2b3b/utf8test.gpr"] exited with code 4
+stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
+Load address: 0x102b32000
+Call stack traceback locations:
+0x10343a415 0x10310de83 0x103320df9 0x103321581 0x103281ac3 0x10327ff99 0x10329c873 0x1032e8dc1 0x1032e781a 0x10329c9b8 0x103280349 0x102b919c1 0x102ba2578 0x102ba701c 0x102c2d05c 0x102c383b8 0x102b33605 0x102b36914
+
+
+Warning: utf8test=0.1.0 successfully retrieved but its build failed.
+There are no dependencies.
+ERROR: Build ended with errors

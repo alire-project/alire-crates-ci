@@ -1,0 +1,1043 @@
+Test ran at 2026-11-01 00:46:43.595553+00:00
+
+SOLUTION:
+munts_rp2040_firmware_embedded=16.25331.1: Phil's RP2040 Microcontroller Embedded Profile Firmware Template
+Origin: source archive munts_rp2040_firmware_embedded-16.25331.1.tbz2 at https://raw.githubusercontent.com/pmunts/alire-crates/86e66c2224f39f1beb19241ebd4f84d59d9fbe07/munts_rp2040_firmware_embedded/munts_rp2040_firmware_embedded-16.25331.1.tbz2 with hashes sha256:d28ea578769ac7a8c7914a7aa87abdc42e22d4fcbedc22370b1ecb6ccb2b4602, sha512:e9b6fbb273e2551986de226ff73d7559de4f4057b4397e1a3f50093c6d439dea0cc1c04ef47b8326ef020ec3d4b353495a0133c4d1dff4671fb88150afdcbaf8
+Properties:
+   Post_Build run: sh -c ./postbuild.sh (from ${CRATE_ROOT}/.)
+   Author: Philip Munts
+   Config set: embedded_rp2040 {Board := generic_board, Max_CPUs := 2}
+   Config set: rp2040_hal {Interrupts := bb_runtimes, Use_Startup := false}
+   Configuration: no modifiers
+   Description: Phil's RP2040 Microcontroller Embedded Profile Firmware Template
+   Executable: munts_rp2040_firmware_embedded
+   License: BSD-1-Clause
+   Long_Description: # Introduction
+
+This crate provides a comprehensive template for developing Ada firmware
+for the [RP2040 ARM 32-bit
+microcontroller](https://www.raspberrypi.com/products/rp2040), using the
+[GNAT Predefined Embedded
+Runtime](https://docs.adacore.com/gnat_ugx-docs/html/gnat_ugx/gnat_ugx/gnat_runtimes.html#embedded-run-time)
+implemented by the
+[`embedded_rp2040`](https://alire.ada.dev/crates/embedded_rp2040.html)
+and [`rp2040_hal`](https://alire.ada.dev/crates/rp2040_hal.html) crates
+and their dependencies.
+
+Ada firmware for a microcontroller is realized as a main program
+procedure that is called by otherwise invisible runtime startup code,
+exactly as C firmware is realized by a function `main()` that is called
+by otherwise invisible runtime startup code.
+
+# Post-Build Script
+
+An Alire project directory created by
+`alr get munts_rp2040_firmware_embedded` will include a post-build
+script named `postbuild.sh`. This script will install the newly built
+firmware to a mounted RP2040 ROM boot USB file system. The RP2040 ROM
+boot code implements USB mass storage emulation, in a fashion first
+popularized by the late and lamented [Mbed
+OS](https://os.mbed.com/mbed-os). To flash RP2040 firmware, you just
+assert `BOOTSEL` and `RESET` hardware signals to force the RP2040 into
+ROM boot mode, mount the USB mass storage device (usually done
+automatically by the development machine operating system), and then
+copy a [UF2](https://github.com/microsoft/uf2) firmware image file it.
+`postbuild.sh` uses the [`elf2uf2`](https://github.com/rej696/elf2uf2)
+utility program to copy the firmware image to the RP2040.
+
+You can explicitly specify the RP2040 mount point *aka* destination
+directory with the `RP2040_DESTDIR` environment variable before running
+`alr build`. Otherwise `postbuild.sh` will search for the RP2040 mount
+point at expected locations for ChromeOS, Linux, macOS, and Microsoft
+Windows.
+
+If an RP2040 mount point cannot be found, `postbuild.sh` does nothing.
+
+# Makefile
+
+An Alire project directory created by
+`alr get munts_rp2040_firmware_embedded` will include an optional but
+useful GNU `Makefile` (also available at
+<https://github.com/pmunts/alire-goodies>) containing the following
+*goals* or *targets*:
+
+- `build` -- Accomplished by the command `gmake build`. Runs `alr build`
+  to build the firmware image. Result (upon success) is a 32-bit ARM ELF
+  executable file in the `bin/` subdirectory.
+- `clean` -- Accomplished by the command `gmake clean`. Removes all
+  generated working files. What is left will be suitable for checking
+  into a source control system.
+- `distclean` -- Accomplished by the command `gmake distclean`. Removes
+  all generated working files *and* removes Alire's crate download and
+  build caches.
+
+*Note: `make` is often a synonym (symbolic link, shell alias, etc.) for
+`gmake` on Linux machines, meaning that `make build` behaves exactly the
+same as `gmake build`.*
+
+# Visual Studio Code
+
+An Alire project directory created by
+`alr get munts_rp2040_firmware_embedded` will include an optional but
+useful `.vscode/tasks.json` (also available at
+<https://github.com/pmunts/alire-goodies>) which provides some build
+tasks for [Visual Studio Code](https://code.visualstudio.com).
+
+You can invoke a Visual Studio build task from the application menu
+`Terminal => Run Task...` or `Terminal => Run Build Task...`
+
+The most straightforward way to build *and* install RP2040 firmware from
+within Visual Studio Code is to simply press **CONTROL + SHIFT + B**.
+This key code invokes the default build task which executes the command
+`make clean build` which executes the command `alr build` which executes
+script `postbuild.sh`.
+
+# Examples
+
+## Command line
+
+    alr -n get munts_rp2040_firmware_embedded
+    alire-rename munts_rp2040_firmware_embedded_2.24820.1_45796fc8 myfirmware  # optional
+    cd myfirmware
+    alr -n with munts_rp2040_lib_embedded  # optional
+    alr build
+
+## Visual Studio Code
+
+    alr -n get munts_rp2040_firmware_embedded
+    alire-rename munts_rp2040_firmware_embedded_2.24820.1_45796fc8 myfirmware  # optional
+    cd myfirmware
+    alr -n with munts_rp2040_lib_embedded  # optional
+    code .
+
+*Note: The Alire project rename script `alire-rename` is available at
+<https://github.com/pmunts/alire-goodies>.*
+
+   Maintainer: Philip Munts <phil@munts.net>
+   Maintainers_Logins: pmunts
+   Name: munts_rp2040_firmware_embedded
+   Version: 16.25331.1
+   Website: https://github.com/pmunts/arm-mcu
+Dependencies (direct):
+   embedded_rp2040^16
+   gnat_arm_elf^16
+   rp2040_hal^2
+Dependencies (solution):
+   atomic=1.1.0
+   bbqueue=1.0.0
+   cortex_m=1.1.0
+   embedded_rp2040=16.0.0
+   gnat=16.1.0 (gnat_arm_elf)
+   gnat_arm_elf=16.1.0
+   hal=1.0.0
+   rp2040_hal=2.7.1
+   usb_embedded=1.0.1
+Dependencies (graph):
+   bbqueue=1.0.0                             --> atomic=1.1.0 (^1.0.0)
+   bbqueue=1.0.0                             --> gnat=16.1.0 (gnat_arm_elf) (>=10)
+   cortex_m=1.1.0                            --> gnat_arm_elf=16.1.0 (>=12)
+   cortex_m=1.1.0                            --> hal=1.0.0 (~0.3 | ^1.0.0)
+   embedded_rp2040=16.0.0                    --> gnat_arm_elf=16.1.0 (^16)
+   munts_rp2040_firmware_embedded=16.25331.1 --> embedded_rp2040=16.0.0 (^16)
+   munts_rp2040_firmware_embedded=16.25331.1 --> gnat_arm_elf=16.1.0 (^16)
+   munts_rp2040_firmware_embedded=16.25331.1 --> rp2040_hal=2.7.1 (^2)
+   rp2040_hal=2.7.1                          --> atomic=1.1.0 (^1)
+   rp2040_hal=2.7.1                          --> cortex_m=1.1.0 (^1)
+   rp2040_hal=2.7.1                          --> gnat_arm_elf=16.1.0 (>=14 & /=15.1.2)
+   rp2040_hal=2.7.1                          --> hal=1.0.0 (^1)
+   rp2040_hal=2.7.1                          --> usb_embedded=1.0.1 (^1)
+   usb_embedded=1.0.1                        --> bbqueue=1.0.0 (^1.0.0)
+   usb_embedded=1.0.1                        --> hal=1.0.0 (^1.0.0)
+
+
+LOG:
+[alr test] Testing munts_rp2040_firmware_embedded=16.25331.1
+[alr test] Spawning retrieval for remote crate: alr -d -n get munts_rp2040_firmware_embedded=16.25331.1
+Note: Deploying munts_rp2040_firmware_embedded=16.25331.1...
+#=#=#                                                                          
+
+######################################################################## 100.0%
+Note: Deploying atomic=1.1.0...
+Note: Deploying gnat_arm_elf=16.1.0...
+#=#=#                                                                          
+
+                                                                           0.0%
+                                                                           0.7%
+#                                                                          1.8%
+#                                                                          2.2%
+##                                                                         3.2%
+##                                                                         4.1%
+###                                                                        5.2%
+####                                                                       6.1%
+#####                                                                      8.1%
+######                                                                     9.4%
+#######                                                                   10.2%
+#######                                                                   10.9%
+########                                                                  11.8%
+########                                                                  12.2%
+#########                                                                 13.1%
+##########                                                                14.3%
+###########                                                               15.7%
+###########                                                               16.3%
+############                                                              17.5%
+#############                                                             18.3%
+##############                                                            19.5%
+##############                                                            20.4%
+################                                                          22.4%
+#################                                                         23.7%
+#################                                                         24.4%
+##################                                                        25.6%
+###################                                                       26.4%
+###################                                                       27.1%
+###################                                                       27.7%
+####################                                                      28.4%
+####################                                                      28.5%
+#####################                                                     29.9%
+######################                                                    30.7%
+#######################                                                   32.5%
+#######################                                                   32.6%
+#######################                                                   32.8%
+#######################                                                   33.1%
+########################                                                  34.5%
+#########################                                                 35.1%
+#########################                                                 36.0%
+##########################                                                36.6%
+###########################                                               38.6%
+############################                                              39.6%
+#############################                                             40.6%
+#############################                                             41.3%
+##############################                                            42.2%
+###############################                                           43.1%
+################################                                          44.7%
+################################                                          45.1%
+#################################                                         45.9%
+#################################                                         46.9%
+##################################                                        47.6%
+##################################                                        48.1%
+###################################                                       48.8%
+###################################                                       49.5%
+###################################                                       49.9%
+####################################                                      50.4%
+####################################                                      50.9%
+####################################                                      51.4%
+######################################                                    52.9%
+######################################                                    53.2%
+#######################################                                   54.8%
+#######################################                                   54.9%
+########################################                                  55.8%
+########################################                                  56.3%
+#########################################                                 57.0%
+##########################################                                58.6%
+##########################################                                59.6%
+###########################################                               61.0%
+#############################################                             62.6%
+#############################################                             63.1%
+##############################################                            64.6%
+##############################################                            65.1%
+###############################################                           66.2%
+################################################                          67.1%
+################################################                          67.2%
+################################################                          67.3%
+################################################                          67.7%
+#################################################                         68.7%
+#################################################                         69.2%
+##################################################                        70.4%
+###################################################                       71.2%
+####################################################                      73.1%
+####################################################                      73.2%
+#####################################################                     74.1%
+#####################################################                     74.6%
+######################################################                    75.2%
+######################################################                    75.6%
+#######################################################                   76.5%
+#######################################################                   77.3%
+########################################################                  79.1%
+#########################################################                 79.4%
+#########################################################                 79.5%
+#########################################################                 79.7%
+#########################################################                 79.9%
+#########################################################                 80.1%
+#########################################################                 80.2%
+#########################################################                 80.3%
+#########################################################                 80.5%
+##########################################################                80.7%
+##########################################################                80.9%
+##########################################################                81.1%
+##########################################################                81.2%
+##########################################################                81.4%
+###########################################################               82.4%
+############################################################              83.4%
+#############################################################             84.9%
+#############################################################             85.4%
+##############################################################            86.8%
+##############################################################            87.4%
+################################################################          89.0%
+################################################################          89.9%
+#################################################################         90.6%
+#################################################################         91.5%
+##################################################################        92.0%
+##################################################################        92.7%
+###################################################################       93.5%
+###################################################################       93.9%
+####################################################################      95.5%
+#####################################################################     96.3%
+#####################################################################     97.0%
+######################################################################    97.8%
+#######################################################################   99.7%
+######################################################################## 100.0%
+Note: gnat_arm_elf=16.1.0 installed successfully.
+Note: Deploying hal=1.0.0...
+Note: Deploying bbqueue=1.0.0...
+Note: Deploying cortex_m=1.1.0...
+Note: Deploying embedded_rp2040=16.0.0...
+#=#=#                                                                          
+
+                                                                           0.8%
+######################################################################## 100.0%
+Note: Deploying usb_embedded=1.0.1...
+Note: Deploying rp2040_hal=2.7.1...
+
+munts_rp2040_firmware_embedded=16.25331.1 successfully retrieved.
+Dependencies were solved as follows:
+
+   +  atomic          1.1.0  (new,indirect)
+   +  bbqueue         1.0.0  (new,indirect)
+   +  cortex_m        1.1.0  (new,indirect)
+   +  embedded_rp2040 16.0.0 (new)
+   +b gnat            16.1.0 (new,gnat_arm_elf,indirect,binary)
+   +b gnat_arm_elf    16.1.0 (new,binary)
+   +  hal             1.0.0  (new,indirect)
+   +  rp2040_hal      2.7.1  (new)
+   +  usb_embedded    1.0.1  (new,indirect)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building munts_rp2040_firmware_embedded=16.25331.1/munts_rp2040_firmware_embedded.gpr...
+Setup
+   [mkdir]        object directory for project Runtime_Build
+   [mkdir]        library directory for project Runtime_Build
+   [mkdir]        object directory for project Atomic
+   [mkdir]        library directory for project Atomic
+   [mkdir]        object directory for project HAL
+   [mkdir]        library directory for project HAL
+   [mkdir]        object directory for project Cortex_M
+   [mkdir]        library directory for project Cortex_M
+   [mkdir]        object directory for project Bbqueue
+   [mkdir]        library directory for project Bbqueue
+   [mkdir]        object directory for project Usb_Embedded
+   [mkdir]        library directory for project Usb_Embedded
+   [mkdir]        object directory for project Rp2040_Hal
+   [mkdir]        library directory for project Rp2040_Hal
+   [mkdir]        object directory for project munts_rp2040_firmware_embedded
+   [mkdir]        exec directory for project munts_rp2040_firmware_embedded
+Compile
+   [Ada]          munts_rp2040_firmware_embedded.adb
+   [Ada]          bbqueue_config.ads
+   [Ada]          bbqueue-buffers.adb
+   [Ada]          bbqueue-buffers-framed.adb
+   [Ada]          bbqueue.adb
+   [Ada]          usb_embedded_config.ads
+   [Ada]          usb.adb
+   [Ada]          usb-device-hid-gamepad.adb
+   [Ada]          usb-device.adb
+   [Ada]          usb-device-midi.adb
+   [Ada]          usb-device-hid.adb
+   [Ada]          usb-device-hid-joystick.adb
+   [Ada]          usb-device-hid-keyboard.adb
+   [Ada]          usb-logging.ads
+   [Ada]          usb-hal-device.ads
+   [Ada]          usb-device-serial.adb
+   [Ada]          usb-device-control.adb
+   [Ada]          usb-hal.ads
+   [Ada]          usb-lang.ads
+   [Ada]          usb-device-hid-mouse.adb
+   [Ada]          usb-utils.adb
+   [Ada]          usb-logging-device__null.adb
+   [Ada]          hal-time.ads
+   [Ada]          hal-real_time_clock.ads
+   [Ada]          hal-block_drivers.ads
+   [Ada]          hal-uart.ads
+   [Ada]          hal-sdmmc.adb
+   [Ada]          hal-i2c.ads
+   [Ada]          hal-gpio.ads
+   [Ada]          hal-framebuffer.ads
+   [Ada]          hal-touch_panel.ads
+   [Ada]          hal-dsi.ads
+   [Ada]          hal-bitmap.ads
+   [Ada]          hal-flash.ads
+   [Ada]          hal.ads
+   [Ada]          hal-audio.ads
+   [Ada]          hal-spi.ads
+   [Ada]          hal-filesystem.ads
+   [Ada]          cortex_m-nvic.adb
+   [Ada]          cortex_m-cache.adb
+   [Ada]          cortex_m_svd-dwt.ads
+   [Ada]          cortex_m_svd-debug.ads
+   [Ada]          cortex_m_svd-nvic.ads
+   [Ada]          cortex_m_svd-scb.ads
+   [Ada]          cortex_m_svd-systick.ads
+   [Ada]          cortex_m_svd.ads
+   [Ada]          cortex_m_config.ads
+   [Ada]          cortex_m-dwt.adb
+   [Ada]          semihosting.adb
+   [Ada]          cortex_m-debug.adb
+   [Ada]          semihosting-filesystem.adb
+   [Ada]          cortex_m-hints.adb
+   [Ada]          cortex_m-reset.adb
+   [Ada]          cortex_m.ads
+   [Ada]          cortex_m-systick.adb
+   [Ada]          memory_barriers.adb
+   [Ada]          atomic-critical_section.adb
+   [Ada]          atomic-unsigned.adb
+   [Ada]          atomic-signed.adb
+   [Ada]          atomic-basic_operations.adb
+   [Ada]          atomic.adb
+   [Ada]          atomic_config.ads
+   [Ada]          atomic-unsigned_16.ads
+   [Ada]          atomic-unsigned_8.ads
+   [Ada]          atomic-signed_32.ads
+   [Ada]          atomic-signed_8.ads
+   [Ada]          atomic-unsigned_32.ads
+   [Ada]          atomic-signed_16.ads
+   [Ada]          rp2040_hal_config.ads
+   [Ada]          rp-timer-interrupts.adb
+   [Ada]          rp-device.ads
+   [Ada]          rp2040_svd-vreg_and_chip_reset.ads
+   [Ada]          rp2040_svd-clocks.ads
+   [Ada]          rp2040_svd-interrupts.ads
+   [Ada]          rp2040_svd-io_qspi.ads
+   [Ada]          rp2040_svd-usbctrl_dpram.ads
+   [Ada]          rp2040_svd-sysinfo.ads
+   [Ada]          rp2040_svd-dma.ads
+   [Ada]          rp2040_svd-uart.ads
+   [Ada]          rp2040_svd-io_bank0.ads
+   [Ada]          rp2040_svd-xosc.ads
+   [Ada]          rp2040_svd-psm.ads
+   [Ada]          rp2040_svd-sio.ads
+   [Ada]          rp2040_svd-ppb.ads
+   [Ada]          rp2040_svd-usbctrl_regs.ads
+   [Ada]          rp2040_svd-i2c.ads
+   [Ada]          rp2040_svd-resets.ads
+   [Ada]          rp2040_svd-syscfg.ads
+   [Ada]          rp2040_svd-pll.ads
+   [Ada]          rp2040_svd-pads_bank0.ads
+   [Ada]          rp2040_svd-xip_ctrl.ads
+   [Ada]          rp2040_svd-rtc.ads
+   [Ada]          rp2040_svd-watchdog.ads
+   [Ada]          rp2040_svd-pio.ads
+   [Ada]          rp2040_svd-pads_qspi.ads
+   [Ada]          rp2040_svd-busctrl.ads
+   [Ada]          rp2040_svd-adc.ads
+   [Ada]          rp2040_svd-rosc.ads
+   [Ada]          rp2040_svd-tbman.ads
+   [Ada]          rp2040_svd-xip_ssi.ads
+   [Ada]          rp2040_svd-timer.ads
+   [Ada]          rp2040_svd-pwm.ads
+   [Ada]          rp2040_svd-spi.ads
+   [Ada]          rp2040_svd.ads
+   [Ada]          rp-pio.adb
+   [Ada]          rp-pio-encoding.ads
+   [Ada]          rp-pio-audio_i2s.adb
+   [Ada]          rp-pio-touch_sense_charge_pio.ads
+   [Ada]          rp-flash-cache.adb
+   [Ada]          rp-interpolator.ads
+   [Ada]          rp-dma.adb
+   [Ada]          rp-usb_device.adb
+   [Ada]          rp-timer.adb
+   [Ada]          rp-pio-ws2812.adb
+   [Ada]          rp-pio-touch_sense_discharge_pio.ads
+   [Ada]          rp-watchdog.adb
+   [Ada]          rp-pio-touch_sense.adb
+   [Ada]          rp-flash.adb
+   [Ada]          rp-pio-audio_i2s_pio.ads
+   [Ada]          rp-i2c_master.adb
+   [Ada]          rp-multicore.adb
+   [Ada]          rp-i2c.adb
+   [Ada]          rp-rtc.adb
+   [Ada]          rp-gpio.adb
+   [Ada]          rp-spi.adb
+   [Ada]          rp-pwm.adb
+   [Ada]          rp-reset.adb
+   [Ada]          rp-rom.adb
+   [Ada]          rp-rom-floating_point.adb
+   [Ada]          rp-adc.adb
+   [Ada]          rp-pio-ws2812_pio.ads
+   [Ada]          rp-uart.adb
+   [Ada]          rp-multicore-fifo.adb
+   [Ada]          rp-multicore-spinlocks.adb
+   [Ada]          rp-clock.adb
+   [Ada]          rp.ads
+   [Ada]          a-intnam.ads
+   [Ada]          s-tasdeb.adb
+   [Ada]          s-tarest.adb
+   [Ada]          a-exetim.adb
+   [Ada]          s-multip.adb
+   [Ada]          a-sytaco.adb
+   [Ada]          s-bbcpsp.ads
+   [Ada]          g-semaph.adb
+   [Ada]          s-trahoo.adb
+   [Ada]          a-extiin.adb
+   [Ada]          s-musplo.adb
+   [Ada]          s-putaim.adb
+   [Ada]          s-tasres.ads
+   [Ada]          s-tasque.adb
+   [Ada]          s-tpobmu.adb
+   [Ada]          s-bbinte.adb
+   [Ada]          s-bbtiev.adb
+   [Ada]          s-taprop.adb
+   [Ada]          s-taskin.adb
+   [Ada]          g-boumai.ads
+   [Ada]          s-mufalo.adb
+   [Ada]          s-tpobop.adb
+   [Ada]          a-taside.adb
+   [Ada]          a-interr.adb
+   [Ada]          s-taspri.ads
+   [Ada]          s-btstch.adb
+   [Ada]          s-bbexti.adb
+   [Ada]          s-bbtime.adb
+   [Ada]          s-bcprmu.adb
+   [Ada]          s-tposen.adb
+   [Ada]          a-retide.adb
+   [Ada]          s-bbthre.adb
+   [Ada]          g-boubuf.adb
+   [Ada]          s-tasinf.adb
+   [Ada]          a-reatim.adb
+   [Ada]          s-bbcppr.adb
+   [Ada]          s-taprob.adb
+   [Ada]          s-bbbosu.adb
+   [Ada]          a-rttiev.adb
+   [Ada]          s-interr.adb
+   [Ada]          a-taster.adb
+   [Ada]          s-bcpcst.adb
+   [Ada]          s-bbthqu.adb
+   [Ada]          s-bbprot.adb
+   [Ada]          s-reldel.adb
+   [Ada]          s-osinte.ads
+   [Ada]          s-tpoben.adb
+   [Ada]          a-synbar.adb
+   [C]            newlib-bb.c
+   [C]            adaint-xi.c
+   [C]            raise-gcc.c
+   [Asm_Cpp]      start-rom.S
+   [Asm_Cpp]      boot2-generic_qspi.S
+   [Ada]          a-sfhcin.ads
+   [Ada]          s-casi32.adb
+   [Ada]          a-chlat1.ads
+   [Ada]          s-expllu.ads
+   [Ada]          g-sehash.adb
+   [Ada]          s-pack03.adb
+   [Ada]          s-powlfl.ads
+   [Ada]          s-imen16.ads
+   [Ada]          a-stwisu.adb
+   [Ada]          a-nlcoar.ads
+   [Ada]          s-libsin.adb
+   [Ada]          a-strbou.adb
+   [Ada]          s-ransee.adb
+   [Ada]          s-imenu8.ads
+   [Ada]          a-widcha.ads
+   [Ada]          s-bitops.adb
+   [Ada]          s-maccod.ads
+   [Ada]          s-carun8.adb
+   [Ada]          s-imen32.ads
+   [Ada]          s-poosiz.adb
+   [Ada]          s-widwch.adb
+   [Ada]          s-expmod.adb
+   [Ada]          a-sttebu.adb
+   [Ada]          s-init.adb
+   [Ada]          s-vallli.ads
+   [Ada]          s-valboo.adb
+   [Ada]          s-pack33.adb
+   [Ada]          s-pack63.adb
+   [Ada]          s-valint.ads
+   [Ada]          s-explli.ads
+   [Ada]          s-exctab.adb
+   [Ada]          s-chepoo.ads
+   [Ada]          a-nucoty.ads
+   [Ada]          a-coorma.adb
+   [Ada]          g-sha224.ads
+   [Ada]          a-nucoar.ads
+   [Ada]          s-imgcha.adb
+   [Ada]          s-exnlfl.ads
+   [Ada]          a-nllcty.ads
+   [Ada]          s-fatgen.adb
+   [Ada]          s-pack45.adb
+   [Ada]          s-fatllf.ads
+   [Ada]          g-sha384.ads
+   [Ada]          s-lisisq.adb
+   [Ada]          a-coorse.adb
+   [Ada]          g-busora.adb
+   [Ada]          s-valuti.adb
+   [Ada]          s-pack21.adb
+   [Ada]          s-pack54.adb
+   [Ada]          s-atopri.adb
+   [Ada]          a-nbnbre.adb
+   [Ada]          a-conhel.adb
+   [Ada]          a-iteint.ads
+   [Ada]          s-imager.adb
+   [Ada]          s-pack09.adb
+   [Ada]          s-pack22.adb
+   [Ada]          s-pack13.adb
+   [Ada]          s-exnllf.ads
+   [Ada]          a-szfzha.ads
+   [Ada]          g-htable.adb
+   [Ada]          s-forrea.adb
+   [Ada]          a-cohase.adb
+   [Ada]          a-calend.adb
+   [Ada]          s-imgwiu.ads
+   [Ada]          s-widenu.adb
+   [Ada]          s-libdou.adb
+   [Ada]          s-valllu.ads
+   [Ada]          text_io.ads
+   [Ada]          s-imgboo.adb
+   [Ada]          s-widcha.adb
+   [Ada]          a-ngrear.adb
+   [Ada]          a-nscoty.ads
+   [Ada]          a-cgcaso.adb
+   [Ada]          s-stache.adb
+   [Ada]          s-pack39.adb
+   [Ada]          a-secain.adb
+   [Ada]          a-suecin.adb
+   [Ada]          s-caun16.adb
+   [Ada]          s-finpri.adb
+   [Ada]          s-fore_d.adb
+   [Ada]          a-einuoc.adb
+   [Ada]          s-putima.adb
+   [Ada]          s-imfi64.ads
+   [Ada]          a-szmzco.ads
+   [Ada]          s-atacco.adb
+   [Ada]          s-imgllf.ads
+   [Ada]          g-hesora.adb
+   [Ada]          a-coprnu.adb
+   [Ada]          s-retsta.ads
+   [Ada]          g-sha256.ads
+   [Ada]          a-nudira.adb
+   [Ada]          s-pack49.adb
+   [Ada]          a-chzla9.ads
+   [Ada]          s-pack43.adb
+   [Ada]          s-valuef.adb
+   [Ada]          a-btgbso.adb
+   [Ada]          s-pack31.adb
+   [Ada]          s-valrea.adb
+   [Ada]          a-chacon.adb
+   [Ada]          s-pack20.adb
+   [Ada]          s-vaen32.ads
+   [Ada]          s-widthi.adb
+   [Ada]          s-wwdcha.adb
+   [Ada]          s-vercon.adb
+   [Ada]          s-addima.adb
+   [Ada]          s-pack53.adb
+   [Ada]          s-spsufi.adb
+   [Ada]          s-fatlfl.ads
+   [Ada]          a-stwibo.adb
+   [Ada]          s-stopoo.adb
+   [Ada]          s-excdeb.adb
+   [Ada]          s-widuns.ads
+   [Ada]          s-genbig.adb
+   [Ada]          s-valued.adb
+   [Ada]          a-suewst.adb
+   [Ada]          a-nlcoty.ads
+   [Ada]          a-except.adb
+   [Ada]          s-semiho.adb
+   [Ada]          g-sha512.ads
+   [Ada]          s-string.adb
+   [Ada]          a-nbnbin.adb
+   [Ada]          s-pack41.adb
+   [Ada]          s-imad32.ads
+   [Ada]          a-strsea.adb
+   [Ada]          a-wichha.adb
+   [Ada]          a-numaux.ads
+   [Ada]          s-pack27.adb
+   [Ada]          a-swmwco.ads
+   [Ada]          g-bubsor.adb
+   [Ada]          a-suenco.adb
+   [Ada]          a-nllcef.ads
+   [Ada]          g-sestin.ads
+   [Ada]          s-libm.adb
+   [Ada]          s-imde64.ads
+   [Ada]          s-parame.adb
+   [Ada]          s-utf_32.adb
+   [Ada]          a-suenst.adb
+   [Ada]          a-ngelfu.adb
+   [Ada]          a-cidlli.adb
+   [Ada]          s-imad64.ads
+   [Ada]          s-traceb.adb
+   [Ada]          s-imageu.adb
+   [Ada]          g-cppstd.adb
+   [Ada]          a-textio.adb
+   [Ada]          s-pack15.adb
+   [Ada]          g-sha1.adb
+   [Ada]          s-widthu.adb
+   [Ada]          s-gcmain.adb
+   [Ada]          g-md5.adb
+   [Ada]          s-vaenu8.ads
+   [Ada]          s-valuei.adb
+   [Ada]          a-sbhcin.adb
+   [Ada]          s-bbrpat.adb
+   [Ada]          a-stunha.adb
+   [Ada]          i-cexten.ads
+   [Ada]          a-sblcin.adb
+   [Ada]          a-ciormu.adb
+   [Ada]          s-aridou.adb
+   [Ada]          a-stzmap.adb
+   [Ada]          a-suezst.adb
+   [Ada]          a-chtgke.adb
+   [Ada]          s-imgwch.adb
+   [Ada]          i-pacdec.adb
+   [Ada]          s-pack05.adb
+   [Ada]          s-veboop.adb
+   [Ada]          a-szbzha.adb
+   [Ada]          s-pack28.adb
+   [Ada]          s-casi64.adb
+   [Ada]          s-pack25.adb
+   [Ada]          a-stunau.adb
+   [Ada]          a-cbhama.adb
+   [Ada]          s-crc32.adb
+   [Ada]          a-numeri.ads
+   [Ada]          a-finali.adb
+   [Ada]          s-fode64.ads
+   [Ada]          s-exponr.adb
+   [Ada]          s-imaged.adb
+   [Ada]          s-exponn.adb
+   [Ada]          a-nurear.ads
+   [Ada]          a-slcain.adb
+   [Ada]          a-ngcoar.adb
+   [Ada]          g-regexp.ads
+   [Ada]          i-c.adb
+   [Ada]          s-pack07.adb
+   [Ada]          s-flocon.adb
+   [Ada]          s-wchstw.adb
+   [Ada]          a-unccon.ads
+   [Ada]          a-chtgbk.adb
+   [Ada]          s-fatflt.ads
+   [Ada]          a-decima.adb
+   [Ada]          s-fofi64.ads
+   [Ada]          s-powllf.ads
+   [Ada]          s-bbpara.ads
+   [Ada]          a-crbtgk.adb
+   [Ada]          s-io.adb
+   [Ada]          s-wchwts.adb
+   [Ada]          a-stzunb.adb
+   [Ada]          s-imglfl.ads
+   [Ada]          s-pack62.adb
+   [Ada]          a-zchara.ads
+   [Ada]          s-fore_f.adb
+   [Ada]          g-crc32.adb
+   [Ada]          s-imfi32.ads
+   [Ada]          s-imde32.ads
+   [Ada]          a-strunb.adb
+   [Ada]          s-pack38.adb
+   [Ada]          ada.ads
+   [Ada]          s-imguti.adb
+   [Ada]          s-exnint.ads
+   [Ada]          s-mastop.adb
+   [Ada]          s-widboo.adb
+   [Ada]          i-cpoint.adb
+   [Ada]          a-suhcin.adb
+   [Ada]          s-powflt.ads
+   [Ada]          a-stwifi.adb
+   [Ada]          a-crbtgo.adb
+   [Ada]          g-shshco.adb
+   [Ada]          s-expint.ads
+   [Ada]          a-zchuni.adb
+   [Ada]          s-pack12.adb
+   [Ada]          a-cwila9.ads
+   [Ada]          a-cogeso.adb
+   [Ada]          s-imagef.adb
+   [Ada]          a-ciorma.adb
+   [Ada]          a-stmaco.ads
+   [Ada]          s-statxd.adb
+   [Ada]          a-ngcoty.adb
+   [Ada]          s-expont.adb
+   [Ada]          a-uncdea.ads
+   [Ada]          s-pack60.adb
+   [Ada]          a-costso.adb
+   [Ada]          s-vector.ads
+   [Ada]          s-pack34.adb
+   [Ada]          g-cppexc.adb
+   [Ada]          a-nllrar.ads
+   [Ada]          s-pack57.adb
+   [Ada]          s-pack58.adb
+   [Ada]          s-imguns.ads
+   [Ada]          a-exctra.adb
+   [Ada]          a-stuten.adb
+   [Ada]          a-swunau.adb
+   [Ada]          s-scaval.adb
+   [Ada]          g-souinf.ads
+   [Ada]          s-boarop.ads
+   [Ada]          a-charac.ads
+   [Ada]          g-shsh32.adb
+   [Ada]          a-cborma.adb
+   [Ada]          s-valwch.adb
+   [Ada]          g-moreex.adb
+   [Ada]          a-zchhan.adb
+   [Ada]          s-imgllw.ads
+   [Ada]          i-cobol.adb
+   [Ada]          s-imagei.adb
+   [Ada]          s-pack36.adb
+   [Ada]          a-stzfix.adb
+   [Ada]          a-convec.adb
+   [Ada]          i-cstrin.adb
+   [Ada]          g-strspl.ads
+   [Ada]          a-ngcefu.adb
+   [Ada]          a-stfiha.ads
+   [Ada]          g-table.adb
+   [Ada]          s-valuer.adb
+   [Ada]          a-calcon.adb
+   [Ada]          s-pack55.adb
+   [Ada]          s-pack46.adb
+   [Ada]          s-geveop.adb
+   [Ada]          g-busorg.adb
+   [Ada]          s-stposu.adb
+   [Ada]          a-nselfu.ads
+   [Ada]          s-pack10.adb
+   [Ada]          s-casi16.adb
+   [Ada]          s-casuti.adb
+   [Ada]          s-pack47.adb
+   [Ada]          s-unstyp.ads
+   [Ada]          s-imagen.adb
+   [Ada]          s-lidosq.adb
+   [Ada]          system.ads
+   [Ada]          s-excmac.adb
+   [Ada]          s-imglli.ads
+   [Ada]          a-ciorse.adb
+   [Ada]          s-restri.adb
+   [Ada]          a-strfix.adb
+   [Ada]          s-pack50.adb
+   [Ada]          a-nllcar.ads
+   [Ada]          s-assert.adb
+   [Ada]          a-undesu.adb
+   [Ada]          s-widlli.ads
+   [Ada]          s-bbmcpa.ads
+   [Ada]          ioexcept.ads
+   [Ada]          i-fortra.adb
+   [Ada]          s-textio.adb
+   [Ada]          s-wwdenu.adb
+   [Ada]          s-exnflt.ads
+   [Ada]          s-arit64.adb
+   [Ada]          g-io.adb
+   [Ada]          s-pack44.adb
+   [Ada]          a-sflcin.ads
+   [Ada]          s-trasym.adb
+   [Ada]          a-stbuun.adb
+   [Ada]          g-heasor.adb
+   [Ada]          s-macres.adb
+   [Ada]          s-valuns.ads
+   [Ada]          a-sbecin.adb
+   [Ada]          s-bytswa.ads
+   [Ada]          a-cohata.ads
+   [Ada]          a-stzbou.adb
+   [Ada]          g-dyntab.adb
+   [Ada]          s-traent.adb
+   [Ada]          s-pack42.adb
+   [Ada]          a-nuelfu.ads
+   [Ada]          s-stalib.adb
+   [Ada]          s-htable.adb
+   [Ada]          g-string.ads
+   [Ada]          s-pack35.adb
+   [Ada]          s-atocou.adb
+   [Ada]          a-stzsup.adb
+   [Ada]          g-debuti.adb
+   [Ada]          a-coinho.adb
+   [Ada]          s-imagea.adb
+   [Ada]          s-pack23.adb
+   [Ada]          s-pack17.adb
+   [Ada]          s-pooloc.adb
+   [Ada]          a-strhas.adb
+   [Ada]          s-valllf.ads
+   [Ada]          a-nuflra.adb
+   [Ada]          a-stbuut.adb
+   [Ada]          a-shcain.adb
+   [Ada]          a-cihama.adb
+   [Ada]          s-cautns.adb
+   [Ada]          a-comutr.adb
+   [Ada]          a-chlat9.ads
+   [Ada]          s-carsi8.adb
+   [Ada]          s-bbbopa.ads
+   [Ada]          g-casuti.adb
+   [Ada]          s-imgint.ads
+   [Ada]          a-nlrear.ads
+   [Ada]          a-assert.adb
+   [Ada]          a-ioexce.ads
+   [Ada]          a-elchha.adb
+   [Ada]          s-pack06.adb
+   [Ada]          s-bbarat.adb
+   [Ada]          s-vaen16.ads
+   [Ada]          s-strhas.adb
+   [Ada]          s-vafi32.ads
+   [Ada]          s-valueu.adb
+   [Ada]          s-mantis.adb
+   [Ada]          a-chzla1.ads
+   [Ada]          a-cgarso.adb
+   [Ada]          s-pack19.adb
+   [Ada]          machcode.ads
+   [Ada]          s-finroo.adb
+   [Ada]          a-stwiha.adb
+   [Ada]          a-tags.adb
+   [Ada]          a-stzsea.adb
+   [Ada]          a-coinve.adb
+   [Ada]          s-arit32.adb
+   [Ada]          s-pack14.adb
+   [Ada]          s-rannum.adb
+   [Ada]          a-strmap.adb
+   [Ada]          s-wchcon.adb
+   [Ada]          a-stwiun.adb
+   [Ada]          a-swuwha.adb
+   [Ada]          a-cobove.adb
+   [Ada]          s-vafi64.ads
+   [Ada]          g-hesorg.adb
+   [Ada]          a-szunau.adb
+   [Ada]          a-nscefu.ads
+   [Ada]          g-shsh64.adb
+   [Ada]          a-cbdlli.adb
+   [Ada]          s-imagew.adb
+   [Ada]          s-fofi32.ads
+   [Ada]          a-cbhase.adb
+   [Ada]          a-wichun.adb
+   [Ada]          s-imgflt.ads
+   [Ada]          a-stream.adb
+   [Ada]          s-addope.adb
+   [Ada]          g-wistsp.ads
+   [Ada]          a-cgaaso.adb
+   [Ada]          s-shabig.ads
+   [Ada]          s-pack26.adb
+   [Ada]          s-wchcnv.adb
+   [Ada]          s-pack51.adb
+   [Ada]          s-tasloc.adb
+   [Ada]          s-wchjis.adb
+   [Ada]          s-dourea.adb
+   [Ada]          s-exponu.adb
+   [Ada]          a-chtgop.adb
+   [Ada]          g-arrspl.adb
+   [Ada]          a-ncelfu.ads
+   [Ada]          a-nllefu.ads
+   [Ada]          a-swbwha.adb
+   [Ada]          setup_clocks.adb
+   [Ada]          a-rbtgso.adb
+   [Ada]          a-contai.ads
+   [Ada]          s-valflt.ads
+   [Ada]          s-widllu.ads
+   [Ada]          s-caun64.adb
+   [Ada]          a-chtgbo.adb
+   [Ada]          g-sechas.adb
+   [Ada]          s-exnlli.ads
+   [Ada]          s-vade32.ads
+   [Ada]          s-except.adb
+   [Ada]          a-sulcin.adb
+   [Ada]          g-sehamd.adb
+   [Ada]          s-secsta.adb
+   [Ada]          s-oslock.ads
+   [Ada]          s-pack52.adb
+   [Ada]          g-cpp.ads
+   [Ada]          s-imgllu.ads
+   [Ada]          a-swfwha.ads
+   [Ada]          s-wwdwch.adb
+   [Ada]          a-stwima.adb
+   [Ada]          s-pack37.adb
+   [Ada]          s-bb.ads
+   [Ada]          s-rident.ads
+   [Ada]          s-pack59.adb
+   [Ada]          a-csquin.ads
+   [Ada]          a-crbltr.ads
+   [Ada]          a-cwila1.ads
+   [Ada]          a-stbubo.adb
+   [Ada]          s-pack29.adb
+   [Ada]          unchconv.ads
+   [Ada]          g-cstyin.adb
+   [Ada]          s-stratt.adb
+   [Ada]          a-strsup.adb
+   [Ada]          s-expuns.ads
+   [Ada]          s-fode32.ads
+   [Ada]          a-szuzha.adb
+   [Ada]          a-crdlli.adb
+   [Ada]          s-widint.ads
+   [Ada]          a-stboha.adb
+   [Ada]          a-string.ads
+   [Ada]          s-pack18.adb
+   [Ada]          a-stzhas.adb
+   [Ada]          unchdeal.ads
+   [Ada]          s-vade64.ads
+   [Ada]          s-pooglo.adb
+   [Ada]          a-coboho.adb
+   [Ada]          s-stoele.adb
+   [Ada]          a-coormu.adb
+   [Ada]          s-pack11.adb
+   [Ada]          s-vallfl.ads
+   [Ada]          a-nlcefu.ads
+   [Ada]          s-memory.adb
+   [Ada]          s-pack61.adb
+   [Ada]          s-libpre.ads
+   [Ada]          a-sfecin.ads
+   [Ada]          gnat.ads
+   [Ada]          a-cimutr.adb
+   [Ada]          s-bootro.adb
+   [Ada]          s-caun32.adb
+   [Ada]          a-cohama.adb
+   [Ada]          s-valcha.adb
+   [Ada]          g-comver.adb
+   [Ada]          g-bytswa.adb
+   [Ada]          s-soflin.adb
+   [Ada]          a-storio.adb
+   [Ada]          s-regexp.adb
+   [Ada]          s-gearop.adb
+   [Ada]          g-except.ads
+   [Ada]          a-stwise.adb
+   [Ada]          a-rbtgbk.adb
+   [Ada]          a-nlelfu.ads
+   [Ada]          a-cbmutr.adb
+   [Ada]          interfac.ads
+   [Ada]          g-tasloc.ads
+   [Ada]          a-cdlili.adb
+   [Ada]          a-nubinu.ads
+   [Ada]          a-cihase.adb
+   [Ada]          a-rbtgbo.adb
+   [Ada]          s-valuen.adb
+   [Ada]          a-cborse.adb
+   [Ada]          s-pack30.adb
+   [Ada]          a-chahan.adb
+   [Ada]          rp2040_runtime_config.ads
+   [Ada]          embedded_rp2040_config.ads
+   [Ada]          i-rp2040.ads
+   [Ada]          i-rp2040-clocks.ads
+   [Ada]          i-rp2040-pll_sys.ads
+   [Ada]          i-rp2040-psm.ads
+   [Ada]          i-rp2040-resets.ads
+   [Ada]          i-rp2040-rosc.ads
+   [Ada]          i-rp2040-sio.ads
+   [Ada]          i-rp2040-timer.ads
+   [Ada]          i-rp2040-watchdog.ads
+   [Ada]          i-rp2040-xosc.ads
+Build Libraries
+   [gprlib]       gnat.lexch
+   [gprlib]       gnarl.lexch
+   [archive]      libgnat.a
+   [index]        libgnat.a
+   [gprlib]       Atomic.lexch
+   [gprlib]       hal.lexch
+   [gprlib]       Cortex_M.lexch
+   [archive]      libgnarl.a
+   [archive]      libAtomic.a
+   [archive]      libhal.a
+   [index]        libAtomic.a
+   [index]        libhal.a
+   [index]        libgnarl.a
+   [gprlib]       Bbqueue.lexch
+   [gprlib]       Usb_Embedded.lexch
+   [archive]      libCortex_M.a
+   [archive]      libBbqueue.a
+   [index]        libBbqueue.a
+   [index]        libCortex_M.a
+   [gprlib]       Rp2040_Hal.lexch
+   [archive]      libUsb_Embedded.a
+   [index]        libUsb_Embedded.a
+   [archive]      libRp2040_Hal.a
+   [index]        libRp2040_Hal.a
+Bind
+   [gprbind]      munts_rp2040_firmware_embedded.bexch
+   [Ada]          munts_rp2040_firmware_embedded.ali
+Link
+   [link]         munts_rp2040_firmware_embedded.adb
+Memory region         Used Size  Region Size  %age Used
+           flash:       26416 B        16 MB      0.16%
+            sram:       15584 B       256 KB      5.94%
+Note: Running post-build actions for munts_rp2040_firmware_embedded=16.25331.1...
+Success: Build finished successfully in 21.67 seconds.
+Found declared GPR file: munts_rp2040_firmware_embedded.gpr
+[alr test] Test completed SUCCESSFULLY

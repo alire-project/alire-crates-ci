@@ -1,0 +1,125 @@
+Test ran at 2026-05-19 14:06:06.882317+00:00
+
+SOLUTION:
+pico_xbsp=1.6.1: Extended board support package for Raspberry Pi Pico
+Origin: source archive pico_xbsp-1.6.1.tgz at https://sourceforge.net/projects/pi-ada-tutorial/files/Alire/pico_xbsp-1.6.1.tgz with hashes sha256:62a05074f4e5bf588948458a81dac679d5fafb1b7b2686fa3c343dd9bbb7393a, sha512:59d30558ea15aded27b855c3edb1d2d268f59769e3c8b1365400e3e0fc3234cca05d4687ff831aa2b9a89723e788b1091f9e4b41d970555a1db68b9722334f6d
+Properties:
+   Author: Martin Krischik <krischik@users.sourceforge.net>
+   Build Switches: 
+   Config type: Variant : Enum (tasking, no_tasking) default: 'no_tasking'
+   Configuration: no modifiers
+   Description: Extended board support package for Raspberry Pi Pico
+   License: GPL-3.0-or-later
+   Long_Description: Extended board support package (XBSP) for the Raspberry Pi Pico.
+
+This crate builds upon Jeremy Grosser's official pico_bsp and adds a growing set of clean, reusable components for Ada
+developers targeting the RP2040. It is developed alongside the [Pi Ada
+Tutorial](https://pi-ada-tutorial.sourceforge.io/) but is equally suitable for any standalone embedded Ada project.
+
+Current components:
+* Pico.Analog         - Analogue GPIO using PWM
+* Pico.Analog.RGB_LED - Analogue RGB LED control using PWM
+* Pico.Tone           - Square-wave tone generation using PWM
+* Pico.UART_IO        - Simple UART text I/O for the Debug Probe (115200 8N1 on GP0/GP1)
+* Pico.Utils          - Miscellaneous utilities
+
+The crate is available in two variants:
+* `no_tasking` (default) - small, fast, and compatible with the light runtime
+* `tasking`              - thread-safe using protected objects (requires a tasking runtime)
+
+All packages include full GNATdoc annotations.
+
+Useful links:
+* [GNATdoc documentation](https://pi-ada-tutorial.sourceforge.io/gnatdoc/)
+* [SourceForge repository](https://sourceforge.net/projects/pi-ada-tutorial/)
+* [Tutorial homepage](https://pi-ada-tutorial.sourceforge.io/)
+
+The library will continue to grow with each new tutorial chapter while remaining a clean, independent crate.
+
+   Maintainer: Martin Krischik <krischik@users.sourceforge.net>
+   Maintainers_Logins: krischik
+   Name: pico_xbsp
+   Tag: raspberry
+   Tag: pi
+   Tag: pico
+   Tag: rp2040
+   Tag: tasking
+   Tag: light-tasking
+   Tag: ada2022
+   Tag: embedded
+   Version: 1.6.1
+   Website: https://pi-ada-tutorial.sourceforge.io/
+Dependencies (direct):
+   pico_bsp^2.2
+Dependencies (solution):
+   atomic=1.1.0
+   bbqueue=1.0.0
+   cortex_m=1.1.0
+   gnat=15.2.1 (gnat_arm_elf)
+   gnat_arm_elf=15.2.1
+   hal=1.0.0
+   pico_bsp=2.2.0
+   rp2040_hal=2.7.1
+   usb_embedded=1.0.1
+Dependencies (graph):
+   bbqueue=1.0.0      --> atomic=1.1.0 (^1.0.0)
+   bbqueue=1.0.0      --> gnat=15.2.1 (gnat_arm_elf) (>=10)
+   cortex_m=1.1.0     --> gnat_arm_elf=15.2.1 (>=12)
+   cortex_m=1.1.0     --> hal=1.0.0 (~0.3 | ^1.0.0)
+   pico_bsp=2.2.0     --> rp2040_hal=2.7.1 (^2)
+   pico_xbsp=1.6.1    --> pico_bsp=2.2.0 (^2.2)
+   rp2040_hal=2.7.1   --> atomic=1.1.0 (^1)
+   rp2040_hal=2.7.1   --> cortex_m=1.1.0 (^1)
+   rp2040_hal=2.7.1   --> gnat_arm_elf=15.2.1 (>=14 & /=15.1.2)
+   rp2040_hal=2.7.1   --> hal=1.0.0 (^1)
+   rp2040_hal=2.7.1   --> usb_embedded=1.0.1 (^1)
+   usb_embedded=1.0.1 --> bbqueue=1.0.0 (^1.0.0)
+   usb_embedded=1.0.1 --> hal=1.0.0 (^1.0.0)
+
+
+LOG:
+[alr test] Testing pico_xbsp=1.6.1
+[alr test] Spawning retrieval for remote crate: alr -d -n get pico_xbsp=1.6.1
+Note: Deploying pico_xbsp=1.6.1...
+
+#=#=#                                                                          
+######################################################################## 100.0%
+######################################################################## 100.0%
+######################################################################## 100.0%
+##O#-#                                                                         
+######################################################################## 100.0%
+##=O#- #                                                                       
+##############                                                            20.1%
+######################################################################## 100.0%
+
+pico_xbsp=1.6.1 successfully retrieved.
+Dependencies were solved as follows:
+
+   +  atomic       1.1.0  (new,indirect)
+   +  bbqueue      1.0.0  (new,indirect)
+   +  cortex_m     1.1.0  (new,indirect)
+   +b gnat         15.2.1 (new,gnat_arm_elf,indirect,binary)
+   +b gnat_arm_elf 15.2.1 (new,indirect,binary)
+   +  hal          1.0.0  (new,indirect)
+   +  pico_bsp     2.2.0  (new)
+   +  rp2040_hal   2.7.1  (new,indirect)
+   +  usb_embedded 1.0.1  (new,indirect)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building pico_xbsp=1.6.1/pico_xbsp.gpr...
+Setup
+   [mkdir]        object directory for project Pico_XBSP
+   [mkdir]        library directory for project Pico_XBSP
+Compile
+   [Ada]          pico_xbsp_config.ads
+   [Ada]          pico-uart_io.adb
+   [Ada]          pico-tone.adb
+   [Ada]          pico-analog.adb
+   [Ada]          pico-analog-rgb_led.adb
+   [Ada]          pico-utils.adb
+Build Libraries
+   [gprlib]       Pico_XBSP.lexch
+   [archive]      libPico_XBSP.a
+   [index]        libPico_XBSP.a
+Success: Build finished successfully in 1.12 seconds.
+Found declared GPR file: pico_xbsp.gpr
+[alr test] Test completed SUCCESSFULLY

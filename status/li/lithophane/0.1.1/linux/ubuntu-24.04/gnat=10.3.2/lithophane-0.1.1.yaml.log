@@ -1,0 +1,295 @@
+Test ran at 2026-08-27 16:02:55.240344+00:00
+
+SOLUTION:
+lithophane=0.1.1: Create lithophane with Ada
+Origin: commit c130d911bf25618d8def97581d34a20692f9e932 from https://github.com/smionean/lithophane_ada.git
+Properties:
+   Author: Simon Beàn
+   Build Switches: 
+   Description: Create lithophane with Ada
+   Executable: lithophane
+   License: MIT OR Apache-2.0 WITH LLVM-exception
+   Long_Description: Create [lithophane](https://en.wikipedia.org/wiki/Lithophane) of your favourite picture with Ada.
+
+
+
+**Usage**
+```
+lithophane [options] <input_file>
+```
+
+`<input_file>` is the picture to convert (any format supported by
+[GID](https://gen-img-dec.sourceforge.io): PNG, JPEG, BMP, GIF, TGA, ...).
+
+**Options**
+```
+-h --help
+-v --version
+-b --save-binary          (default)
+-a --save-ascii
+-p --save-pgm
+-o<name> --output-name=<name>
+-H<height> --height=<height>
+-f<filter> --filter=<filter>
+-c<file> --config=<file>
+```
+
+| Option | Description |
+| --- | --- |
+| `-h`, `--help` | print usage and exit |
+| `-v`, `--version` | print the program version and exit |
+| `-b`, `--save-binary` | write the lithophane as a binary STL file: `<output-name>.bin.stl` (this is the default output if no `-a`/`-b`/`-p` flag is given) |
+| `-a`, `--save-ascii` | write the lithophane as an ASCII STL file: `<output-name>.ascii.stl` |
+| `-p`, `--save-pgm` | also dump the grayscale-converted image as a PGM file: `<output-name>.pgm` |
+| `-o<name>`, `--output-name=<name>` | base name used for every output file above (default: `test`) |
+| `-H<height>`, `--height=<height>` | target height of the lithophane |
+| `-f<filter>`, `--filter=<filter>` | image filter to apply before conversion |
+| `-c<file>`, `--config=<file>` | read options from a config file instead of (or in addition to) the command line; when given, it overrides any previous option |
+
+You can combine `-a`, `-b` and `-p`: each one adds its own output file, they are
+not mutually exclusive.
+
+**Config file**
+
+`-c`/`--config` points to a TOML file such as [config.toml](config.toml):
+```toml
+input-name = "foo.png"
+output-name = "test"
+filter = "threshold"
+save-ascii = false
+save-binary = true
+save-pgm = true
+height = 10
+```
+
+> [!NOTE]
+> `-f`/`--filter`, `-H`/`--height` and `-c`/`--config` are already accepted on
+> the command line but are not wired up yet: filters, height scaling and the
+> config file are parsed but have no effect on the generated STL for now
+> (see TODO below). The only filter currently applied is a fixed threshold at
+> mid-grey, done automatically when saving to binary STL.
+
+   Maintainer: Simon Beàn <smionean@gmail.com>
+   Maintainers_Logins: smionean
+   Name: lithophane
+   Tag: 3dprint
+   Tag: lithophane
+   Tag: lithography
+   Version: 0.1.1
+   Website: https://github.com/smionean/lithophane_ada
+Dependencies (direct):
+   getopt^2.0.0
+   gid^14.0.0
+Dependencies (solution):
+   getopt=2.0.0
+   gid=14.0.0
+Dependencies (graph):
+   lithophane=0.1.1 --> getopt=2.0.0 (^2.0.0)
+   lithophane=0.1.1 --> gid=14.0.0 (^14.0.0)
+
+
+LOG:
+[alr test] Testing lithophane=0.1.1
+[alr test] Spawning retrieval for remote crate: alr -d -n get lithophane=0.1.1
+Note: Deploying lithophane=0.1.1...
+Note: Deploying getopt=2.0.0...
+#=#=#                                                                          
+##O#-#                                                                         
+##O=#  #                                                                       
+#=#=-#  #                                                                      
+-#O#- #   #                                                                    
+-=#=#   #   #                                                                  
+-=O#-#   #   #                                                                 
+-=O=#  #   #   #                                                               
+Note: Deploying gid=14.0.0...
+#=#=#                                                                          
+
+######################################################################## 100.0%
+######################################################################## 100.0%
+######################################################################## 100.0%
+######################################################################## 100.0%##O#-#                                                                         
+
+#####                                                                      8.2%
+###################################                                       49.7%
+######################################################################## 100.0%
+
+lithophane=0.1.1 successfully retrieved.
+Dependencies were solved as follows:
+
+   + getopt 2.0.0  (new)
+   + gid    14.0.0 (new)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building gid=14.0.0/gid.gpr...
+Setup
+   [mkdir]        object directory for project GID
+Compile
+   [Ada]          to_png.adb
+   [Ada]          to_bmp.adb
+   [Ada]          mini.adb
+   [Ada]          all_rgb.adb
+   [Ada]          benchmark.adb
+   [Ada]          clusters.adb
+   [Ada]          color_avg.adb
+   [Ada]          comp_img.adb
+   [Ada]          is_opaque.adb
+   [Ada]          recurve.adb
+   [Ada]          steg.adb
+   [Ada]          dumb_png.adb
+   [Ada]          gid.adb
+   [Ada]          color_distances.adb
+   [Ada]          color_statistics.adb
+   [Ada]          comp_img_fct.adb
+   [Ada]          fast_io.adb
+   [Ada]          gid-decoding_bmp.adb
+   [Ada]          gid-decoding_gif.adb
+   [Ada]          gid-decoding_jpg.adb
+   [Ada]          gid-decoding_png.adb
+   [Ada]          gid-decoding_pnm.adb
+   [Ada]          gid-decoding_qoi.adb
+   [Ada]          gid-decoding_tga.adb
+   [Ada]          gid-headers.adb
+   [Ada]          gid-buffering.adb
+   [Ada]          gid-color_tables.adb
+   [Ada]          gid-decoding_png-huffman.adb
+Bind
+   [gprbind]      to_png.bexch
+   [gprbind]      to_bmp.bexch
+   [gprbind]      mini.bexch
+   [gprbind]      all_rgb.bexch
+   [Ada]          to_png.ali
+   [Ada]          to_bmp.ali
+   [Ada]          mini.ali
+   [Ada]          all_rgb.ali
+   [gprbind]      benchmark.bexch
+   [gprbind]      clusters.bexch
+   [gprbind]      color_avg.bexch
+   [gprbind]      comp_img.bexch
+   [Ada]          benchmark.ali
+   [Ada]          clusters.ali
+   [Ada]          color_avg.ali
+   [Ada]          comp_img.ali
+   [gprbind]      is_opaque.bexch
+   [gprbind]      recurve.bexch
+   [gprbind]      steg.bexch
+   [Ada]          is_opaque.ali
+   [Ada]          recurve.ali
+   [Ada]          steg.ali
+Link
+   [link]         to_png.adb
+   [link]         to_bmp.adb
+   [link]         mini.adb
+   [link]         all_rgb.adb
+/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86_64-pc-linux-gnu/bin/ld: _64-pc-linux-gnu/bin/ld: /lib/x86_64-linux-gnu/libc.so.6/lib/x86_64-linux-gnu/libc.so.6: unknown type [: unknown type [0x130x13] section `] section `.relr.dyn.relr.dyn''
+
+/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86_64-pc-linux-gnu/bin/ld: skipping incompatible /lib/x86_64-linux-gnu/libc.so.6/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86_64-pc-linux-gnu/bin/ld when searching for : skipping incompatible /lib/x86_64-linux-gnu/libc.so.6/lib/x86_64-linux-gnu/libc.so.6
+ when searching for /lib/x86_64-linux-gnu/libc.so.6/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86_64-pc-linux-gnu/bin/ld
+: cannot find /lib/x86_64-linux-gnu/libc.so.6/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86_64-pc-linux-gnu/bin/ld
+: cannot find /lib/x86_64-linux-gnu/libc.so.6
+/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86_64-pc-linux-gnu/bin/ld: /home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86/lib/x86_64-linux-gnu/libc.so.6_64-pc-linux-gnu/bin/ld: : unknown type [/lib/x86_64-linux-gnu/libc.so.60x13: unknown type [] section `0x13.relr.dyn] section `'.relr.dyn
+'
+/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86_64-pc-linux-gnu/bin/ld: skipping incompatible /lib/x86_64-linux-gnu/libc.so.6/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86_64-pc-linux-gnu/bin/ld when searching for : skipping incompatible /lib/x86_64-linux-gnu/libc.so.6/lib/x86_64-linux-gnu/libc.so.6
+ when searching for /lib/x86_64-linux-gnu/libc.so.6
+/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86_64-pc-linux-gnu/bin/ld: _64-pc-linux-gnu/bin/ld: /lib64/ld-linux-x86-64.so.2/lib64/ld-linux-x86-64.so.2: unknown type [: unknown type [0x130x13] section `] section `.relr.dyn.relr.dyn''
+
+/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86_64-pc-linux-gnu/bin/ld: skipping incompatible /lib64/ld-linux-x86-64.so.2 when searching for /lib64/ld-linux-x86-64.so.2/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86_64-pc-linux-gnu/bin/ld
+: skipping incompatible /lib64/ld-linux-x86-64.so.2 when searching for /home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86_64-pc-linux-gnu/bin/ld/lib64/ld-linux-x86-64.so.2: cannot find 
+/lib64/ld-linux-x86-64.so.2
+/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86_64-pc-linux-gnu/bin/ld: cannot find /lib64/ld-linux-x86-64.so.2
+/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86_64-pc-linux-gnu/bin/ld: /lib64/ld-linux-x86-64.so.2: unknown type [0x13/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86] section `_64-pc-linux-gnu/bin/ld: .relr.dyn/lib64/ld-linux-x86-64.so.2': unknown type [
+0x13] section `.relr.dyn'
+/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86_64-pc-linux-gnu/bin/ld: skipping incompatible /lib64/ld-linux-x86-64.so.2 when searching for /home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86_64-pc-linux-gnu/bin/ld/lib64/ld-linux-x86-64.so.2: skipping incompatible 
+/lib64/ld-linux-x86-64.so.2 when searching for /lib64/ld-linux-x86-64.so.2
+collect2: error: ld returned 1 exit status
+collect2: error: ld returned 1 exit status
+/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86_64-pc-linux-gnu/bin/ld: _64-pc-linux-gnu/bin/ld: /lib/x86_64-linux-gnu/libc.so.6/lib/x86_64-linux-gnu/libc.so.6: unknown type [: unknown type [0x130x13] section `] section `.relr.dyn.relr.dyn''
+
+/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86_64-pc-linux-gnu/bin/ld/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86_64-pc-linux-gnu/bin/ld: skipping incompatible : skipping incompatible /lib/x86_64-linux-gnu/libc.so.6/lib/x86_64-linux-gnu/libc.so.6 when searching for  when searching for /lib/x86_64-linux-gnu/libc.so.6/lib/x86_64-linux-gnu/libc.so.6
+
+/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86_64-pc-linux-gnu/bin/ld/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86_64-pc-linux-gnu/bin/ld: cannot find : cannot find /lib/x86_64-linux-gnu/libc.so.6/lib/x86_64-linux-gnu/libc.so.6
+
+/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86_64-pc-linux-gnu/bin/ld: _64-pc-linux-gnu/bin/ld: /lib/x86_64-linux-gnu/libc.so.6/lib/x86_64-linux-gnu/libc.so.6: unknown type [: unknown type [0x130x13] section `] section `.relr.dyn.relr.dyn''
+
+/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86_64-pc-linux-gnu/bin/ld/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86_64-pc-linux-gnu/bin/ld: skipping incompatible : skipping incompatible /lib/x86_64-linux-gnu/libc.so.6/lib/x86_64-linux-gnu/libc.so.6 when searching for  when searching for /lib/x86_64-linux-gnu/libc.so.6/lib/x86_64-linux-gnu/libc.so.6
+
+/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86_64-pc-linux-gnu/bin/ld: _64-pc-linux-gnu/bin/ld: /lib64/ld-linux-x86-64.so.2/lib64/ld-linux-x86-64.so.2: unknown type [: unknown type [0x130x13] section `] section `.relr.dyn.relr.dyn''
+
+/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86_64-pc-linux-gnu/bin/ld: skipping incompatible /lib64/ld-linux-x86-64.so.2 when searching for /lib64/ld-linux-x86-64.so.2
+/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86_64-pc-linux-gnu/bin/ld: skipping incompatible /home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86_64-pc-linux-gnu/bin/ld/lib64/ld-linux-x86-64.so.2: cannot find  when searching for /lib64/ld-linux-x86-64.so.2/lib64/ld-linux-x86-64.so.2
+
+/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86_64-pc-linux-gnu/bin/ld: cannot find /lib64/ld-linux-x86-64.so.2
+/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86_64-pc-linux-gnu/bin/ld: /lib64/ld-linux-x86-64.so.2: unknown type [0x13] section `.relr.dyn/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86'_64-pc-linux-gnu/bin/ld: 
+/lib64/ld-linux-x86-64.so.2: unknown type [0x13] section `.relr.dyn'
+/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86_64-pc-linux-gnu/bin/ld: skipping incompatible /lib64/ld-linux-x86-64.so.2 when searching for /lib64/ld-linux-x86-64.so.2
+/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86_64-pc-linux-gnu/bin/ld: skipping incompatible /lib64/ld-linux-x86-64.so.2 when searching for /lib64/ld-linux-x86-64.so.2
+collect2: error: ld returned 1 exit status
+collect2: error: ld returned 1 exit status
+   link of mini.adb failed
+   failed command was: /home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/gcc mini.o b__mini.o /home/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/e7de4eb79bd2f03453b5e35cf24f6b6d12501202b7501aae187006b39e23b630/obj/debug/fast_io.o /home/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/e7de4eb79bd2f03453b5e35cf24f6b6d12501202b7501aae187006b39e23b630/obj/debug/dumb_png.o /home/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/e7de4eb79bd2f03453b5e35cf24f6b6d12501202b7501aae187006b39e23b630/obj/debug/gid-buffering.o /home/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/e7de4eb79bd2f03453b5e35cf24f6b6d12501202b7501aae187006b39e23b630/obj/debug/gid-color_tables.o /home/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/e7de4eb79bd2f03453b5e35cf24f6b6d12501202b7501aae187006b39e23b630/obj/debug/gid-decoding_bmp.o /home/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/e7de4eb79bd2f03453b5e35cf24f6b6d12501202b7501aae187006b39e23b630/obj/debug/gid-decoding_gif.o /home/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/e7de4eb79bd2f03453b5e35cf24f6b6d12501202b7501aae187006b39e23b630/obj/debug/gid-decoding_jpg.o /home/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/e7de4eb79bd2f03453b5e35cf24f6b6d12501202b7501aae187006b39e23b630/obj/debug/gid-decoding_png-huffman.o /home/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/e7de4eb79bd2f03453b5e35cf24f6b6d12501202b7501aae187006b39e23b630/obj/debug/gid-decoding_png.o /home/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/e7de4eb79bd2f03453b5e35cf24f6b6d12501202b7501aae187006b39e23b630/obj/debug/gid-decoding_pnm.o /home/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/e7de4eb79bd2f03453b5e35cf24f6b6d12501202b7501aae187006b39e23b630/obj/debug/gid-decoding_qoi.o /home/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/e7de4eb79bd2f03453b5e35cf24f6b6d12501202b7501aae187006b39e23b630/obj/debug/gid-decoding_tga.o /home/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/e7de4eb79bd2f03453b5e35cf24f6b6d12501202b7501aae187006b39e23b630/obj/debug/gid-headers.o /home/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/e7de4eb79bd2f03453b5e35cf24f6b6d12501202b7501aae187006b39e23b630/obj/debug/gid.o -g -L/home/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/e7de4eb79bd2f03453b5e35cf24f6b6d12501202b7501aae187006b39e23b630/obj/debug/ -L/home/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/e7de4eb79bd2f03453b5e35cf24f6b6d12501202b7501aae187006b39e23b630/obj/debug/ -L/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/lib/gcc/x86_64-pc-linux-gnu/10.3.0/adalib/ -static-libgcc /home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/lib/gcc/x86_64-pc-linux-gnu/10.3.0/adalib/libgnat.a -ldl -Wl,-rpath-link,/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/lib/gcc/x86_64-pc-linux-gnu/10.3.0//adalib -Wl,-z,origin,-rpath,$ORIGIN/..//obj/debug:$ORIGIN/../../../..//toolchains/gnat_native_10.3.2_d7078088/lib/gcc/x86_64-pc-linux-gnu/10.3.0/adalib -o /home/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/e7de4eb79bd2f03453b5e35cf24f6b6d12501202b7501aae187006b39e23b630/test//mini 
+   link of all_rgb.adb failed
+   failed command was: /home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/gcc all_rgb.o b__all_rgb.o /home/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/e7de4eb79bd2f03453b5e35cf24f6b6d12501202b7501aae187006b39e23b630/obj/debug/color_distances.o /home/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/e7de4eb79bd2f03453b5e35cf24f6b6d12501202b7501aae187006b39e23b630/obj/debug/fast_io.o /home/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/e7de4eb79bd2f03453b5e35cf24f6b6d12501202b7501aae187006b39e23b630/obj/debug/dumb_png.o /home/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/e7de4eb79bd2f03453b5e35cf24f6b6d12501202b7501aae187006b39e23b630/obj/debug/gid-buffering.o /home/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/e7de4eb79bd2f03453b5e35cf24f6b6d12501202b7501aae187006b39e23b630/obj/debug/gid-color_tables.o /home/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/e7de4eb79bd2f03453b5e35cf24f6b6d12501202b7501aae187006b39e23b630/obj/debug/gid-decoding_bmp.o /home/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/e7de4eb79bd2f03453b5e35cf24f6b6d12501202b7501aae187006b39e23b630/obj/debug/gid-decoding_gif.o /home/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/e7de4eb79bd2f03453b5e35cf24f6b6d12501202b7501aae187006b39e23b630/obj/debug/gid-decoding_jpg.o /home/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/e7de4eb79bd2f03453b5e35cf24f6b6d12501202b7501aae187006b39e23b630/obj/debug/gid-decoding_png-huffman.o /home/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/e7de4eb79bd2f03453b5e35cf24f6b6d12501202b7501aae187006b39e23b630/obj/debug/gid-decoding_png.o /home/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/e7de4eb79bd2f03453b5e35cf24f6b6d12501202b7501aae187006b39e23b630/obj/debug/gid-decoding_pnm.o /home/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/e7de4eb79bd2f03453b5e35cf24f6b6d12501202b7501aae187006b39e23b630/obj/debug/gid-decoding_qoi.o /home/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/e7de4eb79bd2f03453b5e35cf24f6b6d12501202b7501aae187006b39e23b630/obj/debug/gid-decoding_tga.o /home/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/e7de4eb79bd2f03453b5e35cf24f6b6d12501202b7501aae187006b39e23b630/obj/debug/gid-headers.o /home/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/e7de4eb79bd2f03453b5e35cf24f6b6d12501202b7501aae187006b39e23b630/obj/debug/gid.o -g -L/home/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/e7de4eb79bd2f03453b5e35cf24f6b6d12501202b7501aae187006b39e23b630/obj/debug/ -L/home/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/e7de4eb79bd2f03453b5e35cf24f6b6d12501202b7501aae187006b39e23b630/obj/debug/ -L/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/lib/gcc/x86_64-pc-linux-gnu/10.3.0/adalib/ -static-libgcc /home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/lib/gcc/x86_64-pc-linux-gnu/10.3.0/adalib/libgnat.a -ldl -Wl,-rpath-link,/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/lib/gcc/x86_64-pc-linux-gnu/10.3.0//adalib -Wl,-z,origin,-rpath,$ORIGIN/..//obj/debug:$ORIGIN/../../../..//toolchains/gnat_native_10.3.2_d7078088/lib/gcc/x86_64-pc-linux-gnu/10.3.0/adalib -o /home/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/e7de4eb79bd2f03453b5e35cf24f6b6d12501202b7501aae187006b39e23b630/test//all_rgb 
+   link of to_bmp.adb failed
+   failed command was: /home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/gcc to_bmp.o b__to_bmp.o /home/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/e7de4eb79bd2f03453b5e35cf24f6b6d12501202b7501aae187006b39e23b630/obj/debug/fast_io.o /home/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/e7de4eb79bd2f03453b5e35cf24f6b6d12501202b7501aae187006b39e23b630/obj/debug/gid-buffering.o /home/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/e7de4eb79bd2f03453b5e35cf24f6b6d12501202b7501aae187006b39e23b630/obj/debug/gid-color_tables.o /home/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/e7de4eb79bd2f03453b5e35cf24f6b6d12501202b7501aae187006b39e23b630/obj/debug/gid-decoding_bmp.o /home/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/e7de4eb79bd2f03453b5e35cf24f6b6d12501202b7501aae187006b39e23b630/obj/debug/gid-decoding_gif.o /home/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/e7de4eb79bd2f03453b5e35cf24f6b6d12501202b7501aae187006b39e23b630/obj/debug/gid-decoding_jpg.o /home/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/e7de4eb79bd2f03453b5e35cf24f6b6d12501202b7501aae187006b39e23b630/obj/debug/gid-decoding_png-huffman.o /home/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/e7de4eb79bd2f03453b5e35cf24f6b6d12501202b7501aae187006b39e23b630/obj/debug/gid-decoding_png.o /home/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/e7de4eb79bd2f03453b5e35cf24f6b6d12501202b7501aae187006b39e23b630/obj/debug/gid-decoding_pnm.o /home/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/e7de4eb79bd2f03453b5e35cf24f6b6d12501202b7501aae187006b39e23b630/obj/debug/gid-decoding_qoi.o /home/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/e7de4eb79bd2f03453b5e35cf24f6b6d12501202b7501aae187006b39e23b630/obj/debug/gid-decoding_tga.o /home/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/e7de4eb79bd2f03453b5e35cf24f6b6d12501202b7501aae187006b39e23b630/obj/debug/gid-headers.o /home/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/e7de4eb79bd2f03453b5e35cf24f6b6d12501202b7501aae187006b39e23b630/obj/debug/gid.o -g -L/home/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/e7de4eb79bd2f03453b5e35cf24f6b6d12501202b7501aae187006b39e23b630/obj/debug/ -L/home/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/e7de4eb79bd2f03453b5e35cf24f6b6d12501202b7501aae187006b39e23b630/obj/debug/ -L/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/lib/gcc/x86_64-pc-linux-gnu/10.3.0/adalib/ -static-libgcc /home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/lib/gcc/x86_64-pc-linux-gnu/10.3.0/adalib/libgnat.a -ldl -Wl,-rpath-link,/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/lib/gcc/x86_64-pc-linux-gnu/10.3.0//adalib -Wl,-z,origin,-rpath,$ORIGIN/..//obj/debug:$ORIGIN/../../../..//toolchains/gnat_native_10.3.2_d7078088/lib/gcc/x86_64-pc-linux-gnu/10.3.0/adalib -o /home/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/e7de4eb79bd2f03453b5e35cf24f6b6d12501202b7501aae187006b39e23b630/test//to_bmp 
+   link of to_png.adb failed
+   failed command was: /home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/gcc to_png.o b__to_png.o /home/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/e7de4eb79bd2f03453b5e35cf24f6b6d12501202b7501aae187006b39e23b630/obj/debug/fast_io.o /home/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/e7de4eb79bd2f03453b5e35cf24f6b6d12501202b7501aae187006b39e23b630/obj/debug/dumb_png.o /home/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/e7de4eb79bd2f03453b5e35cf24f6b6d12501202b7501aae187006b39e23b630/obj/debug/gid-buffering.o /home/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/e7de4eb79bd2f03453b5e35cf24f6b6d12501202b7501aae187006b39e23b630/obj/debug/gid-color_tables.o /home/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/e7de4eb79bd2f03453b5e35cf24f6b6d12501202b7501aae187006b39e23b630/obj/debug/gid-decoding_bmp.o /home/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/e7de4eb79bd2f03453b5e35cf24f6b6d12501202b7501aae187006b39e23b630/obj/debug/gid-decoding_gif.o /home/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/e7de4eb79bd2f03453b5e35cf24f6b6d12501202b7501aae187006b39e23b630/obj/debug/gid-decoding_jpg.o /home/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/e7de4eb79bd2f03453b5e35cf24f6b6d12501202b7501aae187006b39e23b630/obj/debug/gid-decoding_png-huffman.o /home/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/e7de4eb79bd2f03453b5e35cf24f6b6d12501202b7501aae187006b39e23b630/obj/debug/gid-decoding_png.o /home/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/e7de4eb79bd2f03453b5e35cf24f6b6d12501202b7501aae187006b39e23b630/obj/debug/gid-decoding_pnm.o /home/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/e7de4eb79bd2f03453b5e35cf24f6b6d12501202b7501aae187006b39e23b630/obj/debug/gid-decoding_qoi.o /home/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/e7de4eb79bd2f03453b5e35cf24f6b6d12501202b7501aae187006b39e23b630/obj/debug/gid-decoding_tga.o /home/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/e7de4eb79bd2f03453b5e35cf24f6b6d12501202b7501aae187006b39e23b630/obj/debug/gid-headers.o /home/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/e7de4eb79bd2f03453b5e35cf24f6b6d12501202b7501aae187006b39e23b630/obj/debug/gid.o -g -L/home/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/e7de4eb79bd2f03453b5e35cf24f6b6d12501202b7501aae187006b39e23b630/obj/debug/ -L/home/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/e7de4eb79bd2f03453b5e35cf24f6b6d12501202b7501aae187006b39e23b630/obj/debug/ -L/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/lib/gcc/x86_64-pc-linux-gnu/10.3.0/adalib/ -static-libgcc /home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/lib/gcc/x86_64-pc-linux-gnu/10.3.0/adalib/libgnat.a -ldl -Wl,-rpath-link,/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/lib/gcc/x86_64-pc-linux-gnu/10.3.0//adalib -Wl,-z,origin,-rpath,$ORIGIN/..//obj/debug:$ORIGIN/../../../..//toolchains/gnat_native_10.3.2_d7078088/lib/gcc/x86_64-pc-linux-gnu/10.3.0/adalib -o /home/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/e7de4eb79bd2f03453b5e35cf24f6b6d12501202b7501aae187006b39e23b630/test//to_png 
+gprbuild: *** link phase failed
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/e7de4eb79bd2f03453b5e35cf24f6b6d12501202b7501aae187006b39e23b630/gid.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/e7de4eb79bd2f03453b5e35cf24f6b6d12501202b7501aae187006b39e23b630/gid.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+stderr: ALIRE.CHECKED_ERROR
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/.local/share/alire/builds/gid_14.0.0_dfb6e85f/e7de4eb79bd2f03453b5e35cf24f6b6d12501202b7501aae187006b39e23b630/gid.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
+[/home/runner/work/alire-crates-ci/alire-crates-ci/alire_install/bin/alr]
+0xe75bc6 Alire.Raise_Checked_Error at alire.adb:284
+0xac1a54 Alire.Os_Lib.Subprocess.Checked_Spawn at alire-os_lib-subprocess.adb:111
+0xd40276 Alire.Spawn.Command at alire-spawn.adb:22
+0xd412ee Alire.Spawn.Gprbuild at alire-spawn.adb:68
+0xc748cb Alire.Roots.Build at alire-roots.adb:189
+0xc7301a Alire.Roots.Build at alire-roots.adb:255
+0xc9832b Alire.Roots.Traverse at alire-roots.adb:2143
+0xcfee85 Alire.Solutions.Traverse.Visit at alire-solutions.adb:1472
+0xcfdca2 Alire.Solutions.Traverse at alire-solutions.adb:1539
+0xc9841e Alire.Roots.Traverse at alire-roots.adb:2147
+0xc984dd Alire.Roots.Traverse at alire-roots.adb:2127
+0xc7359b Alire.Roots.Build at alire-roots.adb:286
+0xc736d7 Alire.Roots.Build at alire-roots.adb:114
+0x49aa0d Alr.Commands.Build.Execute at alr-commands-build.adb:145
+0x49a36d Alr.Commands.Build.Execute at alr-commands-build.adb:113
+0x49a51f Alr.Commands.Build.Execute at alr-commands-build.adb:54
+0x53bbcc Alr.Commands.Sub_Cmd.Execute at clic-subcommand-instance.adb:749
+0x5472be Alr.Commands.Execute at alr-commands.adb:632
+0x43d48a Alr.Main at alr-main.adb:13
+0x4403a3 Main at b__alr-main.adb:2445
+[/lib/x86_64-linux-gnu/libc.so.6]
+0x7f7a7ec2a1c8
+0x7f7a7ec2a289
+[/home/runner/work/alire-crates-ci/alire-crates-ci/alire_install/bin/alr]
+0x43d323 _start at ???
+0xfffffffffffffffe
+
+stderr: ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED
+stderr: alire-roots.adb:202
+stderr: raised ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED : alire-roots.adb:202
+[/home/runner/work/alire-crates-ci/alire-crates-ci/alire_install/bin/alr]
+0xc74cc7 Alire.Roots.Build at alire-roots.adb:202
+0xc7301a Alire.Roots.Build at alire-roots.adb:255
+0xc9832b Alire.Roots.Traverse at alire-roots.adb:2143
+0xcfee85 Alire.Solutions.Traverse.Visit at alire-solutions.adb:1472
+0xcfdca2 Alire.Solutions.Traverse at alire-solutions.adb:1539
+0xc9841e Alire.Roots.Traverse at alire-roots.adb:2147
+0xc984dd Alire.Roots.Traverse at alire-roots.adb:2127
+0xc7359b Alire.Roots.Build at alire-roots.adb:286
+0xc736d7 Alire.Roots.Build at alire-roots.adb:114
+0x49aa0d Alr.Commands.Build.Execute at alr-commands-build.adb:145
+0x49a36d Alr.Commands.Build.Execute at alr-commands-build.adb:113
+0x49a51f Alr.Commands.Build.Execute at alr-commands-build.adb:54
+0x53bbcc Alr.Commands.Sub_Cmd.Execute at clic-subcommand-instance.adb:749
+0x5472be Alr.Commands.Execute at alr-commands.adb:632
+0x43d48a Alr.Main at alr-main.adb:13
+0x4403a3 Main at b__alr-main.adb:2445
+[/lib/x86_64-linux-gnu/libc.so.6]
+0x7f7a7ec2a1c8
+0x7f7a7ec2a289
+[/home/runner/work/alire-crates-ci/alire-crates-ci/alire_install/bin/alr]
+0x43d323 _start at ???
+0xfffffffffffffffe
+
+ERROR: Compilation failed.

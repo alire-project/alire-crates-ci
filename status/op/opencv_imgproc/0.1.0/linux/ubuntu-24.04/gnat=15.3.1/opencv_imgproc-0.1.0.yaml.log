@@ -1,0 +1,790 @@
+Test ran at 2026-10-10 12:39:27.531606+00:00
+
+SOLUTION:
+opencv_imgproc=0.1.0: Thick Ada binding to OpenCV ImgProc
+Origin: commit 88a6a94f309135fb536d1814d106d244a032dc62 from https://github.com/zackboll/opencv_imgproc_ada.git
+Available when: (case Distribution is Arch => False, others => True)
+Properties:
+   Pre_Build run: sh scripts/configure_opencv.sh (from ${CRATE_ROOT}/.)
+   Test run: alr -n build (from ${CRATE_ROOT}/.)
+   Test run: alr run (from ${CRATE_ROOT}/tests)
+   Author: Zack Boll
+   Description: Thick Ada binding to OpenCV ImgProc
+   case Distribution is
+      when Msys2 => Environment: PATH=${CRATE_ROOT}/lib:${PATH}
+   License: Apache-2.0
+   Maintainer: Zack Boll <zackboll@gmail.com>
+   Maintainers_Logins: zackboll
+   Name: opencv_imgproc
+   Tag: opencv
+   Tag: computer-vision
+   Tag: binding
+   Tag: ada
+   Version: 0.1.0
+   Website: https://github.com/zackboll/opencv_imgproc_ada
+Dependencies (direct):
+   case OS is
+      when Windows => mingw_w64_gcc*
+   opencv*
+   opencv_core~0.2.0
+   pkg_config*
+Dependencies (solution):
+   opencv=4.6.0
+   opencv_core=0.2.0
+   pkg_config=1.8.1
+Dependencies (graph):
+   opencv_core=0.2.0    --> opencv=4.6.0 (*)
+   opencv_core=0.2.0    --> pkg_config=1.8.1 (*)
+   opencv_imgproc=0.1.0 --> opencv=4.6.0 (*)
+   opencv_imgproc=0.1.0 --> opencv_core=0.2.0 (~0.2.0)
+   opencv_imgproc=0.1.0 --> pkg_config=1.8.1 (*)
+
+
+LOG:
+Note: Running pre-build actions for opencv_core=0.2.0...
+Note: Running pre-build actions for opencv_imgproc=0.1.0...
+OpenCV package: opencv4
+OpenCV include: /usr/include/opencv4
+OpenCV library: /usr/lib/x86_64-linux-gnu
+Note: Building opencv_imgproc=0.1.0/opencv_imgproc.gpr...
+Setup
+   [mkdir]        object directory for project OpenCV_Core_Shim
+   [mkdir]        library directory for project OpenCV_Core_Shim
+   [mkdir]        object directory for project OpenCV_Core
+   [mkdir]        object directory for project OpenCV_Imgproc_Shim
+   [mkdir]        library directory for project OpenCV_Imgproc_Shim
+   [mkdir]        object directory for project Opencv_Imgproc
+Compile
+   [C++]          opencv_imgproc_shim.cpp
+   [C++]          opencv_core_shim.cpp
+   [Ada]          opencv_core_config.ads
+   [Ada]          opencv-internal-c_api.adb
+   [Ada]          opencv-core-internal-typed_row_borrowing.adb
+   [Ada]          opencv-core-internal.ads
+   [Ada]          opencv-internal-safe_arithmetic.adb
+   [Ada]          opencv-internal.ads
+   [Ada]          opencv-core-internal-typed_continuous_borrowing.adb
+   [Ada]          opencv-core-internal-typed_external_mat_view.adb
+   [Ada]          opencv-core-internal-row_data.adb
+   [Ada]          opencv-core-internal-typed_access.adb
+   [Ada]          opencv-core-uint8_mat_view.adb
+   [Ada]          opencv-core-float16_access.adb
+   [Ada]          opencv-core-uint8_vec3_buffer_access.adb
+   [Ada]          opencv-core-float64_row_access.adb
+   [Ada]          opencv-core-persistence.adb
+   [Ada]          opencv-core-float32_matx3x3.ads
+   [Ada]          opencv-core-float16_row_access.adb
+   [Ada]          opencv-core-float16_vec3.ads
+   [Ada]          opencv-core-uint8_vec3_access.adb
+   [Ada]          opencv-core-uint16_access.adb
+   [Ada]          opencv-core-float64_access.adb
+   [Ada]          opencv-core-float32_access.adb
+   [Ada]          opencv-core-vectors.ads
+   [Ada]          opencv-core-float16_buffer_access.adb
+   [Ada]          opencv-core-float32_vec3.ads
+   [Ada]          opencv-core-float16_vec3_buffer_access.adb
+   [Ada]          opencv-core-uint8_vec3.ads
+   [Ada]          opencv-core-uint8_buffer_access.adb
+   [Ada]          opencv.ads
+   [Ada]          opencv-core-fixed_matrices.ads
+   [Ada]          opencv-core-float32_vec3_mat_view.adb
+   [Ada]          opencv-core-float64_buffer_access.adb
+   [Ada]          opencv-core-module_interop.adb
+   [Ada]          opencv-core-uint8_access.adb
+   [Ada]          opencv-core-uint16_row_access.adb
+   [Ada]          opencv-core-float32_matx3x3_conversions.adb
+   [Ada]          opencv-core-int16_row_access.adb
+   [Ada]          opencv-core-uint8_vec3_row_access.adb
+   [Ada]          opencv-core-float32_buffer_access.adb
+   [Ada]          opencv-core-float16_mat_view.adb
+   [Ada]          opencv-core.adb
+   [Ada]          opencv-core-float16_vec3_row_access.adb
+   [Ada]          opencv-core-float32_row_access.adb
+   [Ada]          opencv-core-float16_vec3_access.adb
+   [Ada]          opencv-core-uint8_row_access.adb
+   [Ada]          opencv-core-uint8_vec3_mat_view.adb
+   [Ada]          opencv-core-float32_vec3_buffer_access.adb
+   [Ada]          opencv-core-float16_vec3_mat_view.adb
+   [Ada]          opencv-core-int32_access.adb
+   [Ada]          opencv-core-int16_access.adb
+   [Ada]          opencv-core-float32_mat_view.adb
+   [Ada]          opencv-core-float32_vec3_access.adb
+   [Ada]          opencv-core-float64_mat_view.adb
+   [Ada]          opencv-core-float32_vec3_row_access.adb
+   [Ada]          opencv_imgproc_config.ads
+   [Ada]          opencv-image_processing-internal-c_api.adb
+   [Ada]          opencv-image_processing-internal.ads
+   [Ada]          opencv-image_processing.adb
+Build Libraries
+   [gprlib]       opencv_core_shim.lexch
+   [gprlib]       opencv_core_ada.lexch
+   [archive]      libopencv_core_shim.a
+   [index]        libopencv_core_shim.a
+   [gprlib]       opencv_imgproc_shim.lexch
+   [archive]      libopencv_core_ada.a
+   [index]        libopencv_core_ada.a
+   [gprlib]       opencv_imgproc_ada.lexch
+   [archive]      libopencv_imgproc_shim.a
+   [index]        libopencv_imgproc_shim.a
+   [archive]      libopencv_imgproc_ada.a
+   [index]        libopencv_imgproc_ada.a
+Success: Build finished successfully in 9.31 seconds.
+Note: Synchronizing workspace...
+Dependencies automatically updated as follows:
+
+   +  aunit          26.0.0 (new)
+   +b gnatcov        26.2.1 (new,binary)
+   +b gnatprove      16.1.0 (new,binary)
+   +b opencv         4.6.0  (new,indirect,system package)
+   +  opencv_core    0.2.0  (new,indirect)
+   +. opencv_imgproc 0.1.0  (new,path=..)
+   +b pkg_config     1.8.1  (new,indirect,system package)
+Note: Deploying aunit=26.0.0...
+#=#=#                                                                          
+##O#-#                                                                         
+##=O#- #                                                                       
+Note: Deploying gnatcov=26.2.1...
+#=#=#                                                                          
+
+                                                                           0.0%
+                                                                           0.8%
+#######                                                                   10.1%
+############                                                              17.9%
+####################                                                      28.8%
+###########################                                               38.0%
+#################################                                         46.7%
+##########################################                                58.4%
+################################################                          67.8%
+######################################################                    75.6%
+##########################################################                81.8%
+###################################################################       93.6%
+######################################################################## 100.0%
+Note: Deploying gnatprove=16.1.0...
+#=#=#                                                                          
+
+                                                                           0.1%
+                                                                           1.1%
+#####                                                                      8.1%
+###########                                                               16.0%
+#################                                                         24.2%
+#######################                                                   33.2%
+#############################                                             41.2%
+##################################                                        48.0%
+#######################################                                   54.9%
+############################################                              62.1%
+##################################################                        70.1%
+########################################################                  78.9%
+##############################################################            87.3%
+####################################################################      95.4%
+######################################################################## 100.0%
+
+Note: Running pre-build actions for opencv_core=0.2.0...
+Note: Running pre-build actions for opencv_imgproc=0.1.0...
+OpenCV package: opencv4
+OpenCV include: /usr/include/opencv4
+OpenCV library: /usr/lib/x86_64-linux-gnu
+Note: Running pre-build actions for tests=0.1.0...
+Note: Building tests=0.1.0/tests.gpr...
+Setup
+   [mkdir]        object directory for project AUnit
+   [mkdir]        library directory for project AUnit
+   [mkdir]        object directory for project OpenCV_Imgproc_Shim
+   [mkdir]        object directory for project Opencv_Imgproc
+   [mkdir]        object directory for project Tests
+   [mkdir]        exec directory for project Tests
+Compile
+   [Ada]          tests.adb
+   [C++]          opencv_imgproc_shim.cpp
+   [Ada]          opencv_imgproc_config.ads
+   [Ada]          opencv-image_processing-internal-c_api.adb
+   [Ada]          opencv-image_processing-internal.ads
+   [Ada]          opencv-image_processing.adb
+   [Ada]          aunit-io.ads
+   [Ada]          aunit-memory.adb
+   [Ada]          aunit-memory-utils.adb
+   [Ada]          aunit-time_measure.adb
+   [Ada]          aunit-reporter-gnattest.adb
+   [Ada]          aunit-reporter-junit.adb
+   [Ada]          aunit-reporter-xml.adb
+   [Ada]          aunit-reporter-text.adb
+   [Ada]          ada_containers.ads
+   [Ada]          ada_containers-aunit_lists.adb
+   [Ada]          aunit-test_suites.adb
+   [Ada]          aunit.adb
+   [Ada]          aunit-test_filters.adb
+   [Ada]          aunit-test_cases.adb
+   [Ada]          aunit-tests.ads
+   [Ada]          aunit-run.adb
+   [Ada]          aunit-assertions.adb
+   [Ada]          aunit-reporter.adb
+   [Ada]          aunit-test_fixtures.adb
+   [Ada]          aunit-options.ads
+   [Ada]          aunit-test_caller.adb
+   [Ada]          aunit-simple_test_cases.adb
+   [Ada]          aunit-test_results.adb
+   [C++]          watershed_overlap_fixture.cpp
+   [Ada]          adaptive_threshold_tests.adb
+   [Ada]          automatic_threshold_tests.adb
+   [Ada]          bilateral_filter_tests.adb
+   [Ada]          box_blur_tests.adb
+   [Ada]          canny_edge_tests.adb
+   [Ada]          clahe_tests.adb
+   [Ada]          color_conversion_tests.adb
+   [Ada]          connected_component_tests.adb
+   [Ada]          contour_tests.adb
+   [Ada]          derivative_kernel_tests.adb
+   [Ada]          distance_transform_tests.adb
+   [Ada]          draw_contour_tests.adb
+   [Ada]          drawing_annotation_tests.adb
+   [Ada]          drawing_tests.adb
+   [Ada]          earth_mover_tests.adb
+   [Ada]          filter_2d_tests.adb
+   [Ada]          gaussian_blur_tests.adb
+   [Ada]          gaussian_kernel_tests.adb
+   [Ada]          histogram_analysis_tests.adb
+   [Ada]          histogram_equalization_tests.adb
+   [Ada]          hough_detection_tests.adb
+   [Ada]          integral_image_tests.adb
+   [Ada]          laplacian_tests.adb
+   [Ada]          mean_shift_tests.adb
+   [Ada]          median_blur_tests.adb
+   [Ada]          morphology_tests.adb
+   [Ada]          polar_transform_tests.adb
+   [Ada]          pyramid_construction_tests.adb
+   [Ada]          pyramid_tests.adb
+   [Ada]          remap_tests.adb
+   [Ada]          resize_tests.adb
+   [Ada]          segmentation_tests.adb
+   [Ada]          sep_filter_2d_tests.adb
+   [Ada]          spatial_derivative_tests.adb
+   [Ada]          template_matching_tests.adb
+   [Ada]          threshold_tests.adb
+   [Ada]          warp_affine_tests.adb
+   [Ada]          warp_perspective_tests.adb
+Build Libraries
+   [gprlib]       aunit.lexch
+   [gprlib]       opencv_imgproc_shim.lexch
+   [gprlib]       opencv_imgproc_ada.lexch
+   [archive]      libaunit.a
+   [archive]      libopencv_imgproc_shim.a
+   [index]        libaunit.a
+   [index]        libopencv_imgproc_shim.a
+   [archive]      libopencv_imgproc_ada.a
+   [index]        libopencv_imgproc_ada.a
+Bind
+   [gprbind]      tests.bexch
+   [Ada]          tests.ali
+Link
+   [archive]      libtests.a
+   [index]        libtests.a
+   [link]         tests.adb
+Success: Build finished successfully in 14.72 seconds.
+
+OK Color layout and alpha
+OK Color primary hue and gray
+OK Color invalid depths and channels
+OK Color linear spaces and Region
+OK Every color selector dispatches
+OK Color depths and spaces
+OK Color raw atomicity and alias
+OK BGR-to-gray preserves geometry, values, and source
+OK BGR-to-gray rejects four-channel BGRA source
+OK BGR-to-gray rejects unsupported source depth
+OK BGR-to-gray rejects empty source
+OK BGR-to-gray rejects three-dimensional source
+OK BGR-to-gray accepts UInt16 source
+OK BGR-to-gray accepts Float32 source
+OK Nearest-neighbor resize preserves source and type
+OK Linear resize preserves source element type
+OK Cubic resize preserves Int16 element type
+OK Area downsize preserves Float32 element type
+OK Lanczos_4 resize preserves Float64 element type
+OK Resize rejects empty source
+OK Resize rejects zero output width
+OK Resize rejects zero output height
+OK Resize rejects unsupported depth
+OK Resize rejects three-dimensional source
+OK Gaussian blur blurs Float32 impulse and preserves source
+OK Gaussian blur accepts UInt8 multi-channel Replicate input
+OK Gaussian blur accepts UInt16 Reflect input
+OK Gaussian blur accepts Int16 Reflect_101 input
+OK Gaussian blur uses its default border for Float64 input
+OK Gaussian blur rejects empty source
+OK Gaussian blur rejects three-dimensional source
+OK Gaussian blur rejects unsupported depth
+OK Gaussian blur rejects invalid kernels and sigma
+OK Gaussian blur rejects Wrap border
+OK Get_Gaussian_Kernel default Float64 automatic kernel
+OK Get_Gaussian_Kernel Float32 output
+OK Get_Gaussian_Kernel explicit sigma changes coefficients
+OK Get_Gaussian_Kernel automatic sigma is deterministic
+OK Get_Gaussian_Kernel composes with Sep_Filter_2D
+OK Get_Gaussian_Kernel size 1 is identity
+OK Get_Gaussian_Kernel rejects invalid public inputs
+OK Get_Gaussian_Kernel C ABI rejects malformed inputs
+OK Get_Derivative_Kernels Sobel X Kernel_3 Float32
+OK Get_Derivative_Kernels Sobel Y Kernel_3 Float64
+OK Get_Derivative_Kernels normalized Sobel coefficients
+OK Get_Derivative_Kernels second derivative
+OK Get_Derivative_Kernels Kernel_1 effective length
+OK Get_Scharr_Kernels X unnormalized
+OK Get_Scharr_Kernels Y normalized Float64
+OK Get_Derivative_Kernels composes with Sep_Filter_2D
+OK Get_Derivative_Kernels rejects invalid public inputs
+OK Get_Derivative_Kernels C ABI rejects malformed inputs
+OK Pyramid_Down rejects overlapping Regions
+OK Pyramid_Up rejects overlapping Regions
+OK Raw pyramid rejects overlapping Regions
+OK Pyramid_Down Region excludes parent pixels
+OK Pyramid_Down asymmetric Region matches owning Mat
+OK Pyramid_Down C3 Region excludes parent channels
+OK Pyramid_Down raw C ABI Region excludes parent pixels
+OK Pyramid_Up Region uses logical image
+OK Pyramid_Down even geometry rebinds Destination
+OK Pyramid_Down odd geometry uses ceiling half
+OK Pyramid operations preserve supported depths
+OK Pyramid_Down preserves UInt8 C3 channels
+OK Pyramid_Down accepts Replicate Reflect Wrap and default
+OK Pyramid_Up geometry rebinds Destination
+OK Pyramid_Up preserves a constant Float32 image
+OK Pyramid_Down then Pyramid_Up is a smoothed reconstruction
+OK Pyramid operations reject invalid public inputs
+OK Pyramid C ABI rejects malformed inputs
+OK Gaussian Level_Count 1 is an independent Source clone
+OK Gaussian geometry and maximum level count
+OK Gaussian build matches repeated Pyramid_Down for every border
+OK Gaussian build covers supported depths and channels
+OK Gaussian Region matches an independent clone
+OK Gaussian levels own independent storage
+OK Pyramid construction rejects invalid inputs
+OK Sized Pyramid_Up reverses odd Pyramid_Down geometry
+OK Sized Pyramid_Up one-row integer targets match two-row row 0
+OK Sized Pyramid_Up rejects illegal geometry atomically
+OK Raw pyramid C ABI validation and handle lifetime
+OK Laplacian precision policy
+OK Laplacian integer source keeps negative detail
+OK Laplacian reconstructs even, odd, and multichannel images
+OK Laplacian single level and decomposition structure
+OK Laplacian residual edits and arbitrary array bounds
+OK Reconstruction rejects malformed pyramids
+OK Laplacian Region matches an independent clone
+OK Match_Template UInt8 SQDIFF exact match rebinds Destination
+OK Match_Template Float32 CCORR scores match the dot product
+OK Match_Template six methods find the known best match
+OK Match_Template preserves UInt8 C3 and returns Float32 C1
+OK Match_Template allows identical Source and Template
+OK Match_Template accepts a Template Region of Source
+OK Match_Template rejects Destination aliased with inputs
+OK Match_Template rejects invalid public inputs
+OK Match_Template result geometry rebinds Destination
+OK Match_Template C ABI rejects malformed inputs
+OK Warp_Affine identity rebinds Destination
+OK Warp_Affine nearest integer translation
+OK Warp_Affine nonzero Constant_Border
+OK Warp_Affine Replicate ignores Border_Value
+OK Warp_Affine inverse mapping reverses translation
+OK Warp_Affine Linear fractional transform interpolates
+OK Warp_Affine Float64 Transform preserves UInt8 destination
+OK Warp_Affine supports the documented source depths
+OK Warp_Affine C3 Constant_Border transmits Scalar components
+OK Warp_Affine Output_Size rebinds Destination
+OK Warp_Affine rejects invalid public inputs
+OK Warp_Affine C ABI rejects malformed inputs
+OK Warp_Affine C ABI accepts max-finite Float64 Transform
+OK Warp_Perspective identity rebinds Destination
+OK Warp_Perspective nearest integer translation
+OK Warp_Perspective projective denominator selects donor
+OK Warp_Perspective inverse mapping reverses translation
+OK Warp_Perspective Linear fractional transform interpolates
+OK Warp_Perspective nonzero Constant_Border
+OK Warp_Perspective Replicate ignores Border_Value
+OK Warp_Perspective Float64 Transform preserves UInt8 destination
+OK Warp_Perspective supports the documented source depths
+OK Warp_Perspective C3 Constant_Border transmits Scalar components
+OK Warp_Perspective Output_Size rebinds Destination
+OK Warp_Perspective rejects invalid public inputs
+OK Warp_Perspective C ABI rejects malformed inputs
+OK Remap fixed quantization interpolation and reuse
+OK Remap encoded raw ABI rejects malformed map
+OK Remap Region maps and fixed quantization
+OK Remap C2 and fixed SIMD stride Region safety
+OK Remap C2 nonfinite and huge coordinates
+OK Remap map representations and fixed reuse
+OK Remap nearest fixed and invalid maps
+OK Remap UInt8 Linear SIMD stride boundary and scalar fallback
+OK Remap rejects huge Float32 coordinates atomically
+OK Remap identity Nearest rebinds Destination
+OK Remap Nearest performs horizontal flip
+OK Remap Linear interpolates fractional coordinates
+OK Remap accepts Cubic and Lanczos_4
+OK Remap output geometry follows map geometry
+OK Remap supports documented source depths
+OK Remap C3 Constant_Border transmits Scalar components
+OK Remap supports Replicate Reflect Reflect_101 and Wrap
+OK Remap preserves Source and maps
+OK Remap rejects invalid public source and map metadata
+OK Remap rejects Area nonfinite maps and size limit
+OK Remap rejects Destination aliases
+OK Remap C ABI rejects malformed inputs and accepts valid selectors
+OK Polar forward geometry and zero fill
+OK Polar log and inverse
+OK Polar Region and interpolation
+OK Polar inverse Region wrap isolation
+OK Polar validation
+OK Polar raw ABI safety
+OK Polar depth and channels
+OK Polar inverse packed stride
+OK Polar alias and size boundaries
+OK Median blur UInt8 C1 3x3 replaces impulse with median
+OK Median blur UInt16 C1 5x5 produces exact median
+OK Median blur Float32 C1 3x3 produces exact median
+OK Median blur processes UInt8 C3 channels independently
+OK Median blur UInt8 kernel 7 produces exact center
+OK Median blur uses replicated border at a corner
+OK Median blur supports direct in-place operation
+OK Median blur rejects invalid public sources
+OK Median blur rejects incompatible kernel and depth
+OK Median blur C ABI rejects malformed inputs
+OK Box blur UInt8 C1 3x3 produces exact center
+OK Box blur UInt16 C1 produces exact mean
+OK Box blur Int16 C1 produces exact negative mean
+OK Box blur Float32 C1 produces exact mean
+OK Box blur Float64 C1 produces exact mean
+OK Box blur processes UInt8 C3 channels independently
+OK Box blur accepts even non-square kernels
+OK Box blur uses requested Constant and Replicate borders
+OK Box blur supports direct in-place operation
+OK Box blur rejects invalid public inputs
+OK Box blur C ABI rejects malformed inputs
+OK Bilateral filter UInt8 C1 constant is preserved
+OK Bilateral filter Float32 C1 constant is preserved
+OK Bilateral filter UInt8 C3 constant color is preserved
+OK Bilateral filter small Sigma_Color preserves an edge more
+OK Bilateral filter Sigma_Space changes neighborhood weighting
+OK Bilateral filter automatic diameter filters a nonconstant image
+OK Bilateral filter uses requested Constant and Replicate borders
+OK Bilateral filter rejects direct in-place operation
+OK Bilateral filter rejects invalid public inputs
+OK Bilateral filter C ABI rejects malformed inputs
+OK Filter_2D Float32 identity kernel rebinds destination
+OK Filter_2D asymmetric kernel proves correlation
+OK Filter_2D UInt8 to Int16 preserves a negative result
+OK Filter_2D UInt16 to Float32 destination
+OK Filter_2D Float64 source accepts a Float64 kernel
+OK Filter_2D processes UInt8 C3 channels independently
+OK Filter_2D explicit anchor reaches OpenCV
+OK Filter_2D Offset is added to the result
+OK Filter_2D uses requested Constant and Replicate borders
+OK Filter_2D supports Same_Depth in-place operation
+OK Filter_2D rejects invalid public inputs
+OK Filter_2D C ABI rejects malformed inputs
+OK Sep_Filter_2D Float32 identity kernels rebind destination
+OK Sep_Filter_2D asymmetric kernels preserve coefficient order
+OK Sep_Filter_2D UInt8 to Int16 preserves a signed result
+OK Sep_Filter_2D UInt16 to Float32 destination
+OK Sep_Filter_2D Float64 source accepts Float64 kernels
+OK Sep_Filter_2D processes UInt8 C3 channels independently
+OK Sep_Filter_2D explicit anchor indexes each kernel
+OK Sep_Filter_2D Offset is added to the result
+OK Sep_Filter_2D uses requested Constant and Replicate borders
+OK Sep_Filter_2D supports Same_Depth in-place operation
+OK Sep_Filter_2D rejects invalid public inputs
+OK Sep_Filter_2D C ABI rejects malformed inputs
+OK Laplacian Kernel_1 replaces destination and preserves source
+OK Laplacian Kernel_3 uses requested aperture
+OK Laplacian Kernel_Size 9 uses requested aperture
+OK Laplacian supports Same_Depth in-place operation
+OK Laplacian forwards Scale and Offset
+OK Laplacian processes UInt8 C3 channels independently
+OK Laplacian accepts Float32 source
+OK Laplacian rejects invalid public inputs
+OK Laplacian C ABI rejects malformed selectors
+OK integer morphology border rounding preflight
+OK raw integer morphology border rounding preflight
+OK custom masks and anchors
+OK custom validation and explicit borders
+OK custom Region and operations
+OK raw all-zero kernel
+OK float borders and iterations
+OK custom overlapping Regions and in-place
+OK C3 explicit border
+OK erosion Region uses logical boundary
+OK dilation Region uses logical boundary
+OK gradient Region uses logical boundary
+OK in-place Region erosion only changes view
+OK rectangle erosion uses defaults and replaces destination
+OK rectangle dilation uses defaults
+OK cross dilation processes channels independently
+OK ellipse dilation uses elliptical footprint
+OK multiple iterations accept Float32 and an even kernel
+OK in-place erosion is supported
+OK opening removes isolated foreground
+OK closing fills a dark hole in place
+OK gradient produces the exact boundary
+OK top hat extracts a bright feature
+OK black hat extracts a dark feature
+OK gradient processes cross channels independently
+OK top hat accepts Float32 even kernel and iterations
+OK morphology rejects invalid sources
+OK morphology rejects zero kernel dimensions
+OK morphology rejects Wrap border
+OK Apply_Morphology rejects Wrap border
+OK morphology C ABI rejects nonpositive primitive inputs
+OK morphology C ABI rejects malformed operation
+OK Default Canny finds a step and preserves source
+OK Sobel 5x5 L2 Canny succeeds
+OK Sobel 7x7 Canny succeeds
+OK Canny rejects invalid source Mats
+OK Canny rejects invalid thresholds
+OK Sobel X produces exact signed derivative
+OK Sobel Y produces exact derivative
+OK Sobel preserves negative gradient
+OK Scharr axis selects first derivative
+OK Sobel supports in-place Same_Depth operation
+OK Sobel Kernel_1 produces exact derivative
+OK Sobel Kernel_5 forwards Scale and Offset
+OK Scharr Y produces exact derivative
+OK Sobel processes UInt8 C3 channels independently
+OK derivative C ABI rejects malformed selectors
+OK Derivatives reject invalid parameters
+OK UInt8 Binary threshold uses defaults and rebinds destination
+OK UInt16 Binary_Inverse threshold produces exact value
+OK Int16 Truncate threshold produces exact value
+OK Float32 To_Zero threshold produces exact values
+OK Float64 To_Zero_Inverse threshold produces exact values
+OK multi-channel threshold preserves channel count
+OK threshold rejects invalid source Mats
+OK Otsu UInt8 agrees with fixed threshold
+OK Otsu UInt16 agrees with fixed threshold
+OK Triangle UInt8 agrees with fixed threshold
+OK automatic threshold rejects invalid inputs
+OK Adaptive mean produces exact output
+OK Adaptive Gaussian produces exact output
+OK Adaptive inverse forwards Bias
+OK Adaptive threshold supports in-place operation
+OK Adaptive threshold rejects invalid public inputs
+OK Adaptive threshold C ABI rejects malformed inputs
+OK Equalize histogram exact nonuniform CDF
+OK Equalize histogram evenly populated levels
+OK Equalize histogram uniform full-range ramp
+OK Equalize histogram constant and single-pixel images
+OK Equalize histogram preserves independent source
+OK Equalize histogram rebinds empty and incompatible destination
+OK Equalize histogram uses a noncontiguous source ROI
+OK Equalize histogram supports direct in-place operation
+OK Equalize histogram supports in-place ROI operation
+OK Equalize histogram rejects unsupported aliases
+OK Equalize histogram rejects invalid public sources
+OK Equalize histogram C ABI safety and error translation
+OK CLAHE UInt8 basic operation
+OK CLAHE UInt16 support
+OK CLAHE defaults
+OK CLAHE clip limit
+OK CLAHE tile grid
+OK CLAHE ROI and in-place
+OK CLAHE rebinding and aliases
+OK CLAHE public validation
+OK CLAHE raw ABI safety
+OK Connected components basic statistics
+OK Connected components connectivity and nonzero
+OK Connected components background foreground centroid
+OK Connected components ROI rebinding preservation
+OK Connected components aliases validation access
+OK Connected components raw C ABI
+OK External rectangle contours
+OK Contour approximation modes
+OK Contour source preservation and empty
+OK Contour hierarchy modes and offset
+OK Contour Teh-Chin selectors
+OK Contour validation and index errors
+OK Contour C ABI malformed selectors
+OK fill nested contour depths and all
+OK outline selected levels and all
+OK offset alias and Region
+OK empty set and atomic failures
+OK depth color and antialiasing
+OK raw contour ABI guards
+OK Drawing lines
+OK Drawing antialiasing
+OK Drawing rectangles
+OK Drawing rectangle extreme clipping
+OK Drawing circles
+OK Drawing ellipses
+OK Drawing polylines
+OK Drawing polygons
+OK Drawing channels depths and aliases
+OK Drawing invalid inputs
+OK Drawing raw C ABI
+OK Arrow shaft and tip geometry
+OK Arrow invalid geometry
+OK Seven marker shapes
+OK Marker size thickness overflow
+OK Hershey text and eight fonts
+OK Text orientation and empty
+OK Metrics and requested height
+OK Annotation alias and Region
+OK Annotation text bytes and C3
+OK Annotation raw ABI
+OK Annotation raw drawing safety
+OK Annotation public validation
+OK Portable text image layout
+OK Raw text pen overflow
+OK Hough lines horizontal
+OK Hough lines vertical
+OK Hough lines polar interpretation
+OK Hough lines restricted angles
+OK Hough lines empty and nonzero foreground
+OK Hough lines from Canny edges
+OK Hough lines source preservation and Region
+OK Hough lines invalid inputs
+OK Hough segments horizontal and vertical
+OK Hough segments diagonal endpoint order
+OK Hough segments length and gap
+OK Hough segments empty, source preservation and Region
+OK Hough segments invalid inputs
+OK Hough circles automatic radius
+OK Hough circles explicit radius
+OK Hough circles two separated
+OK Hough circles empty, source preservation and Region
+OK Hough circles invalid inputs
+OK Hough raw C ABI line geometry
+OK Hough raw C ABI segment geometry
+OK Hough raw C ABI circle geometry
+OK Hough raw C ABI nonzero times angle bins
+OK Hough raw C ABI source validation
+OK Hough raw C ABI result handles
+OK Hough lines with votes geometry and unchanged vote-free API
+OK Hough lines with votes empty, source preservation and Region
+OK Hough lines with votes invalid inputs
+OK Hough point-set line geometry
+OK Hough point-set maximum lines and empty input
+OK Hough point-set invalid inputs
+OK Hough point-set OpenCV 4.1 accumulator safety
+OK Hough raw C ABI point set
+OK Hough circle centers only
+OK Hough circle centers source preservation and Region
+OK Hough circles with votes
+OK Hough raw C ABI circle modes
+OK Hough raw C ABI evidence handles
+OK Flood fill UInt8 C1 exact region
+OK Flood fill UInt8 C3
+OK Flood fill Float32
+OK Flood fill four and eight connectivity
+OK Flood fill floating and fixed range
+OK Flood fill seed at edge
+OK Flood fill Region mutates parent
+OK Flood fill mask obstacle and offset
+OK Flood fill mask border
+OK Flood fill mask only
+OK Flood fill invalid inputs
+OK Flood fill mask invalid inputs
+OK Flood fill raw C ABI selectors
+OK Flood fill raw C ABI geometry
+OK Watershed two regions
+OK Watershed Region view
+OK Watershed invalid inputs
+OK Watershed overlap rejected
+OK Watershed raw C ABI geometry
+OK GrabCut rectangle initialization
+OK GrabCut mask initialization
+OK GrabCut combined initialization
+OK GrabCut combined Region
+OK GrabCut combined invalid inputs
+OK GrabCut state interchange
+OK GrabCut invalid import
+OK GrabCut raw model validation
+OK GrabCut label conversions
+OK GrabCut refinement
+OK GrabCut state isolation
+OK GrabCut invalid rectangle
+OK GrabCut invalid mask
+OK GrabCut invalid state use
+OK GrabCut raw C ABI modes
+OK GrabCut raw C ABI state validation
+OK Mean shift default pyramid posterizes a noisy two-color image
+OK Mean shift level 0 posterizes without a pyramid
+OK Mean shift multilevel pyramid posterizes a large image
+OK Mean shift Color_Radius 0 preserves exact-color neighborhoods
+OK Mean shift applies custom Maximum_Iterations
+OK Mean shift applies custom Epsilon
+OK Mean shift leaves Source unchanged
+OK Mean shift Region matches an independent clone
+OK Mean shift Region excludes parent pixels
+OK Mean shift aliased and overlapping Destination use the snapshot
+OK Mean shift rejects invalid Sources
+OK Mean shift rejects invalid radii and Epsilon
+OK Mean shift rejects generated pyramid levels below 2 x 2
+OK Mean shift C ABI rejects malformed requests
+OK Mean shift rejects signed-int window coordinate overflow
+OK Mean shift valid request succeeds after rejections
+OK Histogram UInt8 exact counts
+OK Histogram range boundaries
+OK Histogram UInt16 source
+OK Histogram Float32 source
+OK Histogram channel selection
+OK Histogram 2-D joint
+OK Histogram 3-D joint
+OK Histogram ten dimensions
+OK Histogram arbitrary array lower bound
+OK Histogram mask
+OK Histogram Region source
+OK Histogram metadata and clone
+OK Histogram invalid calculation inputs
+OK Histogram raw C ABI calculation
+OK Histogram comparison identical
+OK Histogram comparison different
+OK Histogram comparison compatibility
+OK Histogram raw C ABI comparison
+OK Back projection UInt8
+OK Back projection channels
+OK Back projection unit axis
+OK Back projection depths
+OK Back projection Region
+OK Back projection invalid inputs
+OK Back projection raw C ABI
+OK Float32 histogram index preflight
+OK Multi-source histogram calculation
+OK Multi-source histogram mask and rejection
+OK Multi-source histogram raw span
+OK Multi-source histogram Regions
+OK Multi-source histogram back projection
+OK Histogram accumulation
+OK Histogram raw addition
+OK Nonuniform histogram calculation
+OK Nonuniform histogram joint and Region
+OK Nonuniform histogram metadata and comparison
+OK Nonuniform back projection and accumulation
+OK Nonuniform histogram invalid inputs
+OK Nonuniform histogram raw C ABI
+OK Distance metrics
+OK UInt8 saturation and Region
+OK Voronoi labels and zeros
+OK Labeled metrics discriminate non-axis offsets
+OK Invalid distance sources
+OK Raw failure atomicity
+OK Three metrics and identity
+OK Unequal mass and flow
+OK Explicit cost optimal flow
+OK Cost ignores coordinates
+OK Region packed signatures
+OK Invalid signatures
+OK Invalid custom costs
+OK Legacy buffer overflow
+OK Raw failure atomicity
+OK Signature layouts and arithmetic
+OK Cost type and geometry
+OK Packed Region cost
+OK Raw input validation and recovery
+OK Integral exact sum
+OK Integral UInt8 Int32 overflow
+OK Integral squares and tilted
+OK Integral depths and Region
+OK Integral C3 channels
+OK Integral public validation
+OK Integral raw atomicity
+
+Total Tests Run:   502
+Successful Tests:  502
+Failed Assertions: 0
+Unexpected Errors: 0
+[alr test] Test completed SUCCESSFULLY

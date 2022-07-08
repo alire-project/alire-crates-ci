@@ -1,0 +1,216 @@
+Test ran at 2026-02-02 13:21:28.084591+00:00
+
+SOLUTION:
+atari_atr_tools=1.5.1: Cross-platform tool for ATR disk images for Atari 8-bit systems
+Origin: source archive atari_atr_tools-1.5.1.tgz at https://sourceforge.net/projects/tutorial-6502/files/Alire/atari_atr_tools-1.5.1.tgz with hashes sha256:f83e01b4a70cb4ed38169c7aebd6eaa90a10f241d78b050bfaea55c3796c3e54, sha512:65ad2fe793d2fed8d1e12c2de7718ffcf997d602c5b0f4896af15197a24fe6f71359dc94d3c07f93e58e68f84cb5bc633062621ad682b0dca7271750792bc01e
+Properties:
+   Test run: alr run (from ${CRATE_ROOT}/test)
+   Author: Martin Krischik <krischik@users.sourceforge.net>
+   Build Switches: 
+   Description: Cross-platform tool for ATR disk images for Atari 8-bit systems
+   Executable: atr_tools-main
+   License: GPL-3.0-or-later
+   Long_Description: Atari ATR Tools is a versatile, cross-platform utility written in Ada 2022 for managing ATR disk image files used by Atari 8-bit emulators (e.g., Altirra, Atari800) and hardware add-ons like SIO2PC. Unlike most existing tools, which are Windows-only, this tool runs seamlessly on macOS, Linux, and Windows, making it ideal for retro computing enthusiasts across all major platforms.
+
+Key features include:
+
+**Header Analysis**: Display detailed metadata of ATR files, including sector
+size, disk density, track count, and boot sector presence.
+
+```sh
+  > atr_tools-main --print-header test-DD-DS-80.atr
+  File name        : test-DD-DS-80.atr
+  Magic            :      16#296#
+  Paragraphs       :        46056
+  Sector size      :          256
+  Flags            :         2#1#
+  Bad Sectors      :            0
+  Unused           :        16#0#
+  Sectors          :         2880
+  Bytes            :       736896
+  Boot Sectors     : true
+  Floppy disk double density, double sided, 80 track
+```
+
+**Floppy Image Creation**: Format and create ATR files for various disk
+configurations (e.g., single-sided, double-density, 80 tracks).
+
+```sh
+> atr_tools-main --verbose --format-floppy --density=DD --side=SS --track=80 test-DD-SS-80.atr
+File created     : test-DD-SS-80.atr
+Sector size      :          256
+Sector per track :           18
+Tracks per side  :           80
+Sides per disk   :            1
+```
+
+The tool includes a comprehensive test suite to ensure reliability across platforms and configurations. Source code and tests are available on SourceForge. Detailed GNATdoc documentation can be found at [6502 Tutorial](https://tutorial-6502.sourceforge.io/gnatdoc/atr_tools/index.html).
+
+   Maintainer: Martin Krischik <krischik@users.sourceforge.net>
+   Maintainers_Logins: krischik
+   Name: atari_atr_tools
+   Tag: atari
+   Tag: tools
+   Tag: retrocomputing
+   Tag: ada-2022
+   Version: 1.5.1
+   Website: https://sourceforge.net/projects/tutorial-6502
+Dependencies (direct):
+   adacl^6.3.0
+Dependencies (solution):
+   adacl=6.3.0
+   aunit=25.0.0
+Dependencies (graph):
+   adacl=6.3.0           --> aunit=25.0.0 (25.0.0)
+   atari_atr_tools=1.5.1 --> adacl=6.3.0 (^6.3.0)
+
+
+LOG:
+Note: Synchronizing workspace...
+Dependencies automatically updated as follows:
+
+   +  adacl           6.3.0  (new)
+   +. atari_atr_tools 1.5.1  (new,path=..)
+   +  aunit           25.0.0 (new)
+
+Note: Building atari_atr_tools=1.5.1/atari_atr_tools.gpr...
+Setup
+   [mkdir]        object directory for project AUnit
+   [mkdir]        library directory for project AUnit
+   [mkdir]        object directory for project AdaCL
+   [mkdir]        library directory for project AdaCL
+   [mkdir]        object directory for project Atari_Atr_Tools
+   [mkdir]        exec directory for project Atari_Atr_Tools
+Compile
+   [Ada]          atr_tools-main.adb
+   [Ada]          aunit-io.ads
+   [Ada]          aunit-memory-utils.adb
+   [Ada]          aunit-memory.adb
+   [Ada]          aunit-time_measure.adb
+   [Ada]          aunit-reporter-junit.adb
+   [Ada]          aunit-reporter-text.adb
+   [Ada]          aunit-reporter-xml.adb
+   [Ada]          aunit-reporter-gnattest.adb
+   [Ada]          ada_containers.ads
+   [Ada]          ada_containers-aunit_lists.adb
+   [Ada]          aunit-test_filters.adb
+   [Ada]          aunit-test_results.adb
+   [Ada]          aunit.adb
+   [Ada]          aunit-test_cases.adb
+   [Ada]          aunit-test_fixtures.adb
+   [Ada]          aunit-reporter.adb
+   [Ada]          aunit-tests.ads
+   [Ada]          aunit-test_suites.adb
+   [Ada]          aunit-options.ads
+   [Ada]          aunit-test_caller.adb
+   [Ada]          aunit-simple_test_cases.adb
+   [Ada]          aunit-assertions.adb
+   [Ada]          aunit-run.adb
+   [Ada]          adacl_config.ads
+   [Ada]          adacl-os-to_utf_string.adb
+   [Ada]          adacl-os-low_level.ads
+   [Ada]          adacl-os-to_wide_wide_string.adb
+   [Ada]          adacl-wide_strings-io.adb
+   [Ada]          adacl-pointer-shared_with_delete.adb
+   [Ada]          adacl-command_line.ads
+   [Ada]          adacl-strings-hex.adb
+   [Ada]          adacl-strings.adb
+   [Ada]          adacl-calendar.adb
+   [Ada]          adacl-pointer-element.adb
+   [Ada]          adacl-trace-assert.ads
+   [Ada]          adacl-wide_strings.adb
+   [Ada]          adacl-assert-discrete.adb
+   [Ada]          adacl-limited_base.ads
+   [Ada]          adacl-strings-io.adb
+   [Ada]          adacl-assert-fixed.adb
+   [Ada]          adacl-wide_wide_strings-io.adb
+   [Ada]          adacl-pointer-holder.adb
+   [Ada]          adacl-assert-float.adb
+   [Ada]          adacl-queue.adb
+   [Ada]          adacl-pointer-unique_with_delete.adb
+   [Ada]          adacl-command_line-getopt.adb
+   [Ada]          adacl.ads
+   [Ada]          adacl-trace.adb
+   [Ada]          adacl-wide_wide_strings.adb
+   [Ada]          adacl-test_cases-parameters.adb
+   [Ada]          adacl-wide_wide_strings-hex.adb
+   [Ada]          adacl-assert-arrays.adb
+   [Ada]          adacl-wide_strings-hex.adb
+   [Ada]          adacl-pointer.ads
+   [Ada]          adacl-assert-pointer.adb
+   [Ada]          adacl-wide_strings-vectors.ads
+   [Ada]          adacl-strings-vectors.ads
+   [Ada]          adacl-assert-indefinite_vectors.adb
+   [Ada]          adacl-test_cases.ads
+   [Ada]          adacl-assert.adb
+   [Ada]          adacl-os.ads
+   [Ada]          adacl-assert-decimal.adb
+   [Ada]          adacl-pointer-shared.ads
+   [Ada]          adacl-assert-vectors.adb
+   [Ada]          adacl-base.ads
+   [Ada]          adacl-pointer-unique.ads
+   [Ada]          adacl-wide_wide_strings-vectors.ads
+   [Ada]          atr_tools.ads
+   [Ada]          atr_tools-commandline.adb
+   [Ada]          atr_tools-create_floppy.adb
+   [Ada]          atr_tools-print_header.adb
+   [Ada]          atr_tools-byte_io.ads
+   [Ada]          atr_tools-file_body.adb
+   [Ada]          atr_tools-file_header.adb
+   [Ada]          atr_tools-boolean_text_io.ads
+   [Ada]          atr_tools-byte_text_io.ads
+   [Ada]          atr_tools-double_word_text_io.ads
+   [Ada]          atr_tools-word_text_io.ads
+Build Libraries
+   [gprlib]       aunit.lexch
+   [gprlib]       AdaCL.lexch
+   [archive]      libaunit.a
+   [index]        libaunit.a
+   [archive]      libAdaCL.a
+   [index]        libAdaCL.a
+Bind
+   [gprbind]      atr_tools-main.bexch
+   [Ada]          atr_tools-main.ali
+Link
+   [link]         atr_tools-main.adb
+Note: Building atari_atr_tools_test=1.5.1/atari_atr_tools_test.gpr...
+Setup
+   [mkdir]        object directory for project Atari_Atr_Tools_Test
+   [mkdir]        exec directory for project Atari_Atr_Tools_Test
+Compile
+   [Ada]          atr_tools_test-main.adb
+   [Ada]          atr_tools_test.ads
+   [Ada]          atr_tools_test-suite.adb
+   [Ada]          atr_tools-file_header-test.adb
+   [Ada]          atr_tools_test-create_floppy.adb
+Bind
+   [gprbind]      atr_tools_test-main.bexch
+   [Ada]          atr_tools_test-main.ali
+Link
+   [link]         atr_tools_test-main.adb
+Success: Build finished successfully in 9.41 seconds.
+
+OK Create_Floppy : SD_SS_40
+OK Create_Floppy : ED_SS_40
+OK Create_Floppy : DD_SS_40
+OK Create_Floppy : SD_DS_40
+OK Create_Floppy : SD_SS_80
+OK Create_Floppy : DD_DS_40
+OK Create_Floppy : DD_SS_80
+OK Create_Floppy : SD_DS_80
+OK Create_Floppy : DD_DS_80
+OK File_Header : Read SD_SS_40
+OK File_Header : Read ED_SS_40
+OK File_Header : Read DD_SS_40
+OK File_Header : Read SD_DS_40
+OK File_Header : Read SD_SS_80
+OK File_Header : Read DD_DS_40
+OK File_Header : Read DD_SS_80
+OK File_Header : Read SD_DS_80
+OK File_Header : Read DD_DS_80
+
+Total Tests Run:   18
+Successful Tests:  18
+Failed Assertions: 0
+Unexpected Errors: 0
+[alr test] Test completed SUCCESSFULLY

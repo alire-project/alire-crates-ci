@@ -1,0 +1,80 @@
+Test ran at 2026-08-30 12:40:09.738818+00:00
+
+SOLUTION:
+adsa=1.5.3: Ada Annex E (DSA) runtime + gnatdist replacement, backed by ZeroMQ
+Origin: commit 4926831cd7e06fe31c1de1bca0b4edb6c052af9c from https://github.com/charlie5/aDSA.git
+Properties:
+   Configuration: no modifiers
+   Description: Ada Annex E (DSA) runtime + gnatdist replacement, backed by ZeroMQ
+   Executable: pcs_gnatdist
+   Executable: pcs_supervisor
+   License: GPL-3.0-or-later WITH GCC-exception-3.1
+   Long_Description: aDSA is a Partition Communication Subsystem (PCS) for Ada's Distributed
+Systems Annex (Annex E), replacing the discontinued PolyORB/GLADE runtime.
+`alr build` produces two ordinary tools:
+
+  * `pcs_gnatdist` -- the gnatdist replacement: builds a distributed
+    application from its `.cfg`, auto-assembling the GARLIC runtime (a
+    `--RTS` overlay of the toolchain's own runtime) on first use and
+    re-assembling it when the toolchain changes;
+  * `pcs_supervisor` -- launches and restarts a built deployment per its
+    `.manifest`.
+
+System prerequisites beyond the toolchain: libzmq >= 4.x and zlib
+(`pacman -S zeromq`, `apt install libzmq3-dev`, `pkg install libzmq4`;
+Windows setup is in the README's Platforms section).
+
+Start with docs/users-guide.md; `examples/` holds runnable demos.
+
+   Maintainer: Rod Kay <rodakay5@gmail.com>
+   Maintainers_Logins: charlie5
+   Name: adsa
+   Project_File: adsa.gpr
+   Tag: distributed
+   Tag: dsa
+   Tag: annex-e
+   Tag: rpc
+   Tag: racw
+   Tag: gnatdist
+   Tag: zeromq
+   Version: 1.5.3
+   Website: https://github.com/charlie5/aDSA
+Dependencies (direct):
+   gnat>=12
+Dependencies (solution):
+   gnat=16.1.0 (gnat_native)
+Dependencies (graph):
+   adsa=1.5.3 --> gnat=16.1.0 (gnat_native) (>=12)
+
+
+LOG:
+[alr test] Testing adsa=1.5.3
+[alr test] Spawning retrieval for remote crate: alr -d -n get adsa=1.5.3
+Note: Deploying adsa=1.5.3...
+
+adsa=1.5.3 successfully retrieved.
+Dependencies were solved as follows:
+
+   +b gnat 16.1.0 (new,gnat_native,binary)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building adsa=1.5.3/adsa.gpr...
+Setup
+   [mkdir]        object directory for project aDSA
+Compile
+   [Ada]          pcs_gnatdist.adb
+   [Ada]          pcs_supervisor.adb
+   [Ada]          cfg_builder.adb
+   [Ada]          cfg_model.ads
+   [Ada]          cfg_parser.adb
+   [Ada]          rci_check.adb
+Bind
+   [gprbind]      pcs_gnatdist.bexch
+   [gprbind]      pcs_supervisor.bexch
+   [Ada]          pcs_gnatdist.ali
+   [Ada]          pcs_supervisor.ali
+Link
+   [link]         pcs_gnatdist.adb
+   [link]         pcs_supervisor.adb
+Success: Build finished successfully in 3.19 seconds.
+Found declared GPR file: adsa.gpr
+[alr test] Test completed SUCCESSFULLY

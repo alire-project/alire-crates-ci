@@ -1,0 +1,57 @@
+Test ran at 2025-01-27 13:32:26.324401+00:00
+
+SOLUTION:
+spark_unbound=0.2.1: Unbound data structures in Ada-Spark
+Origin: commit 1f8dae0167b56dbbfcc0cbe40c833a95443d2556 from https://github.com/mhatzl/spark_unbound.git
+Properties:
+   Author: Manuel Hatzl
+   Description: Unbound data structures in Ada-Spark
+   License: MIT
+   Long_Description: Spark_Unbound is a take on providing generic unbound data structures in Spark.
+
+In addition to proving general absence of runtime errors, the heap allocation is done in a non-Spark function to catch a possible `Storage_Error`.
+This further increases the security and confident use of this library.
+
+**The following packages are currently available:**
+
+- `Spark_Unbound.Safe_Alloc`: Providing formally proven safe heap allocation functionality
+- `Spark_Unbound.Arrays`: Providing a formally proven alternative to `Ada.Containers.Vector`
+
+**Note:** If you use this library, starring the repository on GitHub helps me a lot to see if it is even useful for someone else.
+
+   Maintainer: Manuel Hatzl <hatzlmanuel@outlook.com>
+   Maintainers_Logins: mhatzl
+   Name: spark_unbound
+   Tag: spark
+   Tag: unbound
+   Version: 0.2.1
+   Website: https://github.com/mhatzl/spark_unbound
+Dependencies (direct):
+   gnat(>=9.3.1 & <2000) | >=2021
+Dependencies (solution):
+   gnat=11.2.4 (gnat_native) (installed)
+Dependencies (graph):
+   spark_unbound=0.2.1 --> gnat=11.2.4 (gnat_native) ((>=9.3.1 & <2000) | >=2021)
+
+
+LOG:
+Note: Deploying spark_unbound=0.2.1...
+Note: Building spark_unbound/spark_unbound.gpr...
+Setup
+   [mkdir]        object directory for project Spark_Unbound
+   [mkdir]        library directory for project Spark_Unbound
+Compile
+   [Ada]          spark_unbound-safe_alloc.adb
+   [Ada]          spark_unbound.ads
+   [Ada]          spark_unbound-arrays.adb
+Build Libraries
+   [gprlib]       Spark_Unbound.lexch
+   [archive]      libSpark_Unbound.a
+   [index]        libSpark_Unbound.a
+Build finished successfully in 1.66 seconds.
+
+spark_unbound=0.2.1 successfully retrieved and built.
+Dependencies were solved as follows:
+
+   +i gnat 11.2.4 (new,installed,gnat_native)
+Found declared GPR file: spark_unbound.gpr

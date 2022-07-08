@@ -1,0 +1,272 @@
+Test ran at 2026-10-04 14:30:07.153233+00:00
+
+SOLUTION:
+yass=3.1.0: Static website generator
+Origin: commit 9bcb0cc5a86fc324b57f580386f083cbcf3e6358 from https://github.com/yet-another-static-site-generator/yass.git
+Properties:
+   Author: AJ Ianozi
+   Description: Static website generator
+   Executable: yass
+   GPR Scenario: Mode := dev | debug | release | analyze
+   GPR Scenario: YASS_OS := Windows | Unix
+   GPR External: Mode := release
+   case OS is
+      when Windows => GPR External: YASS_OS := Windows
+      when others => GPR External: YASS_OS := Unix
+   License: GPL-3.0-or-later
+   Maintainer: AJ Ianozi <aj@ianozi.com>
+   Maintainers_Logins: AJ-Ianozi
+   Name: yass
+   Tag: web
+   Tag: markdown
+   Tag: generator
+   Version: 3.1.0
+   Website: https://yass.website
+Dependencies (direct):
+   case OS is
+      when Windows => (aws^23.0.0 and gnatcoll^23.0.0 and xmlada^23.0.0)
+      when others => (aws^24.0.0 and gnatcoll^24.0.0 and xmlada^24.0.0)
+   libcmark>=0.0.1
+Dependencies (solution):
+   aws=24.0.0
+   gnat=16.1.0 (gnat_native)
+   gnatcoll=24.0.0
+   libcmark=0.30.2
+   libgpr=24.0.0
+   make=4.3.0
+   openssl=3.0.13
+   xmlada=24.0.0
+Dependencies (graph):
+   aws=24.0.0      --> gnat=16.1.0 (gnat_native) (>=12)
+   aws=24.0.0      --> gnatcoll=24.0.0 (~24.0.0)
+   aws=24.0.0      --> make=4.3.0 (*)
+   aws=24.0.0      --> openssl=3.0.13 (*)
+   aws=24.0.0      --> xmlada=24.0.0 (~24.0.0)
+   gnatcoll=24.0.0 --> libgpr=24.0.0 (~24.0.0)
+   libgpr=24.0.0   --> gnat=16.1.0 (gnat_native) (/=2020)
+   libgpr=24.0.0   --> xmlada=24.0.0 (~24.0.0)
+   xmlada=24.0.0   --> gnat=16.1.0 (gnat_native) (>=11)
+   yass=3.1.0      --> aws=24.0.0 (^24.0.0)
+   yass=3.1.0      --> gnatcoll=24.0.0 (^24.0.0)
+   yass=3.1.0      --> libcmark=0.30.2 (>=0.0.1)
+   yass=3.1.0      --> xmlada=24.0.0 (^24.0.0)
+
+
+LOG:
+[alr test] Testing yass=3.1.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get yass=3.1.0
+Note: Deploying yass=3.1.0...
+Note: Deploying libcmark=0.30.2...
+The system package 'libcmark-dev' is about to be installed.
+This action might require admin privileges and impact your system installation.
+Do you want Alire to install this system package?
+Using default: Yes
+Selecting previously unselected package libcmark0.30.2:amd64.
+(Reading database ... 
+(Reading database ... 5%
+(Reading database ... 10%
+(Reading database ... 15%
+(Reading database ... 20%
+(Reading database ... 25%
+(Reading database ... 30%
+(Reading database ... 35%
+(Reading database ... 40%
+(Reading database ... 45%
+(Reading database ... 50%
+(Reading database ... 55%
+(Reading database ... 60%
+(Reading database ... 65%
+(Reading database ... 70%
+(Reading database ... 75%
+(Reading database ... 80%
+(Reading database ... 85%
+(Reading database ... 90%
+(Reading database ... 95%
+(Reading database ... 100%
+(Reading database ... 202669 files and directories currently installed.)
+Preparing to unpack .../libcmark0.30.2_0.30.2-6build1_amd64.deb ...
+Unpacking libcmark0.30.2:amd64 (0.30.2-6build1) ...
+Selecting previously unselected package libcmark-dev:amd64.
+Preparing to unpack .../libcmark-dev_0.30.2-6build1_amd64.deb ...
+Unpacking libcmark-dev:amd64 (0.30.2-6build1) ...
+Setting up libcmark0.30.2:amd64 (0.30.2-6build1) ...
+Setting up libcmark-dev:amd64 (0.30.2-6build1) ...
+Processing triggers for man-db (2.12.0-4build2) ...
+Not building database; man-db/auto-update is not 'true'.
+Processing triggers for libc-bin (2.39-0ubuntu8.9) ...
+
+Running kernel seems to be up-to-date.
+
+Restarting services...
+
+Service restarts being deferred:
+ systemctl restart hosted-compute-agent.service
+
+No containers need to be restarted.
+
+No user sessions are running outdated binaries.
+
+No VM guests are running outdated hypervisor (qemu) binaries on this host.
+Note: Deploying xmlada=24.0.0...
+#=#=#                                                                          
+##O#-#                                                                         
+##=O#- #                                                                       
+# #=O#- #                                                                      
+Note: Deploying libgpr=24.0.0...
+#=#=#                                                                          
+##O#-#                                                                         
+##=O#- #                                                                       
+# #=O#- #                                                                      
+Note: Deploying gnatcoll=24.0.0...
+#=#=#                                                                          
+##O#-#                                                                         
+##=O#- #                                                                       
+# #=O#- #                                                                      
+Note: Deploying aws=24.0.0...
+#=#=#                                                                          
+
+#######################################################                   76.7%
+######################################################################## 100.0%
+
+yass=3.1.0 successfully retrieved.
+Dependencies were solved as follows:
+
+   +  aws      24.0.0 (new)
+   +b gnat     16.1.0 (new,gnat_native,indirect,binary)
+   +  gnatcoll 24.0.0 (new)
+   +b libcmark 0.30.2 (new,system package)
+   +  libgpr   24.0.0 (new,indirect)
+   +b make     4.3.0  (new,indirect,system package)
+   +b openssl  3.0.13 (new,indirect,system package)
+   +  xmlada   24.0.0 (new)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Running post-fetch actions for xmlada=24.0.0...
+checking build system type... x86_64-pc-linux-gnu
+checking host system type... x86_64-pc-linux-gnu
+checking target system type... x86_64-pc-linux-gnu
+checking whether gnat can build shared libs... yes
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether ln -s works... yes
+configure: creating ./config.status
+config.status: creating xmlada_shared.gpr
+config.status: creating Makefile
+config.status: creating tests/dom/default.gpr
+Note: Running post-fetch actions for aws=24.0.0...
+make[1]: Entering directory '/home/runner/.local/share/alire/builds/aws_24.0.0_2b75fe6d/007dfc9568c1fbb39fb1012154d15055d42936375b4b36e9cab401ca4b56007f/config'
+Bind
+   [gprbind]      xoscons.bexch
+   [Ada]          xoscons.ali
+Link
+   [link]         xoscons.adb
+Setup OS specific definitions
+make[1]: Leaving directory '/home/runner/.local/share/alire/builds/aws_24.0.0_2b75fe6d/007dfc9568c1fbb39fb1012154d15055d42936375b4b36e9cab401ca4b56007f/config'
+make[1]: Entering directory '/home/runner/.local/share/alire/builds/aws_24.0.0_2b75fe6d/007dfc9568c1fbb39fb1012154d15055d42936375b4b36e9cab401ca4b56007f/regtests'
+Can not generate system tags. The test are disabled
+make[1]: Leaving directory '/home/runner/.local/share/alire/builds/aws_24.0.0_2b75fe6d/007dfc9568c1fbb39fb1012154d15055d42936375b4b36e9cab401ca4b56007f/regtests'
+make[1]: Entering directory '/home/runner/.local/share/alire/builds/aws_24.0.0_2b75fe6d/007dfc9568c1fbb39fb1012154d15055d42936375b4b36e9cab401ca4b56007f/demos'
+make[1]: Nothing to be done for 'setup'.
+make[1]: Leaving directory '/home/runner/.local/share/alire/builds/aws_24.0.0_2b75fe6d/007dfc9568c1fbb39fb1012154d15055d42936375b4b36e9cab401ca4b56007f/demos'
+make[1]: Entering directory '/home/runner/.local/share/alire/builds/aws_24.0.0_2b75fe6d/007dfc9568c1fbb39fb1012154d15055d42936375b4b36e9cab401ca4b56007f/templates_parser'
+make[1]: Leaving directory '/home/runner/.local/share/alire/builds/aws_24.0.0_2b75fe6d/007dfc9568c1fbb39fb1012154d15055d42936375b4b36e9cab401ca4b56007f/templates_parser'
+make[1]: Entering directory '/home/runner/.local/share/alire/builds/aws_24.0.0_2b75fe6d/007dfc9568c1fbb39fb1012154d15055d42936375b4b36e9cab401ca4b56007f/templates_parser'
+make[1]: Leaving directory '/home/runner/.local/share/alire/builds/aws_24.0.0_2b75fe6d/007dfc9568c1fbb39fb1012154d15055d42936375b4b36e9cab401ca4b56007f/templates_parser'
+Setup
+   [mkdir]        object directory for project Zlib
+   [mkdir]        library directory for project Zlib
+   [mkdir]        object directory for project Include
+   [mkdir]        library directory for project Include
+   [mkdir]        object directory for project XmlAda_Sax
+   [mkdir]        library directory for project XmlAda_Sax
+   [mkdir]        object directory for project XmlAda_Schema
+   [mkdir]        object directory for project GPR
+   [mkdir]        library directory for project GPR
+   [mkdir]        object directory for project GnatColl
+   [mkdir]        library directory for project GnatColl
+   [mkdir]        object directory for project SSL
+   [mkdir]        library directory for project SSL
+   [mkdir]        object directory for project Src
+   [mkdir]        library directory for project Src
+   [mkdir]        library directory for project AWS
+   [mkdir]        object directory for project Tools
+   [mkdir]        exec directory for project Tools
+Compile
+   [Ada]          awsres.adb
+   [Ada]          zlib-thin.adb
+   [Ada]          zlib.adb
+   [Ada]          zlib-streams.adb
+   [Ada]          memory_streams.adb
+   [Ada]          aws-os_lib.ads
+   [Ada]          templates_parser.adb
+   [Ada]          templates_parser-query.adb
+   [Ada]          templates_parser-debug.adb
+   [Ada]          templates_parser-utils.adb
+   [Ada]          aws-http2-stream-set.ads
+   [Ada]          aws-http2-stream.adb
+   [Ada]          aws-http2-frame-headers.adb
+   [Ada]          aws-http2-hpack-table.adb
+   [Ada]          aws-http2-hpack.adb
+   [Ada]          aws-http2-frame-ping.adb
+   [Ada]          aws-http2-frame-continuation.adb
+   [Ada]          aws-http2-connection.adb
+   [Ada]          aws-http2-frame-rst_stream.adb
+   [Ada]          aws-http2-frame-list.ads
+   [Ada]          aws-http2-frame.adb
+   [Ada]          aws-http2-frame-push_promise.adb
+   [Ada]          aws-http2-message.adb
+   [Ada]          aws-http2-frame-data.adb
+   [Ada]          aws-http2-frame-settings.adb
+   [Ada]          aws-http2.adb
+   [Ada]          aws-http2-frame-window_update.adb
+   [Ada]          aws-http2-hpack-huffman.adb
+   [Ada]          aws-http2-message-list.ads
+   [Ada]          aws-http2-frame-priority.adb
+   [Ada]          aws-http2-frame-goaway.adb
+   [Ada]          aws-services-web_block-context.adb
+   [Ada]          aws-services-split_pages-shared.adb
+   [Ada]          aws-services-callbacks.adb
+   [Ada]          aws-communication.adb
+   [Ada]          aws-server-push.adb
+   [Ada]          aws-communication-server.adb
+   [Ada]          aws-services-page_server.adb
+   [Ada]          aws-services-dispatchers-uri.adb
+   [Ada]          aws-smtp-authentication.ads
+   [Ada]          aws-smtp-authentication-plain.adb
+   [Ada]          aws-services-split_pages-alpha.adb
+aws-smtp-authentication-plain.adb:37:04: warning: use clause for package "Ada" has no effect [-gnatwu]
+
+   compilation of aws-smtp-authentication-plain.adb failed
+
+gprbuild: *** compilation phase failed
+make: *** [Makefile:188: build-awsres-tool-native] Error 4
+Warning: Execution failed for action: Post_Fetch run: make all ENABLE_SHARED=false (from ${CRATE_ROOT}/.)
+Warning: Exit code: 2
+Warning: Action output not captured, check it above.
+stderr: ALIRE.PROPERTIES.ACTIONS.ACTION_FAILED
+stderr: Action failed with exit code 2
+stderr: raised ALIRE.PROPERTIES.ACTIONS.ACTION_FAILED : Action failed with exit code 2
+[/home/runner/work/alire-crates-ci/alire-crates-ci/alire_install/bin/alr]
+0xacc145 Alire.Properties.Actions.Executor.Execute_Actions at alire-properties-actions-executor.adb:130
+0xaca6d9 Alire.Properties.Actions.Executor.Execute_Actions at alire-properties-actions-executor.adb:36
+0xc72eae Alire.Roots.Build at alire-roots.adb:232
+0xc9832b Alire.Roots.Traverse at alire-roots.adb:2143
+0xcfee85 Alire.Solutions.Traverse.Visit at alire-solutions.adb:1472
+0xcfdca2 Alire.Solutions.Traverse at alire-solutions.adb:1539
+0xc9841e Alire.Roots.Traverse at alire-roots.adb:2147
+0xc984dd Alire.Roots.Traverse at alire-roots.adb:2127
+0xc7359b Alire.Roots.Build at alire-roots.adb:286
+0xc736d7 Alire.Roots.Build at alire-roots.adb:114
+0x49aa0d Alr.Commands.Build.Execute at alr-commands-build.adb:145
+0x49a36d Alr.Commands.Build.Execute at alr-commands-build.adb:113
+0x49a51f Alr.Commands.Build.Execute at alr-commands-build.adb:54
+0x53bbcc Alr.Commands.Sub_Cmd.Execute at clic-subcommand-instance.adb:749
+0x5472be Alr.Commands.Execute at alr-commands.adb:632
+0x43d48a Alr.Main at alr-main.adb:13
+0x4403a3 Main at b__alr-main.adb:2445
+[/lib/x86_64-linux-gnu/libc.so.6]
+0x7ff052a2a1c8
+0x7ff052a2a289
+[/home/runner/work/alire-crates-ci/alire-crates-ci/alire_install/bin/alr]
+0x43d323 _start at ???
+0xfffffffffffffffe
+
+ERROR: Compilation failed.

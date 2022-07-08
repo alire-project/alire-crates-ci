@@ -1,0 +1,1505 @@
+badge: false
+crate: libsimpleio
+creation_timestamp: 1757464586.9217567
+distro: ubuntu-24.04
+duration: 22.480928743999925
+gnat: 15.1.2
+last_attempt: 2025-09-10 00:39:22.006378+00:00
+log:
+- 'Test ran at 2025-09-10 00:39:22.006359+00:00
+
+
+  '
+- 'SOLUTION:
+
+  '
+- 'libsimpleio=2.23699.1: Linux Simple I/O Library
+
+  '
+- 'Origin: source archive libsimpleio-2.23699.1.tbz2 at https://raw.githubusercontent.com/pmunts/alire-crates/b6b5b06a1a7d78f86808db1f37eaac01cbf1c9fa/libsimpleio/libsimpleio-2.23699.1.tbz2
+  with hashes sha256:797c1824b224cb3083853fa5dc9cd162322cf3cbc5d948f37a1dcfe0f1c6bf1c,
+  sha512:54a9b4c0944ed8399eeb2306a2f7ad43f31918ea11a0acdd86512253a4e4388fecae80b7b1509fa6c02e872faaeb6e0bcd569a26d9be9ad1c012b86ef77546f5
+
+  '
+- 'Available when: (case OS is Linux => True, others => False)
+
+  '
+- 'Properties:
+
+  '
+- '   case OS is
+
+  '
+- '      when Linux => Post_Fetch run: sh -c ./postfetch (from ${CRATE_ROOT}/.)
+
+  '
+- '   Author: Philip Munts
+
+  '
+- '   Description: Linux Simple I/O Library
+
+  '
+- '   License: BSD-1-Clause
+
+  '
+- '   Long_Description: Introduction
+
+  '
+- '============
+
+  '
+- '
+
+  '
+- 'This crate provides an Ada binding to the [Linux Simple I/O
+
+  '
+- 'Library](https://github.com/pmunts/libsimpleio), *aka* **libsimpleio**.
+
+  '
+- '
+
+  '
+- '*Note: This crate includes all of the functionality of the **`mcp2221`**
+
+  '
+- 'and **`remoteio`** crates. Unlike those two crates, which can be built
+
+  '
+- 'for and used on Linux, MacOS, or Windows targets, this crate can only be
+
+  '
+- 'built for and used on Linux targets.*
+
+  '
+- '
+
+  '
+- 'Linux Simple I/O Library
+
+  '
+- '========================
+
+  '
+- '
+
+  '
+- '**libsimpleio** is an attempt to encapsulate (as much as possible) the
+
+  '
+- 'ugliness of Linux I/O device access. It provides services for the
+
+  '
+- 'following types of I/O devices:
+
+  '
+- '
+
+  '
+- '-   [Industrial I/O
+
+  '
+- '    Subsystem](https://wiki.analog.com/software/linux/docs/iio/iio) A/D
+
+  '
+- '    (Analog to Digital) Converter Devices
+
+  '
+- '-   [Industrial I/O
+
+  '
+- '    Subsystem](https://wiki.analog.com/software/linux/docs/iio/iio) D/A
+
+  '
+- '    (Digital to Analog) Converter Devices
+
+  '
+- '-   GPIO (General Purpose Input/Output) Pins
+
+  '
+- '-   Raw HID (Human Interface Device) Devices
+
+  '
+- '-   I2C (Inter-Integrated Circuit) Bus Devices
+
+  '
+- '-   PWM (Pulse Width Modulated) Output Devices
+
+  '
+- '-   [Remote I/O
+
+  '
+- '    Protocol](https://repo.munts.com/libsimpleio/doc/RemoteIOProtocol.pdf)
+
+  '
+- '    Devices
+
+  '
+- '-   Serial Ports
+
+  '
+- '-   SPI (Serial Peripheral Interface) Bus Devices
+
+  '
+- '-   [Stream Framing
+
+  '
+- '    Protocol](https://repo.munts.com/libsimpleio/doc/StreamFramingProtocol.pdf)
+
+  '
+- '    Devices
+
+  '
+- '-   TCP and UDP over IPv4 Network Devices
+
+  '
+- '-   Watchdog Timer Devices
+
+  '
+- '
+
+  '
+- '**libsimpleio** exports a small number of C wrapper or shim functions.
+
+  '
+- 'These shim functions present a more coherent API (Application
+
+  '
+- 'Programming Interface) than Linux kernel **`ioctl()`** services and the
+
+  '
+- 'myriad other different Linux device I/O API''s. The **libsimpleio** shim
+
+  '
+- 'functions are designed to be easily called from Ada, C++, C#, Java,
+
+  '
+- 'Free Pascal and other programming languages.
+
+  '
+- '
+
+  '
+- 'The **`man`** pages specifying the **libsimpleio** API (Application
+
+  '
+- 'Programming Interface) are available for viewing at
+
+  '
+- '<https://repo.munts.com/libsimpleio/doc/libsimpleio.html>.
+
+  '
+- '
+
+  '
+- 'Ada Binding for the Linux Simple I/O Library
+
+  '
+- '============================================
+
+  '
+- '
+
+  '
+- 'The Ada binding consists of several software component layers.
+
+  '
+- '
+
+  '
+- 'The bottom software component layer consists of the **C shim functions**
+
+  '
+- 'discussed in the previous section.
+
+  '
+- '
+
+  '
+- 'The next software component layer consists of **binding packages** that
+
+  '
+- 'declare the C shim functions as Ada procedures. Each of the binding
+
+  '
+- 'packages corresponds to a single C source file (*e.g.* package
+
+  '
+- '**`libadc`** corresponds to **`libadc.c`**). Each of the C shim
+
+  '
+- 'functions are declared as external Ada procedures using
+
+  '
+- '**`pragma Import`**. The Ada procedure names do not necessarily match
+
+  '
+- 'the C function names (*e.g.* the C function **`ADC_Open()`** is declared
+
+  '
+- 'as Ada procedure **`libadc.Open`**). Many of the binding packages also
+
+  '
+- 'declare constants as well (*e.g.* **`DIRECTION_INPUT`** in
+
+  '
+- '**`libgpio.ads`**).
+
+  '
+- '
+
+  '
+- 'With very few exceptions, you will never need to directly call any of
+
+  '
+- 'the procedures nor reference any of the constants declared in the
+
+  '
+- '**`libxxx`** binding packages.
+
+  '
+- '
+
+  '
+- 'The next software component layer consists of **object packages** that
+
+  '
+- 'declare OOP (Object Oriented Programming) object types and methods for
+
+  '
+- 'each of the I/O subsystems. This layer uses Ada interface types,
+
+  '
+- 'access-to-interface types, and private tagged records extensively.
+
+  '
+- '
+
+  '
+- 'For example, the package **`GPIO`** defines an interface type
+
+  '
+- '**`PinInterface`**, an access to **`PinInterface`** type named
+
+  '
+- '**`Pin`**, and primitive operation subprograms **`Get`** and **`Put`**.
+
+  '
+- '
+
+  '
+- 'The child package **`GPIO.libsimpleio`** declares a private tagged
+
+  '
+- 'record type **`PinSubclass`** that *implements* **`GPIO.PinInterface`**,
+
+  '
+- 'subprograms **`Get`** and **`Put`** that are required to implement
+
+  '
+- '**`GPIO.PinInterface`**, and a constructor function **`Create`** that
+
+  '
+- 'returns an **`GPIO.Pin`** access value.
+
+  '
+- '
+
+  '
+- 'Every package that implements **`GPIO.PinInterface`** will also declare
+
+  '
+- 'a constructor function **`Create`** that returns **`GPIO.Pin`**.
+
+  '
+- '
+
+  '
+- 'This architecture allows code similar to the following fragment:
+
+  '
+- '
+
+  '
+- '    MyPins : array (1 .. 3) of GPIO.pin;
+
+  '
+- '
+
+  '
+- '    GPIO(1) := GPIO.libsimpleio.Create(...);
+
+  '
+- '    GPIO(2) := GPIO.UserLED.Create(...);
+
+  '
+- '    GPIO(3) := GPIO.PWM.Create(...);
+
+  '
+- '
+
+  '
+- 'The three GPIO pins can be stored in the same array and manipulated in
+
+  '
+- 'exactly the same manner even though the hardware implementation for each
+
+  '
+- 'pin is radically different.
+
+  '
+- '
+
+  '
+- 'The topmost software component layer consists of **device packages**
+
+  '
+- 'that implement support for particular I/O devices and are built upon the
+
+  '
+- 'lower layers. Most of the device packages correspond to integrated
+
+  '
+- 'circuits, such as the [PCA9534 I2C GPIO
+
+  '
+- 'Expander](https://www.nxp.com/products/interfaces/ic-spi-serial-interface-devices/ic-general-purpose-i-o/8-bit-ic-bus-and-smbus-low-power-i-o-port-with-interrupt:PCA9534).
+
+  '
+- 'A few implement support for boards or modules, such the [Grove
+
+  '
+- 'Temperature
+
+  '
+- 'Sensor](https://www.seeedstudio.com/Grove-Temperature-Sensor.html)
+
+  '
+- 'module.
+
+  '
+- '
+
+  '
+- '   Maintainer: Philip Munts <phil@munts.net>
+
+  '
+- '   Maintainers_Logins: pmunts
+
+  '
+- '   Name: libsimpleio
+
+  '
+- '   Project_File: libsimpleio.gpr
+
+  '
+- '   Tag: embedded
+
+  '
+- '   Tag: linux
+
+  '
+- '   Tag: libsimpleio
+
+  '
+- '   Tag: remoteio
+
+  '
+- '   Tag: beaglebone
+
+  '
+- '   Tag: pocketbeagle
+
+  '
+- '   Tag: raspberrypi
+
+  '
+- '   Tag: raspberry
+
+  '
+- '   Tag: pi
+
+  '
+- '   Tag: adc
+
+  '
+- '   Tag: dac
+
+  '
+- '   Tag: gpio
+
+  '
+- '   Tag: hid
+
+  '
+- '   Tag: i2c
+
+  '
+- '   Tag: motor
+
+  '
+- '   Tag: pwm
+
+  '
+- '   Tag: sensor
+
+  '
+- '   Tag: serial
+
+  '
+- '   Tag: servo
+
+  '
+- '   Tag: spi
+
+  '
+- '   Tag: stepper
+
+  '
+- '   Tag: watchdog
+
+  '
+- '   Version: 2.23699.1
+
+  '
+- '   Website: https://github.com/pmunts/libsimpleio
+
+  '
+- '
+
+  '
+- '
+
+  LOG:
+
+  '
+- '[alr test] Testing libsimpleio=2.23699.1
+
+  '
+- '[alr test] Spawning retrieval for remote crate: alr -d -n get libsimpleio=2.23699.1
+
+  '
+- 'Note: Deploying libsimpleio=2.23699.1...
+
+  '
+- '
+
+  '
+- '##############                                                            20.4%
+
+  '
+- '######################################################################## 100.0%
+
+  '
+- '
+
+  '
+- 'libsimpleio=2.23699.1 successfully retrieved.
+
+  '
+- 'There are no dependencies.
+
+  '
+- '[alr test] Spawning default test for remote crate: alr -d -n build --release --
+  -cargs:Ada -gnatwn
+
+  '
+- 'Note: Running post-fetch actions for libsimpleio=2.23699.1...
+
+  '
+- 'Note: Building libsimpleio=2.23699.1/libsimpleio.gpr...
+
+  '
+- 'Setup
+
+  '
+- '   [mkdir]        object directory for project libsimpleio
+
+  '
+- '   [mkdir]        library directory for project libsimpleio
+
+  '
+- 'Compile
+
+  '
+- '   [C]            c_libadc.c
+
+  '
+- '   [C]            c_libevent.c
+
+  '
+- '   [C]            c_libdac.c
+
+  '
+- '   [C]            c_libserial.c
+
+  '
+- '   [C]            c_errmsg.c
+
+  '
+- '   [C]            c_libwatchdog.c
+
+  '
+- '   [C]            c_libspi.c
+
+  '
+- '   [C]            c_libgpio.c
+
+  '
+- '   [C]            c_libpwm.c
+
+  '
+- '   [C]            c_libipv4.c
+
+  '
+- '   [C]            c_liblinx.c
+
+  '
+- '   [C]            c_liblinux.c
+
+  '
+- '   [C]            c_libstream.c
+
+  '
+- '   [C]            c_libi2c.c
+
+  '
+- '   [C]            c_libhidraw.c
+
+  '
+- '   [Ada]          sprinkler-valves.adb
+
+  '
+- '   [Ada]          sprinkler-valves-gpio.adb
+
+  '
+- '   [Ada]          systeminfo.adb
+
+  '
+- '   [Ada]          abelectronics_servo_pi_zero.ads
+
+  '
+- '   [Ada]          sprinkler.ads
+
+  '
+- '   [Ada]          pimoroni_enviro_phat.ads
+
+  '
+- '   [Ada]          sensehat-sensors.ads
+
+  '
+- '   [Ada]          qwiic_hat.ads
+
+  '
+- '   [Ada]          adafruit_motorhat.adb
+
+  '
+- '   [Ada]          grove_base_hat_zero.ads
+
+  '
+- '   [Ada]          arduino-cm4_duino.adb
+
+  '
+- '   [Ada]          pi3clickshield.ads
+
+  '
+- '   [Ada]          sprinkler-valves-gpio-libsimpleio.adb
+
+  '
+- '   [Ada]          sensehat-joystick.adb
+
+  '
+- '   [Ada]          sensehat.ads
+
+  '
+- '   [Ada]          raspio_analog_zero_mcp3208.ads
+
+  '
+- '   [Ada]          abelectronics_adc_dac_pi_zero.ads
+
+  '
+- '   [Ada]          adafruit_servohat.ads
+
+  '
+- '   [Ada]          sensehat-display.adb
+
+  '
+- '   [Ada]          grove_base_hat_adc.adb
+
+  '
+- '   [Ada]          sprinkler-program.adb
+
+  '
+- '   [Ada]          pimoroni_automation_phat.ads
+
+  '
+- '   [Ada]          orangepizero2w.ads
+
+  '
+- '   [Ada]          pwm-libsimpleio.adb
+
+  '
+- '   [Ada]          raspberrypi.ads
+
+  '
+- '   [Ada]          beaglebone.ads
+
+  '
+- '   [Ada]          adc-libsimpleio.adb
+
+  '
+- '   [Ada]          pocketbeagle.ads
+
+  '
+- '   [Ada]          prologix_gpib_usb.adb
+
+  '
+- '   [Ada]          gpio-userled.adb
+
+  '
+- '   [Ada]          device.adb
+
+  '
+- '   [Ada]          munts_0018-analog.ads
+
+  '
+- '   [Ada]          logging-libsimpleio.adb
+
+  '
+- '   [Ada]          messaging-fixed-libsimpleio_stream.adb
+
+  '
+- '   [Ada]          buildhat.adb
+
+  '
+- '   [Ada]          munts_0018-i2c.ads
+
+  '
+- '   [Ada]          munts_0018-button_template.ads
+
+  '
+- '   [Ada]          gpio-pwm-libsimpleio.ads
+
+  '
+- '   [Ada]          watchdog-libsimpleio.adb
+
+  '
+- '   [Ada]          debug-syslog.adb
+
+  '
+- '   [Ada]          munts_0018.adb
+
+  '
+- '   [Ada]          beagleplay.ads
+
+  '
+- '   [Ada]          hid-libsimpleio.adb
+
+  '
+- '   [Ada]          munts_0018-button_interrupt.ads
+
+  '
+- '   [Ada]          raspberrypi4.ads
+
+  '
+- '   [Ada]          spi-libsimpleio.adb
+
+  '
+- '   [Ada]          munts_0018-pwm.adb
+
+  '
+- '   [Ada]          messaging-fixed-libsimpleio_datagram.adb
+
+  '
+- '   [Ada]          raspberrypi5.ads
+
+  '
+- '   [Ada]          message64-stream_libsimpleio.ads
+
+  '
+- '   [Ada]          dac-libsimpleio.adb
+
+  '
+- '   [Ada]          message64-datagram_libsimpleio.ads
+
+  '
+- '   [Ada]          adc-scaled.adb
+
+  '
+- '   [Ada]          munts_0018-led.ads
+
+  '
+- '   [Ada]          gpio-libsimpleio.adb
+
+  '
+- '   [Ada]          i2c-libsimpleio.adb
+
+  '
+- '   [Ada]          buildhat-passivemotor.adb
+
+  '
+- '   [Ada]          cpuinfo.adb
+
+  '
+- '   [Ada]          munts_0018-button.ads
+
+  '
+- '   [Ada]          buildhat-firmware.adb
+
+  '
+- '   [Ada]          external_command-pipeline.adb
+
+  '
+- '   [Ada]          gpio-libgpiod.adb
+
+  '
+- '   [Ada]          clickboard-relay-simpleio.adb
+
+  '
+- '   [Ada]          clickboard-thermo3-simpleio.adb
+
+  '
+- '   [Ada]          clickboard-sevensegment-simpleio.adb
+
+  '
+- '   [Ada]          clickboard-altitude-simpleio.adb
+
+  '
+- '   [Ada]          clickboard-htu21d-simpleio.adb
+
+  '
+- '   [Ada]          clickboard-adc-simpleio.adb
+
+  '
+- '   [Ada]          clickboard-expand-simpleio.adb
+
+  '
+- '   [Ada]          clickboard-leds_8x8-simpleio.adb
+
+  '
+- '   [Ada]          clickboard-shields.adb
+
+  '
+- '   [Ada]          clickboard-simpleio.adb
+
+  '
+- '   [Ada]          clickboard-expand2-simpleio.adb
+
+  '
+- '   [Ada]          clickboard-pwm_click-simpleio.adb
+
+  '
+- '   [Ada]          clickboard-thermo-simpleio.adb
+
+  '
+- '   [Ada]          clickboard-adc-remoteio.adb
+
+  '
+- '   [Ada]          clickboard-thermo-remoteio.adb
+
+  '
+- '   [Ada]          clickboard-leds_8x8-remoteio.adb
+
+  '
+- '   [Ada]          clickboard-relay-remoteio.adb
+
+  '
+- '   [Ada]          clickboard-htu21d-remoteio.adb
+
+  '
+- '   [Ada]          clickboard-sevensegment-remoteio.adb
+
+  '
+- '   [Ada]          clickboard-expand-remoteio.adb
+
+  '
+- '   [Ada]          clickboard-thermo3-remoteio.adb
+
+  '
+- '   [Ada]          clickboard-altitude-remoteio.adb
+
+  '
+- '   [Ada]          clickboard-expand2-remoteio.adb
+
+  '
+- '   [Ada]          clickboard-servers.adb
+
+  '
+- '   [Ada]          clickboard-remoteio.adb
+
+  '
+- '   [Ada]          clickboard-pwm_click-remoteio.adb
+
+  '
+- '   [Ada]          clickboard-sevensegment.adb
+
+  '
+- '   [Ada]          clickboard-thermo3.ads
+
+  '
+- '   [Ada]          clickboard.ads
+
+  '
+- '   [Ada]          clickboard-expand.adb
+
+  '
+- '   [Ada]          clickboard-relay.ads
+
+  '
+- '   [Ada]          clickboard-thermo.ads
+
+  '
+- '   [Ada]          clickboard-altitude.ads
+
+  '
+- '   [Ada]          clickboard-expand2.adb
+
+  '
+- '   [Ada]          clickboard-template.ads
+
+  '
+- '   [Ada]          clickboard-htu21d.ads
+
+  '
+- '   [Ada]          clickboard-pwm_click.ads
+
+  '
+- '   [Ada]          clickboard-adc.adb
+
+  '
+- '   [Ada]          clickboard-leds_8x8.adb
+
+  '
+- '   [Ada]          remoteio-adc.adb
+
+  '
+- '   [Ada]          remoteio-server-serial.adb
+
+  '
+- '   [Ada]          remoteio-i2c.adb
+
+  '
+- '   [Ada]          remoteio-server-zeromq.adb
+
+  '
+- '   [Ada]          remoteio-executive.adb
+
+  '
+- '   [Ada]          remoteio-server-foundation.adb
+
+  '
+- '   [Ada]          remoteio-dac.adb
+
+  '
+- '   [Ada]          remoteio-dispatch.ads
+
+  '
+- '   [Ada]          remoteio-gpio.adb
+
+  '
+- '   [Ada]          remoteio-server-message64.adb
+
+  '
+- '   [Ada]          remoteio-server-dev.adb
+
+  '
+- '   [Ada]          remoteio-server.ads
+
+  '
+- '   [Ada]          remoteio-pwm.adb
+
+  '
+- '   [Ada]          remoteio-server-udp.adb
+
+  '
+- '   [Ada]          remoteio-spi.adb
+
+  '
+- '   [Ada]          remoteio-common.adb
+
+  '
+- '   [Ada]          remoteio-munts_0015.ads
+
+  '
+- '   [Ada]          remoteio-grove_base_hat_zero.ads
+
+  '
+- '   [Ada]          remoteio-client-stream.ads
+
+  '
+- '   [Ada]          remoteio-client-serial.adb
+
+  '
+- '   [Ada]          gpio-remoteio.adb
+
+  '
+- '   [Ada]          remoteio-abstract_device.adb
+
+  '
+- '   [Ada]          remoteio-munts_0016.ads
+
+  '
+- '   [Ada]          remoteio-lpc1114-gpio.adb
+
+  '
+- '   [Ada]          remoteio-enviro_phat.ads
+
+  '
+- '   [Ada]          remoteio-lpc1114.adb
+
+  '
+- '   [Ada]          remoteio-automation_phat.ads
+
+  '
+- '   [Ada]          remoteio-client-posix.ads
+
+  '
+- '   [Ada]          adc-remoteio.adb
+
+  '
+- '   [Ada]          remoteio-adc_dac_pi_zero.ads
+
+  '
+- '   [Ada]          remoteio-raspberrypi.ads
+
+  '
+- '   [Ada]          remoteio-client-hidapi.ads
+
+  '
+- '   [Ada]          remoteio-lpc1114-adc.adb
+
+  '
+- '   [Ada]          remoteio-pocketbeagle.ads
+
+  '
+- '   [Ada]          remoteio-arduino.ads
+
+  '
+- '   [Ada]          i2c-remoteio.adb
+
+  '
+- '   [Ada]          remoteio-client-zeromq.ads
+
+  '
+- '   [Ada]          remoteio-munts_0008.ads
+
+  '
+- '   [Ada]          remoteio-qwiic_hat.ads
+
+  '
+- '   [Ada]          remoteio-client-udp.ads
+
+  '
+- '   [Ada]          remoteio-client.adb
+
+  '
+- '   [Ada]          remoteio-lpc1114-pwm.adb
+
+  '
+- '   [Ada]          remoteio-beagleplay.ads
+
+  '
+- '   [Ada]          remoteio-client-libusb.ads
+
+  '
+- '   [Ada]          dac-remoteio.adb
+
+  '
+- '   [Ada]          pwm-remoteio.adb
+
+  '
+- '   [Ada]          spi-remoteio.adb
+
+  '
+- '   [Ada]          remoteio-beaglebone.ads
+
+  '
+- '   [Ada]          remoteio-munts_0009.ads
+
+  '
+- '   [Ada]          remoteio-lpc1114-timers.adb
+
+  '
+- '   [Ada]          remoteio-client-libsimpleio.ads
+
+  '
+- '   [Ada]          remoteio-lpc1114-legorc.adb
+
+  '
+- '   [Ada]          remoteio-munts_0018.ads
+
+  '
+- '   [Ada]          remoteio.ads
+
+  '
+- '   [Ada]          modbus-inputregisters.adb
+
+  '
+- '   [Ada]          modbus.adb
+
+  '
+- '   [Ada]          modbus-coils.adb
+
+  '
+- '   [Ada]          modbus-outputshortfloat.adb
+
+  '
+- '   [Ada]          modbus-inputshortfloat.adb
+
+  '
+- '   [Ada]          modbus-holdingregisters.adb
+
+  '
+- '   [Ada]          modbus-discreteinputs.adb
+
+  '
+- '   [Ada]          arduino.ads
+
+  '
+- '   [Ada]          nng-pub.adb
+
+  '
+- '   [Ada]          zeromq-sockets.adb
+
+  '
+- '   [Ada]          pwm-cli.adb
+
+  '
+- '   [Ada]          message64-stream.ads
+
+  '
+- '   [Ada]          debug.adb
+
+  '
+- '   [Ada]          messaging-fixed-ada_streams.adb
+
+  '
+- '   [Ada]          ncurses-keys.adb
+
+  '
+- '   [Ada]          motor-legorc.adb
+
+  '
+- '   [Ada]          hid-hidapi.adb
+
+  '
+- '   [Ada]          hid-posix.adb
+
+  '
+- '   [Ada]          external_command.adb
+
+  '
+- '   [Ada]          gpio-pwm.adb
+
+  '
+- '   [Ada]          thermistor.adb
+
+  '
+- '   [Ada]          message64-udp.ads
+
+  '
+- '   [Ada]          servo-pwm.ads
+
+  '
+- '   [Ada]          motor-pwm.adb
+
+  '
+- '   [Ada]          hid-libusb.adb
+
+  '
+- '   [Ada]          reference_counted_table.adb
+
+  '
+- '   [Ada]          zeromq-context.adb
+
+  '
+- '   [Ada]          email_mail.adb
+
+  '
+- '   [Ada]          crc16_ccitt.adb
+
+  '
+- '   [Ada]          messaging-fixed-zeromq.adb
+
+  '
+- '   [Ada]          prologix_gpib_usb_gnat.adb
+
+  '
+- '   [Ada]          motor-servo.adb
+
+  '
+- '   [Ada]          zeromq.ads
+
+  '
+- '   [Ada]          nng-sub.adb
+
+  '
+- '   [Ada]          nng.adb
+
+  '
+- '   [Ada]          messaging-fixed-gnat_udp.adb
+
+  '
+- '   [Ada]          message64-zmq.ads
+
+  '
+- '   [Ada]          mysql.ads
+
+  '
+- '   [Ada]          mysql-libmysqlclient.adb
+
+  '
+- '   [Ada]          stream_framing_protocol.adb
+
+  '
+- '   [Ada]          email_sendmail.adb
+
+  '
+- '   [Ada]          pwm.ads
+
+  '
+- '   [Ada]          accelerometer.ads
+
+  '
+- '   [Ada]          logging.ads
+
+  '
+- '   [Ada]          analog.ads
+
+  '
+- '   [Ada]          message64.ads
+
+  '
+- '   [Ada]          stepper.ads
+
+  '
+- '   [Ada]          gpib.ads
+
+  '
+- '   [Ada]          spi.ads
+
+  '
+- '   [Ada]          gpio.ads
+
+  '
+- '   [Ada]          humidity.ads
+
+  '
+- '   [Ada]          motor.ads
+
+  '
+- '   [Ada]          joystick.ads
+
+  '
+- '   [Ada]          messaging-fixed.ads
+
+  '
+- '   [Ada]          angle.ads
+
+  '
+- '   [Ada]          gyroscope.ads
+
+  '
+- '   [Ada]          voltage.ads
+
+  '
+- '   [Ada]          messaging-text.ads
+
+  '
+- '   [Ada]          servo.ads
+
+  '
+- '   [Ada]          io_interfaces.ads
+
+  '
+- '   [Ada]          keyboard.ads
+
+  '
+- '   [Ada]          messaging.adb
+
+  '
+- '   [Ada]          legorc.ads
+
+  '
+- '   [Ada]          adc.adb
+
+  '
+- '   [Ada]          truecolor.ads
+
+  '
+- '   [Ada]          hid.adb
+
+  '
+- '   [Ada]          temperature.ads
+
+  '
+- '   [Ada]          magnetometer.ads
+
+  '
+- '   [Ada]          resistance.ads
+
+  '
+- '   [Ada]          i2c.adb
+
+  '
+- '   [Ada]          pressure.ads
+
+  '
+- '   [Ada]          gpib-slave.adb
+
+  '
+- '   [Ada]          servo-pwm_template.adb
+
+  '
+- '   [Ada]          watchdog.ads
+
+  '
+- '   [Ada]          dac.adb
+
+  '
+- '   [Ada]          ftdi-mpsse.adb
+
+  '
+- '   [Ada]          mcp2221-hidapi.adb
+
+  '
+- '   [Ada]          grove_tb6612.adb
+
+  '
+- '   [Ada]          pca9685-pwm.adb
+
+  '
+- '   [Ada]          ads1015.adb
+
+  '
+- '   [Ada]          grove_keypad.adb
+
+  '
+- '   [Ada]          lsm9ds1.adb
+
+  '
+- '   [Ada]          mcp2221-i2c.adb
+
+  '
+- '   [Ada]          max7219.adb
+
+  '
+- '   [Ada]          mcp4822.adb
+
+  '
+- '   [Ada]          ftdi.adb
+
+  '
+- '   [Ada]          mcp23x17-gpio.adb
+
+  '
+- '   [Ada]          grove_tb6612-motor.adb
+
+  '
+- '   [Ada]          hts221.adb
+
+  '
+- '   [Ada]          mcp2221-libusb.adb
+
+  '
+- '   [Ada]          mcp2221-adc.adb
+
+  '
+- '   [Ada]          grove_temperature_humidity.ads
+
+  '
+- '   [Ada]          lps25h.adb
+
+  '
+- '   [Ada]          mpl3115a2.adb
+
+  '
+- '   [Ada]          grove_tb6612-stepper.adb
+
+  '
+- '   [Ada]          htu21d.adb
+
+  '
+- '   [Ada]          mcp23x17.adb
+
+  '
+- '   [Ada]          bmp280.adb
+
+  '
+- '   [Ada]          mcp2221.adb
+
+  '
+- '   [Ada]          tmp102.adb
+
+  '
+- '   [Ada]          th02.adb
+
+  '
+- '   [Ada]          cytron_md13s.adb
+
+  '
+- '   [Ada]          mcp3208.adb
+
+  '
+- '   [Ada]          pca9685.adb
+
+  '
+- '   [Ada]          grove_temperature.adb
+
+  '
+- '   [Ada]          pca9685-gpio.adb
+
+  '
+- '   [Ada]          grove_adc.ads
+
+  '
+- '   [Ada]          tlc1543.adb
+
+  '
+- '   [Ada]          tcs3472.adb
+
+  '
+- '   [Ada]          max31855.adb
+
+  '
+- '   [Ada]          mcp23x17-byte.adb
+
+  '
+- '   [Ada]          adc121c021.adb
+
+  '
+- '   [Ada]          lcd16397.adb
+
+  '
+- '   [Ada]          ftdi-mpsse-gpio.adb
+
+  '
+- '   [Ada]          hdc1080.adb
+
+  '
+- '   [Ada]          keithley192.adb
+
+  '
+- '   [Ada]          mcp2221-gpio.adb
+
+  '
+- '   [Ada]          hid-munts.ads
+
+  '
+- '   [Ada]          pca9534-gpio.adb
+
+  '
+- '   [Ada]          mcp3204.adb
+
+  '
+- '   [Ada]          mcp3202.adb
+
+  '
+- '   [Ada]          pca8574.adb
+
+  '
+- '   [Ada]          pca9534.adb
+
+  '
+- '   [Ada]          a4988.adb
+
+  '
+- '   [Ada]          mcp2221-libsimpleio.adb
+
+  '
+- '   [Ada]          hp9872a.ads
+
+  '
+- '   [Ada]          pca8574-gpio.adb
+
+  '
+- '   [Ada]          mcp23x17-word.adb
+
+  '
+- '   [Ada]          ncurses.ads
+
+  '
+- '   [Ada]          libdac.ads
+
+  '
+- '   [Ada]          libgpiod.ads
+
+  '
+- '   [Ada]          libi2c.ads
+
+  '
+- '   [Ada]          libevent.ads
+
+  '
+- '   [Ada]          libserial.ads
+
+  '
+- '   [Ada]          libzmq.ads
+
+  '
+- '   [Ada]          libspi.ads
+
+  '
+- '   [Ada]          libpwm.ads
+
+  '
+- '   [Ada]          libwatchdog.ads
+
+  '
+- '   [Ada]          liblinux.adb
+
+  '
+- '   [Ada]          libadc.ads
+
+  '
+- '   [Ada]          libstream.ads
+
+  '
+- '   [Ada]          libhidraw.ads
+
+  '
+- '   [Ada]          libgpio.ads
+
+  '
+- '   [Ada]          posix.adb
+
+  '
+- '   [Ada]          libipv4.ads
+
+  '
+- '   [Ada]          libmodbus.ads
+
+  '
+- '   [Ada]          errno.ads
+
+  '
+- '   [Ada]          libmysqlclient.ads
+
+  '
+- '   [Ada]          libsimpleio_config.ads
+
+  '
+- 'Build Libraries
+
+  '
+- '   [gprlib]       libsimpleio.lexch
+
+  '
+- '   [archive]      liblibsimpleio.a
+
+  '
+- '   [index]        liblibsimpleio.a
+
+  '
+- 'Success: Build finished successfully in 21.77 seconds.
+
+  '
+- 'Found declared GPR file: libsimpleio.gpr
+
+  '
+- '[alr test] Test completed SUCCESSFULLY
+
+  '
+platform: linux
+status: success
+version: 2.23699.1

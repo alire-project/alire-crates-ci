@@ -1,0 +1,159 @@
+Test ran at 2025-12-04 00:51:40.466820+00:00
+
+SOLUTION:
+muntsos_aarch64=11.0.0: MuntsOS Embedded Linux support for AArch64 targets
+Origin: source archive muntsos_aarch64-11.0.0.tbz2 at https://raw.githubusercontent.com/pmunts/alire-crates/4af0c448d2b44d2481f46c0b526eef3285fbf525/muntsos_aarch64/muntsos_aarch64-11.0.0.tbz2 with hashes sha256:ae49c06f6d68d44c581624071b900915f34477be15e4d8464849624eb48f5fb2, sha512:609901f5a4c4d3a1ff5d19eb2d939e3649e5a17722e91c7e9915cc5bfe4959d73e86446aed1cb1ce0f09454b300c840358622a4410398f9ef7edca4db40810a6
+Available when: (case OS is Linux => True, Windows => True, others => False)
+Properties:
+   case OS is
+      when Linux => Post_Fetch run: sh -c ./postfetch.linux (from ${CRATE_ROOT}/.)
+      when Windows => Post_Fetch run: sh -c ./postfetch.windows (from ${CRATE_ROOT}/.)
+   Author: Philip Munts
+   Configuration: no modifiers
+   Description: MuntsOS Embedded Linux support for AArch64 targets
+   License: BSD-1-Clause
+   Long_Description: # Introduction
+
+This crate modifies an Alire program project to build a cross-compiled
+program for a **[MuntsOS Embedded
+Linux](https://github.com/pmunts/muntsos)** AArch64 / ARMv8 / arm64
+target computer.
+
+The **MuntsOS Embedded Linux** cross toolchain packages must be
+installed on your development computer before you can use this crate.
+See:
+
+[Application Note
+#1](https://repo.munts.com/muntsos/doc/AppNote1-Setup-Debian.pdf) for
+Debian Linux distributions  
+[Application Note
+#2](https://repo.munts.com/muntsos/doc/AppNote2-Setup-RPM.pdf) for RPM
+Linux distributions  
+[Application Note
+#24](https://repo.munts.com/muntsos/doc/AppNote24-Setup-RPM.pdf) for
+x86-64 Windows 10 or 11.
+
+# Environment Variables
+
+If **`ALIRE_DISABLESTYLECHECKS`** is set to **`yes`**, the postfetch
+script will disable style checking in the project **`.gpr`** file.
+
+If **`ALIRE_INSTALLMAKEFILE`** is set to **`yes`**, the postfetch script
+will install an optional but useful **`Makefile`** to the project
+directory.
+
+You can add the following to **`~/.bashrc`** or its equivalent to
+permanently define these environment variables:
+
+    export ALIRE_DISABLESTYLECHECKS=yes
+    export ALIRE_INSTALLMAKEFILE=yes
+
+# Example
+
+The following commands illustrate how to create an Alire program project
+that will cross-compile a program to run on a **MuntsOS Embedded Linux**
+target computer. The result is a pristine (*i.e.* all temporary, working
+and deliverable files removed) project, suitable for checking into a
+source code control repository.
+
+    alr -n init --bin myexample
+    cd myexample
+    alr -n with muntsos_aarch64
+    ALIRE_DISABLESTYLECHECKS=yes ALIRE_INSTALLMAKEFILE=yes alr action -r post-fetch
+    make reallyclean
+
+See also [Application Note
+#7](https://repo.munts.com/muntsos/doc/AppNote7-Flash-LED-Ada-Alire.pdf).
+
+   Maintainer: Philip Munts <phil@munts.net>
+   Maintainers_Logins: pmunts
+   Name: muntsos_aarch64
+   Project_File: aws.gpr
+   Project_File: libsimpleio.gpr
+   Tag: muntsos
+   Tag: embedded
+   Tag: linux
+   Tag: arm64
+   Tag: aarch64
+   Version: 11.0.0
+   Website: https://github.com/pmunts/muntsos
+Dependencies (direct):
+   case OS is
+      when Linux => muntsos_dev_aarch64*
+
+
+LOG:
+[alr test] Testing muntsos_aarch64=11.0.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get muntsos_aarch64=11.0.0
+Note: Deploying muntsos_aarch64=11.0.0...
+
+#=#=#                                                                          
+######################################################################## 100.0%
+
+muntsos_aarch64=11.0.0 successfully retrieved.
+There are no dependencies.
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Running post-fetch actions for muntsos_aarch64=11.0.0...
+Note: Building muntsos_aarch64=11.0.0/aws.gpr (1/2)...
+gprbuild.exe: project file "D:\a\alire-crates-ci\alire-crates-ci\test\9fd9e8e6-4407-41f8-b5ac-ffde3cca41d2\muntsos_aarch64_11.0.0_ae49c06f\aws.gpr" not found in .;D:\a\alire-crates-ci\alire-crates-ci\test\9fd9e8e6-4407-41f8-b5ac-ffde3cca41d2\muntsos_aarch64_11.0.0_ae49c06f
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "D:\a\alire-crates-ci\alire-crates-ci\test\9fd9e8e6-4407-41f8-b5ac-ffde3cca41d2\muntsos_aarch64_11.0.0_ae49c06f\aws.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "D:\a\alire-crates-ci\alire-crates-ci\test\9fd9e8e6-4407-41f8-b5ac-ffde3cca41d2\muntsos_aarch64_11.0.0_ae49c06f\aws.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+stderr: ALIRE.CHECKED_ERROR
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "D:\a\alire-crates-ci\alire-crates-ci\test\9fd9e8e6-4407-41f8-b5ac-ffde3cca41d2\muntsos_aarch64_11.0.0_ae49c06f\aws.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
+[D:\a\alire-crates-ci\alire-crates-ci\alire_install\bin\alr.exe]
+0x7ff6e25eda2a Semantic_Versioning.Basic.Restrictions.First_Index at alire.adb:284
+0x7ff6e21e595b Semantic_Versioning.Basic.Restrictions.First_Index at alire-os_lib-subprocess.adb:111
+0x7ff6e249cba1 Semantic_Versioning.Basic.Restrictions.First_Index at alire-spawn.adb:22
+0x7ff6e249dd5d Semantic_Versioning.Basic.Restrictions.First_Index at alire-spawn.adb:68
+0x7ff6e23c2d64 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:189
+0x7ff6e23c11da Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:255
+0x7ff6e23e912d Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2143
+0x7ff6e24582f9 Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1472
+0x7ff6e2457424 Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1555
+0x7ff6e23e922c Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2147
+0x7ff6e23e92fa Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2127
+0x7ff6e23c17a7 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:286
+0x7ff6e23c1912 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:114
+0x7ff6e1b33baa Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:145
+0x7ff6e1b3341e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:113
+0x7ff6e1b335ba Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:54
+0x7ff6e1be5dea Semantic_Versioning.Basic.Restrictions.First_Index at clic-subcommand-instance.adb:749
+0x7ff6e1bf2b0e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands.adb:632
+0x7ff6e1ac16a0 Alr.Main at alr-main.adb:13
+0x7ff6e1ac5270 Main at b__alr-main.adb:2454
+0x7ff6e1ac133e __tmainCRTStartup at ???
+0x7ff6e1ac1144 mainCRTStartup at ???
+[C:\Windows\System32\KERNEL32.DLL]
+0x7ffd31d0e8d5
+[C:\Windows\SYSTEM32\ntdll.dll]
+0x7ffd3246c53a
+
+stderr: ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED
+stderr: alire-roots.adb:202
+stderr: raised ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED : alire-roots.adb:202
+[D:\a\alire-crates-ci\alire-crates-ci\alire_install\bin\alr.exe]
+0x7ff6e23c313c Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:202
+0x7ff6e23c11da Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:255
+0x7ff6e23e912d Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2143
+0x7ff6e24582f9 Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1472
+0x7ff6e2457424 Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1555
+0x7ff6e23e922c Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2147
+0x7ff6e23e92fa Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2127
+0x7ff6e23c17a7 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:286
+0x7ff6e23c1912 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:114
+0x7ff6e1b33baa Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:145
+0x7ff6e1b3341e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:113
+0x7ff6e1b335ba Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:54
+0x7ff6e1be5dea Semantic_Versioning.Basic.Restrictions.First_Index at clic-subcommand-instance.adb:749
+0x7ff6e1bf2b0e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands.adb:632
+0x7ff6e1ac16a0 Alr.Main at alr-main.adb:13
+0x7ff6e1ac5270 Main at b__alr-main.adb:2454
+0x7ff6e1ac133e __tmainCRTStartup at ???
+0x7ff6e1ac1144 mainCRTStartup at ???
+[C:\Windows\System32\KERNEL32.DLL]
+0x7ffd31d0e8d5
+[C:\Windows\SYSTEM32\ntdll.dll]
+0x7ffd3246c53a
+
+ERROR: Compilation failed.

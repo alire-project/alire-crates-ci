@@ -1,0 +1,72 @@
+Test ran at 2026-10-01 12:57:24.760010+00:00
+
+SOLUTION:
+espidf_gnat_runtime=0.2.0: Ada/ESP-IDF: GNAT runtime
+Origin: commit 9174cca92e329b95f1df4d3f7072fa4e3082a0da from https://github.com/godunko/espidf_gnat_runtime.git
+Properties:
+   Test run: alr build (from ${CRATE_ROOT}/selftest)
+   Author: Vadim Godunko
+   Auto_Gpr_With: auto-gpr-with=false
+   Configuration: no modifiers
+   Description: Ada/ESP-IDF: GNAT runtime
+   License: GPL-3.0-or-later WITH GCC-exception-3.1
+   Long_Description: The `espidf_gnat_runtime` provides the runtime support libraries required to develop Ada and SPARK applications for Espressif SoCs.
+It serves as the foundational layer that enables the GNAT compiler to target Espressif's hardware, providing the essential infrastructure to bridge Ada language features with the underlying system.
+
+By using this runtime, developers can leverage the safety, strong typing, and formal verification capabilities of Ada and SPARK on popular, low-cost microcontrollers.
+
+### Supported Architectures
+* **Xtensa:** Full support for the **ESP32**, **ESP32-S3** series.
+* **RISC-V:** Full support for the **ESP32-C3** series.
+
+### Key Features
+* **Ada Language Support:** Implements essential Ada features, including exception handling, controlled types, and secondary stacks.
+* **Standard Library:** Supports a rich set of standard packages, including `Ada.Numerics`, `Ada.Strings`, `Ada.Containers`, and more.
+* **Real-Time Concurrency:** Provides support for the **Jorvik profile**, enabling the use of Ada tasks and protected objects for safe, concurrent programming.
+* **Hardware Interoperability:** Designed to support applications running alongside the ESP-IDF environment, allowing Ada code to coexist with Espressif's system services.
+* **Verified Quality:** Validated using the **ACATS** (Ada Conformity Assessment Test Suite) to ensure language compliance and runtime stability on both Xtensa and RISC-V targets.
+
+### Usage
+The runtime is generated at build time by the `a0b-runtime` tool (crate `a0b_tools`) from the SoC-specific `runtime-<soc>.json` description and `svd/<soc>.svd` file provided by this crate.
+Start a new project from one of the SoC-specific templates
+([ESP32](https://github.com/RREE/esp32_template),
+[ESP32-C3](https://github.com/godunko/esp32c3_template),
+[ESP32-S3](https://github.com/godunko/esp32s3_template)),
+which set up the toolchain, linker, and build system configuration.
+
+   Maintainer: Vadim Godunko <vgodunko@gmail.com>
+   Maintainers_Logins: godunko
+   Name: espidf_gnat_runtime
+   Tag: a0b
+   Tag: embedded
+   Tag: esp
+   Tag: esp32
+   Tag: esp32c3
+   Tag: esp32s3
+   Tag: espidf
+   Tag: runtime
+   Tag: xtensa
+   Tag: riscv
+   Tag: freertos
+   Tag: jorvik
+   Version: 0.2.0
+   Website: https://github.com/godunko/espidf_gnat_runtime
+Dependencies (direct):
+   gnat^16
+Dependencies (solution):
+   gnat=16.1.0 (gnat_native)
+Dependencies (graph):
+   espidf_gnat_runtime=0.2.0 --> gnat=16.1.0 (gnat_native) (^16)
+
+
+LOG:
+Note: Synchronizing workspace...
+Dependencies automatically updated as follows:
+
+   +. espidf_gnat_runtime 0.2.0  (new,path=..)
+   +b gnat                16.1.0 (new,gnat_native,indirect,binary)
+
+Note: Building espidf_gnat_runtime_selftest=0.1.0-dev/espidf_gnat_runtime_selftest.gpr...
+gprbuild: no sources to compile
+Success: Build finished successfully in 0.34 seconds.
+[alr test] Test completed SUCCESSFULLY

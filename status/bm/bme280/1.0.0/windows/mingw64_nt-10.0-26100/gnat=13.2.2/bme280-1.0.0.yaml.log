@@ -1,0 +1,86 @@
+Test ran at 2026-07-09 01:28:12.198540+00:00
+
+SOLUTION:
+bme280=1.0.0: Driver for BME280 Humidity sensor
+Origin: commit 85a38919aa896c4c2a66825a135c87149224044c from https://github.com/reznikmm/bme280.git
+Properties:
+   Author: Max Reznik
+   Build Switches: 
+   Configuration: no modifiers
+   Description: Driver for BME280 Humidity sensor
+   License: Apache-2.0 WITH LLVM-exception
+   Maintainer: Max Reznik <reznikmm@gmail.com>
+   Maintainers_Logins: reznikmm
+   Name: bme280
+   Project_File: gnat/bme280.gpr
+   Tag: sensor
+   Tag: humidity
+   Tag: temperature
+   Tag: pressure
+   Tag: driver
+   Version: 1.0.0
+   Website: https://github.com/reznikmm/bme280
+Dependencies (direct):
+   gnat>=11 & <2000
+   hal~0.3.0
+Dependencies (solution):
+   gnat=13.2.2 (gnat_native)
+   hal=0.3.1
+Dependencies (graph):
+   bme280=1.0.0 --> gnat=13.2.2 (gnat_native) (>=11 & <2000)
+   bme280=1.0.0 --> hal=0.3.1 (~0.3.0)
+
+
+LOG:
+[alr test] Testing bme280=1.0.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get bme280=1.0.0
+Note: Deploying bme280=1.0.0...
+Note: Deploying hal=0.3.1...
+
+bme280=1.0.0 successfully retrieved.
+Dependencies were solved as follows:
+
+   +b gnat 13.2.2 (new,gnat_native,binary)
+   +  hal  0.3.1  (new)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building bme280=1.0.0/gnat/bme280.gpr...
+Setup
+   [mkdir]        object directory for project HAL
+   [mkdir]        library directory for project HAL
+   [mkdir]        object directory for project Bme280
+   [mkdir]        library directory for project Bme280
+Compile
+   [Ada]          hal.ads
+   [Ada]          hal-uart.ads
+   [Ada]          hal-touch_panel.ads
+   [Ada]          hal-time.ads
+   [Ada]          hal-spi.ads
+   [Ada]          hal-sdmmc.adb
+   [Ada]          hal-real_time_clock.ads
+   [Ada]          hal-i2c.ads
+   [Ada]          hal-gpio.ads
+   [Ada]          hal-framebuffer.ads
+   [Ada]          hal-flash.ads
+   [Ada]          hal-filesystem.ads
+   [Ada]          hal-dsi.ads
+   [Ada]          hal-block_drivers.ads
+   [Ada]          hal-bitmap.ads
+   [Ada]          hal-audio.ads
+   [Ada]          bme280-spi_sensors.adb
+   [Ada]          bme280-spi.adb
+   [Ada]          bme280-internal.adb
+   [Ada]          bme280-i2c_sensors.adb
+   [Ada]          bme280-i2c.adb
+   [Ada]          bme280-generic_sensor.adb
+   [Ada]          bme280.adb
+   [Ada]          bme280-sensors.ads
+Build Libraries
+   [gprlib]       hal.lexch
+   [gprlib]       Bme280.lexch
+   [archive]      libhal.a
+   [index]        libhal.a
+   [archive]      libBme280.a
+   [index]        libBme280.a
+Success: Build finished successfully in 4.34 seconds.
+Found declared GPR file: gnat/bme280.gpr
+[alr test] Test completed SUCCESSFULLY
