@@ -1,0 +1,54 @@
+Test ran at 2025-09-03 12:38:55.176961+00:00
+
+SOLUTION:
+florist_blady=6.1.0: POSIX Ada Bindings
+Provides: florist=22.0.0
+Origin: commit 05ac0091de3acdafb86681880dc1b88d478d2a1b from https://github.com/Blady-Com/florist.git
+Available when: (case OS is Linux => True, Macos => True, Windows => False, others => False)
+Properties:
+   Post_Fetch run: sh configure (from ${CRATE_ROOT}/.)
+   Post_Fetch run: make gen (from ${CRATE_ROOT}/.)
+   Author: Florida State University (FSU)
+   Author: AdaCore
+   Description: POSIX Ada Bindings
+   License: GPL-3.0-only
+   Maintainer: Pascal Pignard <blady.net@orange.fr>
+   Maintainers_Logins: Blady-Com
+   Name: florist_blady
+   Project_File: lib_florist.gpr
+   Tag: florist
+   Tag: posix
+   Tag: bindings
+   Version: 6.1.0
+   Website: https://github.com/Blady-Com/florist
+
+
+LOG:
+[alr test] Testing florist_blady=6.1.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get florist_blady=6.1.0
+Note: Deploying florist_blady=6.1.0...
+
+florist_blady=6.1.0 successfully retrieved.
+There are no dependencies.
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Running post-fetch actions for florist_blady=6.1.0...
+See file configure.log for results of this step.
+checking for gcc... gcc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... configure: error: in `/Users/runner/work/alire-crates-ci/alire-crates-ci/test/16b4dcce-93df-44a7-9f27-f95e8f91c44c/florist_blady_6.1.0_05ac0091':
+configure: error: cannot run C compiled programs.
+If you meant to cross compile, use `--host'.
+See `config.log' for more details
+Warning: Execution failed for action: Post_Fetch run: sh configure (from ${CRATE_ROOT}/.)
+Warning: Exit code: 1
+Warning: Action output not captured, check it above.
+stderr: ALIRE.PROPERTIES.ACTIONS.ACTION_FAILED
+stderr: Action failed with exit code 1
+stderr: raised ALIRE.PROPERTIES.ACTIONS.ACTION_FAILED : Action failed with exit code 1
+Load address: 0x102a58000
+Call stack traceback locations:
+0x1037640cc 0x10376412c 0x103107fe4 0x103106788 0x1032bf9c0 0x1032e378c 0x10334356c 0x10334299c 0x1032e3868 0x1032e3950 0x1032c000c 0x1032c0174 0x102ac9730 0x102ac9070 0x102ac91e4 0x102b66b38 0x102b71c78 0x102a5a9f8 0x102a5fa2c
+
+ERROR: Compilation failed.

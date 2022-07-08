@@ -1,0 +1,899 @@
+badge: false
+crate: adacl_aunit
+creation_timestamp: 1768393375.7637184
+distro: ubuntu-24.04
+duration: 15.917727943000045
+gnat: 14.2.1
+last_attempt: 2026-04-12 01:11:36.392646+00:00
+log:
+- 'Test ran at 2026-04-12 01:11:36.392620+00:00
+
+
+  '
+- 'SOLUTION:
+
+  '
+- 'adacl_aunit=7.1.0: Ada 2022 AUnit with readable asserts & paramerised test
+
+  '
+- 'Origin: source archive adacl_aunit-7.1.0.tgz at https://sourceforge.net/projects/adacl/files/Alire/adacl_aunit-7.1.0.tgz
+  with hashes sha256:ba1b4d8f92e4de8447de7a6bf16d17005fcdabf2717984a43d8c456c3f4b3b29,
+  sha512:8e84182b0691de025bbee5e4ebeb35df1654f27b042b51d2b6cd3fb291b62b2d1102fdd76d0b02c912d63ce0ba8bf03b0f71e1a3329e5dc88456b0b1edf9e0c1
+
+  '
+- 'Properties:
+
+  '
+- '   Author: Martin Krischik <krischik@users.sourceforge.net>
+
+  '
+- "   Build Switches: \n"
+- '   Description: Ada 2022 AUnit with readable asserts & paramerised test
+
+  '
+- '   License: GPL-3.0-or-later
+
+  '
+- '   Long_Description: A versatile Ada 2022 testing library, enhancing AUnit with
+  readable assertions and parameterised tests.
+
+  '
+- '
+
+  '
+- '## Features
+
+  '
+- '
+
+  '
+- '### AUnit-Compatible Assertions
+
+  '
+- '
+
+  '
+- '  - Generic support for access, array, discrete, floating-point, fixed-point, decimal,
+  vector types, and files.
+
+  '
+- '  - **Readable Error Messages**: Assertions provide detailed feedback.
+
+  '
+- '
+
+  '
+- 'Example for unbounded strings:
+
+  '
+- '
+
+  '
+- '```ada
+
+  '
+- '    procedure Equal
+
+  '
+- '       (Actual   : Ada.Strings.Unbounded.Unbounded_String;
+
+  '
+- '        Expected : String;
+
+  '
+- '        Name     : String;
+
+  '
+- '        Source   : String  := GNAT.Source_Info.File;
+
+  '
+- '        Line     : Natural := GNAT.Source_Info.Line)
+
+  '
+- '    is
+
+  '
+- '       use Ada.Strings.Unbounded;
+
+  '
+- '    begin
+
+  '
+- '       if not (Actual = Expected) then
+
+  '
+- '          Report_Assertion
+
+  '
+- "             (Message => \"In string \xAB\" & Name & \"\xBB the \" & Actual'Image\
+  \ & \" is not equal to \" & Expected'Image,\n"
+- '              Source  => Source,
+
+  '
+- '              Line    => Line);
+
+  '
+- '       end if;
+
+  '
+- '    end Equal;
+
+  '
+- '```
+
+  '
+- '
+
+  '
+- 'This yields clear, context-rich error messages, surpassing standard AUnit
+
+  '
+- 'output.
+
+  '
+- '
+
+  '
+- '## Parameterised Tests
+
+  '
+- '
+
+  '
+- 'Run the same test with varied inputs and expected values, boosting coverage
+
+  '
+- 'efficiently.
+
+  '
+- '
+
+  '
+- 'Example from hp41cx_tools:
+
+  '
+- '
+
+  '
+- '```ada
+
+  '
+- 'overriding procedure Register_Tests (T : in out Test_Case) is
+
+  '
+- '   pragma Debug (AdaCL.Trace.Entering (In_Parameter => T.Name.all''Image));
+
+  '
+- 'begin
+
+  '
+- '   T.Parameter.Register_Routine (T, Test_To_HP_Duration_01''Access, "WAKE_UP",      "2024-12-01
+  08:00:00",   [3, 9, 4, 2, 0, 2, 8, 8, 0, 0, 0], 3942028800.0);
+
+  '
+- '   T.Parameter.Register_Routine (T, Test_To_HP_Duration_01''Access, "^LBLTEST",     "2025-07-22
+  12:00:00",   [3, 9, 6, 2, 1, 7, 4, 4, 0, 0, 0], 3962174400.0);
+
+  '
+- '   T.Parameter.Register_Routine (T, Test_To_HP_Duration_01''Access, "TONE",         "2025-11-12
+  09:12:34",   [3, 9, 7, 1, 9, 2, 7, 5, 5, 4, 0], 3971927554.0);
+
+  '
+- '   T.Parameter.Register_Routine (T, Test_To_HP_Duration_01''Access, "FRACTION",     "2025-11-12
+  09:12:34.5", [3, 9, 7, 1, 9, 2, 7, 5, 5, 4, 5], 3971927554.5);
+
+  '
+- '   T.Parameter.Register_Routine (T, Test_To_HP_Duration_01''Access, "REPEAT24",     "24:00:00",              [0,
+  0, 0, 0, 0, 8, 6, 4, 0, 0, 0], 0000086400.0);
+
+  '
+- '   T.Parameter.Register_Routine (T, Test_To_HP_Duration_01''Access, "REPEAT''First",
+  "0000:00:01.0",          [0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0], 0000000010.0);
+
+  '
+- '   T.Parameter.Register_Routine (T, Test_To_HP_Duration_01''Access, "REPEAT''Last",  "9999:59:59.9",          [0,
+  0, 3, 5, 9, 9, 9, 9, 9, 9, 9], 0035999999.9);
+
+  '
+- '   pragma Debug (AdaCL.Trace.Exiting);
+
+  '
+- '   return;
+
+  '
+- 'end Register_Tests;
+
+  '
+- '```
+
+  '
+- '
+
+  '
+- 'Registering tests multiple times with different data enhances test coverage
+
+  '
+- 'without redundant code.
+
+  '
+- '
+
+  '
+- 'Source: [SourceForge](https://sourceforge.net/p/adacl/git/ci/master/tree/adacl_aunit/test/src/)
+
+  '
+- 'Documentation: [GNATdoc](https://adacl.sourceforge.net/gnatdoc/adacl_aunit_test/index.html)
+
+  '
+- '
+
+  '
+- '   Maintainer: Martin Krischik <krischik@users.sourceforge.net>
+
+  '
+- '   Maintainers_Logins: krischik
+
+  '
+- '   Name: adacl_aunit
+
+  '
+- '   Tag: library
+
+  '
+- '   Tag: aunit
+
+  '
+- '   Tag: assert
+
+  '
+- '   Tag: ada2022
+
+  '
+- '   Version: 7.1.0
+
+  '
+- '   Website: https://sourceforge.net/projects/adacl_aunit/
+
+  '
+- 'Dependencies (direct):
+
+  '
+- '   adacl^7.0.0
+
+  '
+- '   aunit25.0.0
+
+  '
+- 'Dependencies (solution):
+
+  '
+- '   adacl=7.1.0
+
+  '
+- '   aunit=25.0.0
+
+  '
+- 'Dependencies (graph):
+
+  '
+- '   adacl_aunit=7.1.0 --> adacl=7.1.0 (^7.0.0)
+
+  '
+- '   adacl_aunit=7.1.0 --> aunit=25.0.0 (25.0.0)
+
+  '
+- '
+
+  '
+- '
+
+  LOG:
+
+  '
+- '[alr test] Testing adacl_aunit=7.1.0
+
+  '
+- '[alr test] Spawning retrieval for remote crate: alr -d -n get adacl_aunit=7.1.0
+
+  '
+- 'Note: Deploying adacl_aunit=7.1.0...
+
+  '
+- "#=#=#                                                                         \
+  \ \n"
+- '
+
+  '
+- '######################################################################## 100.0%
+
+  '
+- '######################################################################## 100.0%
+
+  '
+- '######################################################################## 100.0%
+
+  '
+- "######################################################################## 100.0%##O#-#\
+  \                                                                         \n"
+- "##=O#- #                                                                      \
+  \ \n"
+- '
+
+  '
+- '######################################################################## 100.0%
+
+  '
+- 'Note: Deploying adacl=7.1.0...
+
+  '
+- '
+
+  '
+- '######################################################################## 100.0%
+
+  '
+- '######################################################################## 100.0%
+
+  '
+- '######################################################################## 100.0%
+
+  '
+- "######################################################################## 100.0%#=#=#\
+  \                                                                          \n"
+- "##=#=#                                                                        \
+  \ \n"
+- "##=O#- #                                                                      \
+  \ \n"
+- '
+
+  '
+- '######################################################################## 100.0%
+
+  '
+- 'Note: Deploying aunit=25.0.0...
+
+  '
+- "#=#=#                                                                         \
+  \ \n"
+- "##O#-#                                                                        \
+  \ \n"
+- '
+
+  '
+- 'adacl_aunit=7.1.0 successfully retrieved.
+
+  '
+- 'Dependencies were solved as follows:
+
+  '
+- '
+
+  '
+- '   + adacl 7.1.0  (new)
+
+  '
+- '   + aunit 25.0.0 (new)
+
+  '
+- '[alr test] Spawning default test for remote crate: alr -d -n build --release --
+  -cargs:Ada -gnatwn
+
+  '
+- 'Note: Building adacl_aunit=7.1.0/adacl_aunit.gpr...
+
+  '
+- 'Setup
+
+  '
+- '   [mkdir]        object directory for project AdaCL
+
+  '
+- '   [mkdir]        library directory for project AdaCL
+
+  '
+- '   [mkdir]        object directory for project AUnit
+
+  '
+- '   [mkdir]        library directory for project AUnit
+
+  '
+- '   [mkdir]        object directory for project AdaCL_AUnit
+
+  '
+- '   [mkdir]        library directory for project AdaCL_AUnit
+
+  '
+- 'Compile
+
+  '
+- '   [Ada]          aunit-io.ads
+
+  '
+- '   [Ada]          aunit-memory.adb
+
+  '
+- '   [Ada]          aunit-memory-utils.adb
+
+  '
+- '   [Ada]          aunit-time_measure.adb
+
+  '
+- '   [Ada]          aunit-reporter-junit.adb
+
+  '
+- '   [Ada]          aunit-reporter-text.adb
+
+  '
+- '   [Ada]          aunit-reporter-xml.adb
+
+  '
+- '   [Ada]          aunit-reporter-gnattest.adb
+
+  '
+- '   [Ada]          ada_containers-aunit_lists.adb
+
+  '
+- '   [Ada]          ada_containers.ads
+
+  '
+- '   [Ada]          aunit.adb
+
+  '
+- '   [Ada]          aunit-test_results.adb
+
+  '
+- '   [Ada]          aunit-run.adb
+
+  '
+- '   [Ada]          aunit-test_filters.adb
+
+  '
+- '   [Ada]          aunit-simple_test_cases.adb
+
+  '
+- '   [Ada]          aunit-tests.ads
+
+  '
+- '   [Ada]          aunit-assertions.adb
+
+  '
+- '   [Ada]          aunit-reporter.adb
+
+  '
+- '   [Ada]          aunit-test_fixtures.adb
+
+  '
+- '   [Ada]          aunit-test_caller.adb
+
+  '
+- '   [Ada]          aunit-test_cases.adb
+
+  '
+- '   [Ada]          aunit-test_suites.adb
+
+  '
+- '   [Ada]          aunit-options.ads
+
+  '
+- '   [Ada]          adacl_config.ads
+
+  '
+- '   [Ada]          adacl-os-to_wide_wide_string.adb
+
+  '
+- '   [Ada]          adacl-os-to_utf_string.adb
+
+  '
+- '   [Ada]          adacl-os-low_level.ads
+
+  '
+- '   [Ada]          adacl-base.ads
+
+  '
+- '   [Ada]          adacl-wide_wide_strings-hex.adb
+
+  '
+- '   [Ada]          adacl-wide_strings-vectors.ads
+
+  '
+- '   [Ada]          adacl-strings.adb
+
+  '
+- '   [Ada]          adacl-wide_strings.adb
+
+  '
+- '   [Ada]          adacl-limited_base.ads
+
+  '
+- '   [Ada]          adacl-command_line.ads
+
+  '
+- '   [Ada]          adacl-strings-vectors.ads
+
+  '
+- '   [Ada]          adacl-pointer-shared_with_delete.adb
+
+  '
+- '   [Ada]          adacl-queue.adb
+
+  '
+- '   [Ada]          adacl-pointer-shared.ads
+
+  '
+- '   [Ada]          adacl.ads
+
+  '
+- '   [Ada]          adacl-command_line-getopt.adb
+
+  '
+- '   [Ada]          adacl-wide_strings-hex.adb
+
+  '
+- '   [Ada]          adacl-wide_wide_strings-io.adb
+
+  '
+- '   [Ada]          adacl-pointer-holder.adb
+
+  '
+- '   [Ada]          adacl-pointer.ads
+
+  '
+- '   [Ada]          adacl-strings-hex.adb
+
+  '
+- '   [Ada]          adacl-trace.adb
+
+  '
+- '   [Ada]          adacl-pointer-element.adb
+
+  '
+- '   [Ada]          adacl-wide_strings-io.adb
+
+  '
+- '   [Ada]          adacl-strings-io.adb
+
+  '
+- '   [Ada]          adacl-pointer-unique.ads
+
+  '
+- '   [Ada]          adacl-wide_wide_strings-vectors.ads
+
+  '
+- '   [Ada]          adacl-pointer-unique_with_delete.adb
+
+  '
+- '   [Ada]          adacl-wide_wide_strings.adb
+
+  '
+- '   [Ada]          adacl-wide_wide_strings-bin.adb
+
+  '
+- '   [Ada]          adacl-strings-bin.adb
+
+  '
+- '   [Ada]          adacl-calendar.adb
+
+  '
+- '   [Ada]          adacl-os.ads
+
+  '
+- '   [Ada]          adacl-wide_strings-bin.adb
+
+  '
+- '   [Ada]          adacl_aunit_config.ads
+
+  '
+- '   [Ada]          adacl-assert-decimal.adb
+
+  '
+- '   [Ada]          adacl-assert.adb
+
+  '
+- '/home/runner/work/alire-crates-ci/alire-crates-ci/test/ec1aaaeb-76fd-468b-8419-dfb9c70c0644/adacl_aunit_7.1.0_ba1b4d8f/src/adacl-assert-decimal.ads:50:07:
+  warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+
+  '
+- '/home/runner/work/alire-crates-ci/alire-crates-ci/test/ec1aaaeb-76fd-468b-8419-dfb9c70c0644/adacl_aunit_7.1.0_ba1b4d8f/src/adacl-assert-decimal.ads:68:07:
+  warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+
+  '
+- '/home/runner/work/alire-crates-ci/alire-crates-ci/test/ec1aaaeb-76fd-468b-8419-dfb9c70c0644/adacl_aunit_7.1.0_ba1b4d8f/src/adacl-assert-decimal.ads:86:07:
+  warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+
+  '
+- '/home/runner/work/alire-crates-ci/alire-crates-ci/test/ec1aaaeb-76fd-468b-8419-dfb9c70c0644/adacl_aunit_7.1.0_ba1b4d8f/src/adacl-assert-decimal.ads:104:07:
+  warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+
+  '
+- '/home/runner/work/alire-crates-ci/alire-crates-ci/test/ec1aaaeb-76fd-468b-8419-dfb9c70c0644/adacl_aunit_7.1.0_ba1b4d8f/src/adacl-assert-decimal.ads:122:07:
+  warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+
+  '
+- '/home/runner/work/alire-crates-ci/alire-crates-ci/test/ec1aaaeb-76fd-468b-8419-dfb9c70c0644/adacl_aunit_7.1.0_ba1b4d8f/src/adacl-assert-decimal.ads:140:07:
+  warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+
+  '
+- '/home/runner/work/alire-crates-ci/alire-crates-ci/test/ec1aaaeb-76fd-468b-8419-dfb9c70c0644/adacl_aunit_7.1.0_ba1b4d8f/src/adacl-assert-decimal.ads:160:07:
+  warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+
+  '
+- '   [Ada]          adacl-assert-fixed.adb
+
+  '
+- '/home/runner/work/alire-crates-ci/alire-crates-ci/test/ec1aaaeb-76fd-468b-8419-dfb9c70c0644/adacl_aunit_7.1.0_ba1b4d8f/src/adacl-assert.ads:65:07:
+  warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+
+  '
+- '/home/runner/work/alire-crates-ci/alire-crates-ci/test/ec1aaaeb-76fd-468b-8419-dfb9c70c0644/adacl_aunit_7.1.0_ba1b4d8f/src/adacl-assert.ads:83:07:
+  warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+
+  '
+- '/home/runner/work/alire-crates-ci/alire-crates-ci/test/ec1aaaeb-76fd-468b-8419-dfb9c70c0644/adacl_aunit_7.1.0_ba1b4d8f/src/adacl-assert.ads:101:07:
+  warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+
+  '
+- '/home/runner/work/alire-crates-ci/alire-crates-ci/test/ec1aaaeb-76fd-468b-8419-dfb9c70c0644/adacl_aunit_7.1.0_ba1b4d8f/src/adacl-assert.ads:121:07:
+  warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+
+  '
+- '/home/runner/work/alire-crates-ci/alire-crates-ci/test/ec1aaaeb-76fd-468b-8419-dfb9c70c0644/adacl_aunit_7.1.0_ba1b4d8f/src/adacl-assert.ads:139:07:
+  warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+
+  '
+- '/home/runner/work/alire-crates-ci/alire-crates-ci/test/ec1aaaeb-76fd-468b-8419-dfb9c70c0644/adacl_aunit_7.1.0_ba1b4d8f/src/adacl-assert.ads:157:07:
+  warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+
+  '
+- '/home/runner/work/alire-crates-ci/alire-crates-ci/test/ec1aaaeb-76fd-468b-8419-dfb9c70c0644/adacl_aunit_7.1.0_ba1b4d8f/src/adacl-assert.ads:177:07:
+  warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+
+  '
+- '/home/runner/work/alire-crates-ci/alire-crates-ci/test/ec1aaaeb-76fd-468b-8419-dfb9c70c0644/adacl_aunit_7.1.0_ba1b4d8f/src/adacl-assert.ads:195:07:
+  warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+
+  '
+- '/home/runner/work/alire-crates-ci/alire-crates-ci/test/ec1aaaeb-76fd-468b-8419-dfb9c70c0644/adacl_aunit_7.1.0_ba1b4d8f/src/adacl-assert.ads:213:07:
+  warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+
+  '
+- '/home/runner/work/alire-crates-ci/alire-crates-ci/test/ec1aaaeb-76fd-468b-8419-dfb9c70c0644/adacl_aunit_7.1.0_ba1b4d8f/src/adacl-assert.ads:231:07:
+  warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+
+  '
+- '/home/runner/work/alire-crates-ci/alire-crates-ci/test/ec1aaaeb-76fd-468b-8419-dfb9c70c0644/adacl_aunit_7.1.0_ba1b4d8f/src/adacl-assert.ads:247:07:
+  warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+
+  '
+- '/home/runner/work/alire-crates-ci/alire-crates-ci/test/ec1aaaeb-76fd-468b-8419-dfb9c70c0644/adacl_aunit_7.1.0_ba1b4d8f/src/adacl-assert.ads:267:07:
+  warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+
+  '
+- '/home/runner/work/alire-crates-ci/alire-crates-ci/test/ec1aaaeb-76fd-468b-8419-dfb9c70c0644/adacl_aunit_7.1.0_ba1b4d8f/src/adacl-assert.ads:287:07:
+  warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+
+  '
+- '/home/runner/work/alire-crates-ci/alire-crates-ci/test/ec1aaaeb-76fd-468b-8419-dfb9c70c0644/adacl_aunit_7.1.0_ba1b4d8f/src/adacl-assert.ads:305:07:
+  warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+
+  '
+- '/home/runner/work/alire-crates-ci/alire-crates-ci/test/ec1aaaeb-76fd-468b-8419-dfb9c70c0644/adacl_aunit_7.1.0_ba1b4d8f/src/adacl-assert.ads:323:07:
+  warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+
+  '
+- '   [Ada]          adacl-test_cases.ads
+
+  '
+- '   [Ada]          adacl-assert-pointer.adb
+
+  '
+- '/home/runner/work/alire-crates-ci/alire-crates-ci/test/ec1aaaeb-76fd-468b-8419-dfb9c70c0644/adacl_aunit_7.1.0_ba1b4d8f/src/adacl-assert-fixed.ads:50:07:
+  warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+
+  '
+- '/home/runner/work/alire-crates-ci/alire-crates-ci/test/ec1aaaeb-76fd-468b-8419-dfb9c70c0644/adacl_aunit_7.1.0_ba1b4d8f/src/adacl-assert-fixed.ads:68:07:
+  warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+
+  '
+- '/home/runner/work/alire-crates-ci/alire-crates-ci/test/ec1aaaeb-76fd-468b-8419-dfb9c70c0644/adacl_aunit_7.1.0_ba1b4d8f/src/adacl-assert-fixed.ads:86:07:
+  warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+
+  '
+- '/home/runner/work/alire-crates-ci/alire-crates-ci/test/ec1aaaeb-76fd-468b-8419-dfb9c70c0644/adacl_aunit_7.1.0_ba1b4d8f/src/adacl-assert-fixed.ads:104:07:
+  warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+
+  '
+- '/home/runner/work/alire-crates-ci/alire-crates-ci/test/ec1aaaeb-76fd-468b-8419-dfb9c70c0644/adacl_aunit_7.1.0_ba1b4d8f/src/adacl-assert-fixed.ads:122:07:
+  warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+
+  '
+- '/home/runner/work/alire-crates-ci/alire-crates-ci/test/ec1aaaeb-76fd-468b-8419-dfb9c70c0644/adacl_aunit_7.1.0_ba1b4d8f/src/adacl-assert-fixed.ads:140:07:
+  warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+
+  '
+- '/home/runner/work/alire-crates-ci/alire-crates-ci/test/ec1aaaeb-76fd-468b-8419-dfb9c70c0644/adacl_aunit_7.1.0_ba1b4d8f/src/adacl-assert-fixed.ads:160:07:
+  warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+
+  '
+- '   [Ada]          adacl-assert-vectors.adb
+
+  '
+- '/home/runner/work/alire-crates-ci/alire-crates-ci/test/ec1aaaeb-76fd-468b-8419-dfb9c70c0644/adacl_aunit_7.1.0_ba1b4d8f/src/adacl-assert-pointer.ads:51:07:
+  warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+
+  '
+- '/home/runner/work/alire-crates-ci/alire-crates-ci/test/ec1aaaeb-76fd-468b-8419-dfb9c70c0644/adacl_aunit_7.1.0_ba1b4d8f/src/adacl-assert-pointer.ads:69:07:
+  warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+
+  '
+- '/home/runner/work/alire-crates-ci/alire-crates-ci/test/ec1aaaeb-76fd-468b-8419-dfb9c70c0644/adacl_aunit_7.1.0_ba1b4d8f/src/adacl-assert-pointer.ads:85:07:
+  warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+
+  '
+- '/home/runner/work/alire-crates-ci/alire-crates-ci/test/ec1aaaeb-76fd-468b-8419-dfb9c70c0644/adacl_aunit_7.1.0_ba1b4d8f/src/adacl-assert-pointer.ads:101:07:
+  warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+
+  '
+- '   [Ada]          adacl-test_cases-parameters.adb
+
+  '
+- '/home/runner/work/alire-crates-ci/alire-crates-ci/test/ec1aaaeb-76fd-468b-8419-dfb9c70c0644/adacl_aunit_7.1.0_ba1b4d8f/src/adacl-assert-vectors.ads:58:07:
+  warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+
+  '
+- '/home/runner/work/alire-crates-ci/alire-crates-ci/test/ec1aaaeb-76fd-468b-8419-dfb9c70c0644/adacl_aunit_7.1.0_ba1b4d8f/src/adacl-assert-vectors.ads:76:07:
+  warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+
+  '
+- '   [Ada]          adacl-trace-assert.ads
+
+  '
+- '   [Ada]          adacl-assert-indefinite_vectors.adb
+
+  '
+- '/home/runner/work/alire-crates-ci/alire-crates-ci/test/ec1aaaeb-76fd-468b-8419-dfb9c70c0644/adacl_aunit_7.1.0_ba1b4d8f/src/adacl-assert-indefinite_vectors.ads:58:07:
+  warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+
+  '
+- '/home/runner/work/alire-crates-ci/alire-crates-ci/test/ec1aaaeb-76fd-468b-8419-dfb9c70c0644/adacl_aunit_7.1.0_ba1b4d8f/src/adacl-assert-indefinite_vectors.ads:76:07:
+  warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+
+  '
+- '   [Ada]          adacl-assert-discrete.adb
+
+  '
+- '/home/runner/work/alire-crates-ci/alire-crates-ci/test/ec1aaaeb-76fd-468b-8419-dfb9c70c0644/adacl_aunit_7.1.0_ba1b4d8f/src/adacl-assert-discrete.ads:50:07:
+  warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+
+  '
+- '/home/runner/work/alire-crates-ci/alire-crates-ci/test/ec1aaaeb-76fd-468b-8419-dfb9c70c0644/adacl_aunit_7.1.0_ba1b4d8f/src/adacl-assert-discrete.ads:68:07:
+  warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+
+  '
+- '/home/runner/work/alire-crates-ci/alire-crates-ci/test/ec1aaaeb-76fd-468b-8419-dfb9c70c0644/adacl_aunit_7.1.0_ba1b4d8f/src/adacl-assert-discrete.ads:86:07:
+  warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+
+  '
+- '/home/runner/work/alire-crates-ci/alire-crates-ci/test/ec1aaaeb-76fd-468b-8419-dfb9c70c0644/adacl_aunit_7.1.0_ba1b4d8f/src/adacl-assert-discrete.ads:104:07:
+  warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+
+  '
+- '/home/runner/work/alire-crates-ci/alire-crates-ci/test/ec1aaaeb-76fd-468b-8419-dfb9c70c0644/adacl_aunit_7.1.0_ba1b4d8f/src/adacl-assert-discrete.ads:122:07:
+  warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+
+  '
+- '/home/runner/work/alire-crates-ci/alire-crates-ci/test/ec1aaaeb-76fd-468b-8419-dfb9c70c0644/adacl_aunit_7.1.0_ba1b4d8f/src/adacl-assert-discrete.ads:140:07:
+  warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+
+  '
+- '/home/runner/work/alire-crates-ci/alire-crates-ci/test/ec1aaaeb-76fd-468b-8419-dfb9c70c0644/adacl_aunit_7.1.0_ba1b4d8f/src/adacl-assert-discrete.ads:160:07:
+  warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+
+  '
+- '   [Ada]          adacl-assert-arrays.adb
+
+  '
+- '/home/runner/work/alire-crates-ci/alire-crates-ci/test/ec1aaaeb-76fd-468b-8419-dfb9c70c0644/adacl_aunit_7.1.0_ba1b4d8f/src/adacl-assert-arrays.ads:56:07:
+  warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+
+  '
+- '/home/runner/work/alire-crates-ci/alire-crates-ci/test/ec1aaaeb-76fd-468b-8419-dfb9c70c0644/adacl_aunit_7.1.0_ba1b4d8f/src/adacl-assert-arrays.ads:74:07:
+  warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+
+  '
+- '   [Ada]          adacl-assert-float.adb
+
+  '
+- '/home/runner/work/alire-crates-ci/alire-crates-ci/test/ec1aaaeb-76fd-468b-8419-dfb9c70c0644/adacl_aunit_7.1.0_ba1b4d8f/src/adacl-assert-float.ads:51:07:
+  warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+
+  '
+- '/home/runner/work/alire-crates-ci/alire-crates-ci/test/ec1aaaeb-76fd-468b-8419-dfb9c70c0644/adacl_aunit_7.1.0_ba1b4d8f/src/adacl-assert-float.ads:69:07:
+  warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+
+  '
+- '/home/runner/work/alire-crates-ci/alire-crates-ci/test/ec1aaaeb-76fd-468b-8419-dfb9c70c0644/adacl_aunit_7.1.0_ba1b4d8f/src/adacl-assert-float.ads:87:07:
+  warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+
+  '
+- '/home/runner/work/alire-crates-ci/alire-crates-ci/test/ec1aaaeb-76fd-468b-8419-dfb9c70c0644/adacl_aunit_7.1.0_ba1b4d8f/src/adacl-assert-float.ads:105:07:
+  warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+
+  '
+- '/home/runner/work/alire-crates-ci/alire-crates-ci/test/ec1aaaeb-76fd-468b-8419-dfb9c70c0644/adacl_aunit_7.1.0_ba1b4d8f/src/adacl-assert-float.ads:123:07:
+  warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+
+  '
+- '/home/runner/work/alire-crates-ci/alire-crates-ci/test/ec1aaaeb-76fd-468b-8419-dfb9c70c0644/adacl_aunit_7.1.0_ba1b4d8f/src/adacl-assert-float.ads:141:07:
+  warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+
+  '
+- '/home/runner/work/alire-crates-ci/alire-crates-ci/test/ec1aaaeb-76fd-468b-8419-dfb9c70c0644/adacl_aunit_7.1.0_ba1b4d8f/src/adacl-assert-float.ads:161:07:
+  warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+
+  '
+- '/home/runner/.local/share/alire/builds/adacl_7.1.0_75293ae0/57d4801c62b107b1b86a04c490c100d41cc34b9d6629cea6469f43e2ac40fd18/src/adacl-trace.ads:189:07:
+  warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+
+  '
+- '/home/runner/.local/share/alire/builds/adacl_7.1.0_75293ae0/57d4801c62b107b1b86a04c490c100d41cc34b9d6629cea6469f43e2ac40fd18/src/adacl-trace.ads:203:07:
+  warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+
+  '
+- '/home/runner/.local/share/alire/builds/adacl_7.1.0_75293ae0/57d4801c62b107b1b86a04c490c100d41cc34b9d6629cea6469f43e2ac40fd18/src/adacl-trace.ads:217:07:
+  warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+
+  '
+- '/home/runner/.local/share/alire/builds/adacl_7.1.0_75293ae0/57d4801c62b107b1b86a04c490c100d41cc34b9d6629cea6469f43e2ac40fd18/src/adacl-trace.ads:231:07:
+  warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+
+  '
+- '/home/runner/.local/share/alire/builds/adacl_7.1.0_75293ae0/57d4801c62b107b1b86a04c490c100d41cc34b9d6629cea6469f43e2ac40fd18/src/adacl-trace.ads:248:15:
+  warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+
+  '
+- '/home/runner/.local/share/alire/builds/adacl_7.1.0_75293ae0/57d4801c62b107b1b86a04c490c100d41cc34b9d6629cea6469f43e2ac40fd18/src/adacl-trace.ads:266:07:
+  warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+
+  '
+- 'Build Libraries
+
+  '
+- '   [gprlib]       AdaCL.lexch
+
+  '
+- '   [gprlib]       aunit.lexch
+
+  '
+- '   [gprlib]       AdaCL_AUnit.lexch
+
+  '
+- '   [archive]      libAdaCL.a
+
+  '
+- '   [archive]      libaunit.a
+
+  '
+- '   [index]        libaunit.a
+
+  '
+- '   [index]        libAdaCL.a
+
+  '
+- '   [archive]      libAdaCL_AUnit.a
+
+  '
+- '   [index]        libAdaCL_AUnit.a
+
+  '
+- 'Success: Build finished successfully in 11.61 seconds.
+
+  '
+- 'Found declared GPR file: adacl_aunit.gpr
+
+  '
+- '[alr test] Test completed SUCCESSFULLY
+
+  '
+platform: linux
+status: success
+version: 7.1.0

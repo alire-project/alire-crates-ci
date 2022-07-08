@@ -1,0 +1,145 @@
+Test ran at 2026-08-10 12:33:25.746532+00:00
+
+SOLUTION:
+proven_components=1.2.0: Reusable components in SPARK/Ada developed since 1980.
+Origin: commit e177c6c5209e4367f7905e6fee9e97f1ac13c925 from https://github.com/pat-rogers/proven_components.git
+Properties:
+   Author: Pat Rogers
+   Config type: Profile : Enum (Full, Embedded) default: 'Full'
+   Configuration: no modifiers
+   Description: Reusable components in SPARK/Ada developed since 1980.
+   License: Apache-2.0 WITH LLVM-exception
+   Long_Description: These are components developed over the past 45+ years of Ada work, updated as Ada evolved, and formally proven when within the SPARK subset.
+Most are proven to the Gold or Platinum level, but when necessary they are proven to the Silver level, i.e., absence of run-time errors.
+They have been used in both host and embedded projects, many professional and a few for fun.
+
+Sample contents:
+  Sequential Bounded Buffers
+  Sequential Bounded Stacks (i.e., not thread-safe)
+  ...
+  Protected types providing synchronization protocols
+  PI and PID Controls
+  Image functions for floating- and fixed-point types, in standard (i.e., not scientific) notation
+  Gaussian, Categorical, and Scaled Uniform Random Number Generators
+  Recursive Moving Average (RMA) filters for signal processing
+  Sorting and Searching routines
+  ...
+
+   Maintainer: Pat Rogers <progers@classwide.com>
+   Maintainers_Logins: pat-rogers
+   Name: proven_components
+   Project_File: proven_components.gpr
+   Tag: reuse
+   Tag: components
+   Tag: spark
+   Tag: proof
+   Version: 1.2.0
+   Website: https://github.com/pat-rogers/proven_components
+
+
+LOG:
+[alr test] Testing proven_components=1.2.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get proven_components=1.2.0
+Note: Deploying proven_components=1.2.0...
+
+proven_components=1.2.0 successfully retrieved.
+There are no dependencies.
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building proven_components=1.2.0/proven_components.gpr...
+Setup
+   [mkdir]        object directory for project Proven_Components
+Compile
+   [Ada]          spark.ads
+   [Ada]          spark-containers.ads
+   [Ada]          spark-containers-types.ads
+   [Ada]          spark-containers-parameter_checks.adb
+   [Ada]          spark-containers-functional.ads
+   [Ada]          spark-containers-functional-multisets.adb
+   [Ada]          spark-containers-functional-maps.adb
+   [Ada]          spark-containers-functional-base.adb
+   [Ada]          spark-big_integers.ads
+   [Ada]          sort_routines.adb
+   [Ada]          search_routines.adb
+search_routines.ads:26:03: warning: "Always_Terminates" is not a valid aspect identifier [enabled by default]
+   [Ada]          simple_moving_average_filters.adb
+spark-containers-functional-maps.ads:65:03: warning: "Always_Terminates" is not a valid aspect identifier [enabled by default]
+   [Ada]          recursive_moving_average_filters.adb
+spark-containers-functional-multisets.ads:45:03: warning: "Always_Terminates" is not a valid aspect identifier [enabled by default]
+   [Ada]          uniform_distribution.adb
+simple_moving_average_filters.ads:48:03: warning: "Always_Terminates" is not a valid aspect identifier [enabled by default]
+   [Ada]          normal_distribution.adb
+recursive_moving_average_filters.ads:51:03: warning: "Always_Terminates" is not a valid aspect identifier [enabled by default]
+   [Ada]          categorical_distribution.adb
+uniform_distribution.ads:20:03: warning: "Always_Terminates" is not a valid aspect identifier [enabled by default]
+   [Ada]          sorting_proof_utils.adb
+sort_routines.ads:32:03: warning: "Always_Terminates" is not a valid aspect identifier [enabled by default]
+sort_routines.ads:58:12: error: missing body for "Lemma_Perm_Preserved_After_Swapping" declared at permutation_utils.ads:106, instance at line 58
+normal_distribution.ads:21:03: warning: "Always_Terminates" is not a valid aspect identifier [enabled by default]
+categorical_distribution.ads:68:06: warning: "Side_Effects" is not a valid aspect identifier [enabled by default]
+categorical_distribution.ads:149:07: warning: "Ghost_Predicate" is not a valid aspect identifier [enabled by default]
+sorting_proof_utils.ads:37:03: warning: "Always_Terminates" is not a valid aspect identifier [enabled by default]
+
+   compilation of sort_routines.adb failed
+
+gprbuild: *** compilation phase failed
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "D:\a\alire-crates-ci\alire-crates-ci\test\6aef245f-25c7-450b-bc36-369219517f46\proven_components_1.2.0_e177c6c5\proven_components.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "D:\a\alire-crates-ci\alire-crates-ci\test\6aef245f-25c7-450b-bc36-369219517f46\proven_components_1.2.0_e177c6c5\proven_components.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+stderr: ALIRE.CHECKED_ERROR
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "D:\a\alire-crates-ci\alire-crates-ci\test\6aef245f-25c7-450b-bc36-369219517f46\proven_components_1.2.0_e177c6c5\proven_components.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
+[D:\a\alire-crates-ci\alire-crates-ci\alire_install\bin\alr.exe]
+0x7ff67aecda2a Semantic_Versioning.Basic.Restrictions.First_Index at alire.adb:284
+0x7ff67aac595b Semantic_Versioning.Basic.Restrictions.First_Index at alire-os_lib-subprocess.adb:111
+0x7ff67ad7cba1 Semantic_Versioning.Basic.Restrictions.First_Index at alire-spawn.adb:22
+0x7ff67ad7dd5d Semantic_Versioning.Basic.Restrictions.First_Index at alire-spawn.adb:68
+0x7ff67aca2d64 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:189
+0x7ff67aca11da Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:255
+0x7ff67acc912d Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2143
+0x7ff67ad382f9 Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1472
+0x7ff67ad37424 Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1555
+0x7ff67acc922c Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2147
+0x7ff67acc92fa Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2127
+0x7ff67aca17a7 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:286
+0x7ff67aca1912 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:114
+0x7ff67a413baa Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:145
+0x7ff67a41341e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:113
+0x7ff67a4135ba Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:54
+0x7ff67a4c5dea Semantic_Versioning.Basic.Restrictions.First_Index at clic-subcommand-instance.adb:749
+0x7ff67a4d2b0e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands.adb:632
+0x7ff67a3a16a0 Alr.Main at alr-main.adb:13
+0x7ff67a3a5270 Main at b__alr-main.adb:2454
+0x7ff67a3a133e __tmainCRTStartup at ???
+0x7ff67a3a1144 mainCRTStartup at ???
+[C:\Windows\System32\KERNEL32.DLL]
+0x7ffc17dde8d5
+[C:\Windows\SYSTEM32\ntdll.dll]
+0x7ffc1858c53a
+
+stderr: ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED
+stderr: alire-roots.adb:202
+stderr: raised ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED : alire-roots.adb:202
+[D:\a\alire-crates-ci\alire-crates-ci\alire_install\bin\alr.exe]
+0x7ff67aca313c Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:202
+0x7ff67aca11da Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:255
+0x7ff67acc912d Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2143
+0x7ff67ad382f9 Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1472
+0x7ff67ad37424 Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1555
+0x7ff67acc922c Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2147
+0x7ff67acc92fa Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2127
+0x7ff67aca17a7 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:286
+0x7ff67aca1912 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:114
+0x7ff67a413baa Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:145
+0x7ff67a41341e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:113
+0x7ff67a4135ba Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:54
+0x7ff67a4c5dea Semantic_Versioning.Basic.Restrictions.First_Index at clic-subcommand-instance.adb:749
+0x7ff67a4d2b0e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands.adb:632
+0x7ff67a3a16a0 Alr.Main at alr-main.adb:13
+0x7ff67a3a5270 Main at b__alr-main.adb:2454
+0x7ff67a3a133e __tmainCRTStartup at ???
+0x7ff67a3a1144 mainCRTStartup at ???
+[C:\Windows\System32\KERNEL32.DLL]
+0x7ffc17dde8d5
+[C:\Windows\SYSTEM32\ntdll.dll]
+0x7ffc1858c53a
+
+ERROR: Compilation failed.

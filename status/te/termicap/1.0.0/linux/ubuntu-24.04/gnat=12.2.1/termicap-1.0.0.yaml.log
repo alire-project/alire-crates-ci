@@ -1,0 +1,260 @@
+Test ran at 2026-05-12 13:02:34.495857+00:00
+
+SOLUTION:
+termicap=1.0.0: Cross-platform terminal capability detection (color, TTY, ...)
+Origin: commit bb43f2cf563ac29f45c91124eee859b76776764f from https://github.com/adarium-labs/termicap.git
+Properties:
+   Author: Heziode
+   Description: Cross-platform terminal capability detection (color, TTY, ...)
+   case OS is
+      when Windows => (empty)
+      when others => Environment: GPR_PROJECT_PATH=${CRATE_ROOT}/gpr:${GPR_PROJECT_PATH}
+   License: Apache-2.0 WITH LLVM-exception
+   Long_Description: Terminal capability detection for Ada/SPARK. Cross-platform, dependency-light, no rendering layer attached.
+
+Termicap exists to answer the handful of questions almost every CLI or TUI program has to ask before printing a single byte: is the stream a TTY, how many colors can the terminal handle, how wide is the window, can the locale render Unicode, *which* terminal is this (iTerm, kitty, WezTerm, Windows Terminal, ConPTY, tmux, screen, ...), does it speak OSC 8 hyperlinks or Sixel graphics or the Kitty keyboard protocol, and the question that overrides all the others, did the user already pass `NO_COLOR` or `FORCE_COLOR` or `--color=never`. The answers come back as plain Ada records and enums. Termicap does not emit escape sequences, render styled text, or pretend to be a TUI framework. It is meant to sit underneath whatever rendering layer you already have.
+
+## What it detects
+
+The base API gives you per-stream TTY booleans (stdin, stdout, stderr), the four canonical color levels (`None`, `Basic_16`, `Extended_256`, `True_Color`) via an 11-step cascade modelled on `supports-color`, `termenv`, and `rich`, terminal dimensions (`ioctl(TIOCGWINSZ)` on POSIX, `GetConsoleScreenBufferInfo` on Windows) with `SIGWINCH` resize notification via a self-pipe and protected object on POSIX, a Unicode support level (`None / Basic / Extended`) from locale, CI and terminal heuristics, terminal identity (multiplexers included) with a program name, the DA1 primary device attributes (VT level, capability flags), DECRPM mode reports through a batched single-sentinel probe, OSC 10/11 background and foreground color with a `COLORFGBG` fallback and a SPARK Gold dark/light classifier, and a passive OSC 8 hyperlink classification. Color responses are normalised to RGB; theme detection runs on luminance.
+
+The full API adds the active probes: XTVERSION terminal name and version, Kitty / XTerm-CSI / Legacy / Win32 keyboard protocol, `SGR_Pixels / SGR / URXVT / X10` mouse encoding (DECRPM-driven), Sixel and Kitty graphics flags (seeded by DA1 `Ps=4` and XTVERSION name tokens), and OSC 52 clipboard support (`Read / Write / Read_Write / None`). Hyperlinks classification is refined when XTVERSION confirms the terminal.
+
+A couple of standalone helpers come in the box: `wcwidth` / cell width with Unicode 3 / 13 / 16 tables and binary search (SPARK Gold, no FFI in the table layer); a Terminfo parser for header plus boolean / numeric / string entries (bounded, pure); and a process-wide `Override_Mode` (`Auto / Force_None / Force_Basic / Force_256 / Force_True_Color`) with a `Scoped_Override` controlled type for wiring `--color=auto | never | always | 256 | truecolor` straight into the detection engine.
+
+## Color downsampling
+
+Detection only tells you what the terminal can show. Picking a color the terminal can actually display is a separate problem, and that's what the companion `Termicap.Downsampling` package handles: it maps any color you want to emit down to the level the terminal supports (TrueColor -> 256-color -> ANSI 16, or strip to none). One overloaded `Downsample` dispatches on `RGB` or `Color_Index_256`; the primitive conversions (`Downsample_True_To_256`, `Downsample_True_To_16`, `Downsample_256_To_16`) are also exposed for the cases where the dispatch wrapper is overkill. The whole package is pure SPARK Gold with idempotency and monotonicity postconditions, no FFI, no allocation.
+
+## Architecture notes
+
+The detection logic is *written* against SPARK Silver (Gold for downsampling and cell width); FFI and tasking boundaries are isolated behind clearly marked `SPARK_Mode => Off` packages and C wrappers. The codebase has not yet been verified end-to-end with `gnatprove`. Running the prover and discharging the remaining VCs is on the to-do list, not a finished claim.
+
+There are two API tiers. `Get` and `Detect` give you a fast snapshot (sub-50 ms in the worst case). `Get_Full` and `Detect_Full` add the active probes; worst case is around 6 s if every probe times out, but a local PTY usually answers in well under 50 ms. `Get` is cached per stream and thread-safe; `Detect` always re-runs every sub-detector, which is the version you want after `SIGWINCH`, after the override changes, or anywhere a long-running process can't trust a stale snapshot.
+
+Linux, macOS, BSD, and Windows are all supported. Platform-specific bodies are dispatched via GPR `Source_Dirs`. The Windows layer classifies the console (`Legacy_Conhost`, `ConPTY_VT_Enabled`, `Not_A_Console`) and gates active probes accordingly; Cygwin / MSYS2 PTY handles are detected by inspecting the underlying named-pipe name through `NtQueryObject`.
+
+No exceptions are raised by library code. Errors come back as `Result` variants or safe defaults. Dependencies stay minimal: `sparklib` for the SPARK formal containers, plus `win32ada` on Windows only.
+
+## Quick start
+
+```ada
+with Ada.Text_IO;
+with Termicap.Capabilities;
+with Termicap.Color;
+
+procedure Hello is
+   Caps : constant Termicap.Capabilities.Terminal_Capabilities :=
+     Termicap.Capabilities.Get;
+begin
+   if Caps.TTY_Stdout
+     and then Caps.Color >= Termicap.Color.Extended_256
+   then
+      Ada.Text_IO.Put_Line
+        (ASCII.ESC & "[38;5;208mHello, 256-color world"
+         & ASCII.ESC & "[0m");
+   else
+      Ada.Text_IO.Put_Line ("Hello, monochrome world");
+   end if;
+end Hello;
+```
+
+The repository ships with a couple of dozen runnable demos in `examples/`, arc42-lite architecture docs in `docs/architecture/`, a Diátaxis-style user guide in `docs/guide/`, MADR-format ADRs in `docs/adr/`, StrictDoc-format requirements in `docs/requirements/`, and a cross-language conformance harness in `tools/conformance/` that cross-checks Termicap against reference shims in C, Go, Rust, Python, Node.js, Java, Haskell, Ruby, C#, and Swift.
+
+Licensed Apache-2.0 WITH LLVM-exception, which keeps it safe for static linking into closed-source binaries without forcing license propagation.
+
+   Maintainer: Quentin DAUPRAT (Heziode) <contact@adarium.dev>
+   Maintainers_Logins: heziode
+   Name: termicap
+   Tag: terminal
+   Tag: capability
+   Tag: detection
+   Tag: color
+   Tag: tty
+   Tag: is-tty
+   Tag: spark
+   Tag: cross-platform
+   Tag: windows
+   Tag: linux
+   Tag: macos
+   Tag: bsd
+   Version: 1.0.0
+   Website: https://github.com/adarium-labs/termicap
+Dependencies (direct):
+   case OS is
+      when Windows => win32ada^26.0.0
+   sparklib^15.1.0
+Dependencies (solution):
+   sparklib=15.1.0
+Dependencies (forbidden):
+   gnatprove<15
+Dependencies (graph):
+   termicap=1.0.0 --> sparklib=15.1.0 (^15.1.0)
+
+
+LOG:
+[alr test] Testing termicap=1.0.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get termicap=1.0.0
+Note: Deploying termicap=1.0.0...
+Note: Deploying sparklib=15.1.0...
+
+termicap=1.0.0 successfully retrieved.
+Dependencies were solved as follows:
+
+   + sparklib 15.1.0 (new)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Running post-fetch actions for sparklib=15.1.0...
+Note: Building termicap=1.0.0/termicap.gpr...
+Setup
+   [mkdir]        object directory for project SPARKlib_Internal
+   [mkdir]        object directory for project SPARKlib
+   [mkdir]        library directory for project Termicap
+shared.gpr:3:09: warning: there are no sources of language "Ada" in this project
+Compile
+   [Ada]          spark-big_intervals.ads
+   [Ada]          spark-lemmas.ads
+   [Ada]          spark-tests.ads
+   [Ada]          spark-containers-formal-hash_tables-generic_keys.adb
+   [Ada]          spark-containers-functional-multisets.adb
+   [Ada]          spark-containers-formal-ordered_maps.adb
+   [Ada]          spark-lemmas-fixed_point_arithmetic.adb
+spark-lemmas-fixed_point_arithmetic.ads:19:08: warning: "Always_Terminates" is not a valid aspect identifier [enabled by default]
+   [Ada]          spark-lemmas-arithmetic.adb
+   [Ada]          spark-c-strings.adb
+spark-lemmas-arithmetic.ads:26:08: warning: "Always_Terminates" is not a valid aspect identifier [enabled by default]
+   [Ada]          spark-containers-functional-base.adb
+spark-containers-functional-multisets.adb:28:46: error: expected a discrete type
+spark-containers-functional-multisets.adb:28:46: error: found private type "Ada.Numerics.Big_Numbers.Big_Integers.Big_Integer"
+spark-containers-functional-multisets.adb:44:42: error: expected a discrete type
+spark-containers-functional-multisets.adb:44:42: error: found private type "Ada.Numerics.Big_Numbers.Big_Integers.Big_Integer"
+spark-containers-functional-multisets.adb:51:46: error: expected a discrete type
+spark-containers-functional-multisets.adb:51:46: error: found private type "Ada.Numerics.Big_Numbers.Big_Integers.Big_Integer"
+spark-containers-functional-multisets.adb:84:42: error: expected a discrete type
+spark-containers-functional-multisets.adb:84:42: error: found private type "Ada.Numerics.Big_Numbers.Big_Integers.Big_Integer"
+spark-containers-functional-multisets.adb:178:42: error: expected a discrete type
+spark-containers-functional-multisets.adb:178:42: error: found private type "Ada.Numerics.Big_Numbers.Big_Integers.Big_Integer"
+spark-containers-functional-multisets.adb:191:42: error: expected a discrete type
+spark-containers-functional-multisets.adb:191:42: error: found private type "Ada.Numerics.Big_Numbers.Big_Integers.Big_Integer"
+spark-containers-functional-multisets.adb:218:44: error: expected a discrete type
+spark-containers-functional-multisets.adb:218:44: error: found private type "Ada.Numerics.Big_Numbers.Big_Integers.Big_Integer"
+spark-containers-functional-multisets.adb:257:47: error: expected a discrete type
+spark-containers-functional-multisets.adb:257:47: error: found private type "Ada.Numerics.Big_Numbers.Big_Integers.Big_Integer"
+spark-containers-functional-multisets.adb:283:47: error: expected a discrete type
+spark-containers-functional-multisets.adb:283:47: error: found private type "Ada.Numerics.Big_Numbers.Big_Integers.Big_Integer"
+spark-containers-functional-multisets.adb:354:06: error: expected private type "Ada.Numerics.Big_Numbers.Big_Integers.Big_Integer"
+spark-containers-functional-multisets.adb:354:06: error: found type universal integer
+spark-containers-functional-multisets.adb:399:44: error: expected a discrete type
+spark-containers-functional-multisets.adb:399:44: error: found private type "Ada.Numerics.Big_Numbers.Big_Integers.Big_Integer"
+spark-containers-functional-multisets.adb:499:44: error: expected a discrete type
+spark-containers-functional-multisets.adb:499:44: error: found private type "Ada.Numerics.Big_Numbers.Big_Integers.Big_Integer"
+spark-containers-functional-multisets.adb:603:44: error: expected a discrete type
+spark-containers-functional-multisets.adb:603:44: error: found private type "Ada.Numerics.Big_Numbers.Big_Integers.Big_Integer"
+spark-containers-functional-multisets.adb:1011:44: error: expected a discrete type
+spark-containers-functional-multisets.adb:1011:44: error: found private type "Ada.Numerics.Big_Numbers.Big_Integers.Big_Integer"
+spark-containers-functional-multisets.adb:1068:44: error: expected a discrete type
+spark-containers-functional-multisets.adb:1068:44: error: found private type "Ada.Numerics.Big_Numbers.Big_Integers.Big_Integer"
+spark-containers-functional-multisets.ads:30:11: error: aspect "Ghost" must apply to an object, package, subprogram or type
+spark-containers-functional-multisets.ads:32:11: error: aspect "Ghost" must apply to an object, package, subprogram or type
+spark-containers-functional-multisets.ads:35:11: error: aspect "Ghost" must apply to an object, package, subprogram or type
+spark-containers-functional-multisets.ads:39:03: warning: "Always_Terminates" is not a valid aspect identifier [enabled by default]
+spark-containers-functional-maps.ads:36:11: error: aspect "Ghost" must apply to an object, package, subprogram or type
+spark-containers-functional-maps.ads:38:11: error: aspect "Ghost" must apply to an object, package, subprogram or type
+spark-containers-functional-maps.ads:40:11: error: aspect "Ghost" must apply to an object, package, subprogram or type
+spark-containers-functional-maps.ads:46:11: error: aspect "Ghost" must apply to an object, package, subprogram or type
+spark-containers-functional-maps.ads:48:11: error: aspect "Ghost" must apply to an object, package, subprogram or type
+spark-containers-functional-maps.ads:50:11: error: aspect "Ghost" must apply to an object, package, subprogram or type
+spark-containers-functional-maps.ads:56:11: error: aspect "Ghost" must apply to an object, package, subprogram or type
+spark-containers-functional-maps.ads:58:11: error: aspect "Ghost" must apply to an object, package, subprogram or type
+spark-containers-functional-maps.ads:61:11: error: aspect "Ghost" must apply to an object, package, subprogram or type
+spark-c-strings.ads:25:03: warning: "Always_Terminates" is not a valid aspect identifier [enabled by default]
+spark-containers-formal-ordered_maps.ads:36:11: error: aspect "Ghost" must apply to an object, package, subprogram or type
+spark-containers-formal-ordered_maps.ads:38:11: error: aspect "Ghost" must apply to an object, package, subprogram or type
+spark-containers-formal-ordered_maps.ads:40:11: error: aspect "Ghost" must apply to an object, package, subprogram or type
+spark-containers-formal-ordered_maps.ads:46:11: error: aspect "Ghost" must apply to an object, package, subprogram or type
+spark-containers-formal-ordered_maps.ads:48:11: error: aspect "Ghost" must apply to an object, package, subprogram or type
+spark-containers-formal-ordered_maps.ads:50:11: error: aspect "Ghost" must apply to an object, package, subprogram or type
+spark-containers-formal-ordered_maps.ads:52:11: error: aspect "Ghost" must apply to an object, package, subprogram or type
+spark-containers-formal-ordered_maps.ads:56:03: warning: "Always_Terminates" is not a valid aspect identifier [enabled by default]
+spark-containers-formal-ordered_maps.ads:263:07: error: instantiation error at spark-containers-functional-maps.ads:73
+spark-containers-formal-ordered_maps.ads:263:07: error: equality operator appears too late
+spark-containers-functional-vectors.ads:29:11: error: aspect "Ghost" must apply to an object, package, subprogram or type
+spark-containers-functional-vectors.ads:31:11: error: aspect "Ghost" must apply to an object, package, subprogram or type
+spark-containers-functional-vectors.ads:33:11: error: aspect "Ghost" must apply to an object, package, subprogram or type
+spark-containers-functional-vectors.ads:39:11: error: aspect "Ghost" must apply to an object, package, subprogram or type
+spark-containers-functional-vectors.ads:41:11: error: aspect "Ghost" must apply to an object, package, subprogram or type
+spark-containers-functional-vectors.ads:44:11: error: aspect "Ghost" must apply to an object, package, subprogram or type
+spark-containers-functional-maps.ads:36:11: error: aspect "Ghost" must apply to an object, package, subprogram or type
+spark-containers-functional-maps.ads:38:11: error: aspect "Ghost" must apply to an object, package, subprogram or type
+spark-containers-functional-maps.ads:40:11: error: aspect "Ghost" must apply to an object, package, subprogram or type
+spark-containers-functional-maps.ads:46:11: error: aspect "Ghost" must apply to an object, package, subprogram or type
+spark-containers-functional-maps.ads:48:11: error: aspect "Ghost" must apply to an object, package, subprogram or type
+spark-containers-functional-maps.ads:50:11: error: aspect "Ghost" must apply to an object, package, subprogram or type
+spark-containers-functional-maps.ads:56:11: error: aspect "Ghost" must apply to an object, package, subprogram or type
+spark-containers-functional-maps.ads:58:11: error: aspect "Ghost" must apply to an object, package, subprogram or type
+spark-containers-functional-maps.ads:61:11: error: aspect "Ghost" must apply to an object, package, subprogram or type
+
+   compilation of spark-containers-formal-ordered_maps.adb failed
+   compilation of spark-containers-functional-multisets.adb failed
+
+gprbuild: *** compilation phase failed
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/35cd9f6f-66ff-4525-8c31-8c4f94157065/termicap_1.0.0_bb43f2cf/termicap.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/35cd9f6f-66ff-4525-8c31-8c4f94157065/termicap_1.0.0_bb43f2cf/termicap.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+stderr: ALIRE.CHECKED_ERROR
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/35cd9f6f-66ff-4525-8c31-8c4f94157065/termicap_1.0.0_bb43f2cf/termicap.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
+[/home/runner/work/alire-crates-ci/alire-crates-ci/alire_install/bin/alr]
+0xe75bc6 Alire.Raise_Checked_Error at alire.adb:284
+0xac1a54 Alire.Os_Lib.Subprocess.Checked_Spawn at alire-os_lib-subprocess.adb:111
+0xd40276 Alire.Spawn.Command at alire-spawn.adb:22
+0xd412ee Alire.Spawn.Gprbuild at alire-spawn.adb:68
+0xc748cb Alire.Roots.Build at alire-roots.adb:189
+0xc7301a Alire.Roots.Build at alire-roots.adb:255
+0xc9832b Alire.Roots.Traverse at alire-roots.adb:2143
+0xcfee85 Alire.Solutions.Traverse.Visit at alire-solutions.adb:1472
+0xcfdfcc Alire.Solutions.Traverse at alire-solutions.adb:1555
+0xc9841e Alire.Roots.Traverse at alire-roots.adb:2147
+0xc984dd Alire.Roots.Traverse at alire-roots.adb:2127
+0xc7359b Alire.Roots.Build at alire-roots.adb:286
+0xc736d7 Alire.Roots.Build at alire-roots.adb:114
+0x49aa0d Alr.Commands.Build.Execute at alr-commands-build.adb:145
+0x49a36d Alr.Commands.Build.Execute at alr-commands-build.adb:113
+0x49a51f Alr.Commands.Build.Execute at alr-commands-build.adb:54
+0x53bbcc Alr.Commands.Sub_Cmd.Execute at clic-subcommand-instance.adb:749
+0x5472be Alr.Commands.Execute at alr-commands.adb:632
+0x43d48a Alr.Main at alr-main.adb:13
+0x4403a3 Main at b__alr-main.adb:2445
+[/lib/x86_64-linux-gnu/libc.so.6]
+0x7ff7b4a2a1c8
+0x7ff7b4a2a289
+[/home/runner/work/alire-crates-ci/alire-crates-ci/alire_install/bin/alr]
+0x43d323 _start at ???
+0xfffffffffffffffe
+
+stderr: ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED
+stderr: alire-roots.adb:202
+stderr: raised ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED : alire-roots.adb:202
+[/home/runner/work/alire-crates-ci/alire-crates-ci/alire_install/bin/alr]
+0xc74cc7 Alire.Roots.Build at alire-roots.adb:202
+0xc7301a Alire.Roots.Build at alire-roots.adb:255
+0xc9832b Alire.Roots.Traverse at alire-roots.adb:2143
+0xcfee85 Alire.Solutions.Traverse.Visit at alire-solutions.adb:1472
+0xcfdfcc Alire.Solutions.Traverse at alire-solutions.adb:1555
+0xc9841e Alire.Roots.Traverse at alire-roots.adb:2147
+0xc984dd Alire.Roots.Traverse at alire-roots.adb:2127
+0xc7359b Alire.Roots.Build at alire-roots.adb:286
+0xc736d7 Alire.Roots.Build at alire-roots.adb:114
+0x49aa0d Alr.Commands.Build.Execute at alr-commands-build.adb:145
+0x49a36d Alr.Commands.Build.Execute at alr-commands-build.adb:113
+0x49a51f Alr.Commands.Build.Execute at alr-commands-build.adb:54
+0x53bbcc Alr.Commands.Sub_Cmd.Execute at clic-subcommand-instance.adb:749
+0x5472be Alr.Commands.Execute at alr-commands.adb:632
+0x43d48a Alr.Main at alr-main.adb:13
+0x4403a3 Main at b__alr-main.adb:2445
+[/lib/x86_64-linux-gnu/libc.so.6]
+0x7ff7b4a2a1c8
+0x7ff7b4a2a289
+[/home/runner/work/alire-crates-ci/alire-crates-ci/alire_install/bin/alr]
+0x43d323 _start at ???
+0xfffffffffffffffe
+
+ERROR: Compilation failed.

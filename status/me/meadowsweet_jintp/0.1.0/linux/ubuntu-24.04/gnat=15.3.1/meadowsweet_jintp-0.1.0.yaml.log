@@ -1,0 +1,108 @@
+Test ran at 2026-09-08 01:15:28.746140+00:00
+
+SOLUTION:
+meadowsweet_jintp=0.1.0: JinTP template renderer for Meadowsweet
+Origin: commit f979325d0e9d794ec38d1ddf9cf704750be4a082 from https://github.com/rehartmann/meadowsweet_jintp.git
+Properties:
+   Author: René Hartmann
+   Description: JinTP template renderer for Meadowsweet
+   License: Apache-2.0
+   Maintainer: René Hartmann <rhartmann@users.sourceforge.net>
+   Maintainers_Logins: rehartmann
+   Name: meadowsweet_jintp
+   Tag: web
+   Tag: mvc
+   Version: 0.1.0
+   Website: 
+Dependencies (direct):
+   jintp^1.0.1
+   meadowsweet*
+Dependencies (solution):
+   elada=1.8.8
+   gnat=15.3.1 (gnat_native)
+   gnatcoll=25.0.0
+   gnatcoll_sql=25.0.0
+   jintp=1.0.1
+   libgpr=25.0.0
+   meadowsweet=0.1.0
+   security=1.6.0
+   servletada=1.8.2
+   utilada=2.9.0
+   utilada_xml=2.9.0
+   xmlada=25.0.0
+Dependencies (graph):
+   elada=1.8.8             --> utilada=2.9.0 (^2.8.0)
+   gnatcoll=25.0.0         --> gnat=15.3.1 (gnat_native) (>=13)
+   gnatcoll=25.0.0         --> libgpr=25.0.0 (~25.0.0)
+   gnatcoll_sql=25.0.0     --> gnatcoll=25.0.0 (~25.0.0)
+   libgpr=25.0.0           --> gnat=15.3.1 (gnat_native) (/=2020)
+   libgpr=25.0.0           --> xmlada=25.0.0 (~25.0.0)
+   meadowsweet=0.1.0       --> gnat=15.3.1 (gnat_native) (^15)
+   meadowsweet=0.1.0       --> gnatcoll_sql=25.0.0 (^25.0.0)
+   meadowsweet=0.1.0       --> servletada=1.8.2 (^1.8.1)
+   meadowsweet_jintp=0.1.0 --> jintp=1.0.1 (^1.0.1)
+   meadowsweet_jintp=0.1.0 --> meadowsweet=0.1.0 (*)
+   security=1.6.0          --> utilada=2.9.0 (^2.9.0)
+   security=1.6.0          --> utilada_xml=2.9.0 (^2.9.0)
+   servletada=1.8.2        --> elada=1.8.8 (^1.8.5)
+   servletada=1.8.2        --> security=1.6.0 (^1.6.0)
+   servletada=1.8.2        --> utilada=2.9.0 (^2.9.0)
+   utilada_xml=2.9.0       --> utilada=2.9.0 (^2.9.0)
+   utilada_xml=2.9.0       --> xmlada=25.0.0 (^24.0|^25.0)
+   xmlada=25.0.0           --> gnat=15.3.1 (gnat_native) (>=11)
+
+
+LOG:
+[alr test] Testing meadowsweet_jintp=0.1.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get meadowsweet_jintp=0.1.0
+Note: Deploying meadowsweet_jintp=0.1.0...
+Note: Deploying jintp=1.0.1...
+Note: Deploying meadowsweet=0.1.0...
+
+meadowsweet_jintp=0.1.0 successfully retrieved.
+Dependencies were solved as follows:
+
+   +  elada        1.8.8  (new,indirect)
+   +b gnat         15.3.1 (new,gnat_native,indirect,binary)
+   +  gnatcoll     25.0.0 (new,indirect)
+   +  gnatcoll_sql 25.0.0 (new,indirect)
+   +  jintp        1.0.1  (new)
+   +  libgpr       25.0.0 (new,indirect)
+   +  meadowsweet  0.1.0  (new)
+   +  security     1.6.0  (new,indirect)
+   +  servletada   1.8.2  (new,indirect)
+   +  utilada      2.9.0  (new,indirect)
+   +  utilada_xml  2.9.0  (new,indirect)
+   +  xmlada       25.0.0 (new,indirect)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building meadowsweet_jintp=0.1.0/meadowsweet_jintp.gpr...
+Setup
+   [mkdir]        object directory for project Jintp
+   [mkdir]        library directory for project Jintp
+   [mkdir]        object directory for project Meadowsweet
+   [mkdir]        library directory for project Meadowsweet
+   [mkdir]        object directory for project Meadowsweet_Jintp
+   [mkdir]        library directory for project Meadowsweet_Jintp
+Compile
+   [Ada]          meadowsweet_config.ads
+   [Ada]          meadowsweet-persistence.adb
+   [Ada]          meadowsweet.adb
+   [Ada]          jintp_config.ads
+   [Ada]          jintp-scanner.adb
+   [Ada]          jintp-input.ads
+   [Ada]          jintp.adb
+   [Ada]          meadowsweet_jintp_config.ads
+   [Ada]          meadowsweet-jintp.adb
+Build Libraries
+   [gprlib]       Jintp.lexch
+   [archive]      libJintp.a
+   [gprlib]       Meadowsweet.lexch
+   [gprlib]       Meadowsweet_Jintp.lexch
+   [archive]      libMeadowsweet.a
+   [index]        libMeadowsweet.a
+   [index]        libJintp.a
+   [archive]      libMeadowsweet_Jintp.a
+   [index]        libMeadowsweet_Jintp.a
+Success: Build finished successfully in 29.67 seconds.
+Found declared GPR file: meadowsweet_jintp.gpr
+[alr test] Test completed SUCCESSFULLY

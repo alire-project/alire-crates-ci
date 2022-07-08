@@ -1,0 +1,158 @@
+Test ran at 2026-09-30 12:58:21.850371+00:00
+
+SOLUTION:
+espidf_mdns=0.1.0: Ada/ESP-IDF: mDNS bindings
+Origin: commit f05747c3e865def8290cfba0b90de448158bbcd8 from https://github.com/godunko/espidf_mdns.git
+Properties:
+   Author: Vadim Godunko
+   Configuration: no modifiers
+   Description: Ada/ESP-IDF: mDNS bindings
+   License: Apache-2.0 WITH LLVM-exception
+   Long_Description: Ada bindings for the mDNS (Multicast DNS) component from Espressif's ESP-Protocols
+(`espressif/mdns`).
+
+Covers initialization of the mDNS service and setting of the host name,
+so the device is reachable as `<hostname>.local` on the local network.
+
+   Maintainer: Vadim Godunko <vgodunko@gmail.com>
+   Maintainers_Logins: godunko
+   Name: espidf_mdns
+   Tag: a0b
+   Tag: embedded
+   Tag: esp
+   Tag: esp32
+   Tag: espidf
+   Tag: mdns
+   Version: 0.1.0
+   Website: https://github.com/godunko/espidf_mdns
+Dependencies (direct):
+   espidf^0.2.0
+Dependencies (solution):
+   a0b_base=0.5.0
+   espidf=0.2.0
+Dependencies (graph):
+   espidf=0.2.0      --> a0b_base=0.5.0 (^0.5.0)
+   espidf_mdns=0.1.0 --> espidf=0.2.0 (^0.2.0)
+
+
+LOG:
+[alr test] Testing espidf_mdns=0.1.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get espidf_mdns=0.1.0
+Note: Deploying espidf_mdns=0.1.0...
+Warning: Possible tilde intended instead of caret for a 0.x version.
+   Alire does not change the meaning of caret and tilde for pre/post-1.0 versions.
+   The suspicious dependency is: espidf^0.2.0
+   You can disable this warning by setting the option warning.caret to false.
+
+espidf_mdns=0.1.0 successfully retrieved.
+Dependencies were solved as follows:
+
+   + a0b_base 0.5.0 (new,indirect)
+   + espidf   0.2.0 (new)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building espidf_mdns=0.1.0/espidf_mdns.gpr...
+".objs\x86_64-windows\none" created
+".libs\x86_64-windows\none" created
+a0b-types-big_endian.adb:10:22: warning: "Unsigned_64" is already use-visible through previous use_type_clause
+[Archive]         liba0b_base.a
+[Ada Compile]     espidf-ada_esp_check_error.adb
+[Ada Compile]     espidf-c_strings.adb
+[Ada Compile]     espidf-driver.ads
+[Ada Compile]     espidf-hal.ads
+espidf.ads:19:36: "C_bool" not declared in "C"
+espidf.ads:63:56: aspect "STATIC" is an Ada 202x feature
+espidf.ads:63:56: compile with -gnat2020
+espidf.gpr: error: [Ada Compile] espidf-driver.ads (espidf.gpr) failed with status 1
+espidf-ada_esp_check_error.adb:45:19: target name is an Ada 2020 feature
+espidf-ada_esp_check_error.adb:45:19: unit must be compiled with -gnat2020 switch
+espidf-ada_esp_check_error.adb:49:19: target name is an Ada 2020 feature
+espidf-ada_esp_check_error.adb:49:19: unit must be compiled with -gnat2020 switch
+espidf.gpr: error: [Ada Compile] espidf-ada_esp_check_error.adb (espidf.gpr) failed with status 1
+espidf-c_strings.adb:267:20: target name is an Ada 2020 feature
+espidf-c_strings.adb:267:20: unit must be compiled with -gnat2020 switch
+espidf-c_strings.adb:296:28: target name is an Ada 2020 feature
+espidf-c_strings.adb:296:28: unit must be compiled with -gnat2020 switch
+espidf-c_strings.adb:297:28: target name is an Ada 2020 feature
+espidf-c_strings.adb:297:28: unit must be compiled with -gnat2020 switch
+espidf-c_strings.adb:323:25: target name is an Ada 2020 feature
+espidf-c_strings.adb:323:25: unit must be compiled with -gnat2020 switch
+espidf-c_strings.adb:324:25: target name is an Ada 2020 feature
+espidf-c_strings.adb:324:25: unit must be compiled with -gnat2020 switch
+espidf-c_strings.adb:337:28: target name is an Ada 2020 feature
+espidf-c_strings.adb:337:28: unit must be compiled with -gnat2020 switch
+espidf-c_strings.adb:338:28: target name is an Ada 2020 feature
+espidf-c_strings.adb:338:28: unit must be compiled with -gnat2020 switch
+espidf-c_strings.adb:368:28: target name is an Ada 2020 feature
+espidf-c_strings.adb:368:28: unit must be compiled with -gnat2020 switch
+espidf-c_strings.adb:369:28: target name is an Ada 2020 feature
+espidf-c_strings.adb:369:28: unit must be compiled with -gnat2020 switch
+espidf-c_strings.adb:388:28: target name is an Ada 2020 feature
+espidf-c_strings.adb:388:28: unit must be compiled with -gnat2020 switch
+espidf-c_strings.adb:389:28: target name is an Ada 2020 feature
+espidf-c_strings.adb:389:28: unit must be compiled with -gnat2020 switch
+espidf.gpr: error: [Ada Compile] espidf-c_strings.adb (espidf.gpr) failed with status 1
+espidf.ads:19:36: "C_bool" not declared in "C"
+espidf.ads:63:56: aspect "STATIC" is an Ada 202x feature
+espidf.ads:63:56: compile with -gnat2020
+espidf.gpr: error: [Ada Compile] espidf-hal.ads (espidf.gpr) failed with status 1
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "D:\a\alire-crates-ci\alire-crates-ci\test\cd39c7a1-eed7-47c7-9db0-d42eeb2f8d23\espidf_mdns_0.1.0_f05747c3\espidf_mdns.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "D:\a\alire-crates-ci\alire-crates-ci\test\cd39c7a1-eed7-47c7-9db0-d42eeb2f8d23\espidf_mdns_0.1.0_f05747c3\espidf_mdns.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+stderr: ALIRE.CHECKED_ERROR
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "D:\a\alire-crates-ci\alire-crates-ci\test\cd39c7a1-eed7-47c7-9db0-d42eeb2f8d23\espidf_mdns_0.1.0_f05747c3\espidf_mdns.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
+[D:\a\alire-crates-ci\alire-crates-ci\alire_install\bin\alr.exe]
+0x7ff79241da2a Semantic_Versioning.Basic.Restrictions.First_Index at alire.adb:284
+0x7ff79201595b Semantic_Versioning.Basic.Restrictions.First_Index at alire-os_lib-subprocess.adb:111
+0x7ff7922ccba1 Semantic_Versioning.Basic.Restrictions.First_Index at alire-spawn.adb:22
+0x7ff7922cdd5d Semantic_Versioning.Basic.Restrictions.First_Index at alire-spawn.adb:68
+0x7ff7921f2d64 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:189
+0x7ff7921f11da Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:255
+0x7ff79221912d Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2143
+0x7ff7922882f9 Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1472
+0x7ff792287424 Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1555
+0x7ff79221922c Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2147
+0x7ff7922192fa Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2127
+0x7ff7921f17a7 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:286
+0x7ff7921f1912 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:114
+0x7ff791963baa Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:145
+0x7ff79196341e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:113
+0x7ff7919635ba Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:54
+0x7ff791a15dea Semantic_Versioning.Basic.Restrictions.First_Index at clic-subcommand-instance.adb:749
+0x7ff791a22b0e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands.adb:632
+0x7ff7918f16a0 Alr.Main at alr-main.adb:13
+0x7ff7918f5270 Main at b__alr-main.adb:2454
+0x7ff7918f133e __tmainCRTStartup at ???
+0x7ff7918f1144 mainCRTStartup at ???
+[C:\Windows\System32\KERNEL32.DLL]
+0x7ffeb65fe985
+[C:\Windows\SYSTEM32\ntdll.dll]
+0x7ffeb798c53a
+
+stderr: ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED
+stderr: alire-roots.adb:202
+stderr: raised ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED : alire-roots.adb:202
+[D:\a\alire-crates-ci\alire-crates-ci\alire_install\bin\alr.exe]
+0x7ff7921f313c Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:202
+0x7ff7921f11da Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:255
+0x7ff79221912d Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2143
+0x7ff7922882f9 Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1472
+0x7ff792287424 Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1555
+0x7ff79221922c Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2147
+0x7ff7922192fa Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2127
+0x7ff7921f17a7 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:286
+0x7ff7921f1912 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:114
+0x7ff791963baa Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:145
+0x7ff79196341e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:113
+0x7ff7919635ba Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:54
+0x7ff791a15dea Semantic_Versioning.Basic.Restrictions.First_Index at clic-subcommand-instance.adb:749
+0x7ff791a22b0e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands.adb:632
+0x7ff7918f16a0 Alr.Main at alr-main.adb:13
+0x7ff7918f5270 Main at b__alr-main.adb:2454
+0x7ff7918f133e __tmainCRTStartup at ???
+0x7ff7918f1144 mainCRTStartup at ???
+[C:\Windows\System32\KERNEL32.DLL]
+0x7ffeb65fe985
+[C:\Windows\SYSTEM32\ntdll.dll]
+0x7ffeb798c53a
+
+ERROR: Compilation failed.

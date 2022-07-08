@@ -1,0 +1,385 @@
+badge: false
+crate: distance
+creation_timestamp: 1764591850.496612
+distro: darwin-24.6.0
+duration: 5.549150999999938
+gnat: 13.2.2
+last_attempt: 2025-12-03 00:54:30.179125+00:00
+log:
+- 'Test ran at 2025-12-03 00:54:30.178910+00:00
+
+
+  '
+- 'SOLUTION:
+
+  '
+- 'distance=0.1.0: A formally verified library for calculating numeric, text distances
+
+  '
+- 'Origin: commit e265e32656db1284ef750cbd473db95424e5b215 from https://github.com/adarium-labs/distance.git
+
+  '
+- 'Properties:
+
+  '
+- '   Author: Heziode
+
+  '
+- '   Description: A formally verified library for calculating numeric, text distances
+
+  '
+- '   License: Apache-2.0 WITH LLVM-exception
+
+  '
+- '   Long_Description: # Distance
+
+  '
+- '
+
+  '
+- 'A formally verified Ada/SPARK library for computing distance and similarity metrics.
+
+  '
+- '
+
+  '
+- '## Features
+
+  '
+- '
+
+  '
+- '- **Numeric Distances**: Euclidean, Manhattan, Minkowski, Chebyshev, Canberra
+
+  '
+- '- **Statistical Measures**: Cosine Similarity
+
+  '
+- "- **Text Distances**: Levenshtein, Damerau-Levenshtein, Hamming, Jaro-Winkler,\
+  \ S\xF8rensen-Dice\n"
+- '
+
+  '
+- '## Highlights
+
+  '
+- '
+
+  '
+- '- Pure Ada 2012 with SPARK annotations
+
+  '
+- '- Generic implementations for flexible type support
+
+  '
+- '- No external dependencies (test suite uses AUnit)
+
+  '
+- '- Comprehensive preconditions and postconditions
+
+  '
+- '
+
+  '
+- '## Usage
+
+  '
+- '
+
+  '
+- '```ada
+
+  '
+- 'with Ada.Numerics.Elementary_Functions;
+
+  '
+- 'with Distance.Numeric.Signatures;
+
+  '
+- 'with Distance.Numeric.Euclidean_Generic;
+
+  '
+- '
+
+  '
+- 'procedure Example is
+
+  '
+- '   type Float_Vector is array (Positive range <>) of Float;
+
+  '
+- '
+
+  '
+- '   package Float_Math is new Ada.Numerics.Elementary_Functions (Float);
+
+  '
+- '   package Float_Sig is new Distance.Numeric.Signatures
+
+  '
+- '     (Element_Type => Float,
+
+  '
+- '      Zero         => 0.0,
+
+  '
+- '      One          => 1.0,
+
+  '
+- '      Sqrt         => Float_Math.Sqrt,
+
+  '
+- '      "**"         => Float_Math."**",
+
+  '
+- '      Max_Element  => Float''Last);
+
+  '
+- '
+
+  '
+- '   function Euclidean is new Distance.Numeric.Euclidean_Generic
+
+  '
+- '     (Numeric_Ops => Float_Sig, Index_Type => Positive, Vector => Float_Vector);
+
+  '
+- '
+
+  '
+- '   D : Float := Euclidean ((0.0, 0.0), (3.0, 4.0));  --  D = 5.0
+
+  '
+- 'begin
+
+  '
+- '   null;
+
+  '
+- 'end Example;
+
+  '
+- '```
+
+  '
+- '
+
+  '
+- 'For fixed-point and integer types, you can use [Spark_Math](https://github.com/adarium-labs/spark_math)
+  to provide the required operations.
+
+  '
+- '
+
+  '
+- '   Maintainer: Heziode <heziode@protonmail.com>
+
+  '
+- '   Maintainers_Logins: heziode
+
+  '
+- '   Name: distance
+
+  '
+- '   Tag: ada
+
+  '
+- '   Tag: spark
+
+  '
+- '   Tag: distance
+
+  '
+- '   Tag: metrics
+
+  '
+- '   Tag: algorithms
+
+  '
+- '   Tag: mathematics
+
+  '
+- '   Tag: string
+
+  '
+- '   Tag: similarity
+
+  '
+- '   Tag: levenshtein
+
+  '
+- '   Tag: geospatial
+
+  '
+- '   Tag: high-integrity
+
+  '
+- '   Tag: alire
+
+  '
+- '   Tag: data-science
+
+  '
+- '   Version: 0.1.0
+
+  '
+- "   Website: \n"
+- '
+
+  '
+- '
+
+  LOG:
+
+  '
+- '[alr test] Testing distance=0.1.0
+
+  '
+- '[alr test] Spawning retrieval for remote crate: alr -d -n get distance=0.1.0
+
+  '
+- 'Note: Deploying distance=0.1.0...
+
+  '
+- '
+
+  '
+- 'distance=0.1.0 successfully retrieved.
+
+  '
+- 'There are no dependencies.
+
+  '
+- '[alr test] Spawning default test for remote crate: alr -d -n build --release --
+  -cargs:Ada -gnatwn
+
+  '
+- 'Note: Building distance=0.1.0/distance.gpr...
+
+  '
+- 'Setup
+
+  '
+- '   [mkdir]        object directory for project Distance
+
+  '
+- '   [mkdir]        library directory for project Distance
+
+  '
+- 'Compile
+
+  '
+- '   [Ada]          distance_config.ads
+
+  '
+- '   [Ada]          distance-textual-damerau_levenshtein.adb
+
+  '
+- '   [Ada]          distance-statistical-cosine_similarity_generic.adb
+
+  '
+- 'distance-statistical-cosine_similarity_generic.adb:27:07: error: pragma "Loop_Invariant"
+  must appear next to pragma at line 20
+
+  '
+- 'distance-statistical-cosine_similarity_generic.adb:34:07: error: pragma "Loop_Invariant"
+  must appear next to pragma at line 20
+
+  '
+- 'distance-statistical-cosine_similarity_generic.adb:41:07: error: pragma "Loop_Invariant"
+  must appear next to pragma at line 20
+
+  '
+- 'distance-statistical-cosine_similarity_generic.adb:48:07: error: pragma "Loop_Invariant"
+  must appear next to pragma at line 20
+
+  '
+- 'distance-textual-damerau_levenshtein.adb:106:16: error: pragma "Loop_Invariant"
+  must appear next to pragma at line 99
+
+  '
+- 'distance-textual-damerau_levenshtein.adb:113:16: error: pragma "Loop_Invariant"
+  must appear next to pragma at line 99
+
+  '
+- 'distance-textual-damerau_levenshtein.adb:133:10: error: pragma "Loop_Invariant"
+  must appear next to pragma at line 126
+
+  '
+- '
+
+  '
+- '   compilation of distance-statistical-cosine_similarity_generic.adb failed
+
+  '
+- '   compilation of distance-textual-damerau_levenshtein.adb failed
+
+  '
+- '
+
+  '
+- 'gprbuild: *** compilation phase failed
+
+  '
+- 'stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/Users/runner/work/alire-crates-ci/alire-crates-ci/test/76266db6-9da1-4785-acc2-c7defa430e48/distance_0.1.0_e265e326/distance.gpr",
+  "-cargs:Ada", "-gnatwn"] exited with code 4
+
+  '
+- 'ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/Users/runner/work/alire-crates-ci/alire-crates-ci/test/76266db6-9da1-4785-acc2-c7defa430e48/distance_0.1.0_e265e326/distance.gpr",
+  "-cargs:Ada", "-gnatwn"] exited with code 4
+
+  '
+- 'stderr: ALIRE.CHECKED_ERROR
+
+  '
+- 'stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/Users/runner/work/alire-crates-ci/alire-crates-ci/test/76266db6-9da1-4785-acc2-c7defa430e48/distance_0.1.0_e265e326/distance.gpr",
+  "-cargs:Ada", "-gnatwn"] exited with code 4
+
+  '
+- 'stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
+
+  '
+- 'Load address: 0x104c70000
+
+  '
+- 'Call stack traceback locations:
+
+  '
+- '0x10597c0cc 0x10597c12c 0x1056d066c 0x105315568 0x10559a594 0x10559b4f4 0x1054d933c
+  0x1054d7b08 0x1054fb78c 0x10555b56c 0x10555a99c 0x1054fb868 0x1054fb950 0x1054d800c
+  0x1054d8174 0x104ce1730 0x104ce1070 0x104ce11e4 0x104d7eb38 0x104d89c78 0x104c729f8
+  0x104c77a2c
+
+  '
+- '
+
+  '
+- 'stderr: ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED
+
+  '
+- 'stderr: alire-roots.adb:202
+
+  '
+- 'stderr: raised ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED : alire-roots.adb:202
+
+  '
+- 'Load address: 0x104c70000
+
+  '
+- 'Call stack traceback locations:
+
+  '
+- '0x10597c0cc 0x10597c12c 0x1054d9640 0x1054d7b08 0x1054fb78c 0x10555b56c 0x10555a99c
+  0x1054fb868 0x1054fb950 0x1054d800c 0x1054d8174 0x104ce1730 0x104ce1070 0x104ce11e4
+  0x104d7eb38 0x104d89c78 0x104c729f8 0x104c77a2c
+
+  '
+- '
+
+  '
+- 'ERROR: Compilation failed.
+
+  '
+platform: macos
+status: failing
+version: 0.1.0

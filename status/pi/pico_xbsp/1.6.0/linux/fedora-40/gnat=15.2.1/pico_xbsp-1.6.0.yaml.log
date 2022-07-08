@@ -1,0 +1,117 @@
+Test ran at 2026-05-08 01:31:49.684148+00:00
+
+SOLUTION:
+pico_xbsp=1.6.0: Extended board support package for Raspberry Pi Pico
+Origin: source archive pico_xbsp-1.6.0.tgz at https://sourceforge.net/projects/pi-ada-tutorial/files/Alire/pico_xbsp-1.6.0.tgz with hashes sha256:907ff0a34e782049d67483c34d7c5da628921a562f83219eddd33ef3d37b40c1, sha512:b40adbd2c0653a644cd5f1465b30ded07702cf78720d215978cda23d0c373bdd7b751d9c1e0c3732a639f7254b3b7fe0d289cc22211bda1285b5fd9050b4761d
+Properties:
+   Author: Martin Krischik <krischik@users.sourceforge.net>
+   Build Switches: 
+   Description: Extended board support package for Raspberry Pi Pico
+   License: GPL-3.0-or-later
+   Long_Description: Extended board support package (XBSP) for the Raspberry Pi Pico.
+
+This crate extends the official pico_bsp from Jeremy Grosser with additional, reusable components. It is designed for
+general use in any Ada project targeting the RP2040-based Raspberry Pi Pico and is not limited to the Pi Ada Tutorial.
+
+It is developed in parallel with the [Pi Ada Tutorial](https://pi-ada-tutorial.sourceforge.io/) and therefore also
+supplies the exact support packages used in the tutorial chapters. This dual role makes pico_xbsp equally suitable for:
+
+* Standalone embedded Ada projects that only need the extra functionality, and * Readers following the tutorial who want
+ready-made, well-documented building blocks.
+
+Current content:
+
+1. Pico.Analog		- Analogue GPIO using Pulse Width Modulation (PWM).
+1. Pico.Analog.RGB_LED	- Analogue RGB LED control using Pulse Width Modulation (PWM).
+2. Pico.UART_IO		- UART Text Output (Input comes later).
+
+All packages are supplied with complete GNATDOC annotations.
+
+* [GNATdoc documentation](https://pi-ada-tutorial.sourceforge.io/gnatdoc/)
+* [SourceForge repository](https://sourceforge.net/projects/pi-ada-tutorial/)
+
+The crate will grow with each new tutorial chapter while remaining a clean, independent library.
+
+   Maintainer: Martin Krischik <krischik@users.sourceforge.net>
+   Maintainers_Logins: krischik
+   Name: pico_xbsp
+   Tag: raspberry
+   Tag: pi
+   Tag: pico
+   Tag: rp2040
+   Tag: tasking
+   Tag: light-tasking
+   Tag: ada2022
+   Tag: embedded
+   Version: 1.6.0
+   Website: https://pi-ada-tutorial.sourceforge.io/
+Dependencies (direct):
+   pico_bsp^2.2
+Dependencies (solution):
+   atomic=1.1.0
+   bbqueue=1.0.0
+   cortex_m=1.1.0
+   gnat=15.2.1 (gnat_arm_elf)
+   gnat_arm_elf=15.2.1
+   hal=1.0.0
+   pico_bsp=2.2.0
+   rp2040_hal=2.7.1
+   usb_embedded=1.0.1
+Dependencies (graph):
+   bbqueue=1.0.0      --> atomic=1.1.0 (^1.0.0)
+   bbqueue=1.0.0      --> gnat=15.2.1 (gnat_arm_elf) (>=10)
+   cortex_m=1.1.0     --> gnat_arm_elf=15.2.1 (>=12)
+   cortex_m=1.1.0     --> hal=1.0.0 (~0.3 | ^1.0.0)
+   pico_bsp=2.2.0     --> rp2040_hal=2.7.1 (^2)
+   pico_xbsp=1.6.0    --> pico_bsp=2.2.0 (^2.2)
+   rp2040_hal=2.7.1   --> atomic=1.1.0 (^1)
+   rp2040_hal=2.7.1   --> cortex_m=1.1.0 (^1)
+   rp2040_hal=2.7.1   --> gnat_arm_elf=15.2.1 (>=14 & /=15.1.2)
+   rp2040_hal=2.7.1   --> hal=1.0.0 (^1)
+   rp2040_hal=2.7.1   --> usb_embedded=1.0.1 (^1)
+   usb_embedded=1.0.1 --> bbqueue=1.0.0 (^1.0.0)
+   usb_embedded=1.0.1 --> hal=1.0.0 (^1.0.0)
+
+
+LOG:
+[alr test] Testing pico_xbsp=1.6.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get pico_xbsp=1.6.0
+Note: Deploying pico_xbsp=1.6.0...
+
+######################################################################## 100.0%
+######################################################################## 100.0%
+######################################################################## 100.0%
+######################################################################## 100.0%
+#=#=#                                                                          
+######################################################################## 100.0%
+
+pico_xbsp=1.6.0 successfully retrieved.
+Dependencies were solved as follows:
+
+   +  atomic       1.1.0  (new,indirect)
+   +  bbqueue      1.0.0  (new,indirect)
+   +  cortex_m     1.1.0  (new,indirect)
+   +b gnat         15.2.1 (new,gnat_arm_elf,indirect,binary)
+   +b gnat_arm_elf 15.2.1 (new,indirect,binary)
+   +  hal          1.0.0  (new,indirect)
+   +  pico_bsp     2.2.0  (new)
+   +  rp2040_hal   2.7.1  (new,indirect)
+   +  usb_embedded 1.0.1  (new,indirect)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building pico_xbsp=1.6.0/pico_xbsp.gpr...
+Setup
+   [mkdir]        object directory for project Pico_XBSP
+   [mkdir]        library directory for project Pico_XBSP
+Compile
+   [Ada]          pico_xbsp_config.ads
+   [Ada]          pico-analog.adb
+   [Ada]          pico-utils.adb
+   [Ada]          pico-analog-rgb_led.adb
+   [Ada]          pico-uart_io.adb
+Build Libraries
+   [gprlib]       Pico_XBSP.lexch
+   [archive]      libPico_XBSP.a
+   [index]        libPico_XBSP.a
+Success: Build finished successfully in 0.92 seconds.
+Found declared GPR file: pico_xbsp.gpr
+[alr test] Test completed SUCCESSFULLY

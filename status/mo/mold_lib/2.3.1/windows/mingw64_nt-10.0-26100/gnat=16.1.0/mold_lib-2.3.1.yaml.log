@@ -1,0 +1,143 @@
+Test ran at 2026-08-27 16:20:30.998324+00:00
+
+SOLUTION:
+mold_lib=2.3.1: Meta-variable Operations for Lean Development (lib)
+Origin: commit 4102d93fefbb39e6b454be79bb35a61835d46a99 from https://github.com/rocher/mold_lib.git
+Properties:
+   Author: Francesc Rocher
+   Build Switches: 
+   Description: Meta-variable Operations for Lean Development (lib)
+   License: MIT
+   Long_Description: [![Alire](https://img.shields.io/endpoint?url=https://alire.ada.dev/badges/mold_lib.json)](https://alire.ada.dev/crates/mold_lib.html)
+[![Alire CI/CD](https://img.shields.io/endpoint?url=https://alire-crate-ci.ada.dev/badges/mold_lib.json)](https://alire-crate-ci.ada.dev/crates/mold_lib.html)
+![unit-test](https://github.com/rocher/mold_lib/actions/workflows/unit-test.yml/badge.svg)
+[![codecov](https://codecov.io/gh/rocher/mold_lib/graph/badge.svg?token=LB83SI4I0Y)](https://codecov.io/gh/rocher/mold_lib)
+[![GitHub release](https://img.shields.io/github/release/rocher/mold_lib.svg)](https://github.com/rocher/mold_lib/releases/latest)
+[![License](https://img.shields.io/github/license/rocher/mold_lib.svg?color=blue)](https://github.com/rocher/mold_lib/blob/master/LICENSE)
+
+## Welcome to **Mold (lib)**
+
+> **MOLD**: *Meta-variable Operations for Lean Development*
+
+Mold is a Template Processor, or Template Engine, to work with repository
+templates. The main motivation of Mold is to have repositories in GitHub used
+as template repositories to create new, customized repositories for other
+users.
+
+Main features supported in Mold include
+
+  * variable replacement in mold files (*.mold)
+
+  * for a given directory, variable replacement recursively for all mold files
+    in all subdirectories
+
+  * variable replacement in file names
+
+  * inclusion of other templates
+
+  * definition of variables with a simple TOML file
+
+  * predefined and custom text filters to easy text transformations
+
+  * predefined variables to use in templates
+
+  * support for optional and mandatory variables
+
+  * support for custom filters and variables
+
+Variable replacement can be specified as *normal*, *optional* or *mandatory*.
+For example, the variable `foo = "bar"` can be specified with `{{foo}}`,
+`{{?foo}}` (optional) or `{{#foo}}` (mandatory). The difference is the handling
+of errors when an undefined variable is encountered.
+
+All mold files must end with the extension `.mold`, for example
+`README.md.mold`. Destination files (with variables replaced) have the same
+name without the mold extension: `README.md`. This simplifies the work done in
+large subdirectories with few templates.
+
+This crate contains the Ada library and unit tests. For a CLI tool, please
+take a look at the crate `mold`.
+
+## Reference Guide
+
+Please visit [Mold documentation](https://rocher.github.io/mold) for more
+information.
+
+---
+## License
+MIT (c) 2023-2025 Francesc Rocher
+
+   Maintainer: Francesc Rocher <francesc.rocher@gmail.com>
+   Maintainers_Logins: rocher
+   Name: mold_lib
+   Tag: template
+   Tag: template-engine
+   Tag: template-repo
+   Version: 2.3.1
+   Website: https://rocher.github.io/mold
+Dependencies (direct):
+   ada_toml~0.3.0
+   gnat>=2021 | (>=12 & <2000)
+   simple_logging^1.2.0
+Dependencies (solution):
+   ada_toml=0.3.0
+   gnat=16.1.0 (gnat_native)
+   simple_logging=1.2.0
+Dependencies (graph):
+   mold_lib=2.3.1 --> ada_toml=0.3.0 (~0.3.0)
+   mold_lib=2.3.1 --> gnat=16.1.0 (gnat_native) (>=2021 | (>=12 & <2000))
+   mold_lib=2.3.1 --> simple_logging=1.2.0 (^1.2.0)
+
+
+LOG:
+[alr test] Testing mold_lib=2.3.1
+[alr test] Spawning retrieval for remote crate: alr -d -n get mold_lib=2.3.1
+Note: Deploying mold_lib=2.3.1...
+Note: Deploying ada_toml=0.3.0...
+
+#=#=#                                                                          
+##O#-#                                                                         
+Note: Deploying simple_logging=1.2.0...
+
+mold_lib=2.3.1 successfully retrieved.
+Dependencies were solved as follows:
+
+   +  ada_toml       0.3.0  (new)
+   +b gnat           16.1.0 (new,gnat_native,binary)
+   +  simple_logging 1.2.0  (new)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building mold_lib=2.3.1/mold_lib.gpr...
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\ada_toml_0.3.0_862d230b\a56a6c9c04c86821f012885a8bb8a96070705d7c56b51a428ef014170747755d\obj\static\prod" created
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\ada_toml_0.3.0_862d230b\a56a6c9c04c86821f012885a8bb8a96070705d7c56b51a428ef014170747755d\lib\static\prod" created
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\simple_logging_1.2.0_506f0bb3\724cf5f79f2342f037b6f8c3a43ccdf375bd5b2882cbae77638b0359b23ef48a\obj" created
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\simple_logging_1.2.0_506f0bb3\724cf5f79f2342f037b6f8c3a43ccdf375bd5b2882cbae77638b0359b23ef48a\lib" created
+"obj\release" created
+"lib" created
+[Ada Compile]     toml-file_io.adb
+[Ada Compile]     toml-generic_dump.adb
+[Ada Compile]     toml-generic_parse.adb
+[Ada Compile]     toml.adb
+[Ada Compile]     simple_logging-decorators.adb
+[Ada Compile]     simple_logging-filtering.adb
+[Ada Compile]     simple_logging-support.adb
+[Ada Compile]     simple_logging.adb
+[Ada Compile]     log_exceptions.adb
+[Ada Compile]     log_wrapper.ads
+[Ada Compile]     mold_lib-impl-directory.adb
+[Ada Compile]     mold_lib-impl-file.adb
+[Ada Compile]     mold_lib-impl-text.adb
+[Archive]         libsimple_logging.a
+[Ada Compile]     mold_lib-impl-validation.adb
+[Ada Compile]     mold_lib-impl-variables.adb
+[Ada Compile]     mold_lib-impl.adb
+[Ada Compile]     mold_lib.adb
+[Ada Compile]     mold_lib_config.ads
+[Ada Compile]     text_filters.adb
+[Ada Compile]     text_filters_custom.ads
+[Ada Compile]     text_filters_data.ads
+[Ada Compile]     text_filters_predefined.adb
+[Archive]         libmold.a
+[Archive]         libada_toml.a
+Success: Build finished successfully in 11.91 seconds.
+Found declared GPR file: mold_lib.gpr
+[alr test] Test completed SUCCESSFULLY

@@ -1,0 +1,128 @@
+Test ran at 2025-02-22 12:35:42.092136+00:00
+
+SOLUTION:
+octet_memory_stream=1.1.0: Provides a Root_Stream_Type wrapper over an array of octets in memory.
+Origin: commit 54ecee472e8f78ab6d09df59f48bcca548364ee3 from https://github.com/Bread-Experts-Group/octet_memory_stream.git
+Properties:
+   Author: Miko Elbrecht
+   Description: Provides a Root_Stream_Type wrapper over an array of octets in memory.
+   License: Apache-2.0 WITH LLVM-exception
+   Long_Description: `octet_memory_stream` provides a standalone `Ada.Streams.Root_Stream_Type`
+wrapper around an `Octet_Array` (array of 8-bit bytes,) primarily for the
+purpose of protecting an over-arching stream from misalignment while reading
+from, or writing to, e.g., a file format.
+
+If the `Memory_Stream` detects an out-of-bounds error as the result of a read
+or write operation, an `Out_Of_Bounds_Error` exception will be raised.
+
+Example Use
+-----------
+All pertinent types and subprograms are available within the package 
+`Octet_Memory_Stream`. Wrapping an `Octet_Array` is done through the
+`To_Stream` function.
+```ada
+pragma Ada_2022;
+
+with Ada.Text_IO;
+with Ada.Streams.Stream_IO;
+use  Ada.Streams.Stream_IO;
+with Octet_Memory_Stream;
+
+procedure TestDemo is
+   F                : File_Type;
+   Protected_Stream : Stream_Access;
+   Memory_Stream    : Octet_Memory_Stream.Stream_Access;
+begin
+   Open (F, In_File, "example");
+   Protected_Stream := Stream (F);
+   declare
+      Data : Octet_Memory_Stream.Octet_Array (1 .. 50);
+   begin
+      Octet_Memory_Stream.Octet_Array'Read (Protected_Stream, Data);
+      Memory_Stream := Octet_Memory_Stream.To_Stream (Data);
+   end;
+   declare
+      OK_Data  : Octet_Memory_Stream.Octet_Array (1 .. 25);
+      OOB_Data : Octet_Memory_Stream.Octet_Array (1 .. 26);
+   begin
+      Octet_Memory_Stream.Octet_Array'Read (Memory_Stream, OK_Data);
+      Ada.Text_IO.Put_Line (OK_Data'Image);
+
+      Octet_Memory_Stream.Octet_Array'Read (Memory_Stream, OOB_Data);
+      --  exception raised above
+      Ada.Text_IO.Put_Line (OOB_Data'Image);
+   end;
+   Close (F);
+end TestDemo;
+```
+
+   Maintainer: Miko Elbrecht <pmt.mailservice@gmail.com>
+   Maintainers_Logins: ATPStorages
+   Name: octet_memory_stream
+   Tag: octet
+   Tag: byte
+   Tag: buffer
+   Tag: stream
+   Tag: ada
+   Tag: streams
+   Tag: memory
+   Version: 1.1.0
+   Website: https://github.com/Bread-Experts-Group/octet_memory_stream
+
+
+LOG:
+Spawning: alr -d -n get --build octet_memory_stream=1.1.0
+Note: Deploying octet_memory_stream=1.1.0...
+Note: Building octet_memory_stream=1.1.0/octet_memory_stream.gpr...
+Setup
+   [mkdir]        object directory for project Octet_Memory_Stream
+   [mkdir]        library directory for project Octet_Memory_Stream
+Compile
+   [Ada]          octet_memory_stream_config.ads
+completed 1 out of 2 (50%)...
+   [Ada]          octet_memory_stream.adb
+gnat1: invalid switch: -gnatw_q
+completed 2 out of 2 (100%)...
+gnat1: invalid switch: -gnatw_q
+
+   compilation of octet_memory_stream.adb failed
+   compilation of octet_memory_stream_config.ads failed
+
+gprbuild: *** compilation phase failed
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/8a502504-bc68-4d35-bdb8-6250e6edbaa4/octet_memory_stream_1.1.0_54ecee47/octet_memory_stream.gpr"] exited with code 4
+ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/8a502504-bc68-4d35-bdb8-6250e6edbaa4/octet_memory_stream_1.1.0_54ecee47/octet_memory_stream.gpr"] exited with code 4
+stderr: ALIRE.CHECKED_ERROR
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/8a502504-bc68-4d35-bdb8-6250e6edbaa4/octet_memory_stream_1.1.0_54ecee47/octet_memory_stream.gpr"] exited with code 4
+stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
+[/home/runner/work/alire-crates-ci/alire-crates-ci/alire_install/bin/alr]
+0xe16f5e Alire.Raise_Checked_Error at alire.adb:284
+0xa845be Alire.Os_Lib.Subprocess.Checked_Spawn at alire-os_lib-subprocess.adb:111
+0xcef7be Alire.Spawn.Command at alire-spawn.adb:21
+0xcefdde Alire.Spawn.Gprbuild at alire-spawn.adb:41
+0xc31d1f Alire.Roots.Build at alire-roots.adb:186
+0xc304da Alire.Roots.Build at alire-roots.adb:252
+0xc53d6f Alire.Roots.Traverse at alire-roots.adb:2075
+0xcba1fd Alire.Solutions.Traverse.Visit at alire-solutions.adb:1480
+0xcb9344 Alire.Solutions.Traverse at alire-solutions.adb:1563
+0xc53e62 Alire.Roots.Traverse at alire-roots.adb:2079
+0xc53f21 Alire.Roots.Traverse at alire-roots.adb:2059
+0xc30a46 Alire.Roots.Build at alire-roots.adb:283
+0xc30b2b Alire.Roots.Build at alire-roots.adb:111
+0x4a5e38 Alr.Commands.Get.Retrieve at alr-commands-get.adb:205
+0x4a94f3 Alr.Commands.Get.Execute at alr-commands-get.adb:378
+0x4a96a1 Alr.Commands.Get.Execute at alr-commands-get.adb:256
+0x533c96 Alr.Commands.Sub_Cmd.Execute at clic-subcommand-instance.adb:749
+0x53eff7 Alr.Commands.Execute at alr-commands.adb:561
+0x43953a Alr.Main at alr-main.adb:13
+0x43c1d3 Main at b__alr-main.adb:2299
+[/lib/x86_64-linux-gnu/libc.so.6]
+0x7f7fe122a1c8
+0x7f7fe122a289
+[/home/runner/work/alire-crates-ci/alire-crates-ci/alire_install/bin/alr]
+0x4393dc _start at ???
+0xfffffffffffffffe
+
+
+Warning: octet_memory_stream=1.1.0 successfully retrieved but its build failed.
+There are no dependencies.
+ERROR: Build ended with errors

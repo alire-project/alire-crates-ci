@@ -1,0 +1,71 @@
+Test ran at 2026-08-24 12:29:24.793730+00:00
+
+SOLUTION:
+lithophane=0.1.0: Lithophane generator with Ada
+Origin: commit f81a38295f0b866211babad4b71da5f473e60639 from https://github.com/smionean/lithophane_ada.git
+Properties:
+   Author: Simon Bean
+   Build Switches: 
+   Description: Lithophane generator with Ada
+   Executable: lithophane
+   License: MIT OR Apache-2.0 WITH LLVM-exception
+   Maintainer: Simon Bean <smionean@gmail.com>
+   Maintainers_Logins: smionean
+   Name: lithophane
+   Tag: 3dprint
+   Tag: lithophane
+   Tag: lithography
+   Version: 0.1.0
+   Website: 
+Dependencies (direct):
+   getopt^2.0.0
+   gid^14.0.0
+Dependencies (solution):
+   getopt=2.0.0
+   gid=14.0.0
+Dependencies (graph):
+   lithophane=0.1.0 --> getopt=2.0.0 (^2.0.0)
+   lithophane=0.1.0 --> gid=14.0.0 (^14.0.0)
+
+
+LOG:
+[alr test] Testing lithophane=0.1.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get lithophane=0.1.0
+Note: Deploying lithophane=0.1.0...
+
+lithophane=0.1.0 successfully retrieved.
+Dependencies were solved as follows:
+
+   + getopt 2.0.0  (new)
+   + gid    14.0.0 (new)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building gid=14.0.0/gid.gpr...
+gprbuild: "to_png" up to date
+gprbuild: "to_bmp" up to date
+gprbuild: "mini" up to date
+gprbuild: "all_rgb" up to date
+gprbuild: "benchmark" up to date
+gprbuild: "clusters" up to date
+gprbuild: "color_avg" up to date
+gprbuild: "comp_img" up to date
+gprbuild: "is_opaque" up to date
+gprbuild: "recurve" up to date
+gprbuild: "steg" up to date
+Note: Building lithophane=0.1.0/lithophane.gpr...
+Setup
+   [mkdir]        object directory for project Lithophane
+   [mkdir]        exec directory for project Lithophane
+Compile
+   [Ada]          lithophane_main.adb
+lithophane_main.adb:197:10: warning: variable "tempString" is never read and never assigned [-gnatwv]
+   [Ada]          lithophane.adb
+   [Ada]          lithophane-filters.adb
+   [Ada]          lithophane-stl.adb
+Bind
+   [gprbind]      lithophane_main.bexch
+   [Ada]          lithophane_main.ali
+Link
+   [link]         lithophane_main.adb
+Success: Build finished successfully in 13.24 seconds.
+Found declared GPR file: lithophane.gpr
+[alr test] Test completed SUCCESSFULLY

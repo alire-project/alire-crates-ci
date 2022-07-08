@@ -1,0 +1,87 @@
+Test ran at 2025-06-23 12:54:52.815288+00:00
+
+SOLUTION:
+garlic=6.0.1: GNAT Library for Ada Distributed Environment (garlic)
+Origin: commit 90ef4b6f01c95df7e04c8f3e4c41c275f23acea9 from https://github.com/reznikmm/garlic.git
+Properties:
+   Author: AdaCore
+   Configuration: no modifiers
+   Description: GNAT Library for Ada Distributed Environment (garlic)
+   case OS is
+      when Linux => Environment: LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:${CRATE_ROOT}/.libs/relocatable
+      when Macos => Environment: DYLD_LIBRARY_PATH=${DYLD_LIBRARY_PATH}:${CRATE_ROOT}/.libs/relocatable
+      when Windows => Environment: PATH=${PATH}:${CRATE_ROOT}/.libs/relocatable
+   GPR Scenario: GARLIC_BUILD_MODE := dev | prod
+   License: GPL-2.0-or-later WITH GCC-exception-2.0
+   Maintainer: Max Reznik <reznikmm@gmail.com>
+   Maintainers_Logins: reznikmm
+   Name: garlic
+   Project_File: gnat/garlic.gpr
+   Tag: dsa
+   Tag: distributed
+   Tag: annex
+   Tag: network
+   Tag: glade
+   Version: 6.0.1
+   Website: https://github.com/reznikmm/garlic/wiki
+
+
+LOG:
+Spawning: alr -d -n get --build garlic=6.0.1
+Note: Deploying garlic=6.0.1...
+Note: Building garlic=6.0.1/gnat/garlic.gpr...
+Setup
+   [mkdir]        object directory for project Garlic
+   [mkdir]        library directory for project Garlic
+Compile
+   [Ada]          s-garrem.adb
+   [Ada]          s-shasto.adb
+   [Ada]          s-rpstio.adb
+   [Ada]          s-rpcser.adb
+   [Ada]          s-rpc.adb
+   [Ada]          s-parint.adb
+   [Ada]          s-gptcse.adb
+   [Ada]          s-gprese.ads
+   [Ada]          s-gastha.adb
+s-gptcse.adb:37:06: warning: unnecessary with of ancestor [-gnatwr]
+
+   compilation of s-gptcse.adb failed
+
+gprbuild: *** compilation phase failed
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "D:\a\alire-crates-ci\alire-crates-ci\test\4b15bc9f-ed8b-4f51-b165-54bd34b8e9fa\garlic_6.0.1_90ef4b6f\gnat/garlic.gpr"] exited with code 4
+ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "D:\a\alire-crates-ci\alire-crates-ci\test\4b15bc9f-ed8b-4f51-b165-54bd34b8e9fa\garlic_6.0.1_90ef4b6f\gnat/garlic.gpr"] exited with code 4
+stderr: ALIRE.CHECKED_ERROR
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "D:\a\alire-crates-ci\alire-crates-ci\test\4b15bc9f-ed8b-4f51-b165-54bd34b8e9fa\garlic_6.0.1_90ef4b6f\gnat/garlic.gpr"] exited with code 4
+stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
+[D:\a\alire-crates-ci\alire-crates-ci\alire_install\bin\alr.exe]
+0x7ff6089eb6aa Semantic_Versioning.Basic.Restrictions.First_Index at alire.adb:284
+0x7ff6086062cb Semantic_Versioning.Basic.Restrictions.First_Index at alire-os_lib-subprocess.adb:111
+0x7ff6088a9ee1 Semantic_Versioning.Basic.Restrictions.First_Index at alire-spawn.adb:21
+0x7ff6088aa5bf Semantic_Versioning.Basic.Restrictions.First_Index at alire-spawn.adb:41
+0x7ff6087de35c Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:186
+0x7ff6087dc84a Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:252
+0x7ff6088029c9 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2075
+0x7ff6088710ed Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1480
+0x7ff608870218 Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1563
+0x7ff608802ac8 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2079
+0x7ff608802b96 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2059
+0x7ff6087dce0e Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:283
+0x7ff6087dcf0a Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:111
+0x7ff607fa4f23 Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-get.adb:205
+0x7ff607fa88df Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-get.adb:378
+0x7ff607fa8a9a Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-get.adb:256
+0x7ff608041628 Semantic_Versioning.Basic.Restrictions.First_Index at clic-subcommand-instance.adb:749
+0x7ff60804deeb Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands.adb:561
+0x7ff607f216a0 Alr.Main at alr-main.adb:13
+0x7ff607f24f2e Main at b__alr-main.adb:2306
+0x7ff607f2133e __tmainCRTStartup at ???
+0x7ff607f21144 mainCRTStartup at ???
+[C:\Windows\System32\KERNEL32.DLL]
+0x7ffa01174cae
+[C:\Windows\SYSTEM32\ntdll.dll]
+0x7ffa0225edc9
+
+
+Warning: garlic=6.0.1 successfully retrieved but its build failed.
+There are no dependencies.
+ERROR: Build ended with errors

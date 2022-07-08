@@ -1,0 +1,83 @@
+Test ran at 2025-09-23 12:32:54.991671+00:00
+
+SOLUTION:
+pico_bsp=2.2.0: Board support package for Raspberry Pi Pico
+Origin: commit 4256840550d5891728409c1b5e97d0e3f9bdb50d from https://github.com/JeremyGrosser/pico_bsp.git
+Properties:
+   Author: Jeremy Grosser
+   Config set: rp2040_hal {Flash_Chip := w25qxx}
+   Configuration: no modifiers
+   Description: Board support package for Raspberry Pi Pico
+   License: BSD-3-Clause
+   Maintainer: Jeremy Grosser <jeremy@synack.me>
+   Maintainers_Logins: JeremyGrosser
+   Name: pico_bsp
+   Tag: embedded
+   Tag: nostd
+   Tag: raspberrypi
+   Tag: pico
+   Tag: rp2040
+   Tag: bsp
+   Version: 2.2.0
+   Website: https://pico-doc.synack.me/
+Dependencies (direct):
+   rp2040_hal^2
+Dependencies (solution):
+   atomic=1.0.0
+   bbqueue=1.0.0
+   cortex_m=1.1.0
+   gnat=14.2.1 (gnat_arm_elf)
+   gnat_arm_elf=14.2.1
+   hal=1.0.0
+   rp2040_hal=2.5.0
+   usb_embedded=1.0.1
+Dependencies (graph):
+   bbqueue=1.0.0      --> atomic=1.0.0 (^1.0.0)
+   bbqueue=1.0.0      --> gnat=14.2.1 (gnat_arm_elf) (>=10)
+   cortex_m=1.1.0     --> gnat_arm_elf=14.2.1 (>=12)
+   cortex_m=1.1.0     --> hal=1.0.0 (~0.3 | ^1.0.0)
+   pico_bsp=2.2.0     --> rp2040_hal=2.5.0 (^2)
+   rp2040_hal=2.5.0   --> atomic=1.0.0 (^1)
+   rp2040_hal=2.5.0   --> cortex_m=1.1.0 (^1)
+   rp2040_hal=2.5.0   --> gnat_arm_elf=14.2.1 (^14)
+   rp2040_hal=2.5.0   --> hal=1.0.0 (^1)
+   rp2040_hal=2.5.0   --> usb_embedded=1.0.1 (^1)
+   usb_embedded=1.0.1 --> bbqueue=1.0.0 (^1.0.0)
+   usb_embedded=1.0.1 --> hal=1.0.0 (^1.0.0)
+
+
+LOG:
+[alr test] Testing pico_bsp=2.2.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get pico_bsp=2.2.0
+Note: Deploying pico_bsp=2.2.0...
+
+pico_bsp=2.2.0 successfully retrieved.
+Dependencies were solved as follows:
+
+   +  atomic       1.0.0  (new,indirect)
+   +  bbqueue      1.0.0  (new,indirect)
+   +  cortex_m     1.1.0  (new,indirect)
+   +b gnat         14.2.1 (new,gnat_arm_elf,indirect,binary)
+   +b gnat_arm_elf 14.2.1 (new,indirect,binary)
+   +  hal          1.0.0  (new,indirect)
+   +  rp2040_hal   2.5.0  (new)
+   +  usb_embedded 1.0.1  (new,indirect)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building pico_bsp=2.2.0/pico_bsp.gpr...
+Setup
+   [mkdir]        object directory for project Pico_Bsp
+   [mkdir]        library directory for project Pico_Bsp
+Compile
+   [Ada]          pico_bsp_config.ads
+   [Ada]          pico-audio_i2s.ads
+   [Ada]          pico-pimoroni-audio_pack.ads
+   [Ada]          pico-pimoroni-rgb_keypad.adb
+   [Ada]          pico.ads
+   [Ada]          pico-pimoroni.ads
+Build Libraries
+   [gprlib]       Pico_Bsp.lexch
+   [archive]      libPico_Bsp.a
+   [index]        libPico_Bsp.a
+Success: Build finished successfully in 2.04 seconds.
+Found declared GPR file: pico_bsp.gpr
+[alr test] Test completed SUCCESSFULLY

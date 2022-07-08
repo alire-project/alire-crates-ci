@@ -1,0 +1,199 @@
+Test ran at 2026-09-08 12:46:10.469821+00:00
+
+SOLUTION:
+openapi=0.9.0: OpenAPI library to build REST client applications
+Origin: commit e66f57223605a751d73996cbd6dc415a4d4ef9a6 from https://gitlab.com/stcarrez/openapi-ada.git
+Properties:
+   Author: Stephane.Carrez@gmail.com
+   Configuration: no modifiers
+   Description: OpenAPI library to build REST client applications
+   Environment: PATH=${CRATE_ROOT}/scripts:${PATH}
+   GPR Scenario: OPENAPI_BUILD := distrib | debug | optimize | profile | coverage
+   GPR Scenario: OPENAPI_LIBRARY_TYPE := relocatable | static | static-pic
+   License: Apache-2.0
+   Long_Description: [![Build Status](https://img.shields.io/endpoint?url=https://porion.vacs.fr/porion/api/v1/projects/openapi-ada/badges/build.json)](https://porion.vacs.fr/porion/projects/view/openapi-ada/summary)
+[![Test Status](https://img.shields.io/endpoint?url=https://porion.vacs.fr/porion/api/v1/projects/openapi-ada/badges/tests.json)](https://porion.vacs.fr/porion/projects/view/openapi-ada/xunits)
+[![Coverage](https://img.shields.io/endpoint?url=https://porion.vacs.fr/porion/api/v1/projects/openapi-ada/badges/coverage.json)](https://porion.vacs.fr/porion/projects/view/openapi-ada/summary)
+
+[OpenAPI Generator](https://github.com/OpenAPITools/openapi-generator) is a code generator that supports generation of
+API client libraries, server stubs and documentation automatically
+given an [OpenAPI Spec](https://github.com/OAI/OpenAPI-Specification).
+
+The Ada client support has been integrated in [OpenAPI Generator](https://github.com/OpenAPITools/openapi-generator).
+
+The OpenAPI Ada library is a small support library for the Ada code generator
+provided by OpenAPI Generator.  The library provides support to serialize the data,
+make HTTP requests and support the [OpenAPI Spec](https://github.com/OAI/OpenAPI-Specification)
+specific operations or types.
+
+## Alire setup
+
+```
+alr with openapi
+```
+
+For the HTTP connection, you can either use AWS or CURL and run one of the following commands:
+
+```
+alr with utilada_curl
+alr with utilada_aws
+```
+
+## Generation
+
+Example of client generation with OpenAPI file `my-api.yaml` and use of CURL support:
+
+```
+  alr exec -- openapi-generate-client -i my-api.yaml --additional-properties projectName=MyProject --additional-properties openApiName=OpenAPI --additional-properties httpSupport=Curl --model-package MyProject.MyModule -o .
+```
+
+
+   Maintainer: Stephane.Carrez@gmail.com
+   Maintainers_Logins: stcarrez
+   Name: openapi
+   Project_File: openapi.gpr
+   Tag: rest
+   Tag: web
+   Tag: api
+   Tag: openapi
+   Version: 0.9.0
+   Website: https://gitlab.com/stcarrez/openapi-ada
+Dependencies (direct):
+   security^1.5.0
+   utilada^2.8.2
+   utilada_xml^2.8.2
+Dependencies (solution):
+   gnat=13.2.2 (gnat_native)
+   security=1.6.0
+   utilada=2.9.0
+   utilada_xml=2.9.0
+   xmlada=25.0.0
+Dependencies (graph):
+   openapi=0.9.0     --> security=1.6.0 (^1.5.0)
+   openapi=0.9.0     --> utilada=2.9.0 (^2.8.2)
+   openapi=0.9.0     --> utilada_xml=2.9.0 (^2.8.2)
+   security=1.6.0    --> utilada=2.9.0 (^2.9.0)
+   security=1.6.0    --> utilada_xml=2.9.0 (^2.9.0)
+   utilada_xml=2.9.0 --> utilada=2.9.0 (^2.9.0)
+   utilada_xml=2.9.0 --> xmlada=25.0.0 (^24.0|^25.0)
+   xmlada=25.0.0     --> gnat=13.2.2 (gnat_native) (>=11)
+
+
+LOG:
+[alr test] Testing openapi=0.9.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get openapi=0.9.0
+Note: Deploying openapi=0.9.0...
+Note: Deploying utilada_xml=2.9.0...
+Note: Deploying security=1.6.0...
+
+openapi=0.9.0 successfully retrieved.
+Dependencies were solved as follows:
+
+   +b gnat        13.2.2 (new,gnat_native,indirect,binary)
+   +  security    1.6.0  (new)
+   +  utilada     2.9.0  (new)
+   +  utilada_xml 2.9.0  (new)
+   +  xmlada      25.0.0 (new,indirect)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building openapi=0.9.0/openapi.gpr...
+Setup
+   [mkdir]        object directory for project UtilAda_Xml
+   [mkdir]        library directory for project UtilAda_Xml
+   [mkdir]        object directory for project Security
+   [mkdir]        library directory for project Security
+   [mkdir]        object directory for project Openapi
+   [mkdir]        library directory for project Openapi
+Compile
+   [Ada]          util-serialize-io-xml.adb
+   [Ada]          security-policies.adb
+   [Ada]          security-permissions.adb
+   [Ada]          security-oauth-jwt-hs256.adb
+   [Ada]          security-oauth-file_registry.adb
+   [Ada]          security-auth-oauth-github.adb
+   [Ada]          security-random.adb
+   [Ada]          security-auth.adb
+   [Ada]          security-oauth.adb
+   [Ada]          security-oauth-clients.adb
+   [Ada]          security-auth-oauth.adb
+   [Ada]          security-oauth-servers.adb
+   [Ada]          security-policies-urls.adb
+   [Ada]          security.ads
+   [Ada]          security-oauth-jwt.adb
+   [Ada]          security-auth-oauth-yahoo.adb
+   [Ada]          security-policies-roles.adb
+   [Ada]          security-auth-oauth-googleplus.adb
+   [Ada]          security-auth-openid.adb
+   [Ada]          security-controllers-roles.adb
+   [Ada]          security-auth-oauth-facebook.adb
+   [Ada]          security-controllers.ads
+   [Ada]          security-controllers-urls.adb
+   [Ada]          security-contexts.adb
+   [Ada]          util-dates.adb
+   [Ada]          util-commands-text_io.ads
+util-dates-to_ada_time_64.adb:17:43: error: "To_Duration_64" not declared in "Conversions"
+util-dates-to_ada_time_64.adb:19:22: error: "To_Ada_Time_64" not declared in "Conversions"
+
+   compilation of util-dates.adb failed
+
+gprbuild: *** compilation phase failed
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/e4229181-5204-4ecf-9e5c-73044e3165ec/openapi_0.9.0_e66f5722/openapi.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/e4229181-5204-4ecf-9e5c-73044e3165ec/openapi_0.9.0_e66f5722/openapi.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+stderr: ALIRE.CHECKED_ERROR
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/e4229181-5204-4ecf-9e5c-73044e3165ec/openapi_0.9.0_e66f5722/openapi.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
+[/home/runner/work/alire-crates-ci/alire-crates-ci/alire_install/bin/alr]
+0xe75bc6 Alire.Raise_Checked_Error at alire.adb:284
+0xac1a54 Alire.Os_Lib.Subprocess.Checked_Spawn at alire-os_lib-subprocess.adb:111
+0xd40276 Alire.Spawn.Command at alire-spawn.adb:22
+0xd412ee Alire.Spawn.Gprbuild at alire-spawn.adb:68
+0xc748cb Alire.Roots.Build at alire-roots.adb:189
+0xc7301a Alire.Roots.Build at alire-roots.adb:255
+0xc9832b Alire.Roots.Traverse at alire-roots.adb:2143
+0xcfee85 Alire.Solutions.Traverse.Visit at alire-solutions.adb:1472
+0xcfdfcc Alire.Solutions.Traverse at alire-solutions.adb:1555
+0xc9841e Alire.Roots.Traverse at alire-roots.adb:2147
+0xc984dd Alire.Roots.Traverse at alire-roots.adb:2127
+0xc7359b Alire.Roots.Build at alire-roots.adb:286
+0xc736d7 Alire.Roots.Build at alire-roots.adb:114
+0x49aa0d Alr.Commands.Build.Execute at alr-commands-build.adb:145
+0x49a36d Alr.Commands.Build.Execute at alr-commands-build.adb:113
+0x49a51f Alr.Commands.Build.Execute at alr-commands-build.adb:54
+0x53bbcc Alr.Commands.Sub_Cmd.Execute at clic-subcommand-instance.adb:749
+0x5472be Alr.Commands.Execute at alr-commands.adb:632
+0x43d48a Alr.Main at alr-main.adb:13
+0x4403a3 Main at b__alr-main.adb:2445
+[/lib/x86_64-linux-gnu/libc.so.6]
+0x7f6a58e2a1c8
+0x7f6a58e2a289
+[/home/runner/work/alire-crates-ci/alire-crates-ci/alire_install/bin/alr]
+0x43d323 _start at ???
+0xfffffffffffffffe
+
+stderr: ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED
+stderr: alire-roots.adb:202
+stderr: raised ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED : alire-roots.adb:202
+[/home/runner/work/alire-crates-ci/alire-crates-ci/alire_install/bin/alr]
+0xc74cc7 Alire.Roots.Build at alire-roots.adb:202
+0xc7301a Alire.Roots.Build at alire-roots.adb:255
+0xc9832b Alire.Roots.Traverse at alire-roots.adb:2143
+0xcfee85 Alire.Solutions.Traverse.Visit at alire-solutions.adb:1472
+0xcfdfcc Alire.Solutions.Traverse at alire-solutions.adb:1555
+0xc9841e Alire.Roots.Traverse at alire-roots.adb:2147
+0xc984dd Alire.Roots.Traverse at alire-roots.adb:2127
+0xc7359b Alire.Roots.Build at alire-roots.adb:286
+0xc736d7 Alire.Roots.Build at alire-roots.adb:114
+0x49aa0d Alr.Commands.Build.Execute at alr-commands-build.adb:145
+0x49a36d Alr.Commands.Build.Execute at alr-commands-build.adb:113
+0x49a51f Alr.Commands.Build.Execute at alr-commands-build.adb:54
+0x53bbcc Alr.Commands.Sub_Cmd.Execute at clic-subcommand-instance.adb:749
+0x5472be Alr.Commands.Execute at alr-commands.adb:632
+0x43d48a Alr.Main at alr-main.adb:13
+0x4403a3 Main at b__alr-main.adb:2445
+[/lib/x86_64-linux-gnu/libc.so.6]
+0x7f6a58e2a1c8
+0x7f6a58e2a289
+[/home/runner/work/alire-crates-ci/alire-crates-ci/alire_install/bin/alr]
+0x43d323 _start at ???
+0xfffffffffffffffe
+
+ERROR: Compilation failed.

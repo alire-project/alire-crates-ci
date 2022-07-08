@@ -1,4 +1,4 @@
-Test ran at 2022-06-22 00:39:26.170446+00:00
+Test ran at 2022-08-09 00:36:01.975040+00:00
 
 SOLUTION:
 utilada=2.1.0: Utility Library with streams, processes, logs, serialization, encoders
@@ -41,7 +41,7 @@ framework as it provides better reports.
 
 ## Documentation
 
-* [Ada Utility Library Programmer's Guide](https://ada-util.readthedocs.io/en/latest/intro/)
+* [Ada Utility Library Programmer's Guide](https://ada-util.readthedocs.io/en/latest/)
 
 
    Maintainer: Stephane.Carrez@gmail.com
@@ -59,6 +59,12 @@ framework as it provides better reports.
    Tag: encoders
    Tag: decoders
    Version: 2.1.0
+Dependencies (direct):
+   gnat<11 | (>=2000 & <2021)
+Dependencies (solution):
+   gnat=10.3.2 (gnat_native) (installed)
+Dependencies (graph):
+   utilada=2.1.0 --> gnat=10.3.2 (gnat_native) (<11 | (>=2000 & <2021))
 
 
 LOG:
@@ -68,6 +74,7 @@ Note: Deploying utilada=2.1.0...
 ##O=#  #                                                                      
 #=#=-#  #                                                                     
  #=#=-#   #                                                                   
+  #=#=- #   #                                                                 
 Note: Building utilada/.alire/utilada_conf.gpr (1/4)...
 gprbuild: no sources to compile
 Note: Building utilada/utilada_core.gpr (2/4)...
@@ -75,86 +82,86 @@ Setup
    [mkdir]        object directory for project UtilAda_Core
    [mkdir]        library directory for project UtilAda_Core
 Compile
+   [Ada]          util-texts-builders.adb
    [Ada]          util-texts-formats.adb
    [Ada]          util-texts.ads
-   [Ada]          util-texts-transforms.adb
    [Ada]          util-texts-tokenizers.adb
-   [Ada]          util-texts-builders.adb
-   [Ada]          util-strings-tokenizers.ads
+   [Ada]          util-texts-transforms.adb
    [Ada]          util-strings-transforms.adb
-   [Ada]          util-strings-sets.ads
-   [Ada]          util-strings-builders.ads
-   [Ada]          util-strings-vectors.ads
    [Ada]          util-strings.adb
    [Ada]          util-strings-builders-transforms.ads
+   [Ada]          util-strings-builders.ads
+   [Ada]          util-strings-vectors.ads
+   [Ada]          util-strings-sets.ads
    [Ada]          util-strings-maps.ads
-   [Ada]          util-listeners.ads
-   [Ada]          util-listeners-observers.adb
+   [Ada]          util-strings-tokenizers.ads
    [Ada]          util-listeners-lifecycles.adb
+   [Ada]          util-listeners-observers.adb
+   [Ada]          util-listeners.ads
    [Ada]          util-concurrent-counters.adb
-   [Ada]          util-concurrent.ads
-   [Ada]          util-concurrent-arrays.adb
-   [Ada]          util-concurrent-fifos.adb
-   [Ada]          util-concurrent-pools.adb
    [Ada]          util-concurrent-locks.adb
-   [Ada]          util-concurrent-sequence_queues.adb
+   [Ada]          util-concurrent-fifos.adb
+   [Ada]          util-concurrent-arrays.adb
    [Ada]          util-concurrent-copies.adb
-   [Ada]          util-refs.adb
-   [Ada]          util-locales.adb
-   [Ada]          util-nullables.ads
+   [Ada]          util-concurrent-pools.adb
+   [Ada]          util-concurrent-sequence_queues.adb
+   [Ada]          util-concurrent.ads
    [Ada]          util.ads
-   [Ada]          util-algorithms.ads
+   [Ada]          util-refs.adb
    [Ada]          util-stacks.adb
+   [Ada]          util-locales.adb
    [Ada]          util-executors.adb
+   [Ada]          util-algorithms.ads
+   [Ada]          util-nullables.ads
 Build Libraries
    [gprlib]       utilada_core.lexch
    [archive]      libutilada_core.a
    [index]        libutilada_core.a
 Note: Building utilada/utilada_base.gpr (3/4)...
 Compile
-   [Ada]          util-properties-bundles.adb
-   [Ada]          util-properties-discrete.adb
-   [Ada]          util-properties.adb
-util-properties.adb:518:07: warning: variable "Old_Shared" is never read and never assigned
    [Ada]          util-properties-basic.adb
-   [Ada]          util-log-locations.adb
+   [Ada]          util-properties.adb
+   [Ada]          util-properties-bundles.adb
+util-properties.adb:518:07: warning: variable "Old_Shared" is never read and never assigned
+   [Ada]          util-properties-discrete.adb
    [Ada]          util-log-appenders.adb
-   [Ada]          util-log-loggers.adb
    [Ada]          util-log.adb
+   [Ada]          util-log-locations.adb
+   [Ada]          util-log-loggers.adb
    [Ada]          util-files.adb
    [Ada]          util-events.adb
-   [Ada]          util-events-timers.adb
    [Ada]          util-events-channels.adb
-   [Ada]          util-dates.adb
+   [Ada]          util-events-timers.adb
    [Ada]          util-dates-iso8601.adb
-   [Ada]          util-dates-rfc7231.adb
+   [Ada]          util-dates.adb
    [Ada]          util-dates-formats.adb
+   [Ada]          util-dates-rfc7231.adb
    [Ada]          util-commands.adb
+   [Ada]          util-commands-consoles.adb
+   [Ada]          util-commands-drivers.adb
    [Ada]          util-commands-parsers-gnat_parser.adb
    [Ada]          util-commands-consoles-text.adb
-   [Ada]          util-commands-consoles.adb
    [Ada]          util-commands-parsers.adb
-   [Ada]          util-commands-drivers.adb
    [Ada]          util-beans-basic-lists.adb
-   [Ada]          util-beans-objects-vectors.adb
    [Ada]          util-beans-objects-hash.adb
-   [Ada]          util-beans-objects-records.adb
-   [Ada]          util-beans-lists.ads
-   [Ada]          util-beans-methods.ads
    [Ada]          util-beans-lists-strings.adb
-   [Ada]          util-beans.ads
-   [Ada]          util-beans-objects-datasets.adb
-   [Ada]          util-beans-objects-enums.adb
-   [Ada]          util-beans-basic.ads
    [Ada]          util-beans-objects-lists.adb
+   [Ada]          util-beans.ads
+   [Ada]          util-beans-lists.ads
+   [Ada]          util-beans-objects-records.adb
    [Ada]          util-beans-ranges.ads
+   [Ada]          util-beans-objects-enums.adb
    [Ada]          util-beans-objects-maps.adb
    [Ada]          util-beans-objects-pairs.adb
-   [Ada]          util-beans-objects-to_access.adb
-   [Ada]          util-beans-objects.adb
-   [Ada]          util-beans-factory.adb
-   [Ada]          util-beans-objects-time.adb
+   [Ada]          util-beans-objects-vectors.adb
+   [Ada]          util-beans-objects-datasets.adb
    [Ada]          util-beans-basic-ranges.adb
+   [Ada]          util-beans-factory.adb
+   [Ada]          util-beans-methods.ads
+   [Ada]          util-beans-basic.ads
+   [Ada]          util-beans-objects.adb
+   [Ada]          util-beans-objects-to_access.adb
+   [Ada]          util-beans-objects-time.adb
 Build Libraries
    [gprlib]       utilada_base.lexch
    [archive]      libutilada_base.a
@@ -166,66 +173,68 @@ Setup
 Compile
    [Ada]          util-systems-constants.ads
    [Ada]          util-systems-types.ads
+   [Ada]          util-systems-os.ads
+   [Ada]          util-systems-dlls.adb
    [Ada]          util-streams-raw.adb
    [Ada]          util-processes-os.adb
-   [Ada]          util-systems-dlls.adb
-   [Ada]          util-systems-os.ads
-   [Ada]          util-processes-tools.adb
    [Ada]          util-processes.adb
+   [Ada]          util-processes-tools.adb
    [Ada]          util-http-cookies.adb
+   [Ada]          util-http-clients-mockups.adb
+   [Ada]          util-http-tools.adb
+   [Ada]          util-http-clients.adb
    [Ada]          util-http-mockups.adb
    [Ada]          util-http-rest-rest_get_vector.adb
-   [Ada]          util-mail.adb
    [Ada]          util-http-rest.adb
-   [Ada]          util-http-tools.adb
-   [Ada]          util-http-clients-mockups.adb
-   [Ada]          util-http.adb
-   [Ada]          util-http-clients.adb
    [Ada]          util-http-parts.adb
-   [Ada]          util-encoders-kdf.ads
-   [Ada]          util-encoders-hmac-sha256.adb
-   [Ada]          util-encoders-hmac.ads
-   [Ada]          util-encoders-ecc.adb
-   [Ada]          util-encoders-sha1.adb
-   [Ada]          util-encoders-base64.adb
-   [Ada]          util-encoders-kdf-pbkdf2.adb
+   [Ada]          util-http.adb
+   [Ada]          util-mail.adb
    [Ada]          util-encoders-base16.adb
+   [Ada]          util-encoders-kdf.ads
    [Ada]          util-encoders.adb
+   [Ada]          util-encoders-sha1.adb
+   [Ada]          util-encoders-hmac-sha256.adb
    [Ada]          util-encoders-aes.adb
-   [Ada]          util-encoders-hmac-sha1.adb
    [Ada]          util-encoders-kdf-pbkdf2_hmac_sha256.ads
+   [Ada]          util-encoders-kdf-pbkdf2.adb
    [Ada]          util-encoders-sha256.adb
+   [Ada]          util-encoders-hmac-sha1.adb
+   [Ada]          util-encoders-ecc.adb
+   [Ada]          util-encoders-hmac.ads
+   [Ada]          util-encoders-base64.adb
    [Ada]          util-measures.adb
-   [Ada]          util-streams-base16.ads
-   [Ada]          util-streams-buffered.adb
    [Ada]          util-streams-texts-tr.ads
-   [Ada]          util-streams-aes.adb
+   [Ada]          util-streams-texts.adb
+   [Ada]          util-streams-buffered.adb
    [Ada]          util-streams-pipes.adb
-   [Ada]          util-streams-base64.ads
    [Ada]          util-streams.adb
+   [Ada]          util-streams-aes.adb
+   [Ada]          util-streams-texts-wtr.ads
    [Ada]          util-streams-files.adb
    [Ada]          util-streams-sockets.adb
-   [Ada]          util-streams-texts-wtr.ads
+   [Ada]          util-streams-base16.ads
+   [Ada]          util-streams-base64.ads
    [Ada]          util-streams-buffered-encoders.adb
-   [Ada]          util-streams-texts.adb
-   [Ada]          util-serialize-contexts.adb
-   [Ada]          util-serialize.ads
-   [Ada]          util-serialize-mappers.adb
-   [Ada]          util-serialize-mappers-record_mapper.adb
-   [Ada]          util-serialize-io-form.adb
-   [Ada]          util-serialize-io-csv.adb
    [Ada]          util-beans-objects-readers.adb
    [Ada]          util-serialize-io.adb
-   [Ada]          util-properties-json.adb
-   [Ada]          util-serialize-tools.adb
-   [Ada]          util-serialize-mappers-vector_mapper.adb
+   [Ada]          util-serialize-io-form.adb
+   [Ada]          util-serialize-io-csv.adb
    [Ada]          util-serialize-io-json.adb
+   [Ada]          util-serialize-mappers-record_mapper.adb
+   [Ada]          util-serialize-mappers-vector_mapper.adb
+   [Ada]          util-serialize-mappers.adb
+   [Ada]          util-serialize.ads
+   [Ada]          util-properties-json.adb
+   [Ada]          util-serialize-contexts.adb
+   [Ada]          util-serialize-tools.adb
    [Ada]          util-systems.ads
 Build Libraries
    [gprlib]       utilada_sys.lexch
    [archive]      libutilada_sys.a
    [index]        libutilada_sys.a
-Build finished successfully in 30.17 seconds.
+Build finished successfully in 30.97 seconds.
 
 utilada=2.1.0 successfully retrieved and built.
-There are no dependencies.
+Dependencies were solved as follows:
+
+   +i gnat 10.3.2 (new,installed,gnat_native)

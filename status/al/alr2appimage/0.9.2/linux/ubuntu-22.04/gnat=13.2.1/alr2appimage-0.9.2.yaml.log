@@ -1,0 +1,140 @@
+Test ran at 2024-03-23 13:00:54.046497+00:00
+
+SOLUTION:
+alr2appimage=0.9.2: Tool to create an AppImage executable from an Alire crate
+Origin: commit 71ae65731924e10a675590c2ccec774640820786 from https://github.com/mgrojo/alr2appimage.git
+Available when: (case OS is Linux => True, others => False)
+Properties:
+   Author: Manuel Gomez
+   Build Switches: 
+   Description: Tool to create an AppImage executable from an Alire crate
+   Executable: alr2appimage
+   License: GPL-3.0-only
+   Long_Description: There are two prerequisites for your project to work with this tool:
+- It has to be a crate with an `executables` field. Its first value
+  has to be the main application program.
+- It must be installable using Alire, including all the needed resources.
+
+`alr2appimage` will use the following command for installing it (this requires Alire 2.0):
+```shell
+alr install
+```
+Or it will run `gprinstall` inside `alr exec`, if the former fails (Alire 1.x).
+
+If you simply run the tool inside an Alire crate, it will read the
+metadata from your `alire.toml` file and create a default AppImage
+from it.
+
+NOTE: `alr2appimage` is an independent project; it is not
+affiliated to, nor supported by, the Alire or AppImage projects.
+
+
+   Maintainer: Manuel Gomez <mgrojo@gmail.com>
+   Maintainers_Logins: mgrojo
+   Name: alr2appimage
+   Tag: utility
+   Tag: appimage
+   Tag: alire
+   Tag: linux
+   Tag: packaging
+   Version: 0.9.2
+   Website: https://github.com/mgrojo/alr2appimage
+Dependencies (direct):
+   ada_toml^0.3.0
+   parse_args~0.9.0
+   resources~0.1.0
+   spoon^1.0.1
+Dependencies (solution):
+   ada_toml=0.4.0
+   parse_args=0.9.0
+   resources=0.1.0
+   spoon=1.0.1
+Dependencies (graph):
+   alr2appimage=0.9.2 --> ada_toml=0.4.0 (^0.3.0)
+   alr2appimage=0.9.2 --> parse_args=0.9.0 (~0.9.0)
+   alr2appimage=0.9.2 --> resources=0.1.0 (~0.1.0)
+   alr2appimage=0.9.2 --> spoon=1.0.1 (^1.0.1)
+
+
+LOG:
+Spawning: alr -d -n get --build alr2appimage=0.9.2
+Note: Deploying alr2appimage=0.9.2...
+Note: Deploying ada_toml=0.4.0...
+#=#=#                                                                          
+##O#-#                                                                         
+##O=#  #                                                                       
+#=#=-#  #                                                                      
+ #=#=-#   #                                                                    
+Note: Deploying parse_args=0.9.0...
+Note: Deploying resources=0.1.0...
+Note: Deploying spoon=1.0.1...
+Warning: Possible tilde intended instead of caret for a 0.x version.
+   Alire does not change the meaning of caret and tilde for pre/post-1.0 versions.
+   The suspicious dependency is: ada_toml^0.3.0
+   You can disable this warning by setting the option warning.caret to false.
+Note: Building alr2appimage=0.9.2/alr2appimage.gpr...
+Setup
+   [mkdir]        object directory for project Ada_TOML
+   [mkdir]        library directory for project Ada_TOML
+   [mkdir]        object directory for project Parse_Args
+   [mkdir]        library directory for project Parse_Args
+   [mkdir]        object directory for project Resources
+   [mkdir]        library directory for project Resources
+   [mkdir]        object directory for project Spoon
+   [mkdir]        library directory for project Spoon
+   [mkdir]        object directory for project Alr2AppImage
+   [mkdir]        exec directory for project Alr2AppImage
+Compile
+   [Ada]          alr2appimage.adb
+   [C]            knife.c
+   [Ada]          spoon-output.adb
+   [Ada]          spoon-api.ads
+   [Ada]          spoon-pipes.adb
+   [Ada]          spoon.adb
+   [C]            whereami.c
+   [Ada]          resources.adb
+   [Ada]          parse_args-generic_discrete_array_options.adb
+   [Ada]          parse_args-split_csv.adb
+   [Ada]          parse_args-generic_options.adb
+   [Ada]          parse_args-concrete.adb
+   [Ada]          parse_args.adb
+   [Ada]          parse_args-integer_array_options.ads
+   [Ada]          parse_args-generic_discrete_options.ads
+   [Ada]          parse_args-generic_indefinite_options.adb
+   [Ada]          toml-generic_dump.adb
+   [Ada]          toml-generic_parse.adb
+   [Ada]          toml.adb
+   [Ada]          toml-file_io.adb
+   [Ada]          alire_toml.adb
+   [Ada]          alr2appimage_config.ads
+   [Ada]          desktop_file.adb
+   [Ada]          file_manager.adb
+   [Ada]          runner.adb
+   [Ada]          string_vectors.ads
+Build Libraries
+   [gprlib]       ada_toml.lexch
+   [gprlib]       parse_args.lexch
+   [gprlib]       Resources.lexch
+   [gprlib]       Spoon.lexch
+   [archive]      libada_toml.a
+   [archive]      libResources.a
+   [archive]      libSpoon.a
+   [archive]      libparse_args.a
+   [index]        libResources.a
+   [index]        libSpoon.a
+   [index]        libada_toml.a
+   [index]        libparse_args.a
+Bind
+   [gprbind]      alr2appimage.bexch
+   [Ada]          alr2appimage.ali
+Link
+   [link]         alr2appimage.adb
+
+alr2appimage=0.9.2 successfully retrieved and built.
+Dependencies were solved as follows:
+
+   + ada_toml   0.4.0 (new)
+   + parse_args 0.9.0 (new)
+   + resources  0.1.0 (new)
+   + spoon      1.0.1 (new)
+Found declared GPR file: alr2appimage.gpr

@@ -1,0 +1,802 @@
+Test ran at 2025-07-22 12:23:23.886133+00:00
+
+SOLUTION:
+spdx_tool=0.4.1: SPDX license detection and management tool
+Origin: commit 0ca2cee437e71cd5f8a32edaa6f3facff8868be3 from https://gitlab.com/stcarrez/spdx-tool.git
+Properties:
+   Post_Fetch run: sh ./alire-setup.sh (from ${CRATE_ROOT}/.)
+   Author: ciceron
+   Description: SPDX license detection and management tool
+   Executable: spdx-tool
+   case OS is
+      when Freebsd => GPR External: USE_MAGICADA := no
+      when Linux => GPR External: USE_MAGICADA := yes
+      when Macos => GPR External: USE_MAGICADA := no
+      when Windows => GPR External: USE_MAGICADA := no
+   License: Apache-2.0
+   Long_Description: spdx-tool scans the source files to identify licenses and allows to update them in order to use the
+SPDX license format.  It can be used to:
+
+* identify the license used in source files of a project,
+* produce a JSON/XML report for the licenses found with the list of files,
+* replace a license header by the [SPDX license](https://spdx.org/licenses/) tag equivalent.
+
+Identify licenses used in a project:
+
+```
+spdx-tool
+```
+
+Identify files matching a given license:
+
+```
+spdx-tool --only-licenses=Apache-2.0 -f
+```
+
+Check the license header before replacing it:
+
+```
+spdx-tool --only-licenses=Apache-2.0 --print-license --line-number src
+```
+
+Replace the license header by the `SPDX-License-Identifier` header:
+
+```
+spdx-tool --only-licenses=Apache-2.0 --update=spdx src
+```
+
+Build an XML or JSON report of files with their licenses:
+
+```
+spdx-tool --output-xml=report.xml
+```
+
+## Documentation
+
+* Man page: [spdx-tool (1)](https://gitlab.com/stcarrez/spdx-tool/-/blob/main/docs/spdx-tool.md?ref_type=heads)
+
+
+   Maintainer: ciceron <Stephane.Carrez@gmail.com>
+   Maintainers_Logins: stcarrez
+   Name: spdx_tool
+   Project_File: spdx_tool.gpr
+   Tag: tools
+   Tag: spdx
+   Tag: license
+   Version: 0.4.1
+   Website: https://github.com/stcarrez/spdx-tool
+Dependencies (direct):
+   case OS is
+      when Linux => magicada^1
+   ada_toml~0.5.0
+   ansiada^1.0.0
+   intl^1.0.1
+   printer_toolkit~0.2.0
+   sciada~0.4.0
+   spdx~0.2.0
+   utilada^2.8.0
+   utilada_xml^2.8.0
+Dependencies (solution):
+   ada_toml=0.5.0
+   ansiada=1.1.0
+   gnat=15.1.2 (gnat_native)
+   intl=1.0.1
+   printer_toolkit=0.2.0
+   sciada=0.4.0
+   spdx=0.2.0
+   utilada=2.8.1
+   utilada_xml=2.8.1
+   xmlada=24.0.0
+Dependencies (graph):
+   printer_toolkit=0.2.0 --> ansiada=1.1.0 (^1.0.0)
+   spdx_tool=0.4.1       --> ada_toml=0.5.0 (~0.5.0)
+   spdx_tool=0.4.1       --> ansiada=1.1.0 (^1.0.0)
+   spdx_tool=0.4.1       --> intl=1.0.1 (^1.0.1)
+   spdx_tool=0.4.1       --> printer_toolkit=0.2.0 (~0.2.0)
+   spdx_tool=0.4.1       --> sciada=0.4.0 (~0.4.0)
+   spdx_tool=0.4.1       --> spdx=0.2.0 (~0.2.0)
+   spdx_tool=0.4.1       --> utilada=2.8.1 (^2.8.0)
+   spdx_tool=0.4.1       --> utilada_xml=2.8.1 (^2.8.0)
+   utilada_xml=2.8.1     --> utilada=2.8.1 (^2.8.1)
+   utilada_xml=2.8.1     --> xmlada=24.0.0 (^24.0)
+   xmlada=24.0.0         --> gnat=15.1.2 (gnat_native) (>=11)
+
+
+LOG:
+[alr test] Testing spdx_tool=0.4.1
+[alr test] Spawning retrieval for remote crate: alr -d -n get spdx_tool=0.4.1
+Note: Deploying spdx_tool=0.4.1...
+Note: Deploying ada_toml=0.5.0...
+#=#=#                                                                          
+##O#-#                                                                         
+##O=#  #                                                                       
+#=#=-#  #                                                                      
+ #=#=-#   #                                                                    
+Note: Deploying ansiada=1.1.0...
+Note: Deploying intl=1.0.1...
+Note: Deploying sciada=0.4.0...
+Note: Deploying spdx=0.2.0...
+Note: Deploying utilada=2.8.1...
+Note: Deploying printer_toolkit=0.2.0...
+Note: Deploying xmlada=24.0.0...
+#=#=#                                                                          
+##O#-#                                                                         
+##O=#  #                                                                       
+#=#=-#  #                                                                      
+-#O#- #   #                                                                    
+ -#O#-  #   #                                                                  
+  -#O#-  #   #                                                                 
+   -#O=#   #   #                                                               
+Note: Deploying utilada_xml=2.8.1...
+
+spdx_tool=0.4.1 successfully retrieved.
+Dependencies were solved as follows:
+
+   +  ada_toml        0.5.0  (new)
+   +  ansiada         1.1.0  (new)
+   +b gnat            15.1.2 (new,gnat_native,indirect,binary)
+   +  intl            1.0.1  (new)
+   +  printer_toolkit 0.2.0  (new)
+   +  sciada          0.4.0  (new)
+   +  spdx            0.2.0  (new)
+   +  utilada         2.8.1  (new)
+   +  utilada_xml     2.8.1  (new)
+   +  xmlada          24.0.0 (new,indirect)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Running post-fetch actions for xmlada=24.0.0...
+checking build system type... aarch64-apple-darwin23.6.0
+checking host system type... aarch64-apple-darwin23.6.0
+checking target system type... aarch64-apple-darwin23.6.0
+checking whether gnat can build shared libs... yes
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether ln -s works... yes
+configure: creating ./config.status
+config.status: creating xmlada_shared.gpr
+config.status: creating Makefile
+config.status: creating tests/dom/default.gpr
+Note: Running post-fetch actions for spdx_tool=0.4.1...
+Note: Building spdx_tool=0.4.1/spdx_tool.gpr...
+Setup
+   [mkdir]        object directory for project Ada_TOML
+   [mkdir]        library directory for project Ada_TOML
+   [mkdir]        object directory for project Ansiada
+   [mkdir]        library directory for project Ansiada
+   [mkdir]        object directory for project Intl
+   [mkdir]        library directory for project Intl
+   [mkdir]        object directory for project Printer_Toolkit
+   [mkdir]        library directory for project Printer_Toolkit
+   [mkdir]        object directory for project SciAda
+   [mkdir]        library directory for project SciAda
+   [mkdir]        object directory for project Spdx
+   [mkdir]        library directory for project Spdx
+   [mkdir]        object directory for project UtilAda_Core
+   [mkdir]        library directory for project UtilAda_Core
+   [mkdir]        object directory for project UtilAda_Sys
+   [mkdir]        library directory for project UtilAda_Sys
+   [mkdir]        object directory for project XmlAda_Sax
+   [mkdir]        library directory for project XmlAda_Sax
+   [mkdir]        object directory for project UtilAda_Xml
+   [mkdir]        library directory for project UtilAda_Xml
+   [mkdir]        object directory for project Spdx_Tool
+   [mkdir]        exec directory for project Spdx_Tool
+Compile
+   [Ada]          spdx_tool-main.adb
+   [Ada]          input_sources-http.adb
+   [Ada]          input_sources-socket.adb
+   [Ada]          input_sources-file.adb
+   [Ada]          input_sources.adb
+   [Ada]          input_sources-strings.adb
+   [Ada]          unicode-names-cuneiform.ads
+   [Ada]          unicode-names-sora_sompeng.ads
+   [Ada]          unicode-names-mro.ads
+   [Ada]          unicode-names-bassa_vah.ads
+   [Ada]          unicode-names-ipa_extensions.ads
+   [Ada]          unicode-names-optical_chars_recognition.ads
+   [Ada]          unicode-names-misc_math_symbols_a.ads
+   [Ada]          unicode-names-ethiopic_extended_a.ads
+   [Ada]          unicode-names-inscriptional_pahlavi.ads
+   [Ada]          unicode-names-combining_half_marks.ads
+   [Ada]          unicode-names-lycian.ads
+   [Ada]          unicode-names-combining_diacritical_sup.ads
+   [Ada]          unicode-names-ancient_greek_numbers.ads
+   [Ada]          unicode-ces-utf16.adb
+   [Ada]          unicode-names-pahawh_hmong.ads
+   [Ada]          unicode-names-balinese.ads
+   [Ada]          unicode-names-miscellaneous_symbols.ads
+   [Ada]          unicode-names-vertical_forms.ads
+   [Ada]          unicode-names-lao.ads
+   [Ada]          unicode-names-mende_kikakui.ads
+   [Ada]          unicode-names-nabataean.ads
+   [Ada]          unicode-names-coptic.ads
+   [Ada]          unicode-names-thai.ads
+   [Ada]          unicode-ccs-windows_1251.adb
+   [Ada]          unicode-names-khmer.ads
+   [Ada]          unicode-names-block_elements.ads
+   [Ada]          unicode-names-georgian.ads
+   [Ada]          unicode-names-misc_math_symbols_b.ads
+   [Ada]          unicode-names-sup_math_operators.ads
+   [Ada]          unicode-names-myanmar.ads
+   [Ada]          unicode-names-ethiopic.ads
+   [Ada]          unicode-encodings.adb
+   [Ada]          unicode-ccs-windows_1252.adb
+   [Ada]          unicode-names-imperial_aramaic.ads
+   [Ada]          unicode-names-mathematical_operators.ads
+   [Ada]          unicode-names-cyrillic_extended_a.ads
+   [Ada]          unicode-names-musical_symbols.ads
+   [Ada]          unicode-names-supplemental_punctuation.ads
+   [Ada]          unicode-names-old_north_arabian.ads
+   [Ada]          unicode-names-enclosed_ideographic_sup.ads
+   [Ada]          unicode.adb
+   [Ada]          unicode-names-braille_patterns.ads
+   [Ada]          unicode-names-geometric_shapes_extended.ads
+   [Ada]          unicode-names-saurashtra.ads
+   [Ada]          unicode-names-kayah_li.ads
+   [Ada]          unicode-names-greek_and_coptic.ads
+   [Ada]          unicode-names-hebrew.ads
+   [Ada]          unicode-names-new_tai_lue.ads
+   [Ada]          unicode-names-tifinagh.ads
+   [Ada]          unicode-names-tirhuta.ads
+   [Ada]          unicode-names-old_south_arabian.ads
+   [Ada]          unicode-names-cyrillic_extended_b.ads
+   [Ada]          unicode-names-tags.ads
+   [Ada]          unicode-names-cuneiform_num_punctuation.ads
+   [Ada]          unicode-names-sinhala_archaic_numbers.ads
+   [Ada]          unicode-names-enclosed_alphanumerics.ads
+   [Ada]          unicode-names-pau_cin_hau.ads
+   [Ada]          unicode-names-meroitic_cursive.ads
+   [Ada]          unicode-names-cjk_letters_months.ads
+   [Ada]          unicode-names-sundanese.ads
+   [Ada]          unicode-names-kangxi_radicals.ads
+   [Ada]          unicode-names-telugu.ads
+   [Ada]          unicode-names-devanagari.ads
+   [Ada]          unicode-names-palmyrene.ads
+   [Ada]          unicode-names-rejang.ads
+   [Ada]          unicode-names-canadian_aboriginal_ext.ads
+   [Ada]          unicode-names-shavian.ads
+   [Ada]          unicode-names-hangul_compatibility_jamo.ads
+   [Ada]          unicode-names-math_alphanumeric_symb.ads
+   [Ada]          unicode-names-syriac.ads
+   [Ada]          unicode-names-ol_chiki.ads
+   [Ada]          unicode-names-modifier_tone_letters.ads
+   [Ada]          unicode-names-linear_b_ideograms.ads
+   [Ada]          unicode-names-samaritan.ads
+   [Ada]          unicode-names-alpha_presentation_forms.ads
+   [Ada]          unicode-names-dingbats.ads
+   [Ada]          unicode-names-oriya.ads
+   [Ada]          unicode-names-glagolitic.ads
+   [Ada]          unicode-names-cjk_compatibility.ads
+   [Ada]          unicode-names-greek_extended.ads
+   [Ada]          unicode-names-limbu.ads
+   [Ada]          unicode-names-katakana_phonetic_ext.ads
+   [Ada]          unicode-names-modi.ads
+   [Ada]          unicode-names-latin_extended_a.ads
+   [Ada]          unicode-names-buginese.ads
+   [Ada]          unicode-names-manichaean.ads
+   [Ada]          unicode-names-ogham.ads
+   [Ada]          unicode-names-lepcha.ads
+   [Ada]          unicode-names-latin_extended_c.ads
+   [Ada]          unicode-names-nko.ads
+   [Ada]          unicode-names-egyptian_hieroglyphs.ads
+   [Ada]          unicode-names-mongolian.ads
+   [Ada]          unicode-names-counting_rod_numerals.ads
+   [Ada]          unicode-names-bopomofo.ads
+   [Ada]          unicode-names-bopomofo_extended.ads
+   [Ada]          unicode-names-kaithi.ads
+   [Ada]          unicode-names-latin_extended_b.ads
+   [Ada]          unicode-names-cyrillic_supplement.ads
+   [Ada]          unicode-names-old_persian.ads
+   [Ada]          unicode-names-ornamental_dingbats.ads
+   [Ada]          unicode-names-variation_selectors.ads
+   [Ada]          unicode-names-thaana.ads
+   [Ada]          unicode-names-bengali.ads
+   [Ada]          unicode-names-hangul_jamo_extended_b.ads
+   [Ada]          unicode-names-transport_and_map_symbols.ads
+   [Ada]          unicode-names-supplemental_arrows_a.ads
+   [Ada]          unicode-names-tai_tham.ads
+   [Ada]          unicode-names-cjk_radicals_supplement.ads
+   [Ada]          unicode-names-latin_1_supplement.ads
+   [Ada]          unicode-names-multani.ads
+   [Ada]          unicode-names-rumi_numeral_symbols.ads
+   [Ada]          unicode-names-khudawadi.ads
+   [Ada]          unicode-names-runic.ads
+   [Ada]          unicode-names-ancient_greek_music.ads
+   [Ada]          unicode-names-armenian.ads
+   [Ada]          unicode-names-tamil.ads
+   [Ada]          unicode-names-latin_extended_additional.ads
+   [Ada]          unicode-names-combining_diacritical.ads
+   [Ada]          unicode-names-tai_xuan_jing_symbols.ads
+   [Ada]          unicode-names-phonetic_extensions.ads
+   [Ada]          unicode-names.ads
+   [Ada]          unicode-names-hangul_jamo_extended_a.ads
+   [Ada]          unicode-names-supplemental_arrows_b.ads
+   [Ada]          unicode-names-tai_viet.ads
+   [Ada]          unicode-names-latin_extended_e.ads
+   [Ada]          unicode-names-misc_symbols_and_arrows.ads
+   [Ada]          unicode-names-small_form_variants.ads
+   [Ada]          unicode-names-avestan.ads
+   [Ada]          unicode-names-latin_extended_d.ads
+   [Ada]          unicode-names-sutton_signwriting.ads
+   [Ada]          unicode-names-supplemental_arrows_c.ads
+   [Ada]          unicode-names-ahom.ads
+   [Ada]          unicode-names-ethiopic_supplement.ads
+   [Ada]          unicode-names-vai.ads
+   [Ada]          unicode-names-georgian_supplement.ads
+   [Ada]          unicode-names-sup_symbols_pictographs.ads
+   [Ada]          unicode-names-domino_tiles.ads
+   [Ada]          unicode-names-katakana.ads
+   [Ada]          unicode-names-cjk_strokes.ads
+   [Ada]          unicode-names-arabic_present_formsb.ads
+   [Ada]          unicode-ces-utf8.adb
+   [Ada]          unicode-names-batak.ads
+   [Ada]          unicode-names-ugaritic.ads
+   [Ada]          unicode-names-common_indic_number_forms.ads
+   [Ada]          unicode-names-playing_cards.ads
+   [Ada]          unicode-names-mahajani.ads
+   [Ada]          unicode-names-phags_pa.ads
+   [Ada]          unicode-names-yi_radicals.ads
+   [Ada]          unicode-names-bamum.ads
+   [Ada]          unicode-names-vedic_extensions.ads
+   [Ada]          unicode-names-khojki.ads
+   [Ada]          unicode-names-elbasan.ads
+   [Ada]          unicode-names-tagalog.ads
+   [Ada]          unicode-ccs-iso_8859_4.adb
+   [Ada]          unicode-ccs.adb
+   [Ada]          unicode-names-box_drawing.ads
+   [Ada]          unicode-names-alchemical_symbols.ads
+   [Ada]          unicode-names-variation_selectors_sup.ads
+   [Ada]          unicode-names-buhid.ads
+   [Ada]          unicode-names-arabic_present_formsa.ads
+   [Ada]          unicode-names-cham.ads
+   [Ada]          unicode-names-caucasian_albanian.ads
+   [Ada]          unicode-names-osmanya.ads
+   [Ada]          unicode-names-shorthand_format_controls.ads
+   [Ada]          unicode-names-cjk_symbols_and_punct.ads
+   [Ada]          unicode-names-miscellaneous_technical.ads
+   [Ada]          unicode-names-tai_le.ads
+   [Ada]          unicode-names-kanbun.ads
+   [Ada]          unicode-names-general_punctuation.ads
+   [Ada]          unicode-ccs-iso_8859_1.adb
+   [Ada]          unicode-names-kana_supplement.ads
+   [Ada]          unicode-names-spacing_modifier_letters.ads
+   [Ada]          unicode-names-ancient_symbols.ads
+   [Ada]          unicode-names-early_dynastic_cuneiform.ads
+   [Ada]          unicode-names-syloti_nagri.ads
+   [Ada]          unicode-names-psalter_pahlavi.ads
+   [Ada]          unicode-names-hatran.ads
+   [Ada]          unicode-names-letterlike_symbols.ads
+   [Ada]          unicode-names-emoticons.ads
+   [Ada]          unicode-names-takri.ads
+   [Ada]          unicode-names-specials.ads
+   [Ada]          unicode-names-kharoshthi.ads
+   [Ada]          unicode-names-kannada.ads
+   [Ada]          unicode-ccs-iso_8859_2.adb
+   [Ada]          unicode-names-old_permic.ads
+   [Ada]          unicode-names-cherokee.ads
+   [Ada]          unicode-names-geometric_shapes.ads
+   [Ada]          unicode-ces-basic_8bit.adb
+   [Ada]          unicode-names-cherokee_supplement.ads
+   [Ada]          unicode-names-enclosed_alphanum_sup.ads
+   [Ada]          unicode-names-bamum_supplement.ads
+   [Ada]          unicode-names-number_forms.ads
+   [Ada]          unicode-names-basic_latin.ads
+   [Ada]          unicode-names-old_italic.ads
+   [Ada]          unicode-names-old_turkic.ads
+   [Ada]          unicode-names-duployan.ads
+   [Ada]          unicode-names-inscriptional_parthian.ads
+   [Ada]          unicode-names-arabic_supplement.ads
+   [Ada]          unicode-names-coptic_epact_numbers.ads
+   [Ada]          unicode-names-combining_diacritical_ext.ads
+   [Ada]          unicode-names-khmer_symbols.ads
+   [Ada]          unicode-ccs-iso_8859_3.adb
+   [Ada]          unicode-ces.adb
+   [Ada]          unicode-names-sundanese_supplement.ads
+   [Ada]          unicode-names-half_full_width_forms.ads
+   [Ada]          unicode-names-gothic.ads
+   [Ada]          unicode-names-myanmar_extended_a.ads
+   [Ada]          unicode-names-lydian.ads
+   [Ada]          unicode-names-arabic_extended_a.ads
+   [Ada]          unicode-names-tagbanwa.ads
+   [Ada]          unicode-names-cjk_compat_ideo_sup.ads
+   [Ada]          unicode-names-combining_diacritical_sym.ads
+   [Ada]          unicode-names-phaistos_disc.ads
+   [Ada]          unicode-names-linear_b_syllabary.ads
+   [Ada]          unicode-names-linear_a.ads
+   [Ada]          unicode-names-arabic.ads
+   [Ada]          unicode-names-ideograph_descr_chars.ads
+   [Ada]          unicode-names-cypriot_syllabary.ads
+   [Ada]          unicode-names-phoenician.ads
+   [Ada]          unicode-names-siddham.ads
+   [Ada]          unicode-names-hangul_jamo.ads
+   [Ada]          unicode-names-myanmar_extended_b.ads
+   [Ada]          unicode-names-byzantine_musical_symbols.ads
+   [Ada]          unicode-names-anatolian_hieroglyphs.ads
+   [Ada]          unicode-names-chakma.ads
+   [Ada]          unicode-names-warang_citi.ads
+   [Ada]          unicode-names-sharada.ads
+   [Ada]          unicode-names-cjk_compat_ideographs.ads
+   [Ada]          unicode-names-mahjong_tiles.ads
+   [Ada]          unicode-names-control_pictures.ads
+   [Ada]          unicode-names-sinhala.ads
+   [Ada]          unicode-names-aegean_numbers.ads
+   [Ada]          unicode-names-grantha.ads
+   [Ada]          unicode-ccs-iso_8859_15.adb
+   [Ada]          unicode-names-phonetic_ext_sup.ads
+   [Ada]          unicode-names-yi_syllables.ads
+   [Ada]          unicode-names-gurmukhi.ads
+   [Ada]          unicode-names-cyrillic.ads
+   [Ada]          unicode-names-yijing_hexagram_symbols.ads
+   [Ada]          unicode-names-carian.ads
+   [Ada]          unicode-names-javanese.ads
+   [Ada]          unicode-names-misc_symbols_pictographs.ads
+   [Ada]          unicode-names-meetei_mayek_extensions.ads
+   [Ada]          unicode-names-tibetan.ads
+   [Ada]          unicode-names-lisu.ads
+   [Ada]          unicode-names-ethiopic_extended.ads
+   [Ada]          unicode-names-miao.ads
+   [Ada]          unicode-names-brahmi.ads
+   [Ada]          unicode-names-arabic_math_alpha_symb.ads
+   [Ada]          unicode-names-gujarati.ads
+   [Ada]          unicode-names-malayalam.ads
+   [Ada]          unicode-names-old_hungarian.ads
+   [Ada]          unicode-names-arrows.ads
+   [Ada]          unicode-names-mandaic.ads
+   [Ada]          unicode-ces-utf32.adb
+   [Ada]          unicode-names-cjk_compatibility_forms.ads
+   [Ada]          unicode-names-currency_symbols.ads
+   [Ada]          unicode-names-meetei_mayek.ads
+   [Ada]          unicode-names-deseret.ads
+   [Ada]          unicode-names-hanunoo.ads
+   [Ada]          unicode-names-canadian_aboriginal.ads
+   [Ada]          unicode-names-hiragana.ads
+   [Ada]          unicode-names-devanagari_extended.ads
+   [Ada]          unicode-names-super_and_sub_scripts.ads
+   [Ada]          unicode-names-meroitic_hieroglyphs.ads
+   [Ada]          sax-utils.adb
+   [Ada]          sax-htable.adb
+   [Ada]          sax-symbols.adb
+   [Ada]          sax-locators.adb
+   [Ada]          sax-attributes.adb
+   [Ada]          sax.ads
+   [Ada]          sax-encodings.ads
+   [Ada]          sax-pointers.adb
+   [Ada]          sax-state_machines.adb
+   [Ada]          sax-exceptions.adb
+   [Ada]          sax-models.adb
+   [Ada]          sax-readers.adb
+   [Ada]          util-serialize-io-xml.adb
+   [Ada]          util-streams-raw.adb
+   [Ada]          util-systems-dlls.adb
+   [Ada]          util-processes-os.adb
+   [Ada]          util-processes.adb
+   [Ada]          util-processes-tools.adb
+   [Ada]          util-http-tools.adb
+   [Ada]          util-http-headers.adb
+   [Ada]          util-http-mimes.adb
+   [Ada]          util-mail.adb
+   [Ada]          util-http-cookies.adb
+   [Ada]          util-http.adb
+   [Ada]          util-http-mockups.adb
+   [Ada]          util-http-clients-mockups.adb
+   [Ada]          util-http-rest-rest_get_vector.adb
+   [Ada]          util-http-rest.adb
+   [Ada]          util-http-parts.adb
+   [Ada]          util-http-clients.adb
+   [Ada]          util-encoders-base16.adb
+   [Ada]          util-encoders-hmac-sha1.adb
+   [Ada]          util-encoders.adb
+   [Ada]          util-encoders-uri.adb
+   [Ada]          util-encoders-base64.adb
+   [Ada]          util-encoders-hmac-sha256.adb
+   [Ada]          util-encoders-quoted_printable.adb
+   [Ada]          util-encoders-hmac.ads
+   [Ada]          util-encoders-kdf-pbkdf2.adb
+   [Ada]          util-encoders-aes.adb
+   [Ada]          util-encoders-sha1.adb
+   [Ada]          util-encoders-kdf.ads
+   [Ada]          util-encoders-kdf-pbkdf2_hmac_sha256.ads
+   [Ada]          util-encoders-base32.adb
+   [Ada]          util-encoders-ecc.adb
+   [Ada]          util-encoders-hmac-hotp.adb
+   [Ada]          util-encoders-sha256.adb
+   [Ada]          util-measures.adb
+   [Ada]          util-streams-aes.adb
+   [Ada]          util-streams-texts.adb
+   [Ada]          util-streams-buffered.adb
+   [Ada]          util-streams-base64.ads
+   [Ada]          util-streams-buffered-encoders.adb
+   [Ada]          util-streams-sockets.adb
+   [Ada]          util-streams-base16.ads
+   [Ada]          util-streams-texts-tr.ads
+   [Ada]          util-streams-buffered-parts.adb
+   [Ada]          util-streams-files.adb
+   [Ada]          util-streams-texts-wtr.ads
+   [Ada]          util-streams-pipes.adb
+   [Ada]          util-streams.adb
+   [Ada]          util-properties-json.adb
+   [Ada]          util-serialize-io-form.adb
+   [Ada]          util-serialize-io.adb
+   [Ada]          util-serialize-contexts.adb
+   [Ada]          util-serialize-mappers-record_mapper.adb
+   [Ada]          util-serialize-tools.adb
+   [Ada]          util-serialize-io-csv.adb
+   [Ada]          util-beans-objects-readers.adb
+   [Ada]          util-serialize-mappers-vector_mapper.adb
+   [Ada]          util-serialize-mappers.adb
+   [Ada]          util-serialize.ads
+   [Ada]          util-properties-form.adb
+   [Ada]          util-serialize-io-json.adb
+   [Ada]          util-texts-transforms.adb
+   [Ada]          util-texts-formats.adb
+   [Ada]          util-texts.ads
+   [Ada]          util-texts-builders.adb
+   [Ada]          util-texts-tokenizers.adb
+   [Ada]          util-strings-sets.ads
+   [Ada]          util-strings-tokenizers.ads
+   [Ada]          util-strings.adb
+   [Ada]          util-strings-transforms.adb
+   [Ada]          util-strings-formats.adb
+   [Ada]          util-strings-builders.ads
+   [Ada]          util-strings-maps_incensitive.ads
+   [Ada]          util-strings-builders-transforms.ads
+   [Ada]          util-strings-vectors.ads
+   [Ada]          util-strings-maps.ads
+   [Ada]          util-listeners.ads
+   [Ada]          util-listeners-observers.adb
+   [Ada]          util-listeners-lifecycles.adb
+   [Ada]          util-concurrent-counters.adb
+   [Ada]          util-concurrent-locks.adb
+   [Ada]          util-concurrent-sequence_queues.adb
+   [Ada]          util-concurrent-copies.adb
+   [Ada]          util-concurrent-arrays.adb
+   [Ada]          util-concurrent-pools.adb
+   [Ada]          util-concurrent-fifos.adb
+   [Ada]          util-concurrent.ads
+   [Ada]          util-nullables.ads
+   [Ada]          util.ads
+   [Ada]          util-named_lists.adb
+   [Ada]          util-algorithms.ads
+   [Ada]          util-stacks.adb
+   [Ada]          util-executors.adb
+   [Ada]          util-blobs.adb
+   [Ada]          util-refs.adb
+   [Ada]          util-locales.adb
+   [Ada]          util-systems-types.ads
+   [Ada]          util-systems-constants.ads
+   [Ada]          util-systems-io.adb
+   [Ada]          util-systems-os.ads
+   [Ada]          util-properties-basic.adb
+   [Ada]          util-properties-discrete.adb
+   [Ada]          util-properties.adb
+   [Ada]          util-properties-bundles.adb
+   [Ada]          util-log-locations.adb
+   [Ada]          util-log-formatters.adb
+   [Ada]          util-log-formatters-factories.adb
+   [Ada]          util-log-appenders-rolling_files.adb
+   [Ada]          util-log-appenders-files.adb
+   [Ada]          util-log-appenders-consoles.adb
+   [Ada]          util-log-appenders-formatter.adb
+   [Ada]          util-log-loggers.adb
+   [Ada]          util-log-appenders-factories.adb
+   [Ada]          util-log.adb
+   [Ada]          util-log-appenders.adb
+   [Ada]          util-files-rolling.adb
+   [Ada]          util-files-filters.adb
+   [Ada]          util-files-walk.adb
+   [Ada]          util-files.adb
+   [Ada]          util-events-channels.adb
+   [Ada]          util-events-timers.adb
+   [Ada]          util-events.adb
+   [Ada]          util-dates-formats.adb
+   [Ada]          util-dates-rfc7231.adb
+   [Ada]          util-dates-simple_format.adb
+   [Ada]          util-dates-iso8601.adb
+   [Ada]          util-dates.adb
+   [Ada]          util-commands-parsers.adb
+   [Ada]          util-commands.adb
+   [Ada]          util-commands-text_io.ads
+   [Ada]          util-commands-consoles.adb
+   [Ada]          util-commands-parsers-gnat_parser.adb
+   [Ada]          util-commands-raw_io.ads
+   [Ada]          util-commands-consoles-text.adb
+   [Ada]          util-commands-drivers.adb
+   [Ada]          util-beans-objects-maps.adb
+   [Ada]          util-beans-objects.adb
+   [Ada]          util-beans-objects-pairs.adb
+   [Ada]          util-beans-objects-records.adb
+   [Ada]          util-beans-basic-ranges.adb
+   [Ada]          util-beans.ads
+   [Ada]          util-beans-objects-to_access.adb
+   [Ada]          util-beans-ranges.ads
+   [Ada]          util-beans-objects-lists.adb
+   [Ada]          util-beans-objects-iterators.adb
+   [Ada]          util-beans-basic-lists.adb
+   [Ada]          util-beans-factory.adb
+   [Ada]          util-beans-objects-enums.adb
+   [Ada]          util-beans-basic.ads
+   [Ada]          util-beans-objects-datasets.adb
+   [Ada]          util-beans-methods.ads
+   [Ada]          util-beans-lists-strings.adb
+   [Ada]          util-beans-objects-time.adb
+   [Ada]          util-beans-lists.ads
+   [Ada]          util-beans-objects-vectors.adb
+util-beans-objects-time.adb:98:50: warning: call to obsolescent function "To_Ada_Time" declared at a-calcon.ads:39 [-gnatwj]
+util-beans-objects-time.adb:98:50: warning: This function may be removed in a future version [-gnatwj]
+   [Ada]          util-beans-objects-hash.adb
+   [Ada]          util-systems.ads
+   [Ada]          spdx-exceptions.adb
+   [Ada]          spdx.adb
+   [Ada]          spdx-licenses.adb
+   [Ada]          sci-statistics-descriptive.adb
+   [Ada]          sci-statistics.ads
+   [Ada]          sci-similarities-indefinite_hashed_sets.adb
+   [Ada]          sci-correlations.ads
+   [Ada]          sci-occurrences-arrays.adb
+   [Ada]          sci-occurrences.ads
+   [Ada]          sci-vectorizers-indefinite_counters.adb
+   [Ada]          sci-similarities-coo_arrays.adb
+   [Ada]          sci-vectorizers-counters.adb
+   [Ada]          sci-similarities.adb
+   [Ada]          sci-sparse-coo_arrays.adb
+   [Ada]          sci-similarities-indefinite_ordered_sets.adb
+   [Ada]          sci-numbers.ads
+   [Ada]          sci.ads
+   [Ada]          sci-correlations-pearson.adb
+   [Ada]          sci-vectorizers.ads
+   [Ada]          sci-vectorizers-transformers.adb
+   [Ada]          sci-sparse.ads
+   [Ada]          sci-occurrences-finites.adb
+   [C]            terminal.c
+   [Ada]          pt-colors.adb
+   [Ada]          pt-drivers-texts-gnat_io.adb
+   [Ada]          pt-drivers-texts.adb
+   [Ada]          pt-charts.adb
+   [Ada]          pt-drivers.ads
+   [Ada]          pt.adb
+   [Ada]          pt-charts-barcharts.adb
+   [Ada]          pt-texts.adb
+   [Ada]          intl__none.adb
+   [Ada]          ansiada_config.ads
+   [Ada]          ansiada.ads
+   [Ada]          toml-generic_parse.adb
+   [Ada]          toml-generic_dump.adb
+   [Ada]          toml-file_io.adb
+   [Ada]          toml.adb
+   [Ada]          spdx_tool.adb
+   [Ada]          spdx_tool-configs.adb
+   [Ada]          spdx_tool-configs-defaults.ads
+   [Ada]          spdx_tool-infos.adb
+   [Ada]          spdx_tool-licenses.adb
+   [Ada]          spdx_tool-licenses-manager.adb
+   [Ada]          spdx_tool-licenses-repository.adb
+   [Ada]          spdx_tool-licenses-templates.ads
+   [Ada]          spdx_tool-magic_manager.adb
+   [Ada]          spdx_tool-reports.adb
+   [Ada]          spdx_tool-configs-default.ads
+   [Ada]          util-algorithms-arrays.adb
+util-algorithms-arrays.ads:16:04: (style) missing "overriding" indicator in declaration of "&" [-gnatyO]
+   [Ada]          spdx_tool-counter_arrays.ads
+   [Ada]          spdx_tool-files.ads
+   [Ada]          spdx_tool-languages.adb
+   [Ada]          spdx_tool-files-manager.adb
+   [Ada]          spdx_tool-languages-manager.adb
+   [Ada]          spdx_tool-licenses-files.adb
+   [Ada]          spdx_tool-licenses-reader.adb
+   [Ada]          spdx_tool-token_counters.ads
+   [Ada]          util-strings-split.adb
+   [Ada]          spdx_tool-languages-commentsmap.adb
+   [Ada]          spdx_tool-languages-rules.adb
+   [Ada]          spdx_tool-languages-rules-disambiguations.ads
+   [Ada]          spdx_tool-languages-rules-generated.ads
+   [Ada]          spdx_tool-languages-extensions.adb
+   [Ada]          spdx_tool-languages-filenames.adb
+   [Ada]          spdx_tool-languages-generated.adb
+   [Ada]          spdx_tool-languages-mimes.adb
+   [Ada]          spdx_tool-languages-modelines.adb
+   [Ada]          spdx_tool-languages-shell.adb
+   [Ada]          spdx_tool-arrays.adb
+   [Ada]          spdx_tool-languages-extensionmap.adb
+   [Ada]          spdx_tool-languages-filenamemap.adb
+   [Ada]          spdx_tool-languages-interpretermap.adb
+   [Ada]          spdx_tool-languages-aliasmap.adb
+Build Libraries
+   [gprlib]       ada_toml.lexch
+   [gprlib]       Ansiada.lexch
+   [gprlib]       Intl.lexch
+   [gprlib]       printer_toolkit.lexch
+   [archive]      libAnsiada.a
+   [archive]      libIntl.a
+   [archive]      libada_toml.a
+   [index]        libada_toml.a
+   [index]        libIntl.a
+   [index]        libAnsiada.a
+   [gprlib]       sciada.lexch
+   [gprlib]       Spdx.lexch
+   [archive]      libprinter_toolkit.a
+   [archive]      libsciada.a
+   [gprlib]       utilada_core.lexch
+   [archive]      libSpdx.a
+   [index]        libprinter_toolkit.a
+   [index]        libsciada.a
+   [index]        libSpdx.a
+   [gprlib]       utilada_base.lexch
+   [archive]      libutilada_core.a
+   [index]        libutilada_core.a
+   [archive]      libutilada_base.a
+   [gprlib]       utilada_sys.lexch
+   [index]        libutilada_base.a
+   [gprlib]       xmlada_unicode.lexch
+   [gprlib]       xmlada_input_sources.lexch
+   [archive]      libutilada_sys.a
+   [archive]      libxmlada_unicode.a
+   [index]        libutilada_sys.a
+   [index]        libxmlada_unicode.a
+   [gprlib]       xmlada_sax.lexch
+   [archive]      libxmlada_input_sources.a
+   [index]        libxmlada_input_sources.a
+   [gprlib]       utilada_xml.lexch
+   [archive]      libxmlada_sax.a
+   [index]        libxmlada_sax.a
+   [archive]      libutilada_xml.a
+   [index]        libutilada_xml.a
+Bind
+   [gprbind]      spdx_tool-main.bexch
+   [Ada]          spdx_tool-main.ali
+Link
+   [link]         spdx_tool-main.adb
+Undefined symbols for architecture arm64:
+  "__get_errno", referenced from:
+      _util__files__delete_file in libutilada_base.a(util-files.o)
+      _util__streams__raw__read in libutilada_sys.a(util-streams-raw.o)
+     (maybe you meant: ___get_errno)
+  "close", referenced from:
+      _util__streams__raw__close in libutilada_sys.a(util-streams-raw.o)
+     (maybe you meant: _util__log__appenders__rolling_files__rolling_file__closelogP, _util__streams__files__close , _util__streams__files__closeE15b , _system__os_lib__close__2 , _input_sources__close , _input_sources__closeE25b , _system__os_lib__set_close_on_exec , _ada__text_io__close , _input_sources__strings__closeE14b , _system__os_lib__close , _util__streams__buffered__close , _input_sources__file__closeE52b , _ada__streams__stream_io__close , _util__serialize__io__xml__close , _input_sources__strings__close , _ada__streams__stream_io__afcb_close__2 , _util__streams__close , _util__serialize__io__json__closeE8b , _util__log__appenders__rolling_files__rolling_file__closelogN , _util__streams__raw__close , _input_sources__file__close , _spdx_tool__close_paren , _system__file_io__close , _util__serialize__io__xml__closeE320b , _util__serialize__io__json__close , _ada__text_io__afcb_close__2 , ___gnat_set_close_on_exec , ___gnat_closedir , _gnat__directory_operations__close , _util__streams__raw__closeE9b )
+  "lseek", referenced from:
+      _util__streams__raw__seek in libutilada_sys.a(util-streams-raw.o)
+     (maybe you meant: ___gnat_lseek)
+  "lstat", referenced from:
+      _util__files__delete_tree in libutilada_base.a(util-files.o)
+  "open", referenced from:
+      _spdx_tool__files__manager__open in spdx_tool-files-manager.o
+     (maybe you meant: ___gnat_open_new_temp, _ada__text_io__is_open , ___gnat_freopen , _pt__is_open , _gnat__directory_operations__open , _input_sources__strings__open , _input_sources__file__open , _system__os_lib__open_read__2 , _spdx_tool__files__manager__open , ___gnat_open_new , _input_sources__strings__open__2 , _system__file_io__check_file_open , _util__log__appenders__rolling_files__rolling_file__openlogP , ___gnat_open_rw , _system__file_io__is_open , _system__os_lib__open_append , _spdx_tool__open_paren , ___gnat_open_read , ___gnat_open_append , _system__os_lib__open_append__2 , _util__streams__files__open , _input_sources__strings__openE13b , _sax__encodings__opening_parenthesis_sequence , _spdx_tool__files__manager__openE61b , _system__os_lib__open_read_write , ___gnat_opendir , _system__os_lib__open_read , _system__file_io__open , _ada__streams__stream_io__open , _ada__text_io__open , _util__log__appenders__rolling_files__rolling_file__openlogN , _system__file_io__open_files , ___gnat_open_create , ___gnat_open , _gnat__directory_operations__is_open , ___gnat_fopen , _system__os_lib__open_read_write__2 , _ada__streams__stream_io__is_open , _input_sources__strings__openE5b , _util__streams__files__openE7b )
+  "read", referenced from:
+      _util__streams__raw__read in libutilada_sys.a(util-streams-raw.o)
+     (maybe you meant: _sax__readers__set_document_locator, _spdx_tool__reports__occurrences__sets__read__3 , _sax__readers__resolve_entityE3090b , _util__strings__maps__read__4 , _util__serialize__io__xml__xhtml_readerSW__2 , _pt__charts__sample_maps__read__4 , _sax__readers__namespace_feature , _sax__readers__tokenIP , _util__beans__objects__readers__object_stack__stackY , _sax__readers__attributes_table__first_item_118SR , _util__strings__string_set__read_node , _sax__readers__start_prefix_mapping , _util__streams__buffered__read__5 , _spdx_tool__licenses__repository__token_sets__readE2054bXnn , _sax__readers__attlist_str_def_state , _sax__readers__get_index__2 , _sax__readers__attributes_table__get , _system__os_lib__set_readable , _util__streams__texts__reader_streamPI__2 , _sax__readers__error_cdata_unterminated , _spdx_tool__licenses__repository__read_licenseE1057b , _spdx_tool__licenses__reader__abstract_parser_typeE92s , _util__serialize__io__xml__xhtml_readerSO__2 , _system__file_io__read_buf , _util__serialize__io__xml__xhtml_readerH223s , _sax__readers__error_external_entity_not_found , _spdx_tool__licenses__reader__license_typeIP , _util__streams__texts__util__streams__texts__reader_stream_util__streams__input_stream1D , _util__streams__texts__reader_streamI , _sax__readers__sax_readerSR , _sax__readers__error_missing_operand , _spdx_tool__licenses__repository__token_sets__read__2Xnn , _spdx_tool__languages__detected_language_vectors__read__3 , _pt__charts__sample_maps__readE1642s , _util__beans__objects__readers_E , _sax__readers__error_charref_toplevel , _toml__read_resultFD , _sax__readers__error_entity_self_ref , _spdx_tool__languages__manager__language_maps__read__4 , _util__serialize__io__readerT , _util__serialize__io__xml__xhtml_readerR224s , _sax__readers__resolve_entity , _util__beans__objects__readers__start_document , _util__beans__objects__vectors__vectors__read__3 , _sax__readers__to_qname , _sax__readers__error_unexpected_chars2 , _util__streams__texts__reader_streamT , _spdx_tool__licenses__reader__abstract_parser_typeP , _util__strings__sets__read_node , _sax__readers__find_ns , _spdx_tool__licenses__reader__license_typeE60s , _spdx_tool__licenses__reader__parser_typeE120s , _util__streams__texts__reader_streamR176s , _util__streams__texts__util__streams__texts__reader_stream_util__streams__input_stream1T , _sax__readers__hook_data_accessFC , _sax__readers__elementIP , _util__serialize__io__readerP , _sax__readers__Thook_dataCFD , _sax__readers__end_document , _sax__readers__append , _sax__readers__hook_dataT , _sax__readers__attributes_table__get_ptr , _sax__readers__attributes_table__empty_element , _sax__readers__error_attribute_is_ncname , _sax__readers__sax_readerSO , _spdx_tool__licenses__reader__parser_typeDF__2 , _spdx_tool__licenses__repository__token_sets__read_nodeXnn , _sax__readers__sax_readerDI , _pt__charts__sample_maps__read , _sax__readers__attributes_table__next , _sax__readers__notations_table__next , _sax__readers__end_prefix_mapping__3 , _util__beans__objects__readers__finalize_spec , _sax__readers__default_state , _util__strings__maps__read__2 , _spdx_tool__licenses__reader__parser_typeDI , _sax__readers__skipped_entity__2 , _sax__readers__error__2 , ___gnat_is_readable_file_attr , _spdx_tool__licenses__reader__get_name , _sax__readers__allow_relative_iri_feature , _sax__readers__entity_input_sourceIP , _sax__readers__entity_entryIP , _util__streams__texts__read_lineE55b , _sax__readers__entity_def_state , _sax__readers__sax_readerP , _util__serialize__io__xml__xhtml_readerR224s___UNC , _spdx_tool__licenses__repository__token_license_maps__read_nodes , _util__beans__objects__readers__finish_array , _sax__readers__sax_readerFD , _spdx_tool__licenses__repository__token_sets__readXnn , _util__streams__buffered__read__6 , _util__strings__string_set__read__2 , _system__os_interface__pthread_attr_tIP , _sax__readers__error_invalid_language , _sax__readers__notation_entry_138SR , _sax__readers__Oeq , _sax__readers__sax_readerR437s , _sax__readers__readerT , _sax__readers__get_qname , _sax__readers__hook_dataR515s , _sax__readers__sax_readerB439s , _sax__readers__element_def_state , _spdx_tool__licenses__reader__Toptional_token_array_accessBIP , _sax__readers__readerDF__2 , _spdx_tool__reports__occurrences__sets__read__2 , _spdx_tool__licenses__reader__abstract_parser_typeY , _util__strings__string_access_map__read__2 , _sax__readers__fatal_errorE3051b , _spdx_tool__reports__occurrences__vectors__read__2 , _sax__readers__start_entity__2 , _sax__readers__error_content_model_mixing , _sax__readers__entity_table__item_array_208SW , _sax__readers__hook_dataSR , _util__serialize__io__xml__xhtml_readerT , _util__beans__objects__readers___disp_conditional_select__2 , _spdx_tool__licenses__repository__token_license_maps__readE2400s , _sax__readersS , _sax__readers__notations_table__get , _spdx_tool__licenses__reader__Tlicense_typeCFD , _util__beans__basic__readonly_beanH45s , _spdx_tool__licenses__reader__parser_typeB124s , _util__beans__objects__readers__readerH99s , _spdx_tool__counter_arrays__maps__read , _util__beans__objects__maps__maps__read__3 , _spdx_tool__licenses__reader__abstract_parser_typePI , _sax__readers__attributes_table__htable_107SR , _sax__readers__error_attlist_invalid_enum , _sax__readers__error , _sax__readers__error_comment_dash_dash , _sax__readers__entity_str_def_state , _util__beans__objects__readers__readerE98s , _sax__readers__start_prefix_mapping__2 , _util__strings__sets__read__3 , _ada__directories__directory_vectors__read__2Xn , _sax__readers__finalize_spec , _sax__readers__notations_table__item_array_190SW , _util__beans__objects__readersB , _util__beans__objects__readers__object_stack__finalize__2 , _sax__readers__end_entity__3 , _sax__readers__error_conditional_location , _spdx_tool__licenses__reader__abstract_parser_typeR94s___UNC , _sax__readers__pi_state , _system__os_interface__pthread_condattr_tIP , _util__streams__buffered__read__4 , _sax__readers__tag_state , _sax__readers___size , _sax__readers__error_content_model_invalid_start , _sax__readers__notations_table__htableIP , _sax__readers__error_ndata_space , _sax__readers__error_invalid_space , _spdx_tool__licenses__reader__license_typeB64s , _sax__readers__readerSO__2 , _sax__readers__attributes_table__item_arrayIP , _unicode__ces__utf8__read , _util__beans__objects__readers___elabb , _util__beans__basic__Treadonly_beanCFD , _spdx_tool__licenses__reader__parser_typeIP , _sax__readers__attributes_table__set , _spdx_tool__token_counters__token_maps__read__2 , _sax__readers__entity_table__get_ptr , _util__beans__objects__readers__object_stack__popE215s , _sax__readers__error_system_uri , _sax__readers__attributes_entryIP , _spdx_tool__licenses__reader__parser_typeH121s , _sax__readers__parser_stateIP , _util__beans__objects__readers___disp_get_task_id__2 , _sax__readers__error_unknown_declaration , _sax__readers__error_invalid_encoding , _util__files__read_file__2 , _sax__readers__end_entity , _spdx_tool__licenses__repository__freq_transformers__frequency_arrays__maps__read__4 , _sax__readers__notations_table__current , _sax__readers__element_decl , _spdx_tool__licenses__reader__parseE643b , _sax__readers__set_hooksE2965b , _spdx_tool__licenses__reader__load_jsonE212b , _util__beans__objects__vectors__vectors__read__4 , _util__beans__objects__readers__object_stack__getE228s , _spdx_tool__licenses__reader__parser_typeP , _spdx_tool__reports__occurrences__vectors__readE4066bXn , _system__strings__stream_ops__string_read_blk_io , _unicode__ces__utf16__read_be , _util__serialize__io__xml__xhtml_readerDA__2 , _spdx_tool__licenses__reader__tokenE640b , _sax__readers__skipped_entity , _system__task_primitives__operations__register_foreign_thread , _interfaces__c_streams__fread__2 , _util__beans__objects__readers___disp_asynchronous_select__2 , _sax__readers__token_typeH , _util__beans__objects__readers__readerY , _spdx_tool__token_counters__token_maps__read , _util__beans__objects__readers__object_contextIP , _sax__readers__error_invalid_name , _spdx_tool__licenses__reader__abstract_parser_typeDF , _sax__readers__sax_readerE435s , _util__beans__objects__readers__object_stack___size__2 , _util__strings__string_access_map__read_node , _sax__readers__use_basename_in_error_messages , _toml__toml_vectors__read__4X , _spdx_tool__infos__file_maps__read__2 , _util__beans__objects__maps__maps__read__2 , _sax__readers__notation_decl , _sax__readers__initialize_symbols , _spdx_tool__languages__manager__language_maps__read__3 , _util__files__read_file__3 , _util__files__read_file , _util__streams__texts__util__streams__texts__reader_stream_util__streams__input_stream1P , _util__strings__string_access_map__read_nodes , _sax__readers__entity_table__htable_202SW , _sax__readers__set_xml_versionE3188b , _sax__readers__error_entity_nested , _ada__text_io__read__2 , _sax__readers__readerFD , _spdx_tool__licenses__reader__license_typeP , _sax__readers__get_key__2 , _toml__read_resultDI , _toml__toml_maps__read__2X , _sax__readers__error_attribute_is_name , _sax__readers__entity_table__iteratorIP , _system__strings__stream_ops__storage_array_read , _sax__readers__error_public_string , _sax__readers__parameter_entities_feature , _util__beans__basic__readonly_bean_accessFCMN , _sax__readers__error_public_invalid , _toml__read_resultD3 , _sax__readers__attributes_table__first , _ada__directories__directory_vectors__read__3Xn , _sax__readers__sax_attribute_listIP , _spdx_tool__licenses__reader__parse , _sax__readers__start_dtd , _sax__readers__get_value_as_boolean , _sax__readers__set_symbol_tableE3120b , _system__os_interface__pthread_cond_tIP , _spdx_tool__licenses__reader__license_typeFD , _sax__readers__notations_table__htable_184SW , _sax__readers__processing_instruction , _util__beans__objects__readers__get_root , _util__beans__objects__maps__maps__read_node , _util__beans__objects__readers__object_stack__clearE216s , ___gnat_set_non_readable , _sax__readers__token_typeS , _spdx_tool__licenses__reader___size , _unicode__ces__utf32__read , _sax__readers__error_entity_definition_unterminated , _sax__readers__entity_table__set , _spdx_tool__infos__file_maps__readE1669s , _util__beans__objects__maps__maps__read__4 , _spdx_tool__licenses__reader__append_token , _system__os_interface__pthread_init , _sax__readers__reader_accessFCMN , _spdx_tool__reports__occurrences__vectors__read__4 , _util__beans__objects__readers__get_rootE140b , _sax__readers__get_key__3 , _system__os_lib__open_read__2 , _util__serialize__io__json__node_info_stack__read , _sax__readers__xml_fatal_error , _util__streams__texts__reader_streamIP , _sax__readers__get_feature , _util__beans__objects__readers__readerDI , _sax__readers__error_invalid_content_model , _sax__readers__sax_readerDF , _spdx_tool__licenses__reader__append_tokenE423b , _sax__readers__set_value , _sax__readers__readerDI , _sax__readers__entity_table__first_itemIP , _spdx_tool__licenses__reader__find_tokenE339b , _util__beans__objects__readers__object_stack__stackDF__2 , _sax__readers__attributes_table__first_itemIP , _sax__readers__notation_entry_199SW , _sax__readers__get_name , _util__strings__sets__read , _sax__readers__Oeq__3 , _util__streams__files__readE19b , _sax__readers__readerSW__2 , _sax__readers__qname_from_name__2 , _sax__readers__hook_dataY , _sax__readers__skipped_entityE3078b , ___gnat_is_read_accessible_file , _sax__readers__parser_state_220SW , _sax__readers__set_symbol_table , _sax__readers__prefix_from_qname , _spdx_tool__licenses__reader__get_template , _spdx_tool__languages__manager__language_maps__read__2 , _util__beans__objects__maps__maps__readE1794s , _sax__readers__current_location , _sax__readers__attributes_table__htable_166SW , _sax__readers__sax_reader_accessFCMN , _util__strings__vectors__read__4 , _spdx_tool__licenses__reader__get_templateE222b , _sax__readers__characters , _util__beans__objects__readers__finish_objectE64b , _sax__readers__sax_attribute_list_104SR , _util__strings__vectors__read , _toml__read_resultDF , _spdx_tool__licenses__manager__file_sets__read__2 , _sax__readers__notations_table__htable_124SR , _system__os_interface__pthread_once_tIP , _unicode__ces__basic_8bit__read , _spdx_tool__licenses__repository__token_license_maps__read__3 , _spdx_tool__reports__occurrences__sets__readE5292bXn , _util__strings__sets__read__2 , _sax__readers__end_entity__2 , ___gnat_readdir_is_thread_safe , _sax__readers__entity_table__set_with_hash , _sax__readers__error_paramentity_in_attribute , _sax__readers__error_entity_undefined , _sax__readers__notations_table__first , _sax__readers__error_attribute_less_than_suggests , _sax__readers__error_expecting_space , _sax__readers__namespace_prefixes_feature , _util__beans__objects__readers__readerI , _sax__readers__sax_readerT , _util__beans__objects__readers__object_stack__stackB24s , _unicode__ces__read_bom , _sax__readers__notation_entryIP , _util__beans__objects__readers__object_stack__stackIP , _sax__readers__reader_accessFC , _ada__streams__stream_io__read__5 , _util__serialize__io__xml__xhtml_readerDI , _spdx_tool__licenses__reader___size__3 , _spdx_tool__licenses__reader__parser_typeT , _sax__readers__set_featureE3045b , _sax__readers__get_type , _util__beans__objects__readers__object_stack__topE172s , _sax__readers__get_symbol_table , _system__file_io__read_buf__2 , _sax__readers__fatal_error , _spdx_tool__reports__occurrences__sets__read , _spdx_tool__licenses__reader__license_typeR62s , _sax__readers__get_location , _util__beans__objects__maps__maps__read_nodes , _sax__readers__error_attlist_defaultdecl , _spdx_tool__licenses__reader__finalize_spec , _sax__readers__xml_fatal_errorE , _toml__toml_maps__read_nodesX , _sax__readers__attributes_table__set_with_hash , _util__beans__objects__readers__readerB102s , _sax__readers__error_entity_self_contained , _sax__readers___assign__3 , _sax__readers__attributes_table__htable_itemIP , _sax__readers__error_content_model_empty_list , _sax__readers__entity_table__first_item_152SR , _sax__readers__ignorable_whitespace , _sax__readers__qualified_nameIP , _sax__readers__get_featureE3043b , _util__streams__files__read , _util__beans__objects__readers___disp_get_prim_op_kind__2 , _util__streams__texts__reader_streamP , _toml__toml_vectors__read__2X , _sax__readers__start_document , _util__beans__objects__readers__finish_object , _spdx_tool__licenses__reader__token__2 , _sax__readers__readerR549s , _sax__readers__sax_readerIP , _sax__readers__sax_readerDA , _sax__readers___elabs , _sax__readers__Tsax_readerCFD , _sax__readers__entity_table__next , _spdx_tool__licenses__repository__freq_transformers__frequency_arrays__maps__read , _spdx_tool__licenses__readerB , _sax__readers__unparsed_entity_decl , _util__beans__objects__readers__start_array , _spdx_tool__licenses__reader___elabs , _util__beans__objects__readers__object_stack__pop , _sax__readers__readerH548s , _spdx_tool__licenses__reader_E , _sax__readers__parser_hooks_155SR , _pt__charts__sample_maps__read__2 , _sax__readers__attr_value_state , _system__strings__stream_ops__stream_element_array_read , _util__streams__texts__reader_streamB178s , _sax__readers__attributes_table__item_array_172SW , _sax__readers__attributes_entry_121SR , _system__tasking__protected_objects__entries__lock_read_only_entries , _interfaces__c_streams__fread , _sax__readers__notations_table__first_itemIP , _sax__readers__hook_dataDF , _toml__read_resultD2 , _spdx_tool__licenses__reader__load_license__2 , _spdx_tool__licenses__reader__finalize_body , _sax__readers__dtd_state , _spdx_tool__licenses__reader__parse__2 , _util__beans__objects__readers__object_stack__element_type_arrayIP , _util__beans__basic__readonly_bean_accessFC , _util__strings__maps__read , _spdx_tool__counter_arrays__maps__read__4 , _sax__readers__readerIP , _sax__readers__attribute_decl , _sax__readers__sax_attribute_list_163SW , _system__strings__stream_ops__wide_wide_string_read , _util__serialize__io__readerE95s , _sax__readers__notations_table__set_with_hash , _sax__readers__set_type , _sax__readers__error_entityref_unterminated , _sax__readers__error_entity_toplevel , _sax__readers__entity_table__get , _spdx_tool__licenses__repository__token_license_maps__read_node , _spdx_tool__licenses__repository__freq_transformers__frequency_arrays__maps__readE3415s , ___gnat_set_readable , _sax__readers__sax_readerY , _spdx_tool__licenses__reader___elabb , _sax__readers__parser_hooks_217SW , _sax__readers__notations_table__reset , _spdx_tool__licenses__reader__parser_typeFD , _sax__readers__attributes_table__first_item_178SW , _sax__readers__readerR549s___UNC , _sax__readers__error_invalid_declaration , ___gnat_open_read , _sax__readers__find_ns_from_uri , _spdx_tool__licenses__repository__token_license_maps__read__4 , _util__serialize__io__xml__Txhtml_readerCFD , _sax__readers__start_element , _sax__readers__get_xml_versionE3190b , _sax__readers__notations_table__htable_itemIP , _spdx_tool__licenses__repository__freq_transformers__frequency_arrays__maps__read__3 , _util__streams__texts__util__streams__texts__reader_stream_util__streams__input_stream1Y , _sax__readers__entity_table__get_ptr_with_hash , _spdx_tool__licenses__reader__load_license , _system__os_lib__read , _sax__readers__error_charref_invalid_char , _ada__streams__stream_io__read__3 , _sax__readers__error_invalid_char , _sax__readers__get_xml_version , _spdx_tool__licenses__reader__save_license , _sax__readers__error_conditional_syntax , _spdx_tool__languages__detected_language_vectors__readE3326s , _spdx_tool__licenses__reader__abstract_parser_typeIP , _unicode__ces__utf16__read , _util__beans__objects__readers__object_stack__current , _sax__readers__start_elementE3067b , _util__strings__string_access_map__read , _spdx_tool__counter_arrays__maps__read__2 , _sax__readers__error_is_ncname , _sax__readers__schema_validation_feature , _unicode__ces__utf32__read_be , _util__beans__objects__readers__object_stack__clear , _util__serialize__io__xml__xhtml_readerE222s , _sax__readers__get_hooks_data , _sax__readers__error_content_model_pcdata_occurrence , _ada__directories__directory_vectors__readXn , _sax__readers__hash , _util__beans__objects__readers__readerIP , _toml__toml_maps__readX , _sax__readers__error_system_string , _sax__readers__sax_reader_accessFC , _sax__readers__end_prefix_mapping__2 , _sax__readers__error_content_model_invalid_name , _util__beans__objects__readers__readerR100s , _sax__readers__hook_dataB517s , _toml__toml_vectors__readX , _sax__readers__end_cdata , _spdx_tool__licenses__reader__load_json , _sax__readers__get_hooks_dataE3092b , _spdx_tool__licenses__reader__license_typeDF , _sax__readers__error_unexpected_chars3 , _spdx_tool__licenses__reader__license_typeH61s , _sax__readers__readerY , _sax__readers__attributes_table__htableIP , _sax__readers__end_element , _sax__readers__error_content_model_invalid_seq , _util__beans__objects__readers__object_stack__stackR22s , _toml__read_resultIP , _util__beans__objects__readers__set_memberE134b , _sax__readers__find_symbol , _spdx_tool__licenses__reader__license_typeY , _sax__readers__use_basename_in_error_messagesE3095b , _sax__readers__error_content_model_closing_paren , _sax__readers__external_parameter_entities_feature , _sax__readers__readerB551s , _spdx_tool__licenses__repository__token_sets__read_nodesXnn , _util__streams__texts__util__streams__texts__reader_stream_util__streams__input_stream1Z , _sax__readers__error_public_sysid_space , _spdx_tool__licenses__repository__token_sets__read__3Xnn , _system__strings__stream_ops__storage_array_read_blk_io , _spdx_tool__licenses__reader___size__4 , _util__beans__objects__readers__readerFD , _util__beans__objects__readers__object_stack__stackR22s___UNC , _util__serialize__io__xml__xhtml_readerP , _sax__readers___size__4 , _sax__readers___assign__4 , _system__strings__stream_ops__wide_string_read_blk_io , _util__streams__raw__read , _util__streams__texts__reader_streamR176s___UNC , _sax__readers__entity_table__item_arrayIP , _sax__readers__parseE3025b , _sax__readers__sax_readerSI , _sax__readers__internal_entity_decl , _util__beans__objects__readers__object_stack__top , _sax__readers__error_entity_definition , _sax__readers__hook_dataE513s , _sax__readers__entity_table__htable_itemIP , _sax__readers__error_attribute_less_than , _util__beans__objects__readers__object_stack__stackE20s , _util__beans__objects__readers__readerPI__2 , _util__streams__buffered__read__3 , _sax__readers__entity_table__reset , _sax__readers__get_non_normalized_value , _util__beans__objects__readers__object_stack__is_emptyE220s , _util__serialize__io__xml__xhtml_readerB226s , _spdx_tool__languages__detected_language_vectors__read , _ada__streams__stream_io__read__2 , _sax__readers__hook_dataPI , _util__beans__objects__readers__object_stack__is_empty , _spdx_tool__languages__detected_language_vectors__read__4 , _gnat__directory_operations__read_is_thread_safe , _util__beans__objects__readers__start_object , _sax__readers__readerP , _sax__readers__parse , _system__task_primitives__operations__get_thread_id , _sax__readers__sax_attribute_arrayIP , _sax__readers__free__4 , _util__strings__sets__read_nodes , _sax__readers__notations_table__no_iterator , _util__beans__objects__readers__object_stack__stackH21s , _util__beans__basic__readonly_beanP , _sax__readers__end_prefix_mapping , _system__os_interface__pthread_mutexattr_tIP , _sax__readers__get_value , _spdx_tool__licenses__reader__parser_typeR122s , _sax__readers__error_content_model_pcdata_first , _sax__readers__external_general_entities_feature , _sax__readers__attributes_table__reset , _spdx_tool__reports__occurrences__vectors__read , _sax__readers__entity_table__item_array_146SR , _sax__readers__start_entity__3 , _sax__readers__error_entity_name , _spdx_tool__licenses__manager__file_sets__read_node , _toml__toml_vectors__read__3X , _sax__readers__free__3 , _util__beans__objects__vectors__vectors__read__2 , _sax__readers__readerSI__2 , _sax__readers__hook_dataP , _sax__readers__error_content_model_invalid_multiplier , ___gnat_pthread_condattr_setup , _sax__readers__attributes_table__remove , _sax__readers__debug_lexical , _sax__readers__error_invalid_notation_decl , _sax__readers__sax_readerSW , _spdx_tool__configs__readE89b , _sax__readers__start_element__3 , _util__beans__objects__vectors__vectors__read , _sax__readers__start_entityE3082b , _spdx_tool__languages__manager__language_maps__readE1466s , _util__beans__objects__vectors__vectors__readE2585s , _util__strings__string_access_map__read__3 , _system__os_lib__open_read_write , _spdx_tool__licenses__reader__save_licenseE245b , _sax__readers__entity_table__empty_element , _toml__toml_maps__read_nodeX , _spdx_tool__configs__read , _util__strings__string_set__read_nodes , _sax__readers__set_feature , _sax__readers__entity_table__first_item_214SW , _util__beans__objects__readersS , _sax__readers__attributes_table__current , _sax__readers__sax_readerPI , _pt__charts__sample_maps__read__3 , _sax__readers__notations_table__remove , _system__task_primitives__operations__read_lock , _util__serialize__io__readerB99s , _sax__readers__error_is_name , _util__beans__objects__readers__object_stack__push__2 , _spdx_tool__licenses__reader__license_typeT , _sax__readersB , _util__beans__objects__readers__start_objectE62b , _util__streams__texts__read_line , _sax__readers__notations_table__set , _util__strings__maps__read_nodes , _sax__readers__error_prefix_not_declared , _system__strings__stream_ops__wide_wide_string_read_blk_io , _system__tasking__protected_objects__lock_read_only , _util__streams__texts__reader_stream_accessFC , _sax__readers__error_unterminated_string_suggests , _sax__readers__hook_data_accessFCMN , _toml__toml_maps__read__4X , _sax__readers__error_attlist_type , _system__os_lib__open_read , _util__beans__objects__readers__readerDF__2 , _sax__readers__hook_dataDA , _util__beans__objects__readers__object_stack__pushE206s , _sax__readers__error_entity_not_standalone , _sax__readers__warning , _sax__readers__set_hooks , _spdx_tool__licenses__reader__abstract_parser_typeR94s , _spdx_tool__licenses__manager__file_sets__readE1842s , _sax__readers__use_basename_in_error_messagesE3093b , _sax__readers__readerDA__2 , _util__beans__objects__readers___disp_timed_select__2 , _spdx_tool__licenses__reader__license_typeDI , _sax__readers__attributes_entry_181SW , _spdx_tool__infos__file_maps__read , _sax__readers__entity_table__htable_141SR , _sax__readers__start_cdata , _sax__readers_E , _sax__readers__hook_dataSO , _util__serialize__io__xml__xhtml_readerIP , _spdx_tool__infos__file_maps__read__4 , _sax__readers__end_element__2 , _util__streams__raw__readE26b , _sax__readers__end_prefix_mappingE3060b , _sax__readers__no_qualified_name , _sax__readers__error_content_model_pcdata , _util__beans__objects__readers__object_stack__currentE170s , _sax__readers__attributes_table__item_array_112SR , _sax__readers__validation_feature , _sax__readers__notations_table__get_ptr , _util__streams__texts__reader_streamE174s , _sax__readers__TreaderCFD , _sax__readers__error_comment_unterminated , _util__beans__objects__readers__object_stack__stackPI__2 , _spdx_tool__licenses__repository__freq_transformers__frequency_arrays__maps__read__2 , _util__serialize__io__xml__xhtml_readerSR__2 , _spdx_tool__licenses__repository__token_license_maps__read__2 , _system__os_lib__is_owner_readable_file , _spdx_tool__licenses__reader__parser_typeR122s___UNC , _util__serialize__io__xml__xhtml_readerDF__2 , _util__serialize__io__xml__xhtml_readerFD , _sax__readers__error_content_model_expect_operator , _sax__readers__test_valid_chars_feature , _sax__readers__start_prefix_mappingE3056b , _sax__readers__entity_table__current , _sax__readers__entity_table__remove , _spdx_tool__licenses__reader__abstract_parser_typeT , _util__beans__objects__readers__start_arrayE125b , ___gnat_readdir , _spdx_tool__licenses__reader__parser_typeY , _spdx_tool__licenses__manager__file_sets__read__3 , _util__beans__objects__readers___elabs , _sax__readers__end_entityE3086b , _util__serialize__io__json__read , _util__beans__basic__readonly_beanE44s , _util__streams__texts__Treader_streamCFD , _sax__readers__get_length , _sax__readers__error_attribute_ref_unparsed_entity , _spdx_tool__languages__detected_language_vectors__read__2 , _util__streams__texts__reader_streamH175s , _sax__readers___assign , _sax__readers__hook_dataR515s___UNC , _sax__readers__parser_hooksIP , _util__beans__objects__maps__maps__read , _spdx_tool__licenses__reader__license_typePI , _sax__readers__notations_table__first_item_135SR , _sax__readers__error_content_model_nested_groups , _sax__readers__comment , _util__streams__texts__reader_streamDF__2 , _util__serialize__io__xml__xhtml_readerSI__2 , _sax__readers__attributes_table__iteratorIP , _spdx_tool__licenses__reader__Tabstract_parser_typeCFD , _sax__readers__initialize_symbolsE2979b , _util__strings__string_access_map__read__4 , _util__strings__maps__read__3 , _sax__readers___master_spec , _sax__readers__to_qname__2 , _sax__readers__attribute_def_state , _sax__readers__token_typeN , _sax__readers__notations_table__get_ptr_with_hash , _sax__readers__hook_dataIP , _util__beans__basic__readonly_beanT , _util__beans__objects__readers__object_stack__pushE207s , _system__strings__stream_ops__string_read , _spdx_tool__licenses__repository__token_license_maps__read , _sax__readers__skipped_entity__3 , _sax__readers__entity_table__htableIP , _spdx_tool__licenses__readerS , _sax__readers__sax_attributeIP , _util__beans__objects__readers__object_stack__stackT , _spdx_tool__counter_arrays__maps__read__3 , _sax__readers__sax_readerH436s , _sax__readers__error_notation_undeclared , _spdx_tool__licenses__reader__abstract_parser_typeB96s , _sax__readers__end_element__3 , _toml__toml_maps__read__3X , _sax__readers__error_attribute_is_nmtoken , _spdx_tool__licenses__reader__abstract_parser_typeH93s , _spdx_tool__languages__manager__language_maps__read_node , _sax__readers__null_notation , _sax__readers__start_entity , _sax__readers__null_attribute , _sax__readers__start_element__2 , _util__beans__objects__readers__finish_arrayE127b , _util__strings__string_set__read , _sax__readers__entity_table__no_iterator , _sax__readers__notations_table__item_arrayIP , _util__streams__buffered__read__2 , _sax__readers__entity_table__first , _spdx_tool__licenses__repository__read_license , _util__beans__objects__readers__object_stack__push , _sax__readers__readerPI__2 , _util__serialize__io__TreaderCFD , _util__beans__objects__readers__readerR100s___UNC , _sax__readers__use_basename_in_error_messages__2 , _util__streams__texts__reader_streamY , _sax__readers___elabb , _spdx_tool__licenses__manager__file_sets__read , _sax__readers__Oeq__4 , _util__strings__vectors__read__3 , ___gnat_is_readable_file , _util__beans__objects__readers__readerT , _sax__readers__error_attribute_external_entity , _toml__read_resultEQ , _spdx_tool__licenses__reader__get_nameE217b , _sax__readers__set_normalized_value , _sax__readers__error_unterminated_string , _sax__readers__start_tag_location , _util__strings__maps__read_node , _spdx_tool__licenses__reader__Tparser_typeCFD , _sax__readers__error_public_sysid , _system__strings__stream_ops__stream_element_array_read_blk_io , _sax__readers__notations_table__iteratorIP , _util__beans__objects__readers__object_stack__readE240s , _util__strings__string_set__read__3 , _ada__directories__directory_vectors__read__4Xn , _sax__readers__notations_table__empty_element , _sax__readers__readerE547s , _system__os_lib__open_read_write__2 , _system__os_lib__is_owner_readable_file__2 , _system__regpat__read_natural , _util__beans__objects__readers__TreaderCFD , _sax__readers__sax_readerR437s___UNC , _util__beans__objects__readers__start_documentE1b , _util__beans__objects__readers__object_stack__stackP , _sax__readers__non_interpreted_string_state , _sax__readers__readerSR__2 , _sax__readers__debug_internal , _util__streams__texts__reader_streamFD , _sax__readers__get_key , _util__streams__texts__reader_stream_accessFCMN , _util__beans__objects__readers___size__2 , _util__beans__objects__readers__set_member , _spdx_tool__licenses__reader__parser_typePI__2 , _system__os_lib__set_non_readable , _sax__readers__hook_dataSW , _sax__readers__error_comment_end , _util__streams__buffered__read , _sax__readers__error_ndata_paramentity , _sax__readers__external_entity_decl , _util__beans__objects__readers__object_stack__read , _spdx_tool__licenses__reader__find_token , _sax__readers__get_local_name , _spdx_tool__token_counters__token_maps__read__4 , _ada__streams__read_sea , _spdx_tool__languages__manager__language_maps__read , _sax__readers__set_xml_version , _sax__readers__end_elementE3074b , _sax__readers__error_content_model_invalid , _sax__readers__attributes_table__get_ptr_with_hash , _gnat__directory_operations__read , _util__beans__objects__readers__end_document__2 , _util__serialize__io__readerH96s , _spdx_tool__token_counters__token_maps__read__3 , _util__serialize__io__json__node_info_stack__readE453s , _system__os_lib__is_read_accessible_file , _sax__readers__start_tag_end_location , _sax__readers__hook_dataH514s , _spdx_tool__licenses__manager__file_sets__read_nodes , _sax__readers__error_mixed_contents , _util__serialize__io__xml__xhtml_readerY , _sax__readers__error_cdata_end , _sax__readers__get_index , _sax__readers__notations_table__item_array_129SR , _sax__readers__get_prefix , _util__beans__objects__readers__object_stack__get , _util__beans__objects__readers__object_stack__TstackCFD , _sax__readers__attributes_table__no_iterator , _sax__readers__end_dtd , _util__beans__objects__readers___disp_requeue__2 , _toml__read_resultDA , _sax__readers__attribute_def_name_state , _spdx_tool__reports__occurrences__vectors__read__3 , _spdx_tool__licenses__reader__license_typeR62s___UNC , _util__strings__vectors__read__2 , _spdx_tool__licenses__reader__logMN , _sax__readers__notations_table__first_item_196SW , _sax__readers__debug_input , _util__beans__objects__readers__object_stack__stackFD , _sax__readers___size__3 , _util__serialize__io__xml__xhtml_readerPI__2 , _util__beans__objects__readers__readerP , _sax__readers__start_prefix_mapping__3 , _sax__readers__null_token , _util__serialize__io__json__read__2 , _spdx_tool__infos__file_maps__read__3 , _system__task_primitives__operations__register_foreign_thread__2 , _sax__readers__parser_state_158SR , _spdx_tool__languages__manager__language_maps__read_nodes , _sax__readers__error_unexpected_chars1 , _sax__readers__error_ndata_string , _util__beans__basic__readonly_beanB48s , _system__file_io__check_read_status , ___gnat_readlink , _sax__readers__get_ns , _system__strings__stream_ops__wide_string_read )
+  "realpath", referenced from:
+      _util__files__realpath in libutilada_base.a(util-files.o)
+     (maybe you meant: _util__files__realpath)
+  "rename", referenced from:
+      _util__files__rename in libutilada_base.a(util-files.o)
+     (maybe you meant: ___gnat_rename, _util__files__rolling__rename , _system__os_lib__rename_file , _util__files__rolling__renameE233b , _util__files__rename , _system__os_lib__rename_file__2 , _ada__directories__rename )
+  "stat", referenced from:
+      _spdx_tool__licenses__manager__scan_subdir in spdx_tool-licenses-manager.o
+     (maybe you meant: _sax__readers__attlist_str_def_state, ___gnat_stat_to_attr , _ansiada__statesS , _ada__io_exceptions__status_errorE , _system__file_io__check_write_status , _ada__directories__status_error , ___gnat_set_exit_status , _system__tasking__entry_call_stateN , _sax__readers__default_state , _system__tasking__task_statesN , _sax__readers__entity_def_state , _system__tasking__debug__get_user_state , _sax__readers__element_def_state , _ada__directories__search_stateR2087b , _sax__readers__entity_str_def_state , _ada__streams__stream_io__status_error , _ada__directories__search_stateE2085b , _ada__io_exceptions__status_error , _sax__readers__pi_state , _sax__readers__tag_state , _sax__readers__parser_stateIP , ___gl_interrupt_states , _ada__directories__search_stateB2089b , _system__soft_links__check_abort_status , _system__tasking__task_statesS , _system__tasking__initialization__check_abort_status , _system__tasking__task_statesH , _system__tasking__rendezvous__new_state , _system__tasking__entry_call_stateS , _sax__readers__parser_state_220SW , _system__tasking__entry_call_stateH , _gnat_exit_status , ___gl_num_interrupt_states , _ada__directories__search_stateR2087b___UNC , _sax__readers__attr_value_state , _ada__directories__search_stateT , _sax__readers__dtd_state , _ada__directories__search_stateH2086b , _system__tasking__debug__set_user_state , _system__file_control_block__shared_status_typeS , _ansiada__statesN , ___gnat_get_interrupt_state , _system__task_primitives__operations__current_state , _system__soft_links__check_abort_status_nt , _system__file_control_block__shared_status_typeN , ___gnat_stat , _ada__text_io__status_error , _system__secondary_stack__allocate_static , _system__tasking__protected_objects__operations__new_state , _ada__directories__search_stateP , _sax__readers__attribute_def_state , _system__tasking__protected_objects__entries__lock_entries_with_status , _sax__readers__non_interpreted_string_state , _ada__directories__search_stateIP , _sax__readers__attribute_def_name_state , _ada__directories__search_stateY , _sax__readers__parser_state_158SR , _system__file_io__check_read_status )
+  "unlink", referenced from:
+      _util__files__delete_file in libutilada_base.a(util-files.o)
+      _util__files__delete_tree in libutilada_base.a(util-files.o)
+     (maybe you meant: ___gnat_unlink, _interfaces__c_streams__unlink )
+  "write", referenced from:
+      _util__streams__raw__write in libutilada_sys.a(util-streams-raw.o)
+      _util__systems__io__put_raw in libutilada_base.a(util-systems-io.o)
+     (maybe you meant: _util__streams__texts__writeE7b, _system__strings__stream_ops__wide_wide_string_write , _util__streams__texts__writeE11b , _ada__streams__stream_io__write__4 , _util__serialize__io__xml__write_attribute__2 , _util__serialize__io__json__write_indent , _util__serialize__io__json__write_wide_string , _util__measures__writeE61b , _util__serialize__io__xml__write_entity__3 , _util__streams__buffered__write , _util__beans__objects__maps__maps__write__2 , _util__streams__texts__write_char , _util__serialize__io__json__write_wide_attribute , _util__serialize__io__xml__write_enum_entity , _spdx_tool__licenses__manager__file_sets__write__2 , _system__file_io__check_write_status , _util__strings__sets__write_node , _util__serialize__io__json__write_attribute__4 , _spdx_tool__token_counters__token_maps__write , _toml__toml_maps__write__4X , _ada__directories__directory_vectors__writeXn , _util__serialize__io__xml__write_attributeE380b , _util__streams__write_wide , _util__serialize__io__xml__write_entity__4 , _toml__toml_maps__write__3X , _util__serialize__io__json__write_wide_stringE43b , _util__serialize__io__json__write_attribute__3 , _util__serialize__io__xml__write , _system__task_primitives__operations__write_lock , _util__serialize__io__xml__write_wide_attribute , _pt__charts__sample_maps__write , _toml__toml_maps__write_nodeX , _util__serialize__io__json__write_field_nameE65b , _spdx_tool__licenses__repository__freq_transformers__frequency_arrays__maps__write , _util__streams__raw__writeE15b , _util__serialize__io__json__write_wide_entityE176b , _spdx_tool__languages__manager__language_maps__writeE1761s , _spdx_tool__token_counters__token_maps__write__4 , _util__strings__vectors__write__3 , _util__serialize__io__json__write_wideE14b , _util__strings__string_access_map__write , _spdx_tool__infos__file_maps__write__4 , _util__streams__texts__writeE31b , _system__strings__stream_ops__wide_string_write_blk_io , _toml__toml_vectors__write__2X , _spdx_tool__licenses__repository__token_license_maps__write_node , _spdx_tool__licenses__manager__file_sets__writeE2109s , _spdx_tool__languages__detected_language_vectors__write__4 , _util__serialize__io__json__write_entity__3 , _ada__directories__directory_vectors__write__3Xn , _system__strings__stream_ops__stream_element_array_write , _system__strings__stream_ops__wide_wide_string_write_blk_io , _util__streams__texts__write__6 , _util__serialize__io__json__write_attribute__2 , _util__serialize__io__xml__write_enum_entityE421b , _spdx_tool__licenses__manager__file_sets__write__3 , _util__streams__texts__write__2 , _spdx_tool__token_counters__token_maps__write__2 , _system__os_lib__is_write_accessible_file , _util__measures__write__2 , _spdx_tool__languages__manager__language_maps__write__2 , _spdx_tool__languages__detected_language_vectors__write__2 , _system__task_primitives__operations__write_lock__2 , _util__strings__maps__write__4 , _util__beans__objects__vectors__vectors__write__2 , _util__serialize__io__json__write_wide , _spdx_tool__reports__occurrences__vectors__writeE4564bXn , _util__streams__texts__write_char__2 , _ada__strings__wide_wide_unbounded__overwrite , _util__files__write_file__2 , _util__strings__string_access_map__write_nodes , _util__serialize__io__write_attribute__5 , _util__streams__raw__write , _spdx_tool__infos__file_maps__write__3 , _system__strings__stream_ops__storage_array_write , _util__serialize__io__json__writeE12b , _util__serialize__io__write_entity__8 , _spdx_tool__licenses__repository__token_sets__writeXnn , _util__strings__string_access_map__write__2 , _util__serialize__io__json__write_entityE182b , _util__beans__objects__maps__maps__write_node , _util__serialize__io__xml__write_wide_string , _util__streams__texts__write__4 , _toml__toml_vectors__write__4X , _util__serialize__io__xml__write_long_entityE408b , _util__serialize__io__write_entity__6 , _util__strings__maps__write , _util__serialize__io__json__write_attribute , _system__strings__stream_ops__stream_element_array_write_blk_io , _spdx_tool__licenses__repository__token_license_maps__write__4 , _util__strings__string_set__write__2 , _ada__strings__fixed__overwrite__2 , _util__serialize__io__xml__write_wide_attributeE360b , _util__serialize__io__xml__write_wide_entityE390b , _spdx_tool__licenses__repository__token_license_maps__writeE2531s , _spdx_tool__reports__occurrences__sets__write__3 , _spdx_tool__licenses__repository__token_sets__write__2Xnn , _util__strings__sets__write , _spdx_tool__licenses__manager__file_sets__write , _spdx_tool__counter_arrays__maps__write__4 , _ada__directories__directory_vectors__write__2Xn , _util__serialize__io__xml__write_attribute , _toml__toml_vectors__write__3X , _toml__toml_maps__write_nodesX , _spdx_tool__reports__occurrences__sets__write , _util__streams__files__write , _util__serialize__io__xml__write_attributeE365b , _util__serialize__io__xml__write_entityE386b , _spdx_tool__reports__occurrences__vectors__write__4 , _pt__charts__sample_maps__write__3 , _util__strings__maps__write__3 , _util__serialize__io__xml__write_entityE403b , _util__serialize__io__json__write_entity__4 , _util__serialize__io__json__write_entity , _spdx_tool__licenses__repository__freq_transformers__frequency_arrays__maps__writeE3540s , _util__strings__string_access_map__write__3 , _spdx_tool__languages__manager__language_maps__write , _util__beans__objects__maps__maps__write , _util__strings__vectors__write , _util__serialize__io__xml__write_escape , _util__streams__texts__writeE36b , _util__strings__maps__write_node , _util__serialize__io__json__write_string , _util__serialize__io__xml__write_long_entity__2 , _util__serialize__io__json__write_stringE33b , _system__task_primitives__operations__write_lock__3 , _util__streams__texts__write__5 , _util__streams__files__writeE17b , _spdx_tool__reports__write_xml , _util__beans__objects__vectors__vectors__writeE3065s , _ada__strings__unbounded__overwrite__2 , _util__serialize__io__xml__write_wide_entity , _util__measures__write__3 , _pt__charts__sample_maps__write__2 , _util__beans__objects__maps__maps__write__3 , ___gnat_is_write_accessible_file , _spdx_tool__licenses__manager__file_sets__write_node , _util__serialize__io__xml__write_entity__2 , _util__streams__write__3 , _spdx_tool__counter_arrays__maps__write__3 , _util__serialize__io__xml__write_attribute__4 , _toml__toml_maps__write__2X , _util__serialize__io__json__write_entity__2 , _ada__streams__write_sea , _util__serialize__io__json__write_attributeE91b , _util__strings__sets__write__2 , _spdx_tool__licenses__manager__file_sets__write_nodes , _system__strings__stream_ops__wide_string_write , _ada__text_io__write__2 , _spdx_tool__licenses__repository__token_sets__writeE2333bXnn , _spdx_tool__licenses__repository__token_license_maps__write_nodes , _util__serialize__io__xml__write_null_attributeE382b , _util__serialize__io__json__write_indentE47b , _spdx_tool__counter_arrays__maps__write , _util__serialize__io__xml__writeE324b , _util__serialize__io__xml__write_entityE394b , _util__beans__objects__vectors__vectors__write__3 , _system__strings__stream_ops__string_write_blk_io , _spdx_tool__reports__occurrences__vectors__write__2 , _system__file_io__write_buf , _system__os_lib__write , _util__measures__writeE82b , _util__streams__write__2 , _spdx_tool__licenses__repository__token_sets__write_nodesXnn , _spdx_tool__licenses__repository__token_sets__write_nodeXnn , _spdx_tool__infos__file_maps__writeE1806s , _util__serialize__io__json__write_long_entity__2 , _util__strings__maps__write__2 , _util__strings__string_set__write_node , _util__serialize__io__json__write_attributeE81b , _util__serialize__io__xml__write_wide_stringE333b , _spdx_tool__licenses__repository__token_sets__write__3Xnn , _util__serialize__io__json__write_field_name , _util__strings__sets__write_nodes , _util__serialize__io__xml__write_string , _util__serialize__io__json__write_enum_entityE204b , _util__serialize__io__xml__write_stringE342b , _util__measures__write , _util__strings__string_set__write , _ada__strings__wide_wide_unbounded__overwrite__2 , _util__serialize__io__json__write_entityE178b , _util__serialize__io__json__write_entityE173b , _util__serialize__io__xml__write_attribute__3 , _spdx_tool__counter_arrays__maps__write__2 , _spdx_tool__infos__file_maps__write__2 , _spdx_tool__infos__file_maps__write , _util__serialize__io__json__write_enum_entity , _util__serialize__io__json__write_null_attribute , _util__streams__texts__writeE21b , _util__serialize__io__write_entity__9 , _spdx_tool__languages__manager__language_maps__write__3 , _util__beans__objects__maps__maps__write__4 , _util__serialize__io__json__write_attributeE95b , _util__serialize__io__xml__write_attributeE356b , _system__os_lib__open_read_write , _util__strings__vectors__write__2 , _util__serialize__io__xml__write_entity , _util__serialize__io__json__write_null_entityE184b , _spdx_tool__reports__occurrences__vectors__write__3 , _spdx_tool__languages__detected_language_vectors__writeE3821s , _spdx_tool__licenses__repository__token_license_maps__write__3 , _util__serialize__io__json__write_long_entityE193b , _util__serialize__io__json__write_long_entity , _spdx_tool__languages__manager__language_maps__write__4 , _util__strings__string_set__write__3 , _spdx_tool__languages__detected_language_vectors__write__3 , _spdx_tool__licenses__repository__token_license_maps__write , _ada__strings__fixed__overwrite , _spdx_tool__token_counters__token_maps__write__3 , _util__beans__objects__vectors__vectors__write , _unicode__ces__write_bom , _util__strings__string_access_map__write_node , _util__serialize__io__xml__write_entityE451b , _util__beans__objects__maps__maps__writeE2014s , _ada__streams__stream_io__write__2 , _spdx_tool__licenses__repository__freq_transformers__frequency_arrays__maps__write__2 , _pt__charts__sample_maps__writeE1818s , _spdx_tool__languages__manager__language_maps__write_node , _spdx_tool__reports__occurrences__sets__write__2 , _util__files__write_file , _util__strings__vectors__write__4 , _util__serialize__io__xml__write_long_entity , _util__serialize__io__xml__write_string__2 , _ada__streams__stream_io__write , _util__strings__sets__write__3 , _util__serialize__io__write_entity__7 , _util__serialize__io__json__write_attributeE106b , _util__serialize__io__xml__write_entity__5 , _util__serialize__io__xml__write_long_entityE418b , _util__serialize__io__json__write_entityE170b , _util__streams__texts__write__3 , _toml__toml_maps__writeX , _system__strings__stream_ops__storage_array_write_blk_io , _util__strings__string_access_map__write__4 , _spdx_tool__reports__write_json , _interfaces__c_streams__fwrite , _ada__strings__unbounded__overwrite , _system__strings__stream_ops__string_write , _util__strings__string_set__write_nodes , _util__serialize__io__xml__write_entityE399b , _util__serialize__io__xml__write_stringE330b , _util__serialize__io__json__write_null_attributeE109b , _util__serialize__io__xml__write_null_attribute , _util__serialize__io__json__write_entityE186b , _system__os_lib__open_read_write__2 , _util__beans__objects__vectors__vectors__write__4 , _util__serialize__io__xml__write_null_entityE453b , _util__serialize__io__write_entity__11 , _spdx_tool__licenses__repository__freq_transformers__frequency_arrays__maps__write__3 , _util__serialize__io__json__write_entity__5 , _util__serialize__io__json__write_null_entity , _util__serialize__io__write_entity__10 , _util__serialize__io__json__write_wide_entity , _spdx_tool__languages__detected_language_vectors__write , _ada__directories__directory_vectors__write__4Xn , _spdx_tool__reports__occurrences__vectors__write , _pt__charts__sample_maps__write__4 , _util__streams__write_wide__2 , _spdx_tool__reports__occurrences__sets__writeE5426bXn , _util__serialize__io__json__write , _util__serialize__io__xml__write_attributeE369b , _spdx_tool__licenses__repository__freq_transformers__frequency_arrays__maps__write__4 , _spdx_tool__licenses__repository__token_license_maps__write__2 , _util__serialize__io__xml__write_null_entity , _toml__toml_vectors__writeX , _util__serialize__io__json__write_long_entityE201b , _util__measures__writeE77b , _util__serialize__io__json__write_wide_attributeE84b )
+ld: symbol(s) not found for architecture arm64
+collect2: error: ld returned 1 exit status
+gprbuild: link of spdx_tool-main.adb failed
+gprbuild: failed command was: /users/runner/.local/share/alire/toolchains/gnat_native_15.1.2_60748c54/bin/gcc spdx_tool-main.o -Wl,-filelist,/private/var/folders/y6/nj790rtn62lfktb1sh__79hc0000gn/T/GPR.4026/GNAT-TEMP-000053.TMP /Users/runner/.local/share/alire/builds/ada_util_c1db1e85/24153e8f07ac0df74cefefd8ec4f831fa72c6fa7da22423ef71c2987b7e78d4e/lib/utilada_xml/static/libutilada_xml.a /Users/runner/.local/share/alire/builds/xmlada_24.0.0_ae5a015b/2c685fbbe90fb771819f94cc764dac7676ebd3b7f2099ad5473bca59b5043510/sax/lib/static/libxmlada_sax.a /Users/runner/.local/share/alire/builds/xmlada_24.0.0_ae5a015b/2c685fbbe90fb771819f94cc764dac7676ebd3b7f2099ad5473bca59b5043510/input_sources/lib/static/libxmlada_input_sources.a /Users/runner/.local/share/alire/builds/xmlada_24.0.0_ae5a015b/2c685fbbe90fb771819f94cc764dac7676ebd3b7f2099ad5473bca59b5043510/unicode/lib/static/libxmlada_unicode.a /Users/runner/.local/share/alire/builds/utilada_2.8.1_c1db1e85/57f157b7c7c59fc9f46c282f271b7affdc4fdb1b401822314ffdc6dbde7357af/lib/utilada_sys/static/libutilada_sys.a /Users/runner/.local/share/alire/builds/utilada_2.8.1_c1db1e85/57f157b7c7c59fc9f46c282f271b7affdc4fdb1b401822314ffdc6dbde7357af/lib/utilada_core/static/libutilada_base.a /Users/runner/.local/share/alire/builds/utilada_2.8.1_c1db1e85/57f157b7c7c59fc9f46c282f271b7affdc4fdb1b401822314ffdc6dbde7357af/lib/utilada_core/static/libutilada_core.a /Users/runner/.local/share/alire/builds/spdx_0.2.0_2df9b118/c13bda553266ac3e51acd9aa671e8d03acb842bbc5cc1f33ba9060fffd57c471/lib/libSpdx.a /Users/runner/.local/share/alire/builds/sciada_0.4.0_af24740d/e3ee2be69cd189e7da34e0aed93d827fce24dc84111ff188f8d9e82f61a94d1b/lib/sciada/static/libsciada.a /Users/runner/.local/share/alire/builds/printer_toolkit_0.2.0_dcd7470e/d5eba2c5c3a4b2c1aa4a439194150637bbf477e069d2d1c6b0ddf38575bf9fa0/lib/static/libprinter_toolkit.a /Users/runner/.local/share/alire/builds/intl_1.0.1_881966ea/9109fcb3350b95550f128f65f20bb0c2acd261825d85354bb5ded3c090428263/lib/libIntl.a /Users/runner/.local/share/alire/builds/ansiada_1.1.0_405f110b/38593ae2cc9946b843fec0a797f1413bceca6b64b6262f3e2ef555f452ad4523/lib/libAnsiada.a /Users/runner/.local/share/alire/builds/ada_toml_0.5.0_33dcb0dd/01a20c4908c82520bf30ee4d60bc6bb431a8adac89d3a359c7aabd0e6082c226/lib/static/dev/libada_toml.a -L/Users/runner/work/alire-crates-ci/alire-crates-ci/test/0556cd94-07ef-46ed-8281-4c73cbcf301c/spdx_tool_0.4.1_0ca2cee4/obj/development/ -L/Users/runner/work/alire-crates-ci/alire-crates-ci/test/0556cd94-07ef-46ed-8281-4c73cbcf301c/spdx_tool_0.4.1_0ca2cee4/obj/development/ -L/Users/runner/.local/share/alire/builds/ada_toml_0.5.0_33dcb0dd/01a20c4908c82520bf30ee4d60bc6bb431a8adac89d3a359c7aabd0e6082c226/lib/static/dev/ -L/Users/runner/.local/share/alire/builds/ansiada_1.1.0_405f110b/38593ae2cc9946b843fec0a797f1413bceca6b64b6262f3e2ef555f452ad4523/lib/ -L/Users/runner/.local/share/alire/builds/intl_1.0.1_881966ea/9109fcb3350b95550f128f65f20bb0c2acd261825d85354bb5ded3c090428263/lib/ -L/Users/runner/.local/share/alire/builds/printer_toolkit_0.2.0_dcd7470e/d5eba2c5c3a4b2c1aa4a439194150637bbf477e069d2d1c6b0ddf38575bf9fa0/lib/static/ -L/Users/runner/.local/share/alire/builds/sciada_0.4.0_af24740d/e3ee2be69cd189e7da34e0aed93d827fce24dc84111ff188f8d9e82f61a94d1b/lib/sciada/static/ -L/Users/runner/.local/share/alire/builds/spdx_0.2.0_2df9b118/c13bda553266ac3e51acd9aa671e8d03acb842bbc5cc1f33ba9060fffd57c471/lib/ -L/Users/runner/.local/share/alire/builds/utilada_2.8.1_c1db1e85/57f157b7c7c59fc9f46c282f271b7affdc4fdb1b401822314ffdc6dbde7357af/lib/utilada_core/static/ -L/Users/runner/.local/share/alire/builds/utilada_2.8.1_c1db1e85/57f157b7c7c59fc9f46c282f271b7affdc4fdb1b401822314ffdc6dbde7357af/lib/utilada_sys/static/ -L/Users/runner/.local/share/alire/builds/ada_util_c1db1e85/24153e8f07ac0df74cefefd8ec4f831fa72c6fa7da22423ef71c2987b7e78d4e/lib/utilada_xml/static/ -L/Users/runner/.local/share/alire/builds/xmlada_24.0.0_ae5a015b/2c685fbbe90fb771819f94cc764dac7676ebd3b7f2099ad5473bca59b5043510/sax/lib/static/ -L/Users/runner/.local/share/alire/builds/xmlada_24.0.0_ae5a015b/2c685fbbe90fb771819f94cc764dac7676ebd3b7f2099ad5473bca59b5043510/unicode/lib/static/ -L/Users/runner/.local/share/alire/builds/xmlada_24.0.0_ae5a015b/2c685fbbe90fb771819f94cc764dac7676ebd3b7f2099ad5473bca59b5043510/input_sources/lib/static/ -L/users/runner/.local/share/alire/toolchains/gnat_native_15.1.2_60748c54/lib/gcc/aarch64-apple-darwin23.6.0/15.0.1/adalib/ -static-libgcc /users/runner/.local/share/alire/toolchains/gnat_native_15.1.2_60748c54/lib/gcc/aarch64-apple-darwin23.6.0/15.0.1/adalib/libgnarl.a /users/runner/.local/share/alire/toolchains/gnat_native_15.1.2_60748c54/lib/gcc/aarch64-apple-darwin23.6.0/15.0.1/adalib/libgnat.a -lm -Wl,-rpath,@executable_path/..//obj/development -Wl,-rpath,@executable_path/../../../../../../..//.local/share/alire/builds/ada_toml_0.5.0_33dcb0dd/01a20c4908c82520bf30ee4d60bc6bb431a8adac89d3a359c7aabd0e6082c226/lib/static/dev -Wl,-rpath,@executable_path/../../../../../../..//.local/share/alire/builds/ansiada_1.1.0_405f110b/38593ae2cc9946b843fec0a797f1413bceca6b64b6262f3e2ef555f452ad4523/lib -Wl,-rpath,@executable_path/../../../../../../..//.local/share/alire/builds/intl_1.0.1_881966ea/9109fcb3350b95550f128f65f20bb0c2acd261825d85354bb5ded3c090428263/lib -Wl,-rpath,@executable_path/../../../../../../..//.local/share/alire/builds/printer_toolkit_0.2.0_dcd7470e/d5eba2c5c3a4b2c1aa4a439194150637bbf477e069d2d1c6b0ddf38575bf9fa0/lib/static -Wl,-rpath,@executable_path/../../../../../../..//.local/share/alire/builds/sciada_0.4.0_af24740d/e3ee2be69cd189e7da34e0aed93d827fce24dc84111ff188f8d9e82f61a94d1b/lib/sciada/static -Wl,-rpath,@executable_path/../../../../../../..//.local/share/alire/builds/spdx_0.2.0_2df9b118/c13bda553266ac3e51acd9aa671e8d03acb842bbc5cc1f33ba9060fffd57c471/lib -Wl,-rpath,@executable_path/../../../../../../..//.local/share/alire/builds/utilada_2.8.1_c1db1e85/57f157b7c7c59fc9f46c282f271b7affdc4fdb1b401822314ffdc6dbde7357af/lib/utilada_core/static -Wl,-rpath,@executable_path/../../../../../../..//.local/share/alire/builds/utilada_2.8.1_c1db1e85/57f157b7c7c59fc9f46c282f271b7affdc4fdb1b401822314ffdc6dbde7357af/lib/utilada_sys/static -Wl,-rpath,@executable_path/../../../../../../..//.local/share/alire/builds/ada_util_c1db1e85/24153e8f07ac0df74cefefd8ec4f831fa72c6fa7da22423ef71c2987b7e78d4e/lib/utilada_xml/static -Wl,-rpath,@executable_path/../../../../../../..//.local/share/alire/builds/xmlada_24.0.0_ae5a015b/2c685fbbe90fb771819f94cc764dac7676ebd3b7f2099ad5473bca59b5043510/sax/lib/static -Wl,-rpath,@executable_path/../../../../../../..//.local/share/alire/builds/xmlada_24.0.0_ae5a015b/2c685fbbe90fb771819f94cc764dac7676ebd3b7f2099ad5473bca59b5043510/unicode/lib/static -Wl,-rpath,@executable_path/../../../../../../..//.local/share/alire/builds/xmlada_24.0.0_ae5a015b/2c685fbbe90fb771819f94cc764dac7676ebd3b7f2099ad5473bca59b5043510/input_sources/lib/static -Wl,-rpath,@executable_path/../../../../../../..//.local/share/alire/toolchains/gnat_native_15.1.2_60748c54/lib/gcc/aarch64-apple-darwin23.6.0/15.0.1/adalib -o /Users/runner/work/alire-crates-ci/alire-crates-ci/test/0556cd94-07ef-46ed-8281-4c73cbcf301c/spdx_tool_0.4.1_0ca2cee4/bin//spdx-tool
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/Users/runner/work/alire-crates-ci/alire-crates-ci/test/0556cd94-07ef-46ed-8281-4c73cbcf301c/spdx_tool_0.4.1_0ca2cee4/spdx_tool.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/Users/runner/work/alire-crates-ci/alire-crates-ci/test/0556cd94-07ef-46ed-8281-4c73cbcf301c/spdx_tool_0.4.1_0ca2cee4/spdx_tool.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+stderr: ALIRE.CHECKED_ERROR
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/Users/runner/work/alire-crates-ci/alire-crates-ci/test/0556cd94-07ef-46ed-8281-4c73cbcf301c/spdx_tool_0.4.1_0ca2cee4/spdx_tool.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
+Load address: 0x10463c000
+Call stack traceback locations:
+0x1053480cc 0x10534812c 0x10509c66c 0x104ce1568 0x104f66594 0x104f674f4 0x104ea533c 0x104ea3b08 0x104ec778c 0x104f2756c 0x104f2699c 0x104ec7868 0x104ec7950 0x104ea400c 0x104ea4174 0x1046ad730 0x1046ad070 0x1046ad1e4 0x10474ab38 0x104755c78 0x10463e9f8 0x104643a2c
+
+stderr: ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED
+stderr: alire-roots.adb:202
+stderr: raised ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED : alire-roots.adb:202
+Load address: 0x10463c000
+Call stack traceback locations:
+0x1053480cc 0x10534812c 0x104ea5640 0x104ea3b08 0x104ec778c 0x104f2756c 0x104f2699c 0x104ec7868 0x104ec7950 0x104ea400c 0x104ea4174 0x1046ad730 0x1046ad070 0x1046ad1e4 0x10474ab38 0x104755c78 0x10463e9f8 0x104643a2c
+
+ERROR: Compilation failed.

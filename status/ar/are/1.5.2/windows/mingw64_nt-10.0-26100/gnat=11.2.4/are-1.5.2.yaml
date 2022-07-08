@@ -1,0 +1,768 @@
+badge: false
+crate: are
+creation_timestamp: 1782436921.8471665
+distro: mingw64_nt-10.0-26100
+duration: 29.907000000000153
+gnat: 11.2.4
+last_attempt: 2026-09-29 13:17:24.841314+00:00
+log:
+- 'Test ran at 2026-09-29 13:17:24.841314+00:00
+
+
+  '
+- 'SOLUTION:
+
+  '
+- 'are=1.5.2: Advanced Resource Embedder
+
+  '
+- 'Origin: commit eab228627a43e4a1ff706b5b2ad909f2d285d561 from https://github.com/stcarrez/resource-embedder.git
+
+  '
+- 'Available when: (case OS is Linux => True, Macos => True, Windows => True, others
+  => False)
+
+  '
+- 'Properties:
+
+  '
+- '   Author: Stephane.Carrez@gmail.com
+
+  '
+- '   Configuration: no modifiers
+
+  '
+- '   Description: Advanced Resource Embedder
+
+  '
+- '   Environment: MANPATH=${CRATE_ROOT}/man:${MANPATH}
+
+  '
+- '   Environment: PATH=${CRATE_ROOT}/bin:${PATH}
+
+  '
+- '   Executable: are
+
+  '
+- '   GPR Scenario: ARE_BUILD := distrib | debug | optimize | profile | coverage
+
+  '
+- '   GPR Scenario: ARE_SWITCH := NO_CALLBACK | HAS_CALLBACK
+
+  '
+- '   GPR Scenario: UTIL_OS := win32 | win64 | linux32 | linux64 | macos64 | netbsd32
+  | netbsd64 | freebsd32 | freebsd64
+
+  '
+- '   GPR External: ARE_BUILD := distrib
+
+  '
+- '   GPR External: ARE_SWITCH := HAS_CALLBACK
+
+  '
+- '   case OS is
+
+  '
+- '      when Linux => (case Word_Size is Bits_32 => GPR External: UTIL_OS := linux32,
+  Bits_64 => GPR External: UTIL_OS := linux64)
+
+  '
+- '      when Macos => GPR External: UTIL_OS := macos64
+
+  '
+- '      when Windows => (case Word_Size is Bits_32 => GPR External: UTIL_OS := win32,
+  Bits_64 => GPR External: UTIL_OS := win64)
+
+  '
+- '   License: Apache-2.0
+
+  '
+- '   Long_Description: [![Build Status](https://img.shields.io/endpoint?url=https://porion.vacs.fr/porion/api/v1/projects/resource-embedder/badges/build.json)](https://porion.vacs.fr/porion/projects/view/resource-embedder)
+
+  '
+- '[![Test Status](https://img.shields.io/endpoint?url=https://porion.vacs.fr/porion/api/v1/projects/resource-embedder/badges/tests.json)](https://porion.vacs.fr/porion/projects/view/resource-embedder)
+
+  '
+- '[![Coverage](https://img.shields.io/endpoint?url=https://porion.vacs.fr/porion/api/v1/projects/resource-embedder/badges/coverage.json)](https://porion.vacs.fr/porion/projects/view/resource-embedder)
+
+  '
+- '[![Documentation Status](https://readthedocs.org/projects/resource-embedder/badge/?version=latest)](https://resource-embedder.readthedocs.io/en/latest/?badge=latest)
+
+  '
+- '
+
+  '
+- 'The resource embedder allows to embed files in binaries by producing C, Ada or
+  Go source
+
+  '
+- 'files that contain the original files.
+
+  '
+- '
+
+  '
+- 'To generate a `config.ads` and `config.adb` Ada package with the resources, you
+  may use:
+
+  '
+- '
+
+  '
+- '```
+
+  '
+- 'are --lang=Ada -o src --resource=config --name-access --fileset=''**/*.conf'' config
+
+  '
+- '```
+
+  '
+- '
+
+  '
+- 'Complex resource integrations are best described with and XML and are generated
+  with:
+
+  '
+- '
+
+  '
+- '```
+
+  '
+- 'are --lang=Ada -o src --rule=package.xml --name-access .
+
+  '
+- '```
+
+  '
+- '
+
+  '
+- 'For Ada, it generates the following package declaration with the `Get_Content`
+  function
+
+  '
+- 'that gives access to the files.  The Ada body contains the content of each embedded
+  file.
+
+  '
+- '
+
+  '
+- '```Ada
+
+  '
+- 'package Config is
+
+  '
+- '  function Get_Content (Name : in String)
+
+  '
+- '    return access constant String;
+
+  '
+- 'end Config;
+
+  '
+- '```
+
+  '
+- '
+
+  '
+- '
+
+  '
+- '   Maintainer: Stephane.Carrez@gmail.com
+
+  '
+- '   Maintainers_Logins: stcarrez
+
+  '
+- '   Name: are
+
+  '
+- '   Project_File: are_tool.gpr
+
+  '
+- '   Tag: resource
+
+  '
+- '   Tag: embedder
+
+  '
+- '   Tag: generator
+
+  '
+- '   Version: 1.5.2
+
+  '
+- '   Website: https://gitlab.com/stcarrez/resource-embedder
+
+  '
+- 'Dependencies (direct):
+
+  '
+- '   elada^1.8.6
+
+  '
+- '   utilada^2.9.0
+
+  '
+- '   xmlada^23.0.0
+
+  '
+- 'Dependencies (solution):
+
+  '
+- '   elada=1.8.8
+
+  '
+- '   gnat=11.2.4 (gnat_native)
+
+  '
+- '   utilada=2.9.0
+
+  '
+- '   xmlada=23.0.0
+
+  '
+- 'Dependencies (graph):
+
+  '
+- '   are=1.5.2     --> elada=1.8.8 (^1.8.6)
+
+  '
+- '   are=1.5.2     --> utilada=2.9.0 (^2.9.0)
+
+  '
+- '   are=1.5.2     --> xmlada=23.0.0 (^23.0.0)
+
+  '
+- '   elada=1.8.8   --> utilada=2.9.0 (^2.8.0)
+
+  '
+- '   xmlada=23.0.0 --> gnat=11.2.4 (gnat_native) (>=11)
+
+  '
+- '
+
+  '
+- '
+
+  LOG:
+
+  '
+- '[alr test] Testing are=1.5.2
+
+  '
+- '[alr test] Spawning retrieval for remote crate: alr -d -n get are=1.5.2
+
+  '
+- 'Note: Deploying are=1.5.2...
+
+  '
+- 'Note: Deploying utilada=2.9.0...
+
+  '
+- 'Note: Deploying elada=1.8.8...
+
+  '
+- 'Note: Deploying xmlada=23.0.0...
+
+  '
+- '
+
+  '
+- "#=#=#                                                                         \
+  \ \n"
+- "##O#-#                                                                        \
+  \ \n"
+- "##=O#- #                                                                      \
+  \ \n"
+- '
+
+  '
+- 'are=1.5.2 successfully retrieved.
+
+  '
+- 'Dependencies were solved as follows:
+
+  '
+- '
+
+  '
+- '   +  elada   1.8.8  (new)
+
+  '
+- '   +b gnat    11.2.4 (new,gnat_native,indirect,binary)
+
+  '
+- '   +  utilada 2.9.0  (new)
+
+  '
+- '   +  xmlada  23.0.0 (new)
+
+  '
+- '[alr test] Spawning default test for remote crate: alr -d -n build --release --
+  -cargs:Ada -gnatwn
+
+  '
+- 'Note: Running post-fetch actions for xmlada=23.0.0...
+
+  '
+- 'configure: loading site script /usr/local/etc/config.site
+
+  '
+- 'checking build system type... x86_64-pc-mingw64
+
+  '
+- 'checking host system type... x86_64-pc-mingw64
+
+  '
+- 'checking target system type... x86_64-pc-mingw64
+
+  '
+- 'checking whether gnat can build shared libs... yes
+
+  '
+- 'checking for a BSD-compatible install... /usr/bin/install -c
+
+  '
+- 'checking whether ln -s works... no, using cp -pR
+
+  '
+- 'configure: creating ./config.status
+
+  '
+- 'config.status: creating xmlada_shared.gpr
+
+  '
+- 'config.status: creating Makefile
+
+  '
+- 'config.status: creating tests/dom/default.gpr
+
+  '
+- 'Note: Building are=1.5.2/are_tool.gpr...
+
+  '
+- '"C:\Users\runneradmin\AppData\Local\alire\cache\builds\utilada_2.9.0_bd635f55\5a6d4dce09303690ad1502e688f38a1d1f7f7539420e1f4ff5dcb13d82a60335\obj\utilada_core\static"
+  created
+
+  '
+- '"C:\Users\runneradmin\AppData\Local\alire\cache\builds\utilada_2.9.0_bd635f55\5a6d4dce09303690ad1502e688f38a1d1f7f7539420e1f4ff5dcb13d82a60335\lib\utilada_core\static"
+  created
+
+  '
+- '"C:\Users\runneradmin\AppData\Local\alire\cache\builds\xmlada_23.0.0_70494123\ddbc547461f50610e7d49f06d7ffb69dd6b9aba251a6a72206904041dcb4c133\sax\obj\static"
+  created
+
+  '
+- '"C:\Users\runneradmin\AppData\Local\alire\cache\builds\xmlada_23.0.0_70494123\ddbc547461f50610e7d49f06d7ffb69dd6b9aba251a6a72206904041dcb4c133\sax\lib\static"
+  created
+
+  '
+- '"C:\Users\runneradmin\AppData\Local\alire\cache\builds\elada_1.8.8_4da95146\5892dee443a647b370e90be80a7df3c83709673a9de44acfd80b2cb5fd3c8b9d\obj\elada\static"
+  created
+
+  '
+- '"C:\Users\runneradmin\AppData\Local\alire\cache\builds\elada_1.8.8_4da95146\5892dee443a647b370e90be80a7df3c83709673a9de44acfd80b2cb5fd3c8b9d\lib\elada\static"
+  created
+
+  '
+- '"C:\Users\runneradmin\AppData\Local\alire\cache\builds\utilada_2.9.0_bd635f55\5a6d4dce09303690ad1502e688f38a1d1f7f7539420e1f4ff5dcb13d82a60335\obj\utilada_sys\static"
+  created
+
+  '
+- '"C:\Users\runneradmin\AppData\Local\alire\cache\builds\utilada_2.9.0_bd635f55\5a6d4dce09303690ad1502e688f38a1d1f7f7539420e1f4ff5dcb13d82a60335\lib\utilada_sys\static"
+  created
+
+  '
+- '"obj" created
+
+  '
+- '"bin" created
+
+  '
+- '[Ada Compile]     el-beans.adb
+
+  '
+- '[Ada Compile]     el-contexts-default.adb
+
+  '
+- '[Ada Compile]     el-contexts-properties.adb
+
+  '
+- '[Ada Compile]     el-contexts-tls.adb
+
+  '
+- '[Ada Compile]     el-contexts.ads
+
+  '
+- '[Ada Compile]     el-expressions-nodes.adb
+
+  '
+- '[Ada Compile]     el-expressions-parser.adb
+
+  '
+- '[Ada Compile]     el-expressions.adb
+
+  '
+- '[Ada Compile]     el-functions-default.adb
+
+  '
+- '[Ada Compile]     el-functions-namespaces.adb
+
+  '
+- '[Ada Compile]     el-functions.adb
+
+  '
+- '[Ada Compile]     el-methods-func_1.adb
+
+  '
+- '[Ada Compile]     el-methods-func_string.ads
+
+  '
+- '[Ada Compile]     el-methods-func_unbounded.ads
+
+  '
+- '[Ada Compile]     el-methods-proc_1.adb
+
+  '
+- '[Ada Compile]     el-methods-proc_2.adb
+
+  '
+- '[Ada Compile]     el-methods-proc_in.adb
+
+  '
+- '[Ada Compile]     el-methods.ads
+
+  '
+- '[Ada Compile]     el-objects.ads
+
+  '
+- '[Ada Compile]     el-utils.adb
+
+  '
+- '[Ada Compile]     el-variables-default.adb
+
+  '
+- '[Ada Compile]     el-variables.ads
+
+  '
+- '[Ada Compile]     el.ads
+
+  '
+- '[Ada Compile]     util-beans-basic-lists.adb
+
+  '
+- '[Ada Compile]     util-beans-basic-ranges.adb
+
+  '
+- '[Ada Compile]     util-beans-basic.ads
+
+  '
+- '[Ada Compile]     util-beans-factory.adb
+
+  '
+- '[Ada Compile]     util-beans-lists-strings.adb
+
+  '
+- '[Archive]         libelada.a
+
+  '
+- '[Ada Compile]     util-beans-lists.ads
+
+  '
+- '[Ada Compile]     util-beans-methods.ads
+
+  '
+- '[Ada Compile]     util-beans-objects-datasets.adb
+
+  '
+- '[Ada Compile]     util-beans-objects-enums.adb
+
+  '
+- '[Ada Compile]     util-beans-objects-hash.adb
+
+  '
+- '[Ada Compile]     util-beans-objects-iterators.adb
+
+  '
+- '[Ada Compile]     util-beans-objects-lists.adb
+
+  '
+- '[Ada Compile]     util-beans-objects-maps.adb
+
+  '
+- '[Ada Compile]     util-beans-objects-pairs.adb
+
+  '
+- '[Ada Compile]     util-beans-objects-records.adb
+
+  '
+- '[Ada Compile]     util-beans-objects-time.adb
+
+  '
+- '[Ada Compile]     util-beans-objects-to_access.adb
+
+  '
+- '[Ada Compile]     util-beans-objects-vectors.adb
+
+  '
+- '[Ada Compile]     util-beans-objects.adb
+
+  '
+- '[Ada Compile]     util-beans-ranges.ads
+
+  '
+- '[Ada Compile]     util-beans.ads
+
+  '
+- '[Ada Compile]     util-commands-consoles-text.adb
+
+  '
+- '[Ada Compile]     util-commands-consoles.adb
+
+  '
+- '[Ada Compile]     util-commands-drivers.adb
+
+  '
+- '[Ada Compile]     util-commands-parsers-gnat_parser.adb
+
+  '
+- '[Ada Compile]     util-commands-parsers.adb
+
+  '
+- '[Ada Compile]     util-commands-raw_io.ads
+
+  '
+- '[Ada Compile]     util-commands-text_io.ads
+
+  '
+- '[Ada Compile]     util-commands.adb
+
+  '
+- '[Ada Compile]     util-dates-formats.adb
+
+  '
+- '[Ada Compile]     util-dates-iso8601.adb
+
+  '
+- '[Ada Compile]     util-dates-rfc7231.adb
+
+  '
+- '[Ada Compile]     util-dates-simple_format.adb
+
+  '
+- '[Ada Compile]     util-dates.adb
+
+  '
+- '[Ada Compile]     util-events-channels.adb
+
+  '
+- '[Ada Compile]     util-events-timers.adb
+
+  '
+- 'util-dates-to_ada_time_64.adb:17:43: "To_Duration_64" not declared in "Conversions"
+
+  '
+- 'util-dates-to_ada_time_64.adb:19:22: "To_Ada_Time_64" not declared in "Conversions"
+
+  '
+- 'utilada_base.gpr: error: [Ada Compile] util-dates.adb (utilada_base.gpr) failed
+  with status 1
+
+  '
+- 'stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "D:\a\alire-crates-ci\alire-crates-ci\test\2024b722-9969-4fd4-a494-0bc80a353b15\are_1.5.2_eab22862\are_tool.gpr",
+  "-cargs:Ada", "-gnatwn"] exited with code 4
+
+  '
+- 'ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "D:\a\alire-crates-ci\alire-crates-ci\test\2024b722-9969-4fd4-a494-0bc80a353b15\are_1.5.2_eab22862\are_tool.gpr",
+  "-cargs:Ada", "-gnatwn"] exited with code 4
+
+  '
+- 'stderr: ALIRE.CHECKED_ERROR
+
+  '
+- 'stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "D:\a\alire-crates-ci\alire-crates-ci\test\2024b722-9969-4fd4-a494-0bc80a353b15\are_1.5.2_eab22862\are_tool.gpr",
+  "-cargs:Ada", "-gnatwn"] exited with code 4
+
+  '
+- 'stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
+
+  '
+- '[D:\a\alire-crates-ci\alire-crates-ci\alire_install\bin\alr.exe]
+
+  '
+- '0x7ff7d50eda2a Semantic_Versioning.Basic.Restrictions.First_Index at alire.adb:284
+
+  '
+- '0x7ff7d4ce595b Semantic_Versioning.Basic.Restrictions.First_Index at alire-os_lib-subprocess.adb:111
+
+  '
+- '0x7ff7d4f9cba1 Semantic_Versioning.Basic.Restrictions.First_Index at alire-spawn.adb:22
+
+  '
+- '0x7ff7d4f9dd5d Semantic_Versioning.Basic.Restrictions.First_Index at alire-spawn.adb:68
+
+  '
+- '0x7ff7d4ec2d64 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:189
+
+  '
+- '0x7ff7d4ec11da Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:255
+
+  '
+- '0x7ff7d4ee912d Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2143
+
+  '
+- '0x7ff7d4f582f9 Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1472
+
+  '
+- '0x7ff7d4f57424 Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1555
+
+  '
+- '0x7ff7d4ee922c Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2147
+
+  '
+- '0x7ff7d4ee92fa Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2127
+
+  '
+- '0x7ff7d4ec17a7 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:286
+
+  '
+- '0x7ff7d4ec1912 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:114
+
+  '
+- '0x7ff7d4633baa Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:145
+
+  '
+- '0x7ff7d463341e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:113
+
+  '
+- '0x7ff7d46335ba Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:54
+
+  '
+- '0x7ff7d46e5dea Semantic_Versioning.Basic.Restrictions.First_Index at clic-subcommand-instance.adb:749
+
+  '
+- '0x7ff7d46f2b0e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands.adb:632
+
+  '
+- '0x7ff7d45c16a0 Alr.Main at alr-main.adb:13
+
+  '
+- '0x7ff7d45c5270 Main at b__alr-main.adb:2454
+
+  '
+- '0x7ff7d45c133e __tmainCRTStartup at ???
+
+  '
+- '0x7ff7d45c1144 mainCRTStartup at ???
+
+  '
+- '[C:\Windows\System32\KERNEL32.DLL]
+
+  '
+- '0x7ffcc63ce985
+
+  '
+- '[C:\Windows\SYSTEM32\ntdll.dll]
+
+  '
+- '0x7ffcc86ac53a
+
+  '
+- '
+
+  '
+- 'stderr: ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED
+
+  '
+- 'stderr: alire-roots.adb:202
+
+  '
+- 'stderr: raised ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED : alire-roots.adb:202
+
+  '
+- '[D:\a\alire-crates-ci\alire-crates-ci\alire_install\bin\alr.exe]
+
+  '
+- '0x7ff7d4ec313c Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:202
+
+  '
+- '0x7ff7d4ec11da Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:255
+
+  '
+- '0x7ff7d4ee912d Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2143
+
+  '
+- '0x7ff7d4f582f9 Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1472
+
+  '
+- '0x7ff7d4f57424 Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1555
+
+  '
+- '0x7ff7d4ee922c Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2147
+
+  '
+- '0x7ff7d4ee92fa Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2127
+
+  '
+- '0x7ff7d4ec17a7 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:286
+
+  '
+- '0x7ff7d4ec1912 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:114
+
+  '
+- '0x7ff7d4633baa Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:145
+
+  '
+- '0x7ff7d463341e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:113
+
+  '
+- '0x7ff7d46335ba Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:54
+
+  '
+- '0x7ff7d46e5dea Semantic_Versioning.Basic.Restrictions.First_Index at clic-subcommand-instance.adb:749
+
+  '
+- '0x7ff7d46f2b0e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands.adb:632
+
+  '
+- '0x7ff7d45c16a0 Alr.Main at alr-main.adb:13
+
+  '
+- '0x7ff7d45c5270 Main at b__alr-main.adb:2454
+
+  '
+- '0x7ff7d45c133e __tmainCRTStartup at ???
+
+  '
+- '0x7ff7d45c1144 mainCRTStartup at ???
+
+  '
+- '[C:\Windows\System32\KERNEL32.DLL]
+
+  '
+- '0x7ffcc63ce985
+
+  '
+- '[C:\Windows\SYSTEM32\ntdll.dll]
+
+  '
+- '0x7ffcc86ac53a
+
+  '
+- '
+
+  '
+- 'ERROR: Compilation failed.
+
+  '
+platform: windows
+status: failing
+version: 1.5.2

@@ -1,0 +1,339 @@
+Test ran at 2026-09-29 12:46:47.978068+00:00
+
+SOLUTION:
+adacl=8.0.0: AdaCL: SPARK gold core shared by desktop, embedded and bare-metal
+Origin: source archive adacl-8.0.0.tgz at https://sourceforge.net/projects/adacl/files/Alire/adacl-8.0.0.tgz with hashes sha256:99495ecbf9ef78e4ebea5dd2e6fb61b13de71284b522feaf2e2d1ae829efd80b, sha512:572d2db8a56819d9610eb5ba8f575b6a74f7e0a320c84076fcedc1928041f6d9fb79afe2bfbbbda2e2f9f95b9f12703cb71e5919019db4dd7c0ff66277de89d8
+Properties:
+   case OS is
+      when Linux => Test run: /bin/bash ci-verify.sh (from ${CRATE_ROOT}/.)
+      when Macos => Test run: /bin/bash ci-verify.sh (from ${CRATE_ROOT}/.)
+      when Windows => Test run: powershell -ExecutionPolicy Bypass -File ci-verify.ps1 (from ${CRATE_ROOT}/.)
+      when others => (empty)
+   Author: Martin Krischik <krischik@users.sourceforge.net>
+   Build Switches: 
+   Description: AdaCL: SPARK gold core shared by desktop, embedded and bare-metal
+   License: GPL-3.0-or-later
+   Long_Description: Ada Class Library core crate for Ada 2022.
+
+`adacl` is the shared root of the AdaCL family. It is suitable for both
+embedded and desktop targets and is proven to SPARK gold. The former
+desktop utilities no longer live here; they were moved to `adacl_desktop`
+in 8.0.0.
+
+Sister crates:
+
+- [adacl_aunit](https://alire.ada.dev/crates/adacl_aunit) - AUnit-compatible assertions and parameterised tests
+- [adacl_desktop](https://alire.ada.dev/crates/adacl_desktop) - Getopt, strings, calendar, tracing, queues, and smart pointers
+- [adacl_eastrings](https://alire.ada.dev/crates/adacl_eastrings) - encoding-aware string utilities
+- [adacl_embedded](https://alire.ada.dev/crates/adacl_embedded) - lightweight tracing and text I/O for embedded targets
+- [adacl_regexp](https://alire.ada.dev/crates/adacl_regexp) - regular expressions and SPITBOL patterns
+- [adacl_sar](https://alire.ada.dev/crates/adacl_sar) - search and replace for String, Wide_String, and Wide_Wide_String
+- [adacl_serial](https://alire.ada.dev/crates/adacl_serial) - SPARK-friendly serial I/O helpers over GNAT.Serial_Communications
+
+Source: [SourceForge](https://sourceforge.net/p/adacl/git/ci/master/tree/adacl/src/)
+Documentation: [GNATdoc](https://adacl.sourceforge.net/gnatdoc/adacl/index.html)
+
+   Maintainer: Martin Krischik <krischik@users.sourceforge.net>
+   Maintainers_Logins: krischik
+   Name: adacl
+   Notes: Breaking change in 8.0.0: AdaCL has been split.
+
+`adacl` is now the SPARK-proven common foundation used by both desktop and
+embedded crates. The previous desktop API (Getopt, Strings, Calendar,
+Tracing, Protected Queue, Smart Pointers) lives in `adacl_desktop`.
+
+Applications that used those utilities must replace the old dependency:
+
+    [[depends-on]]
+    adacl = "^7.2"
+
+with:
+
+    [[depends-on]]
+    adacl_desktop = "^8.0"
+
+`adacl_desktop` depends on `adacl`. Keep a direct `adacl` dependency only
+when the shared core is all you need.
+
+   Tag: library
+   Tag: embedded
+   Tag: spark
+   Tag: ada2022
+   Version: 8.0.0
+   Website: https://adacl.sourceforge.net/
+
+
+LOG:
+=== Ada CI Verification ===
+=== AdaCL Prove ===
+Directory: prove
+Updating dependencies...
+Dependencies automatically updated as follows:
+
+   +. adacl     8.0.0  (new,path=..)
+   +b gnatprove 16.1.0 (new,binary)
+Note: Deploying gnatprove=16.1.0...
+#=#=#                                                                          
+
+                                                                           0.3%
+###                                                                        4.4%
+########                                                                  11.8%
+############                                                              17.7%
+################                                                          23.0%
+###################                                                       26.6%
+#########################                                                 35.5%
+##############################                                            42.1%
+###################################                                       48.7%
+#########################################                                 57.5%
+############################################                              62.1%
+#################################################                         68.7%
+######################################################                    75.2%
+#########################################################                 79.8%
+##############################################################            86.5%
+###################################################################       93.1%
+######################################################################## 100.0%
+Building with validation...
+Note: Building adacl_prove=8.0.0/adacl_prove.gpr...
+Setup
+   [mkdir]        object directory for project AdaCL
+   [mkdir]        library directory for project AdaCL
+   [mkdir]        object directory for project AdaCl_Prove
+   [mkdir]        exec directory for project AdaCl_Prove
+Compile
+   [Ada]          dummy-main.adb
+   [Ada]          adacl_config.ads
+   [Ada]          adacl.ads
+   [Ada]          dummy.ads
+Build Libraries
+   [gprlib]       AdaCL.lexch
+   [archive]      libAdaCL.a
+   [index]        libAdaCL.a
+Bind
+   [gprbind]      dummy-main.bexch
+   [Ada]          dummy-main.ali
+Link
+   [link]         dummy-main.adb
+Success: Build finished successfully in 0.59 seconds.
+Running tests...
+Success: Test ended successfully.
+Note: Check log at /home/runner/work/alire-crates-ci/alire-crates-ci/test/0279bbd5-657c-4cd1-b2ce-f3848b1d0c41/adacl_8.0.0_99495ecb/prove/alire/alr_test_local.log
+SUCCESS: AdaCL Prove
+--------------------------------------------------
+=== AdaCL Test ===
+Directory: test
+Updating dependencies...
+Dependencies automatically updated as follows:
+
+   +. adacl         8.0.0  (new,path=..)
+   +  adacl_aunit   8.0.0  (new)
+   +  adacl_desktop 8.0.0  (new)
+   +  aunit         26.0.0 (new,indirect)
+Note: Deploying aunit=26.0.0...
+#=#=#                                                                          
+##O#-#                                                                         
+Note: Deploying adacl_desktop=8.0.0...
+
+######################################################################## 100.0%
+######################################################################## 100.0%
+######################################################################## 100.0%
+######################################################################## 100.0%#=#=#                                                                          
+
+######################################################################## 100.0%
+Note: Deploying adacl_aunit=8.0.0...
+#=#=#                                                                          
+
+######################################################################## 100.0%
+######################################################################## 100.0%
+######################################################################## 100.0%
+######################################################################## 100.0%##O#-#                                                                         
+
+######################################################################## 100.0%
+Building with validation...
+Note: Building adacl_test=8.0.0/adacl_test.gpr...
+Setup
+   [mkdir]        object directory for project AdaCL_Desktop
+   [mkdir]        library directory for project AdaCL_Desktop
+   [mkdir]        object directory for project AUnit
+   [mkdir]        library directory for project AUnit
+   [mkdir]        object directory for project AdaCL_AUnit
+   [mkdir]        library directory for project AdaCL_AUnit
+   [mkdir]        object directory for project AdaCL_Test
+   [mkdir]        exec directory for project AdaCL_Test
+Compile
+   [Ada]          adacl_test-main.adb
+   [Ada]          aunit-io.ads
+   [Ada]          aunit-memory.adb
+   [Ada]          aunit-memory-utils.adb
+   [Ada]          aunit-time_measure.adb
+   [Ada]          aunit-reporter-gnattest.adb
+   [Ada]          aunit-reporter-junit.adb
+   [Ada]          aunit-reporter-xml.adb
+   [Ada]          aunit-reporter-text.adb
+   [Ada]          ada_containers.ads
+   [Ada]          ada_containers-aunit_lists.adb
+   [Ada]          aunit-test_suites.adb
+   [Ada]          aunit.adb
+   [Ada]          aunit-test_filters.adb
+   [Ada]          aunit-test_cases.adb
+   [Ada]          aunit-tests.ads
+   [Ada]          aunit-run.adb
+   [Ada]          aunit-assertions.adb
+   [Ada]          aunit-reporter.adb
+   [Ada]          aunit-test_fixtures.adb
+   [Ada]          aunit-options.ads
+   [Ada]          aunit-test_caller.adb
+   [Ada]          aunit-simple_test_cases.adb
+   [Ada]          aunit-test_results.adb
+   [Ada]          adacl_desktop_config.ads
+   [Ada]          adacl-os-low_level.ads
+   [Ada]          adacl-os-to_wide_wide_string.adb
+   [Ada]          adacl-os-to_utf_string.adb
+   [Ada]          adacl-wide_wide_strings-vectors.ads
+   [Ada]          adacl-pointer.ads
+   [Ada]          adacl-wide_strings-hex.adb
+   [Ada]          adacl-strings-io.adb
+   [Ada]          adacl-pointer-shared.ads
+   [Ada]          adacl-trace.adb
+   [Ada]          adacl-pointer-holder.adb
+   [Ada]          adacl-wide_wide_strings-hex.adb
+   [Ada]          adacl-os.ads
+   [Ada]          adacl-base.ads
+   [Ada]          adacl-strings-dec.adb
+   [Ada]          adacl-wide_strings-io.adb
+   [Ada]          adacl-wide_wide_strings-dec.adb
+   [Ada]          adacl-wide_wide_strings.adb
+   [Ada]          adacl-wide_strings.adb
+   [Ada]          adacl-wide_strings-vectors.ads
+   [Ada]          adacl-wide_strings-dec.adb
+   [Ada]          adacl-command_line.ads
+   [Ada]          adacl-pointer-shared_with_delete.adb
+   [Ada]          adacl-pointer-element.adb
+   [Ada]          adacl-command_line-getopt.adb
+   [Ada]          adacl-wide_wide_strings-io.adb
+   [Ada]          adacl-pointer-unique.ads
+   [Ada]          adacl-wide_strings-bin.adb
+   [Ada]          adacl-calendar.adb
+   [Ada]          adacl-queue.adb
+   [Ada]          adacl-strings.adb
+/home/runner/.local/share/alire/builds/adacl_desktop_8.0.0_f8165a62/0482238262237a0b7b9b53498ad7c9b3ccccbbee525f34a2a147c755d4027d08/src/adacl-trace.ads:191:07: warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+/home/runner/.local/share/alire/builds/adacl_desktop_8.0.0_f8165a62/0482238262237a0b7b9b53498ad7c9b3ccccbbee525f34a2a147c755d4027d08/src/adacl-trace.ads:205:07: warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+/home/runner/.local/share/alire/builds/adacl_desktop_8.0.0_f8165a62/0482238262237a0b7b9b53498ad7c9b3ccccbbee525f34a2a147c755d4027d08/src/adacl-trace.ads:219:07: warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+/home/runner/.local/share/alire/builds/adacl_desktop_8.0.0_f8165a62/0482238262237a0b7b9b53498ad7c9b3ccccbbee525f34a2a147c755d4027d08/src/adacl-trace.ads:233:07: warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+/home/runner/.local/share/alire/builds/adacl_desktop_8.0.0_f8165a62/0482238262237a0b7b9b53498ad7c9b3ccccbbee525f34a2a147c755d4027d08/src/adacl-trace.ads:250:15: warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+/home/runner/.local/share/alire/builds/adacl_desktop_8.0.0_f8165a62/0482238262237a0b7b9b53498ad7c9b3ccccbbee525f34a2a147c755d4027d08/src/adacl-trace.ads:268:07: warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+   [Ada]          adacl-strings-vectors.ads
+/home/runner/.local/share/alire/builds/adacl_desktop_8.0.0_f8165a62/0482238262237a0b7b9b53498ad7c9b3ccccbbee525f34a2a147c755d4027d08/src/adacl-calendar.ads:93:34: warning: lower bound test optimized away [enabled by default]
+/home/runner/.local/share/alire/builds/adacl_desktop_8.0.0_f8165a62/0482238262237a0b7b9b53498ad7c9b3ccccbbee525f34a2a147c755d4027d08/src/adacl-calendar.ads:93:34: warning: value is known to be in range [enabled by default]
+/home/runner/.local/share/alire/builds/adacl_desktop_8.0.0_f8165a62/0482238262237a0b7b9b53498ad7c9b3ccccbbee525f34a2a147c755d4027d08/src/adacl-calendar.ads:109:34: warning: lower bound test optimized away [enabled by default]
+/home/runner/.local/share/alire/builds/adacl_desktop_8.0.0_f8165a62/0482238262237a0b7b9b53498ad7c9b3ccccbbee525f34a2a147c755d4027d08/src/adacl-calendar.ads:109:34: warning: value is known to be in range [enabled by default]
+/home/runner/.local/share/alire/builds/adacl_desktop_8.0.0_f8165a62/0482238262237a0b7b9b53498ad7c9b3ccccbbee525f34a2a147c755d4027d08/src/adacl-calendar.ads:125:34: warning: lower bound test optimized away [enabled by default]
+/home/runner/.local/share/alire/builds/adacl_desktop_8.0.0_f8165a62/0482238262237a0b7b9b53498ad7c9b3ccccbbee525f34a2a147c755d4027d08/src/adacl-calendar.ads:125:34: warning: value is known to be in range [enabled by default]
+/home/runner/.local/share/alire/builds/adacl_desktop_8.0.0_f8165a62/0482238262237a0b7b9b53498ad7c9b3ccccbbee525f34a2a147c755d4027d08/src/adacl-calendar.ads:172:34: warning: lower bound test optimized away [enabled by default]
+/home/runner/.local/share/alire/builds/adacl_desktop_8.0.0_f8165a62/0482238262237a0b7b9b53498ad7c9b3ccccbbee525f34a2a147c755d4027d08/src/adacl-calendar.ads:172:34: warning: value is known to be in range [enabled by default]
+/home/runner/.local/share/alire/builds/adacl_desktop_8.0.0_f8165a62/0482238262237a0b7b9b53498ad7c9b3ccccbbee525f34a2a147c755d4027d08/src/adacl-calendar.ads:191:34: warning: lower bound test optimized away [enabled by default]
+/home/runner/.local/share/alire/builds/adacl_desktop_8.0.0_f8165a62/0482238262237a0b7b9b53498ad7c9b3ccccbbee525f34a2a147c755d4027d08/src/adacl-calendar.ads:191:34: warning: value is known to be in range [enabled by default]
+/home/runner/.local/share/alire/builds/adacl_desktop_8.0.0_f8165a62/0482238262237a0b7b9b53498ad7c9b3ccccbbee525f34a2a147c755d4027d08/src/adacl-calendar.ads:210:34: warning: lower bound test optimized away [enabled by default]
+/home/runner/.local/share/alire/builds/adacl_desktop_8.0.0_f8165a62/0482238262237a0b7b9b53498ad7c9b3ccccbbee525f34a2a147c755d4027d08/src/adacl-calendar.ads:210:34: warning: value is known to be in range [enabled by default]
+   [Ada]          adacl-limited_base.ads
+   [Ada]          adacl-strings-bin.adb
+   [Ada]          adacl-wide_wide_strings-bin.adb
+   [Ada]          adacl-strings-hex.adb
+   [Ada]          adacl-pointer-unique_with_delete.adb
+   [Ada]          adacl_aunit_config.ads
+   [Ada]          adacl-assert-pointer.adb
+   [Ada]          adacl-assert-fixed.adb
+/home/runner/.local/share/alire/builds/adacl_aunit_8.0.0_0347c69c/f1a5f25ec91469c4acab23e23b8cead749371cf87d9ca0461cd4422a14ff729a/src/adacl-assert-pointer.ads:51:07: warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+/home/runner/.local/share/alire/builds/adacl_aunit_8.0.0_0347c69c/f1a5f25ec91469c4acab23e23b8cead749371cf87d9ca0461cd4422a14ff729a/src/adacl-assert-pointer.ads:69:07: warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+/home/runner/.local/share/alire/builds/adacl_aunit_8.0.0_0347c69c/f1a5f25ec91469c4acab23e23b8cead749371cf87d9ca0461cd4422a14ff729a/src/adacl-assert-pointer.ads:85:07: warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+/home/runner/.local/share/alire/builds/adacl_aunit_8.0.0_0347c69c/f1a5f25ec91469c4acab23e23b8cead749371cf87d9ca0461cd4422a14ff729a/src/adacl-assert-pointer.ads:101:07: warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+   [Ada]          adacl-assert.adb
+   [Ada]          adacl-assert-float.adb
+/home/runner/.local/share/alire/builds/adacl_aunit_8.0.0_0347c69c/f1a5f25ec91469c4acab23e23b8cead749371cf87d9ca0461cd4422a14ff729a/src/adacl-assert-fixed.ads:50:07: warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+/home/runner/.local/share/alire/builds/adacl_aunit_8.0.0_0347c69c/f1a5f25ec91469c4acab23e23b8cead749371cf87d9ca0461cd4422a14ff729a/src/adacl-assert-fixed.ads:68:07: warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+/home/runner/.local/share/alire/builds/adacl_aunit_8.0.0_0347c69c/f1a5f25ec91469c4acab23e23b8cead749371cf87d9ca0461cd4422a14ff729a/src/adacl-assert-fixed.ads:86:07: warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+/home/runner/.local/share/alire/builds/adacl_aunit_8.0.0_0347c69c/f1a5f25ec91469c4acab23e23b8cead749371cf87d9ca0461cd4422a14ff729a/src/adacl-assert-fixed.ads:104:07: warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+/home/runner/.local/share/alire/builds/adacl_aunit_8.0.0_0347c69c/f1a5f25ec91469c4acab23e23b8cead749371cf87d9ca0461cd4422a14ff729a/src/adacl-assert-fixed.ads:122:07: warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+/home/runner/.local/share/alire/builds/adacl_aunit_8.0.0_0347c69c/f1a5f25ec91469c4acab23e23b8cead749371cf87d9ca0461cd4422a14ff729a/src/adacl-assert-fixed.ads:140:07: warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+/home/runner/.local/share/alire/builds/adacl_aunit_8.0.0_0347c69c/f1a5f25ec91469c4acab23e23b8cead749371cf87d9ca0461cd4422a14ff729a/src/adacl-assert-fixed.ads:160:07: warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+   [Ada]          adacl-assert-vectors.adb
+/home/runner/.local/share/alire/builds/adacl_aunit_8.0.0_0347c69c/f1a5f25ec91469c4acab23e23b8cead749371cf87d9ca0461cd4422a14ff729a/src/adacl-assert-float.ads:51:07: warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+/home/runner/.local/share/alire/builds/adacl_aunit_8.0.0_0347c69c/f1a5f25ec91469c4acab23e23b8cead749371cf87d9ca0461cd4422a14ff729a/src/adacl-assert-float.ads:69:07: warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+/home/runner/.local/share/alire/builds/adacl_aunit_8.0.0_0347c69c/f1a5f25ec91469c4acab23e23b8cead749371cf87d9ca0461cd4422a14ff729a/src/adacl-assert-float.ads:87:07: warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+/home/runner/.local/share/alire/builds/adacl_aunit_8.0.0_0347c69c/f1a5f25ec91469c4acab23e23b8cead749371cf87d9ca0461cd4422a14ff729a/src/adacl-assert-float.ads:105:07: warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+/home/runner/.local/share/alire/builds/adacl_aunit_8.0.0_0347c69c/f1a5f25ec91469c4acab23e23b8cead749371cf87d9ca0461cd4422a14ff729a/src/adacl-assert-float.ads:123:07: warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+/home/runner/.local/share/alire/builds/adacl_aunit_8.0.0_0347c69c/f1a5f25ec91469c4acab23e23b8cead749371cf87d9ca0461cd4422a14ff729a/src/adacl-assert-float.ads:141:07: warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+/home/runner/.local/share/alire/builds/adacl_aunit_8.0.0_0347c69c/f1a5f25ec91469c4acab23e23b8cead749371cf87d9ca0461cd4422a14ff729a/src/adacl-assert-float.ads:161:07: warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+   [Ada]          adacl-assert-decimal.adb
+/home/runner/.local/share/alire/builds/adacl_aunit_8.0.0_0347c69c/f1a5f25ec91469c4acab23e23b8cead749371cf87d9ca0461cd4422a14ff729a/src/adacl-assert.ads:65:07: warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+/home/runner/.local/share/alire/builds/adacl_aunit_8.0.0_0347c69c/f1a5f25ec91469c4acab23e23b8cead749371cf87d9ca0461cd4422a14ff729a/src/adacl-assert.ads:83:07: warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+/home/runner/.local/share/alire/builds/adacl_aunit_8.0.0_0347c69c/f1a5f25ec91469c4acab23e23b8cead749371cf87d9ca0461cd4422a14ff729a/src/adacl-assert.ads:101:07: warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+/home/runner/.local/share/alire/builds/adacl_aunit_8.0.0_0347c69c/f1a5f25ec91469c4acab23e23b8cead749371cf87d9ca0461cd4422a14ff729a/src/adacl-assert.ads:121:07: warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+/home/runner/.local/share/alire/builds/adacl_aunit_8.0.0_0347c69c/f1a5f25ec91469c4acab23e23b8cead749371cf87d9ca0461cd4422a14ff729a/src/adacl-assert.ads:139:07: warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+/home/runner/.local/share/alire/builds/adacl_aunit_8.0.0_0347c69c/f1a5f25ec91469c4acab23e23b8cead749371cf87d9ca0461cd4422a14ff729a/src/adacl-assert.ads:157:07: warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+/home/runner/.local/share/alire/builds/adacl_aunit_8.0.0_0347c69c/f1a5f25ec91469c4acab23e23b8cead749371cf87d9ca0461cd4422a14ff729a/src/adacl-assert.ads:177:07: warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+/home/runner/.local/share/alire/builds/adacl_aunit_8.0.0_0347c69c/f1a5f25ec91469c4acab23e23b8cead749371cf87d9ca0461cd4422a14ff729a/src/adacl-assert.ads:195:07: warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+/home/runner/.local/share/alire/builds/adacl_aunit_8.0.0_0347c69c/f1a5f25ec91469c4acab23e23b8cead749371cf87d9ca0461cd4422a14ff729a/src/adacl-assert.ads:213:07: warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+/home/runner/.local/share/alire/builds/adacl_aunit_8.0.0_0347c69c/f1a5f25ec91469c4acab23e23b8cead749371cf87d9ca0461cd4422a14ff729a/src/adacl-assert.ads:231:07: warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+/home/runner/.local/share/alire/builds/adacl_aunit_8.0.0_0347c69c/f1a5f25ec91469c4acab23e23b8cead749371cf87d9ca0461cd4422a14ff729a/src/adacl-assert.ads:247:07: warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+/home/runner/.local/share/alire/builds/adacl_aunit_8.0.0_0347c69c/f1a5f25ec91469c4acab23e23b8cead749371cf87d9ca0461cd4422a14ff729a/src/adacl-assert.ads:267:07: warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+/home/runner/.local/share/alire/builds/adacl_aunit_8.0.0_0347c69c/f1a5f25ec91469c4acab23e23b8cead749371cf87d9ca0461cd4422a14ff729a/src/adacl-assert.ads:287:07: warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+/home/runner/.local/share/alire/builds/adacl_aunit_8.0.0_0347c69c/f1a5f25ec91469c4acab23e23b8cead749371cf87d9ca0461cd4422a14ff729a/src/adacl-assert.ads:305:07: warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+/home/runner/.local/share/alire/builds/adacl_aunit_8.0.0_0347c69c/f1a5f25ec91469c4acab23e23b8cead749371cf87d9ca0461cd4422a14ff729a/src/adacl-assert.ads:323:07: warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+   [Ada]          adacl-assert-discrete.adb
+/home/runner/.local/share/alire/builds/adacl_aunit_8.0.0_0347c69c/f1a5f25ec91469c4acab23e23b8cead749371cf87d9ca0461cd4422a14ff729a/src/adacl-assert-vectors.ads:38:04: warning: use clause for private type "Ada.Containers.Vectors.Vector" from instance at line 36 has no effect [-gnatwu]
+/home/runner/.local/share/alire/builds/adacl_aunit_8.0.0_0347c69c/f1a5f25ec91469c4acab23e23b8cead749371cf87d9ca0461cd4422a14ff729a/src/adacl-assert-vectors.ads:58:07: warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+/home/runner/.local/share/alire/builds/adacl_aunit_8.0.0_0347c69c/f1a5f25ec91469c4acab23e23b8cead749371cf87d9ca0461cd4422a14ff729a/src/adacl-assert-vectors.ads:76:07: warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+   [Ada]          adacl-assert-arrays.adb
+/home/runner/.local/share/alire/builds/adacl_aunit_8.0.0_0347c69c/f1a5f25ec91469c4acab23e23b8cead749371cf87d9ca0461cd4422a14ff729a/src/adacl-assert-decimal.ads:50:07: warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+/home/runner/.local/share/alire/builds/adacl_aunit_8.0.0_0347c69c/f1a5f25ec91469c4acab23e23b8cead749371cf87d9ca0461cd4422a14ff729a/src/adacl-assert-decimal.ads:68:07: warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+/home/runner/.local/share/alire/builds/adacl_aunit_8.0.0_0347c69c/f1a5f25ec91469c4acab23e23b8cead749371cf87d9ca0461cd4422a14ff729a/src/adacl-assert-decimal.ads:86:07: warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+/home/runner/.local/share/alire/builds/adacl_aunit_8.0.0_0347c69c/f1a5f25ec91469c4acab23e23b8cead749371cf87d9ca0461cd4422a14ff729a/src/adacl-assert-decimal.ads:104:07: warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+/home/runner/.local/share/alire/builds/adacl_aunit_8.0.0_0347c69c/f1a5f25ec91469c4acab23e23b8cead749371cf87d9ca0461cd4422a14ff729a/src/adacl-assert-decimal.ads:122:07: warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+/home/runner/.local/share/alire/builds/adacl_aunit_8.0.0_0347c69c/f1a5f25ec91469c4acab23e23b8cead749371cf87d9ca0461cd4422a14ff729a/src/adacl-assert-decimal.ads:140:07: warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+/home/runner/.local/share/alire/builds/adacl_aunit_8.0.0_0347c69c/f1a5f25ec91469c4acab23e23b8cead749371cf87d9ca0461cd4422a14ff729a/src/adacl-assert-decimal.ads:160:07: warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+   [Ada]          adacl-test_cases-parameters.adb
+/home/runner/.local/share/alire/builds/adacl_aunit_8.0.0_0347c69c/f1a5f25ec91469c4acab23e23b8cead749371cf87d9ca0461cd4422a14ff729a/src/adacl-assert-discrete.ads:50:07: warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+/home/runner/.local/share/alire/builds/adacl_aunit_8.0.0_0347c69c/f1a5f25ec91469c4acab23e23b8cead749371cf87d9ca0461cd4422a14ff729a/src/adacl-assert-discrete.ads:68:07: warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+/home/runner/.local/share/alire/builds/adacl_aunit_8.0.0_0347c69c/f1a5f25ec91469c4acab23e23b8cead749371cf87d9ca0461cd4422a14ff729a/src/adacl-assert-discrete.ads:86:07: warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+/home/runner/.local/share/alire/builds/adacl_aunit_8.0.0_0347c69c/f1a5f25ec91469c4acab23e23b8cead749371cf87d9ca0461cd4422a14ff729a/src/adacl-assert-discrete.ads:104:07: warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+/home/runner/.local/share/alire/builds/adacl_aunit_8.0.0_0347c69c/f1a5f25ec91469c4acab23e23b8cead749371cf87d9ca0461cd4422a14ff729a/src/adacl-assert-discrete.ads:122:07: warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+/home/runner/.local/share/alire/builds/adacl_aunit_8.0.0_0347c69c/f1a5f25ec91469c4acab23e23b8cead749371cf87d9ca0461cd4422a14ff729a/src/adacl-assert-discrete.ads:140:07: warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+/home/runner/.local/share/alire/builds/adacl_aunit_8.0.0_0347c69c/f1a5f25ec91469c4acab23e23b8cead749371cf87d9ca0461cd4422a14ff729a/src/adacl-assert-discrete.ads:160:07: warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+   [Ada]          adacl-trace-assert.ads
+/home/runner/.local/share/alire/builds/adacl_aunit_8.0.0_0347c69c/f1a5f25ec91469c4acab23e23b8cead749371cf87d9ca0461cd4422a14ff729a/src/adacl-assert-arrays.ads:56:07: warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+/home/runner/.local/share/alire/builds/adacl_aunit_8.0.0_0347c69c/f1a5f25ec91469c4acab23e23b8cead749371cf87d9ca0461cd4422a14ff729a/src/adacl-assert-arrays.ads:74:07: warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+   [Ada]          adacl-assert-indefinite_vectors.adb
+   [Ada]          adacl-test_cases.ads
+   [Ada]          adacl_config.ads
+   [Ada]          adacl_test.ads
+/home/runner/.local/share/alire/builds/adacl_aunit_8.0.0_0347c69c/f1a5f25ec91469c4acab23e23b8cead749371cf87d9ca0461cd4422a14ff729a/src/adacl-assert-indefinite_vectors.ads:38:04: warning: use clause for private type "Ada.Containers.Indefinite_Vectors.Vector" from instance at line 36 has no effect [-gnatwu]
+/home/runner/.local/share/alire/builds/adacl_aunit_8.0.0_0347c69c/f1a5f25ec91469c4acab23e23b8cead749371cf87d9ca0461cd4422a14ff729a/src/adacl-assert-indefinite_vectors.ads:58:07: warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+/home/runner/.local/share/alire/builds/adacl_aunit_8.0.0_0347c69c/f1a5f25ec91469c4acab23e23b8cead749371cf87d9ca0461cd4422a14ff729a/src/adacl-assert-indefinite_vectors.ads:76:07: warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+   [Ada]          adacl_test-suite.adb
+/home/runner/work/alire-crates-ci/alire-crates-ci/test/0279bbd5-657c-4cd1-b2ce-f3848b1d0c41/adacl_8.0.0_99495ecb/test/src/adacl_test-suite.adb:32:07: warning: use clause for package "Test_Suites" has no effect [-gnatwu]
+Build Libraries
+   [gprlib]       AdaCL.lexch
+   [gprlib]       AdaCL_Desktop.lexch
+   [archive]      libAdaCL.a
+   [index]        libAdaCL.a
+   [gprlib]       aunit.lexch
+   [gprlib]       AdaCL_AUnit.lexch
+   [archive]      libAdaCL_Desktop.a
+   [archive]      libaunit.a
+   [index]        libaunit.a
+   [index]        libAdaCL_Desktop.a
+   [archive]      libAdaCL_AUnit.a
+   [index]        libAdaCL_AUnit.a
+Bind
+   [gprbind]      adacl_test-main.bexch
+   [Ada]          adacl_test-main.ali
+Link
+   [link]         adacl_test-main.adb
+Success: Build finished successfully in 8.98 seconds.
+Running tests...
+Success: Test ended successfully.
+Note: Check log at /home/runner/work/alire-crates-ci/alire-crates-ci/test/0279bbd5-657c-4cd1-b2ce-f3848b1d0c41/adacl_8.0.0_99495ecb/test/alire/alr_test_local.log
+SUCCESS: AdaCL Test
+--------------------------------------------------
+All steps completed.
+[alr test] Test completed SUCCESSFULLY
