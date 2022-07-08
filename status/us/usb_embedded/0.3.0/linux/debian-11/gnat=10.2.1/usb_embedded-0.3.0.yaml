@@ -3,11 +3,11 @@ badge_color: green
 crate: usb_embedded
 creation_timestamp: 1654650908.402452
 distro: debian-11
-duration: 8.466534001000127
+duration: 9.191378665000002
 gnat: 10.2.1
-last_attempt: 2022-06-08 01:34:38.389779+00:00
+last_attempt: 2023-05-31 13:20:40.340947+00:00
 log:
-- 'Test ran at 2022-06-08 01:34:38.389668+00:00
+- 'Test ran at 2023-05-31 13:20:40.340828+00:00
 
 
   '
@@ -92,10 +92,10 @@ log:
 - 'Dependencies (solution):
 
   '
-- '   atomic=0.4.1
+- '   atomic=0.5.0
 
   '
-- '   bbqueue=0.3.0
+- '   bbqueue=0.3.1
 
   '
 - '   gnat=10.2.1 (gnat_external) (installed)
@@ -107,11 +107,11 @@ log:
 - 'Dependencies (graph):
 
   '
-- "   bbqueue=0.3.0      --> atomic=0.4.1 (~0.4)               \n"
-- '   bbqueue=0.3.0      --> gnat=10.2.1 (gnat_external) (>=10)
+- "   bbqueue=0.3.1      --> atomic=0.5.0 (~0.5)               \n"
+- '   bbqueue=0.3.1      --> gnat=10.2.1 (gnat_external) (>=10)
 
   '
-- "   usb_embedded=0.3.0 --> bbqueue=0.3.0 (~0.3.0)            \n"
+- "   usb_embedded=0.3.0 --> bbqueue=0.3.1 (~0.3.0)            \n"
 - "   usb_embedded=0.3.0 --> hal=0.3.0 (~0.3)                  \n"
 - '
 
@@ -124,13 +124,13 @@ log:
 - 'Note: Deploying usb_embedded=0.3.0...
 
   '
-- 'Note: Deploying atomic=0.4.1...
+- 'Note: Deploying atomic=0.5.0...
 
   '
 - 'Note: Deploying hal=0.3.0...
 
   '
-- 'Note: Deploying bbqueue=0.3.0...
+- 'Note: Deploying bbqueue=0.3.1...
 
   '
 - 'Note: Building usb_embedded/usb_embedded.gpr...
@@ -166,10 +166,25 @@ log:
 - 'Compile
 
   '
-- '   [Ada]          hal-bitmap.ads
+- '   [Ada]          hal-spi.ads
 
   '
 - '   [Ada]          hal-filesystem.ads
+
+  '
+- '   [Ada]          hal-gpio.ads
+
+  '
+- '   [Ada]          hal-audio.ads
+
+  '
+- '   [Ada]          hal-bitmap.ads
+
+  '
+- '   [Ada]          hal-uart.ads
+
+  '
+- '   [Ada]          hal.ads
 
   '
 - '   [Ada]          hal-touch_panel.ads
@@ -178,16 +193,13 @@ log:
 - '   [Ada]          hal-sdmmc.adb
 
   '
-- '   [Ada]          hal.ads
+- '   [Ada]          hal-dsi.ads
 
   '
 - '   [Ada]          hal-block_drivers.ads
 
   '
-- '   [Ada]          hal-dsi.ads
-
-  '
-- '   [Ada]          hal-spi.ads
+- '   [Ada]          hal-framebuffer.ads
 
   '
 - '   [Ada]          hal-time.ads
@@ -196,46 +208,37 @@ log:
 - '   [Ada]          hal-i2c.ads
 
   '
-- '   [Ada]          hal-framebuffer.ads
-
-  '
-- '   [Ada]          hal-audio.ads
-
-  '
-- '   [Ada]          hal-gpio.ads
-
-  '
-- '   [Ada]          hal-uart.ads
-
-  '
 - '   [Ada]          hal-real_time_clock.ads
-
-  '
-- '   [Ada]          atomic-signed.adb
 
   '
 - '   [Ada]          atomic.adb
 
   '
+- '   [Ada]          atomic-signed.adb
+
+  '
 - '   [Ada]          atomic-unsigned.adb
 
   '
-- '   [Ada]          atomic-unsigned_32.ads
-
-  '
-- '   [Ada]          atomic-signed_32.ads
+- '   [Ada]          atomic_config.ads
 
   '
 - '   [Ada]          atomic-signed_8.ads
 
   '
-- '   [Ada]          atomic-signed_16.ads
+- '   [Ada]          atomic-unsigned_32.ads
 
   '
 - '   [Ada]          atomic-unsigned_16.ads
 
   '
+- '   [Ada]          atomic-signed_32.ads
+
+  '
 - '   [Ada]          atomic-unsigned_8.ads
+
+  '
+- '   [Ada]          atomic-signed_16.ads
 
   '
 - '   [Ada]          bbqueue-buffers-framed.adb
@@ -250,10 +253,40 @@ log:
 - '   [Ada]          usb_embedded_config.ads
 
   '
+- '   [Ada]          usb-device-midi.adb
+
+  '
+- '   [Ada]          usb-hal.ads
+
+  '
+- '   [Ada]          usb-device.adb
+
+  '
+- '   [Ada]          usb-hal-device.ads
+
+  '
+- '   [Ada]          usb-device-hid-mouse.adb
+
+  '
+- '   [Ada]          usb-lang.ads
+
+  '
+- '   [Ada]          usb.adb
+
+  '
+- '   [Ada]          usb-device-control.adb
+
+  '
 - '   [Ada]          usb-device-hid-gamepad.adb
 
   '
+- '   [Ada]          usb-device-hid-keyboard.adb
+
+  '
 - '   [Ada]          usb-device-hid.adb
+
+  '
+- '   [Ada]          usb-logging.ads
 
   '
 - 'usb-device-hid.ads:52:25: warning: formal parameter "Typ" is not referenced
@@ -265,40 +298,10 @@ log:
 - 'usb-device-hid.ads:54:25: warning: formal parameter "Data" is not referenced
 
   '
-- '   [Ada]          usb-device-hid-mouse.adb
-
-  '
-- '   [Ada]          usb-device.adb
-
-  '
-- '   [Ada]          usb-hal.ads
-
-  '
-- '   [Ada]          usb-device-hid-keyboard.adb
-
-  '
-- '   [Ada]          usb-lang.ads
-
-  '
-- '   [Ada]          usb-logging.ads
-
-  '
-- '   [Ada]          usb-device-control.adb
-
-  '
 - '   [Ada]          usb-utils.adb
 
   '
-- '   [Ada]          usb.adb
-
-  '
 - '   [Ada]          usb-device-hid-joystick.adb
-
-  '
-- '   [Ada]          usb-device-midi.adb
-
-  '
-- '   [Ada]          usb-hal-device.ads
 
   '
 - '   [Ada]          usb-device-serial.adb
@@ -346,7 +349,7 @@ log:
 - '   [index]        libUsb_Embedded.a
 
   '
-- 'Build finished successfully in 2.01 seconds.
+- 'Build finished successfully in 1.86 seconds.
 
   '
 - '
@@ -361,12 +364,15 @@ log:
 - '
 
   '
-- "   +  atomic  0.4.1  (new,indirect)                        \n"
-- "   +  bbqueue 0.3.0  (new)                                 \n"
+- "   +  atomic  0.5.0  (new,indirect)                        \n"
+- "   +  bbqueue 0.3.1  (new)                                 \n"
 - '   +i gnat    10.2.1 (new,installed,gnat_external,indirect)
 
   '
 - "   +  hal     0.3.0  (new)                                 \n"
+- 'Found declared GPR file: usb_embedded.gpr
+
+  '
 platform: linux
 status: success
 version: 0.3.0
