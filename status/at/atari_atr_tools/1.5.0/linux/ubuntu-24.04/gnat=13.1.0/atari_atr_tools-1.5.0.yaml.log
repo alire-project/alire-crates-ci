@@ -1,0 +1,246 @@
+Test ran at 2025-01-17 00:40:27.276359+00:00
+
+SOLUTION:
+atari_atr_tools=1.5.0: Atari / SIO2PC tools for ATR-files
+Origin: source archive atari_atr_tools-1.5.0.tgz at https://sourceforge.net/projects/tutorial-6502/files/Alire/atari_atr_tools-1.5.0.tgz with hashes sha256:5ab5b1710dca691b2a42bf9833961e227de99f1f01140b0e150f9e2274ff801c, sha512:39108450a978f951e37df11cb01074ac0fe1abe826ecf9fcdb0196caf706e5324c3d08863b1a4b083caa6e0d0e9192471ec8319e4f3947d6a18a0611633949d6
+Properties:
+   Test run: ${CRATE_DIR}/test/alr run
+   Author: Martin Krischik <krischik@users.sourceforge.net>
+   Build Switches: 
+   Description: Atari / SIO2PC tools for ATR-files
+   Executable: atr_tools-main
+   License: GPL-3.0-or-later
+   Long_Description: This is a tool to analyse, create and convert ATR files.
+
+ATR files are used by various Atari 8bit emulators and hardware add ons. Currently implemented
+
+# Print Header
+
+```sh
+>atr_tools-main --print-header test-DD-DS-80.atr 
+File name        : test-DD-DS-80.atr
+Magic            :      16#296#
+Paragraphs       :        46056
+Sector size      :          256
+Flags            :         2#1#
+Bad Sectors      :            0
+Unused           :        16#0#
+Sectors          :         2880
+Bytes            :       736896
+Boot Sectors     : true        
+
+Floppy disk double density, double sided, 80 track
+```
+
+# Create Floppy image
+
+```sh
+>atr_tools-main --verbose --format-floppy --density=DD --side=SS --track=80 test-DD-SS-80.atr
+File created     : test-DD-SS-80.atr
+Sector size      :          256
+Sector per track :           18
+Tracks per side  :           80
+Sides per disk   :            1
+```
+
+Development versions available with:
+
+```sh
+alr index --add "git+https://github.com/krischik/alire-index.git#develop" --name krischik
+```
+
+Source code and testsuite available on [SourceForge](https://git.code.sf.net/p/tutorial-6502/git)
+
+   Maintainer: Martin Krischik <krischik@users.sourceforge.net>
+   Maintainers_Logins: krischik
+   Name: atari_atr_tools
+   Tag: atari
+   Tag: tools
+   Tag: retrocomputing
+   Tag: ada-2022
+   Version: 1.5.0
+   Website: https://sourceforge.net/projects/tutorial-6502
+Dependencies (direct):
+   adacl^5.15.1
+   gnat>=12 & <2000
+Dependencies (solution):
+   adacl=5.15.1
+   gnat=13.1.0 (gnat_native) (installed)
+Dependencies (graph):
+   adacl=5.15.1          --> gnat=13.1.0 (gnat_native) (>=12 & <2000)
+   atari_atr_tools=1.5.0 --> adacl=5.15.1 (^5.15.1)                  
+   atari_atr_tools=1.5.0 --> gnat=13.1.0 (gnat_native) (>=12 & <2000)
+
+
+LOG:
+Note: Deploying atari_atr_tools=1.5.0...
+
+######################################################################## 100.0%
+######################################################################## 100.0%#=#=#                                                                          
+
+######################################################################## 100.0%##=#=#                                                                         
+
+######################################################################## 100.0%##-=#=-#                                                                       
+# #-=#=-#                                                                      
+
+######################################################################## 100.0%
+Note: Deploying adacl=5.15.1...
+
+######################################################################## 100.0%
+######################################################################## 100.0%
+######################################################################## 100.0%
+######################################################################## 100.0%#=#=#                                                                          
+##=#=#                                                                         
+##=O#- #                                                                       
+
+######################################################################## 100.0%
+
+atari_atr_tools=1.5.0 successfully retrieved.
+Dependencies were solved as follows:
+
+   +  adacl 5.15.1 (new)                      
+   +i gnat  13.1.0 (new,installed,gnat_native)
+Note: Synchronizing workspace...
+Dependencies automatically updated as follows:
+
+   +  adacl           5.15.1 (new)                      
+   +· atari_atr_tools 1.5.0  (new,path=..)              
+   +  aunit           23.0.0 (new)                      
+   +i gnat            13.1.0 (new,installed,gnat_native)
+Note: Deploying adacl=5.15.1...
+
+######################################################################## 100.0%
+######################################################################## 100.0%
+######################################################################## 100.0%
+######################################################################## 100.0%#=#=#                                                                          
+##=#=#                                                                         
+
+######################################################################## 100.0%
+Note: Deploying aunit=23.0.0...
+#=#=#                                                                          
+##O#-#                                                                         
+
+Note: Building atari_atr_tools/atari_atr_tools.gpr...
+Setup
+   [mkdir]        object directory for project AdaCL
+   [mkdir]        library directory for project AdaCL
+   [mkdir]        object directory for project Atari_Atr_Tools
+   [mkdir]        exec directory for project Atari_Atr_Tools
+Compile
+   [Ada]          atr_tools-main.adb
+   [Ada]          adacl_config.ads
+   [Ada]          adacl-os-low_level.ads
+   [Ada]          adacl-strings.adb
+   [Ada]          adacl-pointer-shared.ads
+   [Ada]          adacl-command_line-getopt.adb
+   [Ada]          adacl.ads
+   [Ada]          adacl-wide_wide_strings-hex.adb
+   [Ada]          adacl-assert-discrete.adb
+   [Ada]          adacl-pointer-unique.ads
+   [Ada]          adacl-pointer.ads
+   [Ada]          adacl-pointer-shared_with_delete.adb
+   [Ada]          adacl-wide_strings.adb
+   [Ada]          adacl-wide_strings-hex.adb
+   [Ada]          adacl-trace.adb
+   [Ada]          adacl-pointer-unique_with_delete.adb
+   [Ada]          adacl-pointer-element.adb
+   [Ada]          adacl-base.ads
+   [Ada]          adacl-assert-arrays.adb
+   [Ada]          adacl-trace-assert.ads
+   [Ada]          adacl-assert-pointer.adb
+   [Ada]          adacl-pointer-holder.adb
+   [Ada]          adacl-strings-hex.adb
+   [Ada]          adacl-os.ads
+   [Ada]          adacl-limited_base.ads
+   [Ada]          adacl-command_line.ads
+   [Ada]          adacl-wide_wide_strings.adb
+   [Ada]          adacl-assert.adb
+   [Ada]          atr_tools.ads
+   [Ada]          atr_tools-commandline.adb
+   [Ada]          atr_tools-create_floppy.adb
+   [Ada]          atr_tools-print_header.adb
+   [Ada]          atr_tools-byte_io.ads
+   [Ada]          atr_tools-file_body.adb
+   [Ada]          atr_tools-file_header.adb
+   [Ada]          atr_tools-boolean_text_io.ads
+   [Ada]          atr_tools-byte_text_io.ads
+   [Ada]          atr_tools-double_word_text_io.ads
+   [Ada]          atr_tools-word_text_io.ads
+Build Libraries
+   [gprlib]       AdaCL.lexch
+   [archive]      libAdaCL.a
+   [index]        libAdaCL.a
+Bind
+   [gprbind]      atr_tools-main.bexch
+   [Ada]          atr_tools-main.ali
+Link
+   [link]         atr_tools-main.adb
+Note: Building atari_atr_tools_test/atari_atr_tools_test.gpr...
+Setup
+   [mkdir]        object directory for project AUnit
+   [mkdir]        library directory for project AUnit
+   [mkdir]        object directory for project Atari_Atr_Tools_Test
+   [mkdir]        exec directory for project Atari_Atr_Tools_Test
+Compile
+   [Ada]          atr_tools_test-main.adb
+   [Ada]          aunit-io.ads
+   [Ada]          aunit-memory.adb
+   [Ada]          aunit-memory-utils.adb
+   [Ada]          aunit-time_measure.adb
+   [Ada]          aunit-reporter-xml.adb
+   [Ada]          aunit-reporter-junit.adb
+   [Ada]          aunit-reporter-gnattest.adb
+   [Ada]          aunit-reporter-text.adb
+   [Ada]          ada_containers.ads
+   [Ada]          ada_containers-aunit_lists.adb
+   [Ada]          aunit-test_caller.adb
+   [Ada]          aunit-run.adb
+   [Ada]          aunit-test_fixtures.adb
+   [Ada]          aunit-assertions.adb
+   [Ada]          aunit-test_suites.adb
+   [Ada]          aunit.adb
+   [Ada]          aunit-simple_test_cases.adb
+   [Ada]          aunit-test_filters.adb
+   [Ada]          aunit-reporter.adb
+   [Ada]          aunit-options.ads
+   [Ada]          aunit-test_cases.adb
+   [Ada]          aunit-test_results.adb
+   [Ada]          aunit-tests.ads
+   [Ada]          atr_tools_test.ads
+   [Ada]          atr_tools_test-suite.adb
+   [Ada]          atr_tools-file_header-test.adb
+   [Ada]          atr_tools_test-create_floppy.adb
+Build Libraries
+   [gprlib]       aunit.lexch
+   [archive]      libaunit.a
+   [index]        libaunit.a
+Bind
+   [gprbind]      atr_tools_test-main.bexch
+   [Ada]          atr_tools_test-main.ali
+Link
+   [link]         atr_tools_test-main.adb
+Build finished successfully in 8.06 seconds.
+
+OK Create_Floppy : SD_SS_40
+OK Create_Floppy : ED_SS_40
+OK Create_Floppy : DD_SS_40
+OK Create_Floppy : SD_DS_40
+OK Create_Floppy : SD_SS_80
+OK Create_Floppy : DD_DS_40
+OK Create_Floppy : DD_SS_80
+OK Create_Floppy : SD_DS_80
+OK Create_Floppy : DD_DS_80
+OK File_Header : Read SD_SS_40
+OK File_Header : Read ED_SS_40
+OK File_Header : Read DD_SS_40
+OK File_Header : Read SD_DS_40
+OK File_Header : Read SD_SS_80
+OK File_Header : Read DD_DS_40
+OK File_Header : Read DD_SS_80
+OK File_Header : Read SD_DS_80
+OK File_Header : Read DD_DS_80
+
+Total Tests Run:   18
+Successful Tests:  18
+Failed Assertions: 0
+Unexpected Errors: 0

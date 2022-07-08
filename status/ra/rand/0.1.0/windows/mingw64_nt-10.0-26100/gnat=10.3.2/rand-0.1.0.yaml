@@ -1,0 +1,812 @@
+badge: false
+crate: rand
+creation_timestamp: 1770900058.439578
+distro: mingw64_nt-10.0-26100
+duration: 10.75
+gnat: 10.3.2
+last_attempt: 2026-08-13 13:07:05.030321+00:00
+log:
+- 'Test ran at 2026-08-13 13:07:05.030321+00:00
+
+
+  '
+- 'SOLUTION:
+
+  '
+- 'rand=0.1.0: Random number generation toolkit
+
+  '
+- 'Origin: commit 6d1af921227f1e7e0d61bf3cee431af701b99508 from https://github.com/AldanTanneo/rand-ada.git
+
+  '
+- 'Properties:
+
+  '
+- "   Author: C\xE9sar SAGAERT\n"
+- "   Build Switches: \n"
+- '   Description: Random number generation toolkit
+
+  '
+- '   License: Apache-2.0 WITH LLVM-exception
+
+  '
+- '   Long_Description: # Random number generation toolkit for Ada
+
+  '
+- '
+
+  '
+- 'Design principles mostly inspired by the [rand](https://github.com/rust-random/rand)
+  Rust crate.
+
+  '
+- '
+
+  '
+- 'The project is split into several subcrates. `rand_core`, `rand_chacha`, `rand_xoshiro256`
+  and `rand_distributions` can be used on embedded; However, `rand_sys` (and its dependent
+  `rand`, the main crate) pull entropy from system sources, using the [`system_random`](https://alire.ada.dev/crates/system_random)
+  Alire crate.
+
+  '
+- '
+
+  '
+- '## Usage examples
+
+  '
+- '
+
+  '
+- 'Get a thread local instance of a secure Random Number Generator (RNG), seeded with
+  system entropy:
+
+  '
+- '
+
+  '
+- '```ada
+
+  '
+- 'with Rand;
+
+  '
+- 'R : Rand.Rng := Rand.Thread_Rng;
+
+  '
+- '--  alternatively:
+
+  '
+- 'R : Rand.Rng := Rand.Small_Rng;
+
+  '
+- '   --  a fast, unsecure RNG seeded with system entropy
+
+  '
+- 'R : Rand.Rng := Rand.Sys.Get;
+
+  '
+- '   --  RNG based on system randomness sources
+
+  '
+- '   --  (OS-dependent)
+
+  '
+- '```
+
+  '
+- '
+
+  '
+- 'Use convenience methods on the RNG to generate basic types:
+
+  '
+- '
+
+  '
+- '```ada
+
+  '
+- 'V1 : Float := R.Gen;        --  a float in the range [0, 1)
+
+  '
+- 'V2 : Long_Integer := R.Gen; --  a long integer over the whole range
+
+  '
+- '```
+
+  '
+- '
+
+  '
+- 'You can also define your own random number generators by implementing the `Rand.Core_Rng`
+  interface (alias for `Rand_Core.Rng`).
+
+  '
+- '
+
+  '
+- 'Use `Next` and `Next_Bytes` to get the raw output of any RNG:
+
+  '
+- '
+
+  '
+- '```ada
+
+  '
+- 'Buf : Rand.Core.Bytes (1 .. 256);
+
+  '
+- 'R.Next_Bytes (Buf);
+
+  '
+- 'X : Rand.Core.U64 := R.Next;
+
+  '
+- '```
+
+  '
+- '
+
+  '
+- 'Use a predefined random distribution to get finer random value selection:
+
+  '
+- '
+
+  '
+- '```ada
+
+  '
+- 'use Rand.Distributions;
+
+  '
+- 'D1 : Uniform_Nat.Distribution := Uniform_Nat.Create (8, 27);
+
+  '
+- 'S : Natural := D1.Sample (R);
+
+  '
+- '   --  sample in the inclusive range [8, 27]
+
+  '
+- '
+
+  '
+- 'D2 : Bernoulli := Bernoulli.Create (0.25);
+
+  '
+- 'S : Boolean := D2.Sample (R);
+
+  '
+- '   --  a boolean that is True 25% of the time
+
+  '
+- '```
+
+  '
+- '
+
+  '
+- 'Or define your own distributions:
+
+  '
+- '
+
+  '
+- '```ada
+
+  '
+- 'use Rand.Distributions;
+
+  '
+- '
+
+  '
+- 'type Gaussian is new Long_Float_Distr.Distribution with record
+
+  '
+- '   Sigma : Long_Float;
+
+  '
+- 'end record;
+
+  '
+- '
+
+  '
+- 'overriding
+
+  '
+- 'function Sample (D : Gaussian; R : in out Rand.Rng) return Long_Float
+
+  '
+- 'is (...); --  sampling the custom distribution
+
+  '
+- '```
+
+  '
+- '
+
+  '
+- 'Even on your own types:
+
+  '
+- '
+
+  '
+- '```ada
+
+  '
+- 'with Rand_Distributions; use Rand_Distributions;
+
+  '
+- '
+
+  '
+- 'type My_Rec is record
+
+  '
+- '   A : Integer;
+
+  '
+- '   B : Float;
+
+  '
+- 'end record;
+
+  '
+- '
+
+  '
+- 'package I is new Generic_Distribution (My_Rec);
+
+  '
+- '--  define the interface distributions over your type must implement
+
+  '
+- '
+
+  '
+- 'type My_Distr is new I.Distribution with null record;
+
+  '
+- '
+
+  '
+- 'overriding
+
+  '
+- 'function Sample (D : My_Distr; R : in out Rand.Rng) return My_Rec
+
+  '
+- 'is (A => 4, --  chosen by fair dice roll
+
+  '
+- '    B => R.Gen);
+
+  '
+- '```
+
+  '
+- '
+
+  '
+- "   Maintainer: C\xE9sar SAGAERT <sagaert@adacore.com>\n"
+- '   Maintainers_Logins: AldanTanneo
+
+  '
+- '   Name: rand
+
+  '
+- '   Tag: random
+
+  '
+- '   Tag: chacha20
+
+  '
+- '   Tag: rng
+
+  '
+- '   Tag: getrandom
+
+  '
+- '   Tag: security
+
+  '
+- '   Version: 0.1.0
+
+  '
+- '   Website: https://github.com/AldanTanneo/rand-ada
+
+  '
+- 'Dependencies (direct):
+
+  '
+- '   rand_chacha~0.1.0
+
+  '
+- '   rand_core~0.1.0
+
+  '
+- '   rand_distributions~0.1.0
+
+  '
+- '   rand_sys~0.1.0
+
+  '
+- '   rand_xoshiro256~0.1.0
+
+  '
+- 'Dependencies (solution):
+
+  '
+- '   rand_chacha=0.1.0
+
+  '
+- '   rand_core=0.1.0
+
+  '
+- '   rand_distributions=0.1.0
+
+  '
+- '   rand_sys=0.1.0
+
+  '
+- '   rand_xoshiro256=0.1.0
+
+  '
+- '   system_random=1.0.0
+
+  '
+- 'Dependencies (graph):
+
+  '
+- '   rand=0.1.0               --> rand_chacha=0.1.0 (~0.1.0)
+
+  '
+- '   rand=0.1.0               --> rand_core=0.1.0 (~0.1.0)
+
+  '
+- '   rand=0.1.0               --> rand_distributions=0.1.0 (~0.1.0)
+
+  '
+- '   rand=0.1.0               --> rand_sys=0.1.0 (~0.1.0)
+
+  '
+- '   rand=0.1.0               --> rand_xoshiro256=0.1.0 (~0.1.0)
+
+  '
+- '   rand_chacha=0.1.0        --> rand_core=0.1.0 (~0.1.0)
+
+  '
+- '   rand_distributions=0.1.0 --> rand_core=0.1.0 (~0.1.0)
+
+  '
+- '   rand_sys=0.1.0           --> rand_core=0.1.0 (~0.1.0)
+
+  '
+- '   rand_sys=0.1.0           --> system_random=1.0.0 (^1.0.0)
+
+  '
+- '   rand_xoshiro256=0.1.0    --> rand_core=0.1.0 (~0.1.0)
+
+  '
+- '
+
+  '
+- '
+
+  LOG:
+
+  '
+- '[alr test] Testing rand=0.1.0
+
+  '
+- '[alr test] Spawning retrieval for remote crate: alr -d -n get rand=0.1.0
+
+  '
+- 'Note: Deploying rand=0.1.0...
+
+  '
+- 'Note: Deploying rand_core=0.1.0...
+
+  '
+- 'Note: Deploying system_random=1.0.0...
+
+  '
+- '
+
+  '
+- 'rand=0.1.0 successfully retrieved.
+
+  '
+- 'Dependencies were solved as follows:
+
+  '
+- '
+
+  '
+- '   + rand_chacha        0.1.0 (new)
+
+  '
+- '   + rand_core          0.1.0 (new)
+
+  '
+- '   + rand_distributions 0.1.0 (new)
+
+  '
+- '   + rand_sys           0.1.0 (new)
+
+  '
+- '   + rand_xoshiro256    0.1.0 (new)
+
+  '
+- '   + system_random      1.0.0 (new,indirect)
+
+  '
+- '[alr test] Spawning default test for remote crate: alr -d -n build --release --
+  -cargs:Ada -gnatwn
+
+  '
+- 'Note: Building rand=0.1.0/rand.gpr...
+
+  '
+- 'Setup
+
+  '
+- '   [mkdir]        object directory for project Rand_Core
+
+  '
+- '   [mkdir]        library directory for project Rand_Core
+
+  '
+- '   [mkdir]        object directory for project Rand_Chacha
+
+  '
+- '   [mkdir]        library directory for project Rand_Chacha
+
+  '
+- '   [mkdir]        object directory for project Rand_Distributions
+
+  '
+- '   [mkdir]        library directory for project Rand_Distributions
+
+  '
+- '   [mkdir]        object directory for project System_Random
+
+  '
+- '   [mkdir]        library directory for project System_Random
+
+  '
+- '   [mkdir]        object directory for project Rand_Sys
+
+  '
+- '   [mkdir]        library directory for project Rand_Sys
+
+  '
+- '   [mkdir]        object directory for project Rand_Xoshiro256
+
+  '
+- '   [mkdir]        library directory for project Rand_Xoshiro256
+
+  '
+- '   [mkdir]        object directory for project Rand
+
+  '
+- '   [mkdir]        library directory for project Rand
+
+  '
+- 'Compile
+
+  '
+- '   [Ada]          rand_xoshiro256_config.ads
+
+  '
+- '   [Ada]          rand_xoshiro256.adb
+
+  '
+- '   [Ada]          system_random.adb
+
+  '
+- '   [Ada]          rand_sys_config.ads
+
+  '
+- '   [Ada]          rand_sys.adb
+
+  '
+- 'rand_xoshiro256.adb:11:34: ambiguous expression (cannot resolve "Rotl")
+
+  '
+- 'rand_xoshiro256.adb:11:34: possible interpretation at rand_core-utils.ads:81
+
+  '
+- 'rand_xoshiro256.adb:11:34: possible interpretation at rand_core-utils.ads:67
+
+  '
+- 'rand_xoshiro256.adb:12:34: ambiguous expression (cannot resolve "Shl")
+
+  '
+- 'rand_xoshiro256.adb:12:34: possible interpretation at rand_core-utils.ads:75
+
+  '
+- 'rand_xoshiro256.adb:12:34: possible interpretation at rand_core-utils.ads:61
+
+  '
+- 'rand_xoshiro256.adb:20:20: ambiguous expression (cannot resolve "Rotl")
+
+  '
+- 'rand_xoshiro256.adb:20:20: possible interpretation at rand_core-utils.ads:81
+
+  '
+- 'rand_xoshiro256.adb:20:20: possible interpretation at rand_core-utils.ads:67
+
+  '
+- 'rand_core.ads:10:30: "Unsigned_128" not declared in "Interfaces"
+
+  '
+- 'rand_core.ads:16:30: "Integer_128" not declared in "Interfaces"
+
+  '
+- 'rand_core-generators.ads:75:47: "Long_Long_Long_Integer" is undefined
+
+  '
+- 'rand_core-generators.ads:91:13: "Gen" conflicts with declaration at line 75
+
+  '
+- 'rand_core-generators.ads:107:13: "Gen" conflicts with declaration at line 75
+
+  '
+- 'rand_core-utils.ads:75:04: no visible subprogram matches the specification for
+  "Shl"
+
+  '
+- 'rand_core-utils.ads:78:04: no visible subprogram matches the specification for
+  "Shr"
+
+  '
+- 'rand_core-utils.ads:81:04: no visible subprogram matches the specification for
+  "Rotl"
+
+  '
+- 'rand_core-utils.ads:84:04: no visible subprogram matches the specification for
+  "Rotr"
+
+  '
+- 'rand_core.ads:10:30: "Unsigned_128" not declared in "Interfaces"
+
+  '
+- 'rand_core.ads:16:30: "Integer_128" not declared in "Interfaces"
+
+  '
+- 'rand_core-generators.ads:75:47: "Long_Long_Long_Integer" is undefined
+
+  '
+- 'rand_core-generators.ads:91:13: "Gen" conflicts with declaration at line 75
+
+  '
+- 'rand_core-generators.ads:107:13: "Gen" conflicts with declaration at line 75
+
+  '
+- 'rand_core-utils.ads:75:04: no visible subprogram matches the specification for
+  "Shl"
+
+  '
+- 'rand_core-utils.ads:78:04: no visible subprogram matches the specification for
+  "Shr"
+
+  '
+- 'rand_core-utils.ads:81:04: no visible subprogram matches the specification for
+  "Rotl"
+
+  '
+- 'rand_core-utils.ads:84:04: no visible subprogram matches the specification for
+  "Rotr"
+
+  '
+- '
+
+  '
+- '   compilation of rand_sys.adb failed
+
+  '
+- '   compilation of rand_xoshiro256.adb failed
+
+  '
+- '
+
+  '
+- 'gprbuild: *** compilation phase failed
+
+  '
+- 'stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "D:\a\alire-crates-ci\alire-crates-ci\test\21b40316-0cbc-4fbb-a2c1-21d08e8682d0\rand_0.1.0_6d1af921\rand.gpr",
+  "-cargs:Ada", "-gnatwn"] exited with code 4
+
+  '
+- 'ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "D:\a\alire-crates-ci\alire-crates-ci\test\21b40316-0cbc-4fbb-a2c1-21d08e8682d0\rand_0.1.0_6d1af921\rand.gpr",
+  "-cargs:Ada", "-gnatwn"] exited with code 4
+
+  '
+- 'stderr: ALIRE.CHECKED_ERROR
+
+  '
+- 'stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "D:\a\alire-crates-ci\alire-crates-ci\test\21b40316-0cbc-4fbb-a2c1-21d08e8682d0\rand_0.1.0_6d1af921\rand.gpr",
+  "-cargs:Ada", "-gnatwn"] exited with code 4
+
+  '
+- 'stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
+
+  '
+- '[D:\a\alire-crates-ci\alire-crates-ci\alire_install\bin\alr.exe]
+
+  '
+- '0x7ff73e10da2a Semantic_Versioning.Basic.Restrictions.First_Index at alire.adb:284
+
+  '
+- '0x7ff73dd0595b Semantic_Versioning.Basic.Restrictions.First_Index at alire-os_lib-subprocess.adb:111
+
+  '
+- '0x7ff73dfbcba1 Semantic_Versioning.Basic.Restrictions.First_Index at alire-spawn.adb:22
+
+  '
+- '0x7ff73dfbdd5d Semantic_Versioning.Basic.Restrictions.First_Index at alire-spawn.adb:68
+
+  '
+- '0x7ff73dee2d64 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:189
+
+  '
+- '0x7ff73dee11da Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:255
+
+  '
+- '0x7ff73df0912d Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2143
+
+  '
+- '0x7ff73df782f9 Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1472
+
+  '
+- '0x7ff73df77424 Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1555
+
+  '
+- '0x7ff73df0922c Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2147
+
+  '
+- '0x7ff73df092fa Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2127
+
+  '
+- '0x7ff73dee17a7 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:286
+
+  '
+- '0x7ff73dee1912 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:114
+
+  '
+- '0x7ff73d653baa Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:145
+
+  '
+- '0x7ff73d65341e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:113
+
+  '
+- '0x7ff73d6535ba Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:54
+
+  '
+- '0x7ff73d705dea Semantic_Versioning.Basic.Restrictions.First_Index at clic-subcommand-instance.adb:749
+
+  '
+- '0x7ff73d712b0e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands.adb:632
+
+  '
+- '0x7ff73d5e16a0 Alr.Main at alr-main.adb:13
+
+  '
+- '0x7ff73d5e5270 Main at b__alr-main.adb:2454
+
+  '
+- '0x7ff73d5e133e __tmainCRTStartup at ???
+
+  '
+- '0x7ff73d5e1144 mainCRTStartup at ???
+
+  '
+- '[C:\Windows\System32\KERNEL32.DLL]
+
+  '
+- '0x7fffb879e8d5
+
+  '
+- '[C:\Windows\SYSTEM32\ntdll.dll]
+
+  '
+- '0x7fffb92cc53a
+
+  '
+- '
+
+  '
+- 'stderr: ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED
+
+  '
+- 'stderr: alire-roots.adb:202
+
+  '
+- 'stderr: raised ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED : alire-roots.adb:202
+
+  '
+- '[D:\a\alire-crates-ci\alire-crates-ci\alire_install\bin\alr.exe]
+
+  '
+- '0x7ff73dee313c Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:202
+
+  '
+- '0x7ff73dee11da Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:255
+
+  '
+- '0x7ff73df0912d Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2143
+
+  '
+- '0x7ff73df782f9 Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1472
+
+  '
+- '0x7ff73df77424 Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1555
+
+  '
+- '0x7ff73df0922c Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2147
+
+  '
+- '0x7ff73df092fa Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2127
+
+  '
+- '0x7ff73dee17a7 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:286
+
+  '
+- '0x7ff73dee1912 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:114
+
+  '
+- '0x7ff73d653baa Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:145
+
+  '
+- '0x7ff73d65341e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:113
+
+  '
+- '0x7ff73d6535ba Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:54
+
+  '
+- '0x7ff73d705dea Semantic_Versioning.Basic.Restrictions.First_Index at clic-subcommand-instance.adb:749
+
+  '
+- '0x7ff73d712b0e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands.adb:632
+
+  '
+- '0x7ff73d5e16a0 Alr.Main at alr-main.adb:13
+
+  '
+- '0x7ff73d5e5270 Main at b__alr-main.adb:2454
+
+  '
+- '0x7ff73d5e133e __tmainCRTStartup at ???
+
+  '
+- '0x7ff73d5e1144 mainCRTStartup at ???
+
+  '
+- '[C:\Windows\System32\KERNEL32.DLL]
+
+  '
+- '0x7fffb879e8d5
+
+  '
+- '[C:\Windows\SYSTEM32\ntdll.dll]
+
+  '
+- '0x7fffb92cc53a
+
+  '
+- '
+
+  '
+- 'ERROR: Compilation failed.
+
+  '
+platform: windows
+status: failing
+version: 0.1.0

@@ -1,0 +1,83 @@
+Test ran at 2026-07-27 01:12:48.432727+00:00
+
+SOLUTION:
+ulid=20240921.0.0: Universally Unique Lexicographically Sortable Identifier
+Origin: source archive ulid-2024-09-21.zip at https://sourceforge.net/projects/ulid-ada/files/ulid-2024-09-21.zip with hash sha512:b7822a403e879c6363551e2f13e6f44a9f78253ab1ec33138070213bca2fc0177c793968566d125845806acc6971ffff5408daafa454eb195a054534e1308dd3
+Properties:
+   Author: Gautier de Montmollin
+   Description: Universally Unique Lexicographically Sortable Identifier
+   Executable: ulid_test
+   License: MIT
+   Long_Description: <img src="https://github.com/ulid/spec/raw/master/logo.png" alt="image" width="100" height="auto">
+
+In a nutshell, a ULID code (Universally Unique Lexicographically Sortable Identifier) is
+a combination of a 48-bit time stamp (most significant part, with a millisecond accuracy),
+and a 80-bit random number (least significant part), totalling 128 bits, that is 16 bytes (octets).
+
+The ULID code generation is sort of UUID (Universally Unique Identifier) system, also know as GUID (Globally Unique Identifier).
+The characteristic of ULID numbers is that they can be compared and sorted by their timestamps.
+
+The package ULID provides a `Generate` function using the method described above, plus a `Generate_Monotonic` function that enables the production of a monotonically increasing sequence of ULID numbers within the same millisecond.
+
+The preferred (canonical) representation of a ULID is a certain version of the Base32 encoding (example of output: 01J80P3NJDN0Y5YX7D05421X0G).
+The ULID package also provides a function `Encode_as_8_4_4_4_12` that outputs a text representation in the usual UUID 8-4-4-4-12 format (like: 01920161-d64d-5a3e-589e-c45df155547b).
+Both formats are also recognized by the `Decode` function.
+
+   Maintainer: gdemont@hotmail.com
+   Maintainers_Logins: zertovitch
+   Name: ulid
+   Project_File: ulid.gpr
+   Tag: ulid
+   Tag: uuid
+   Tag: guid
+   Tag: identifier
+   Tag: timestamp
+   Version: 20240921.0.0
+   Website: https://github.com/zertovitch/ulid
+Dependencies (direct):
+   gnat(>=11 & <2000) | >=2021
+Dependencies (solution):
+   gnat=13.2.2 (gnat_native)
+Dependencies (graph):
+   ulid=20240921.0.0 --> gnat=13.2.2 (gnat_native) ((>=11 & <2000) | >=2021)
+
+
+LOG:
+[alr test] Testing ulid=20240921.0.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get ulid=20240921.0.0
+Note: Deploying ulid=20240921.0.0...
+
+######################################################################## 100.0%
+######################################################################## 100.0%
+######################################################################## 100.0%#=#=#                                                                          
+
+######################################################################## 100.0%##=#=#                                                                         
+
+######################################################################## 100.0%
+
+ulid=20240921.0.0 successfully retrieved.
+Dependencies were solved as follows:
+
+   +b gnat 13.2.2 (new,gnat_native,binary)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building ulid=20240921.0.0/ulid.gpr...
+Setup
+   [mkdir]        object directory for project ULID
+   [mkdir]        exec directory for project ULID
+Compile
+   [Ada]          ulid_test.adb
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+   [Ada]          ulid.adb
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+Bind
+   [gprbind]      ulid_test.bexch
+   [Ada]          ulid_test.ali
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+Link
+   [link]         ulid_test.adb
+ld: warning: object file (/Users/runner/work/alire-crates-ci/alire-crates-ci/test/a14b1341-2095-49c8-81e6-80667ee2527e/ulid_20240921.0.0_b7822a40/obj/ulid.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (ulid_test.o) was built for newer macOS version (26.0) than being linked (16.0)
+ld: warning: object file (b__ulid_test.o) was built for newer macOS version (26.0) than being linked (16.0)
+Success: Build finished successfully in 1.40 seconds.
+Found declared GPR file: ulid.gpr
+[alr test] Test completed SUCCESSFULLY

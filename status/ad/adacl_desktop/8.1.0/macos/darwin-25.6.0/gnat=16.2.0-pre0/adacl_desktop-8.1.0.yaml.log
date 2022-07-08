@@ -1,0 +1,256 @@
+Test ran at 2026-10-30 12:52:46.918043+00:00
+
+SOLUTION:
+adacl_desktop=8.1.0: AdaCL desktop: Getopt, strings, calendar, tracing, queues, pointers
+Origin: source archive adacl_desktop-8.1.0.tgz at https://sourceforge.net/projects/adacl/files/Alire/adacl_desktop-8.1.0.tgz with hashes sha256:89fc1094e4e67b662de7900f88847765e1a8074c24e4e7bfb1db28d28005c2bc, sha512:dba6d9214ba683c33650c87420f8eed383bd59056432798de2b1cd0129a4f8945fbc5117c9e4317e7f5ad638bb3cd151000aa0aad518561e1e3b91a8c7683573
+Properties:
+   case OS is
+      when Linux => Test run: /bin/bash ci-verify.sh (from ${CRATE_ROOT}/.)
+      when Macos => Test run: /bin/bash ci-verify.sh (from ${CRATE_ROOT}/.)
+      when Windows => Test run: powershell -ExecutionPolicy Bypass -File ci-verify.ps1 (from ${CRATE_ROOT}/.)
+      when others => (empty)
+   Author: Martin Krischik <krischik@users.sourceforge.net>
+   Build Switches: 
+   Description: AdaCL desktop: Getopt, strings, calendar, tracing, queues, pointers
+   License: GPL-3.0-or-later
+   Long_Description: Ada Class Library desktop crate for Ada 2022.
+
+This crate holds the former `adacl` desktop API. Use it for hosted
+applications that need command-line handling, wide-character text,
+diagnostics, queues, or smart pointers. It depends on the SPARK-proven
+`adacl` core.
+
+Features:
+
+- Getopt: command-line argument parser with wide character support
+- Strings: utilities for String, Wide_String, and Wide_Wide_String
+- Calendar: time and date utilities with wide character support
+- Tracing: diagnostic trace utility with wide character support
+- Protected Queue: finish, wait, and abort operations
+- Smart Pointers:
+  - Reference-counted pointers
+  - Unique pointers (C++-style)
+  - Shared pointers (C++-style)
+
+Source: [SourceForge](https://sourceforge.net/p/adacl/git/ci/master/tree/adacl_desktop/)
+Documentation:  [Overview](https://adacl.sourceforge.net/adacl-desktop/) and
+[GNATdoc](https://adacl.sourceforge.net/gnatdoc/index.html)
+
+   Maintainer: Martin Krischik <krischik@users.sourceforge.net>
+   Maintainers_Logins: krischik
+   Name: adacl_desktop
+   Notes: New crate in 8.0.0: this is the former `adacl` desktop API.
+
+Replace:
+
+    [[depends-on]]
+    adacl = "^7.2"
+
+with:
+
+    [[depends-on]]
+    adacl_desktop = "^8.0"
+
+`adacl` remains in the tree as the shared SPARK gold core; do not drop it
+from the solution, only from direct application dependencies that expected
+Getopt, Strings, Calendar, Tracing, queues, or smart pointers.
+
+   Tag: library
+   Tag: command-line
+   Tag: trace
+   Tag: logging
+   Tag: string
+   Tag: container
+   Tag: smart-pointer
+   Tag: ada2022
+   Version: 8.1.0
+   Website: https://adacl.sourceforge.net/
+Dependencies (direct):
+   adacl^8.1
+Dependencies (solution):
+   adacl=8.1.0
+   gnat_native=16.2.0-pre0
+   gprbuild=26.0.1
+Dependencies (graph):
+   adacl=8.1.0         --> gnat_native=16.2.0-pre0 (^16.1)
+   adacl=8.1.0         --> gprbuild=26.0.1 (^26.0)
+   adacl_desktop=8.1.0 --> adacl=8.1.0 (^8.1)
+
+
+LOG:
+=== Ada CI Verification ===
+=== adacl_desktop_test ===
+Directory: test
+Updating dependencies...
+Dependencies automatically updated as follows:
+
+   +  adacl         8.1.0       (new)
+   +  adacl_aunit   8.1.0       (new)
+   +. adacl_desktop 8.1.0       (new,path=..)
+   +  aunit         26.0.0      (new,indirect)
+   +b gnat_native   16.2.0-pre0 (new,indirect,binary)
+   +b gprbuild      26.0.1      (new,indirect,binary)
+Note: Deploying aunit=26.0.0...
+#=#=#                                                                          
+##O#-#                                                                         
+##O=#  #                                                                       
+#=#=-#  #                                                                      
+ #=#=-#   #                                                                    
+Note: Deploying adacl_aunit=8.1.0...
+
+######################################################################## 100.0%
+######################################################################## 100.0%
+######################################################################## 100.0%
+######################################################################## 100.0%
+######################################################################## 100.0%
+Building with validation...
+Note: Building adacl_desktop_test=8.1.0/adacl_desktop_test.gpr...
+Setup
+   [mkdir]        object directory for project AdaCL
+   [mkdir]        library directory for project AdaCL
+   [mkdir]        object directory for project AdaCL_Desktop
+   [mkdir]        library directory for project AdaCL_Desktop
+   [mkdir]        object directory for project AUnit
+   [mkdir]        library directory for project AUnit
+   [mkdir]        object directory for project AdaCL_AUnit
+   [mkdir]        library directory for project AdaCL_AUnit
+   [mkdir]        object directory for project AdaCL_Desktop_Test
+   [mkdir]        exec directory for project AdaCL_Desktop_Test
+Compile
+   [Ada]          adacl_desktop_test-main.adb
+   [Ada]          aunit-io.ads
+   [Ada]          aunit-memory.adb
+   [Ada]          aunit-memory-utils.adb
+   [Ada]          aunit-time_measure.adb
+   [Ada]          aunit-reporter-junit.adb
+   [Ada]          aunit-reporter-xml.adb
+   [Ada]          aunit-reporter-gnattest.adb
+   [Ada]          aunit-reporter-text.adb
+   [Ada]          ada_containers.ads
+   [Ada]          ada_containers-aunit_lists.adb
+   [Ada]          aunit-assertions.adb
+   [Ada]          aunit-test_fixtures.adb
+   [Ada]          aunit-tests.ads
+   [Ada]          aunit-test_filters.adb
+   [Ada]          aunit-test_results.adb
+   [Ada]          aunit-reporter.adb
+   [Ada]          aunit.adb
+   [Ada]          aunit-test_caller.adb
+   [Ada]          aunit-options.ads
+   [Ada]          aunit-test_suites.adb
+   [Ada]          aunit-run.adb
+   [Ada]          aunit-simple_test_cases.adb
+   [Ada]          aunit-test_cases.adb
+   [Ada]          adacl_desktop_config.ads
+   [Ada]          adacl-os-to_wide_wide_string.adb
+   [Ada]          adacl-os-to_utf_string.adb
+   [Ada]          adacl-os-low_level.ads
+   [Ada]          adacl-strings-io.adb
+   [Ada]          adacl-command_line.ads
+   [Ada]          adacl-strings-hex.adb
+   [Ada]          adacl-wide_strings-hex.adb
+   [Ada]          adacl-strings-vectors.ads
+   [Ada]          adacl-strings-dec.adb
+   [Ada]          adacl-wide_strings-dec.adb
+   [Ada]          adacl-wide_wide_strings-vectors.ads
+   [Ada]          adacl-calendar.adb
+   [Ada]          adacl-wide_wide_strings-hex.adb
+   [Ada]          adacl-wide_wide_strings-dec.adb
+   [Ada]          adacl-queue.adb
+   [Ada]          adacl-wide_strings-io.adb
+   [Ada]          adacl-pointer-shared_with_delete.adb
+   [Ada]          adacl-pointer-holder.adb
+   [Ada]          adacl-command_line-getopt.adb
+   [Ada]          adacl-wide_wide_strings-bin.adb
+   [Ada]          adacl-wide_wide_strings-io.adb
+   [Ada]          adacl-pointer.ads
+   [Ada]          adacl-pointer-element.adb
+   [Ada]          adacl-trace.adb
+   [Ada]          adacl-pointer-shared.ads
+   [Ada]          adacl-wide_wide_strings.adb
+   [Ada]          adacl-base.ads
+   [Ada]          adacl-strings-bin.adb
+   [Ada]          adacl-wide_strings-bin.adb
+   [Ada]          adacl-pointer-unique_with_delete.adb
+   [Ada]          adacl-limited_base.ads
+   [Ada]          adacl-wide_strings.adb
+   [Ada]          adacl-strings.adb
+   [Ada]          adacl-pointer-unique.ads
+   [Ada]          adacl-wide_strings-vectors.ads
+   [Ada]          adacl_aunit_config.ads
+   [Ada]          adacl-assert-arrays.adb
+   [Ada]          adacl-trace-assert.ads
+   [Ada]          adacl-assert-indefinite_vectors.adb
+   [Ada]          adacl-assert-discrete.adb
+   [Ada]          adacl-assert-pointer.adb
+   [Ada]          adacl-assert-fixed.adb
+   [Ada]          adacl-assert.adb
+   [Ada]          adacl-test_cases.ads
+   [Ada]          adacl-test_cases-parameters.adb
+   [Ada]          adacl-assert-vectors.adb
+   [Ada]          adacl-assert-decimal.adb
+   [Ada]          adacl-assert-float.adb
+   [Ada]          adacl_config.ads
+   [Ada]          adacl-os.ads
+   [Ada]          adacl.ads
+   [Ada]          adacl_desktop_test.ads
+   [Ada]          adacl_desktop_test-suite.adb
+   [Ada]          adacl-calendar-test.adb
+   [Ada]          adacl-pointer-element-test.adb
+   [Ada]          adacl-strings-bin-test.adb
+   [Ada]          adacl-strings-dec-test.adb
+   [Ada]          adacl-strings-hex-test.adb
+   [Ada]          adacl-strings-io-test.adb
+   [Ada]          adacl-strings-test.adb
+   [Ada]          adacl-trace-test.adb
+   [Ada]          adacl-wide_strings-bin-test.adb
+   [Ada]          adacl-wide_strings-dec-test.adb
+   [Ada]          adacl-wide_strings-hex-test.adb
+   [Ada]          adacl-wide_strings-io-test.adb
+   [Ada]          adacl-wide_strings-test.adb
+   [Ada]          adacl-wide_wide_strings-bin-test.adb
+   [Ada]          adacl-wide_wide_strings-dec-test.adb
+   [Ada]          adacl-wide_wide_strings-hex-test.adb
+   [Ada]          adacl-wide_wide_strings-io-test.adb
+   [Ada]          adacl-wide_wide_strings-test.adb
+   [Ada]          adacl_desktop_test-pointer_holder.adb
+   [Ada]          adacl_desktop_test-pointer_shared.adb
+   [Ada]          adacl_desktop_test-pointer_shared_with_delete.adb
+   [Ada]          adacl_desktop_test-pointer_unique.adb
+   [Ada]          adacl_desktop_test-pointer_unique_with_delete.adb
+   [Ada]          adacl_desktop_test-queue.adb
+Build Libraries
+   [gprlib]       AdaCL.lexch
+   [gprlib]       AdaCL_Desktop.lexch
+   [archive]      libAdaCL.a
+   [index]        libAdaCL.a
+   [gprlib]       aunit.lexch
+   [gprlib]       AdaCL_AUnit.lexch
+   [archive]      libAdaCL_Desktop.a
+   [archive]      libaunit.a
+   [index]        libaunit.a
+   [index]        libAdaCL_Desktop.a
+   [archive]      libAdaCL_AUnit.a
+   [index]        libAdaCL_AUnit.a
+Bind
+   [gprbind]      adacl_desktop_test-main.bexch
+   [Ada]          adacl_desktop_test-main.ali
+Link
+   [link]         adacl_desktop_test-main.adb
+ld: tapi error: malformed file
+/Library/Developer/CommandLineTools/SDKs/MacOSX27.0.sdk/usr/lib/libSystem.B.tbd:4:20: error: unknown architecture
+                   arm64e.x1-macos, arm64e.x1-maccatalyst ]
+                   ^~~~~~~~~~~~~~~
+ in '/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/lib/libSystem.tbd'
+collect2: error: ld returned 1 exit status
+gprbuild: link of adacl_desktop_test-main.adb failed
+gprbuild: failed command was: /users/runner/.local/share/alire/toolchains/gnat_native_16.2.0_832e08ad/bin/gcc adacl_desktop_test-main.o b__adacl_desktop_test-main.o /Users/runner/work/alire-crates-ci/alire-crates-ci/test/a831ff05-a422-4da9-9494-e6de420e9358/adacl_desktop_8.1.0_89fc1094/test/obj/validation/adacl_desktop_test.o /Users/runner/work/alire-crates-ci/alire-crates-ci/test/a831ff05-a422-4da9-9494-e6de420e9358/adacl_desktop_8.1.0_89fc1094/test/obj/validation/adacl-pointer-element-test.o /Users/runner/work/alire-crates-ci/alire-crates-ci/test/a831ff05-a422-4da9-9494-e6de420e9358/adacl_desktop_8.1.0_89fc1094/test/obj/validation/adacl-strings-io-test.o /Users/runner/work/alire-crates-ci/alire-crates-ci/test/a831ff05-a422-4da9-9494-e6de420e9358/adacl_desktop_8.1.0_89fc1094/test/obj/validation/adacl-calendar-test.o /Users/runner/work/alire-crates-ci/alire-crates-ci/test/a831ff05-a422-4da9-9494-e6de420e9358/adacl_desktop_8.1.0_89fc1094/test/obj/validation/adacl-strings-bin-test.o /Users/runner/work/alire-crates-ci/alire-crates-ci/test/a831ff05-a422-4da9-9494-e6de420e9358/adacl_desktop_8.1.0_89fc1094/test/obj/validation/adacl-strings-dec-test.o /Users/runner/work/alire-crates-ci/alire-crates-ci/test/a831ff05-a422-4da9-9494-e6de420e9358/adacl_desktop_8.1.0_89fc1094/test/obj/validation/adacl-strings-hex-test.o /Users/runner/work/alire-crates-ci/alire-crates-ci/test/a831ff05-a422-4da9-9494-e6de420e9358/adacl_desktop_8.1.0_89fc1094/test/obj/validation/adacl-strings-test.o /Users/runner/work/alire-crates-ci/alire-crates-ci/test/a831ff05-a422-4da9-9494-e6de420e9358/adacl_desktop_8.1.0_89fc1094/test/obj/validation/adacl-trace-test.o /Users/runner/work/alire-crates-ci/alire-crates-ci/test/a831ff05-a422-4da9-9494-e6de420e9358/adacl_desktop_8.1.0_89fc1094/test/obj/validation/adacl-wide_strings-bin-test.o /Users/runner/work/alire-crates-ci/alire-crates-ci/test/a831ff05-a422-4da9-9494-e6de420e9358/adacl_desktop_8.1.0_89fc1094/test/obj/validation/adacl-wide_strings-dec-test.o /Users/runner/work/alire-crates-ci/alire-crates-ci/test/a831ff05-a422-4da9-9494-e6de420e9358/adacl_desktop_8.1.0_89fc1094/test/obj/validation/adacl-wide_strings-hex-test.o /Users/runner/work/alire-crates-ci/alire-crates-ci/test/a831ff05-a422-4da9-9494-e6de420e9358/adacl_desktop_8.1.0_89fc1094/test/obj/validation/adacl-wide_strings-io-test.o /Users/runner/work/alire-crates-ci/alire-crates-ci/test/a831ff05-a422-4da9-9494-e6de420e9358/adacl_desktop_8.1.0_89fc1094/test/obj/validation/adacl-wide_strings-test.o /Users/runner/work/alire-crates-ci/alire-crates-ci/test/a831ff05-a422-4da9-9494-e6de420e9358/adacl_desktop_8.1.0_89fc1094/test/obj/validation/adacl-wide_wide_strings-bin-test.o /Users/runner/work/alire-crates-ci/alire-crates-ci/test/a831ff05-a422-4da9-9494-e6de420e9358/adacl_desktop_8.1.0_89fc1094/test/obj/validation/adacl-wide_wide_strings-dec-test.o /Users/runner/work/alire-crates-ci/alire-crates-ci/test/a831ff05-a422-4da9-9494-e6de420e9358/adacl_desktop_8.1.0_89fc1094/test/obj/validation/adacl-wide_wide_strings-hex-test.o /Users/runner/work/alire-crates-ci/alire-crates-ci/test/a831ff05-a422-4da9-9494-e6de420e9358/adacl_desktop_8.1.0_89fc1094/test/obj/validation/adacl-wide_wide_strings-io-test.o /Users/runner/work/alire-crates-ci/alire-crates-ci/test/a831ff05-a422-4da9-9494-e6de420e9358/adacl_desktop_8.1.0_89fc1094/test/obj/validation/adacl-wide_wide_strings-test.o /Users/runner/work/alire-crates-ci/alire-crates-ci/test/a831ff05-a422-4da9-9494-e6de420e9358/adacl_desktop_8.1.0_89fc1094/test/obj/validation/adacl_desktop_test-pointer_holder.o /Users/runner/work/alire-crates-ci/alire-crates-ci/test/a831ff05-a422-4da9-9494-e6de420e9358/adacl_desktop_8.1.0_89fc1094/test/obj/validation/adacl_desktop_test-pointer_shared.o /Users/runner/work/alire-crates-ci/alire-crates-ci/test/a831ff05-a422-4da9-9494-e6de420e9358/adacl_desktop_8.1.0_89fc1094/test/obj/validation/adacl_desktop_test-pointer_shared_with_delete.o /Users/runner/work/alire-crates-ci/alire-crates-ci/test/a831ff05-a422-4da9-9494-e6de420e9358/adacl_desktop_8.1.0_89fc1094/test/obj/validation/adacl_desktop_test-pointer_unique.o /Users/runner/work/alire-crates-ci/alire-crates-ci/test/a831ff05-a422-4da9-9494-e6de420e9358/adacl_desktop_8.1.0_89fc1094/test/obj/validation/adacl_desktop_test-pointer_unique_with_delete.o /Users/runner/work/alire-crates-ci/alire-crates-ci/test/a831ff05-a422-4da9-9494-e6de420e9358/adacl_desktop_8.1.0_89fc1094/test/obj/validation/adacl_desktop_test-queue.o /Users/runner/work/alire-crates-ci/alire-crates-ci/test/a831ff05-a422-4da9-9494-e6de420e9358/adacl_desktop_8.1.0_89fc1094/test/obj/validation/adacl_desktop_test-suite.o /Users/runner/.local/share/alire/builds/adacl_aunit_8.1.0_236ca7e0/b600b7e74d6ca8b7664bffa1f13b22bd6435bf2e048ffc9b13863ec3ec886ea1/lib/libAdaCL_AUnit.a /Users/runner/.local/share/alire/builds/aunit_26.0.0_b882e96a/6de725ecf7f80a471b106e61be7b7f097e5b0da5710eaee5b82a551ff99064c9/lib/aunit/native-full/libaunit.a /Users/runner/work/alire-crates-ci/alire-crates-ci/test/a831ff05-a422-4da9-9494-e6de420e9358/adacl_desktop_8.1.0_89fc1094/lib/validation/libAdaCL_Desktop.a /Users/runner/.local/share/alire/builds/adacl_8.1.0_a6c2fdea/3499cac0f6b0a467689b538564946f869e4dc18c699f6be82eb4852702cfd961/lib/validation/libAdaCL.a -no-pie -L/Users/runner/work/alire-crates-ci/alire-crates-ci/test/a831ff05-a422-4da9-9494-e6de420e9358/adacl_desktop_8.1.0_89fc1094/test/obj/validation/ -L/Users/runner/work/alire-crates-ci/alire-crates-ci/test/a831ff05-a422-4da9-9494-e6de420e9358/adacl_desktop_8.1.0_89fc1094/test/obj/validation/ -L/Users/runner/.local/share/alire/builds/adacl_8.1.0_a6c2fdea/3499cac0f6b0a467689b538564946f869e4dc18c699f6be82eb4852702cfd961/lib/validation/ -L/Users/runner/.local/share/alire/builds/adacl_aunit_8.1.0_236ca7e0/b600b7e74d6ca8b7664bffa1f13b22bd6435bf2e048ffc9b13863ec3ec886ea1/lib/ -L/Users/runner/work/alire-crates-ci/alire-crates-ci/test/a831ff05-a422-4da9-9494-e6de420e9358/adacl_desktop_8.1.0_89fc1094/lib/validation/ -L/Users/runner/.local/share/alire/builds/aunit_26.0.0_b882e96a/6de725ecf7f80a471b106e61be7b7f097e5b0da5710eaee5b82a551ff99064c9/lib/aunit/native-full/ -L/users/runner/.local/share/alire/toolchains/gnat_native_16.2.0_832e08ad/lib/gcc/aarch64-apple-darwin24.6.0/16.2.0/adalib/ -static-libgcc /users/runner/.local/share/alire/toolchains/gnat_native_16.2.0_832e08ad/lib/gcc/aarch64-apple-darwin24.6.0/16.2.0/adalib/libgnarl.a /users/runner/.local/share/alire/toolchains/gnat_native_16.2.0_832e08ad/lib/gcc/aarch64-apple-darwin24.6.0/16.2.0/adalib/libgnat.a -Wl,-rpath,@loader_path/../..//obj/validation -Wl,-rpath,@loader_path/../../../../../../../../..//.local/share/alire/builds/adacl_8.1.0_a6c2fdea/3499cac0f6b0a467689b538564946f869e4dc18c699f6be82eb4852702cfd961/lib/validation -Wl,-rpath,@loader_path/../../../../../../../../..//.local/share/alire/builds/adacl_aunit_8.1.0_236ca7e0/b600b7e74d6ca8b7664bffa1f13b22bd6435bf2e048ffc9b13863ec3ec886ea1/lib -Wl,-rpath,@loader_path/../../..//lib/validation -Wl,-rpath,@loader_path/../../../../../../../../..//.local/share/alire/builds/aunit_26.0.0_b882e96a/6de725ecf7f80a471b106e61be7b7f097e5b0da5710eaee5b82a551ff99064c9/lib/aunit/native-full -Wl,-rpath,@loader_path/../../../../../../../../..//.local/share/alire/toolchains/gnat_native_16.2.0_832e08ad/lib/gcc/aarch64-apple-darwin24.6.0/16.2.0/adalib -o /Users/runner/work/alire-crates-ci/alire-crates-ci/test/a831ff05-a422-4da9-9494-e6de420e9358/adacl_desktop_8.1.0_89fc1094/test/bin/validation//adacl_desktop_test-main
+ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/Users/runner/work/alire-crates-ci/alire-crates-ci/test/a831ff05-a422-4da9-9494-e6de420e9358/adacl_desktop_8.1.0_89fc1094/test/adacl_desktop_test.gpr"] exited with code 4
+ERROR: Compilation failed.
+Running tests...
+ERROR: Local test of adacl_desktop_test=8.1.0 failed:
+ERROR:    Check alire/alr_test_local.log for details.
+FAILED: adacl_desktop_test (Exit-Code: 1)
+--------------------------------------------------
+All steps completed.
+[alr test] Test completed SUCCESSFULLY

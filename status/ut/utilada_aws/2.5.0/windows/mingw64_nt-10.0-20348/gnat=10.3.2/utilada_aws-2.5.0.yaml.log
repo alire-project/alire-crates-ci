@@ -1,0 +1,619 @@
+Test ran at 2025-02-01 12:44:42.792014+00:00
+
+SOLUTION:
+utilada_aws=2.5.0: Utility Library REST support on top of AWS
+Origin: commit f65f9ba9cd38c57d11b1248e17207338026b49af from https://gitlab.com/stcarrez/ada-util.git
+Properties:
+   Author: Stephane.Carrez@gmail.com
+   Configuration: no modifiers
+   Description: Utility Library REST support on top of AWS
+   GPR Scenario: BUILD := distrib | debug | optimize | profile | coverage
+   GPR Scenario: UTIL_AWS_IMPL := 1 | 2 | 3
+   GPR Scenario: UTIL_LIBRARY_TYPE := relocatable | static | static-pic
+   GPR External: UTIL_AWS_IMPL := 2
+   License: Apache-2.0
+   Long_Description: 
+[![Build Status](https://img.shields.io/jenkins/s/https/jenkins.vacs.fr/Ada-Util.svg)](https://jenkins.vacs.fr/job/Ada-Util/)
+[![Test Status](https://img.shields.io/jenkins/t/https/jenkins.vacs.fr/Ada-Util.svg)](https://jenkins.vacs.fr/job/Ada-Util/)
+[![codecov](https://codecov.io/gh/stcarrez/ada-util/branch/master/graph/badge.svg)](https://codecov.io/gh/stcarrez/ada-util)
+
+
+This small library provides an HTTP backend on top of AWS.
+It is can be used by the `Util.Http` package.
+
+An alternate HTTP backend is provided by CURL with utilada_curl.
+
+
+   Maintainer: Stephane.Carrez@gmail.com
+   Maintainers_Logins: stcarrez
+   Name: utilada_aws
+   Project_File: .alire/aws/utilada_aws.gpr
+   Tag: web
+   Tag: http
+   Version: 2.5.0
+   Website: https://gitlab.com/stcarrez/ada-util
+Dependencies (direct):
+   aws~21.0
+   utilada^2.5.0
+Dependencies (solution):
+   aws=21.0.0
+   gnat=10.3.2 (gnat_native) (installed)
+   make=4.4.1
+   openssl=3.1.0
+   utilada=2.5.0
+   xmlada=21.0.0
+Dependencies (graph):
+   aws=21.0.0        --> gnat=10.3.2 (gnat_native) (>=9)
+   aws=21.0.0        --> make=4.4.1 (*)                 
+   aws=21.0.0        --> openssl=3.1.0 (*)              
+   aws=21.0.0        --> xmlada=21.0.0 (~21.0.0)        
+   utilada_aws=2.5.0 --> aws=21.0.0 (~21.0)             
+   utilada_aws=2.5.0 --> utilada=2.5.0 (^2.5.0)         
+
+
+LOG:
+Note: Deploying utilada_aws=2.5.0...
+Note: Deploying make=4.4.1...
+Note: Deploying openssl=3.1.0...
+Note: Deploying utilada=2.5.0...
+Note: Deploying xmlada=21.0.0...
+#=#=#                                                                         
+##O#-#                                                                        
+##=O#- #                                                                      
+Note: Running post_fetch actions for xmlada=21.0.0...
+configure: loading site script /usr/local/etc/config.site
+checking build system type... x86_64-w64-mingw32
+checking host system type... x86_64-w64-mingw32
+checking target system type... x86_64-w64-mingw32
+checking whether gnat can build shared libs... yes
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether ln -s works... no, using cp -pR
+configure: creating ./config.status
+config.status: creating xmlada_shared.gpr
+config.status: creating Makefile
+config.status: creating tests/dom/default.gpr
+Note: Deploying aws=21.0.0...
+#=#=#                                                                         
+
+######################################################################## 100.0%
+Note: Running post_fetch actions for aws=21.0.0...
+make[1]: Entering directory '/d/a/alire-crates-ci/alire-crates-ci/test/cabdc43e-09ed-455e-ba88-16790f78304a/utilada_aws_2.5.0_f65f9ba9/alire/cache/dependencies/aws_21.0.0_57fddf8f/config'
+Bind
+   [gprbind]      xoscons.bexch
+   [Ada]          xoscons.ali
+Link
+   [link]         xoscons.adb
+Setup OS specific definitions
+aws-os_lib-tmplt.c:128: warning: "EADDRNOTAVAIL" redefined
+  128 | #define EADDRNOTAVAIL   WSAEADDRNOTAVAIL
+      | 
+In file included from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_10.3.2_b187d954\lib\gcc\x86_64-w64-mingw32\10.3.0\include\mm_malloc.h:29,
+                 from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_10.3.2_b187d954\x86_64-w64-mingw32\include\malloc.h:80,
+                 from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_10.3.2_b187d954\x86_64-w64-mingw32\include\stdlib.h:766,
+                 from aws-os_lib-tmplt.c:77:
+c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_10.3.2_b187d954\x86_64-w64-mingw32\include\errno.h:90: note: this is the location of the previous definition
+   90 | #define EADDRNOTAVAIL 101
+      | 
+aws-os_lib-tmplt.c:129: warning: "ETIMEDOUT" redefined
+  129 | #define ETIMEDOUT       WSAETIMEDOUT
+      | 
+In file included from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_10.3.2_b187d954\lib\gcc\x86_64-w64-mingw32\10.3.0\include\mm_malloc.h:29,
+                 from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_10.3.2_b187d954\x86_64-w64-mingw32\include\malloc.h:80,
+                 from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_10.3.2_b187d954\x86_64-w64-mingw32\include\stdlib.h:766,
+                 from aws-os_lib-tmplt.c:77:
+c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_10.3.2_b187d954\x86_64-w64-mingw32\include\errno.h:223: note: this is the location of the previous definition
+  223 | #define ETIMEDOUT 138
+      | 
+aws-os_lib-tmplt.c:130: warning: "ENOTCONN" redefined
+  130 | #define ENOTCONN        WSAENOTCONN
+      | 
+In file included from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_10.3.2_b187d954\lib\gcc\x86_64-w64-mingw32\10.3.0\include\mm_malloc.h:29,
+                 from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_10.3.2_b187d954\x86_64-w64-mingw32\include\malloc.h:80,
+                 from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_10.3.2_b187d954\x86_64-w64-mingw32\include\stdlib.h:766,
+                 from aws-os_lib-tmplt.c:77:
+c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_10.3.2_b187d954\x86_64-w64-mingw32\include\errno.h:150: note: this is the location of the previous definition
+  150 | #define ENOTCONN 126
+      | 
+aws-os_lib-tmplt.c:131: warning: "EWOULDBLOCK" redefined
+  131 | #define EWOULDBLOCK     WSAEWOULDBLOCK
+      | 
+In file included from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_10.3.2_b187d954\lib\gcc\x86_64-w64-mingw32\10.3.0\include\mm_malloc.h:29,
+                 from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_10.3.2_b187d954\x86_64-w64-mingw32\include\malloc.h:80,
+                 from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_10.3.2_b187d954\x86_64-w64-mingw32\include\stdlib.h:766,
+                 from aws-os_lib-tmplt.c:77:
+c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_10.3.2_b187d954\x86_64-w64-mingw32\include\errno.h:166: note: this is the location of the previous definition
+  166 | #define EWOULDBLOCK 140
+      | 
+aws-os_lib-tmplt.c:132: warning: "EINPROGRESS" redefined
+  132 | #define EINPROGRESS     WSAEINPROGRESS
+      | 
+In file included from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_10.3.2_b187d954\lib\gcc\x86_64-w64-mingw32\10.3.0\include\mm_malloc.h:29,
+                 from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_10.3.2_b187d954\x86_64-w64-mingw32\include\malloc.h:80,
+                 from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_10.3.2_b187d954\x86_64-w64-mingw32\include\stdlib.h:766,
+                 from aws-os_lib-tmplt.c:77:
+c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_10.3.2_b187d954\x86_64-w64-mingw32\include\errno.h:158: note: this is the location of the previous definition
+  158 | #define EINPROGRESS 112
+      | 
+aws-os_lib-tmplt.c:133: warning: "ENOBUFS" redefined
+  133 | #define ENOBUFS         WSAENOBUFS
+      | 
+In file included from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_10.3.2_b187d954\lib\gcc\x86_64-w64-mingw32\10.3.0\include\mm_malloc.h:29,
+                 from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_10.3.2_b187d954\x86_64-w64-mingw32\include\malloc.h:80,
+                 from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_10.3.2_b187d954\x86_64-w64-mingw32\include\stdlib.h:766,
+                 from aws-os_lib-tmplt.c:77:
+c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_10.3.2_b187d954\x86_64-w64-mingw32\include\errno.h:98: note: this is the location of the previous definition
+   98 | #define ENOBUFS 119
+      | 
+aws-os_lib-tmplt.c:137: warning: "ECONNRESET" redefined
+  137 | #define ECONNRESET      WSAECONNRESET
+      | 
+In file included from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_10.3.2_b187d954\lib\gcc\x86_64-w64-mingw32\10.3.0\include\mm_malloc.h:29,
+                 from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_10.3.2_b187d954\x86_64-w64-mingw32\include\malloc.h:80,
+                 from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_10.3.2_b187d954\x86_64-w64-mingw32\include\stdlib.h:766,
+                 from aws-os_lib-tmplt.c:77:
+c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_10.3.2_b187d954\x86_64-w64-mingw32\include\errno.h:114: note: this is the location of the previous definition
+  114 | #define ECONNRESET 108
+      | 
+aws-os_lib-tmplt.c:138: warning: "EADDRINUSE" redefined
+  138 | #define EADDRINUSE      WSAEADDRINUSE
+      | 
+In file included from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_10.3.2_b187d954\lib\gcc\x86_64-w64-mingw32\10.3.0\include\mm_malloc.h:29,
+                 from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_10.3.2_b187d954\x86_64-w64-mingw32\include\malloc.h:80,
+                 from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_10.3.2_b187d954\x86_64-w64-mingw32\include\stdlib.h:766,
+                 from aws-os_lib-tmplt.c:77:
+c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_10.3.2_b187d954\x86_64-w64-mingw32\include\errno.h:86: note: this is the location of the previous definition
+   86 | #define EADDRINUSE 100
+      | 
+aws-os_lib-tmplt.c:139: warning: "EAFNOSUPPORT" redefined
+  139 | #define EAFNOSUPPORT    WSAEAFNOSUPPORT
+      | 
+In file included from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_10.3.2_b187d954\lib\gcc\x86_64-w64-mingw32\10.3.0\include\mm_malloc.h:29,
+                 from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_10.3.2_b187d954\x86_64-w64-mingw32\include\malloc.h:80,
+                 from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_10.3.2_b187d954\x86_64-w64-mingw32\include\stdlib.h:766,
+                 from aws-os_lib-tmplt.c:77:
+c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_10.3.2_b187d954\x86_64-w64-mingw32\include\errno.h:82: note: this is the location of the previous definition
+   82 | #define EAFNOSUPPORT 102
+      | 
+aws-os_lib-tmplt.c:140: warning: "EALREADY" redefined
+  140 | #define EALREADY        WSAEALREADY
+      | 
+In file included from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_10.3.2_b187d954\lib\gcc\x86_64-w64-mingw32\10.3.0\include\mm_malloc.h:29,
+                 from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_10.3.2_b187d954\x86_64-w64-mingw32\include\malloc.h:80,
+                 from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_10.3.2_b187d954\x86_64-w64-mingw32\include\stdlib.h:766,
+                 from aws-os_lib-tmplt.c:77:
+c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_10.3.2_b187d954\x86_64-w64-mingw32\include\errno.h:106: note: this is the location of the previous definition
+  106 | #define EALREADY 103
+      | 
+aws-os_lib-tmplt.c:141: warning: "ECONNABORTED" redefined
+  141 | #define ECONNABORTED    WSAECONNABORTED
+      | 
+In file included from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_10.3.2_b187d954\lib\gcc\x86_64-w64-mingw32\10.3.0\include\mm_malloc.h:29,
+                 from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_10.3.2_b187d954\x86_64-w64-mingw32\include\malloc.h:80,
+                 from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_10.3.2_b187d954\x86_64-w64-mingw32\include\stdlib.h:766,
+                 from aws-os_lib-tmplt.c:77:
+c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_10.3.2_b187d954\x86_64-w64-mingw32\include\errno.h:102: note: this is the location of the previous definition
+  102 | #define ECONNABORTED 106
+      | 
+aws-os_lib-tmplt.c:142: warning: "ECONNREFUSED" redefined
+  142 | #define ECONNREFUSED    WSAECONNREFUSED
+      | 
+In file included from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_10.3.2_b187d954\lib\gcc\x86_64-w64-mingw32\10.3.0\include\mm_malloc.h:29,
+                 from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_10.3.2_b187d954\x86_64-w64-mingw32\include\malloc.h:80,
+                 from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_10.3.2_b187d954\x86_64-w64-mingw32\include\stdlib.h:766,
+                 from aws-os_lib-tmplt.c:77:
+c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_10.3.2_b187d954\x86_64-w64-mingw32\include\errno.h:110: note: this is the location of the previous definition
+  110 | #define ECONNREFUSED 107
+      | 
+aws-os_lib-tmplt.c:143: warning: "EDESTADDRREQ" redefined
+  143 | #define EDESTADDRREQ    WSAEDESTADDRREQ
+      | 
+In file included from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_10.3.2_b187d954\lib\gcc\x86_64-w64-mingw32\10.3.0\include\mm_malloc.h:29,
+                 from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_10.3.2_b187d954\x86_64-w64-mingw32\include\malloc.h:80,
+                 from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_10.3.2_b187d954\x86_64-w64-mingw32\include\stdlib.h:766,
+                 from aws-os_lib-tmplt.c:77:
+c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_10.3.2_b187d954\x86_64-w64-mingw32\include\errno.h:118: note: this is the location of the previous definition
+  118 | #define EDESTADDRREQ 109
+      | 
+aws-os_lib-tmplt.c:145: warning: "EHOSTUNREACH" redefined
+  145 | #define EHOSTUNREACH    WSAEHOSTUNREACH
+      | 
+In file included from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_10.3.2_b187d954\lib\gcc\x86_64-w64-mingw32\10.3.0\include\mm_malloc.h:29,
+                 from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_10.3.2_b187d954\x86_64-w64-mingw32\include\malloc.h:80,
+                 from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_10.3.2_b187d954\x86_64-w64-mingw32\include\stdlib.h:766,
+                 from aws-os_lib-tmplt.c:77:
+c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_10.3.2_b187d954\x86_64-w64-mingw32\include\errno.h:122: note: this is the location of the previous definition
+  122 | #define EHOSTUNREACH 110
+      | 
+aws-os_lib-tmplt.c:146: warning: "EISCONN" redefined
+  146 | #define EISCONN         WSAEISCONN
+      | 
+In file included from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_10.3.2_b187d954\lib\gcc\x86_64-w64-mingw32\10.3.0\include\mm_malloc.h:29,
+                 from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_10.3.2_b187d954\x86_64-w64-mingw32\include\malloc.h:80,
+                 from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_10.3.2_b187d954\x86_64-w64-mingw32\include\stdlib.h:766,
+                 from aws-os_lib-tmplt.c:77:
+c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_10.3.2_b187d954\x86_64-w64-mingw32\include\errno.h:94: note: this is the location of the previous definition
+   94 | #define EISCONN 113
+      | 
+aws-os_lib-tmplt.c:147: warning: "ELOOP" redefined
+  147 | #define ELOOP           WSAELOOP
+      | 
+In file included from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_10.3.2_b187d954\lib\gcc\x86_64-w64-mingw32\10.3.0\include\mm_malloc.h:29,
+                 from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_10.3.2_b187d954\x86_64-w64-mingw32\include\malloc.h:80,
+                 from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_10.3.2_b187d954\x86_64-w64-mingw32\include\stdlib.h:766,
+                 from aws-os_lib-tmplt.c:77:
+c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_10.3.2_b187d954\x86_64-w64-mingw32\include\errno.h:227: note: this is the location of the previous definition
+  227 | #define ELOOP 114
+      | 
+aws-os_lib-tmplt.c:148: warning: "EMSGSIZE" redefined
+  148 | #define EMSGSIZE        WSAEMSGSIZE
+      | 
+In file included from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_10.3.2_b187d954\lib\gcc\x86_64-w64-mingw32\10.3.0\include\mm_malloc.h:29,
+                 from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_10.3.2_b187d954\x86_64-w64-mingw32\include\malloc.h:80,
+                 from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_10.3.2_b187d954\x86_64-w64-mingw32\include\stdlib.h:766,
+                 from aws-os_lib-tmplt.c:77:
+c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_10.3.2_b187d954\x86_64-w64-mingw32\include\errno.h:126: note: this is the location of the previous definition
+  126 | #define EMSGSIZE 115
+      | 
+aws-os_lib-tmplt.c:150: warning: "EPROTONOSUPPORT" redefined
+  150 | #define EPROTONOSUPPORT WSAEPROTONOSUPPORT
+      | 
+In file included from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_10.3.2_b187d954\lib\gcc\x86_64-w64-mingw32\10.3.0\include\mm_malloc.h:29,
+                 from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_10.3.2_b187d954\x86_64-w64-mingw32\include\malloc.h:80,
+                 from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_10.3.2_b187d954\x86_64-w64-mingw32\include\stdlib.h:766,
+                 from aws-os_lib-tmplt.c:77:
+c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_10.3.2_b187d954\x86_64-w64-mingw32\include\errno.h:178: note: this is the location of the previous definition
+  178 | #define EPROTONOSUPPORT 135
+      | 
+aws-os_lib-tmplt.c:151: warning: "EPROTOTYPE" redefined
+  151 | #define EPROTOTYPE      WSAEPROTOTYPE
+      | 
+In file included from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_10.3.2_b187d954\lib\gcc\x86_64-w64-mingw32\10.3.0\include\mm_malloc.h:29,
+                 from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_10.3.2_b187d954\x86_64-w64-mingw32\include\malloc.h:80,
+                 from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_10.3.2_b187d954\x86_64-w64-mingw32\include\stdlib.h:766,
+                 from aws-os_lib-tmplt.c:77:
+c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_10.3.2_b187d954\x86_64-w64-mingw32\include\errno.h:231: note: this is the location of the previous definition
+  231 | #define EPROTOTYPE 136
+      | 
+aws-os_lib-tmplt.c:152: warning: "ENETDOWN" redefined
+  152 | #define ENETDOWN        WSAENETDOWN
+      | 
+In file included from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_10.3.2_b187d954\lib\gcc\x86_64-w64-mingw32\10.3.0\include\mm_malloc.h:29,
+                 from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_10.3.2_b187d954\x86_64-w64-mingw32\include\malloc.h:80,
+                 from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_10.3.2_b187d954\x86_64-w64-mingw32\include\stdlib.h:766,
+                 from aws-os_lib-tmplt.c:77:
+c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_10.3.2_b187d954\x86_64-w64-mingw32\include\errno.h:130: note: this is the location of the previous definition
+  130 | #define ENETDOWN 116
+      | 
+aws-os_lib-tmplt.c:153: warning: "ENETRESET" redefined
+  153 | #define ENETRESET       WSAENETRESET
+      | 
+In file included from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_10.3.2_b187d954\lib\gcc\x86_64-w64-mingw32\10.3.0\include\mm_malloc.h:29,
+                 from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_10.3.2_b187d954\x86_64-w64-mingw32\include\malloc.h:80,
+                 from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_10.3.2_b187d954\x86_64-w64-mingw32\include\stdlib.h:766,
+                 from aws-os_lib-tmplt.c:77:
+c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_10.3.2_b187d954\x86_64-w64-mingw32\include\errno.h:134: note: this is the location of the previous definition
+  134 | #define ENETRESET 117
+      | 
+aws-os_lib-tmplt.c:154: warning: "ENETUNREACH" redefined
+  154 | #define ENETUNREACH     WSAENETUNREACH
+      | 
+In file included from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_10.3.2_b187d954\lib\gcc\x86_64-w64-mingw32\10.3.0\include\mm_malloc.h:29,
+                 from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_10.3.2_b187d954\x86_64-w64-mingw32\include\malloc.h:80,
+                 from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_10.3.2_b187d954\x86_64-w64-mingw32\include\stdlib.h:766,
+                 from aws-os_lib-tmplt.c:77:
+c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_10.3.2_b187d954\x86_64-w64-mingw32\include\errno.h:138: note: this is the location of the previous definition
+  138 | #define ENETUNREACH 118
+      | 
+aws-os_lib-tmplt.c:155: warning: "ENOPROTOOPT" redefined
+  155 | #define ENOPROTOOPT     WSAENOPROTOOPT
+      | 
+In file included from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_10.3.2_b187d954\lib\gcc\x86_64-w64-mingw32\10.3.0\include\mm_malloc.h:29,
+                 from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_10.3.2_b187d954\x86_64-w64-mingw32\include\malloc.h:80,
+                 from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_10.3.2_b187d954\x86_64-w64-mingw32\include\stdlib.h:766,
+                 from aws-os_lib-tmplt.c:77:
+c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_10.3.2_b187d954\x86_64-w64-mingw32\include\errno.h:142: note: this is the location of the previous definition
+  142 | #define ENOPROTOOPT 123
+      | 
+aws-os_lib-tmplt.c:156: warning: "ENOTSOCK" redefined
+  156 | #define ENOTSOCK        WSAENOTSOCK
+      | 
+In file included from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_10.3.2_b187d954\lib\gcc\x86_64-w64-mingw32\10.3.0\include\mm_malloc.h:29,
+                 from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_10.3.2_b187d954\x86_64-w64-mingw32\include\malloc.h:80,
+                 from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_10.3.2_b187d954\x86_64-w64-mingw32\include\stdlib.h:766,
+                 from aws-os_lib-tmplt.c:77:
+c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_10.3.2_b187d954\x86_64-w64-mingw32\include\errno.h:146: note: this is the location of the previous definition
+  146 | #define ENOTSOCK 128
+      | 
+aws-os_lib-tmplt.c:157: warning: "EOPNOTSUPP" redefined
+  157 | #define EOPNOTSUPP      WSAEOPNOTSUPP
+      | 
+In file included from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_10.3.2_b187d954\lib\gcc\x86_64-w64-mingw32\10.3.0\include\mm_malloc.h:29,
+                 from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_10.3.2_b187d954\x86_64-w64-mingw32\include\malloc.h:80,
+                 from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_10.3.2_b187d954\x86_64-w64-mingw32\include\stdlib.h:766,
+                 from aws-os_lib-tmplt.c:77:
+c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_10.3.2_b187d954\x86_64-w64-mingw32\include\errno.h:162: note: this is the location of the previous definition
+  162 | #define EOPNOTSUPP 130
+      | 
+make[1]: Leaving directory '/d/a/alire-crates-ci/alire-crates-ci/test/cabdc43e-09ed-455e-ba88-16790f78304a/utilada_aws_2.5.0_f65f9ba9/alire/cache/dependencies/aws_21.0.0_57fddf8f/config'
+make[1]: Entering directory '/d/a/alire-crates-ci/alire-crates-ci/test/cabdc43e-09ed-455e-ba88-16790f78304a/utilada_aws_2.5.0_f65f9ba9/alire/cache/dependencies/aws_21.0.0_57fddf8f/regtests'
+Can not generate system tags. The test are disabled
+make[1]: Leaving directory '/d/a/alire-crates-ci/alire-crates-ci/test/cabdc43e-09ed-455e-ba88-16790f78304a/utilada_aws_2.5.0_f65f9ba9/alire/cache/dependencies/aws_21.0.0_57fddf8f/regtests'
+make[1]: Entering directory '/d/a/alire-crates-ci/alire-crates-ci/test/cabdc43e-09ed-455e-ba88-16790f78304a/utilada_aws_2.5.0_f65f9ba9/alire/cache/dependencies/aws_21.0.0_57fddf8f/demos'
+make[1]: Nothing to be done for 'setup'.
+make[1]: Leaving directory '/d/a/alire-crates-ci/alire-crates-ci/test/cabdc43e-09ed-455e-ba88-16790f78304a/utilada_aws_2.5.0_f65f9ba9/alire/cache/dependencies/aws_21.0.0_57fddf8f/demos'
+make[1]: Entering directory '/d/a/alire-crates-ci/alire-crates-ci/test/cabdc43e-09ed-455e-ba88-16790f78304a/utilada_aws_2.5.0_f65f9ba9/alire/cache/dependencies/aws_21.0.0_57fddf8f/templates_parser'
+make[1]: Leaving directory '/d/a/alire-crates-ci/alire-crates-ci/test/cabdc43e-09ed-455e-ba88-16790f78304a/utilada_aws_2.5.0_f65f9ba9/alire/cache/dependencies/aws_21.0.0_57fddf8f/templates_parser'
+make[1]: Entering directory '/d/a/alire-crates-ci/alire-crates-ci/test/cabdc43e-09ed-455e-ba88-16790f78304a/utilada_aws_2.5.0_f65f9ba9/alire/cache/dependencies/aws_21.0.0_57fddf8f/templates_parser'
+make[1]: Leaving directory '/d/a/alire-crates-ci/alire-crates-ci/test/cabdc43e-09ed-455e-ba88-16790f78304a/utilada_aws_2.5.0_f65f9ba9/alire/cache/dependencies/aws_21.0.0_57fddf8f/templates_parser'
+Setup
+   [mkdir]        object directory for project Zlib
+   [mkdir]        library directory for project Zlib
+   [mkdir]        object directory for project Include
+   [mkdir]        library directory for project Include
+   [mkdir]        object directory for project SSL
+   [mkdir]        library directory for project SSL
+   [mkdir]        object directory for project Src
+   [mkdir]        library directory for project Src
+   [mkdir]        library directory for project AWS
+   [mkdir]        object directory for project Win32
+   [mkdir]        object directory for project Tools
+   [mkdir]        exec directory for project Tools
+Compile
+   [Ada]          awsres.adb
+   [Ada]          aws_password.adb
+   [Ada]          templates2ada.adb
+   [Ada]          webxref.adb
+   [Ada]          templatespp.adb
+   [WinRes]       aws.rc
+   [Ada]          zlib.adb
+   [Ada]          zlib-thin.adb
+   [Ada]          zlib-streams.adb
+   [Ada]          memory_streams.adb
+   [C]            gai_strerror.c
+   [Ada]          aws-os_lib.ads
+   [Ada]          templates_parser.adb
+   [Ada]          templates_parser-utils.adb
+   [Ada]          templates_parser-query.adb
+   [Ada]          templates_parser-debug.adb
+   [Ada]          aws-status-translate_table.adb
+   [Ada]          aws-smtp.adb
+   [Ada]          aws-smtp-server.adb
+   [Ada]          aws-smtp-messages.adb
+   [Ada]          aws-smtp-messages-set.adb
+   [Ada]          aws-smtp-client.adb
+   [Ada]          aws-smtp-authentication.ads
+   [Ada]          aws-smtp-authentication-plain.adb
+   [Ada]          aws-services-web_mail.adb
+   [Ada]          aws-services-web_block.ads
+   [Ada]          aws-services-web_block-registry.adb
+   [Ada]          aws-services-web_block-context.adb
+   [Ada]          aws-services-split_pages.adb
+   [Ada]          aws-services-split_pages-uniform.adb
+   [Ada]          aws-services-split_pages-uniform-overlapping.adb
+   [Ada]          aws-services-split_pages-uniform-alpha.adb
+   [Ada]          aws-services-split_pages-shared.adb
+   [Ada]          aws-services-split_pages-alpha.adb
+   [Ada]          aws-services-split_pages-alpha-bounded.adb
+   [Ada]          aws-services-page_server.adb
+   [Ada]          aws-services-download.adb
+   [Ada]          aws-services-dispatchers.ads
+   [Ada]          aws-services-dispatchers-virtual_host.adb
+   [Ada]          aws-services-dispatchers-uri.adb
+   [Ada]          aws-services-dispatchers-transient_pages.adb
+   [Ada]          aws-services-dispatchers-timer.adb
+   [Ada]          aws-services-dispatchers-method.adb
+   [Ada]          aws-services-dispatchers-linker.adb
+   [Ada]          aws-services-directory.adb
+   [Ada]          aws-services-callbacks.adb
+   [Ada]          aws-server-push.adb
+   [Ada]          aws-server-hotplug.adb
+   [Ada]          aws-resources-streams-pipe.adb
+   [Ada]          aws-pop.adb
+   [Ada]          aws-net-stream_io.adb
+   [Ada]          aws-net-sets.ads
+   [Ada]          aws-net-log-callbacks.adb
+   [Ada]          aws-cookie.adb
+   [Ada]          aws-communication.adb
+   [Ada]          aws-communication-server.adb
+   [Ada]          aws-communication-client.adb
+   [Ada]          aws-client-hotplug.adb
+   [Ada]          aws.ads
+   [Ada]          aws-utils.adb
+   [Ada]          aws-utils-streams.adb
+   [Ada]          aws-url.adb
+   [Ada]          aws-url-set.adb
+   [Ada]          aws-url-raise_url_error.adb
+   [Ada]          aws-translator.adb
+   [Ada]          aws-templates.ads
+   [Ada]          aws-status.adb
+   [Ada]          aws-status-translate_set.adb
+   [Ada]          aws-status-set.adb
+   [Ada]          aws-session.adb
+   [Ada]          aws-session-control.adb
+   [Ada]          aws-services.ads
+   [Ada]          aws-services-transient_pages.adb
+   [Ada]          aws-services-transient_pages-control.adb
+   [Ada]          aws-server.adb
+   [Ada]          aws-server-status.adb
+   [Ada]          aws-server-log.adb
+   [Ada]          aws-server-http_utils.adb
+   [Ada]          aws-server-get_status.adb
+   [Ada]          aws-response.adb
+   [Ada]          aws-response-set.adb
+   [Ada]          aws-resources.adb
+   [Ada]          aws-resources-streams.adb
+   [Ada]          aws-resources-streams-zlib.adb
+   [Ada]          aws-resources-streams-memory.adb
+   [Ada]          aws-resources-streams-memory-zlib.adb
+   [Ada]          aws-resources-streams-disk.adb
+   [Ada]          aws-resources-streams-disk-once.adb
+   [Ada]          aws-resources-files.adb
+   [Ada]          aws-resources-embedded.adb
+   [Ada]          aws-parameters.adb
+   [Ada]          aws-parameters-set.adb
+   [Ada]          aws-net.adb
+   [Ada]          aws-net-websocket.adb
+   [Ada]          aws-net-websocket-registry.adb
+   [Ada]          aws-net-websocket-registry-utils.adb
+   [Ada]          aws-net-websocket-registry-control.adb
+   [Ada]          aws-net-websocket-protocol.ads
+   [Ada]          aws-net-websocket-protocol-rfc6455.adb
+   [Ada]          aws-net-websocket-protocol-draft76.adb
+   [Ada]          aws-net-websocket-handshake_error.adb
+   [Ada]          aws-net-ssl-rsa_dh_generators.adb
+   [Ada]          aws-net-ssl-certificate.adb
+   [Ada]          aws-net-poll_events.adb
+   [Ada]          aws-net-poll_events-g_poll.adb
+   [Ada]          aws-net-memory.adb
+   [Ada]          aws-net-log.adb
+   [Ada]          aws-net-generic_sets.adb
+   [Ada]          aws-net-buffered.adb
+   [Ada]          aws-net-acceptors.adb
+   [Ada]          aws-mime.adb
+   [Ada]          aws-messages.adb
+   [Ada]          aws-log.adb
+   [Ada]          aws-hotplug.adb
+   [Ada]          aws-hotplug-get_status.adb
+   [Ada]          aws-headers.adb
+   [Ada]          aws-headers-values.adb
+   [Ada]          aws-headers-set.adb
+   [Ada]          aws-exceptions.ads
+   [Ada]          aws-dispatchers.adb
+   [Ada]          aws-dispatchers-callback.adb
+   [Ada]          aws-digest.adb
+   [Ada]          aws-default.ads
+   [Ada]          aws-containers.ads
+   [Ada]          aws-containers-tables.adb
+   [Ada]          aws-containers-tables-set.ads
+   [Ada]          aws-containers-string_vectors.ads
+   [Ada]          aws-containers-memory_streams.ads
+   [Ada]          aws-containers-key_value.ads
+   [Ada]          aws-config.adb
+   [Ada]          aws-config-utils.adb
+   [Ada]          aws-config-set.adb
+   [Ada]          aws-config-ini.adb
+   [Ada]          aws-client.adb
+   [Ada]          aws-client-http_utils.adb
+   [Ada]          aws-attachments.adb
+   [Ada]          templates_parser-input__aws.adb
+   [Ada]          templates_parser_tasking__standard_tasking.adb
+   [Ada]          aws-net-std__gnat.adb
+   [Ada]          aws-net-ssl__dummy.adb
+   [Ada]          aws-net-ssl-certificate-impl__dummy.adb
+   [Ada]          templates_parser-configuration__aws.ads
+   [Ada]          ssl.ads
+   [Ada]          ssl-thin__dummy.ads
+   [C]            zutil.c
+   [C]            uncompr.c
+   [C]            trees.c
+   [C]            inftrees.c
+   [C]            inflate.c
+   [C]            inffast.c
+   [C]            infback.c
+   [C]            gzwrite.c
+   [C]            gzread.c
+   [C]            gzlib.c
+   [C]            gzclose.c
+   [C]            deflate.c
+   [C]            crc32.c
+   [C]            compress.c
+   [C]            adler32.c
+Build Libraries
+   [gprlib]       z.lexch
+   [gprlib]       aws_ssl.lexch
+   [gprlib]       aws.lexch
+   [archive]      libaws_ssl.a
+   [index]        libaws_ssl.a
+   [archive]      libz.a
+   [index]        libz.a
+   [archive]      libaws.a
+   [index]        libaws.a
+Bind
+   [gprbind]      awsres.bexch
+   [gprbind]      aws_password.bexch
+   [gprbind]      templates2ada.bexch
+   [gprbind]      webxref.bexch
+   [Ada]          aws_password.ali
+   [Ada]          awsres.ali
+   [Ada]          webxref.ali
+   [Ada]          templates2ada.ali
+   [gprbind]      templatespp.bexch
+   [Ada]          templatespp.ali
+Link
+   [archive]      libtools.a
+   [index]        libtools.a
+   [link]         awsres.adb
+   [link]         aws_password.adb
+   [link]         templates2ada.adb
+   [link]         webxref.adb
+   [link]         templatespp.adb
+Setup
+   [mkdir]        object directory for project Zlib
+   [mkdir]        library directory for project Zlib
+   [mkdir]        object directory for project Include
+   [mkdir]        library directory for project Include
+   [mkdir]        object directory for project SSL
+   [mkdir]        library directory for project SSL
+   [mkdir]        object directory for project Src
+   [mkdir]        library directory for project Src
+   [mkdir]        library directory for project AWS
+Compile
+   [Ada]          zlib.adb
+   [Ada]          zlib-thin.adb
+   [Ada]          zlib-streams.adb
+   [Ada]          memory_streams.adb
+   [C]            gai_strerror.c
+   [Ada]          aws-os_lib.ads
+   [Ada]          templates_parser.adb
+   [Ada]          templates_parser-utils.adb
+   [Ada]          templates_parser-query.adb
+   [Ada]          templates_parser-debug.adb
+   [Ada]          aws-status-translate_table.adb
+   [Ada]          aws-smtp.adb
+   [Ada]          aws-smtp-server.adb
+   [Ada]          aws-smtp-messages.adb
+   [Ada]          aws-smtp-messages-set.adb
+   [Ada]          aws-smtp-client.adb
+   [Ada]          aws-smtp-authentication.ads
+   [Ada]          aws-smtp-authentication-plain.adb
+   [Ada]          aws-services-web_mail.adb
+   [Ada]          aws-services-web_block.ads
+   [Ada]          aws-services-web_block-registry.adb
+   [Ada]          aws-services-web_block-context.adb
+   [Ada]          aws-services-split_pages.adb
+   [Ada]          aws-services-split_pages-uniform.adb
+   [Ada]          aws-services-split_pages-uniform-overlapping.adb
+gprbuild: spawn failed with ERRNO = 2 (No such file or directory)
+make: *** [Makefile:184: build-native] Error 4
+stderr: Command ["make", "setup", "build", "install", "ZLIB=false", "DEMOS=false", "LAL=false", "XMLADA=false", "prefix=install_dir", "PRJ_BUILD=Release"] exited with code 2
+stderr: ALIRE.CHECKED_ERROR
+stderr: Command ["make", "setup", "build", "install", "ZLIB=false", "DEMOS=false", "LAL=false", "XMLADA=false", "prefix=install_dir", "PRJ_BUILD=Release"] exited with code 2
+stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
+[D:\a\alire-crates-ci\alire-crates-ci\alire_install\bin\alr.exe]
+0xdc98eb Semantic_Versioning.Basic.At_Least at alire.adb:251
+0xa63e32 Semantic_Versioning.Basic.At_Least at alire-os_lib-subprocess.adb:110
+0xa71a8b Semantic_Versioning.Basic.At_Least at alire-properties-actions-executor.adb:40
+0xa72bb4 Semantic_Versioning.Basic.At_Least at alire-properties-actions-executor.adb:94
+0xa720f9 Semantic_Versioning.Basic.At_Least at alire-properties-actions-executor.adb:58
+0xbffb96 Semantic_Versioning.Basic.At_Least at alire-roots.adb:346
+0xc0092b Semantic_Versioning.Basic.At_Least at alire-roots.adb:418
+0xc17363 Semantic_Versioning.Basic.At_Least at alire-roots.adb:1364
+0xc62228 Semantic_Versioning.Basic.At_Least at alire-solutions.adb:1443
+0xc609cd Semantic_Versioning.Basic.At_Least at alire-solutions.adb:1502
+0xc174a4 Semantic_Versioning.Basic.At_Least at alire-roots.adb:1368
+0xc00c71 Semantic_Versioning.Basic.At_Least at alire-roots.adb:434
+0x48874a Semantic_Versioning.Basic.At_Least at alr-commands-get.adb:173
+0x48d3cc Semantic_Versioning.Basic.At_Least at alr-commands-get.adb:348
+0x51c0a3 Semantic_Versioning.Basic.At_Least at clic-subcommand-instance.adb:742
+0x528a27 Semantic_Versioning.Basic.At_Least at alr-commands.adb:492
+0x401761 Alr.Main at alr-main.adb:10
+0x404bd6 Main at b__alr-main.adb:2130
+0x401423 __tmainCRTStartup at ???
+0x40113b mainCRTStartup at ???
+[C:\Windows\System32\KERNEL32.DLL]
+0x7ff884be4cae
+[C:\Windows\SYSTEM32\ntdll.dll]
+0x7ff885cbedc9
+
+stderr: A post-fetch action failed, re-run with -vv -d for details
+ERROR: A post-fetch action failed, re-run with -vv -d for details

@@ -1,0 +1,104 @@
+Test ran at 2026-06-29 01:38:13.859277+00:00
+
+SOLUTION:
+servletada=1.8.2: Web Servlet Library following JSR 154, JSR 315 (Core)
+Origin: commit 3fc8968978829aec28af720fd6e14d9e1973fd2c from https://github.com/stcarrez/ada-servlet.git
+Properties:
+   Author: Stephane.Carrez@gmail.com
+   Configuration: no modifiers
+   Description: Web Servlet Library following JSR 154, JSR 315 (Core)
+   GPR Scenario: SERVLET_BUILD := distrib | debug | optimize | profile | coverage
+   GPR Scenario: SERVLET_LIBRARY_TYPE := relocatable | static | static-pic
+   License: Apache-2.0
+   Long_Description: [![Build Status](https://img.shields.io/endpoint?url=https://porion.vacs.fr/porion/api/v1/projects/ada-servlet/badges/build.json)](https://porion.vacs.fr/porion/projects/view/ada-servlet/summary)
+[![Test Status](https://img.shields.io/endpoint?url=https://porion.vacs.fr/porion/api/v1/projects/ada-servlet/badges/tests.json)](https://porion.vacs.fr/porion/projects/view/ada-servlet/xunits)
+[![Coverage](https://img.shields.io/endpoint?url=https://porion.vacs.fr/porion/api/v1/projects/ada-servlet/badges/coverage.json)](https://porion.vacs.fr/porion/projects/view/ada-servlet/summary)
+
+Ada Servlet allows to create web applications using the same pattern
+as the Java Servlet (See JSR 154, JSR 315). 
+
+The Ada Servlet library is used by the [Ada Server Faces](https://gitlab.com/stcarrez/ada-asf)
+framework and [Ada Web Application](https://gitlab.com/stcarrez/ada-awa)
+to provide server web requests.
+
+
+   Maintainer: Stephane.Carrez@gmail.com
+   Maintainers_Logins: stcarrez
+   Name: servletada
+   Project_File: servletada.gpr
+   Tag: web
+   Tag: servlet
+   Tag: http
+   Tag: json
+   Tag: rest
+   Version: 1.8.2
+   Website: https://gitlab.com/stcarrez/ada-servlet
+Dependencies (direct):
+   elada^1.8.5
+   security^1.6.0
+   utilada^2.9.0
+Dependencies (solution):
+   elada=1.8.8
+   gnat=13.2.2 (gnat_native)
+   security=1.6.0
+   utilada=2.9.0
+   utilada_xml=2.9.0
+   xmlada=25.0.0
+Dependencies (graph):
+   elada=1.8.8       --> utilada=2.9.0 (^2.8.0)
+   security=1.6.0    --> utilada=2.9.0 (^2.9.0)
+   security=1.6.0    --> utilada_xml=2.9.0 (^2.9.0)
+   servletada=1.8.2  --> elada=1.8.8 (^1.8.5)
+   servletada=1.8.2  --> security=1.6.0 (^1.6.0)
+   servletada=1.8.2  --> utilada=2.9.0 (^2.9.0)
+   utilada_xml=2.9.0 --> utilada=2.9.0 (^2.9.0)
+   utilada_xml=2.9.0 --> xmlada=25.0.0 (^24.0|^25.0)
+   xmlada=25.0.0     --> gnat=13.2.2 (gnat_native) (>=11)
+
+
+LOG:
+[alr test] Testing servletada=1.8.2
+[alr test] Spawning retrieval for remote crate: alr -d -n get servletada=1.8.2
+Note: Deploying servletada=1.8.2...
+
+servletada=1.8.2 successfully retrieved.
+Dependencies were solved as follows:
+
+   +  elada       1.8.8  (new)
+   +b gnat        13.2.2 (new,gnat_native,indirect,binary)
+   +  security    1.6.0  (new)
+   +  utilada     2.9.0  (new)
+   +  utilada_xml 2.9.0  (new,indirect)
+   +  xmlada      25.0.0 (new,indirect)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building servletada=1.8.2/servletada.gpr...
+Setup
+   [mkdir]        object directory for project ServletAda
+   [mkdir]        library directory for project ServletAda
+Compile
+   [Ada]          util-dates.adb
+   [Ada]          util-commands-parsers.adb
+   [Ada]          util-commands.adb
+util-dates-to_ada_time_64.adb:17:43: error: "To_Duration_64" not declared in "Conversions"
+util-dates-to_ada_time_64.adb:19:22: error: "To_Ada_Time_64" not declared in "Conversions"
+
+   compilation of util-dates.adb failed
+
+gprbuild: *** compilation phase failed
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/Users/runner/work/alire-crates-ci/alire-crates-ci/test/a8ed690b-efc1-46a2-8cef-8194a5b48911/servletada_1.8.2_3fc89689/servletada.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/Users/runner/work/alire-crates-ci/alire-crates-ci/test/a8ed690b-efc1-46a2-8cef-8194a5b48911/servletada_1.8.2_3fc89689/servletada.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+stderr: ALIRE.CHECKED_ERROR
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/Users/runner/work/alire-crates-ci/alire-crates-ci/test/a8ed690b-efc1-46a2-8cef-8194a5b48911/servletada_1.8.2_3fc89689/servletada.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
+Load address: 0x102fa0000
+Call stack traceback locations:
+0x103cac0cc 0x103cac12c 0x103a0066c 0x103645568 0x1038ca594 0x1038cb4f4 0x10380933c 0x103807b08 0x10382b78c 0x10388b56c 0x10388a99c 0x10382b868 0x10382b950 0x10380800c 0x103808174 0x103011730 0x103011070 0x1030111e4 0x1030aeb38 0x1030b9c78 0x102fa29f8 0x102fa7a2c
+
+stderr: ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED
+stderr: alire-roots.adb:202
+stderr: raised ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED : alire-roots.adb:202
+Load address: 0x102fa0000
+Call stack traceback locations:
+0x103cac0cc 0x103cac12c 0x103809640 0x103807b08 0x10382b78c 0x10388b56c 0x10388a99c 0x10382b868 0x10382b950 0x10380800c 0x103808174 0x103011730 0x103011070 0x1030111e4 0x1030aeb38 0x1030b9c78 0x102fa29f8 0x102fa7a2c
+
+ERROR: Compilation failed.

@@ -1,0 +1,482 @@
+Test ran at 2026-10-31 00:43:50.866957+00:00
+
+SOLUTION:
+opencv_imgproc=0.3.0: Thick Ada binding to OpenCV ImgProc
+Origin: commit 496d5d074c9bc987f625d484deb45bcdad174aa0 from https://github.com/zackboll/opencv_imgproc_ada.git
+Available when: (case Distribution is Arch => False, others => True)
+Properties:
+   Pre_Build run: sh scripts/configure_opencv.sh (from ${CRATE_ROOT}/.)
+   Test run: alr -n build (from ${CRATE_ROOT}/.)
+   Test run: alr run (from ${CRATE_ROOT}/tests)
+   Author: Zack Boll
+   Description: Thick Ada binding to OpenCV ImgProc
+   case Distribution is
+      when Msys2 => Environment: PATH=${CRATE_ROOT}/lib:${PATH}
+   License: Apache-2.0
+   Maintainer: Zack Boll <zackboll@gmail.com>
+   Maintainers_Logins: zackboll
+   Name: opencv_imgproc
+   Tag: opencv
+   Tag: computer-vision
+   Tag: binding
+   Tag: ada
+   Version: 0.3.0
+   Website: https://github.com/zackboll/opencv_imgproc_ada
+Dependencies (direct):
+   case OS is
+      when Windows => mingw_w64_gcc*
+   opencv*
+   opencv_core~0.5.0
+   pkg_config*
+Dependencies (solution):
+   opencv=4.6.0
+   opencv_core=0.5.2
+   pkg_config=1.8.1
+Dependencies (graph):
+   opencv_core=0.5.2    --> opencv=4.6.0 (*)
+   opencv_core=0.5.2    --> pkg_config=1.8.1 (*)
+   opencv_imgproc=0.3.0 --> opencv=4.6.0 (*)
+   opencv_imgproc=0.3.0 --> opencv_core=0.5.2 (~0.5.0)
+   opencv_imgproc=0.3.0 --> pkg_config=1.8.1 (*)
+
+
+LOG:
+Note: Running pre-build actions for opencv_core=0.5.2...
+Note: Running pre-build actions for opencv_imgproc=0.3.0...
+OpenCV package: opencv4
+OpenCV include: /usr/include/opencv4
+OpenCV library: /usr/lib/x86_64-linux-gnu
+Note: Building opencv_imgproc=0.3.0/opencv_imgproc.gpr...
+Setup
+   [mkdir]        object directory for project OpenCV_Core_Shim
+   [mkdir]        library directory for project OpenCV_Core_Shim
+   [mkdir]        object directory for project OpenCV_Core
+   [mkdir]        object directory for project OpenCV_Imgproc_Shim
+   [mkdir]        library directory for project OpenCV_Imgproc_Shim
+   [mkdir]        object directory for project Opencv_Imgproc
+Compile
+   [C++]          opencv_imgproc_shim.cpp
+   [C++]          opencv_core_shim.cpp
+   [Ada]          opencv_core_config.ads
+   [Ada]          opencv-core-sparse-typed_vector_impl.adb
+   [Ada]          opencv-internal-c_api.adb
+   [Ada]          opencv-core-internal.ads
+   [Ada]          opencv-core-internal-typed_continuous_borrowing.adb
+   [Ada]          opencv-core-sparse-typed_iteration_impl.adb
+   [Ada]          opencv-core-internal-typed_row_borrowing.adb
+   [Ada]          opencv-internal-safe_arithmetic.adb
+   [Ada]          opencv-core-internal-row_data.adb
+   [Ada]          opencv-core-internal-object_storage.adb
+   [Ada]          opencv-internal.ads
+   [Ada]          opencv-core-internal-typed_access.adb
+   [Ada]          opencv-core-internal-typed_external_mat_view.adb
+   [Ada]          opencv-core-sparse-typed_impl.adb
+   [Ada]          opencv-core-sparse-typed_vector_iteration_impl.adb
+   [Ada]          opencv-core-internal-continuous_data.adb
+   [Ada]          opencv-core-internal-external_view_alignment.adb
+   [Ada]          opencv-core-float16_vec2_buffer_access.adb
+   [Ada]          opencv-core-int16_vec3_buffer_access.adb
+   [Ada]          opencv-core-sparse-float64_access.adb
+   [Ada]          opencv-core-int16_vec2_access.adb
+   [Ada]          opencv-core-int8_buffer_access.adb
+   [Ada]          opencv-core-float16_vec2.ads
+   [Ada]          opencv-core-sparse-module_interop.adb
+   [Ada]          opencv-core-int16_row_access.adb
+   [Ada]          opencv-core-float64_vec3.ads
+   [Ada]          opencv-core-float32_row_access.adb
+   [Ada]          opencv-core-int32_vec4.ads
+   [Ada]          opencv-core-uint8_access.adb
+   [Ada]          opencv-core-float32_vec3_row_access.adb
+   [Ada]          opencv-core-uint16_vec3_buffer_access.adb
+   [Ada]          opencv-core-int32_vec2_row_access.adb
+   [Ada]          opencv-core-int32_vec4_buffer_access.adb
+   [Ada]          opencv-core-float32_vec4_access.adb
+   [Ada]          opencv-core-float64_vec4.ads
+   [Ada]          opencv-core-sparse-float32_access.adb
+   [Ada]          opencv-core-float16_vec4.ads
+   [Ada]          opencv-core-uint8_buffer_access.adb
+   [Ada]          opencv-core-int16_access.adb
+   [Ada]          opencv-core-int32_vec4_row_access.adb
+   [Ada]          opencv-core-float32_vec4_row_access.adb
+   [Ada]          opencv-core-float16_buffer_access.adb
+   [Ada]          opencv-core-float32_mat_view.adb
+   [Ada]          opencv-core-int32_vec3.ads
+   [Ada]          opencv-core-sparse-int8_vec4_access.adb
+   [Ada]          opencv-core-int32_vec2.ads
+   [Ada]          opencv-core-int32_vec3_buffer_access.adb
+   [Ada]          opencv-core-float64_vec2.ads
+   [Ada]          opencv-core-sparse-float16_vec4_access.adb
+   [Ada]          opencv-core-int16_vec4_row_access.adb
+   [Ada]          opencv-core-float64_vec2_buffer_access.adb
+   [Ada]          opencv-core-sparse-uint8_vec2_access.adb
+   [Ada]          opencv-core-uint8_vec2_mat_view.adb
+   [Ada]          opencv-core-sparse-int8_access.adb
+   [Ada]          opencv-core-sparse-int16_vec2_access.adb
+   [Ada]          opencv-core-float32_vec2_row_access.adb
+   [Ada]          opencv-core-sparse-uint8_vec3_access.adb
+   [Ada]          opencv-core-uint8_vec4_row_access.adb
+   [Ada]          opencv-core-float32_vec3_mat_view.adb
+   [Ada]          opencv-core-float64_vec3_access.adb
+   [Ada]          opencv-core-uint16_vec2_access.adb
+   [Ada]          opencv-core-int8_vec4_buffer_access.adb
+   [Ada]          opencv-core-uint16_vec4_access.adb
+   [Ada]          opencv-core-sparse-int32_vec3_access.adb
+   [Ada]          opencv-core-sparse-float32_vec2_access.adb
+   [Ada]          opencv-core-sparse-uint16_access.adb
+   [Ada]          opencv-core-int8_vec4.ads
+   [Ada]          opencv-core-uint16_vec2_buffer_access.adb
+   [Ada]          opencv-core-int16_vec2_row_access.adb
+   [Ada]          opencv-core-float16_mat_view.adb
+   [Ada]          opencv-core-int8_vec4_mat_view.adb
+   [Ada]          opencv-core-uint16_vec2_row_access.adb
+   [Ada]          opencv-core-int16_vec2_buffer_access.adb
+   [Ada]          opencv-core-int32_vec3_row_access.adb
+   [Ada]          opencv-core-sparse-float64_vec4_access.adb
+   [Ada]          opencv-core-sparse-float64_vec3_access.adb
+   [Ada]          opencv-core.adb
+   [Ada]          opencv-core-float16_row_access.adb
+   [Ada]          opencv-core-uint8_vec3_row_access.adb
+   [Ada]          opencv-core-sparse-uint8_vec4_access.adb
+   [Ada]          opencv-core-sparse-int8_vec2_access.adb
+   [Ada]          opencv-core-module_interop.adb
+   [Ada]          opencv-core-float16_vec3_row_access.adb
+   [Ada]          opencv-core-float16_vec2_access.adb
+   [Ada]          opencv-core-float32_vec2_access.adb
+   [Ada]          opencv-core-fixed_matrices.ads
+   [Ada]          opencv-core-int8_vec2.ads
+   [Ada]          opencv-core-int16_vec3_mat_view.adb
+   [Ada]          opencv-core-float16_vec3_mat_view.adb
+   [Ada]          opencv-core-sparse-float32_vec3_access.adb
+   [Ada]          opencv-core-vectors.ads
+   [Ada]          opencv-core-sparse-int16_access.adb
+   [Ada]          opencv-core-int8_vec2_row_access.adb
+   [Ada]          opencv-core-sparse-uint8_access.adb
+   [Ada]          opencv-core-float32_vec2.ads
+   [Ada]          opencv-core-int32_mat_view.adb
+   [Ada]          opencv-core-sparse-float16_access.adb
+   [Ada]          opencv-core-float64_vec4_access.adb
+   [Ada]          opencv-core-float16_vec4_row_access.adb
+   [Ada]          opencv-core-float64_access.adb
+   [Ada]          opencv-core-float16_vec3_buffer_access.adb
+   [Ada]          opencv-core-float64_vec2_access.adb
+   [Ada]          opencv-core-float32_matx3x3_conversions.adb
+   [Ada]          opencv-core-int8_vec2_mat_view.adb
+   [Ada]          opencv-core-sparse-int16_vec3_access.adb
+   [Ada]          opencv-core-float64_buffer_access.adb
+   [Ada]          opencv-core-float64_vec3_mat_view.adb
+   [Ada]          opencv-core-float16_vec3_access.adb
+   [Ada]          opencv-core-int8_vec3_mat_view.adb
+   [Ada]          opencv-core-float32_vec3.ads
+   [Ada]          opencv-core-int32_vec2_buffer_access.adb
+   [Ada]          opencv-core-int16_vec4_mat_view.adb
+   [Ada]          opencv-core-int8_mat_view.adb
+   [Ada]          opencv-core-float64_vec2_row_access.adb
+   [Ada]          opencv-core-float32_vec3_buffer_access.adb
+   [Ada]          opencv-core-sparse-int8_vec3_access.adb
+   [Ada]          opencv-core-sparse-int32_vec2_access.adb
+   [Ada]          opencv-core-int8_vec2_access.adb
+   [Ada]          opencv-core-uint8_vec3_access.adb
+   [Ada]          opencv-core-uint16_vec4_buffer_access.adb
+   [Ada]          opencv-core-sparse-float16_vec3_access.adb
+   [Ada]          opencv-core-uint16_vec3.ads
+   [Ada]          opencv-core-float32_vec3_access.adb
+   [Ada]          opencv-core-int16_vec4.ads
+   [Ada]          opencv-core-float16_vec4_mat_view.adb
+   [Ada]          opencv-core-transfers.adb
+   [Ada]          opencv-core-uint16_vec3_row_access.adb
+   [Ada]          opencv-core-float64_mat_view.adb
+   [Ada]          opencv-core-int32_buffer_access.adb
+   [Ada]          opencv-core-sparse-int32_access.adb
+   [Ada]          opencv-core-float32_access.adb
+   [Ada]          opencv-core-uint16_vec4_row_access.adb
+   [Ada]          opencv-core-int32_vec4_access.adb
+   [Ada]          opencv-core-int8_vec3_access.adb
+   [Ada]          opencv-core-float16_vec3.ads
+   [Ada]          opencv-core-float64_vec4_buffer_access.adb
+   [Ada]          opencv-core-int8_vec2_buffer_access.adb
+   [Ada]          opencv-core-float32_vec2_mat_view.adb
+   [Ada]          opencv-core-int32_access.adb
+   [Ada]          opencv-core-uint8_vec3_buffer_access.adb
+   [Ada]          opencv-core-int16_vec3_access.adb
+   [Ada]          opencv-core-uint8_vec2_access.adb
+   [Ada]          opencv-core-sparse-float64_vec2_access.adb
+   [Ada]          opencv-core-int8_vec4_row_access.adb
+   [Ada]          opencv-core-float16_vec4_access.adb
+   [Ada]          opencv-core-uint16_vec3_mat_view.adb
+   [Ada]          opencv-core-float64_vec4_mat_view.adb
+   [Ada]          opencv-core-float32_vec4.ads
+   [Ada]          opencv-core-float64_row_access.adb
+   [Ada]          opencv-core-float32_buffer_access.adb
+   [Ada]          opencv-core-uint8_vec2_buffer_access.adb
+   [Ada]          opencv-core-sparse-uint16_vec3_access.adb
+   [Ada]          opencv-core-float32_vec2_buffer_access.adb
+   [Ada]          opencv-core-int16_buffer_access.adb
+   [Ada]          opencv-core-uint8_vec2.ads
+   [Ada]          opencv-core-int32_vec2_access.adb
+   [Ada]          opencv-core-sparse.adb
+   [Ada]          opencv-core-sparse-float32_vec4_access.adb
+   [Ada]          opencv-core-int16_vec2.ads
+   [Ada]          opencv-core-int32_vec3_access.adb
+   [Ada]          opencv.ads
+   [Ada]          opencv-core-float64_vec3_buffer_access.adb
+   [Ada]          opencv-core-uint8_vec3_mat_view.adb
+   [Ada]          opencv-core-uint8_row_access.adb
+   [Ada]          opencv-core-float16_vec2_row_access.adb
+   [Ada]          opencv-core-sparse-int32_vec4_access.adb
+   [Ada]          opencv-core-uint8_vec4_buffer_access.adb
+   [Ada]          opencv-core-float64_vec4_row_access.adb
+   [Ada]          opencv-core-float16_vec2_mat_view.adb
+   [Ada]          opencv-core-uint8_mat_view.adb
+   [Ada]          opencv-core-float32_vec4_mat_view.adb
+   [Ada]          opencv-core-uint16_vec3_access.adb
+   [Ada]          opencv-core-int16_vec4_access.adb
+   [Ada]          opencv-core-uint8_vec4_mat_view.adb
+   [Ada]          opencv-core-sparse-float16_vec2_access.adb
+   [Ada]          opencv-core-float16_access.adb
+   [Ada]          opencv-core-int32_row_access.adb
+   [Ada]          opencv-core-uint16_mat_view.adb
+   [Ada]          opencv-core-sparse-uint16_vec4_access.adb
+   [Ada]          opencv-core-int16_mat_view.adb
+   [Ada]          opencv-core-int16_vec3_row_access.adb
+   [Ada]          opencv-core-float32_matx3x3.ads
+   [Ada]          opencv-core-float64_vec2_mat_view.adb
+   [Ada]          opencv-core-int16_vec3.ads
+   [Ada]          opencv-core-int8_access.adb
+   [Ada]          opencv-core-uint16_vec2_mat_view.adb
+   [Ada]          opencv-core-uint16_buffer_access.adb
+   [Ada]          opencv-core-int8_row_access.adb
+   [Ada]          opencv-core-persistence.adb
+   [Ada]          opencv-core-int8_vec3.ads
+   [Ada]          opencv-core-int8_vec3_row_access.adb
+   [Ada]          opencv-core-int32_vec4_mat_view.adb
+   [Ada]          opencv-core-int16_vec2_mat_view.adb
+   [Ada]          opencv-core-uint8_vec4.ads
+   [Ada]          opencv-core-uint8_vec2_row_access.adb
+   [Ada]          opencv-core-int8_vec4_access.adb
+   [Ada]          opencv-core-int16_vec4_buffer_access.adb
+   [Ada]          opencv-core-int32_vec3_mat_view.adb
+   [Ada]          opencv-core-uint8_vec3.ads
+   [Ada]          opencv-core-uint16_row_access.adb
+   [Ada]          opencv-core-uint16_access.adb
+   [Ada]          opencv-core-sparse-int16_vec4_access.adb
+   [Ada]          opencv-core-int32_vec2_mat_view.adb
+   [Ada]          opencv-core-uint16_vec4.ads
+   [Ada]          opencv-core-float16_vec4_buffer_access.adb
+   [Ada]          opencv-core-float32_vec4_buffer_access.adb
+   [Ada]          opencv-core-uint16_vec4_mat_view.adb
+   [Ada]          opencv-core-float64_vec3_row_access.adb
+   [Ada]          opencv-core-sparse-uint16_vec2_access.adb
+   [Ada]          opencv-core-int8_vec3_buffer_access.adb
+   [Ada]          opencv-core-uint8_vec4_access.adb
+   [Ada]          opencv-core-uint16_vec2.ads
+   [Ada]          opencv_imgproc_config.ads
+   [Ada]          opencv-image_processing-internal.ads
+   [Ada]          opencv-image_processing-internal-c_api.adb
+   [Ada]          opencv-image_processing.adb
+Build Libraries
+   [gprlib]       opencv_core_shim.lexch
+   [gprlib]       opencv_core_ada.lexch
+   [archive]      libopencv_core_shim.a
+   [index]        libopencv_core_shim.a
+   [gprlib]       opencv_imgproc_shim.lexch
+   [archive]      libopencv_core_ada.a
+   [index]        libopencv_core_ada.a
+   [gprlib]       opencv_imgproc_ada.lexch
+   [archive]      libopencv_imgproc_shim.a
+   [index]        libopencv_imgproc_shim.a
+   [archive]      libopencv_imgproc_ada.a
+   [index]        libopencv_imgproc_ada.a
+Success: Build finished successfully in 32.16 seconds.
+Note: Synchronizing workspace...
+Dependencies automatically updated as follows:
+
+   +  aunit          26.0.0 (new)
+   +b gnatcov        26.2.1 (new,binary)
+   +b gnatprove      16.1.0 (new,binary)
+   +b opencv         4.6.0  (new,indirect,system package)
+   +  opencv_core    0.5.2  (new,indirect)
+   +. opencv_imgproc 0.3.0  (new,path=..)
+   +b pkg_config     1.8.1  (new,indirect,system package)
+Note: Deploying aunit=26.0.0...
+#=#=#                                                                          
+##O#-#                                                                         
+Note: Deploying gnatcov=26.2.1...
+#=#=#                                                                          
+
+                                                                           0.0%
+##                                                                         3.6%
+###                                                                        5.3%
+####                                                                       6.7%
+########                                                                  11.8%
+#############                                                             19.2%
+###################                                                       27.7%
+########################                                                  33.6%
+##########################                                                37.3%
+#################################                                         46.8%
+#####################################                                     52.6%
+##########################################                                58.4%
+##################################################                        70.1%
+#####################################################                     75.0%
+#######################################################                   77.7%
+#########################################################                 79.6%
+##########################################################                81.8%
+###############################################################           87.9%
+###################################################################       93.5%
+#######################################################################   99.5%
+######################################################################## 100.0%
+Note: Deploying gnatprove=16.1.0...
+#=#=#                                                                          
+
+                                                                           0.0%
+#                                                                          2.2%
+###                                                                        4.4%
+####                                                                       6.2%
+####                                                                       6.8%
+#####                                                                      7.8%
+######                                                                     8.7%
+######                                                                     9.7%
+########                                                                  12.3%
+###########                                                               15.3%
+###########                                                               15.5%
+##############                                                            19.8%
+###############                                                           22.2%
+#################                                                         24.4%
+###################                                                       27.0%
+####################                                                      28.8%
+######################                                                    31.1%
+#######################                                                   33.3%
+#########################                                                 35.5%
+##########################                                                36.8%
+###########################                                               37.7%
+############################                                              39.9%
+##############################                                            42.1%
+###############################                                           44.3%
+#################################                                         46.6%
+##################################                                        47.7%
+###################################                                       48.8%
+####################################                                      51.0%
+######################################                                    53.2%
+#######################################                                   55.4%
+#########################################                                 57.6%
+###########################################                               59.9%
+############################################                              62.1%
+##############################################                            64.1%
+###############################################                           66.4%
+#################################################                         68.1%
+#################################################                         69.3%
+###################################################                       71.0%
+####################################################                      73.2%
+######################################################                    75.4%
+#######################################################                   77.6%
+#########################################################                 79.8%
+###########################################################               82.0%
+############################################################              84.3%
+##############################################################            86.5%
+###############################################################           88.7%
+#################################################################         90.9%
+###################################################################       93.1%
+####################################################################      95.3%
+######################################################################    97.6%
+#######################################################################   99.8%
+######################################################################## 100.0%
+
+Note: Running pre-build actions for opencv_core=0.5.2...
+Note: Running pre-build actions for opencv_imgproc=0.3.0...
+OpenCV package: opencv4
+OpenCV include: /usr/include/opencv4
+OpenCV library: /usr/lib/x86_64-linux-gnu
+Note: Running pre-build actions for tests=0.1.0...
+Note: Building tests=0.1.0/tests.gpr...
+Setup
+   [mkdir]        object directory for project AUnit
+   [mkdir]        library directory for project AUnit
+   [mkdir]        object directory for project OpenCV_Imgproc_Shim
+   [mkdir]        object directory for project Opencv_Imgproc
+   [mkdir]        object directory for project Tests
+   [mkdir]        exec directory for project Tests
+Compile
+   [Ada]          tests.adb
+   [C++]          opencv_imgproc_shim.cpp
+   [Ada]          opencv_imgproc_config.ads
+   [Ada]          opencv-image_processing-internal.ads
+   [Ada]          opencv-image_processing-internal-c_api.adb
+   [Ada]          opencv-image_processing.adb
+   [Ada]          aunit-io.ads
+   [Ada]          aunit-memory-utils.adb
+   [Ada]          aunit-memory.adb
+   [Ada]          aunit-time_measure.adb
+   [Ada]          aunit-reporter-xml.adb
+   [Ada]          aunit-reporter-text.adb
+   [Ada]          aunit-reporter-junit.adb
+   [Ada]          aunit-reporter-gnattest.adb
+   [Ada]          ada_containers.ads
+   [Ada]          ada_containers-aunit_lists.adb
+   [Ada]          aunit-run.adb
+   [Ada]          aunit-simple_test_cases.adb
+   [Ada]          aunit-test_suites.adb
+   [Ada]          aunit-test_results.adb
+   [Ada]          aunit-reporter.adb
+   [Ada]          aunit.adb
+   [Ada]          aunit-test_fixtures.adb
+   [Ada]          aunit-tests.ads
+   [Ada]          aunit-options.ads
+   [Ada]          aunit-test_cases.adb
+   [Ada]          aunit-assertions.adb
+   [Ada]          aunit-test_filters.adb
+   [Ada]          aunit-test_caller.adb
+   [Ada]          adaptive_threshold_tests.adb
+   [Ada]          automatic_threshold_tests.adb
+   [Ada]          ballard_template_tests.adb
+   [Ada]          bayer_demosaicing_tests.adb
+   [Ada]          bilateral_filter_tests.adb
+   [Ada]          box_blur_tests.adb
+   [Ada]          canny_edge_tests.adb
+   [Ada]          clahe_tests.adb
+   [Ada]          color_conversion_tests.adb
+   [Ada]          colormap_tests.adb
+   [Ada]          connected_component_tests.adb
+   [Ada]          contour_tests.adb
+   [Ada]          corner_analysis_tests.adb
+   [Ada]          derivative_kernel_tests.adb
+   [Ada]          distance_transform_tests.adb
+   [Ada]          draw_contour_tests.adb
+   [Ada]          drawing_annotation_tests.adb
+   [Ada]          drawing_tests.adb
+   [Ada]          earth_mover_lower_bound_tests.adb
+   [Ada]          earth_mover_tests.adb
+   [Ada]          extended_color_tests.adb
+   [Ada]          filter_2d_tests.adb
+   [Ada]          gaussian_blur_tests.adb
+   [Ada]          gaussian_kernel_tests.adb
+   [Ada]          guil_template_tests.adb
+   [Ada]          histogram_analysis_tests.adb
+guil_template_tests.adb:40:21: warning: lower bound check only fails if it is invalid [-gnatwc]
+guil_template_tests.adb:40:51: warning: lower bound check only fails if it is invalid [-gnatwc]
+opencv-internal-c_api.ads:565:26: error: C Vec3 size mismatch
+opencv-internal-c_api.ads:572:26: error: C UInt8 Vec4 size mismatch
+opencv-internal-c_api.ads:580:09: error: C UInt16 Vec4 size mismatch
+opencv-internal-c_api.ads:592:09: error: C Float32 Vec4 size mismatch
+opencv-internal-c_api.ads:595:09: error: C Float64 Vec4 size mismatch
+opencv-internal-c_api.ads:608:26: error: C UInt8 Vec2 size mismatch
+opencv-internal-c_api.ads:616:09: error: C UInt16 Vec2 size mismatch
+opencv-internal-c_api.ads:624:31: error: C Vec2 size mismatch
+opencv-internal-c_api.ads:626:26: error: C Vec2 size mismatch
+opencv-internal-c_api.ads:643:31: error: C Float16 Vec2 size
+opencv-internal-c_api.ads:649:31: error: C Float16 Vec4 size
+opencv-internal-c_api.ads:765:09: error: C UInt16 Vec3 size mismatch
+opencv-internal-c_api.ads:771:31: error: C Int16 Vec2 size
+opencv-internal-c_api.ads:777:31: error: C Int16 Vec3 size
+opencv-internal-c_api.ads:783:31: error: C Int16 Vec4 size
+opencv-internal-c_api.ads:789:31: error: C Int32 Vec2 size
+opencv-internal-c_api.ads:794:31: error: C Int32 Vec3 size
+opencv-internal-c_api.ads:799:31: error: C Int32 Vec4 size
+opencv-internal-c_api.ads:965:31: error: C Int8 Vec2 size
+opencv-internal-c_api.ads:970:31: error: C Int8 Vec3 size
+opencv-internal-c_api.ads:975:31: error: C Int8 Vec4 size
+
+   compilation of guil_template_tests.adb failed
+
+gprbuild: *** compilation phase failed
+ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/d9766b51-066e-4b8b-b32b-96789c979344/opencv_imgproc_0.3.0_496d5d07/tests/tests.gpr"] exited with code 4
+ERROR: Build failed
+[alr test] Test action exited with error code 1

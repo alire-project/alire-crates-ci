@@ -1,0 +1,168 @@
+Test ran at 2026-10-02 13:10:59.641696+00:00
+
+SOLUTION:
+hostarm=26.5.2: CGI provider for Ada Reference Manual (ARM)
+Origin: commit ec3fb45466686869ef050462174dfde1d2d58ab0 from https://github.com/jquorning/hostarm.git
+Properties:
+   Author: Jesper Quorning
+   Description: CGI provider for Ada Reference Manual (ARM)
+   Executable: hostarm
+   License: MIT
+   Long_Description: HostARM is a CGI program providing
+- Ada Reference Manual 2012
+- Ada Reference Manual 2022
+- Annotated Ada Reference Manual 202Y (Draft 5)
+
+HostARM focuses on user friendliness and more modern look of the manuals.
+
+Benefits
+- Search not dependant on external hosts
+- Keypress navigation
+- Shorter URL: Remove two levels of the URL and no html ending
+- Optional stripping of navigation bars
+- Optional modernized navigation bar
+- Alphabet navigation bar in index
+
+   Maintainer: Jesper Quorning <jesper.quorning@gmail.com>
+   Maintainers_Logins: jquorning
+   Name: hostarm
+   Tag: arm
+   Tag: aarm
+   Tag: reference
+   Tag: manual
+   Tag: ada202y
+   Version: 26.5.2
+   Website: https://github.com/jquorning/hostarm
+Dependencies (direct):
+   resources=0.1.0
+   templates_parser=26.0.0
+Dependencies (solution):
+   gnat=11.2.4 (gnat_native)
+   resources=0.1.0
+   templates_parser=26.0.0
+   xmlada=26.0.0
+Dependencies (graph):
+   hostarm=26.5.2          --> resources=0.1.0 (=0.1.0)
+   hostarm=26.5.2          --> templates_parser=26.0.0 (=26.0.0)
+   templates_parser=26.0.0 --> xmlada=26.0.0 (~26.0.0)
+   xmlada=26.0.0           --> gnat=11.2.4 (gnat_native) (>=11)
+
+
+LOG:
+[alr test] Testing hostarm=26.5.2
+[alr test] Spawning retrieval for remote crate: alr -d -n get hostarm=26.5.2
+Note: Deploying hostarm=26.5.2...
+Note: Deploying resources=0.1.0...
+Note: Deploying xmlada=26.0.0...
+
+#=#=#                                                                          
+##O#-#                                                                         
+##=O#- #                                                                       
+Note: Deploying templates_parser=26.0.0...
+
+#=#=#                                                                          
+##O#-#                                                                         
+##=O#- #                                                                       
+
+hostarm=26.5.2 successfully retrieved.
+Dependencies were solved as follows:
+
+   +b gnat             11.2.4 (new,gnat_native,indirect,binary)
+   +  resources        0.1.0  (new)
+   +  templates_parser 26.0.0 (new)
+   +  xmlada           26.0.0 (new,indirect)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Running post-fetch actions for xmlada=26.0.0...
+configure: loading site script /usr/local/etc/config.site
+checking build system type... x86_64-pc-mingw64
+checking host system type... x86_64-pc-mingw64
+checking target system type... x86_64-pc-mingw64
+checking whether gnat can build shared libs... yes
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether ln -s works... no, using cp -pR
+configure: creating ./config.status
+config.status: creating xmlada_shared.gpr
+config.status: creating Makefile
+config.status: creating tests/dom/default.gpr
+Note: Running post-fetch actions for templates_parser=26.0.0...
+Note: Building hostarm=26.5.2/hostarm.gpr...
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\resources_0.1.0_a418da62\96c29b6ac9aac430cfb15e8bce837e1e956267ff9c919a649910761f4522eef9\obj" created
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\resources_0.1.0_a418da62\96c29b6ac9aac430cfb15e8bce837e1e956267ff9c919a649910761f4522eef9\lib" created
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\xmlada_26.0.0_b140ed4a\ddbc547461f50610e7d49f06d7ffb69dd6b9aba251a6a72206904041dcb4c133\sax\obj\static" created
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\xmlada_26.0.0_b140ed4a\ddbc547461f50610e7d49f06d7ffb69dd6b9aba251a6a72206904041dcb4c133\sax\lib\static" created
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\templates_parser_26.0.0_bc2b9480\d3b8f36928c7564c1b203a8e994a0cf0404159aa851cddf44a3ab887fb58e611\.build\obj" created
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\templates_parser_26.0.0_bc2b9480\d3b8f36928c7564c1b203a8e994a0cf0404159aa851cddf44a3ab887fb58e611\.build\lib" created
+"obj\release" created
+"bin" created
+[Ada Compile]     resources.adb
+[C Compile]       whereami.c
+[Ada Compile]     templates_parser-configuration__standalone.ads
+[Ada Compile]     templates_parser-debug.adb
+[Ada Compile]     templates_parser-input__standalone.adb
+gnat1: invalid switch: -gnat2022
+templates_parser.gpr: error: [Ada Compile] templates_parser-debug.adb (templates_parser.gpr) failed with status 1
+gnat1: invalid switch: -gnat2022
+templates_parser.gpr: error: [Ada Compile] templates_parser-configuration__standalone.ads (templates_parser.gpr) failed with status 1
+gnat1: invalid switch: -gnat2022
+templates_parser.gpr: error: [Ada Compile] templates_parser-input__standalone.adb (templates_parser.gpr) failed with status 1
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "D:\a\alire-crates-ci\alire-crates-ci\test\3b2b4d81-5752-47a4-9ca6-ba030b7b416f\hostarm_26.5.2_ec3fb454\hostarm.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "D:\a\alire-crates-ci\alire-crates-ci\test\3b2b4d81-5752-47a4-9ca6-ba030b7b416f\hostarm_26.5.2_ec3fb454\hostarm.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+stderr: ALIRE.CHECKED_ERROR
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "D:\a\alire-crates-ci\alire-crates-ci\test\3b2b4d81-5752-47a4-9ca6-ba030b7b416f\hostarm_26.5.2_ec3fb454\hostarm.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
+[D:\a\alire-crates-ci\alire-crates-ci\alire_install\bin\alr.exe]
+0x7ff70ba5da2a Semantic_Versioning.Basic.Restrictions.First_Index at alire.adb:284
+0x7ff70b65595b Semantic_Versioning.Basic.Restrictions.First_Index at alire-os_lib-subprocess.adb:111
+0x7ff70b90cba1 Semantic_Versioning.Basic.Restrictions.First_Index at alire-spawn.adb:22
+0x7ff70b90dd5d Semantic_Versioning.Basic.Restrictions.First_Index at alire-spawn.adb:68
+0x7ff70b832d64 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:189
+0x7ff70b8311da Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:255
+0x7ff70b85912d Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2143
+0x7ff70b8c82f9 Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1472
+0x7ff70b8c7424 Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1555
+0x7ff70b85922c Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2147
+0x7ff70b8592fa Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2127
+0x7ff70b8317a7 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:286
+0x7ff70b831912 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:114
+0x7ff70afa3baa Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:145
+0x7ff70afa341e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:113
+0x7ff70afa35ba Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:54
+0x7ff70b055dea Semantic_Versioning.Basic.Restrictions.First_Index at clic-subcommand-instance.adb:749
+0x7ff70b062b0e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands.adb:632
+0x7ff70af316a0 Alr.Main at alr-main.adb:13
+0x7ff70af35270 Main at b__alr-main.adb:2454
+0x7ff70af3133e __tmainCRTStartup at ???
+0x7ff70af31144 mainCRTStartup at ???
+[C:\Windows\System32\KERNEL32.DLL]
+0x7ff89742e985
+[C:\Windows\SYSTEM32\ntdll.dll]
+0x7ff8986ec53a
+
+stderr: ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED
+stderr: alire-roots.adb:202
+stderr: raised ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED : alire-roots.adb:202
+[D:\a\alire-crates-ci\alire-crates-ci\alire_install\bin\alr.exe]
+0x7ff70b83313c Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:202
+0x7ff70b8311da Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:255
+0x7ff70b85912d Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2143
+0x7ff70b8c82f9 Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1472
+0x7ff70b8c7424 Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1555
+0x7ff70b85922c Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2147
+0x7ff70b8592fa Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2127
+0x7ff70b8317a7 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:286
+0x7ff70b831912 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:114
+0x7ff70afa3baa Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:145
+0x7ff70afa341e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:113
+0x7ff70afa35ba Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:54
+0x7ff70b055dea Semantic_Versioning.Basic.Restrictions.First_Index at clic-subcommand-instance.adb:749
+0x7ff70b062b0e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands.adb:632
+0x7ff70af316a0 Alr.Main at alr-main.adb:13
+0x7ff70af35270 Main at b__alr-main.adb:2454
+0x7ff70af3133e __tmainCRTStartup at ???
+0x7ff70af31144 mainCRTStartup at ???
+[C:\Windows\System32\KERNEL32.DLL]
+0x7ff89742e985
+[C:\Windows\SYSTEM32\ntdll.dll]
+0x7ff8986ec53a
+
+ERROR: Compilation failed.

@@ -1,0 +1,600 @@
+badge: false
+crate: rand
+creation_timestamp: 1770857924.195659
+distro: darwin-24.6.0
+duration: 6.139561875000027
+gnat: 14.2.1
+last_attempt: 2026-02-12 01:10:12.842226+00:00
+log:
+- 'Test ran at 2026-02-12 01:10:12.842023+00:00
+
+
+  '
+- 'SOLUTION:
+
+  '
+- 'rand=0.1.0: Random number generation toolkit
+
+  '
+- 'Origin: commit 6d1af921227f1e7e0d61bf3cee431af701b99508 from https://github.com/AldanTanneo/rand-ada.git
+
+  '
+- 'Properties:
+
+  '
+- "   Author: C\xE9sar SAGAERT\n"
+- "   Build Switches: \n"
+- '   Description: Random number generation toolkit
+
+  '
+- '   License: Apache-2.0 WITH LLVM-exception
+
+  '
+- '   Long_Description: # Random number generation toolkit for Ada
+
+  '
+- '
+
+  '
+- 'Design principles mostly inspired by the [rand](https://github.com/rust-random/rand)
+  Rust crate.
+
+  '
+- '
+
+  '
+- 'The project is split into several subcrates. `rand_core`, `rand_chacha`, `rand_xoshiro256`
+  and `rand_distributions` can be used on embedded; However, `rand_sys` (and its dependent
+  `rand`, the main crate) pull entropy from system sources, using the [`system_random`](https://alire.ada.dev/crates/system_random)
+  Alire crate.
+
+  '
+- '
+
+  '
+- '## Usage examples
+
+  '
+- '
+
+  '
+- 'Get a thread local instance of a secure Random Number Generator (RNG), seeded with
+  system entropy:
+
+  '
+- '
+
+  '
+- '```ada
+
+  '
+- 'with Rand;
+
+  '
+- 'R : Rand.Rng := Rand.Thread_Rng;
+
+  '
+- '--  alternatively:
+
+  '
+- 'R : Rand.Rng := Rand.Small_Rng;
+
+  '
+- '   --  a fast, unsecure RNG seeded with system entropy
+
+  '
+- 'R : Rand.Rng := Rand.Sys.Get;
+
+  '
+- '   --  RNG based on system randomness sources
+
+  '
+- '   --  (OS-dependent)
+
+  '
+- '```
+
+  '
+- '
+
+  '
+- 'Use convenience methods on the RNG to generate basic types:
+
+  '
+- '
+
+  '
+- '```ada
+
+  '
+- 'V1 : Float := R.Gen;        --  a float in the range [0, 1)
+
+  '
+- 'V2 : Long_Integer := R.Gen; --  a long integer over the whole range
+
+  '
+- '```
+
+  '
+- '
+
+  '
+- 'You can also define your own random number generators by implementing the `Rand.Core_Rng`
+  interface (alias for `Rand_Core.Rng`).
+
+  '
+- '
+
+  '
+- 'Use `Next` and `Next_Bytes` to get the raw output of any RNG:
+
+  '
+- '
+
+  '
+- '```ada
+
+  '
+- 'Buf : Rand.Core.Bytes (1 .. 256);
+
+  '
+- 'R.Next_Bytes (Buf);
+
+  '
+- 'X : Rand.Core.U64 := R.Next;
+
+  '
+- '```
+
+  '
+- '
+
+  '
+- 'Use a predefined random distribution to get finer random value selection:
+
+  '
+- '
+
+  '
+- '```ada
+
+  '
+- 'use Rand.Distributions;
+
+  '
+- 'D1 : Uniform_Nat.Distribution := Uniform_Nat.Create (8, 27);
+
+  '
+- 'S : Natural := D1.Sample (R);
+
+  '
+- '   --  sample in the inclusive range [8, 27]
+
+  '
+- '
+
+  '
+- 'D2 : Bernoulli := Bernoulli.Create (0.25);
+
+  '
+- 'S : Boolean := D2.Sample (R);
+
+  '
+- '   --  a boolean that is True 25% of the time
+
+  '
+- '```
+
+  '
+- '
+
+  '
+- 'Or define your own distributions:
+
+  '
+- '
+
+  '
+- '```ada
+
+  '
+- 'use Rand.Distributions;
+
+  '
+- '
+
+  '
+- 'type Gaussian is new Long_Float_Distr.Distribution with record
+
+  '
+- '   Sigma : Long_Float;
+
+  '
+- 'end record;
+
+  '
+- '
+
+  '
+- 'overriding
+
+  '
+- 'function Sample (D : Gaussian; R : in out Rand.Rng) return Long_Float
+
+  '
+- 'is (...); --  sampling the custom distribution
+
+  '
+- '```
+
+  '
+- '
+
+  '
+- 'Even on your own types:
+
+  '
+- '
+
+  '
+- '```ada
+
+  '
+- 'with Rand_Distributions; use Rand_Distributions;
+
+  '
+- '
+
+  '
+- 'type My_Rec is record
+
+  '
+- '   A : Integer;
+
+  '
+- '   B : Float;
+
+  '
+- 'end record;
+
+  '
+- '
+
+  '
+- 'package I is new Generic_Distribution (My_Rec);
+
+  '
+- '--  define the interface distributions over your type must implement
+
+  '
+- '
+
+  '
+- 'type My_Distr is new I.Distribution with null record;
+
+  '
+- '
+
+  '
+- 'overriding
+
+  '
+- 'function Sample (D : My_Distr; R : in out Rand.Rng) return My_Rec
+
+  '
+- 'is (A => 4, --  chosen by fair dice roll
+
+  '
+- '    B => R.Gen);
+
+  '
+- '```
+
+  '
+- '
+
+  '
+- "   Maintainer: C\xE9sar SAGAERT <sagaert@adacore.com>\n"
+- '   Maintainers_Logins: AldanTanneo
+
+  '
+- '   Name: rand
+
+  '
+- '   Tag: random
+
+  '
+- '   Tag: chacha20
+
+  '
+- '   Tag: rng
+
+  '
+- '   Tag: getrandom
+
+  '
+- '   Tag: security
+
+  '
+- '   Version: 0.1.0
+
+  '
+- '   Website: https://github.com/AldanTanneo/rand-ada
+
+  '
+- 'Dependencies (direct):
+
+  '
+- '   rand_chacha~0.1.0
+
+  '
+- '   rand_core~0.1.0
+
+  '
+- '   rand_distributions~0.1.0
+
+  '
+- '   rand_sys~0.1.0
+
+  '
+- '   rand_xoshiro256~0.1.0
+
+  '
+- 'Dependencies (solution):
+
+  '
+- '   rand_chacha=0.1.0
+
+  '
+- '   rand_core=0.1.0
+
+  '
+- '   rand_distributions=0.1.0
+
+  '
+- '   rand_sys=0.1.0
+
+  '
+- '   rand_xoshiro256=0.1.0
+
+  '
+- '   system_random=1.0.0
+
+  '
+- 'Dependencies (graph):
+
+  '
+- '   rand=0.1.0               --> rand_chacha=0.1.0 (~0.1.0)
+
+  '
+- '   rand=0.1.0               --> rand_core=0.1.0 (~0.1.0)
+
+  '
+- '   rand=0.1.0               --> rand_distributions=0.1.0 (~0.1.0)
+
+  '
+- '   rand=0.1.0               --> rand_sys=0.1.0 (~0.1.0)
+
+  '
+- '   rand=0.1.0               --> rand_xoshiro256=0.1.0 (~0.1.0)
+
+  '
+- '   rand_chacha=0.1.0        --> rand_core=0.1.0 (~0.1.0)
+
+  '
+- '   rand_distributions=0.1.0 --> rand_core=0.1.0 (~0.1.0)
+
+  '
+- '   rand_sys=0.1.0           --> rand_core=0.1.0 (~0.1.0)
+
+  '
+- '   rand_sys=0.1.0           --> system_random=1.0.0 (^1.0.0)
+
+  '
+- '   rand_xoshiro256=0.1.0    --> rand_core=0.1.0 (~0.1.0)
+
+  '
+- '
+
+  '
+- '
+
+  LOG:
+
+  '
+- '[alr test] Testing rand=0.1.0
+
+  '
+- '[alr test] Spawning retrieval for remote crate: alr -d -n get rand=0.1.0
+
+  '
+- 'Note: Deploying rand=0.1.0...
+
+  '
+- '
+
+  '
+- 'rand=0.1.0 successfully retrieved.
+
+  '
+- 'Dependencies were solved as follows:
+
+  '
+- '
+
+  '
+- '   + rand_chacha        0.1.0 (new)
+
+  '
+- '   + rand_core          0.1.0 (new)
+
+  '
+- '   + rand_distributions 0.1.0 (new)
+
+  '
+- '   + rand_sys           0.1.0 (new)
+
+  '
+- '   + rand_xoshiro256    0.1.0 (new)
+
+  '
+- '   + system_random      1.0.0 (new,indirect)
+
+  '
+- '[alr test] Spawning default test for remote crate: alr -d -n build --release --
+  -cargs:Ada -gnatwn
+
+  '
+- 'Note: Building rand=0.1.0/rand.gpr...
+
+  '
+- 'Setup
+
+  '
+- '   [mkdir]        object directory for project Rand_Chacha
+
+  '
+- '   [mkdir]        library directory for project Rand_Chacha
+
+  '
+- '   [mkdir]        object directory for project Rand_Distributions
+
+  '
+- '   [mkdir]        library directory for project Rand_Distributions
+
+  '
+- '   [mkdir]        object directory for project Rand_Sys
+
+  '
+- '   [mkdir]        library directory for project Rand_Sys
+
+  '
+- '   [mkdir]        object directory for project Rand_Xoshiro256
+
+  '
+- '   [mkdir]        library directory for project Rand_Xoshiro256
+
+  '
+- '   [mkdir]        object directory for project Rand
+
+  '
+- '   [mkdir]        library directory for project Rand
+
+  '
+- 'Compile
+
+  '
+- '   [Ada]          rand_xoshiro256_config.ads
+
+  '
+- '   [Ada]          rand_xoshiro256.adb
+
+  '
+- '   [Ada]          rand_sys_config.ads
+
+  '
+- '   [Ada]          rand_sys.adb
+
+  '
+- '   [Ada]          rand_distributions_config.ads
+
+  '
+- '   [Ada]          rand_distributions-uniform.adb
+
+  '
+- '   [Ada]          rand_distributions.ads
+
+  '
+- '   [Ada]          rand_distributions-bernoulli.ads
+
+  '
+- '   [Ada]          rand_chacha_config.ads
+
+  '
+- '   [Ada]          rand_chacha.adb
+
+  '
+- '   [Ada]          rand_config.ads
+
+  '
+- '   [Ada]          rand-sequence.adb
+
+  '
+- 'rand-sequence.adb:2:28: error: argument for pragma "Extensions_Allowed" must be
+  "On" or "Off" or "All"
+
+  '
+- '
+
+  '
+- '   compilation of rand-sequence.adb failed
+
+  '
+- '
+
+  '
+- 'gprbuild: *** compilation phase failed
+
+  '
+- 'stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/Users/runner/work/alire-crates-ci/alire-crates-ci/test/ec0470f9-cfca-4360-830f-4413081f4317/rand_0.1.0_6d1af921/rand.gpr",
+  "-cargs:Ada", "-gnatwn"] exited with code 4
+
+  '
+- 'ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/Users/runner/work/alire-crates-ci/alire-crates-ci/test/ec0470f9-cfca-4360-830f-4413081f4317/rand_0.1.0_6d1af921/rand.gpr",
+  "-cargs:Ada", "-gnatwn"] exited with code 4
+
+  '
+- 'stderr: ALIRE.CHECKED_ERROR
+
+  '
+- 'stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/Users/runner/work/alire-crates-ci/alire-crates-ci/test/ec0470f9-cfca-4360-830f-4413081f4317/rand_0.1.0_6d1af921/rand.gpr",
+  "-cargs:Ada", "-gnatwn"] exited with code 4
+
+  '
+- 'stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
+
+  '
+- 'Load address: 0x104004000
+
+  '
+- 'Call stack traceback locations:
+
+  '
+- '0x104d100cc 0x104d1012c 0x104a6466c 0x1046a9568 0x10492e594 0x10492f4f4 0x10486d33c
+  0x10486bb08 0x10488f78c 0x1048ef56c 0x1048ee99c 0x10488f868 0x10488f950 0x10486c00c
+  0x10486c174 0x104075730 0x104075070 0x1040751e4 0x104112b38 0x10411dc78 0x1040069f8
+  0x10400ba2c
+
+  '
+- '
+
+  '
+- 'stderr: ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED
+
+  '
+- 'stderr: alire-roots.adb:202
+
+  '
+- 'stderr: raised ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED : alire-roots.adb:202
+
+  '
+- 'Load address: 0x104004000
+
+  '
+- 'Call stack traceback locations:
+
+  '
+- '0x104d100cc 0x104d1012c 0x10486d640 0x10486bb08 0x10488f78c 0x1048ef56c 0x1048ee99c
+  0x10488f868 0x10488f950 0x10486c00c 0x10486c174 0x104075730 0x104075070 0x1040751e4
+  0x104112b38 0x10411dc78 0x1040069f8 0x10400ba2c
+
+  '
+- '
+
+  '
+- 'ERROR: Compilation failed.
+
+  '
+platform: macos
+status: failing
+version: 0.1.0

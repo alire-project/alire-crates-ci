@@ -1,0 +1,76 @@
+Test ran at 2026-10-08 12:44:31.568650+00:00
+
+SOLUTION:
+opencv_core=0.4.0: Thick Ada binding to OpenCV Core Library
+Origin: commit 99867564ad5d4560a95ed18038104771a1673ac6 from https://github.com/zackboll/opencv_core_ada.git
+Properties:
+   Pre_Build run: sh scripts/configure_opencv.sh (from ${CRATE_ROOT}/.)
+   Test run: alr -n build (from ${CRATE_ROOT}/.)
+   Test run: alr run (from ${CRATE_ROOT}/tests)
+   Author: Zack Boll
+   Description: Thick Ada binding to OpenCV Core Library
+   case Distribution is
+      when Msys2 => Environment: PATH=${CRATE_ROOT}/lib:${PATH}
+   License: Apache-2.0
+   Maintainer: Zack Boll <zackboll@gmail.com>
+   Maintainers_Logins: zackboll
+   Name: opencv_core
+   Tag: opencv
+   Tag: computer-vision
+   Tag: binding
+   Tag: ada
+   Version: 0.4.0
+   Website: https://github.com/zackboll/opencv_core_ada
+Dependencies (direct):
+   case OS is
+      when Windows => mingw_w64_gcc*
+   opencv*
+   pkg_config*
+Dependencies (solution):
+   opencv=4.6.0
+   pkg_config=1.8.1
+Dependencies (graph):
+   opencv_core=0.4.0 --> opencv=4.6.0 (*)
+   opencv_core=0.4.0 --> pkg_config=1.8.1 (*)
+
+
+LOG:
+Note: Running pre-build actions for opencv_core=0.4.0...
+Note: Building opencv_core=0.4.0/opencv_core.gpr...
+Setup
+   [mkdir]        object directory for project OpenCV_Core_Shim
+   [mkdir]        library directory for project OpenCV_Core_Shim
+   [mkdir]        object directory for project OpenCV_Core
+Compile
+   [C++]          opencv_core_shim.cpp
+   [Ada]          opencv_core_config.ads
+   [Ada]          opencv-internal-c_api.adb
+   [Ada]          opencv-core-internal-typed_row_borrowing.adb
+   [Ada]          opencv-core-internal.ads
+   [Ada]          opencv-internal-safe_arithmetic.adb
+   [Ada]          opencv-core-sparse-typed_vector_iteration_impl.adb
+   [Ada]          opencv-core-sparse-typed_vector_impl.adb
+   [Ada]          opencv-core-sparse-typed_impl.adb
+   [Ada]          opencv-internal.ads
+   [Ada]          opencv-core-internal-continuous_data.adb
+   [Ada]          opencv-core-sparse-typed_iteration_impl.adb
+   [Ada]          opencv-core-internal-typed_continuous_borrowing.adb
+   [Ada]          opencv-core-internal-typed_external_mat_view.adb
+   [Ada]          opencv-core-internal-row_data.adb
+   [Ada]          opencv-core-internal-typed_access.adb
+   [Ada]          opencv-core-float64_vec3_access.adb
+   [Ada]          opencv-core-int32_vec3.ads
+   [Ada]          opencv-core-int16_buffer_access.adb
+   [Ada]          opencv-core-sparse-int8_access.adb
+   [Ada]          opencv-core-int16_vec2_mat_view.adb
+   [Ada]          opencv-core-int8_access.adb
+opencv-core-int16_vec2_mat_view.adb:12:54: condition is not known at compile time
+opencv-core-int16_vec2_mat_view.adb:18:04: instantiation error at opencv-core-internal-typed_external_mat_view.adb:28
+opencv-core-int16_vec2_mat_view.adb:18:04: condition is not known at compile time
+
+   compilation of opencv-core-int16_vec2_mat_view.adb failed
+
+gprbuild: *** compilation phase failed
+ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/1ec7a4a1-b4c7-47eb-92d0-91abe78a9552/opencv_core_0.4.0_99867564/opencv_core.gpr"] exited with code 4
+ERROR: Compilation failed.
+[alr test] Test action exited with error code 1

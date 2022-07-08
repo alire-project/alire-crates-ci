@@ -1,0 +1,92 @@
+Test ran at 2025-07-16 01:10:16.030459+00:00
+
+SOLUTION:
+elogs=1.2.0: Embedded logging, proven absent of runtime errors
+Origin: commit 42da537ea13971a33940a47590b39d37fc022d5c from https://github.com/kevlar700/elogs.git
+Properties:
+   Author: Kevin Chadwick
+   Build Switches: 
+   Config type: Device_ID_Length : Integer range -9223372036854775808 .. 9223372036854775807 default: '12'
+   Config type: Max_Log_Count : Integer range -9223372036854775808 .. 9223372036854775807 default: '50'
+   Config type: Max_Message_Length : Integer range -9223372036854775808 .. 9223372036854775807 default: '200'
+   Config type: Version_Length : Integer range -9223372036854775808 .. 9223372036854775807 default: '8'
+   Configuration: no modifiers
+   Description: Embedded logging, proven absent of runtime errors
+   License: ISC OR BSD-2-Clause
+   Maintainer: Kevin Chadwick <kc-ada@elansys.co>
+   Maintainers_Logins: kevlar700
+   Name: elogs
+   Tag: spark
+   Tag: embedded
+   Tag: zfp
+   Tag: logging
+   Tag: log
+   Version: 1.2.0
+   Website: https://github.com/kevlar700/elogs
+Dependencies (direct):
+   gnat(>=13 & <2000) | ^11 | >=2020
+Dependencies (solution):
+   gnat=11.2.4 (gnat_native)
+Dependencies (graph):
+   elogs=1.2.0 --> gnat=11.2.4 (gnat_native) ((>=13 & <2000) | ^11 | >=2020)
+
+
+LOG:
+Spawning: alr -d -n get --build elogs=1.2.0
+Note: Deploying elogs=1.2.0...
+Note: Building elogs=1.2.0/elogs.gpr...
+Setup
+   [mkdir]        object directory for project Elogs
+   [mkdir]        library directory for project Elogs
+Compile
+   [Ada]          elogs_config.ads
+   [Ada]          elogs_test.adb
+   [Ada]          elogs.adb
+gnat1: invalid switch: -gnat2022
+gnat1: invalid switch: -gnat2022
+gnat1: invalid switch: -gnat2022
+
+   compilation of elogs.adb failed
+   compilation of elogs_test.adb failed
+   compilation of elogs_config.ads failed
+
+gprbuild: *** compilation phase failed
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "D:\a\alire-crates-ci\alire-crates-ci\test\15940269-316c-40d8-85ad-416e6ee944d4\elogs_1.2.0_42da537e\elogs.gpr"] exited with code 4
+ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "D:\a\alire-crates-ci\alire-crates-ci\test\15940269-316c-40d8-85ad-416e6ee944d4\elogs_1.2.0_42da537e\elogs.gpr"] exited with code 4
+stderr: ALIRE.CHECKED_ERROR
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "D:\a\alire-crates-ci\alire-crates-ci\test\15940269-316c-40d8-85ad-416e6ee944d4\elogs_1.2.0_42da537e\elogs.gpr"] exited with code 4
+stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
+[D:\a\alire-crates-ci\alire-crates-ci\alire_install\bin\alr.exe]
+0x7ff64136b6aa Semantic_Versioning.Basic.Restrictions.First_Index at alire.adb:284
+0x7ff640f862cb Semantic_Versioning.Basic.Restrictions.First_Index at alire-os_lib-subprocess.adb:111
+0x7ff641229ee1 Semantic_Versioning.Basic.Restrictions.First_Index at alire-spawn.adb:21
+0x7ff64122a5bf Semantic_Versioning.Basic.Restrictions.First_Index at alire-spawn.adb:41
+0x7ff64115e35c Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:186
+0x7ff64115c84a Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:252
+0x7ff6411829c9 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2075
+0x7ff6411f10ed Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1480
+0x7ff6411f0218 Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1563
+0x7ff641182ac8 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2079
+0x7ff641182b96 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2059
+0x7ff64115ce0e Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:283
+0x7ff64115cf0a Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:111
+0x7ff640924f23 Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-get.adb:205
+0x7ff6409288df Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-get.adb:378
+0x7ff640928a9a Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-get.adb:256
+0x7ff6409c1628 Semantic_Versioning.Basic.Restrictions.First_Index at clic-subcommand-instance.adb:749
+0x7ff6409cdeeb Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands.adb:561
+0x7ff6408a16a0 Alr.Main at alr-main.adb:13
+0x7ff6408a4f2e Main at b__alr-main.adb:2306
+0x7ff6408a133e __tmainCRTStartup at ???
+0x7ff6408a1144 mainCRTStartup at ???
+[C:\Windows\System32\KERNEL32.DLL]
+0x7ff896544cae
+[C:\Windows\SYSTEM32\ntdll.dll]
+0x7ff897c5edc9
+
+
+Warning: elogs=1.2.0 successfully retrieved but its build failed.
+Dependencies were solved as follows:
+
+   +b gnat 11.2.4 (new,gnat_native,binary)
+ERROR: Build ended with errors

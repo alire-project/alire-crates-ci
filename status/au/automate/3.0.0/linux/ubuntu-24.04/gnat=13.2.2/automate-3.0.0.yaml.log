@@ -1,0 +1,76 @@
+Test ran at 2025-02-06 00:55:14.502278+00:00
+
+SOLUTION:
+automate=3.0.0: Ada finite-state machine generator
+Origin: commit b83dfb7701b9f27aaa2c6b40467c99c55f1ee92f from https://github.com/Blady-Com/Automate.git
+Properties:
+   Author: Pascal Pignard
+   Description: Ada finite-state machine generator
+   Executable: genauto
+   case OS is
+      when Macos => GPR External: GENAUTO_LINKER_FLAGS := -Wl,-no_pie
+   License: CECILL-2.1
+   Maintainer: Pascal Pignard <blady.net@orange.fr>
+   Maintainers_Logins: Blady-Com
+   Name: automate
+   Tag: automaton
+   Tag: generator
+   Version: 3.0.0
+   Website: https://github.com/Blady-Com/Automate
+Dependencies (direct):
+   uxstrings>=0.6
+Dependencies (solution):
+   gnat=13.2.2 (gnat_native)
+   uxstrings=0.8.2+alpha-20250125
+Dependencies (graph):
+   automate=3.0.0                 --> uxstrings=0.8.2+alpha-20250125 (>=0.6)
+   uxstrings=0.8.2+alpha-20250125 --> gnat=13.2.2 (gnat_native) (^13.0)
+
+
+LOG:
+Spawning: alr -d -n get --build automate=3.0.0
+Note: Deploying automate=3.0.0...
+Note: Deploying uxstrings=0.8.2+alpha-20250125...
+Note: Building automate=3.0.0/automate.gpr...
+automate.gpr:1:06: imported project file "lib_uxstrings3.gpr" not found
+gprbuild: "/home/runner/work/alire-crates-ci/alire-crates-ci/test/af528825-bdee-4796-8ff1-31045317d66a/automate_3.0.0_b83dfb77/automate.gpr" processing failed
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/af528825-bdee-4796-8ff1-31045317d66a/automate_3.0.0_b83dfb77/automate.gpr"] exited with code 4
+ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/af528825-bdee-4796-8ff1-31045317d66a/automate_3.0.0_b83dfb77/automate.gpr"] exited with code 4
+stderr: ALIRE.CHECKED_ERROR
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/af528825-bdee-4796-8ff1-31045317d66a/automate_3.0.0_b83dfb77/automate.gpr"] exited with code 4
+stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
+[/home/runner/work/alire-crates-ci/alire-crates-ci/alire_install/bin/alr]
+0xe16f5e Alire.Raise_Checked_Error at alire.adb:284
+0xa845be Alire.Os_Lib.Subprocess.Checked_Spawn at alire-os_lib-subprocess.adb:111
+0xcef7be Alire.Spawn.Command at alire-spawn.adb:21
+0xcefdde Alire.Spawn.Gprbuild at alire-spawn.adb:41
+0xc31d1f Alire.Roots.Build at alire-roots.adb:186
+0xc304da Alire.Roots.Build at alire-roots.adb:252
+0xc53d6f Alire.Roots.Traverse at alire-roots.adb:2075
+0xcba1fd Alire.Solutions.Traverse.Visit at alire-solutions.adb:1480
+0xcb9344 Alire.Solutions.Traverse at alire-solutions.adb:1563
+0xc53e62 Alire.Roots.Traverse at alire-roots.adb:2079
+0xc53f21 Alire.Roots.Traverse at alire-roots.adb:2059
+0xc30a46 Alire.Roots.Build at alire-roots.adb:283
+0xc30b2b Alire.Roots.Build at alire-roots.adb:111
+0x4a5e38 Alr.Commands.Get.Retrieve at alr-commands-get.adb:205
+0x4a94f3 Alr.Commands.Get.Execute at alr-commands-get.adb:378
+0x4a96a1 Alr.Commands.Get.Execute at alr-commands-get.adb:256
+0x533c96 Alr.Commands.Sub_Cmd.Execute at clic-subcommand-instance.adb:749
+0x53eff7 Alr.Commands.Execute at alr-commands.adb:561
+0x43953a Alr.Main at alr-main.adb:13
+0x43c1d3 Main at b__alr-main.adb:2299
+[/lib/x86_64-linux-gnu/libc.so.6]
+0x7fc4d002a1c8
+0x7fc4d002a289
+[/home/runner/work/alire-crates-ci/alire-crates-ci/alire_install/bin/alr]
+0x4393dc _start at ???
+0xfffffffffffffffe
+
+
+Warning: automate=3.0.0 successfully retrieved but its build failed.
+Dependencies were solved as follows:
+
+   +b gnat      13.2.2               (new,gnat_native,indirect,binary)
+   +  uxstrings 0.8.2+alpha-20250125 (new)
+ERROR: Build ended with errors

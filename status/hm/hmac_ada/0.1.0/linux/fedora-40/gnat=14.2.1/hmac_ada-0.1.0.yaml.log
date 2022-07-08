@@ -1,0 +1,52 @@
+Test ran at 2026-04-25 13:28:09.936407+00:00
+
+SOLUTION:
+hmac_ada=0.1.0: SPARK-proved HMAC (RFC 2104) implementation for Ada/SPARK
+Origin: commit fa03673fd91b3e8a155ae321d03ca1f0bc839540 from https://github.com/b-erdem/hmac_ada.git
+Properties:
+   Author: Baris Erdem
+   Description: SPARK-proved HMAC (RFC 2104) implementation for Ada/SPARK
+   License: Apache-2.0
+   Long_Description: SPARK-proved HMAC (RFC 2104) with standalone SHA-256 (FIPS 180-4) for Ada 2022.
+174 proof obligations fully discharged at Level 2 with zero pragma Assume.
+Constant-time digest comparison, secure wipe of key material, no heap
+allocation, pragma Pure. Suitable for embedded and safety-critical systems.
+Includes streaming and one-shot APIs, plus a generic HMAC package for other
+hash functions.
+
+   Maintainer: Baris Erdem <baris@erdem.dev>
+   Maintainers_Logins: b-erdem
+   Name: hmac_ada
+   Tag: hmac
+   Tag: rfc2104
+   Tag: cryptography
+   Tag: spark
+   Tag: embedded
+   Tag: security
+   Version: 0.1.0
+   Website: https://github.com/b-erdem/hmac_ada
+
+
+LOG:
+[alr test] Testing hmac_ada=0.1.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get hmac_ada=0.1.0
+Note: Deploying hmac_ada=0.1.0...
+
+hmac_ada=0.1.0 successfully retrieved.
+There are no dependencies.
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building hmac_ada=0.1.0/hmac_ada.gpr...
+Setup
+   [mkdir]        object directory for project HMAC_Ada
+   [mkdir]        library directory for project HMAC_Ada
+Compile
+   [Ada]          hmac_sha256.adb
+   [Ada]          sha256.adb
+   [Ada]          hmac.adb
+Build Libraries
+   [gprlib]       hmac_ada.lexch
+   [archive]      libhmac_ada.a
+   [index]        libhmac_ada.a
+Success: Build finished successfully in 0.36 seconds.
+Found declared GPR file: hmac_ada.gpr
+[alr test] Test completed SUCCESSFULLY

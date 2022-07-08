@@ -1,0 +1,115 @@
+Test ran at 2026-10-28 01:00:33.798782+00:00
+
+SOLUTION:
+adacl_aunit=8.1.0: AdaCL desktop: Readable AUnit asserts and parameterised tests
+Origin: source archive adacl_aunit-8.1.0.tgz at https://sourceforge.net/projects/adacl/files/Alire/adacl_aunit-8.1.0.tgz with hashes sha256:236ca7e09e05e193dd2461f29268b6ceeb11eab6a35edf12a5542fefa80fcf4d, sha512:88c257b27732e07edbc88885d16844cec544b21f5242d0ea3350ed17f676191b037fa0ac6173033265ed48b3927edbdc319c5bca633b8834110e3f2a5e9a01b3
+Properties:
+   Test run: alr test (from ${CRATE_ROOT}/test)
+   Author: Martin Krischik <krischik@users.sourceforge.net>
+   Build Switches: 
+   Description: AdaCL desktop: Readable AUnit asserts and parameterised tests
+   License: GPL-3.0-or-later
+   Long_Description: A versatile Ada 2022 testing library, enhancing AUnit with readable assertions and
+parameterised tests.
+
+## Features
+
+### AUnit-Compatible Assertions
+
+  - Generic support for access, array, discrete, floating-point, fixed-point, decimal, vector types, and files.
+  - **Readable Error Messages**: Assertions provide detailed feedback.
+
+Example for unbounded strings:
+
+```ada
+    procedure Equal
+       (Actual	 : Ada.Strings.Unbounded.Unbounded_String;
+	Expected : String;
+	Name	 : String;
+	Source	 : String  := GNAT.Source_Info.File;
+	Line	 : Natural := GNAT.Source_Info.Line)
+    is
+       use Ada.Strings.Unbounded;
+    begin
+       if not (Actual = Expected) then
+	  Report_Assertion
+	     (Message => "In string Â«" & Name & "Â» the " & Actual'Image & " is not equal to " & Expected'Image,
+	      Source  => Source,
+	      Line    => Line);
+       end if;
+    end Equal;
+```
+
+This yields clear, context-rich error messages, surpassing standard AUnit
+output.
+
+## Parameterised Tests
+
+Run the same test with varied inputs and expected values, boosting coverage
+efficiently.
+
+Example from hp41cx_tools:
+
+```ada
+overriding procedure Register_Tests (T : in out Test_Case) is
+   pragma Debug (AdaCL.Trace.Entering (In_Parameter => T.Name.all'Image));
+begin
+   T.Parameter.Register_Routine (T, Test_To_HP_Duration_01'Access, "WAKE_UP",	   "2024-12-01 08:00:00",   [3, 9, 4, 2, 0, 2, 8, 8, 0, 0, 0], 3942028800.0);
+   T.Parameter.Register_Routine (T, Test_To_HP_Duration_01'Access, "^LBLTEST",	   "2025-07-22 12:00:00",   [3, 9, 6, 2, 1, 7, 4, 4, 0, 0, 0], 3962174400.0);
+   T.Parameter.Register_Routine (T, Test_To_HP_Duration_01'Access, "TONE",	   "2025-11-12 09:12:34",   [3, 9, 7, 1, 9, 2, 7, 5, 5, 4, 0], 3971927554.0);
+   T.Parameter.Register_Routine (T, Test_To_HP_Duration_01'Access, "FRACTION",	   "2025-11-12 09:12:34.5", [3, 9, 7, 1, 9, 2, 7, 5, 5, 4, 5], 3971927554.5);
+   T.Parameter.Register_Routine (T, Test_To_HP_Duration_01'Access, "REPEAT24",	   "24:00:00",		    [0, 0, 0, 0, 0, 8, 6, 4, 0, 0, 0], 0000086400.0);
+   T.Parameter.Register_Routine (T, Test_To_HP_Duration_01'Access, "REPEAT'First", "0000:00:01.0",	    [0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0], 0000000010.0);
+   T.Parameter.Register_Routine (T, Test_To_HP_Duration_01'Access, "REPEAT'Last",  "9999:59:59.9",	    [0, 0, 3, 5, 9, 9, 9, 9, 9, 9, 9], 0035999999.9);
+   pragma Debug (AdaCL.Trace.Exiting);
+   return;
+end Register_Tests;
+```
+
+Registering tests multiple times with different data enhances test coverage
+without redundant code.
+
+Source: [SourceForge](https://sourceforge.net/p/adacl/git/ci/master/tree/adacl_aunit/)
+Documentation:  [Overview](https://adacl.sourceforge.net/adacl-aunit/) and
+[GNATdoc](https://adacl.sourceforge.net/gnatdoc/index.html)
+
+   Maintainer: Martin Krischik <krischik@users.sourceforge.net>
+   Maintainers_Logins: krischik
+   Name: adacl_aunit
+   Tag: library
+   Tag: aunit
+   Tag: assert
+   Tag: ada2022
+   Version: 8.1.0
+   Website: https://sourceforge.net/projects/adacl_aunit/
+Dependencies (direct):
+   adacl_desktop^8.1
+   aunit^26.0.0
+Dependencies (solution):
+   adacl=8.1.0
+   adacl_desktop=8.1.0
+   aunit=26.0.0
+   gnat_native=16.1.0
+   gprbuild=26.0.1
+Dependencies (graph):
+   adacl=8.1.0         --> gnat_native=16.1.0 (^16.1)
+   adacl=8.1.0         --> gprbuild=26.0.1 (^26.0)
+   adacl_aunit=8.1.0   --> adacl_desktop=8.1.0 (^8.1)
+   adacl_aunit=8.1.0   --> aunit=26.0.0 (^26.0.0)
+   adacl_desktop=8.1.0 --> adacl=8.1.0 (^8.1)
+
+
+LOG:
+Note: Synchronizing workspace...
+Dependencies automatically updated as follows:
+
+   +  adacl         8.1.0  (new)
+   +. adacl_aunit   8.1.0  (new,path=..)
+   +  adacl_desktop 8.1.0  (new,indirect)
+   +  aunit         26.0.0 (new,indirect)
+   +b gnat_native   16.1.0 (new,indirect,binary)
+   +b gprbuild      26.0.1 (new,indirect,binary)
+
+Success: Test ended successfully.
+Note: Check log at /home/runner/work/alire-crates-ci/alire-crates-ci/test/2fde3ec9-234f-4eaf-8158-504c2981ec82/adacl_aunit_8.1.0_236ca7e0/test/alire/alr_test_local.log
+[alr test] Test completed SUCCESSFULLY

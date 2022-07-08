@@ -1,0 +1,122 @@
+Test ran at 2025-12-30 01:15:18.512865+00:00
+
+SOLUTION:
+tinyaml=0.1.0: A strict YAML subset parser for Ada, inspired by StrictYAML
+Origin: commit d76a83bd03a9a1170a6bee8993c4186e671d53ff from https://github.com/geewiz/tinyaml_ada.git
+Properties:
+   Author: Jochen Lillich
+   Description: A strict YAML subset parser for Ada, inspired by StrictYAML
+   GPR Scenario: TINYAML_STYLE_CHECKS := -gnaty3abcefhiklmnoprstux | -gnatyN
+   GPR External: TINYAML_STYLE_CHECKS := -gnaty3abcefhiklmnoprstux
+   License: MIT
+   Maintainer: Jochen Lillich <hello@geewiz.dev>
+   Maintainers_Logins: geewiz
+   Name: tinyaml
+   Tag: yaml
+   Tag: parser
+   Tag: validation
+   Tag: configuration
+   Tag: strictyaml
+   Version: 0.1.0
+   Website: https://github.com/geewiz/tinyaml
+Dependencies (direct):
+   gnat>=13
+Dependencies (solution):
+   gnat=15.2.1 (gnat_external)
+Dependencies (graph):
+   tinyaml=0.1.0 --> gnat=15.2.1 (gnat_external) (>=13)
+
+
+LOG:
+[alr test] Testing tinyaml=0.1.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get tinyaml=0.1.0
+Note: Deploying tinyaml=0.1.0...
+
+tinyaml=0.1.0 successfully retrieved.
+Dependencies were solved as follows:
+
+   +b gnat 15.2.1 (new,gnat_external,executable in path)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Alire has selected automatically this toolchain:
+   gprbuild=25.0.1
+   gnat_native=15.2.1
+You can select a different toolchain at any time with `alr toolchain --select`
+Download will start now:
+Note: Deploying gprbuild=25.0.1...
+
+#=#=#                                                                          
+################                                                          22.9%
+##############################                                            42.3%
+####################################                                      51.0%
+################################################################          89.7%
+######################################################################## 100.0%
+Note: gprbuild=25.0.1 installed successfully.
+Note: Deploying gnat_native=15.2.1...
+
+#=#=#                                                                          
+#####                                                                      7.4%
+##########                                                                14.0%
+#############                                                             18.3%
+################                                                          23.1%
+#####################                                                     29.2%
+#######################                                                   32.9%
+###########################                                               37.8%
+#############################                                             41.2%
+###############################                                           44.0%
+##################################                                        48.0%
+#######################################                                   55.3%
+###########################################                               59.9%
+#############################################                             62.8%
+##############################################                            65.0%
+###################################################                       72.2%
+#######################################################                   77.8%
+###########################################################               82.6%
+################################################################          89.2%
+##################################################################        92.4%
+#####################################################################     96.6%
+######################################################################## 100.0%
+Note: gnat_native=15.2.1 installed successfully.
+Note: Building tinyaml=0.1.0/tinyaml.gpr...
+Setup
+   [mkdir]        object directory for project Tinyaml
+   [mkdir]        library directory for project Tinyaml
+Compile
+   [Ada]          tinyaml_config.ads
+   [Ada]          tinyaml-schemas-flt.adb
+   [Ada]          tinyaml-schemas-any.ads
+   [Ada]          tinyaml-schemas-map.adb
+   [Ada]          tinyaml-nodes-sequence.adb
+   [Ada]          tinyaml-nodes-prelude.ads
+tinyaml-schemas-flt.adb:6:04: (style) subprogram body has no previous spec [-gnatys]
+   [Ada]          tinyaml-schemas-bool.adb
+   [Ada]          tinyaml-nodes-navigation.adb
+   [Ada]          tinyaml-nodes.adb
+tinyaml-schemas-bool.adb:7:04: (style) subprogram body has no previous spec [-gnatys]
+   [Ada]          tinyaml-schemas-int.adb
+   [Ada]          tinyaml-parser.adb
+   [Ada]          tinyaml-schemas-str.adb
+   [Ada]          tinyaml-schemas-constraints.ads
+   [Ada]          tinyaml-schemas-seq.adb
+tinyaml-parser.adb:59:13: (style) subprogram body "Parse_Value_After_Colon" not in alphabetical order [-gnatyo]
+tinyaml-parser.adb:137:13: (style) subprogram body "Parse_Indented_Value" not in alphabetical order [-gnatyo]
+   [Ada]          tinyaml-lexer.adb
+tinyaml-schemas-seq.adb:12:13: (style) subprogram body "Get_Schema" not in alphabetical order [-gnatyo]
+tinyaml-schemas-seq.adb:38:24: (style) subprogram body "Describe" not in alphabetical order [-gnatyo]
+   [Ada]          tinyaml-nodes-map.adb
+   [Ada]          tinyaml-schemas.adb
+   [Ada]          tinyaml-schemas-enum.adb
+   [Ada]          tinyaml-nodes-scalar.adb
+   [Ada]          tinyaml-validation.adb
+   [Ada]          tinyaml-schemas-prelude.ads
+   [Ada]          tinyaml-schemas-constraints-range_constraint.adb
+tinyaml-schemas-constraints-range_constraint.adb:3:04: (style) subprogram body has no previous spec [-gnatys]
+tinyaml-schemas-constraints-range_constraint.adb:13:24: (style) subprogram body "Check" not in alphabetical order [-gnatyo]
+   [Ada]          tinyaml.adb
+tinyaml-schemas-enum.adb:16:24: (style) subprogram body "Is_Valid" not in alphabetical order [-gnatyo]
+Build Libraries
+   [gprlib]       Tinyaml.lexch
+   [archive]      libTinyaml.a
+   [index]        libTinyaml.a
+Success: Build finished successfully in 7.07 seconds.
+Found declared GPR file: tinyaml.gpr
+[alr test] Test completed SUCCESSFULLY

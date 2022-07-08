@@ -1,0 +1,207 @@
+Test ran at 2024-05-18 01:47:45.306881+00:00
+
+SOLUTION:
+apdf=6.0.0: Portable package for producing dynamically PDF documents
+Origin: source archive apdf_006.zip at https://sourceforge.net/projects/apdf/files/apdf_006.zip with hash sha512:7c3ce4e9fd288aeedcf618d138d2d4a517e4163df76f8fd8b8db3ddcc7cdcb9b41791c77dcdbd3427c0fb6e4e6ea37ee2a72f1c0bc1ab36d37541d7c3a4e67b9
+Properties:
+   Author: Gautier de Montmollin
+   Description: Portable package for producing dynamically PDF documents
+   Executable: pdf_out_demo
+   Executable: koch_curve
+   Executable: sierpinski_arrowhead_curve
+   GPR Scenario: PDF_Build_Mode := Debug | Fast
+   License: MIT
+   Long_Description: **PDF_Out** is an Ada package for producing easily and automatically PDF files, from an Ada program, with text, vector graphics and raster graphics.
+
+![Ada PDF Screenshot](https://apdf.sourceforge.io/pw_ari_parcel_m.png "Screenshot of a page produced by PDF_Out")
+
+* Ideal for the dynamic production of reports, invoices, tickets, charts, maps etc.
+* Vector graphics
+* Inclusion of JPEG images
+* Object oriented
+* Task safe
+* Endian-neutral
+* Multi-platform, but native code build
+* Standalone (no dependency on other libraires, bindings, etc.; no extra component needed for running)
+* Unconditionally portable code: OS-, CPU-, compiler- independent code
+* Pure Ada 95: this package can be used in projects in Ada 95, Ada 2005, Ada 2012 and later language versions
+* Free, open-source 
+
+The creation of a PDF file is as simple as this small procedure:
+
+```ada
+with PDF_Out;
+
+procedure Small_Demo is
+  pdf : PDF_Out.PDF_Out_File;
+begin
+  pdf.Create ("small.pdf");
+  pdf.Put_Line ("This is a very small demo for PDF_Out...");
+  pdf.Close;
+end Small_Demo;
+```
+
+
+   Maintainer: gdemont@hotmail.com
+   Maintainers_Logins: zertovitch
+   Maintainers_Logins: Fabien-Chouteau
+   Name: apdf
+   Project_File: pdf_out_gnat_w_gid.gpr
+   Tag: pdf
+   Tag: adobe
+   Version: 6.0.0
+   Website: https://apdf.sourceforge.io/
+Dependencies (direct):
+   gid>=9.0.0
+Dependencies (solution):
+   gid=10.0.0
+Dependencies (graph):
+   apdf=6.0.0 --> gid=10.0.0 (>=9.0.0)
+
+
+LOG:
+Note: Deploying apdf=6.0.0...
+#=#=#                                                                         
+##=#=#                                                                        
+##-=#=-#                                                                      
+
+######################################################################## 100.0%# #-=#=-#                                                                     
+ # #-=#=- #                                                                   
+
+###############                                                           21.0%
+######################################################################## 100.0%
+Note: Deploying gid=10.0.0...
+#=#=#                                                                         
+##=#=#                                                                        
+##-=#=-#                                                                      
+# #-=#=-#                                                                     
+
+######################################################################## 100.0% # #-=#=- #                                                                   
+  # #-=O#-  #                                                                 
+
+#################################################                         68.3%
+######################################################################## 100.0%
+Note: Building gid/gid.gpr...
+Setup
+   [mkdir]        object directory for project GID
+Compile
+   [Ada]          to_bmp.adb
+   [Ada]          mini.adb
+   [Ada]          all_rgb.adb
+   [Ada]          is_opaque.adb
+   [Ada]          recurve.adb
+   [Ada]          steg.adb
+   [Ada]          gid.adb
+   [Ada]          gid-decoding_bmp.adb
+   [Ada]          gid-decoding_gif.adb
+   [Ada]          gid-decoding_jpg.adb
+   [Ada]          gid-decoding_png.adb
+steg.adb:122:20: info: atomic synchronization set for "Data_Too_Large" [-gnatw.n]
+   [Ada]          gid-decoding_pnm.adb
+gid-decoding_png.adb:708:09: warning: variable "slide" is never read and never assigned [-gnatwu]
+gid-decoding_png.adb:711:09: warning: variable "crc32val" is never read and never assigned [-gnatwu]
+   [Ada]          gid-decoding_qoi.adb
+   [Ada]          gid-decoding_tga.adb
+   [Ada]          gid-headers.adb
+   [Ada]          gid-buffering.adb
+gid-headers.adb:250:31: warning: aspect Unreferenced specified for "dummy" [enabled by default]
+gid-headers.adb:252:31: warning: aspect Unreferenced specified for "dummy" [enabled by default]
+gid-headers.adb:255:31: warning: aspect Unreferenced specified for "dummy" [enabled by default]
+gid-headers.adb:258:31: warning: aspect Unreferenced specified for "dummy" [enabled by default]
+gid-headers.adb:266:31: warning: aspect Unreferenced specified for "dummy16" [enabled by default]
+gid-headers.adb:285:31: warning: aspect Unreferenced specified for "dummy" [enabled by default]
+gid-headers.adb:286:31: warning: aspect Unreferenced specified for "dummy" [enabled by default]
+gid-headers.adb:287:31: warning: aspect Unreferenced specified for "dummy" [enabled by default]
+gid-headers.adb:296:31: warning: aspect Unreferenced specified for "dummy" [enabled by default]
+gid-headers.adb:508:40: warning: aspect Unreferenced specified for "dummy" [enabled by default]
+gid-headers.adb:523:48: warning: aspect Unreferenced specified for "dummy" [enabled by default]
+   [Ada]          gid-color_tables.adb
+   [Ada]          gid-decoding_png-huffman.adb
+to_bmp.adb:405:05: warning: visible declaration of "Error" at line 63 hides homonym from use clause [-gnatwh]
+Bind
+   [gprbind]      to_bmp.bexch
+   [gprbind]      mini.bexch
+   [gprbind]      all_rgb.bexch
+   [Ada]          all_rgb.ali
+   [Ada]          mini.ali
+   [Ada]          to_bmp.ali
+   [gprbind]      is_opaque.bexch
+   [gprbind]      recurve.bexch
+   [gprbind]      steg.bexch
+   [Ada]          is_opaque.ali
+   [Ada]          recurve.ali
+   [Ada]          steg.ali
+Link
+   [link]         to_bmp.adb
+   [link]         mini.adb
+   [link]         all_rgb.adb
+-macosx_version_min has been renamed to -macos_version_min
+-macosx_version_min has been renamed to -macos_version_min
+-macosx_version_min has been renamed to -macos_version_min
+0  0x100b59f43  __assert_rtn + 64
+0  0x102b5af43  __assert_rtn + 64
+1  0x100a5bf43  ld::AtomPlacement::findAtom(unsigned char, unsigned long long, ld::AtomPlacement::AtomLoc const*&, long long&) const + 1411
+1  0x102a5cf43  ld::AtomPlacement::findAtom(unsigned char, unsigned long long, ld::AtomPlacement::AtomLoc const*&, long long&) const + 1411
+2  0x100a78431  ld::InputFiles::SliceParser::parseObjectFile(mach_o::Header const*) const + 19745
+3  0x100a88b71  ld::InputFiles::parseAllFiles(void (ld::AtomFile const*) block_pointer)::$_7::operator()(unsigned long, ld::FileInfo const&) const + 657
+4  0x7ff81a64edef  _dispatch_client_callout2 + 8
+5  0x7ff81a660547  _dispatch_apply_invoke3 + 431
+6  0x7ff81a64edbc  _dispatch_client_callout + 8
+7  0x7ff81a65004e  _dispatch_once_callout + 20
+8  0x7ff81a65f740  _dispatch_apply_invoke + 184
+9  0x7ff81a64edbc  _dispatch_client_callout + 8
+10  0x7ff81a65e2ca  _dispatch_root_queue_drain + 871
+11  0x7ff81a65e84f  _dispatch_worker_thread2 + 152
+2  0x102a79431  ld::InputFiles::SliceParser::parseObjectFile(mach_o::Header const*) const + 19745
+3  0x102a89b71  ld::InputFiles::parseAllFiles(void (ld::AtomFile const*) block_pointer)::$_7::operator()(unsigned long, ld::FileInfo const&) const + 657
+4  0x7ff81a64edef  _dispatch_client_callout2 + 8
+5  0x7ff81a660547  _dispatch_apply_invoke3 + 431
+6  0x7ff81a64edbc  _dispatch_client_callout + 8
+7  0x7ff81a65004e  _dispatch_once_callout + 20
+8  0x7ff81a65f740  _dispatch_apply_invoke + 184
+9  0x7ff81a64edbc  _dispatch_client_callout + 8
+10  0x7ff81a65e2ca  _dispatch_root_queue_drain + 871
+11  0x7ff81a65e84f  _dispatch_worker_thread2 + 152
+0  0x100fe3f43  __assert_rtn + 64
+1  0x100ee5f43  ld::AtomPlacement::findAtom(unsigned char, unsigned long long, ld::AtomPlacement::AtomLoc const*&, long long&) const + 1411
+2  0x100f02431  ld::InputFiles::SliceParser::parseObjectFile(mach_o::Header const*) const + 19745
+3  0x100f12b71  ld::InputFiles::parseAllFiles(void (ld::AtomFile const*) block_pointer)::$_7::operator()(unsigned long, ld::FileInfo const&) const + 657
+4  0x7ff81a64edef  _dispatch_client_callout2 + 8
+5  0x7ff81a660547  _dispatch_apply_invoke3 + 431
+6  0x7ff81a64edbc  _dispatch_client_callout + 8
+7  0x7ff81a65004e  _dispatch_once_callout + 20
+8  0x7ff81a65f740  _dispatch_apply_invoke + 184
+9  0x7ff81a64edbc  _dispatch_client_callout + 8
+10  0x7ff81a65e2ca  _dispatch_root_queue_drain + 871
+11  0x7ff81a65e84f  _dispatch_worker_thread2 + 152
+12  0x7ff81a7ecb43  _pthread_wqthread + 262
+ld: Assertion failed: (resultIndex < sectData.atoms.size()), function findAtom, file Relocations.cpp, line 1336.
+12  0x7ff81a7ecb43  _pthread_wqthread + 262
+ld: Assertion failed: (resultIndex < sectData.atoms.size()), function findAtom, file Relocations.cpp, line 1336.
+12  0x7ff81a7ecb43  _pthread_wqthread + 262
+ld: Assertion failed: (resultIndex < sectData.atoms.size()), function findAtom, file Relocations.cpp, line 1336.
+collect2: error: ld returned 1 exit status
+collect2: error: ld returned 1 exit status
+collect2: error: ld returned 1 exit status
+   link of all_rgb.adb failed
+   failed command was: /users/runner/.config/alire/cache/dependencies/gnat_native_13.1.0_071d715c/bin/gcc all_rgb.o b__all_rgb.o /Users/runner/work/alire-crates-ci/alire-crates-ci/test/eb925fd4-ebec-4d2a-aa53-de00761f0ce9/apdf_6.0.0_7c3ce4e9/alire/cache/dependencies/gid_10.0.0_ea4b473f/obj_debug/gid-buffering.o /Users/runner/work/alire-crates-ci/alire-crates-ci/test/eb925fd4-ebec-4d2a-aa53-de00761f0ce9/apdf_6.0.0_7c3ce4e9/alire/cache/dependencies/gid_10.0.0_ea4b473f/obj_debug/gid-color_tables.o /Users/runner/work/alire-crates-ci/alire-crates-ci/test/eb925fd4-ebec-4d2a-aa53-de00761f0ce9/apdf_6.0.0_7c3ce4e9/alire/cache/dependencies/gid_10.0.0_ea4b473f/obj_debug/gid-decoding_bmp.o /Users/runner/work/alire-crates-ci/alire-crates-ci/test/eb925fd4-ebec-4d2a-aa53-de00761f0ce9/apdf_6.0.0_7c3ce4e9/alire/cache/dependencies/gid_10.0.0_ea4b473f/obj_debug/gid-decoding_gif.o /Users/runner/work/alire-crates-ci/alire-crates-ci/test/eb925fd4-ebec-4d2a-aa53-de00761f0ce9/apdf_6.0.0_7c3ce4e9/alire/cache/dependencies/gid_10.0.0_ea4b473f/obj_debug/gid-decoding_jpg.o /Users/runner/work/alire-crates-ci/alire-crates-ci/test/eb925fd4-ebec-4d2a-aa53-de00761f0ce9/apdf_6.0.0_7c3ce4e9/alire/cache/dependencies/gid_10.0.0_ea4b473f/obj_debug/gid-decoding_png-huffman.o /Users/runner/work/alire-crates-ci/alire-crates-ci/test/eb925fd4-ebec-4d2a-aa53-de00761f0ce9/apdf_6.0.0_7c3ce4e9/alire/cache/dependencies/gid_10.0.0_ea4b473f/obj_debug/gid-decoding_png.o /Users/runner/work/alire-crates-ci/alire-crates-ci/test/eb925fd4-ebec-4d2a-aa53-de00761f0ce9/apdf_6.0.0_7c3ce4e9/alire/cache/dependencies/gid_10.0.0_ea4b473f/obj_debug/gid-decoding_pnm.o /Users/runner/work/alire-crates-ci/alire-crates-ci/test/eb925fd4-ebec-4d2a-aa53-de00761f0ce9/apdf_6.0.0_7c3ce4e9/alire/cache/dependencies/gid_10.0.0_ea4b473f/obj_debug/gid-decoding_qoi.o /Users/runner/work/alire-crates-ci/alire-crates-ci/test/eb925fd4-ebec-4d2a-aa53-de00761f0ce9/apdf_6.0.0_7c3ce4e9/alire/cache/dependencies/gid_10.0.0_ea4b473f/obj_debug/gid-decoding_tga.o /Users/runner/work/alire-crates-ci/alire-crates-ci/test/eb925fd4-ebec-4d2a-aa53-de00761f0ce9/apdf_6.0.0_7c3ce4e9/alire/cache/dependencies/gid_10.0.0_ea4b473f/obj_debug/gid-headers.o /Users/runner/work/alire-crates-ci/alire-crates-ci/test/eb925fd4-ebec-4d2a-aa53-de00761f0ce9/apdf_6.0.0_7c3ce4e9/alire/cache/dependencies/gid_10.0.0_ea4b473f/obj_debug/gid.o -g -L/Users/runner/work/alire-crates-ci/alire-crates-ci/test/eb925fd4-ebec-4d2a-aa53-de00761f0ce9/apdf_6.0.0_7c3ce4e9/alire/cache/dependencies/gid_10.0.0_ea4b473f/obj_debug/ -L/Users/runner/work/alire-crates-ci/alire-crates-ci/test/eb925fd4-ebec-4d2a-aa53-de00761f0ce9/apdf_6.0.0_7c3ce4e9/alire/cache/dependencies/gid_10.0.0_ea4b473f/obj_debug/ -L/users/runner/.config/alire/cache/dependencies/gnat_native_13.1.0_071d715c/lib/gcc/x86_64-apple-darwin21.6.0/13.1.0/adalib/ /users/runner/.config/alire/cache/dependencies/gnat_native_13.1.0_071d715c/lib/gcc/x86_64-apple-darwin21.6.0/13.1.0/adalib/libgnat.a -Wl,-rpath,@executable_path/..//obj_debug -Wl,-rpath,@executable_path/../../../../../../../../../../..//.config/alire/cache/dependencies/gnat_native_13.1.0_071d715c/lib/gcc/x86_64-apple-darwin21.6.0/13.1.0/adalib -o /Users/runner/work/alire-crates-ci/alire-crates-ci/test/eb925fd4-ebec-4d2a-aa53-de00761f0ce9/apdf_6.0.0_7c3ce4e9/alire/cache/dependencies/gid_10.0.0_ea4b473f/test//all_rgb 
+   link of mini.adb failed
+   failed command was: /users/runner/.config/alire/cache/dependencies/gnat_native_13.1.0_071d715c/bin/gcc mini.o b__mini.o /Users/runner/work/alire-crates-ci/alire-crates-ci/test/eb925fd4-ebec-4d2a-aa53-de00761f0ce9/apdf_6.0.0_7c3ce4e9/alire/cache/dependencies/gid_10.0.0_ea4b473f/obj_debug/gid-buffering.o /Users/runner/work/alire-crates-ci/alire-crates-ci/test/eb925fd4-ebec-4d2a-aa53-de00761f0ce9/apdf_6.0.0_7c3ce4e9/alire/cache/dependencies/gid_10.0.0_ea4b473f/obj_debug/gid-color_tables.o /Users/runner/work/alire-crates-ci/alire-crates-ci/test/eb925fd4-ebec-4d2a-aa53-de00761f0ce9/apdf_6.0.0_7c3ce4e9/alire/cache/dependencies/gid_10.0.0_ea4b473f/obj_debug/gid-decoding_bmp.o /Users/runner/work/alire-crates-ci/alire-crates-ci/test/eb925fd4-ebec-4d2a-aa53-de00761f0ce9/apdf_6.0.0_7c3ce4e9/alire/cache/dependencies/gid_10.0.0_ea4b473f/obj_debug/gid-decoding_gif.o /Users/runner/work/alire-crates-ci/alire-crates-ci/test/eb925fd4-ebec-4d2a-aa53-de00761f0ce9/apdf_6.0.0_7c3ce4e9/alire/cache/dependencies/gid_10.0.0_ea4b473f/obj_debug/gid-decoding_jpg.o /Users/runner/work/alire-crates-ci/alire-crates-ci/test/eb925fd4-ebec-4d2a-aa53-de00761f0ce9/apdf_6.0.0_7c3ce4e9/alire/cache/dependencies/gid_10.0.0_ea4b473f/obj_debug/gid-decoding_png-huffman.o /Users/runner/work/alire-crates-ci/alire-crates-ci/test/eb925fd4-ebec-4d2a-aa53-de00761f0ce9/apdf_6.0.0_7c3ce4e9/alire/cache/dependencies/gid_10.0.0_ea4b473f/obj_debug/gid-decoding_png.o /Users/runner/work/alire-crates-ci/alire-crates-ci/test/eb925fd4-ebec-4d2a-aa53-de00761f0ce9/apdf_6.0.0_7c3ce4e9/alire/cache/dependencies/gid_10.0.0_ea4b473f/obj_debug/gid-decoding_pnm.o /Users/runner/work/alire-crates-ci/alire-crates-ci/test/eb925fd4-ebec-4d2a-aa53-de00761f0ce9/apdf_6.0.0_7c3ce4e9/alire/cache/dependencies/gid_10.0.0_ea4b473f/obj_debug/gid-decoding_qoi.o /Users/runner/work/alire-crates-ci/alire-crates-ci/test/eb925fd4-ebec-4d2a-aa53-de00761f0ce9/apdf_6.0.0_7c3ce4e9/alire/cache/dependencies/gid_10.0.0_ea4b473f/obj_debug/gid-decoding_tga.o /Users/runner/work/alire-crates-ci/alire-crates-ci/test/eb925fd4-ebec-4d2a-aa53-de00761f0ce9/apdf_6.0.0_7c3ce4e9/alire/cache/dependencies/gid_10.0.0_ea4b473f/obj_debug/gid-headers.o /Users/runner/work/alire-crates-ci/alire-crates-ci/test/eb925fd4-ebec-4d2a-aa53-de00761f0ce9/apdf_6.0.0_7c3ce4e9/alire/cache/dependencies/gid_10.0.0_ea4b473f/obj_debug/gid.o -g -L/Users/runner/work/alire-crates-ci/alire-crates-ci/test/eb925fd4-ebec-4d2a-aa53-de00761f0ce9/apdf_6.0.0_7c3ce4e9/alire/cache/dependencies/gid_10.0.0_ea4b473f/obj_debug/ -L/Users/runner/work/alire-crates-ci/alire-crates-ci/test/eb925fd4-ebec-4d2a-aa53-de00761f0ce9/apdf_6.0.0_7c3ce4e9/alire/cache/dependencies/gid_10.0.0_ea4b473f/obj_debug/ -L/users/runner/.config/alire/cache/dependencies/gnat_native_13.1.0_071d715c/lib/gcc/x86_64-apple-darwin21.6.0/13.1.0/adalib/ /users/runner/.config/alire/cache/dependencies/gnat_native_13.1.0_071d715c/lib/gcc/x86_64-apple-darwin21.6.0/13.1.0/adalib/libgnat.a -Wl,-rpath,@executable_path/..//obj_debug -Wl,-rpath,@executable_path/../../../../../../../../../../..//.config/alire/cache/dependencies/gnat_native_13.1.0_071d715c/lib/gcc/x86_64-apple-darwin21.6.0/13.1.0/adalib -o /Users/runner/work/alire-crates-ci/alire-crates-ci/test/eb925fd4-ebec-4d2a-aa53-de00761f0ce9/apdf_6.0.0_7c3ce4e9/alire/cache/dependencies/gid_10.0.0_ea4b473f/test//mini 
+   link of to_bmp.adb failed
+   failed command was: /users/runner/.config/alire/cache/dependencies/gnat_native_13.1.0_071d715c/bin/gcc to_bmp.o b__to_bmp.o /Users/runner/work/alire-crates-ci/alire-crates-ci/test/eb925fd4-ebec-4d2a-aa53-de00761f0ce9/apdf_6.0.0_7c3ce4e9/alire/cache/dependencies/gid_10.0.0_ea4b473f/obj_debug/gid-buffering.o /Users/runner/work/alire-crates-ci/alire-crates-ci/test/eb925fd4-ebec-4d2a-aa53-de00761f0ce9/apdf_6.0.0_7c3ce4e9/alire/cache/dependencies/gid_10.0.0_ea4b473f/obj_debug/gid-color_tables.o /Users/runner/work/alire-crates-ci/alire-crates-ci/test/eb925fd4-ebec-4d2a-aa53-de00761f0ce9/apdf_6.0.0_7c3ce4e9/alire/cache/dependencies/gid_10.0.0_ea4b473f/obj_debug/gid-decoding_bmp.o /Users/runner/work/alire-crates-ci/alire-crates-ci/test/eb925fd4-ebec-4d2a-aa53-de00761f0ce9/apdf_6.0.0_7c3ce4e9/alire/cache/dependencies/gid_10.0.0_ea4b473f/obj_debug/gid-decoding_gif.o /Users/runner/work/alire-crates-ci/alire-crates-ci/test/eb925fd4-ebec-4d2a-aa53-de00761f0ce9/apdf_6.0.0_7c3ce4e9/alire/cache/dependencies/gid_10.0.0_ea4b473f/obj_debug/gid-decoding_jpg.o /Users/runner/work/alire-crates-ci/alire-crates-ci/test/eb925fd4-ebec-4d2a-aa53-de00761f0ce9/apdf_6.0.0_7c3ce4e9/alire/cache/dependencies/gid_10.0.0_ea4b473f/obj_debug/gid-decoding_png-huffman.o /Users/runner/work/alire-crates-ci/alire-crates-ci/test/eb925fd4-ebec-4d2a-aa53-de00761f0ce9/apdf_6.0.0_7c3ce4e9/alire/cache/dependencies/gid_10.0.0_ea4b473f/obj_debug/gid-decoding_png.o /Users/runner/work/alire-crates-ci/alire-crates-ci/test/eb925fd4-ebec-4d2a-aa53-de00761f0ce9/apdf_6.0.0_7c3ce4e9/alire/cache/dependencies/gid_10.0.0_ea4b473f/obj_debug/gid-decoding_pnm.o /Users/runner/work/alire-crates-ci/alire-crates-ci/test/eb925fd4-ebec-4d2a-aa53-de00761f0ce9/apdf_6.0.0_7c3ce4e9/alire/cache/dependencies/gid_10.0.0_ea4b473f/obj_debug/gid-decoding_qoi.o /Users/runner/work/alire-crates-ci/alire-crates-ci/test/eb925fd4-ebec-4d2a-aa53-de00761f0ce9/apdf_6.0.0_7c3ce4e9/alire/cache/dependencies/gid_10.0.0_ea4b473f/obj_debug/gid-decoding_tga.o /Users/runner/work/alire-crates-ci/alire-crates-ci/test/eb925fd4-ebec-4d2a-aa53-de00761f0ce9/apdf_6.0.0_7c3ce4e9/alire/cache/dependencies/gid_10.0.0_ea4b473f/obj_debug/gid-headers.o /Users/runner/work/alire-crates-ci/alire-crates-ci/test/eb925fd4-ebec-4d2a-aa53-de00761f0ce9/apdf_6.0.0_7c3ce4e9/alire/cache/dependencies/gid_10.0.0_ea4b473f/obj_debug/gid.o -g -L/Users/runner/work/alire-crates-ci/alire-crates-ci/test/eb925fd4-ebec-4d2a-aa53-de00761f0ce9/apdf_6.0.0_7c3ce4e9/alire/cache/dependencies/gid_10.0.0_ea4b473f/obj_debug/ -L/Users/runner/work/alire-crates-ci/alire-crates-ci/test/eb925fd4-ebec-4d2a-aa53-de00761f0ce9/apdf_6.0.0_7c3ce4e9/alire/cache/dependencies/gid_10.0.0_ea4b473f/obj_debug/ -L/users/runner/.config/alire/cache/dependencies/gnat_native_13.1.0_071d715c/lib/gcc/x86_64-apple-darwin21.6.0/13.1.0/adalib/ /users/runner/.config/alire/cache/dependencies/gnat_native_13.1.0_071d715c/lib/gcc/x86_64-apple-darwin21.6.0/13.1.0/adalib/libgnat.a -Wl,-rpath,@executable_path/..//obj_debug -Wl,-rpath,@executable_path/../../../../../../../../../../..//.config/alire/cache/dependencies/gnat_native_13.1.0_071d715c/lib/gcc/x86_64-apple-darwin21.6.0/13.1.0/adalib -o /Users/runner/work/alire-crates-ci/alire-crates-ci/test/eb925fd4-ebec-4d2a-aa53-de00761f0ce9/apdf_6.0.0_7c3ce4e9/alire/cache/dependencies/gid_10.0.0_ea4b473f/test//to_bmp 
+gprbuild: *** link phase failed
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/Users/runner/work/alire-crates-ci/alire-crates-ci/test/eb925fd4-ebec-4d2a-aa53-de00761f0ce9/apdf_6.0.0_7c3ce4e9/alire/cache/dependencies/gid_10.0.0_ea4b473f/gid.gpr"] exited with code 4
+ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/Users/runner/work/alire-crates-ci/alire-crates-ci/test/eb925fd4-ebec-4d2a-aa53-de00761f0ce9/apdf_6.0.0_7c3ce4e9/alire/cache/dependencies/gid_10.0.0_ea4b473f/gid.gpr"] exited with code 4
+stderr: ALIRE.CHECKED_ERROR
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/Users/runner/work/alire-crates-ci/alire-crates-ci/test/eb925fd4-ebec-4d2a-aa53-de00761f0ce9/apdf_6.0.0_7c3ce4e9/alire/cache/dependencies/gid_10.0.0_ea4b473f/gid.gpr"] exited with code 4
+stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
+Load address: 0x1004a5000
+Call stack traceback locations:
+0x100dad415 0x100a80e83 0x100c93df9 0x100c94581 0x100bf4ac3 0x100bf2f99 0x100c0f873 0x100c5bdc1 0x100c5a3c2 0x100c0f9b8 0x100bf3349 0x1005049c1 0x100515578 0x10051a01c 0x1005a005c 0x1005ab3b8 0x1004a6605 0x1004a9914
+
+
+Warning: apdf=6.0.0 successfully retrieved but its build failed.
+Dependencies were solved as follows:
+
+   + gid 10.0.0 (new)
+ERROR: Build ended with errors

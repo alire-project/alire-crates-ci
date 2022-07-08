@@ -1,0 +1,141 @@
+Test ran at 2026-08-29 01:06:12.333902+00:00
+
+SOLUTION:
+ppag=2.1.1: First steps with Gnoga
+Origin: commit d023331f7d4a3efe51555a4571ed2f33ea91488f from https://github.com/Blady-Com/Exemples-PPAG.git
+Properties:
+   Author: Pascal Pignard
+   Description: First steps with Gnoga
+   Executable: hello
+   Executable: hello2
+   Executable: hello3
+   Executable: hello3evt
+   Executable: hello3get
+   Executable: hello3post
+   Executable: hello3post_file
+   Executable: hello4
+   Executable: hello5_av
+   Executable: hello5_iframe
+   Executable: hello5_list
+   Executable: hello6
+   Executable: hello7_local
+   Executable: hello7_session
+   case OS is
+      when Macos => GPR External: PPAG_LINKER_FLAGS := -Wl,-no_pie
+   License: CECILL-2.1
+   Maintainer: Pascal Pignard <blady.net@orange.fr>
+   Maintainers_Logins: Blady-Com
+   Name: ppag
+   Tag: gnoga
+   Tag: tutorial
+   Version: 2.1.1
+   Website: https://github.com/Blady-Com/Exemples-PPAG
+Dependencies (direct):
+   gnoga^2.1
+Dependencies (solution):
+   gnat=14.2.1 (gnat_native)
+   gnoga=2.2.3
+   libgnutls=3.8.13+_2
+   simple_components=4.81.1
+   unixodbc=2.3.14
+   uxstrings=0.9.4+alpha-20260718
+Dependencies (graph):
+   gnoga=2.2.3                    --> simple_components=4.81.1 (^4.81)
+   gnoga=2.2.3                    --> uxstrings=0.9.4+alpha-20260718 (>=0.9.4)
+   ppag=2.1.1                     --> gnoga=2.2.3 (^2.1)
+   simple_components=4.81.1       --> libgnutls=3.8.13+_2 (^3.7)
+   simple_components=4.81.1       --> unixodbc=2.3.14 (^2.3)
+   uxstrings=0.9.4+alpha-20260718 --> gnat=14.2.1 (gnat_native) (>=13)
+   uxstrings=0.9.4+alpha-20260718 --> simple_components=4.81.1 (^4.62)
+
+
+LOG:
+[alr test] Testing ppag=2.1.1
+[alr test] Spawning retrieval for remote crate: alr -d -n get ppag=2.1.1
+Note: Deploying ppag=2.1.1...
+Note: Deploying unixodbc=2.3.14...
+The system package 'unixodbc' is about to be installed.
+This action might require admin privileges and impact your system installation.
+Do you want Alire to install this system package?
+Using default: Yes
+::warning::The following taps are not trusted:%0A  aws/tap%0A%0AHomebrew is currently ignoring formulae, casks and commands from these taps because tap trust is required.%0A%0AUntap them with:%0A  brew untap aws/tap%0ATrust specific formulae, casks and commands with:%0A  brew trust --formula <user>/<tap>/<formula>%0A  brew trust --cask <user>/<tap>/<cask>%0A  brew trust --command <user>/<tap>/<command>%0AWhole-tap trust is broader and includes all current and future formulae,%0Acasks and commands from the listed taps. Trust whole taps with:%0A  brew trust aws/tap%0ATo disable trust checks:%0A  export HOMEBREW_NO_REQUIRE_TAP_TRUST=1%0AThis is not recommended and will be removed in a later release.%0AFor more information, see:%0A  https://docs.brew.sh/Tap-Trust
+[34m==>[0m [1mWould install 1 formula:[0m
+unixodbc
+[34m==>[0m [1mDownloading https://ghcr.io/v2/homebrew/core/unixodbc/manifests/2.3.14[0m
+[34m==>[0m [1mWould install 2 dependencies for unixodbc:[0m
+m4
+libtool
+[32m==>[0m [1mFetching downloads for: [32munixodbc[39m[0m
+✔︎ Bottle Manifest m4 (1.4.21)
+✔︎ Bottle m4 (1.4.21)
+✔︎ Bottle unixodbc (2.3.14)
+✔︎ Bottle Manifest libtool (2.6.2)
+✔︎ Bottle libtool (2.6.2)
+[32m==>[0m [1mInstalling dependencies for unixodbc:[0m [32mm4[39m and [32mlibtool[39m[0m
+[32m==>[0m [1mInstalling unixodbc dependency: [32mm4[39m[0m
+[34m==>[0m [1mPouring m4--1.4.21.arm64_tahoe.bottle.tar.gz[0m
+🍺  /opt/homebrew/Cellar/m4/1.4.21: 14 files, 815.7KB
+[32m==>[0m [1mInstalling unixodbc dependency: [32mlibtool[39m[0m
+[34m==>[0m [1mPouring libtool--2.6.2.arm64_tahoe.bottle.tar.gz[0m
+🍺  /opt/homebrew/Cellar/libtool/2.6.2: 78 files, 4.2MB
+[32m==>[0m [1mInstalling [32munixodbc[39m[0m
+[34m==>[0m [1mPouring unixodbc--2.3.14.arm64_tahoe.bottle.tar.gz[0m
+🍺  /opt/homebrew/Cellar/unixodbc/2.3.14: 48 files, 2.2MB
+Note: Deploying simple_components=4.81.1...
+Note: Deploying uxstrings=0.9.4+alpha-20260718...
+Note: Deploying gnoga=2.2.3...
+
+ppag=2.1.1 successfully retrieved.
+Dependencies were solved as follows:
+
+   +b gnat              14.2.1               (new,gnat_native,indirect,binary)
+   +  gnoga             2.2.3                (new)
+   +b libgnutls         3.8.13+_2            (new,indirect,system package)
+   +  simple_components 4.81.1               (new,indirect)
+   +b unixodbc          2.3.14               (new,indirect,system package)
+   +  uxstrings         0.9.4+alpha-20260718 (new,indirect)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building ppag=2.1.1/ppag.gpr...
+Setup
+   [mkdir]        object directory for project Tables
+   [mkdir]        object directory for project xpm_parser
+   [mkdir]        object directory for project Lib_UXStrings
+   [mkdir]        library directory for project Lib_UXStrings
+   [mkdir]        object directory for project Lib_Gnoga
+   [mkdir]        library directory for project Lib_Gnoga
+   [mkdir]        object directory for project PPAG
+   [mkdir]        exec directory for project PPAG
+components.gpr:4:09: warning: there are no sources of language "C" in this project
+Compile
+   [Ada]          hello.adb
+   [Ada]          hello2.adb
+   [Ada]          hello3.adb
+uxstrings-lists.ads:9:19: error: aspect Aggregate is an Ada 2022 feature
+uxstrings-lists.ads:9:19: error: unit must be compiled with -gnat2022 switch
+uxstrings-lists.ads:9:19: error: aspect Aggregate is an Ada 2022 feature
+uxstrings-lists.ads:9:19: error: unit must be compiled with -gnat2022 switch
+uxstrings-lists.ads:9:19: error: aspect Aggregate is an Ada 2022 feature
+uxstrings-lists.ads:9:19: error: unit must be compiled with -gnat2022 switch
+
+   compilation of hello.adb failed
+   compilation of hello2.adb failed
+   compilation of hello3.adb failed
+
+gprbuild: *** compilation phase failed
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/Users/runner/work/alire-crates-ci/alire-crates-ci/test/a45b2a9b-80a2-4287-b51e-3649b1c2e655/ppag_2.1.1_d023331f/ppag.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/Users/runner/work/alire-crates-ci/alire-crates-ci/test/a45b2a9b-80a2-4287-b51e-3649b1c2e655/ppag_2.1.1_d023331f/ppag.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+stderr: ALIRE.CHECKED_ERROR
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/Users/runner/work/alire-crates-ci/alire-crates-ci/test/a45b2a9b-80a2-4287-b51e-3649b1c2e655/ppag_2.1.1_d023331f/ppag.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
+Load address: 0x102194000
+Call stack traceback locations:
+0x102ea00cc 0x102ea012c 0x102bf466c 0x102839568 0x102abe594 0x102abf4f4 0x1029fd33c 0x1029fbb08 0x102a1f78c 0x102a7f56c 0x102a7e99c 0x102a1f868 0x102a1f950 0x1029fc00c 0x1029fc174 0x102205730 0x102205070 0x1022051e4 0x1022a2b38 0x1022adc78 0x1021969f8 0x10219ba2c
+
+stderr: ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED
+stderr: alire-roots.adb:202
+stderr: raised ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED : alire-roots.adb:202
+Load address: 0x102194000
+Call stack traceback locations:
+0x102ea00cc 0x102ea012c 0x1029fd640 0x1029fbb08 0x102a1f78c 0x102a7f56c 0x102a7e99c 0x102a1f868 0x102a1f950 0x1029fc00c 0x1029fc174 0x102205730 0x102205070 0x1022051e4 0x1022a2b38 0x1022adc78 0x1021969f8 0x10219ba2c
+
+ERROR: Compilation failed.

@@ -1,0 +1,1014 @@
+Test ran at 2026-10-28 01:25:43.867489+00:00
+
+SOLUTION:
+aws=25.2.0: Ada Web Server
+Origin: source archive aws-25.2.0-with-templates-parser.zip at https://github.com/AdaCore/aws/releases/download/v25.2.0/aws-25.2.0-with-templates-parser.zip with hash sha512:bb26af84c502135c3ec1137c895d628e5f068810e3ad6c1cad6113256d44d764794ecfdcc12fa9efbdcfc3eaa4a971b56f35dae7c0bbe0f6d953cbaf45a40e10
+Properties:
+   Post_Fetch run: sh -c mkdir -p `gcc -dumpmachine`/setup/src (from ${CRATE_ROOT}/.)
+   Post_Fetch run: sh -c make setup ZLIB=false DEMOS=false LAL=false XMLADA=true SOCKET=openssl prefix=install_dir PRJ_BUILD=Release (from ${CRATE_ROOT}/.)
+   Post_Fetch run: sh -c mv `gcc -dumpmachine`/ build/ (from ${CRATE_ROOT}/.)
+   Author: AdaCore
+   Description: Ada Web Server
+   GPR Scenario: PRJ_TARGET := Windows_NT | UNIX | Darwin | vxworks | freebsd
+   GPR Scenario: TARGET := <string>
+   GPR Scenario: TGT_DIR := <string>
+   case OS is
+      when Freebsd => (GPR External: PRJ_TARGET := freebsd and GPR External: TARGET := build and GPR External: TGT_DIR := ../build)
+      when Linux => (GPR External: PRJ_TARGET := UNIX and GPR External: TARGET := build and GPR External: TGT_DIR := ../build)
+      when Macos => (GPR External: PRJ_TARGET := Darwin and GPR External: TARGET := build and GPR External: TGT_DIR := ../build)
+      when Windows => (GPR External: PRJ_TARGET := Windows_NT and GPR External: TARGET := build and GPR External: TGT_DIR := ../build)
+   License: GPL-3.0-only WITH GCC-exception-3.1
+   Maintainer: chouteau@adacore.com
+   Maintainers_Logins: Fabien-Chouteau
+   Name: aws
+   Project_File: aws.gpr
+   Project_File: build/projects/aws_config.gpr
+   Tag: aws
+   Tag: web
+   Tag: server
+   Tag: http
+   Tag: https
+   Tag: soap
+   Tag: wsdl
+   Tag: ssl
+   Version: 25.2.0
+   Website: https://github.com/adacore/aws
+Dependencies (direct):
+   gnat>=12
+   gnatcoll~25.0.0
+   make*
+   openssl>=1.1.0
+   xmlada~25.0.0
+Dependencies (solution):
+   gnat=13.2.2 (gnat_native)
+   gnatcoll=25.0.0
+   libgpr=25.0.0
+   make=4.4.1
+   openssl=3.6.5
+   xmlada=25.0.0
+Dependencies (graph):
+   aws=25.2.0      --> gnat=13.2.2 (gnat_native) (>=12)
+   aws=25.2.0      --> gnatcoll=25.0.0 (~25.0.0)
+   aws=25.2.0      --> make=4.4.1 (*)
+   aws=25.2.0      --> openssl=3.6.5 (>=1.1.0)
+   aws=25.2.0      --> xmlada=25.0.0 (~25.0.0)
+   gnatcoll=25.0.0 --> gnat=13.2.2 (gnat_native) (>=13)
+   gnatcoll=25.0.0 --> libgpr=25.0.0 (~25.0.0)
+   libgpr=25.0.0   --> gnat=13.2.2 (gnat_native) (/=2020)
+   libgpr=25.0.0   --> xmlada=25.0.0 (~25.0.0)
+   xmlada=25.0.0   --> gnat=13.2.2 (gnat_native) (>=11)
+
+
+LOG:
+[alr test] Testing aws=25.2.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get aws=25.2.0
+Note: Deploying aws=25.2.0...
+
+#=#=#                                                                          
+##########################################                                58.3%
+######################################################################## 100.0%
+Note: Deploying make=4.4.1...
+The system package 'make' is about to be installed.
+This action might require admin privileges and impact your system installation.
+Do you want Alire to install this system package?
+Using default: Yes
+resolving dependencies...
+looking for conflicting packages...
+
+Packages (1) make-4.4.1-3
+
+Total Download Size:   0.49 MiB
+Total Installed Size:  1.62 MiB
+
+:: Proceed with installation? [Y/n] 
+:: Retrieving packages...
+ make-4.4.1-3-x86_64 downloading...
+checking keyring...
+checking package integrity...
+loading package files...
+checking for file conflicts...
+checking available disk space...
+:: Processing package changes...
+installing make...
+:: Running post-transaction hooks...
+(1/1) Updating the info directory file...
+Note: Deploying xmlada=25.0.0...
+
+#=#=#                                                                          
+##O#-#                                                                         
+##=O#- #                                                                       
+Note: Deploying libgpr=25.0.0...
+
+#=#=#                                                                          
+##O#-#                                                                         
+##=O#- #                                                                       
+Note: Deploying gnatcoll=25.0.0...
+
+#=#=#                                                                          
+##O#-#                                                                         
+##=O#- #                                                                       
+# #=O#- #                                                                      
+ # #=O#-  #                                                                    
+  # #=O=#   #                                                                  
+   # #=O=#   #                                                                 
+
+aws=25.2.0 successfully retrieved.
+Dependencies were solved as follows:
+
+   +b gnat     13.2.2 (new,gnat_native,binary)
+   +  gnatcoll 25.0.0 (new)
+   +  libgpr   25.0.0 (new,indirect)
+   +b make     4.4.1  (new,system package)
+   +b openssl  3.6.5  (new,system package)
+   +  xmlada   25.0.0 (new)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Running post-fetch actions for xmlada=25.0.0...
+configure: loading site script /usr/local/etc/config.site
+checking build system type... x86_64-pc-mingw64
+checking host system type... x86_64-pc-mingw64
+checking target system type... x86_64-pc-mingw64
+checking whether gnat can build shared libs... yes
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether ln -s works... no, using cp -pR
+configure: creating ./config.status
+config.status: creating xmlada_shared.gpr
+config.status: creating Makefile
+config.status: creating tests/dom/default.gpr
+Note: Running post-fetch actions for aws=25.2.0...
+make[1]: Entering directory '/d/a/alire-crates-ci/alire-crates-ci/test/8b2e138d-0a0e-4edf-b764-e3571efc2343/aws_25.2.0_bb26af84/config'
+"..\x86_64-w64-mingw32\setup\bin" created
+[Ada Compile]     xoscons.adb
+[Ada Compile]     xutil.adb
+[Ada Bind]        xoscons
+[Ada Post-Bind]   b__xoscons.adb
+[Link]            xoscons.exe
+Setup OS specific definitions
+aws-os_lib-tmplt.c:128: warning: "EADDRNOTAVAIL" redefined
+  128 | #define EADDRNOTAVAIL   WSAEADDRNOTAVAIL
+      | 
+In file included from C:/Users/runneradmin/AppData/Local/alire/cache/toolchains/gnat_native_13.2.2_88799c95/lib/gcc/x86_64-w64-mingw32/13.2.0/include/mm_malloc.h:29,
+                 from C:\Users\runneradmin\AppData\Local\alire\cache\msys64\mingw64\include/malloc.h:52,
+                 from C:\Users\runneradmin\AppData\Local\alire\cache\msys64\mingw64\include/stdlib.h:584,
+                 from aws-os_lib-tmplt.c:77:
+C:\Users\runneradmin\AppData\Local\alire\cache\msys64\mingw64\include/errno.h:88: note: this is the location of the previous definition
+   88 | #define EADDRNOTAVAIL 101
+      | 
+aws-os_lib-tmplt.c:129: warning: "ETIMEDOUT" redefined
+  129 | #define ETIMEDOUT       WSAETIMEDOUT
+      | 
+C:\Users\runneradmin\AppData\Local\alire\cache\msys64\mingw64\include/errno.h:221: note: this is the location of the previous definition
+  221 | #define ETIMEDOUT 138
+      | 
+aws-os_lib-tmplt.c:130: warning: "ENOTCONN" redefined
+  130 | #define ENOTCONN        WSAENOTCONN
+      | 
+C:\Users\runneradmin\AppData\Local\alire\cache\msys64\mingw64\include/errno.h:148: note: this is the location of the previous definition
+  148 | #define ENOTCONN 126
+      | 
+aws-os_lib-tmplt.c:131: warning: "EWOULDBLOCK" redefined
+  131 | #define EWOULDBLOCK     WSAEWOULDBLOCK
+      | 
+C:\Users\runneradmin\AppData\Local\alire\cache\msys64\mingw64\include/errno.h:164: note: this is the location of the previous definition
+  164 | #define EWOULDBLOCK 140
+      | 
+aws-os_lib-tmplt.c:132: warning: "EINPROGRESS" redefined
+  132 | #define EINPROGRESS     WSAEINPROGRESS
+      | 
+C:\Users\runneradmin\AppData\Local\alire\cache\msys64\mingw64\include/errno.h:156: note: this is the location of the previous definition
+  156 | #define EINPROGRESS 112
+      | 
+aws-os_lib-tmplt.c:133: warning: "ENOBUFS" redefined
+  133 | #define ENOBUFS         WSAENOBUFS
+      | 
+C:\Users\runneradmin\AppData\Local\alire\cache\msys64\mingw64\include/errno.h:96: note: this is the location of the previous definition
+   96 | #define ENOBUFS 119
+      | 
+aws-os_lib-tmplt.c:137: warning: "ECONNRESET" redefined
+  137 | #define ECONNRESET      WSAECONNRESET
+      | 
+C:\Users\runneradmin\AppData\Local\alire\cache\msys64\mingw64\include/errno.h:112: note: this is the location of the previous definition
+  112 | #define ECONNRESET 108
+      | 
+aws-os_lib-tmplt.c:138: warning: "EADDRINUSE" redefined
+  138 | #define EADDRINUSE      WSAEADDRINUSE
+      | 
+C:\Users\runneradmin\AppData\Local\alire\cache\msys64\mingw64\include/errno.h:84: note: this is the location of the previous definition
+   84 | #define EADDRINUSE 100
+      | 
+aws-os_lib-tmplt.c:139: warning: "EAFNOSUPPORT" redefined
+  139 | #define EAFNOSUPPORT    WSAEAFNOSUPPORT
+      | 
+C:\Users\runneradmin\AppData\Local\alire\cache\msys64\mingw64\include/errno.h:80: note: this is the location of the previous definition
+   80 | #define EAFNOSUPPORT 102
+      | 
+aws-os_lib-tmplt.c:140: warning: "EALREADY" redefined
+  140 | #define EALREADY        WSAEALREADY
+      | 
+C:\Users\runneradmin\AppData\Local\alire\cache\msys64\mingw64\include/errno.h:104: note: this is the location of the previous definition
+  104 | #define EALREADY 103
+      | 
+aws-os_lib-tmplt.c:141: warning: "ECONNABORTED" redefined
+  141 | #define ECONNABORTED    WSAECONNABORTED
+      | 
+C:\Users\runneradmin\AppData\Local\alire\cache\msys64\mingw64\include/errno.h:100: note: this is the location of the previous definition
+  100 | #define ECONNABORTED 106
+      | 
+aws-os_lib-tmplt.c:142: warning: "ECONNREFUSED" redefined
+  142 | #define ECONNREFUSED    WSAECONNREFUSED
+      | 
+C:\Users\runneradmin\AppData\Local\alire\cache\msys64\mingw64\include/errno.h:108: note: this is the location of the previous definition
+  108 | #define ECONNREFUSED 107
+      | 
+aws-os_lib-tmplt.c:143: warning: "EDESTADDRREQ" redefined
+  143 | #define EDESTADDRREQ    WSAEDESTADDRREQ
+      | 
+C:\Users\runneradmin\AppData\Local\alire\cache\msys64\mingw64\include/errno.h:116: note: this is the location of the previous definition
+  116 | #define EDESTADDRREQ 109
+      | 
+aws-os_lib-tmplt.c:145: warning: "EHOSTUNREACH" redefined
+  145 | #define EHOSTUNREACH    WSAEHOSTUNREACH
+      | 
+C:\Users\runneradmin\AppData\Local\alire\cache\msys64\mingw64\include/errno.h:120: note: this is the location of the previous definition
+  120 | #define EHOSTUNREACH 110
+      | 
+aws-os_lib-tmplt.c:146: warning: "EISCONN" redefined
+  146 | #define EISCONN         WSAEISCONN
+      | 
+C:\Users\runneradmin\AppData\Local\alire\cache\msys64\mingw64\include/errno.h:92: note: this is the location of the previous definition
+   92 | #define EISCONN 113
+      | 
+aws-os_lib-tmplt.c:147: warning: "ELOOP" redefined
+  147 | #define ELOOP           WSAELOOP
+      | 
+C:\Users\runneradmin\AppData\Local\alire\cache\msys64\mingw64\include/errno.h:225: note: this is the location of the previous definition
+  225 | #define ELOOP 114
+      | 
+aws-os_lib-tmplt.c:148: warning: "EMSGSIZE" redefined
+  148 | #define EMSGSIZE        WSAEMSGSIZE
+      | 
+C:\Users\runneradmin\AppData\Local\alire\cache\msys64\mingw64\include/errno.h:124: note: this is the location of the previous definition
+  124 | #define EMSGSIZE 115
+      | 
+aws-os_lib-tmplt.c:150: warning: "EPROTONOSUPPORT" redefined
+  150 | #define EPROTONOSUPPORT WSAEPROTONOSUPPORT
+      | 
+C:\Users\runneradmin\AppData\Local\alire\cache\msys64\mingw64\include/errno.h:176: note: this is the location of the previous definition
+  176 | #define EPROTONOSUPPORT 135
+      | 
+aws-os_lib-tmplt.c:151: warning: "EPROTOTYPE" redefined
+  151 | #define EPROTOTYPE      WSAEPROTOTYPE
+      | 
+C:\Users\runneradmin\AppData\Local\alire\cache\msys64\mingw64\include/errno.h:229: note: this is the location of the previous definition
+  229 | #define EPROTOTYPE 136
+      | 
+aws-os_lib-tmplt.c:152: warning: "ENETDOWN" redefined
+  152 | #define ENETDOWN        WSAENETDOWN
+      | 
+C:\Users\runneradmin\AppData\Local\alire\cache\msys64\mingw64\include/errno.h:128: note: this is the location of the previous definition
+  128 | #define ENETDOWN 116
+      | 
+aws-os_lib-tmplt.c:153: warning: "ENETRESET" redefined
+  153 | #define ENETRESET       WSAENETRESET
+      | 
+C:\Users\runneradmin\AppData\Local\alire\cache\msys64\mingw64\include/errno.h:132: note: this is the location of the previous definition
+  132 | #define ENETRESET 117
+      | 
+aws-os_lib-tmplt.c:154: warning: "ENETUNREACH" redefined
+  154 | #define ENETUNREACH     WSAENETUNREACH
+      | 
+C:\Users\runneradmin\AppData\Local\alire\cache\msys64\mingw64\include/errno.h:136: note: this is the location of the previous definition
+  136 | #define ENETUNREACH 118
+      | 
+aws-os_lib-tmplt.c:155: warning: "ENOPROTOOPT" redefined
+  155 | #define ENOPROTOOPT     WSAENOPROTOOPT
+      | 
+C:\Users\runneradmin\AppData\Local\alire\cache\msys64\mingw64\include/errno.h:140: note: this is the location of the previous definition
+  140 | #define ENOPROTOOPT 123
+      | 
+aws-os_lib-tmplt.c:156: warning: "ENOTSOCK" redefined
+  156 | #define ENOTSOCK        WSAENOTSOCK
+      | 
+C:\Users\runneradmin\AppData\Local\alire\cache\msys64\mingw64\include/errno.h:144: note: this is the location of the previous definition
+  144 | #define ENOTSOCK 128
+      | 
+aws-os_lib-tmplt.c:157: warning: "EOPNOTSUPP" redefined
+  157 | #define EOPNOTSUPP      WSAEOPNOTSUPP
+      | 
+C:\Users\runneradmin\AppData\Local\alire\cache\msys64\mingw64\include/errno.h:160: note: this is the location of the previous definition
+  160 | #define EOPNOTSUPP 130
+      | 
+make[1]: Leaving directory '/d/a/alire-crates-ci/alire-crates-ci/test/8b2e138d-0a0e-4edf-b764-e3571efc2343/aws_25.2.0_bb26af84/config'
+make[1]: Entering directory '/d/a/alire-crates-ci/alire-crates-ci/test/8b2e138d-0a0e-4edf-b764-e3571efc2343/aws_25.2.0_bb26af84/regtests'
+Can not generate system tags. The test are disabled
+make[1]: Leaving directory '/d/a/alire-crates-ci/alire-crates-ci/test/8b2e138d-0a0e-4edf-b764-e3571efc2343/aws_25.2.0_bb26af84/regtests'
+make[1]: Entering directory '/d/a/alire-crates-ci/alire-crates-ci/test/8b2e138d-0a0e-4edf-b764-e3571efc2343/aws_25.2.0_bb26af84/demos'
+make[1]: Leaving directory '/d/a/alire-crates-ci/alire-crates-ci/test/8b2e138d-0a0e-4edf-b764-e3571efc2343/aws_25.2.0_bb26af84/demos'
+make[1]: Entering directory '/d/a/alire-crates-ci/alire-crates-ci/test/8b2e138d-0a0e-4edf-b764-e3571efc2343/aws_25.2.0_bb26af84/templates_parser'
+make[1]: Leaving directory '/d/a/alire-crates-ci/alire-crates-ci/test/8b2e138d-0a0e-4edf-b764-e3571efc2343/aws_25.2.0_bb26af84/templates_parser'
+make[1]: Entering directory '/d/a/alire-crates-ci/alire-crates-ci/test/8b2e138d-0a0e-4edf-b764-e3571efc2343/aws_25.2.0_bb26af84/templates_parser'
+make[1]: Leaving directory '/d/a/alire-crates-ci/alire-crates-ci/test/8b2e138d-0a0e-4edf-b764-e3571efc2343/aws_25.2.0_bb26af84/templates_parser'
+Note: Building aws=25.2.0/aws.gpr (1/2)...
+"build\debug\static\obj\zlib" created
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\gnatcoll_25.0.0_d7d84483\ee3f78b51ffb0ddc3a710c7d37222ded6ff7dc310945a22acab4d283788f0620\minimal\obj\gnatcoll_minimal\all" created
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\gnatcoll_25.0.0_d7d84483\ee3f78b51ffb0ddc3a710c7d37222ded6ff7dc310945a22acab4d283788f0620\minimal\lib\gnatcoll_core\static" created
+"build\debug\static\obj\include" created
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\gnatcoll_25.0.0_d7d84483\ee3f78b51ffb0ddc3a710c7d37222ded6ff7dc310945a22acab4d283788f0620\core\obj\gnatcoll_core\all" created
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\gnatcoll_25.0.0_d7d84483\ee3f78b51ffb0ddc3a710c7d37222ded6ff7dc310945a22acab4d283788f0620\core\lib\gnatcoll_core\static" created
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\xmlada_25.0.0_7f12fe3a\b0131ab91b91aa28704f2c86cc19d71588851835808f51b4132600c1599b3c69\sax\obj\static" created
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\xmlada_25.0.0_7f12fe3a\b0131ab91b91aa28704f2c86cc19d71588851835808f51b4132600c1599b3c69\sax\lib\static" created
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\xmlada_25.0.0_7f12fe3a\b0131ab91b91aa28704f2c86cc19d71588851835808f51b4132600c1599b3c69\schema\obj\static" created
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\libgpr_25.0.0_17669998\2417ab8a70139964550be29ebc8f2efa7f3881b2590ebba4065b6cf3ed4accd7\gpr\libobj\production\static" created
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\libgpr_25.0.0_17669998\2417ab8a70139964550be29ebc8f2efa7f3881b2590ebba4065b6cf3ed4accd7\gpr\lib\production\static" created
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\gnatcoll_25.0.0_d7d84483\ee3f78b51ffb0ddc3a710c7d37222ded6ff7dc310945a22acab4d283788f0620\projects\obj\gnatcoll_projects\all" created
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\gnatcoll_25.0.0_d7d84483\ee3f78b51ffb0ddc3a710c7d37222ded6ff7dc310945a22acab4d283788f0620\projects\lib\gnatcoll_projects\static" created
+"build\debug\static\obj\ssl" created
+"build\debug\static\obj\src" created
+"build\debug\static\lib\aws" created
+[Ada Compile]     gnatcoll-arg_lists.adb
+[Ada Compile]     gnatcoll-buffer.adb
+[Ada Compile]     gnatcoll-config.adb
+[Ada Compile]     gnatcoll-directed_graph.adb
+[Ada Compile]     gnatcoll-email-mailboxes.adb
+[Ada Compile]     gnatcoll-email-parser.adb
+[Ada Compile]     gnatcoll-email-utils.adb
+[Ada Compile]     gnatcoll-email.adb
+[Ada Compile]     gnatcoll-file_indexes.adb
+[Ada Compile]     gnatcoll-file_paths.adb
+[Ada Compile]     gnatcoll-format_columns_vertical.ads
+[Ada Compile]     gnatcoll-formatters.adb
+[Ada Compile]     gnatcoll-hash-blake3.adb
+[Ada Compile]     gnatcoll-hash-xxhash__generic.adb
+[Ada Compile]     gnatcoll-hash.ads
+[Ada Compile]     gnatcoll-io-native.adb
+[Ada Compile]     gnatcoll-io-remote-unix.adb
+[Ada Compile]     gnatcoll-io-remote-windows.adb
+[Ada Compile]     gnatcoll-io-remote.adb
+[Ada Compile]     gnatcoll-io.adb
+[Ada Compile]     gnatcoll-json-utility.adb
+[Ada Compile]     gnatcoll-json.adb
+[Ada Compile]     gnatcoll-mmap-system__win32.adb
+[Ada Compile]     gnatcoll-mmap.adb
+[Ada Compile]     gnatcoll-opt_parse.adb
+[Ada Compile]     gnatcoll-os-constants__windows.ads
+[Ada Compile]     gnatcoll-os-dir.adb
+[Ada Compile]     gnatcoll-os-dir_types__win32.ads
+[Ada Compile]     gnatcoll-os-fs.adb
+[Ada Compile]     gnatcoll-os-fsutil.adb
+[Ada Compile]     gnatcoll-os-process.adb
+[Ada Compile]     gnatcoll-os-process_types__win32.adb
+[Ada Compile]     gnatcoll-os-random__win32.adb
+[Ada Compile]     gnatcoll-os-stat.adb
+[Ada Compile]     gnatcoll-os-win32-files.adb
+[Ada Compile]     gnatcoll-os-win32-process.ads
+[Ada Compile]     gnatcoll-os-win32-strings.adb
+[Ada Compile]     gnatcoll-os-win32.adb
+[Ada Compile]     gnatcoll-os.ads
+[Ada Compile]     gnatcoll-paragraph_filling-badnesses.adb
+[Ada Compile]     gnatcoll-paragraph_filling-words.adb
+[Ada Compile]     gnatcoll-paragraph_filling.adb
+[Ada Compile]     gnatcoll-path.adb
+[Ada Compile]     gnatcoll-plugins__windows.adb
+[Ada Compile]     gnatcoll-pools.adb
+[Ada Compile]     gnatcoll-random.adb
+[Ada Compile]     gnatcoll-remote-db.adb
+[Ada Compile]     gnatcoll-remote.ads
+[Ada Compile]     gnatcoll-scripts-impl.adb
+[Ada Compile]     gnatcoll-scripts-utils.adb
+[Ada Compile]     gnatcoll-scripts.adb
+[Ada Compile]     gnatcoll-string_builders.adb
+[Ada Compile]     gnatcoll-string_list_builders.adb
+[Ada Compile]     gnatcoll-strings.ads
+[Ada Compile]     gnatcoll-strings_impl.adb
+[Ada Compile]     gnatcoll-symbols.adb
+[Ada Compile]     gnatcoll-templates.adb
+[Ada Compile]     gnatcoll-terminal.adb
+[Ada Compile]     gnatcoll-traces.adb
+[Ada Compile]     gnatcoll-utils.adb
+[Ada Compile]     gnatcoll-vfs.adb
+[Ada Compile]     gnatcoll-vfs_types.ads
+[Ada Compile]     gnatcoll-vfs_utils.adb
+[Ada Compile]     gnatcoll-wstring_builders.adb
+[Ada Compile]     gnatcoll-wstring_list_builders.adb
+[C Compile]       blake3.c
+[C Compile]       blake3_dispatch.c
+[C Compile]       blake3_portable.c
+[C Compile]       executable_path.c
+[C Compile]       gnatcoll_support.c
+[C Compile]       link_max.c
+[C Compile]       objlist_file.c
+[C Compile]       run_path_option.c
+[C Compile]       separate_run_path_option.c
+[C Compile]       set_std_prefix.c
+[C Compile]       terminals.c
+[C Compile]       update_path.c
+[C Compile]       win32-wrappers.c
+[C Compile]       xxhash.c
+[Ada Compile]     gnatcoll-any_types.adb
+[Ada Compile]     gnatcoll-asserts.adb
+[Ada Compile]     gnatcoll-atomic.adb
+[Ada Compile]     gnatcoll-boyer_moore.adb
+[Ada Compile]     gnatcoll-coders-base64.adb
+[Ada Compile]     gnatcoll-coders-streams.adb
+[Archive]         libgnatcoll_core.a
+[Ada Compile]     gnatcoll-coders.adb
+[Ada Compile]     gnatcoll-damerau_levenshtein_distance.ads
+[Ada Compile]     gnatcoll-damerau_levenshtein_generic.adb
+[Ada Compile]     gnatcoll-locks.adb
+[Ada Compile]     gnatcoll-memory.adb
+[Ada Compile]     gnatcoll-promises.adb
+[Ada Compile]     gnatcoll-refcount-weakref.adb
+[Ada Compile]     gnatcoll-refcount.adb
+gnatcoll-refcount.ads:90:04: warning: in instantiation at gnatcoll-storage_pools-headers.adb:57 [enabled by default]
+gnatcoll-refcount.ads:90:04: warning: possible aliasing problem for type "Header_Access" [enabled by default]
+gnatcoll-refcount.ads:90:04: warning: use -fno-strict-aliasing switch for references [enabled by default]
+gnatcoll-refcount.ads:90:04: warning: or use "pragma No_Strict_Aliasing (Header_Access);" [enabled by default]
+[Ada Compile]     gnatcoll-storage_pools-alignment.adb
+[Ada Compile]     gnatcoll-storage_pools-headers.adb
+[Ada Compile]     gnatcoll-storage_pools.ads
+[Ada Compile]     gnatcoll-tribooleans.adb
+[Ada Compile]     gnatcoll.ads
+[C Compile]       getRSS.c
+[C Compile]       gnatcoll_support.c
+[Ada Compile]     gnatcoll-projects-aux.adb
+[Ada Compile]     gnatcoll-projects-krunch.adb
+[Ada Compile]     gnatcoll-projects-normalize.adb
+[Archive]         libgnatcoll_minimal.a
+[Ada Compile]     gnatcoll-projects.adb
+[Ada Compile]     gnatcoll-scripts-files.adb
+[Ada Compile]     gnatcoll-scripts-projects.adb
+[Ada Compile]     gpr-ali.adb
+[Ada Compile]     gpr-attr-pm.adb
+[Ada Compile]     gpr-attr.adb
+[Ada Compile]     gpr-com.ads
+[Ada Compile]     gpr-compilation-process-waiter.adb
+[Ada Compile]     gpr-compilation-process.adb
+[Ada Compile]     gpr-compilation-protocol.adb
+[Ada Compile]     gpr-compilation-slave.adb
+[Ada Compile]     gpr-compilation-sync.adb
+[Ada Compile]     gpr-compilation.adb
+[Ada Compile]     gpr-conf.adb
+[Ada Compile]     gpr-cset.adb
+[Ada Compile]     gpr-debug.adb
+[Ada Compile]     gpr-dect.adb
+[Ada Compile]     gpr-env.adb
+[Ada Compile]     gpr-err.adb
+[Ada Compile]     gpr-erroutc.adb
+[Ada Compile]     gpr-ext.adb
+[Ada Compile]     gpr-jobserver__win.adb
+[Ada Compile]     gpr-knowledge.adb
+gpr-jobserver__win.adb:36:06: warning: "System.Win32" is an internal GNAT unit [-gnatwi]
+gpr-jobserver__win.adb:36:06: warning: use of this unit is non-portable and version-dependent [-gnatwi]
+[Ada Compile]     gpr-names.adb
+[Ada Compile]     gpr-nmsc.adb
+[Ada Compile]     gpr-opt.ads
+[Ada Compile]     gpr-osint.adb
+gpr-osint.adb:30:06: warning: "System.CRTL" is an internal GNAT unit [-gnatwi]
+gpr-osint.adb:30:06: warning: use of this unit is non-portable and version-dependent [-gnatwi]
+gpr-osint.adb:31:06: warning: "System.OS_Constants" is an internal GNAT unit [-gnatwi]
+gpr-osint.adb:31:06: warning: use of this unit is non-portable and version-dependent [-gnatwi]
+[Ada Compile]     gpr-output.adb
+[Ada Compile]     gpr-part.adb
+[Ada Compile]     gpr-pp.adb
+[Ada Compile]     gpr-proc.adb
+[Ada Compile]     gpr-scans.adb
+[Ada Compile]     gpr-script.adb
+[Ada Compile]     gpr-sdefault.adb
+gpr-sdefault.adb:29:06: warning: "System.OS_Constants" is an internal GNAT unit [-gnatwi]
+gpr-sdefault.adb:29:06: warning: use of this unit is non-portable and version-dependent [-gnatwi]
+[Ada Compile]     gpr-sinput.adb
+[Ada Compile]     gpr-snames.adb
+[Ada Compile]     gpr-strt.adb
+[Ada Compile]     gpr-tempdir.adb
+[Ada Compile]     gpr-tree.adb
+[Ada Compile]     gpr-util-aux.adb
+[Ada Compile]     gpr-util.adb
+[Ada Compile]     gpr-version.adb
+[Ada Compile]     gpr.adb
+[Archive]         libgnatcoll_projects.a
+[Ada Compile]     gpr_build_util.adb
+[C Compile]       gpr_imports.c
+[Ada Compile]     dom-core-attrs.adb
+[Ada Compile]     dom-core-cdata_sections.ads
+[Ada Compile]     dom-core-character_datas.adb
+[Ada Compile]     dom-core-comments.ads
+[Ada Compile]     dom-core-document_fragments.ads
+[Ada Compile]     dom-core-document_types.adb
+[Ada Compile]     dom-core-documents.adb
+[Ada Compile]     dom-core-elements.adb
+[Ada Compile]     dom-core-entity_references.ads
+[Ada Compile]     dom-core-nodes.adb
+[Ada Compile]     dom-core-notations.adb
+[Ada Compile]     dom-core-processing_instructions.ads
+[Ada Compile]     dom-core-texts.adb
+[Ada Compile]     dom-core.adb
+[Ada Compile]     dom-readers.adb
+[Ada Compile]     dom.ads
+[Ada Compile]     input_sources-file.adb
+[Archive]         libxmlada_dom.a
+[Ada Compile]     input_sources-http.adb
+[Ada Compile]     input_sources-socket.adb
+[Ada Compile]     input_sources-strings.adb
+[Ada Compile]     input_sources.adb
+[Ada Compile]     sax-attributes.adb
+[Archive]         libxmlada_input_sources.a
+[Ada Compile]     sax-encodings.ads
+[Ada Compile]     sax-exceptions.adb
+[Ada Compile]     sax-htable.adb
+[Ada Compile]     sax-locators.adb
+[Ada Compile]     sax-models.adb
+[Ada Compile]     sax-pointers.adb
+[Ada Compile]     sax-readers.adb
+[Ada Compile]     sax-state_machines.adb
+[Ada Compile]     sax-symbols.adb
+[Ada Compile]     sax-utils.adb
+[Ada Compile]     sax.ads
+[Ada Compile]     schema-date_time.adb
+[Ada Compile]     schema-decimal.adb
+[Archive]         libgpr.a
+[Ada Compile]     schema-dom_readers.adb
+[Ada Compile]     schema-readers.adb
+[Ada Compile]     schema-schema_readers.adb
+[Ada Compile]     schema-simple_types.adb
+[Ada Compile]     schema-validators-xsd_grammar.adb
+[Ada Compile]     schema-validators.adb
+[Archive]         libxmlada_sax.a
+[Ada Compile]     schema.adb
+[Ada Compile]     unicode-ccs-iso_8859_1.adb
+[Ada Compile]     unicode-ccs-iso_8859_15.adb
+[Ada Compile]     unicode-ccs-iso_8859_2.adb
+[Ada Compile]     unicode-ccs-iso_8859_3.adb
+[Ada Compile]     unicode-ccs-iso_8859_4.adb
+[Ada Compile]     unicode-ccs-windows_1251.adb
+[Ada Compile]     unicode-ccs-windows_1252.adb
+[Ada Compile]     unicode-ccs.adb
+[Ada Compile]     unicode-ces-basic_8bit.adb
+[Ada Compile]     unicode-ces-utf16.adb
+[Ada Compile]     unicode-ces-utf32.adb
+[Ada Compile]     unicode-ces-utf8.adb
+[Ada Compile]     unicode-ces.adb
+[Ada Compile]     unicode-encodings.adb
+[Ada Compile]     unicode-names-aegean_numbers.ads
+[Ada Compile]     unicode-names-ahom.ads
+[Ada Compile]     unicode-names-alchemical_symbols.ads
+[Ada Compile]     unicode-names-alpha_presentation_forms.ads
+[Ada Compile]     unicode-names-anatolian_hieroglyphs.ads
+[Ada Compile]     unicode-names-ancient_greek_music.ads
+[Ada Compile]     unicode-names-ancient_greek_numbers.ads
+[Ada Compile]     unicode-names-ancient_symbols.ads
+[Ada Compile]     unicode-names-arabic.ads
+[Ada Compile]     unicode-names-arabic_extended_a.ads
+[Ada Compile]     unicode-names-arabic_math_alpha_symb.ads
+[Ada Compile]     unicode-names-arabic_present_formsa.ads
+[Ada Compile]     unicode-names-arabic_present_formsb.ads
+[Ada Compile]     unicode-names-arabic_supplement.ads
+[Ada Compile]     unicode-names-armenian.ads
+[Ada Compile]     unicode-names-arrows.ads
+[Ada Compile]     unicode-names-avestan.ads
+[Ada Compile]     unicode-names-balinese.ads
+[Ada Compile]     unicode-names-bamum.ads
+[Ada Compile]     unicode-names-bamum_supplement.ads
+[Ada Compile]     unicode-names-basic_latin.ads
+[Ada Compile]     unicode-names-bassa_vah.ads
+[Ada Compile]     unicode-names-batak.ads
+[Ada Compile]     unicode-names-bengali.ads
+[Ada Compile]     unicode-names-block_elements.ads
+[Ada Compile]     unicode-names-bopomofo.ads
+[Ada Compile]     unicode-names-bopomofo_extended.ads
+[Ada Compile]     unicode-names-box_drawing.ads
+[Ada Compile]     unicode-names-brahmi.ads
+[Ada Compile]     unicode-names-braille_patterns.ads
+[Ada Compile]     unicode-names-buginese.ads
+[Ada Compile]     unicode-names-buhid.ads
+[Ada Compile]     unicode-names-byzantine_musical_symbols.ads
+[Ada Compile]     unicode-names-canadian_aboriginal.ads
+[Ada Compile]     unicode-names-canadian_aboriginal_ext.ads
+[Ada Compile]     unicode-names-carian.ads
+[Ada Compile]     unicode-names-caucasian_albanian.ads
+[Ada Compile]     unicode-names-chakma.ads
+[Ada Compile]     unicode-names-cham.ads
+[Ada Compile]     unicode-names-cherokee.ads
+[Ada Compile]     unicode-names-cherokee_supplement.ads
+[Ada Compile]     unicode-names-cjk_compat_ideo_sup.ads
+[Ada Compile]     unicode-names-cjk_compat_ideographs.ads
+[Ada Compile]     unicode-names-cjk_compatibility.ads
+[Ada Compile]     unicode-names-cjk_compatibility_forms.ads
+[Ada Compile]     unicode-names-cjk_letters_months.ads
+[Ada Compile]     unicode-names-cjk_radicals_supplement.ads
+[Ada Compile]     unicode-names-cjk_strokes.ads
+[Ada Compile]     unicode-names-cjk_symbols_and_punct.ads
+[Ada Compile]     unicode-names-combining_diacritical.ads
+[Ada Compile]     unicode-names-combining_diacritical_ext.ads
+[Ada Compile]     unicode-names-combining_diacritical_sup.ads
+[Ada Compile]     unicode-names-combining_diacritical_sym.ads
+[Ada Compile]     unicode-names-combining_half_marks.ads
+[Ada Compile]     unicode-names-common_indic_number_forms.ads
+[Ada Compile]     unicode-names-control_pictures.ads
+[Ada Compile]     unicode-names-coptic.ads
+[Ada Compile]     unicode-names-coptic_epact_numbers.ads
+[Ada Compile]     unicode-names-counting_rod_numerals.ads
+[Ada Compile]     unicode-names-cuneiform.ads
+[Ada Compile]     unicode-names-cuneiform_num_punctuation.ads
+[Ada Compile]     unicode-names-currency_symbols.ads
+[Ada Compile]     unicode-names-cypriot_syllabary.ads
+[Ada Compile]     unicode-names-cyrillic.ads
+[Ada Compile]     unicode-names-cyrillic_extended_a.ads
+[Ada Compile]     unicode-names-cyrillic_extended_b.ads
+[Ada Compile]     unicode-names-cyrillic_supplement.ads
+[Ada Compile]     unicode-names-deseret.ads
+[Ada Compile]     unicode-names-devanagari.ads
+[Ada Compile]     unicode-names-devanagari_extended.ads
+[Ada Compile]     unicode-names-dingbats.ads
+[Ada Compile]     unicode-names-domino_tiles.ads
+[Ada Compile]     unicode-names-duployan.ads
+[Ada Compile]     unicode-names-early_dynastic_cuneiform.ads
+[Ada Compile]     unicode-names-egyptian_hieroglyphs.ads
+[Ada Compile]     unicode-names-elbasan.ads
+[Ada Compile]     unicode-names-emoticons.ads
+[Ada Compile]     unicode-names-enclosed_alphanum_sup.ads
+[Ada Compile]     unicode-names-enclosed_alphanumerics.ads
+[Ada Compile]     unicode-names-enclosed_ideographic_sup.ads
+[Ada Compile]     unicode-names-ethiopic.ads
+[Ada Compile]     unicode-names-ethiopic_extended.ads
+[Ada Compile]     unicode-names-ethiopic_extended_a.ads
+[Ada Compile]     unicode-names-ethiopic_supplement.ads
+[Ada Compile]     unicode-names-general_punctuation.ads
+[Ada Compile]     unicode-names-geometric_shapes.ads
+[Ada Compile]     unicode-names-geometric_shapes_extended.ads
+[Ada Compile]     unicode-names-georgian.ads
+[Ada Compile]     unicode-names-georgian_supplement.ads
+[Ada Compile]     unicode-names-glagolitic.ads
+[Ada Compile]     unicode-names-gothic.ads
+[Ada Compile]     unicode-names-grantha.ads
+[Ada Compile]     unicode-names-greek_and_coptic.ads
+[Ada Compile]     unicode-names-greek_extended.ads
+[Ada Compile]     unicode-names-gujarati.ads
+[Ada Compile]     unicode-names-gurmukhi.ads
+[Ada Compile]     unicode-names-half_full_width_forms.ads
+[Ada Compile]     unicode-names-hangul_compatibility_jamo.ads
+[Ada Compile]     unicode-names-hangul_jamo.ads
+[Ada Compile]     unicode-names-hangul_jamo_extended_a.ads
+[Ada Compile]     unicode-names-hangul_jamo_extended_b.ads
+[Ada Compile]     unicode-names-hanunoo.ads
+[Ada Compile]     unicode-names-hatran.ads
+[Ada Compile]     unicode-names-hebrew.ads
+[Ada Compile]     unicode-names-hiragana.ads
+[Ada Compile]     unicode-names-ideograph_descr_chars.ads
+[Ada Compile]     unicode-names-imperial_aramaic.ads
+[Ada Compile]     unicode-names-inscriptional_pahlavi.ads
+[Ada Compile]     unicode-names-inscriptional_parthian.ads
+[Ada Compile]     unicode-names-ipa_extensions.ads
+[Ada Compile]     unicode-names-javanese.ads
+[Ada Compile]     unicode-names-kaithi.ads
+[Ada Compile]     unicode-names-kana_supplement.ads
+[Ada Compile]     unicode-names-kanbun.ads
+[Ada Compile]     unicode-names-kangxi_radicals.ads
+[Ada Compile]     unicode-names-kannada.ads
+[Ada Compile]     unicode-names-katakana.ads
+[Ada Compile]     unicode-names-katakana_phonetic_ext.ads
+[Ada Compile]     unicode-names-kayah_li.ads
+[Ada Compile]     unicode-names-kharoshthi.ads
+[Ada Compile]     unicode-names-khmer.ads
+[Ada Compile]     unicode-names-khmer_symbols.ads
+[Ada Compile]     unicode-names-khojki.ads
+[Ada Compile]     unicode-names-khudawadi.ads
+[Ada Compile]     unicode-names-lao.ads
+[Ada Compile]     unicode-names-latin_1_supplement.ads
+[Ada Compile]     unicode-names-latin_extended_a.ads
+[Ada Compile]     unicode-names-latin_extended_additional.ads
+[Ada Compile]     unicode-names-latin_extended_b.ads
+[Ada Compile]     unicode-names-latin_extended_c.ads
+[Ada Compile]     unicode-names-latin_extended_d.ads
+[Ada Compile]     unicode-names-latin_extended_e.ads
+[Ada Compile]     unicode-names-lepcha.ads
+[Ada Compile]     unicode-names-letterlike_symbols.ads
+[Ada Compile]     unicode-names-limbu.ads
+[Ada Compile]     unicode-names-linear_a.ads
+[Ada Compile]     unicode-names-linear_b_ideograms.ads
+[Ada Compile]     unicode-names-linear_b_syllabary.ads
+[Ada Compile]     unicode-names-lisu.ads
+[Ada Compile]     unicode-names-lycian.ads
+[Ada Compile]     unicode-names-lydian.ads
+[Ada Compile]     unicode-names-mahajani.ads
+[Ada Compile]     unicode-names-mahjong_tiles.ads
+[Ada Compile]     unicode-names-malayalam.ads
+[Ada Compile]     unicode-names-mandaic.ads
+[Ada Compile]     unicode-names-manichaean.ads
+[Ada Compile]     unicode-names-math_alphanumeric_symb.ads
+[Ada Compile]     unicode-names-mathematical_operators.ads
+[Ada Compile]     unicode-names-meetei_mayek.ads
+[Ada Compile]     unicode-names-meetei_mayek_extensions.ads
+[Ada Compile]     unicode-names-mende_kikakui.ads
+[Ada Compile]     unicode-names-meroitic_cursive.ads
+[Ada Compile]     unicode-names-meroitic_hieroglyphs.ads
+[Ada Compile]     unicode-names-miao.ads
+[Ada Compile]     unicode-names-misc_math_symbols_a.ads
+[Ada Compile]     unicode-names-misc_math_symbols_b.ads
+[Ada Compile]     unicode-names-misc_symbols_and_arrows.ads
+[Ada Compile]     unicode-names-misc_symbols_pictographs.ads
+[Ada Compile]     unicode-names-miscellaneous_symbols.ads
+[Ada Compile]     unicode-names-miscellaneous_technical.ads
+[Ada Compile]     unicode-names-modi.ads
+[Ada Compile]     unicode-names-modifier_tone_letters.ads
+[Ada Compile]     unicode-names-mongolian.ads
+[Ada Compile]     unicode-names-mro.ads
+[Ada Compile]     unicode-names-multani.ads
+[Ada Compile]     unicode-names-musical_symbols.ads
+[Ada Compile]     unicode-names-myanmar.ads
+[Ada Compile]     unicode-names-myanmar_extended_a.ads
+[Ada Compile]     unicode-names-myanmar_extended_b.ads
+[Ada Compile]     unicode-names-nabataean.ads
+[Ada Compile]     unicode-names-new_tai_lue.ads
+[Ada Compile]     unicode-names-nko.ads
+[Ada Compile]     unicode-names-number_forms.ads
+[Ada Compile]     unicode-names-ogham.ads
+[Ada Compile]     unicode-names-ol_chiki.ads
+[Ada Compile]     unicode-names-old_hungarian.ads
+[Ada Compile]     unicode-names-old_italic.ads
+[Ada Compile]     unicode-names-old_north_arabian.ads
+[Ada Compile]     unicode-names-old_permic.ads
+[Ada Compile]     unicode-names-old_persian.ads
+[Ada Compile]     unicode-names-old_south_arabian.ads
+[Ada Compile]     unicode-names-old_turkic.ads
+[Ada Compile]     unicode-names-optical_chars_recognition.ads
+[Ada Compile]     unicode-names-oriya.ads
+[Ada Compile]     unicode-names-ornamental_dingbats.ads
+[Ada Compile]     unicode-names-osmanya.ads
+[Ada Compile]     unicode-names-pahawh_hmong.ads
+[Ada Compile]     unicode-names-palmyrene.ads
+[Ada Compile]     unicode-names-pau_cin_hau.ads
+[Ada Compile]     unicode-names-phags_pa.ads
+[Ada Compile]     unicode-names-phaistos_disc.ads
+[Ada Compile]     unicode-names-phoenician.ads
+[Ada Compile]     unicode-names-phonetic_ext_sup.ads
+[Ada Compile]     unicode-names-phonetic_extensions.ads
+[Ada Compile]     unicode-names-playing_cards.ads
+[Ada Compile]     unicode-names-psalter_pahlavi.ads
+[Ada Compile]     unicode-names-rejang.ads
+[Ada Compile]     unicode-names-rumi_numeral_symbols.ads
+[Ada Compile]     unicode-names-runic.ads
+[Ada Compile]     unicode-names-samaritan.ads
+[Ada Compile]     unicode-names-saurashtra.ads
+[Ada Compile]     unicode-names-sharada.ads
+[Ada Compile]     unicode-names-shavian.ads
+[Ada Compile]     unicode-names-shorthand_format_controls.ads
+[Ada Compile]     unicode-names-siddham.ads
+[Ada Compile]     unicode-names-sinhala.ads
+[Ada Compile]     unicode-names-sinhala_archaic_numbers.ads
+[Ada Compile]     unicode-names-small_form_variants.ads
+[Ada Compile]     unicode-names-sora_sompeng.ads
+[Ada Compile]     unicode-names-spacing_modifier_letters.ads
+[Ada Compile]     unicode-names-specials.ads
+[Ada Compile]     unicode-names-sundanese.ads
+[Ada Compile]     unicode-names-sundanese_supplement.ads
+[Ada Compile]     unicode-names-sup_math_operators.ads
+[Ada Compile]     unicode-names-sup_symbols_pictographs.ads
+[Ada Compile]     unicode-names-super_and_sub_scripts.ads
+[Ada Compile]     unicode-names-supplemental_arrows_a.ads
+[Ada Compile]     unicode-names-supplemental_arrows_b.ads
+[Ada Compile]     unicode-names-supplemental_arrows_c.ads
+[Ada Compile]     unicode-names-supplemental_punctuation.ads
+[Ada Compile]     unicode-names-sutton_signwriting.ads
+[Ada Compile]     unicode-names-syloti_nagri.ads
+[Ada Compile]     unicode-names-syriac.ads
+[Ada Compile]     unicode-names-tagalog.ads
+[Ada Compile]     unicode-names-tagbanwa.ads
+[Ada Compile]     unicode-names-tags.ads
+[Ada Compile]     unicode-names-tai_le.ads
+[Ada Compile]     unicode-names-tai_tham.ads
+[Ada Compile]     unicode-names-tai_viet.ads
+[Ada Compile]     unicode-names-tai_xuan_jing_symbols.ads
+[Ada Compile]     unicode-names-takri.ads
+[Ada Compile]     unicode-names-tamil.ads
+[Ada Compile]     unicode-names-telugu.ads
+[Ada Compile]     unicode-names-thaana.ads
+[Ada Compile]     unicode-names-thai.ads
+[Ada Compile]     unicode-names-tibetan.ads
+[Ada Compile]     unicode-names-tifinagh.ads
+[Ada Compile]     unicode-names-tirhuta.ads
+[Archive]         libxmlada_schema.a
+[Ada Compile]     unicode-names-transport_and_map_symbols.ads
+[Ada Compile]     unicode-names-ugaritic.ads
+[Ada Compile]     unicode-names-vai.ads
+[Ada Compile]     unicode-names-variation_selectors.ads
+[Ada Compile]     unicode-names-variation_selectors_sup.ads
+[Ada Compile]     unicode-names-vedic_extensions.ads
+[Ada Compile]     unicode-names-vertical_forms.ads
+[Ada Compile]     unicode-names-warang_citi.ads
+[Ada Compile]     unicode-names-yi_radicals.ads
+[Ada Compile]     unicode-names-yi_syllables.ads
+[Ada Compile]     unicode-names-yijing_hexagram_symbols.ads
+[Ada Compile]     unicode-names.ads
+[Ada Compile]     unicode.adb
+[Ada Compile]     memory_streams.adb
+[Ada Compile]     zlib-streams.adb
+[Ada Compile]     zlib-thin.adb
+[Ada Compile]     zlib.adb
+[C Compile]       adler32.c
+[C Compile]       compress.c
+[C Compile]       crc32.c
+[C Compile]       deflate.c
+[C Compile]       gzclose.c
+[C Compile]       gzlib.c
+[C Compile]       gzread.c
+[C Compile]       gzwrite.c
+[C Compile]       infback.c
+[C Compile]       inffast.c
+[C Compile]       inflate.c
+[C Compile]       inftrees.c
+[C Compile]       trees.c
+[C Compile]       uncompr.c
+[C Compile]       zutil.c
+[Ada Compile]     aws-attachments.adb
+[Ada Compile]     aws-client-hotplug.adb
+[Ada Compile]     aws-client-http_utils.adb
+[Archive]         libxmlada_unicode.a
+[Ada Compile]     aws-client-xml-input_sources.adb
+[Ada Compile]     aws-client-xml.ads
+[Ada Compile]     aws-client.adb
+[Ada Compile]     aws-communication-client.adb
+[Ada Compile]     aws-communication-server.adb
+[Ada Compile]     aws-communication.adb
+[Ada Compile]     aws-config-ini.adb
+[Ada Compile]     aws-config-set.adb
+[Ada Compile]     aws-config-utils.adb
+[Ada Compile]     aws-config.adb
+[Ada Compile]     aws-containers-key_value.ads
+[Ada Compile]     aws-containers-memory_streams.ads
+[Ada Compile]     aws-containers-string_vectors.ads
+[Ada Compile]     aws-containers-tables-set.ads
+[Ada Compile]     aws-containers-tables.adb
+[Ada Compile]     aws-containers.ads
+[Ada Compile]     aws-cookie.adb
+[Ada Compile]     aws-default.ads
+[Ada Compile]     aws-digest.adb
+[Ada Compile]     aws-dispatchers-callback.adb
+[Ada Compile]     aws-dispatchers.adb
+[Ada Compile]     aws-exceptions.ads
+[Ada Compile]     aws-headers-set.adb
+[Ada Compile]     aws-headers-values.adb
+[Ada Compile]     aws-headers.adb
+[Ada Compile]     aws-hotplug-get_status.adb
+[Ada Compile]     aws-hotplug.adb
+[Ada Compile]     aws-http2-connection.adb
+[Ada Compile]     aws-http2-frame-continuation.adb
+[Ada Compile]     aws-http2-frame-data.adb
+[Ada Compile]     aws-http2-frame-goaway.adb
+[Ada Compile]     aws-http2-frame-headers.adb
+[Ada Compile]     aws-http2-frame-list.ads
+[Ada Compile]     aws-http2-frame-ping.adb
+[Ada Compile]     aws-http2-frame-priority.adb
+[Ada Compile]     aws-http2-frame-push_promise.adb
+[Ada Compile]     aws-http2-frame-rst_stream.adb
+[Ada Compile]     aws-http2-frame-settings.adb
+[Ada Compile]     aws-http2-frame-window_update.adb
+[Ada Compile]     aws-http2-frame.adb
+[Ada Compile]     aws-http2-hpack-huffman.adb
+[Ada Compile]     aws-http2-hpack-table.adb
+[Ada Compile]     aws-http2-hpack.adb
+[Ada Compile]     aws-http2-message-list.ads
+[Ada Compile]     aws-http2-message.adb
+[Ada Compile]     aws-http2-stream-set.ads
+[Ada Compile]     aws-http2-stream.adb
+[Ada Compile]     aws-http2.adb
+[Ada Compile]     aws-jabber-client.adb
+[Ada Compile]     aws-jabber-digest_md5.adb
+[Ada Compile]     aws-jabber.ads
+[Ada Compile]     aws-ldap-client.adb
+[Ada Compile]     aws-ldap-thin.adb
+[Ada Compile]     aws-ldap.ads
+[Ada Compile]     aws-log.adb
+[Ada Compile]     aws-messages.adb
+[Ada Compile]     aws-mime.adb
+[Ada Compile]     aws-net-acceptors.adb
+[Ada Compile]     aws-net-buffered.adb
+[Ada Compile]     aws-net-generic_sets.adb
+[Ada Compile]     aws-net-log-callbacks.adb
+[Ada Compile]     aws-net-log.adb
+[Ada Compile]     aws-net-memory.adb
+[Ada Compile]     aws-net-poll_events-g_poll.adb
+[Ada Compile]     aws-net-poll_events.adb
+[Ada Compile]     aws-net-sets.ads
+[Ada Compile]     aws-net-ssl-certificate-impl__dummy.adb
+[Ada Compile]     aws-net-ssl-certificate.adb
+[Ada Compile]     aws-net-ssl-common.adb
+[Ada Compile]     aws-net-ssl-rsa_dh_generators.adb
+[Ada Compile]     aws-net-ssl__dummy.adb
+[Ada Compile]     aws-net-std__gnat.adb
+[Ada Compile]     aws-net-stream_io.adb
+[Ada Compile]     aws-net-websocket-handshake_error.adb
+[Ada Compile]     aws-net-websocket-protocol-draft76.adb
+[Ada Compile]     aws-net-websocket-protocol-rfc6455.adb
+[Ada Compile]     aws-net-websocket-protocol.ads
+[Ada Compile]     aws-net-websocket-registry-control.adb
+[Ada Compile]     aws-net-websocket-registry-utils.adb
+[Ada Compile]     aws-net-websocket-registry.adb
+[Ada Compile]     aws-net-websocket.adb
+[Ada Compile]     aws-net.adb
+[Ada Compile]     aws-os_lib.ads
+[Ada Compile]     aws-parameters-set.adb
+[Ada Compile]     aws-parameters.adb
+[Ada Compile]     aws-pop.adb
+[Ada Compile]     aws-resources-embedded.adb
+[Ada Compile]     aws-resources-files.adb
+[Ada Compile]     aws-resources-streams-disk-once.adb
+[Ada Compile]     aws-resources-streams-disk.adb
+[Ada Compile]     aws-resources-streams-memory-zlib.adb
+[Ada Compile]     aws-resources-streams-memory.adb
+[Ada Compile]     aws-resources-streams-pipe.adb
+[Ada Compile]     aws-resources-streams-zlib.adb
+[Ada Compile]     aws-resources-streams.adb
+[Ada Compile]     aws-resources.adb
+[Ada Compile]     aws-response-set.adb
+[Ada Compile]     aws-response.adb
+[Ada Compile]     aws-server-context.ads
+[Ada Compile]     aws-server-get_status.adb
+[Ada Compile]     aws-server-hotplug.adb
+[Ada Compile]     aws-server-http_utils.adb
+[Ada Compile]     aws-server-log.adb
+[Ada Compile]     aws-server-push.adb
+[Ada Compile]     aws-server-status.adb
+[Ada Compile]     aws-server.adb
+[Ada Compile]     aws-services-callbacks.adb
+[Ada Compile]     aws-services-directory.adb
+[Ada Compile]     aws-services-dispatchers-linker.adb
+[Ada Compile]     aws-services-dispatchers-method.adb
+[Ada Compile]     aws-services-dispatchers-timer.adb
+[Ada Compile]     aws-services-dispatchers-transient_pages.adb
+[Ada Compile]     aws-services-dispatchers-uri.adb
+[Ada Compile]     aws-services-dispatchers-virtual_host.adb
+[Ada Compile]     aws-services-dispatchers.ads
+[Ada Compile]     aws-services-download.adb
+[Ada Compile]     aws-services-page_server.adb
+[Ada Compile]     aws-services-split_pages-alpha-bounded.adb
+[Ada Compile]     aws-services-split_pages-alpha.adb
+[Ada Compile]     aws-services-split_pages-shared.adb
+[Ada Compile]     aws-services-split_pages-uniform-alpha.adb
+[Ada Compile]     aws-services-split_pages-uniform-overlapping.adb
+[Ada Compile]     aws-services-split_pages-uniform.adb
+[Ada Compile]     aws-services-split_pages.adb
+[Ada Compile]     aws-services-transient_pages-control.adb
+[Ada Compile]     aws-services-transient_pages.adb
+[Ada Compile]     aws-services-web_block-context.adb
+[Ada Compile]     aws-services-web_block-registry.adb
+[Ada Compile]     aws-services-web_block.ads
+[Ada Compile]     aws-services-web_mail.adb
+[Ada Compile]     aws-services.ads
+[Ada Compile]     aws-session-control.adb
+[Ada Compile]     aws-session.adb
+[Ada Compile]     aws-smtp-authentication-plain.adb
+[Ada Compile]     aws-smtp-authentication.ads
+[Ada Compile]     aws-smtp-client.adb
+[Ada Compile]     aws-smtp-messages-set.adb
+[Ada Compile]     aws-smtp-messages.adb
+[Ada Compile]     aws-smtp-server.adb
+[Ada Compile]     aws-smtp.adb
+[Ada Compile]     aws-status-set.adb
+[Ada Compile]     aws-status-translate_set.adb
+[Ada Compile]     aws-status-translate_table.adb
+[Ada Compile]     aws-status.adb
+[Ada Compile]     aws-templates.ads
+[Ada Compile]     aws-translator.adb
+[Ada Compile]     aws-url-raise_url_error.adb
+[Ada Compile]     aws-url-set.adb
+[Ada Compile]     aws-url.adb
+[Ada Compile]     aws-utils-streams.adb
+[Ada Compile]     aws-utils.adb
+[Ada Compile]     aws.ads
+[Ada Compile]     soap-client-callback.ads
+[Ada Compile]     soap-client.adb
+[Ada Compile]     soap-dispatchers-callback.adb
+[Ada Compile]     soap-dispatchers.adb
+[Ada Compile]     soap-message-payload.adb
+[Ada Compile]     soap-message-reader.adb
+[Ada Compile]     soap-message-response-error.adb
+[Ada Compile]     soap-message-response.adb
+[Ada Compile]     soap-message-xml.adb
+[Ada Compile]     soap-message.adb
+[Ada Compile]     soap-name_space.adb
+[Ada Compile]     soap-parameters.adb
+[Ada Compile]     soap-types-untyped.adb
+[Ada Compile]     soap-types.adb
+[Ada Compile]     soap-utils.adb
+[Ada Compile]     soap-wsdl-name_spaces.adb
+[Ada Compile]     soap-wsdl-schema.adb
+[Ada Compile]     soap-wsdl.adb
+[Ada Compile]     soap-xml.adb
+[Ada Compile]     soap.ads
+[Ada Compile]     templates_parser-configuration__aws.ads
+[Ada Compile]     templates_parser-debug.adb
+[Ada Compile]     templates_parser-input__aws.adb
+[Ada Compile]     templates_parser-query.adb
+[Ada Compile]     templates_parser-utils.adb
+[Ada Compile]     templates_parser-xml.adb
+[Ada Compile]     templates_parser.adb
+[Ada Compile]     templates_parser_tasking__standard_tasking.adb
+[C Compile]       gai_strerror.c
+[Ada Compile]     ssl-thin__dummy.ads
+[Ada Compile]     ssl.ads
+[Archive]         libaws.a
+Note: Building aws=25.2.0/build/projects/aws_config.gpr (2/2)...
+gprbuild: no sources to compile
+Success: Build finished successfully in 230.92 seconds.
+Found declared GPR file: aws.gpr
+Found declared GPR file: build/projects/aws_config.gpr
+[alr test] Test completed SUCCESSFULLY
