@@ -1,0 +1,96 @@
+Test ran at 2024-03-25 01:22:44.603152+00:00
+
+SOLUTION:
+lace_bullet=0.1.0: Provides a thin Ada binding to the 'bullet' C++ project.
+Origin: source archive lace_bullet-0.1.0.tgz at https://github.com/charlie5/lace-alire/releases/download/v0.1.0/lace_bullet-0.1.0.tgz with hashes sha256:2c009b790f92ee15fd63bde07bb3ba0747d3fd0d7465be28c12e22b9b3dc3475, sha512:cec42c7241bca4ca854d5dbe93df5ad4615a4d5b092fc79ac1cac2caf691e6f223e50bf10434d51731e78f051c9a252306dbe2f4e267c61a5af8a7c7d7ea5dd6
+Properties:
+   Author: Rod Kay
+   Description: Provides a thin Ada binding to the 'bullet' C++ project.
+   case Distribution is
+      when Msys2 => Environment: C_INCLUDE_PATH=${C_INCLUDE_PATH}:${DISTRIB_ROOT}/mingw64/include/bullet
+   License: ISC
+   Maintainer: Rod Kay <rodakay5@gmail.com>
+   Maintainers_Logins: charlie5
+   Name: lace_bullet
+   Project_File: library/bullet_thin.gpr
+   Version: 0.1.0
+Dependencies (direct):
+   lace_c_math~0.1
+   libbullet*
+Dependencies (solution):
+   lace_c_math=0.1.0
+   lace_math=0.1.0
+   lace_shared=0.1.0
+   lace_swig=0.1.0
+   libbullet=3.25.0
+Dependencies (graph):
+   lace_bullet=0.1.0 --> lace_c_math=0.1.0 (~0.1)
+   lace_bullet=0.1.0 --> libbullet=3.25.0 (*)
+   lace_c_math=0.1.0 --> lace_math=0.1.0 (~0.1)
+   lace_c_math=0.1.0 --> lace_swig=0.1.0 (~0.1)
+   lace_math=0.1.0   --> lace_shared=0.1.0 (~0.1)
+
+
+LOG:
+Spawning: alr -d -n get --build lace_bullet=0.1.0
+Note: Deploying lace_bullet=0.1.0...
+#=#=#                                                                          
+##O#-#                                                                         
+
+######################################################################## 100.0%
+Note: Deploying libbullet=3.25.0...
+The system package 'bullet' is about to be installed.
+This action might require admin privileges and impact your system installation.
+Do you want Alire to install this system package?
+Using default: Yes
+resolving dependencies...
+looking for conflicting packages...
+
+Package (1)   New Version  Net Change  Download Size
+
+extra/bullet  3.25-3       133.16 MiB      36.50 MiB
+
+Total Download Size:    36.50 MiB
+Total Installed Size:  133.16 MiB
+
+:: Proceed with installation? [Y/n] 
+:: Retrieving packages...
+ bullet-3.25-3-x86_64 downloading...
+checking keyring...
+checking package integrity...
+loading package files...
+checking for file conflicts...
+:: Processing package changes...
+installing bullet...
+Optional dependencies for bullet
+    glu: for the example browser [installed]
+    python: python bindings [installed]
+    python-numpy: python bindings
+    bullet-docs: documentation
+:: Running post-transaction hooks...
+(1/1) Arming ConditionNeedsUpdate...
+Note: Building lace_bullet=0.1.0/library/bullet_thin.gpr...
+Setup
+   [mkdir]        object directory for project Bullet_Thin_C
+Compile
+   [c++]          bullet-conversions.cpp
+   [c++]          bullet-object.cpp
+   [c++]          bullet-space.cpp
+   [c++]          bullet-joint.cpp
+   [c++]          bullet-shape.cpp
+   [c++]          bullet_c_wrap.cxx
+   [Ada]          bullet_c.ads
+   [Ada]          bullet_c-pointer_pointers.ads
+   [Ada]          bullet_c-binding.ads
+   [Ada]          bullet_c-ray_collision.ads
+   [Ada]          bullet_c-pointers.ads
+
+lace_bullet=0.1.0 successfully retrieved and built.
+Dependencies were solved as follows:
+
+   +  lace_c_math 0.1.0  (new)
+   +  lace_math   0.1.0  (new,indirect)
+   +  lace_shared 0.1.0  (new,indirect)
+   +  lace_swig   0.1.0  (new,indirect)
+   +b libbullet   3.25.0 (new,system package)
+Found declared GPR file: library/bullet_thin.gpr

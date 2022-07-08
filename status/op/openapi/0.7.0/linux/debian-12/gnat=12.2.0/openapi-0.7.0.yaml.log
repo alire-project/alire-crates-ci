@@ -1,0 +1,138 @@
+Test ran at 2024-03-22 12:57:19.212624+00:00
+
+SOLUTION:
+openapi=0.7.0: OpenAPI library to build REST client applications
+Origin: commit 91e8ce6ebd894e90fa4876c8ab93a60263108083 from https://gitlab.com/stcarrez/openapi-ada.git
+Properties:
+   Author: Stephane.Carrez@gmail.com
+   Configuration: no modifiers
+   Description: OpenAPI library to build REST client applications
+   Environment: PATH=${CRATE_ROOT}/scripts:${PATH}
+   GPR Scenario: OPENAPI_BUILD := distrib | debug | optimize | profile | coverage
+   GPR Scenario: OPENAPI_LIBRARY_TYPE := relocatable | static | static-pic
+   License: Apache-2.0
+   Long_Description: [![Build Status](https://img.shields.io/endpoint?url=https://porion.vacs.fr/porion/api/v1/projects/openapi-ada/badges/build.json)](https://porion.vacs.fr/porion/projects/view/openapi-ada/summary)
+[![Test Status](https://img.shields.io/endpoint?url=https://porion.vacs.fr/porion/api/v1/projects/openapi-ada/badges/tests.json)](https://porion.vacs.fr/porion/projects/view/openapi-ada/xunits)
+[![Coverage](https://img.shields.io/endpoint?url=https://porion.vacs.fr/porion/api/v1/projects/openapi-ada/badges/coverage.json)](https://porion.vacs.fr/porion/projects/view/openapi-ada/summary)
+
+[OpenAPI Generator](https://github.com/OpenAPITools/openapi-generator) is a code generator that supports generation of
+API client libraries, server stubs and documentation automatically
+given an [OpenAPI Spec](https://github.com/OAI/OpenAPI-Specification).
+
+The Ada client support has been integrated in [OpenAPI Generator](https://github.com/OpenAPITools/openapi-generator).
+
+The OpenAPI Ada library is a small support library for the Ada code generator
+provided by OpenAPI Generator.  The library provides support to serialize the data,
+make HTTP requests and support the [OpenAPI Spec](https://github.com/OAI/OpenAPI-Specification)
+specific operations or types.
+
+## Alire setup
+
+```
+alr with openapi
+```
+
+For the HTTP connection, you can either use AWS or CURL and run one of the following commands:
+
+```
+alr with utilada_curl
+alr with utilada_aws
+```
+
+## Generation
+
+Example of client generation with OpenAPI file `my-api.yaml` and use of CURL support:
+
+```
+  alr exec -- openapi-generate-client -i my-api.yaml --additional-properties projectName=MyProject --additional-properties openApiName=OpenAPI --additional-properties httpSupport=Curl --model-package MyProject.MyModule -o .
+```
+
+
+   Maintainer: Stephane.Carrez@gmail.com
+   Maintainers_Logins: stcarrez
+   Name: openapi
+   Project_File: .alire/openapi.gpr
+   Tag: rest
+   Tag: web
+   Tag: api
+   Tag: openapi
+   Version: 0.7.0
+   Website: https://gitlab.com/stcarrez/openapi-ada
+Dependencies (direct):
+   security^1.5.0
+   utilada^2.6.0
+   utilada_xml^2.6.0
+Dependencies (solution):
+   gnat=12.2.0 (gnat_external)
+   security=1.5.0
+   utilada=2.6.0
+   utilada_xml=2.6.0
+   xmlada=24.0.0
+Dependencies (graph):
+   openapi=0.7.0     --> security=1.5.0 (^1.5.0)
+   openapi=0.7.0     --> utilada=2.6.0 (^2.6.0)
+   openapi=0.7.0     --> utilada_xml=2.6.0 (^2.6.0)
+   security=1.5.0    --> utilada=2.6.0 (^2.6.0)
+   security=1.5.0    --> utilada_xml=2.6.0 (^2.6.0)
+   utilada_xml=2.6.0 --> utilada=2.6.0 (^2.6.0)
+   utilada_xml=2.6.0 --> xmlada=24.0.0 (*)
+   xmlada=24.0.0     --> gnat=12.2.0 (gnat_external) (>=11)
+
+
+LOG:
+Spawning: alr -d -n get --build openapi=0.7.0
+Note: Deploying openapi=0.7.0...
+Note: Deploying security=1.5.0...
+Note: Building openapi=0.7.0/.alire/openapi.gpr...
+Setup
+   [mkdir]        object directory for project Security
+   [mkdir]        library directory for project Security
+   [mkdir]        object directory for project Openapi
+   [mkdir]        library directory for project Openapi
+Compile
+   [Ada]          security-random.adb
+   [Ada]          security-oauth-servers.adb
+   [Ada]          security-policies-urls.adb
+   [Ada]          security-auth-oauth-yahoo.adb
+   [Ada]          security-auth-openid.adb
+   [Ada]          security-contexts.adb
+   [Ada]          security-controllers-roles.adb
+   [Ada]          security-policies-roles.adb
+   [Ada]          security-permissions.adb
+   [Ada]          security-auth-oauth.adb
+   [Ada]          security-auth-oauth-github.adb
+   [Ada]          security-oauth-file_registry.adb
+   [Ada]          security-controllers-urls.adb
+   [Ada]          security.ads
+   [Ada]          security-oauth-clients.adb
+   [Ada]          security-oauth.adb
+   [Ada]          security-policies.adb
+   [Ada]          security-auth-oauth-googleplus.adb
+   [Ada]          security-controllers.ads
+   [Ada]          security-auth.adb
+   [Ada]          security-oauth-jwt.adb
+   [Ada]          security-auth-oauth-facebook.adb
+   [Ada]          openapi-credentials.ads
+   [Ada]          openapi-clients.adb
+   [Ada]          openapi-streams.adb
+   [Ada]          openapi.adb
+   [Ada]          swagger.ads
+   [Ada]          openapi-credentials-oauth.adb
+   [Ada]          openapi-streams-forms.adb
+Build Libraries
+   [gprlib]       security.lexch
+   [gprlib]       openapi.lexch
+   [archive]      libsecurity.a
+   [index]        libsecurity.a
+   [archive]      libopenapi.a
+   [index]        libopenapi.a
+
+openapi=0.7.0 successfully retrieved and built.
+Dependencies were solved as follows:
+
+   +b gnat        12.2.0 (new,gnat_external,indirect,executable in path)
+   +  security    1.5.0  (new)
+   +  utilada     2.6.0  (new)
+   +  utilada_xml 2.6.0  (new)
+   +  xmlada      24.0.0 (new,indirect)
+Found declared GPR file: .alire/openapi.gpr

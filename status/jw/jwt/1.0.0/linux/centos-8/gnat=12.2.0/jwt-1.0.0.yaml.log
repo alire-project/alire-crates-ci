@@ -1,0 +1,88 @@
+Test ran at 2024-03-25 01:12:25.515908+00:00
+
+SOLUTION:
+jwt=1.0.0: JSON Web Token (JWT) implementation in Ada
+Origin: source archive 1.0.0.tar.gz at https://github.com/reznikmm/jwt/archive/1.0.0.tar.gz with hash sha512:5caac64d0e8d5e2e1480ee44ae214585046e9dee1ce391196891e56a4140d9314ed4551ec0fcd162ec909a5f1ce28867cb265e912d6e50b6659b5655597a3d4e
+Properties:
+   Author: Maxim Reznik
+   Description: JSON Web Token (JWT) implementation in Ada
+   License: MIT
+   Maintainer: Maxim Reznik <reznikmm@gmail.com>
+   Maintainers_Logins: reznikmm
+   Name: jwt
+   Project_File: gnat/jwt.gpr
+   Tag: web
+   Tag: token
+   Tag: jws
+   Tag: json
+   Tag: jwt
+   Version: 1.0.0
+   Website: https://github.com/reznikmm/jwt
+Dependencies (direct):
+   matreshka_league*
+Dependencies (solution):
+   make=4.3.0
+   matreshka_league=21.0.0
+Dependencies (graph):
+   jwt=1.0.0               --> matreshka_league=21.0.0 (*)
+   matreshka_league=21.0.0 --> make=4.3.0 (*)
+
+
+LOG:
+Spawning: alr -d -n get --build jwt=1.0.0
+Note: Deploying jwt=1.0.0...
+#=#=#                                                                         
+##O#-#                                                                        
+Note: Building jwt=1.0.0/gnat/jwt.gpr...
+Setup
+   [mkdir]        object directory for project JWT
+Compile
+   [Ada]          jws-integers.adb
+   [Ada]          jws.adb
+   [Ada]          jws-rs256.adb
+jws-integers.adb:190:20: warning: writable actual for "A" overlaps with actual for "Result" [-gnatw.i]
+jws-integers.adb:200:23: warning: writable actual for "A" overlaps with actual for "Result" [-gnatw.i]
+
+   compilation of jws-integers.adb failed
+
+gprbuild: *** compilation phase failed
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/72b18ee4-406a-4d7a-bf52-aa67862829b6/jwt_1.0.0_5caac64d/gnat/jwt.gpr"] exited with code 4
+ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/72b18ee4-406a-4d7a-bf52-aa67862829b6/jwt_1.0.0_5caac64d/gnat/jwt.gpr"] exited with code 4
+stderr: ALIRE.CHECKED_ERROR
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/72b18ee4-406a-4d7a-bf52-aa67862829b6/jwt_1.0.0_5caac64d/gnat/jwt.gpr"] exited with code 4
+stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
+[/usr/bin/alr]
+0xe4810a Alire.Raise_Checked_Error at alire.adb:272
+0xa90404 Alire.Os_Lib.Subprocess.Checked_Spawn at alire-os_lib-subprocess.adb:111
+0xd153f3 Alire.Spawn.Command at alire-spawn.adb:21
+0xd15b11 Alire.Spawn.Gprbuild at alire-spawn.adb:41
+0xc45693 Alire.Roots.Build at alire-roots.adb:182
+0xc43936 Alire.Roots.Build at alire-roots.adb:248
+0xc6b083 Alire.Roots.Traverse at alire-roots.adb:2053
+0xcd9c00 Alire.Solutions.Traverse.Visit at alire-solutions.adb:1480
+0xcd8a70 Alire.Solutions.Traverse at alire-solutions.adb:1563
+0xc6b1be Alire.Roots.Traverse at alire-roots.adb:2057
+0xc6b3f5 Alire.Roots.Traverse at alire-roots.adb:2037
+0xc440f1 Alire.Roots.Build at alire-roots.adb:281
+0xc441d7 Alire.Roots.Build at alire-roots.adb:107
+0x4a4206 Alr.Commands.Get.Retrieve at alr-commands-get.adb:195
+0x4a87b2 Alr.Commands.Get.Execute at alr-commands-get.adb:368
+0x4a8a49 Alr.Commands.Get.Execute at alr-commands-get.adb:246
+0x53939b Alr.Commands.Sub_Cmd.Execute at clic-subcommand-instance.adb:749
+0x54587e Alr.Commands.Execute at alr-commands.adb:561
+0x436183 Alr.Main at alr-main.adb:13
+0x438de1 Main at b__alr-main.adb:2257
+[/lib/x86_64-linux-gnu/libc.so.6]
+0x7f43200ce188
+0x7f43200ce243
+[/usr/bin/alr]
+0x43601c _start at ???
+0xfffffffffffffffe
+
+
+Warning: jwt=1.0.0 successfully retrieved but its build failed.
+Dependencies were solved as follows:
+
+   +b make             4.3.0  (new,indirect,system package)
+   +  matreshka_league 21.0.0 (new)
+ERROR: Build ended with errors

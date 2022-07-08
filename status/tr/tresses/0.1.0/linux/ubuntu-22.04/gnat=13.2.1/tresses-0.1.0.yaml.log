@@ -1,0 +1,141 @@
+Test ran at 2024-03-23 13:02:49.265237+00:00
+
+SOLUTION:
+tresses=0.1.0: Synth library inspired by Mutable Instruments Braids
+Origin: commit ea960522ce3b91fb7f31796d51e93ab302511ecf from https://github.com/wee-noise-maker/tresses.git
+Properties:
+   Author: Fabien Chouteau
+   Build Switches: 
+   Config type: Resources_Linker_Section : String default: ''
+   Config type: Sample_Rate : Enum (SR22050, SR32000, SR44100, SR48000, SR96000) default: 'SR44100'
+   Configuration: no modifiers
+   Description: Synth library inspired by Mutable Instruments Braids
+   License: MIT OR Apache-2.0 WITH LLVM-exception
+   Maintainer: Fabien Chouteau <fabien.chouteau@gmail.com>
+   Maintainers_Logins: Fabien-Chouteau
+   Name: tresses
+   Tag: embedded
+   Tag: audio
+   Tag: synthesis
+   Tag: nostd
+   Version: 0.1.0
+   Website: https://weenoisemaker.com/
+Dependencies (direct):
+   midi~0.2.0
+Dependencies (solution):
+   atomic=0.5.0
+   bbqueue=0.3.2
+   gnat=13.2.1 (gnat_native)
+   hal=0.3.0
+   midi=0.2.0
+Dependencies (graph):
+   bbqueue=0.3.2 --> atomic=0.5.0 (~0.5)
+   bbqueue=0.3.2 --> gnat=13.2.1 (gnat_native) (>=10)
+   midi=0.2.0    --> bbqueue=0.3.2 (~0.3.0)
+   midi=0.2.0    --> gnat=13.2.1 (gnat_native) (>=11)
+   midi=0.2.0    --> hal=0.3.0 (~0.3.0)
+   tresses=0.1.0 --> midi=0.2.0 (~0.2.0)
+
+
+LOG:
+Spawning: alr -d -n get --build tresses=0.1.0
+Note: Deploying tresses=0.1.0...
+Note: Deploying atomic=0.5.0...
+Note: Deploying bbqueue=0.3.2...
+Note: Deploying midi=0.2.0...
+Note: Building tresses=0.1.0/tresses.gpr...
+Setup
+   [mkdir]        object directory for project Atomic
+   [mkdir]        library directory for project Atomic
+   [mkdir]        object directory for project Bbqueue
+   [mkdir]        library directory for project Bbqueue
+   [mkdir]        object directory for project MIDI
+   [mkdir]        library directory for project MIDI
+   [mkdir]        object directory for project Tresses
+   [mkdir]        library directory for project Tresses
+Compile
+   [Ada]          atomic-unsigned.adb
+   [Ada]          atomic-signed.adb
+   [Ada]          atomic.adb
+   [Ada]          atomic_config.ads
+   [Ada]          atomic-signed_8.ads
+   [Ada]          atomic-signed_16.ads
+   [Ada]          atomic-signed_32.ads
+   [Ada]          atomic-unsigned_16.ads
+   [Ada]          atomic-unsigned_32.ads
+   [Ada]          atomic-unsigned_8.ads
+   [Ada]          bbqueue_config.ads
+   [Ada]          bbqueue.adb
+   [Ada]          bbqueue-buffers.adb
+   [Ada]          bbqueue-buffers-framed.adb
+   [Ada]          midi_config.ads
+   [Ada]          midi.adb
+   [Ada]          midi-decoder.adb
+   [Ada]          midi-encoder-queue.adb
+midi-decoder.adb:78:18: choice given in case statement is not static
+midi-decoder.adb:78:38: choice given in case statement is not static
+midi-decoder.adb:79:18: choice given in case statement is not static
+midi-decoder.adb:79:40: choice given in case statement is not static
+midi-decoder.adb:83:18: choice given in case statement is not static
+midi-decoder.adb:83:42: choice given in case statement is not static
+midi-decoder.adb:84:18: choice given in case statement is not static
+midi-decoder.adb:88:18: choice given in case statement is not static
+midi-decoder.adb:90:24: choice given in case statement is not static
+midi-decoder.adb:90:45: choice given in case statement is not static
+midi-decoder.adb:95:24: choice given in case statement is not static
+midi-decoder.adb:99:24: choice given in case statement is not static
+midi-decoder.adb:99:47: choice given in case statement is not static
+midi-decoder.adb:103:24: choice given in case statement is not static
+midi-decoder.adb:103:48: choice given in case statement is not static
+midi-decoder.adb:104:24: choice given in case statement is not static
+midi-decoder.adb:104:46: choice given in case statement is not static
+midi-decoder.adb:105:30: choice given in case statement is not static
+midi-decoder.adb:105:51: choice given in case statement is not static
+midi-decoder.adb:106:24: choice given in case statement is not static
+
+   compilation of midi-decoder.adb failed
+
+gprbuild: *** compilation phase failed
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/b7c98423-d8d7-4cb4-bab1-6e2eff1c48e2/tresses_0.1.0_ea960522/tresses.gpr"] exited with code 4
+ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/b7c98423-d8d7-4cb4-bab1-6e2eff1c48e2/tresses_0.1.0_ea960522/tresses.gpr"] exited with code 4
+stderr: ALIRE.CHECKED_ERROR
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/b7c98423-d8d7-4cb4-bab1-6e2eff1c48e2/tresses_0.1.0_ea960522/tresses.gpr"] exited with code 4
+stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
+[/usr/bin/alr]
+0xe4810a Alire.Raise_Checked_Error at alire.adb:272
+0xa90404 Alire.Os_Lib.Subprocess.Checked_Spawn at alire-os_lib-subprocess.adb:111
+0xd153f3 Alire.Spawn.Command at alire-spawn.adb:21
+0xd15b11 Alire.Spawn.Gprbuild at alire-spawn.adb:41
+0xc45693 Alire.Roots.Build at alire-roots.adb:182
+0xc43936 Alire.Roots.Build at alire-roots.adb:248
+0xc6b083 Alire.Roots.Traverse at alire-roots.adb:2053
+0xcd9c00 Alire.Solutions.Traverse.Visit at alire-solutions.adb:1480
+0xcd8a70 Alire.Solutions.Traverse at alire-solutions.adb:1563
+0xc6b1be Alire.Roots.Traverse at alire-roots.adb:2057
+0xc6b3f5 Alire.Roots.Traverse at alire-roots.adb:2037
+0xc440f1 Alire.Roots.Build at alire-roots.adb:281
+0xc441d7 Alire.Roots.Build at alire-roots.adb:107
+0x4a4206 Alr.Commands.Get.Retrieve at alr-commands-get.adb:195
+0x4a87b2 Alr.Commands.Get.Execute at alr-commands-get.adb:368
+0x4a8a49 Alr.Commands.Get.Execute at alr-commands-get.adb:246
+0x53939b Alr.Commands.Sub_Cmd.Execute at clic-subcommand-instance.adb:749
+0x54587e Alr.Commands.Execute at alr-commands.adb:561
+0x436183 Alr.Main at alr-main.adb:13
+0x438de1 Main at b__alr-main.adb:2257
+[/lib/x86_64-linux-gnu/libc.so.6]
+0x7f118ddd6d8e
+0x7f118ddd6e3e
+[/usr/bin/alr]
+0x43601c _start at ???
+0xfffffffffffffffe
+
+
+Warning: tresses=0.1.0 successfully retrieved but its build failed.
+Dependencies were solved as follows:
+
+   +  atomic  0.5.0  (new,indirect)
+   +  bbqueue 0.3.2  (new,indirect)
+   +b gnat    13.2.1 (new,gnat_native,indirect,binary)
+   +  hal     0.3.0  (new,indirect)
+   +  midi    0.2.0  (new)
+ERROR: Build ended with errors

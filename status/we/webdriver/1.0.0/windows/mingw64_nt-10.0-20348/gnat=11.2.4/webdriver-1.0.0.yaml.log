@@ -1,4 +1,4 @@
-Test ran at 2022-05-24 12:39:16.058608+00:00
+Test ran at 2022-07-28 00:45:31.390544+00:00
 
 SOLUTION:
 webdriver=1.0.0: Web Browser control API
@@ -25,10 +25,12 @@ Dependencies (solution):
    gnat=11.2.4 (gnat_native) (installed)
    make=4.3.0
    matreshka_league=21.0.0
+   openssl=1.1.1
    xmlada=21.0.0
 Dependencies (graph):
    aws=21.0.0              --> gnat=11.2.4 (gnat_native) (>=9)
    aws=21.0.0              --> make=4.3.0 (*)                 
+   aws=21.0.0              --> openssl=1.1.1 (*)              
    aws=21.0.0              --> xmlada=21.0.0 (~21.0.0)        
    matreshka_league=21.0.0 --> make=4.3.0 (*)                 
    webdriver=1.0.0         --> aws=21.0.0 (*)                 
@@ -36,10 +38,10 @@ Dependencies (graph):
 
 
 LOG:
-Note: Deploying release webdriver=1.0.0...
+Note: Deploying webdriver=1.0.0...
 #=#=#                                                                         
 ##O#-#                                                                        
-Note: Deploying release make=4.3.0...
+Note: Deploying make=4.3.0...
 The system package 'make' is about to be installed.
 This action might require admin privileges and impact your system installation.
 Do you want Alire to install this system package?
@@ -64,15 +66,64 @@ checking available disk space...
 installing make...
 :: Running post-transaction hooks...
 (1/1) Updating the info directory file...
-Note: Deploying release xmlada=21.0.0...
+Note: Deploying openssl=1.1.1...
+The system package 'mingw-w64-x86_64-openssl' is about to be installed.
+This action might require admin privileges and impact your system installation.
+Do you want Alire to install this system package?
+Using default: Yes
+resolving dependencies...
+looking for conflicting packages...
 
-#####################################################################     96.6%
+Packages (14) mingw-w64-x86_64-ca-certificates-20211016-3  mingw-w64-x86_64-expat-2.4.8-1  mingw-w64-x86_64-gcc-libs-12.1.0-3  mingw-w64-x86_64-gettext-0.21-3  mingw-w64-x86_64-gmp-6.2.1-3  mingw-w64-x86_64-libffi-3.3-4  mingw-w64-x86_64-libiconv-1.17-1  mingw-w64-x86_64-libtasn1-4.18.0-1  mingw-w64-x86_64-libwinpthread-git-10.0.0.r54.gb4116e310-1  mingw-w64-x86_64-mpc-1.2.1-1  mingw-w64-x86_64-mpfr-4.1.0.p13-1  mingw-w64-x86_64-p11-kit-0.24.1-2  mingw-w64-x86_64-zlib-1.2.12-1  mingw-w64-x86_64-openssl-1.1.1.q-1
+
+Total Download Size:    11.57 MiB
+Total Installed Size:  101.02 MiB
+
+:: Proceed with installation? [Y/n] 
+:: Retrieving packages...
+ mingw-w64-x86_64-openssl-1.1.1.q-1-any downloading...
+ mingw-w64-x86_64-gettext-0.21-3-any downloading...
+ mingw-w64-x86_64-gcc-libs-12.1.0-3-any downloading...
+ mingw-w64-x86_64-libiconv-1.17-1-any downloading...
+ mingw-w64-x86_64-gmp-6.2.1-3-any downloading...
+ mingw-w64-x86_64-mpfr-4.1.0.p13-1-any downloading...
+ mingw-w64-x86_64-p11-kit-0.24.1-2-any downloading...
+ mingw-w64-x86_64-ca-certificates-20211016-3-any downloading...
+ mingw-w64-x86_64-libtasn1-4.18.0-1-any downloading...
+ mingw-w64-x86_64-expat-2.4.8-1-any downloading...
+ mingw-w64-x86_64-zlib-1.2.12-1-any downloading...
+ mingw-w64-x86_64-mpc-1.2.1-1-any downloading...
+ mingw-w64-x86_64-libffi-3.3-4-any downloading...
+ mingw-w64-x86_64-libwinpthread-git-10.0.0.r54.gb4116e310-1-any downloading...
+checking keyring...
+checking package integrity...
+loading package files...
+checking for file conflicts...
+checking available disk space...
+:: Processing package changes...
+installing mingw-w64-x86_64-gmp...
+installing mingw-w64-x86_64-mpfr...
+installing mingw-w64-x86_64-mpc...
+installing mingw-w64-x86_64-libwinpthread-git...
+installing mingw-w64-x86_64-gcc-libs...
+installing mingw-w64-x86_64-libtasn1...
+installing mingw-w64-x86_64-libffi...
+installing mingw-w64-x86_64-expat...
+installing mingw-w64-x86_64-libiconv...
+installing mingw-w64-x86_64-gettext...
+installing mingw-w64-x86_64-p11-kit...
+installing mingw-w64-x86_64-ca-certificates...
+installing mingw-w64-x86_64-zlib...
+installing mingw-w64-x86_64-openssl...
+Note: Deploying xmlada=21.0.0...
+#=#=#                                                                         
+
 ######################################################################## 100.0%
 Note: Running post_fetch actions for xmlada=21.0.0...
 configure: loading site script /usr/local/etc/config.site
-checking build system type... x86_64-pc-mingw64
-checking host system type... x86_64-pc-mingw64
-checking target system type... x86_64-pc-mingw64
+checking build system type... x86_64-w64-mingw32
+checking host system type... x86_64-w64-mingw32
+checking target system type... x86_64-w64-mingw32
 checking whether gnat can build shared libs... yes
 checking for a BSD-compatible install... /usr/bin/install -c
 checking whether ln -s works... no, using cp -pR
@@ -80,12 +131,13 @@ configure: creating ./config.status
 config.status: creating xmlada_shared.gpr
 config.status: creating Makefile
 config.status: creating tests/dom/default.gpr
-Note: Deploying release aws=21.0.0...
+Note: Deploying aws=21.0.0...
+#=#=#                                                                         
 
-                                                                           0.3%
+                                                                           0.4%
 ######################################################################## 100.0%
 Note: Running post_fetch actions for aws=21.0.0...
-make[1]: Entering directory '/d/a/alire-crates-ci/alire-crates-ci/test/4c86bb40-938d-4bec-8b5b-dffa5f0bf096/webdriver_1.0.0_dabe4682/alire/cache/dependencies/aws_21.0.0_57fddf8f/config'
+make[1]: Entering directory '/d/a/alire-crates-ci/alire-crates-ci/test/5eb518c9-f69a-4d0d-ac9b-ac1f5fa131e6/webdriver_1.0.0_dabe4682/alire/cache/dependencies/aws_21.0.0_57fddf8f/config'
 Bind
    [gprbind]      xoscons.bexch
    [Ada]          xoscons.ali
@@ -342,17 +394,17 @@ In file included from c:\users\runneradmin\.config\alire\cache\dependencies\gnat
 c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_11.2.4_2f9c5d6d\x86_64-w64-mingw32\include\errno.h:162: note: this is the location of the previous definition
   162 | #define EOPNOTSUPP 130
       | 
-make[1]: Leaving directory '/d/a/alire-crates-ci/alire-crates-ci/test/4c86bb40-938d-4bec-8b5b-dffa5f0bf096/webdriver_1.0.0_dabe4682/alire/cache/dependencies/aws_21.0.0_57fddf8f/config'
-make[1]: Entering directory '/d/a/alire-crates-ci/alire-crates-ci/test/4c86bb40-938d-4bec-8b5b-dffa5f0bf096/webdriver_1.0.0_dabe4682/alire/cache/dependencies/aws_21.0.0_57fddf8f/regtests'
+make[1]: Leaving directory '/d/a/alire-crates-ci/alire-crates-ci/test/5eb518c9-f69a-4d0d-ac9b-ac1f5fa131e6/webdriver_1.0.0_dabe4682/alire/cache/dependencies/aws_21.0.0_57fddf8f/config'
+make[1]: Entering directory '/d/a/alire-crates-ci/alire-crates-ci/test/5eb518c9-f69a-4d0d-ac9b-ac1f5fa131e6/webdriver_1.0.0_dabe4682/alire/cache/dependencies/aws_21.0.0_57fddf8f/regtests'
 Can not generate system tags. The test are disabled
-make[1]: Leaving directory '/d/a/alire-crates-ci/alire-crates-ci/test/4c86bb40-938d-4bec-8b5b-dffa5f0bf096/webdriver_1.0.0_dabe4682/alire/cache/dependencies/aws_21.0.0_57fddf8f/regtests'
-make[1]: Entering directory '/d/a/alire-crates-ci/alire-crates-ci/test/4c86bb40-938d-4bec-8b5b-dffa5f0bf096/webdriver_1.0.0_dabe4682/alire/cache/dependencies/aws_21.0.0_57fddf8f/demos'
+make[1]: Leaving directory '/d/a/alire-crates-ci/alire-crates-ci/test/5eb518c9-f69a-4d0d-ac9b-ac1f5fa131e6/webdriver_1.0.0_dabe4682/alire/cache/dependencies/aws_21.0.0_57fddf8f/regtests'
+make[1]: Entering directory '/d/a/alire-crates-ci/alire-crates-ci/test/5eb518c9-f69a-4d0d-ac9b-ac1f5fa131e6/webdriver_1.0.0_dabe4682/alire/cache/dependencies/aws_21.0.0_57fddf8f/demos'
 make[1]: Nothing to be done for 'setup'.
-make[1]: Leaving directory '/d/a/alire-crates-ci/alire-crates-ci/test/4c86bb40-938d-4bec-8b5b-dffa5f0bf096/webdriver_1.0.0_dabe4682/alire/cache/dependencies/aws_21.0.0_57fddf8f/demos'
-make[1]: Entering directory '/d/a/alire-crates-ci/alire-crates-ci/test/4c86bb40-938d-4bec-8b5b-dffa5f0bf096/webdriver_1.0.0_dabe4682/alire/cache/dependencies/aws_21.0.0_57fddf8f/templates_parser'
-make[1]: Leaving directory '/d/a/alire-crates-ci/alire-crates-ci/test/4c86bb40-938d-4bec-8b5b-dffa5f0bf096/webdriver_1.0.0_dabe4682/alire/cache/dependencies/aws_21.0.0_57fddf8f/templates_parser'
-make[1]: Entering directory '/d/a/alire-crates-ci/alire-crates-ci/test/4c86bb40-938d-4bec-8b5b-dffa5f0bf096/webdriver_1.0.0_dabe4682/alire/cache/dependencies/aws_21.0.0_57fddf8f/templates_parser'
-make[1]: Leaving directory '/d/a/alire-crates-ci/alire-crates-ci/test/4c86bb40-938d-4bec-8b5b-dffa5f0bf096/webdriver_1.0.0_dabe4682/alire/cache/dependencies/aws_21.0.0_57fddf8f/templates_parser'
+make[1]: Leaving directory '/d/a/alire-crates-ci/alire-crates-ci/test/5eb518c9-f69a-4d0d-ac9b-ac1f5fa131e6/webdriver_1.0.0_dabe4682/alire/cache/dependencies/aws_21.0.0_57fddf8f/demos'
+make[1]: Entering directory '/d/a/alire-crates-ci/alire-crates-ci/test/5eb518c9-f69a-4d0d-ac9b-ac1f5fa131e6/webdriver_1.0.0_dabe4682/alire/cache/dependencies/aws_21.0.0_57fddf8f/templates_parser'
+make[1]: Leaving directory '/d/a/alire-crates-ci/alire-crates-ci/test/5eb518c9-f69a-4d0d-ac9b-ac1f5fa131e6/webdriver_1.0.0_dabe4682/alire/cache/dependencies/aws_21.0.0_57fddf8f/templates_parser'
+make[1]: Entering directory '/d/a/alire-crates-ci/alire-crates-ci/test/5eb518c9-f69a-4d0d-ac9b-ac1f5fa131e6/webdriver_1.0.0_dabe4682/alire/cache/dependencies/aws_21.0.0_57fddf8f/templates_parser'
+make[1]: Leaving directory '/d/a/alire-crates-ci/alire-crates-ci/test/5eb518c9-f69a-4d0d-ac9b-ac1f5fa131e6/webdriver_1.0.0_dabe4682/alire/cache/dependencies/aws_21.0.0_57fddf8f/templates_parser'
 Setup
    [mkdir]        object directory for project Zlib
    [mkdir]        library directory for project Zlib
@@ -736,61 +788,46 @@ Bind
    [Ada]          gen_gps_ref.ali
 Link
    [link]         gen_gps_ref.adb
-make[1]: Entering directory '/d/a/alire-crates-ci/alire-crates-ci/test/4c86bb40-938d-4bec-8b5b-dffa5f0bf096/webdriver_1.0.0_dabe4682/alire/cache/dependencies/aws_21.0.0_57fddf8f/gps'
-make[1]: Leaving directory '/d/a/alire-crates-ci/alire-crates-ci/test/4c86bb40-938d-4bec-8b5b-dffa5f0bf096/webdriver_1.0.0_dabe4682/alire/cache/dependencies/aws_21.0.0_57fddf8f/gps'
+make[1]: Entering directory '/d/a/alire-crates-ci/alire-crates-ci/test/5eb518c9-f69a-4d0d-ac9b-ac1f5fa131e6/webdriver_1.0.0_dabe4682/alire/cache/dependencies/aws_21.0.0_57fddf8f/gps'
+make[1]: Leaving directory '/d/a/alire-crates-ci/alire-crates-ci/test/5eb518c9-f69a-4d0d-ac9b-ac1f5fa131e6/webdriver_1.0.0_dabe4682/alire/cache/dependencies/aws_21.0.0_57fddf8f/gps'
 Install project AWS - static
-warning: file does not exist 'd:\a\alire-crates-ci\alire-crates-ci\test\4c86bb40-938d-4bec-8b5b-dffa5f0bf096\webdriver_1.0.0_dabe4682\alire\cache\dependencies\aws_21.0.0_57fddf8f\templates_parser/docs/build/latex/*.pdf'
-warning: file does not exist 'd:\a\alire-crates-ci\alire-crates-ci\test\4c86bb40-938d-4bec-8b5b-dffa5f0bf096\webdriver_1.0.0_dabe4682\alire\cache\dependencies\aws_21.0.0_57fddf8f\templates_parser/docs/build/html'
-warning: file does not exist 'd:\a\alire-crates-ci\alire-crates-ci\test\4c86bb40-938d-4bec-8b5b-dffa5f0bf096\webdriver_1.0.0_dabe4682\alire\cache\dependencies\aws_21.0.0_57fddf8f\docs/build/latex/*.pdf'
-warning: file does not exist 'd:\a\alire-crates-ci\alire-crates-ci\test\4c86bb40-938d-4bec-8b5b-dffa5f0bf096\webdriver_1.0.0_dabe4682\alire\cache\dependencies\aws_21.0.0_57fddf8f\docs/build/html'
+warning: file does not exist 'd:\a\alire-crates-ci\alire-crates-ci\test\5eb518c9-f69a-4d0d-ac9b-ac1f5fa131e6\webdriver_1.0.0_dabe4682\alire\cache\dependencies\aws_21.0.0_57fddf8f\templates_parser/docs/build/latex/*.pdf'
+warning: file does not exist 'd:\a\alire-crates-ci\alire-crates-ci\test\5eb518c9-f69a-4d0d-ac9b-ac1f5fa131e6\webdriver_1.0.0_dabe4682\alire\cache\dependencies\aws_21.0.0_57fddf8f\templates_parser/docs/build/html'
+warning: file does not exist 'd:\a\alire-crates-ci\alire-crates-ci\test\5eb518c9-f69a-4d0d-ac9b-ac1f5fa131e6\webdriver_1.0.0_dabe4682\alire\cache\dependencies\aws_21.0.0_57fddf8f\docs/build/latex/*.pdf'
+warning: file does not exist 'd:\a\alire-crates-ci\alire-crates-ci\test\5eb518c9-f69a-4d0d-ac9b-ac1f5fa131e6\webdriver_1.0.0_dabe4682\alire\cache\dependencies\aws_21.0.0_57fddf8f\docs/build/html'
 Install project Tools - static
 Install project AWS - relocatable
-warning: file does not exist 'd:\a\alire-crates-ci\alire-crates-ci\test\4c86bb40-938d-4bec-8b5b-dffa5f0bf096\webdriver_1.0.0_dabe4682\alire\cache\dependencies\aws_21.0.0_57fddf8f\templates_parser/docs/build/latex/*.pdf'
-warning: file does not exist 'd:\a\alire-crates-ci\alire-crates-ci\test\4c86bb40-938d-4bec-8b5b-dffa5f0bf096\webdriver_1.0.0_dabe4682\alire\cache\dependencies\aws_21.0.0_57fddf8f\templates_parser/docs/build/html'
-warning: file does not exist 'd:\a\alire-crates-ci\alire-crates-ci\test\4c86bb40-938d-4bec-8b5b-dffa5f0bf096\webdriver_1.0.0_dabe4682\alire\cache\dependencies\aws_21.0.0_57fddf8f\docs/build/latex/*.pdf'
-warning: file does not exist 'd:\a\alire-crates-ci\alire-crates-ci\test\4c86bb40-938d-4bec-8b5b-dffa5f0bf096\webdriver_1.0.0_dabe4682\alire\cache\dependencies\aws_21.0.0_57fddf8f\docs/build/html'
-Note: Deploying release matreshka_league=21.0.0...
+warning: file does not exist 'd:\a\alire-crates-ci\alire-crates-ci\test\5eb518c9-f69a-4d0d-ac9b-ac1f5fa131e6\webdriver_1.0.0_dabe4682\alire\cache\dependencies\aws_21.0.0_57fddf8f\templates_parser/docs/build/latex/*.pdf'
+warning: file does not exist 'd:\a\alire-crates-ci\alire-crates-ci\test\5eb518c9-f69a-4d0d-ac9b-ac1f5fa131e6\webdriver_1.0.0_dabe4682\alire\cache\dependencies\aws_21.0.0_57fddf8f\templates_parser/docs/build/html'
+warning: file does not exist 'd:\a\alire-crates-ci\alire-crates-ci\test\5eb518c9-f69a-4d0d-ac9b-ac1f5fa131e6\webdriver_1.0.0_dabe4682\alire\cache\dependencies\aws_21.0.0_57fddf8f\docs/build/latex/*.pdf'
+warning: file does not exist 'd:\a\alire-crates-ci\alire-crates-ci\test\5eb518c9-f69a-4d0d-ac9b-ac1f5fa131e6\webdriver_1.0.0_dabe4682\alire\cache\dependencies\aws_21.0.0_57fddf8f\docs/build/html'
+Note: Deploying matreshka_league=21.0.0...
 #=#=#                                                                         
+##O#-#                                                                        
 
                                                                            0.0%
                                                                            0.2%
-                                                                           0.7%
-#                                                                          2.0%
-###                                                                        5.5%
-#######                                                                    9.9%
-############                                                              16.9%
-###################                                                       27.8%
-######################                                                    30.7%
-#######################                                                   32.2%
-############################                                              38.9%
-#############################                                             41.5%
-###############################                                           43.4%
-##################################                                        47.9%
-###################################                                       49.6%
-#####################################                                     51.5%
-######################################                                    53.4%
-#######################################                                   55.2%
-#########################################                                 57.5%
-###########################################                               60.2%
-############################################                              62.0%
-##############################################                            64.1%
-###############################################                           66.1%
-#################################################                         68.9%
-###################################################                       71.1%
-####################################################                      73.2%
-######################################################                    75.1%
-#######################################################                   77.3%
-#########################################################                 79.3%
-###########################################################               82.0%
-############################################################              84.6%
-##############################################################            86.3%
-###############################################################           88.4%
-#################################################################         90.6%
-##################################################################        92.1%
-####################################################################      95.4%
-#####################################################################     96.9%
-######################################################################    98.5%
-#######################################################################  100.0%
+                                                                           0.5%
+                                                                           1.2%
+#                                                                          2.7%
+####                                                                       6.3%
+######                                                                     9.7%
+########                                                                  12.1%
+##############                                                            20.3%
+####################                                                      28.9%
+#######################                                                   32.6%
+#########################                                                 35.6%
+##############################                                            42.2%
+###################################                                       48.6%
+#####################################                                     52.5%
+#########################################                                 57.8%
+#############################################                             63.8%
+##################################################                        70.4%
+####################################################                      73.5%
+#########################################################                 80.0%
+##############################################################            86.4%
+##################################################################        92.6%
+#######################################################################   99.1%
 ######################################################################## 100.0%
 Note: Running post_fetch actions for matreshka_league=21.0.0...
 gnatmake -p -j0  -Pgnat/tools_configure.gpr
@@ -881,6 +918,7 @@ configure.exe: creating Makefile.config
 configure.exe: creating gnat/install/matreshka_config.gpr
 configure.exe: creating gnat/matreshka_config.gpr
 configure.exe: creating source/league/matreshka-config.ads
+Note: Building webdriver/gnat/webdriver.gpr...
 Setup
    [mkdir]        object directory for project Matreshka_League
    [mkdir]        library directory for project Matreshka_League
@@ -888,9 +926,38 @@ Setup
    [mkdir]        object directory for project WebDriver
    [mkdir]        library directory for project WebDriver
 webdriver.gpr:9:17: shared library project "webdriver" cannot import static library project "aws"
-gprbuild: "gnat/webdriver.gpr" processing failed
-stderr: Command ["gprbuild", "-gnatwU", "-j0", "-p", "-P", "gnat/webdriver.gpr"] exited with code 4
-ERROR: Command ["gprbuild", "-gnatwU", "-j0", "-p", "-P", "gnat/webdriver.gpr"] exited with code 4
+gprbuild: "D:\a\alire-crates-ci\alire-crates-ci\test\5eb518c9-f69a-4d0d-ac9b-ac1f5fa131e6\webdriver_1.0.0_dabe4682\gnat/webdriver.gpr" processing failed
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "D:\a\alire-crates-ci\alire-crates-ci\test\5eb518c9-f69a-4d0d-ac9b-ac1f5fa131e6\webdriver_1.0.0_dabe4682\gnat/webdriver.gpr"] exited with code 4
+ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "D:\a\alire-crates-ci\alire-crates-ci\test\5eb518c9-f69a-4d0d-ac9b-ac1f5fa131e6\webdriver_1.0.0_dabe4682\gnat/webdriver.gpr"] exited with code 4
+stderr: ALIRE.CHECKED_ERROR
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "D:\a\alire-crates-ci\alire-crates-ci\test\5eb518c9-f69a-4d0d-ac9b-ac1f5fa131e6\webdriver_1.0.0_dabe4682\gnat/webdriver.gpr"] exited with code 4
+stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
+[D:\a\alire-crates-ci\alire-crates-ci\alire_install\bin\alr.exe]
+0xdc4c9b Semantic_Versioning.Basic.At_Least at alire.adb:251
+0xa61b82 Semantic_Versioning.Basic.At_Least at alire-os_lib-subprocess.adb:110
+0xc98383 Semantic_Versioning.Basic.At_Least at alire-spawn.adb:21
+0xc98ad4 Semantic_Versioning.Basic.At_Least at alire-spawn.adb:41
+0xbf9000 Semantic_Versioning.Basic.At_Least at alire-roots.adb:140
+0xbf7507 Semantic_Versioning.Basic.At_Least at alire-roots.adb:171
+0xc13f83 Semantic_Versioning.Basic.At_Least at alire-roots.adb:1364
+0xc5ee28 Semantic_Versioning.Basic.At_Least at alire-solutions.adb:1434
+0xc5da50 Semantic_Versioning.Basic.At_Least at alire-solutions.adb:1509
+0xc140c4 Semantic_Versioning.Basic.At_Least at alire-roots.adb:1368
+0xbf7877 Semantic_Versioning.Basic.At_Least at alire-roots.adb:196
+0x47726b Semantic_Versioning.Basic.At_Least at alr-commands-build.adb:58
+0x488aa6 Semantic_Versioning.Basic.At_Least at alr-commands-get.adb:187
+0x48d3cc Semantic_Versioning.Basic.At_Least at alr-commands-get.adb:348
+0x51c0a3 Semantic_Versioning.Basic.At_Least at clic-subcommand-instance.adb:742
+0x528a27 Semantic_Versioning.Basic.At_Least at alr-commands.adb:492
+0x401761 Alr.Main at alr-main.adb:10
+0x404bd6 Main at b__alr-main.adb:2130
+0x401423 __tmainCRTStartup at ???
+0x40113b mainCRTStartup at ???
+[C:\Windows\System32\KERNEL32.DLL]
+0x7ffa048b4ece
+[C:\Windows\SYSTEM32\ntdll.dll]
+0x7ffa0633e399
+
 
 Warning: webdriver=1.0.0 successfully retrieved but its build failed.
 Dependencies were solved as follows:
@@ -899,5 +966,6 @@ Dependencies were solved as follows:
    +i gnat             11.2.4 (new,installed,gnat_native,indirect)
    +  make             4.3.0  (new,indirect)                      
    +  matreshka_league 21.0.0 (new)                               
+   +  openssl          1.1.1  (new,indirect)                      
    +  xmlada           21.0.0 (new,indirect)                      
 ERROR: Build ended with errors

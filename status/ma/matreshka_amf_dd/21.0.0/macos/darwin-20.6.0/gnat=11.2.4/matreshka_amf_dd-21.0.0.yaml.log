@@ -1,4 +1,4 @@
-Test ran at 2022-06-25 00:36:14.196542+00:00
+Test ran at 2023-10-21 00:28:44.193968+00:00
 
 SOLUTION:
 matreshka_amf_dd=21.0.0: Diagram Definition (DD) specification support for AMF
@@ -17,7 +17,7 @@ Properties:
    Tag: meta
    Tag: diagram
    Version: 21.0.0
-   Website: https://forge.ada-ru.org/matreshka
+   Website: https://github.com/godunko/matreshka
 Dependencies (direct):
    matreshka_amf21.0.0
    matreshka_league21.0.0
@@ -41,33 +41,11 @@ LOG:
 Note: Deploying matreshka_amf_dd=21.0.0...
 Note: Deploying make=3.81.0...
 Note: Deploying matreshka_league=21.0.0...
-#=#=#                                                                         
-##O#-#                                                                        
 
-                                                                           0.0%
                                                                            0.1%
-                                                                           0.1%
-                                                                           0.3%
-                                                                           0.6%
-                                                                           1.2%
-#                                                                          2.5%
-###                                                                        4.9%
-######                                                                     9.6%
-#############                                                             18.4%
-#####################                                                     30.1%
-########################                                                  34.4%
-#########################                                                 35.7%
-################################                                          44.7%
-######################################                                    53.5%
-######################################                                    54.2%
-##############################################                            64.2%
-###############################################                           66.4%
-#####################################################                     74.8%
-########################################################                  79.1%
-############################################################              83.5%
-###############################################################           87.9%
-##################################################################        92.3%
-#####################################################################     96.2%
+###########                                                               16.4%
+###########################                                               37.8%
+##########################################################                81.4%
 ######################################################################## 100.0%
 Note: Running post_fetch actions for matreshka_league=21.0.0...
 gnatmake -p -j0  -Pgnat/tools_configure.gpr
@@ -121,7 +99,7 @@ configure: (info) Oracle driver module is disabled
 [postgresql] checking whether PostgreSQL library is usable...: yes
 [sqlite3   ] checking whether to build SQLite3 module...: yes (pkg-config)
 [sqlite3   ] checking for SQLite3 version...: Ignoring incompatible output option "--atleast-version"
-3.32.3
+3.37.0
 [sqlite3   ] checking for linker switches...: "-lsqlite3"
 [sqlite3   ] checking whether SQLite3 library is usable...: yes
 [firebird  ] checking whether to build Firebird module...: yes (try default)
@@ -148,7 +126,7 @@ configure: HAS_POSTGRESQL => true
 configure: OCI_LIBRARY_OPTIONS => 
 configure: HAS_OCI => 
 configure: PREFIX => /usr/local
-configure: POSTGRESQL_LIBRARY_OPTIONS => "-L/usr/local/lib", "-lpq"
+configure: POSTGRESQL_LIBRARY_OPTIONS => "-L/usr/local/lib/postgresql@14", "-lpq"
 configure: GPRINSTALL => /Users/runner/.config/alire/cache/dependencies/gprbuild_22.0.1_b1220e2b/bin/gprinstall
 configure: HAS_VALGRIND => 
 configure: HAS_AWS => 
@@ -187,13 +165,13 @@ xml-dom-elements.adb:55:07: warning: variable "Old_Attr" is assigned but never r
 xml-dom-elements.adb:58:07: warning: possibly useless assignment to "Old_Attr", value might not be referenced
    [Ada]          xml-dom-texts.ads
    [Ada]          xml-dom-cdata_sections.ads
-   [Ada]          xml-dom-comments.ads
-   [Ada]          matreshka-dom_elements.adb
 matreshka-dom_builders.adb:63:06: warning: formal parameter "Success" is not referenced
 matreshka-dom_builders.adb:65:07: warning: "Aux" is not modified, could be declared constant
 matreshka-dom_builders.adb:82:06: warning: formal parameter "Success" is not referenced
 matreshka-dom_builders.adb:152:06: warning: formal parameter "Success" is not referenced
 matreshka-dom_builders.adb:180:06: warning: formal parameter "Success" is not referenced
+   [Ada]          xml-dom-comments.ads
+   [Ada]          matreshka-dom_elements.adb
    [Ada]          xml-dom-entities.ads
    [Ada]          matreshka-dom_document_fragments.adb
    [Ada]          matreshka-dom_notations.adb
@@ -221,19 +199,21 @@ xml-dom-nodes.adb:72:07: warning: possibly useless assignment to "Aux", value mi
    [Ada]          xml-dom.ads
    [Ada]          xml-dom-document_types.ads
    [Ada]          matreshka-dom_cdata_sections.adb
+matreshka-dom_attributes.adb:46:13: warning: unit "XML.DOM.Entity_References" is not referenced
    [Ada]          xml-dom-nodes-hash.adb
    [Ada]          xml-dom-documents.ads
    [Ada]          matreshka-dom_entity_references.adb
-matreshka-dom_attributes.adb:46:13: warning: unit "XML.DOM.Entity_References" is not referenced
    [Ada]          xml-dom-character_datas.ads
    [Ada]          matreshka-xml_catalogs-handlers.adb
    [Ada]          xml-catalogs.ads
    [Ada]          matreshka-xml_catalogs.ads
    [Ada]          matreshka-xml_catalogs-resolver.adb
-matreshka-dom_documents.adb:152:07: warning: constant "Node" is not referenced
    [Ada]          matreshka-xml_catalogs-normalization.adb
    [Ada]          matreshka-xml_catalogs-loader.adb
+matreshka-dom_documents.adb:152:07: warning: constant "Node" is not referenced
    [Ada]          matreshka-xml_catalogs-entry_files.adb
+   [Ada]          amf-xmi-error_handlers.ads
+   [Ada]          amf-internals-xmi_readers.adb
 matreshka-xml_catalogs-handlers.adb:129:14: warning: procedure "Error" is not referenced
 matreshka-xml_catalogs-handlers.adb:296:06: warning: formal parameter "Self" is not referenced
 matreshka-xml_catalogs-handlers.adb:298:06: warning: formal parameter "Success" is not referenced
@@ -243,8 +223,6 @@ matreshka-xml_catalogs-handlers.adb:601:06: warning: formal parameter "Success" 
 matreshka-xml_catalogs-handlers.adb:1025:06: warning: formal parameter "Success" is not referenced
 matreshka-xml_catalogs-handlers.adb:1115:06: warning: formal parameter "Self" is not referenced
 matreshka-xml_catalogs-handlers.adb:1117:06: warning: formal parameter "Success" is not referenced
-   [Ada]          amf-xmi-error_handlers.ads
-   [Ada]          amf-internals-xmi_readers.adb
    [Ada]          amf-xmi.ads
    [Ada]          amf-internals-xmi_document_resolvers.adb
    [Ada]          amf-xmi-document_resolvers.ads
@@ -255,8 +233,6 @@ amf-internals-xmi_error_handlers.adb:55:06: warning: formal parameter "Success" 
    [Ada]          xmi-reader.adb
    [Ada]          amf-internals-xmi_uri_rewriter.adb
    [Ada]          xmi-writer.adb
-amf-internals-xmi_handlers.adb:534:07: warning: use clause for type "Optional_String" defined at amf.ads:108 has no effect
-amf-internals-xmi_handlers.adb:579:07: warning: use clause for type "Optional_String" defined at amf.ads:108 has no effect
    [Ada]          xmi.ads
    [Ada]          amf-cmof-namespaces-hash.ads
    [Ada]          amf-cmof-operations.ads
@@ -269,8 +245,13 @@ amf-internals-xmi_handlers.adb:579:07: warning: use clause for type "Optional_St
    [Ada]          amf-cmof-namespaces.ads
    [Ada]          amf-cmof-relationships-hash.ads
    [Ada]          amf-cmof-classifiers-collections.ads
+amf-internals-xmi_handlers.adb:534:07: warning: use clause for type "Optional_String" defined at amf.ads:108 has no effect
+amf-internals-xmi_handlers.adb:579:07: warning: use clause for type "Optional_String" defined at amf.ads:108 has no effect
    [Ada]          amf-internals-cmof_properties.adb
    [Ada]          amf-cmof-element_imports-collections.ads
+   [Ada]          amf-internals-cmof_packages.adb
+   [Ada]          amf-cmof-named_elements.ads
+   [Ada]          amf-internals-cmof_directed_relationships.adb
 amf-internals-cmof_properties.adb:56:04: warning: use clause for package "Element_Collections" has no effect
 amf-internals-cmof_properties.adb:378:36: warning: All_Owned_Elements unimplemented
 amf-internals-cmof_properties.adb:394:36: warning: Includes_Multiplicity unimplemented
@@ -288,12 +269,10 @@ amf-internals-cmof_properties.adb:559:36: warning: Is_Consistent_With unimplemen
 amf-internals-cmof_properties.adb:574:36: warning: Subsetting_Context unimplemented
 amf-internals-cmof_properties.adb:589:36: warning: Is_Navigable unimplemented
 amf-internals-cmof_properties.adb:605:36: warning: Is_Attribute unimplemented
-   [Ada]          amf-internals-cmof_packages.adb
-   [Ada]          amf-cmof-named_elements.ads
-   [Ada]          amf-internals-cmof_directed_relationships.adb
    [Ada]          amf-cmof-constraints.ads
    [Ada]          amf-cmof-redefinable_elements.ads
    [Ada]          amf-internals-factories-cmof_factories.adb
+   [Ada]          amf-cmof-properties-collections.ads
 amf-internals-cmof_packages.adb:251:36: warning: All_Owned_Elements unimplemented
 amf-internals-cmof_packages.adb:266:36: warning: Get_Qualified_Name unimplemented
 amf-internals-cmof_packages.adb:283:36: warning: Is_Distinguishable_From unimplemented
@@ -305,7 +284,6 @@ amf-internals-cmof_packages.adb:360:36: warning: Members_Are_Distinguishable uni
 amf-internals-cmof_packages.adb:375:36: warning: Set_Nesting_Package unimplemented
 amf-internals-cmof_packages.adb:389:36: warning: Visible_Members unimplemented
 amf-internals-cmof_packages.adb:405:36: warning: Makes_Visible unimplemented
-   [Ada]          amf-cmof-properties-collections.ads
    [Ada]          amf-cmof-features.ads
    [Ada]          amf-cmof-expressions-hash.ads
    [Ada]          amf-cmof-properties-hash.ads
@@ -377,11 +355,11 @@ amf-internals-cmof_expressions.adb:249:36: warning: Get_Operand unimplemented
    [Ada]          amf-cmof-value_specifications.ads
    [Ada]          amf-cmof-elements-hash.ads
    [Ada]          amf-cmof-elements-collections.ads
-   [Ada]          amf-cmof-packages-hash.ads
 amf-internals-cmof_enumeration_literals.adb:130:36: warning: All_Owned_Elements unimplemented
 amf-internals-cmof_enumeration_literals.adb:145:36: warning: Get_Qualified_Name unimplemented
 amf-internals-cmof_enumeration_literals.adb:162:36: warning: Is_Distinguishable_From unimplemented
 amf-internals-cmof_enumeration_literals.adb:177:36: warning: Set_Enumeration unimplemented
+   [Ada]          amf-cmof-packages-hash.ads
    [Ada]          amf-internals-cmof_elements.adb
    [Ada]          amf-cmof-element_imports.ads
    [Ada]          amf-cmof-expressions-collections.ads
@@ -391,6 +369,7 @@ amf-internals-cmof_enumeration_literals.adb:177:36: warning: Set_Enumeration uni
    [Ada]          amf-cmof-typed_elements.ads
    [Ada]          amf-internals-cmof_value_specifications.ads
    [Ada]          amf-cmof-behavioral_features-collections.ads
+   [Ada]          amf-cmof-parameters-hash.ads
 amf-internals-cmof_data_types.adb:144:36: warning: All_Owned_Elements unimplemented
 amf-internals-cmof_data_types.adb:159:36: warning: Get_Qualified_Name unimplemented
 amf-internals-cmof_data_types.adb:176:36: warning: Is_Distinguishable_From unimplemented
@@ -411,7 +390,6 @@ amf-internals-cmof_data_types.adb:388:36: warning: Inheritable_Members unimpleme
 amf-internals-cmof_data_types.adb:404:36: warning: Has_Visibility_Of unimplemented
 amf-internals-cmof_data_types.adb:420:36: warning: Inherit unimplemented
 amf-internals-cmof_data_types.adb:436:36: warning: May_Specialize_Type unimplemented
-   [Ada]          amf-cmof-parameters-hash.ads
    [Ada]          amf-cmof-parameters.ads
    [Ada]          amf-internals-tables-cmof_metamodel-links.adb
    [Ada]          amf-internals-cmof_multiplicity_elements.adb
@@ -423,17 +401,19 @@ amf-internals-cmof_data_types.adb:436:36: warning: May_Specialize_Type unimpleme
    [Ada]          amf-internals-cmof_features.adb
    [Ada]          amf-internals-cmof_package_merges.adb
    [Ada]          amf-cmof-value_specifications-collections.ads
+   [Ada]          amf-visitors-generic_cmof_containment.adb
+   [Ada]          amf-cmof-classes.ads
 amf-internals-cmof_package_merges.adb:112:36: warning: All_Owned_Elements unimplemented
 amf-internals-cmof_package_merges.adb:127:36: warning: Get_Related_Element unimplemented
 amf-internals-cmof_package_merges.adb:142:36: warning: Get_Receiving_Package unimplemented
 amf-internals-cmof_package_merges.adb:157:36: warning: Set_Receiving_Package unimplemented
 amf-internals-cmof_package_merges.adb:171:36: warning: Get_Merged_Package unimplemented
 amf-internals-cmof_package_merges.adb:186:36: warning: Set_Merged_Package unimplemented
-   [Ada]          amf-visitors-generic_cmof_containment.adb
-   [Ada]          amf-cmof-classes.ads
    [Ada]          amf-cmof-multiplicity_elements-collections.ads
    [Ada]          amf-internals-cmof_parameters.adb
    [Ada]          amf-internals-cmof_primitive_types.adb
+   [Ada]          amf-cmof-packages.ads
+   [Ada]          amf-internals-cmof_constraints.adb
 amf-internals-cmof_parameters.adb:175:36: warning: All_Owned_Elements unimplemented
 amf-internals-cmof_parameters.adb:190:36: warning: Set_Is_Unique unimplemented
 amf-internals-cmof_parameters.adb:205:36: warning: Includes_Multiplicity unimplemented
@@ -442,22 +422,20 @@ amf-internals-cmof_parameters.adb:236:36: warning: Get_Qualified_Name unimplemen
 amf-internals-cmof_parameters.adb:253:36: warning: Is_Distinguishable_From unimplemented
 amf-internals-cmof_parameters.adb:268:36: warning: Set_Default unimplemented
 amf-internals-cmof_parameters.adb:282:36: warning: Set_Operation unimplemented
-   [Ada]          amf-cmof-packages.ads
-   [Ada]          amf-internals-cmof_constraints.adb
+   [Ada]          amf-cmof-tags-collections.ads
+   [Ada]          amf-internals-cmof_package_imports.adb
 amf-internals-cmof_constraints.adb:158:36: warning: All_Owned_Elements unimplemented
 amf-internals-cmof_constraints.adb:173:36: warning: Get_Qualified_Name unimplemented
 amf-internals-cmof_constraints.adb:190:36: warning: Is_Distinguishable_From unimplemented
 amf-internals-cmof_constraints.adb:205:36: warning: Set_Specification unimplemented
 amf-internals-cmof_constraints.adb:219:36: warning: Set_Context unimplemented
-   [Ada]          amf-cmof-tags-collections.ads
-   [Ada]          amf-internals-cmof_package_imports.adb
+   [Ada]          amf-internals-cmof_typed_elements.adb
+   [Ada]          amf-cmof-holders.adb
+   [Ada]          amf-cmof-data_types.ads
 amf-internals-cmof_package_imports.adb:155:36: warning: All_Owned_Elements unimplemented
 amf-internals-cmof_package_imports.adb:170:36: warning: Set_Visibility unimplemented
 amf-internals-cmof_package_imports.adb:184:36: warning: Set_Imported_Package unimplemented
 amf-internals-cmof_package_imports.adb:198:36: warning: Set_Importing_Namespace unimplemented
-   [Ada]          amf-internals-cmof_typed_elements.adb
-   [Ada]          amf-cmof-holders.adb
-   [Ada]          amf-cmof-data_types.ads
    [Ada]          amf-cmof-primitive_types-hash.ads
    [Ada]          amf-cmof-structural_features.ads
    [Ada]          amf-internals-cmof_redefinable_elements.adb
@@ -484,6 +462,7 @@ amf-internals-cmof_opaque_expressions.adb:265:36: warning: Get_Language unimplem
    [Ada]          amf-internals-tables-cmof_string_data_01.ads
    [Ada]          amf-cmof-structural_features-collections.ads
    [Ada]          amf-internals-cmof_element_imports.adb
+   [Ada]          amf-cmof-multiplicity_elements.ads
 amf-internals-cmof_element_imports.adb:112:36: warning: All_Owned_Elements unimplemented
 amf-internals-cmof_element_imports.adb:127:36: warning: Get_Related_Element unimplemented
 amf-internals-cmof_element_imports.adb:142:36: warning: Get_Visibility unimplemented
@@ -495,7 +474,6 @@ amf-internals-cmof_element_imports.adb:215:36: warning: Set_Imported_Element uni
 amf-internals-cmof_element_imports.adb:229:36: warning: Get_Importing_Namespace unimplemented
 amf-internals-cmof_element_imports.adb:244:36: warning: Set_Importing_Namespace unimplemented
 amf-internals-cmof_element_imports.adb:258:36: warning: Get_Name unimplemented
-   [Ada]          amf-cmof-multiplicity_elements.ads
    [Ada]          amf-cmof-directed_relationships-hash.ads
    [Ada]          amf-cmof-structural_features-hash.ads
    [Ada]          amf-internals-cmof_classifiers.adb
@@ -523,6 +501,8 @@ amf-internals-cmof_comments.adb:171:36: warning: All_Owned_Elements unimplemente
    [Ada]          amf-cmof-associations-hash.ads
    [Ada]          amf-cmof-relationships-collections.ads
    [Ada]          amf-cmof-data_types-collections.ads
+   [Ada]          amf-cmof-namespaces-collections.ads
+   [Ada]          amf-cmof-operations-collections.ads
 amf-internals-cmof_classes.adb:169:36: warning: All_Owned_Elements unimplemented
 amf-internals-cmof_classes.adb:184:36: warning: Get_Qualified_Name unimplemented
 amf-internals-cmof_classes.adb:201:36: warning: Is_Distinguishable_From unimplemented
@@ -543,8 +523,6 @@ amf-internals-cmof_classes.adb:413:36: warning: Inheritable_Members unimplemente
 amf-internals-cmof_classes.adb:429:36: warning: Has_Visibility_Of unimplemented
 amf-internals-cmof_classes.adb:445:36: warning: Inherit unimplemented
 amf-internals-cmof_classes.adb:461:36: warning: May_Specialize_Type unimplemented
-   [Ada]          amf-cmof-namespaces-collections.ads
-   [Ada]          amf-cmof-operations-collections.ads
    [Ada]          amf-cmof-comments-hash.ads
    [Ada]          amf-visitors-cmof_containment.ads
    [Ada]          amf-internals-cmof_named_elements.adb
@@ -564,6 +542,8 @@ amf-internals-cmof_classes.adb:461:36: warning: May_Specialize_Type unimplemente
    [Ada]          amf-cmof-opaque_expressions-collections.ads
    [Ada]          amf-cmof-elements.ads
    [Ada]          amf-cmof-packageable_elements-collections.ads
+   [Ada]          amf-reflective_collections.adb
+   [Ada]          amf-links-collections.ads
 amf-internals-cmof_operations.adb:266:36: warning: All_Owned_Elements unimplemented
 amf-internals-cmof_operations.adb:281:36: warning: Get_Qualified_Name unimplemented
 amf-internals-cmof_operations.adb:298:36: warning: Is_Distinguishable_From unimplemented
@@ -593,8 +573,6 @@ amf-internals-cmof_operations.adb:637:36: warning: Upper unimplemented
 amf-internals-cmof_operations.adb:653:36: warning: Is_Consistent_With unimplemented
 amf-internals-cmof_operations.adb:668:36: warning: Return_Result unimplemented
 amf-internals-cmof_operations.adb:683:36: warning: Types unimplemented
-   [Ada]          amf-reflective_collections.adb
-   [Ada]          amf-links-collections.ads
    [Ada]          amf-internals-elements.adb
    [Ada]          amf-uri_extents.ads
    [Ada]          amf-transformations.ads
@@ -606,13 +584,13 @@ amf-internals-cmof_operations.adb:683:36: warning: Types unimplemented
    [Ada]          amf-elements-generic_hash.adb
    [Ada]          amf-holders-elements.ads
    [Ada]          amf-boolean_collections-internals.adb
-   [Ada]          amf-facility.adb
 amf-boolean_collections-internals.adb:63:06: warning: formal parameter "Collection" is not referenced
+   [Ada]          amf-facility.adb
    [Ada]          amf-real_collections.ads
    [Ada]          amf-objects.adb
+   [Ada]          amf-stores.ads
 amf-facility.adb:108:06: warning: formal parameter "Href" is not referenced
 amf-facility.adb:109:06: warning: formal parameter "Base" is not referenced
-   [Ada]          amf-stores.ads
    [Ada]          amf-internals-collections.ads
    [Ada]          amf-internals-tables-amf_link_table.ads
    [Ada]          amf-internals-tables-amf_types.ads
@@ -625,8 +603,8 @@ amf-facility.adb:109:06: warning: formal parameter "Base" is not referenced
    [Ada]          amf-internals.ads
    [Ada]          amf-string_collections.ads
    [Ada]          amf-real_collections-internals.adb
-amf-real_collections-internals.adb:52:06: warning: formal parameter "Item" is not referenced
    [Ada]          amf-holders-unlimited_naturals.ads
+amf-real_collections-internals.adb:52:06: warning: formal parameter "Item" is not referenced
    [Ada]          amf-string_collections-internals.adb
    [Ada]          amf-links.ads
    [Ada]          amf-internals-tables-amf_tables.ads
@@ -639,17 +617,17 @@ amf-real_collections-internals.adb:52:06: warning: formal parameter "Item" is no
    [Ada]          amf-factories.adb
    [Ada]          amf-internals-extents.adb
    [Ada]          amf-internals-helpers.adb
+amf-internals-helpers.adb:123:07: warning: use clause for type "Element_Access" defined at amf-elements.ads:55 has no effect
    [Ada]          amf-internals-amf_uri_extents.adb
    [Ada]          amf-internals-collections-elements-proxies.adb
-amf-internals-helpers.adb:123:07: warning: use clause for type "Element_Access" defined at amf-elements.ads:55 has no effect
    [Ada]          amf-internals-collections-elements.adb
    [Ada]          amf-internals-holders.adb
    [Ada]          amf-generic_collections.adb
    [Ada]          amf-internals-generic_element_table.adb
-amf-internals-generic_element_table.adb:51:13: warning: function "M" is not referenced
-amf-internals-generic_element_table.adb:121:14: warning: redundant conversion, expression is of type "AMF_Element"
    [Ada]          amf-elements.ads
    [Ada]          amf-internals-amf_links.adb
+amf-internals-generic_element_table.adb:51:13: warning: function "M" is not referenced
+amf-internals-generic_element_table.adb:121:14: warning: redundant conversion, expression is of type "AMF_Element"
    [Ada]          amf-internals-listener_registry.adb
    [Ada]          amf-internals-collections-strings.adb
    [Ada]          amf-uri_stores.ads
@@ -676,17 +654,17 @@ amf-internals-generic_element_table.adb:121:14: warning: redundant conversion, e
    [Ada]          xml-sax-locators-internals.adb
    [Ada]          xml-sax-input_sources-streams-element_arrays.adb
    [Ada]          xml-sax-error_handlers.ads
+   [Ada]          xml-sax-file_input_sources.ads
+   [Ada]          matreshka-internals-xml-attribute_tables.adb
+   [Ada]          xml-sax-entity_resolvers.ads
+   [Ada]          matreshka-internals-sax_locators.adb
+   [Ada]          matreshka-internals-xml-symbol_tables.adb
 xml-sax-simple_readers-scanner.adb:701:45: warning: "YY_Last_Accepting_Position" may be referenced before it has a value
 xml-sax-simple_readers-scanner.adb:702:45: warning: "YY_Last_Accepting_Index" may be referenced before it has a value
 xml-sax-simple_readers-scanner.adb:703:45: warning: "YY_Last_Accepting_State" may be referenced before it has a value
 xml-sax-simple_readers-scanner.adb:704:45: warning: "YY_Last_Accepting_Line" may be referenced before it has a value
 xml-sax-simple_readers-scanner.adb:705:45: warning: "YY_Last_Accepting_Column" may be referenced before it has a value
 xml-sax-simple_readers-scanner.adb:706:45: warning: "YY_Last_Accepting_Skip_LF" may be referenced before it has a value
-   [Ada]          xml-sax-file_input_sources.ads
-   [Ada]          matreshka-internals-xml-attribute_tables.adb
-   [Ada]          xml-sax-entity_resolvers.ads
-   [Ada]          matreshka-internals-sax_locators.adb
-   [Ada]          matreshka-internals-xml-symbol_tables.adb
    [Ada]          xml-sax-simple_readers-analyzer.adb
    [Ada]          xml-sax-constants.ads
    [Ada]          xml-sax-simple_readers-scanner-actions.adb
@@ -778,6 +756,15 @@ xml-sax-simple_readers-scanner.adb:706:45: warning: "YY_Last_Accepting_Skip_LF" 
    [Ada]          matreshka-internals-unicode-ucd-core_010a.ads
    [Ada]          matreshka-internals-unicode-ucd-core_016f.ads
    [Ada]          matreshka-internals-unicode-ucd-core_0000.ads
+   [Ada]          matreshka-internals-unicode-ucd-core_00fa.ads
+   [Ada]          matreshka-internals-unicode-ucd-core_0014.ads
+   [Ada]          matreshka-internals-unicode-ucd-core_000f.ads
+   [Ada]          matreshka-internals-unicode-ucd-core_001b.ads
+   [Ada]          matreshka-internals-unicode-ucd-core_0028.ads
+   [Ada]          matreshka-internals-unicode-ucd-core_0029.ads
+   [Ada]          matreshka-internals-unicode-ucd-core_001c.ads
+   [Ada]          matreshka-internals-unicode-ucd-core_0015.ads
+   [Ada]          matreshka-internals-unicode-ucd-core_0001.ads
 matreshka-internals-unicode-ucd-colls.ads:31605:27: warning: there are no others
 matreshka-internals-unicode-ucd-colls.ads:32121:27: warning: there are no others
 matreshka-internals-unicode-ucd-colls.ads:38199:27: warning: there are no others
@@ -807,15 +794,6 @@ matreshka-internals-unicode-ucd-colls.ads:72777:27: warning: there are no others
 matreshka-internals-unicode-ucd-colls.ads:73293:27: warning: there are no others
 matreshka-internals-unicode-ucd-colls.ads:73907:27: warning: there are no others
 matreshka-internals-unicode-ucd-colls.ads:74423:27: warning: there are no others
-   [Ada]          matreshka-internals-unicode-ucd-core_00fa.ads
-   [Ada]          matreshka-internals-unicode-ucd-core_0014.ads
-   [Ada]          matreshka-internals-unicode-ucd-core_000f.ads
-   [Ada]          matreshka-internals-unicode-ucd-core_001b.ads
-   [Ada]          matreshka-internals-unicode-ucd-core_0028.ads
-   [Ada]          matreshka-internals-unicode-ucd-core_0029.ads
-   [Ada]          matreshka-internals-unicode-ucd-core_001c.ads
-   [Ada]          matreshka-internals-unicode-ucd-core_0015.ads
-   [Ada]          matreshka-internals-unicode-ucd-core_0001.ads
    [Ada]          matreshka-internals-unicode-ucd-core_0017.ads
    [Ada]          matreshka-internals-unicode-ucd-core_00fb.ads
    [Ada]          matreshka-internals-unicode-ucd-core_0003.ads
@@ -912,12 +890,12 @@ matreshka-internals-unicode-ucd-colls.ads:74423:27: warning: there are no others
    [Ada]          matreshka-internals-regexps-compiler-scanner-tables.ads
    [Ada]          matreshka-internals-regexps-compiler-parser-tables.ads
    [Ada]          matreshka-internals-regexps-compiler-parser.adb
+   [Ada]          matreshka-internals-regexps-compiler-scanner.adb
+   [Ada]          matreshka-internals-text_codecs-iana_registry.ads
 matreshka-internals-regexps-compiler-parser.adb:278:21: warning: range test optimized away
 matreshka-internals-regexps-compiler-parser.adb:278:21: warning: value is known to be in range
 matreshka-internals-regexps-compiler-parser.adb:300:21: warning: range test optimized away
 matreshka-internals-regexps-compiler-parser.adb:300:21: warning: value is known to be in range
-   [Ada]          matreshka-internals-regexps-compiler-scanner.adb
-   [Ada]          matreshka-internals-text_codecs-iana_registry.ads
    [Ada]          matreshka-internals-text_codecs-shiftjis-tables.ads
    [Ada]          matreshka-internals-text_codecs-ibm437.adb
 matreshka-internals-text_codecs-ibm437.adb:753:24: warning: lower bound test optimized away
@@ -935,23 +913,21 @@ matreshka-internals-text_codecs-iso88591.adb:133:24: warning: value is known to 
 matreshka-internals-text_codecs-koi8r.adb:619:24: warning: lower bound test optimized away
 matreshka-internals-text_codecs-koi8r.adb:619:24: warning: value is known to be in range
    [Ada]          matreshka-internals-text_codecs-iso88595.adb
+   [Ada]          matreshka-internals-text_codecs-shiftjis.adb
 matreshka-internals-text_codecs-iso88595.adb:161:24: warning: lower bound test optimized away
 matreshka-internals-text_codecs-iso88595.adb:161:24: warning: value is known to be in range
-   [Ada]          matreshka-internals-text_codecs-shiftjis.adb
+   [Ada]          matreshka-internals-text_codecs-windows1252.adb
 matreshka-internals-text_codecs-shiftjis.adb:182:32: warning: lower bound test optimized away
 matreshka-internals-text_codecs-shiftjis.adb:182:32: warning: value is known to be in range
-   [Ada]          matreshka-internals-text_codecs-windows1252.adb
+   [Ada]          matreshka-internals-text_codecs-windows1250.adb
 matreshka-internals-text_codecs-windows1252.adb:225:24: warning: lower bound test optimized away
 matreshka-internals-text_codecs-windows1252.adb:225:24: warning: value is known to be in range
-   [Ada]          matreshka-internals-text_codecs-windows1250.adb
+   [Ada]          matreshka-internals-text_codecs-windows1251.adb
 matreshka-internals-text_codecs-windows1250.adb:429:24: warning: lower bound test optimized away
 matreshka-internals-text_codecs-windows1250.adb:429:24: warning: value is known to be in range
-   [Ada]          matreshka-internals-text_codecs-windows1251.adb
+   [Ada]          league-json-arrays.adb
 matreshka-internals-text_codecs-windows1251.adb:315:24: warning: lower bound test optimized away
 matreshka-internals-text_codecs-windows1251.adb:315:24: warning: value is known to be in range
-   [Ada]          league-json-arrays.adb
-matreshka-internals-unicode-ucd-norms.ads:13187:27: warning: there are no others
-matreshka-internals-unicode-ucd-norms.ads:16852:27: warning: there are no others
    [Ada]          matreshka-internals-regexps.adb
    [Ada]          league-strings-cursors-characters.adb
    [Ada]          league-base_codecs.adb
@@ -959,11 +935,13 @@ matreshka-internals-unicode-ucd-norms.ads:16852:27: warning: there are no others
    [Ada]          matreshka-internals-code_point_sets.adb
    [Ada]          league-stream_element_vectors-hash.adb
    [Ada]          matreshka-internals-utf16.adb
-   [Ada]          league-characters.adb
 matreshka-internals-utf16.ads:100:04: warning: pragma Pack for "Utf16_String" ignored
 matreshka-internals-utf16.ads:100:04: warning: explicit component size given at line 99
 matreshka-internals-utf16.ads:108:04: warning: pragma Pack for "Unaligned_Utf16_String" ignored
 matreshka-internals-utf16.ads:108:04: warning: explicit component size given at line 107
+   [Ada]          league-characters.adb
+matreshka-internals-unicode-ucd-norms.ads:13187:27: warning: there are no others
+matreshka-internals-unicode-ucd-norms.ads:16852:27: warning: there are no others
    [Ada]          matreshka-internals-regexps-compiler.adb
    [Ada]          league-holders-json_objects.ads
    [Ada]          matreshka-internals-strings-c.adb
@@ -974,7 +952,6 @@ matreshka-internals-utf16.ads:108:04: warning: explicit component size given at 
    [Ada]          matreshka-json_parser.adb
    [Ada]          matreshka-internals-settings-ini_managers.adb
    [Ada]          matreshka-internals-unicode-normalization.adb
-matreshka-internals-code_point_sets.adb:318:07: warning: use clause for type "General_Category" defined at matreshka-internals-unicode-ucd.ads:65 has no effect
    [Ada]          league-calendars.adb
    [Ada]          league-json-streams-integer_stream_operations.ads
    [Ada]          league.ads
@@ -983,15 +960,16 @@ matreshka-internals-code_point_sets.adb:318:07: warning: use clause for type "Ge
    [Ada]          matreshka-internals-unicode-cldr-collation.ads
    [Ada]          league-stream_element_vectors.adb
    [Ada]          matreshka-internals-translator-xliff_readers.adb
+matreshka-internals-code_point_sets.adb:318:07: warning: use clause for type "General_Category" defined at matreshka-internals-unicode-ucd.ads:65 has no effect
    [Ada]          league-holders-generic_holders.adb
    [Ada]          league-holders.adb
+   [Ada]          matreshka-internals-locales.adb
 matreshka-internals-translator-xliff_readers.adb:50:04: warning: constant "Trolltech_NS" is not referenced
 matreshka-internals-translator-xliff_readers.adb:63:04: warning: constant "XLIFF_Name" is not referenced
-   [Ada]          matreshka-internals-locales.adb
    [Ada]          league-json-values-internals.adb
    [Ada]          matreshka-internals-regexps-engine-debug.adb
-matreshka-internals-regexps-engine-debug.adb:42:09: warning: type "State" is not referenced
    [Ada]          matreshka-internals-unicode-characters.ads
+matreshka-internals-regexps-engine-debug.adb:42:09: warning: type "State" is not referenced
    [Ada]          league-json-arrays-internals.adb
    [Ada]          matreshka-atomics.ads
    [Ada]          matreshka-internals-unicode-ucd.adb
@@ -1015,20 +993,19 @@ matreshka-internals-regexps-engine-debug.adb:42:09: warning: type "State" is not
    [Ada]          league-json-values.adb
    [Ada]          matreshka-internals-unicode.adb
    [Ada]          league-pretty_printers.adb
-matreshka-internals-locales.adb:50:04: warning: "Application_Locale" is not modified, could be declared constant
    [Ada]          league-strings.adb
+league-strings.adb:725:06: warning: formal parameter "Changed_First" is not referenced
+league-strings.adb:726:06: warning: formal parameter "Removed_Last" is not referenced
+league-strings.adb:727:06: warning: formal parameter "Inserted_Last" is not referenced
    [Ada]          league-json-documents-internals.adb
    [Ada]          league-string_vectors-internals.adb
    [Ada]          matreshka-cldr.ads
    [Ada]          league-json-streams-long_integer_stream_operations.ads
    [Ada]          matreshka-internals-stream_element_vectors.adb
-   [Ada]          league-json-objects-internals.adb
-league-strings.adb:725:06: warning: formal parameter "Changed_First" is not referenced
-league-strings.adb:726:06: warning: formal parameter "Removed_Last" is not referenced
-league-strings.adb:727:06: warning: formal parameter "Inserted_Last" is not referenced
-   [Ada]          league-calendars-iso_8601.adb
 matreshka-internals-stream_element_vectors.adb:180:07: warning: "Length" is not modified, could be declared constant
 matreshka-internals-stream_element_vectors.adb:189:21: warning: redundant conversion, expression is of type "Hash_Type"
+   [Ada]          league-json-objects-internals.adb
+   [Ada]          league-calendars-iso_8601.adb
    [Ada]          league-holders-generic_enumerations.adb
    [Ada]          league-stream_element_vectors-internals.adb
    [Ada]          matreshka-internals-calendars-gregorian.adb
@@ -1036,6 +1013,7 @@ matreshka-internals-stream_element_vectors.adb:189:21: warning: redundant conver
    [Ada]          league-json-objects.adb
    [Ada]          league-characters-internals.adb
    [Ada]          matreshka-internals-text_codecs-utf16.adb
+matreshka-internals-locales.adb:50:04: warning: "Application_Locale" is not modified, could be declared constant
    [Ada]          matreshka-cldr-allkeys_reader.adb
    [Ada]          league-locales.adb
    [Ada]          matreshka-cldr-collation_data.adb
@@ -1045,11 +1023,10 @@ matreshka-internals-stream_element_vectors.adb:189:21: warning: redundant conver
    [Ada]          league-holders-integers.ads
    [Ada]          matreshka-internals-unicode-properties.adb
    [Ada]          matreshka-cldr-collation_rules_parser.adb
-matreshka-cldr-collation_rules_parser.adb:186:30: warning: assignment to pass-by-copy formal may have no effect
-matreshka-cldr-collation_rules_parser.adb:186:30: warning: "raise" statement may result in abnormal return (RM 6.4.1(17))
    [Ada]          matreshka-internals-calendars-formatting-times.adb
    [Ada]          league-character_sets.adb
-league-locales.ads:46:12: warning: unit "League.Strings" is not referenced
+matreshka-cldr-collation_rules_parser.adb:186:30: warning: assignment to pass-by-copy formal may have no effect
+matreshka-cldr-collation_rules_parser.adb:186:30: warning: "raise" statement may result in abnormal return (RM 6.4.1(17))
    [Ada]          matreshka-internals-translator.adb
    [Ada]          league-strings-cursors-grapheme_clusters.adb
    [Ada]          matreshka-cldr-collation_compiler.adb
@@ -1058,11 +1035,13 @@ league-locales.ads:46:12: warning: unit "League.Strings" is not referenced
    [Ada]          matreshka-internals-regexps-compiler-debug.adb
    [Ada]          league-holders-long_integers.ads
    [Ada]          matreshka-internals-regexps-engine-pike.adb
+league-locales.ads:46:12: warning: unit "League.Strings" is not referenced
    [Ada]          league-json-streams-generic_float_stream_operations.adb
    [Ada]          league-application.adb
    [Ada]          league-json-streams-generic_integer_stream_operations.adb
    [Ada]          league-holders-short_integers.ads
    [Ada]          league-iris.adb
+   [Ada]          matreshka-json_types.adb
 league-iris.adb:84:36: warning: "=" unimplemented
 league-iris.adb:160:36: warning: Encoded_Authority unimplemented
 league-iris.adb:174:36: warning: Encoded_Fragment unimplemented
@@ -1109,7 +1088,6 @@ league-iris.adb:1833:06: warning: formal parameter "Self" is not referenced
 league-iris.adb:1833:31: warning: formal parameter "To" is not referenced
 league-iris.adb:1836:36: warning: Set_User_Info unimplemented
 league-iris.adb:1849:36: warning: To_Encoded unimplemented
-   [Ada]          matreshka-json_types.adb
    [Ada]          matreshka-internals-host_types.ads
    [Ada]          league-holders-long_floats.ads
    [Ada]          league-strings-hash.adb
@@ -1118,8 +1096,6 @@ league-iris.adb:1849:36: warning: To_Encoded unimplemented
    [Ada]          league-regexps.adb
    [Ada]          matreshka-simd.ads
    [Ada]          matreshka-internals-locales-defaults.ads
-matreshka-internals-regexps-engine-pike.adb:211:20: warning: object "SOL" is always True at this point
-matreshka-internals-regexps-engine-pike.adb:211:20: warning: (see assignment at line 201)
    [Ada]          league-holders-generic_compound_holders.adb
    [Ada]          league-holders-generic_floats.adb
    [Ada]          matreshka-internals-settings-ini_files.adb
@@ -1132,12 +1108,14 @@ matreshka-internals-regexps-engine-pike.adb:211:20: warning: (see assignment at 
    [Ada]          matreshka-internals-unicode-ucd-properties.adb
 matreshka-internals-settings-ini_files.adb:610:12: warning: formal parameter "Section_Key" is not referenced
    [Ada]          league-locales-constructors.adb
+matreshka-internals-regexps-engine-pike.adb:211:20: warning: object "SOL" is always True at this point
+matreshka-internals-regexps-engine-pike.adb:211:20: warning: (see assignment at line 201)
    [Ada]          matreshka-cldr-ldml_parsers.adb
-   [Ada]          matreshka-internals-calendars-formatting.adb
-   [Ada]          matreshka-internals-settings-fallbacks.adb
 matreshka-cldr-ldml_parsers.adb:84:06: warning: formal parameter "Success" is not referenced
 matreshka-cldr-ldml_parsers.adb:98:06: warning: formal parameter "Success" is not referenced
 matreshka-cldr-ldml_parsers.adb:141:06: warning: formal parameter "Success" is not referenced
+   [Ada]          matreshka-internals-calendars-formatting.adb
+   [Ada]          matreshka-internals-settings-fallbacks.adb
    [Ada]          league-json-streams-long_float_stream_operations.ads
    [Ada]          league-json-documents.adb
    [Ada]          league-json-streams-boolean_stream_operations.adb
@@ -1192,20 +1170,20 @@ amf-internals-dg_styles.adb:51:06: warning: redundant with clause in body
    [Ada]          amf-dg-gradient_stop_collections.ads
    [Ada]          amf-internals-tables-dd_attributes.adb
    [Ada]          amf-dg-path_command_collections-internals.adb
-amf-dg-path_command_collections-internals.adb:52:06: warning: formal parameter "Item" is not referenced
    [Ada]          amf-dg-texts-hash.ads
+amf-dg-path_command_collections-internals.adb:52:06: warning: formal parameter "Item" is not referenced
    [Ada]          amf-dg-canvases-collections.ads
    [Ada]          amf-dg-holders-cubic_curve_tos.ads
    [Ada]          amf-di.ads
    [Ada]          amf-dg-ellipses-collections.ads
    [Ada]          amf-internals-dg_markers.adb
+   [Ada]          amf-dg-rectangles-collections.ads
 amf-internals-dg_markers.adb:46:06: warning: redundant with clause in body
 amf-internals-dg_markers.adb:47:06: warning: redundant with clause in body
 amf-internals-dg_markers.adb:48:06: warning: redundant with clause in body
 amf-internals-dg_markers.adb:49:06: warning: redundant with clause in body
 amf-internals-dg_markers.adb:50:06: warning: redundant with clause in body
 amf-internals-dg_markers.adb:51:06: warning: redundant with clause in body
-   [Ada]          amf-dg-rectangles-collections.ads
    [Ada]          amf-internals-dg_clip_paths.adb
 amf-internals-dg_clip_paths.adb:46:06: warning: redundant with clause in body
 amf-internals-dg_clip_paths.adb:47:06: warning: redundant with clause in body
@@ -1248,8 +1226,8 @@ amf-internals-dg_canvases.adb:50:06: warning: redundant with clause in body
 amf-internals-dg_canvases.adb:51:06: warning: redundant with clause in body
 amf-internals-dg_canvases.adb:52:06: warning: redundant with clause in body
    [Ada]          amf-internals-tables-di_string_data_00.ads
-   [Ada]          amf-dg-gradients.ads
 amf-internals-dg_radial_gradients.adb:46:06: warning: redundant with clause in body
+   [Ada]          amf-dg-gradients.ads
    [Ada]          amf-dc-holders.adb
    [Ada]          amf-dg-radial_gradients-hash.ads
    [Ada]          amf-di-shapes-hash.ads
@@ -1258,13 +1236,13 @@ amf-internals-dg_radial_gradients.adb:46:06: warning: redundant with clause in b
    [Ada]          amf-dg-holders-close_paths.ads
    [Ada]          amf-dg-images-collections.ads
    [Ada]          amf-dg-transform_collections-internals.adb
-amf-dg-transform_collections-internals.adb:52:06: warning: formal parameter "Item" is not referenced
    [Ada]          amf-factories-dc_factories.ads
+amf-dg-transform_collections-internals.adb:52:06: warning: formal parameter "Item" is not referenced
+   [Ada]          amf-dg-styles-hash.ads
 amf-internals-dg_texts.adb:46:06: warning: redundant with clause in body
 amf-internals-dg_texts.adb:47:06: warning: redundant with clause in body
 amf-internals-dg_texts.adb:48:06: warning: redundant with clause in body
 amf-internals-dg_texts.adb:49:06: warning: redundant with clause in body
-   [Ada]          amf-dg-styles-hash.ads
    [Ada]          amf-internals-tables-dc_metamodel-objects.adb
    [Ada]          amf-dg-markers-hash.ads
    [Ada]          amf-internals-tables-di_metamodel-properties.adb
@@ -1272,63 +1250,63 @@ amf-internals-dg_texts.adb:49:06: warning: redundant with clause in body
    [Ada]          amf-dg-patterns-collections.ads
    [Ada]          amf-internals-tables-dd_reflection.adb
    [Ada]          amf-internals-dg_circles.adb
+   [Ada]          amf-dg-paths-hash.ads
+   [Ada]          amf-dg-texts-collections.ads
 amf-internals-dg_circles.adb:46:06: warning: redundant with clause in body
 amf-internals-dg_circles.adb:47:06: warning: redundant with clause in body
 amf-internals-dg_circles.adb:48:06: warning: redundant with clause in body
 amf-internals-dg_circles.adb:49:06: warning: redundant with clause in body
-   [Ada]          amf-dg-paths-hash.ads
-   [Ada]          amf-dg-texts-collections.ads
    [Ada]          amf-internals-tables-dd_constructors.adb
    [Ada]          amf-internals-tables-dd_types.ads
-amf-internals-tables-dd_constructors.adb:73:04: warning: use clause for package "Tables" has no effect
-amf-internals-tables-dd_constructors.adb:74:04: warning: use clause for type "AMF_Collection_Of_Element" defined at amf-internals.ads:75 has no effect
    [Ada]          amf-internals-dg_linear_gradients.adb
    [Ada]          amf-dg-radial_gradients.ads
    [Ada]          amf-dg-lines-hash.ads
+amf-internals-tables-dd_constructors.adb:73:04: warning: use clause for package "Tables" has no effect
+amf-internals-tables-dd_constructors.adb:74:04: warning: use clause for type "AMF_Collection_Of_Element" defined at amf-internals.ads:75 has no effect
    [Ada]          amf-di-diagram_elements-hash.ads
+amf-internals-dg_linear_gradients.adb:46:06: warning: redundant with clause in body
    [Ada]          amf-dg-clip_paths.ads
    [Ada]          amf-di-shapes.ads
-amf-internals-dg_linear_gradients.adb:46:06: warning: redundant with clause in body
    [Ada]          amf-internals-tables-di_metamodel.adb
    [Ada]          amf-internals-dg_paths.adb
    [Ada]          amf-internals-dg_groups.adb
    [Ada]          amf-dg-ellipses-hash.ads
    [Ada]          amf-internals-dg_lines.adb
+   [Ada]          amf-dc-holders-dimensions.ads
 amf-internals-dg_paths.adb:46:06: warning: redundant with clause in body
 amf-internals-dg_paths.adb:47:06: warning: redundant with clause in body
 amf-internals-dg_paths.adb:48:06: warning: redundant with clause in body
 amf-internals-dg_paths.adb:49:06: warning: redundant with clause in body
-   [Ada]          amf-dc-holders-dimensions.ads
+   [Ada]          amf-dg-path_command_collections.ads
 amf-internals-dg_groups.adb:46:06: warning: redundant with clause in body
 amf-internals-dg_groups.adb:47:06: warning: redundant with clause in body
 amf-internals-dg_groups.adb:48:06: warning: redundant with clause in body
 amf-internals-dg_groups.adb:49:06: warning: redundant with clause in body
-   [Ada]          amf-dg-path_command_collections.ads
    [Ada]          amf-dg-canvases.ads
    [Ada]          amf-internals-dg_marked_elements.adb
-   [Ada]          amf-internals-factories-dc_factories.adb
 amf-internals-dg_lines.adb:46:06: warning: redundant with clause in body
 amf-internals-dg_lines.adb:47:06: warning: redundant with clause in body
 amf-internals-dg_lines.adb:48:06: warning: redundant with clause in body
 amf-internals-dg_lines.adb:49:06: warning: redundant with clause in body
 amf-internals-dg_lines.adb:50:06: warning: redundant with clause in body
+   [Ada]          amf-internals-factories-dc_factories.adb
    [Ada]          amf-dg-images.ads
    [Ada]          amf-dg-linear_gradients.ads
    [Ada]          amf-dc-holders-bounds.ads
+   [Ada]          amf-dg-markers.ads
+   [Ada]          amf-di-diagram_elements.ads
 amf-internals-dg_marked_elements.adb:46:06: warning: redundant with clause in body
 amf-internals-dg_marked_elements.adb:47:06: warning: redundant with clause in body
 amf-internals-dg_marked_elements.adb:48:06: warning: redundant with clause in body
 amf-internals-dg_marked_elements.adb:49:06: warning: redundant with clause in body
-   [Ada]          amf-dg-markers.ads
-   [Ada]          amf-di-diagram_elements.ads
    [Ada]          amf-dg-holders-move_tos.ads
    [Ada]          amf-dg-canvases-hash.ads
    [Ada]          amf-internals-factories-dg_factories.adb
    [Ada]          amf-dg-graphical_elements-collections.ads
-amf-internals-factories-dc_factories.adb:260:14: warning: null value not allowed here
-amf-internals-factories-dc_factories.adb:260:14: warning: "Constraint_Error" will be raised at run time
    [Ada]          amf-dg-polygons-hash.ads
    [Ada]          amf-internals-dg_ellipses.adb
+amf-internals-factories-dc_factories.adb:260:14: warning: null value not allowed here
+amf-internals-factories-dc_factories.adb:260:14: warning: "Constraint_Error" will be raised at run time
    [Ada]          amf-internals-dg_images.adb
 amf-internals-dg_ellipses.adb:46:06: warning: redundant with clause in body
 amf-internals-dg_ellipses.adb:47:06: warning: redundant with clause in body
@@ -1336,15 +1314,15 @@ amf-internals-dg_ellipses.adb:48:06: warning: redundant with clause in body
 amf-internals-dg_ellipses.adb:49:06: warning: redundant with clause in body
    [Ada]          amf-dg-gradient_stop_collections-internals.adb
    [Ada]          amf-internals-tables-dd_attribute_mappings.ads
+amf-dg-gradient_stop_collections-internals.adb:52:06: warning: formal parameter "Item" is not referenced
+   [Ada]          amf-di-edges-collections.ads
+amf-internals-tables-dd_attribute_mappings.ads:65:19: warning: there are no others
+   [Ada]          amf-dc-holders-colors.ads
+   [Ada]          amf-internals-factories-dc_datatypes.adb
 amf-internals-dg_images.adb:46:06: warning: redundant with clause in body
 amf-internals-dg_images.adb:47:06: warning: redundant with clause in body
 amf-internals-dg_images.adb:48:06: warning: redundant with clause in body
 amf-internals-dg_images.adb:49:06: warning: redundant with clause in body
-   [Ada]          amf-di-edges-collections.ads
-amf-dg-gradient_stop_collections-internals.adb:52:06: warning: formal parameter "Item" is not referenced
-   [Ada]          amf-dc-holders-colors.ads
-amf-internals-tables-dd_attribute_mappings.ads:65:19: warning: there are no others
-   [Ada]          amf-internals-factories-dc_datatypes.adb
    [Ada]          amf-visitors-dg_visitors.ads
    [Ada]          amf-dg-marked_elements-hash.ads
    [Ada]          amf-internals-tables-dg_metamodel-properties.adb
@@ -1352,11 +1330,11 @@ amf-internals-tables-dd_attribute_mappings.ads:65:19: warning: there are no othe
    [Ada]          amf-dg-gradients-hash.ads
    [Ada]          amf-dg-radial_gradients-collections.ads
    [Ada]          amf-internals-dg_patterns.adb
+   [Ada]          amf-dg-graphical_elements.ads
+   [Ada]          amf-internals-tables-dc_metamodel-properties.adb
 amf-internals-dg_patterns.adb:46:06: warning: redundant with clause in body
 amf-internals-dg_patterns.adb:47:06: warning: redundant with clause in body
 amf-internals-dg_patterns.adb:48:06: warning: redundant with clause in body
-   [Ada]          amf-dg-graphical_elements.ads
-   [Ada]          amf-internals-tables-dc_metamodel-properties.adb
    [Ada]          amf-dg-groups.ads
    [Ada]          amf-dg-patterns-hash.ads
    [Ada]          amf-dg-gradients-collections.ads
@@ -1376,9 +1354,9 @@ amf-internals-dg_patterns.adb:48:06: warning: redundant with clause in body
    [Ada]          amf-dg-circles-collections.ads
    [Ada]          amf-internals-factories-dd_module_factory.adb
    [Ada]          amf-dg-circles.ads
+   [Ada]          amf-dg-holders.adb
 amf-internals-factories-dd_module_factory-construct_union.adb:53:03: warning: formal parameter "Property" is not referenced
 amf-internals-factories-dd_module_factory-construct_union.adb:58:04: warning: constant "Opposite" is not referenced
-   [Ada]          amf-dg-holders.adb
    [Ada]          amf-dg-fills.ads
    [Ada]          amf-dg-fills-collections.ads
    [Ada]          amf-di-styles.ads
@@ -1386,10 +1364,10 @@ amf-internals-factories-dd_module_factory-construct_union.adb:58:04: warning: co
    [Ada]          amf-dc.ads
    [Ada]          amf-internals-factories-di_factories.adb
    [Ada]          amf-di-shapes-collections.ads
-amf-internals-factories-di_factories.adb:87:14: warning: null value not allowed here
-amf-internals-factories-di_factories.adb:87:14: warning: "Constraint_Error" will be raised at run time
    [Ada]          amf-internals-dg_elements.adb
    [Ada]          amf-dc-holders-alignment_kinds.ads
+amf-internals-factories-di_factories.adb:87:14: warning: null value not allowed here
+amf-internals-factories-di_factories.adb:87:14: warning: "Constraint_Error" will be raised at run time
    [Ada]          amf-internals-tables-dc_string_data_00.ads
    [Ada]          amf-dg-holders-translates.ads
    [Ada]          amf-internals-tables-dc_metamodel.adb
@@ -1399,8 +1377,8 @@ amf-internals-factories-di_factories.adb:87:14: warning: "Constraint_Error" will
    [Ada]          amf-internals-tables-dg_metamodel.adb
    [Ada]          amf-dc-point_collections-internals.adb
    [Ada]          amf-dg-images-hash.ads
-amf-dc-point_collections-internals.adb:52:06: warning: formal parameter "Item" is not referenced
    [Ada]          amf-internals-dg_polygons.adb
+amf-dc-point_collections-internals.adb:52:06: warning: formal parameter "Item" is not referenced
 amf-internals-dg_polygons.adb:46:06: warning: redundant with clause in body
 amf-internals-dg_polygons.adb:47:06: warning: redundant with clause in body
 amf-internals-dg_polygons.adb:48:06: warning: redundant with clause in body
@@ -1415,7 +1393,7 @@ Build Libraries
    [gprlib]       matreshka-amf-dd-11.2.20.0.lexch
    [link library] libmatreshka-amf-11.2.20.0.dylib
    [link library] libmatreshka-amf-dd-11.2.20.0.dylib
-Build finished successfully in 300.99 seconds.
+Build finished successfully in 216.53 seconds.
 
 matreshka_amf_dd=21.0.0 successfully retrieved and built.
 Dependencies were solved as follows:
@@ -1425,3 +1403,4 @@ Dependencies were solved as follows:
    +  matreshka_amf    21.0.0 (new)                               
    +  matreshka_league 21.0.0 (new)                               
    +  matreshka_xml    21.0.0 (new,indirect)                      
+Found declared GPR file: build_matreshka_amf_dd.gpr
