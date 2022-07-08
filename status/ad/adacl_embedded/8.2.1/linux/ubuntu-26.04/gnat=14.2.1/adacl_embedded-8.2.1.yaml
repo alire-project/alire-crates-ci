@@ -1,0 +1,635 @@
+badge: false
+crate: adacl_embedded
+creation_timestamp: 1795134901.5651686
+distro: ubuntu-26.04
+duration: 4.443048654999984
+gnat: 14.2.1
+last_attempt: 2026-11-21 00:49:37.485395+00:00
+log:
+- 'Test ran at 2026-11-21 00:49:37.485370+00:00
+
+
+  '
+- 'SOLUTION:
+
+  '
+- 'adacl_embedded=8.2.1: AdaCL bare-metal: Interrupt-safe trace and Text_IO, static
+  buffers
+
+  '
+- 'Origin: source archive adacl_embedded-8.2.1.tgz at https://sourceforge.net/projects/adacl/files/Alire/adacl_embedded-8.2.1.tgz
+  with hashes sha256:477f8064f4fb07ed5b390d74529f8b1de7e83b4a23639656985e87ee52370d05,
+  sha512:9efcb39f85e3cf97e9056398dedb1b72b7a3fcd942e5778bffec4503d6d984a94d363430f7ddf48e789fd7a5202bc1d110f0d5e91f9d571492881641acc6f0d0
+
+  '
+- 'Properties:
+
+  '
+- '   case OS is
+
+  '
+- '      when Linux => Test run: /bin/bash ci-verify.sh (from ${CRATE_ROOT}/.)
+
+  '
+- '      when Macos => Test run: /bin/bash ci-verify.sh (from ${CRATE_ROOT}/.)
+
+  '
+- '      when Windows => Test run: powershell -ExecutionPolicy Bypass -File ci-verify.ps1
+  (from ${CRATE_ROOT}/.)
+
+  '
+- '      when others => (empty)
+
+  '
+- '   Author: Martin Krischik <krischik@users.sourceforge.net>
+
+  '
+- "   Build Switches: \n"
+- '   Config type: Event_Log_Buffer_Length : Integer range 1 .. 1024 default: ''200''
+
+  '
+- '   Config type: Event_Log_Buffer_Size : Integer range 0 .. 1024 default: ''0''
+
+  '
+- '   Config type: Variant : Enum (tasking, no_tasking) default: ''no_tasking''
+
+  '
+- '   Configuration: no modifiers
+
+  '
+- '   Description: AdaCL bare-metal: Interrupt-safe trace and Text_IO, static buffers
+
+  '
+- '   License: GPL-3.0-or-later
+
+  '
+- '   Long_Description: AdaCL Embedded - Lightweight Embedded Ada Library
+
+  '
+- '
+
+  '
+- 'AdaCL-Embedded focuses on embedded and real-time programming on the Raspberry Pi
+  and similar platforms.
+
+  '
+- '
+
+  '
+- 'It favours predictability, minimal runtime overhead, and static data structures.
+  Object-oriented programming, unbounded
+
+  '
+- 'strings, and wide strings are avoided or kept to an absolute minimum.
+
+  '
+- '
+
+  '
+- '### Current Features
+
+  '
+- '
+
+  '
+- '* **AdaCL.Embedded.Trace** - Interrupt-safe, lightweight tracing facility using
+  a ring buffer.
+
+  '
+- '* **AdaCL.Embedded.Text_IO** - Extended Ada.Text_IO.
+
+  '
+- '
+
+  '
+- '### Configuration Options
+
+  '
+- '
+
+  '
+- '* `Variant`
+
+  '
+- '  * `no_tasking`  - for the lightest runtimes (no protected objects). Also works
+  well with interrupt-driven runtimes.
+
+  '
+- "  * `tasking`\t  - for runtimes with tasking support.\n"
+- '* `Event_Log_Buffer_Length` - maximum length of each trace line (default: 200,
+  min: 1, max: 1024)
+
+  '
+- '* `Event_Log_Buffer_Size`   - number of entries in the ring buffer (default: 0,
+  max: 1024, min: 0 (buffer disabled))
+
+  '
+- '
+
+  '
+- 'A text length of 200 is the standart minimum used in the Ada Standart (i.E. `Ada.Text_IO.Get_Line`,
+  exception messages,
+
+  '
+- 'etc.pp).
+
+  '
+- '
+
+  '
+- 'Memory needed is approximately `(Event_Log_Buffer_Length + 4) * Event_Log_Buffer_Size`
+  bytes, plus some overhead for the
+
+  '
+- 'buffer management. For example: 1024 buffer size with 200 line lenght is about
+  the maximum size that can be used with
+
+  '
+- 'the static memory of Raspberry Pi Pico. The buffer size can be set to 0 to disable
+  the trace buffer and the related code
+
+  '
+- 'completely.
+
+  '
+- '
+
+  '
+- 'Source: [SourceForge](https://sourceforge.net/p/adacl/git/ci/master/tree/adacl_embedded/)
+
+  '
+- "Documentation:\t[Overview](https://adacl.sourceforge.net/adacl-embedded/) and\n"
+- '[GNATdoc](https://adacl-embedded.sourceforge.net/gnatdoc/index.html)
+
+  '
+- '
+
+  '
+- '   Maintainer: Martin Krischik <krischik@users.sourceforge.net>
+
+  '
+- '   Maintainers_Logins: krischik
+
+  '
+- '   Name: adacl_embedded
+
+  '
+- '   Notes: # Version 8.2.0:
+
+  '
+- '* Updated AdaCL.Trace for better wide-string support
+
+  '
+- '* Added a new line-insert filter to AdaCL.SAR that can insert multiple lines and/or
+  only at the first matched location
+
+  '
+- '* AdaCL.Serial now generates the macOS serial communication layer on the fly
+
+  '
+- '
+
+  '
+- '   Tag: library
+
+  '
+- '   Tag: embedded
+
+  '
+- '   Tag: trace
+
+  '
+- '   Tag: logging
+
+  '
+- '   Tag: spark
+
+  '
+- '   Tag: ada2022
+
+  '
+- '   Version: 8.2.1
+
+  '
+- '   Website: https://sourceforge.net/projects/adacl/
+
+  '
+- 'Dependencies (direct):
+
+  '
+- '   adacl^8.2
+
+  '
+- 'Dependencies (solution):
+
+  '
+- '   adacl=8.2.1
+
+  '
+- 'Dependencies (graph):
+
+  '
+- '   adacl_embedded=8.2.1 --> adacl=8.2.1 (^8.2)
+
+  '
+- '
+
+  '
+- '
+
+  LOG:
+
+  '
+- '=== Ada CI Verification Linux ===
+
+  '
+- '=== AdaCL Embedded Test Logging Off ===
+
+  '
+- 'Directory: test_log_off
+
+  '
+- 'Updating dependencies...
+
+  '
+- 'Dependencies automatically updated as follows:
+
+  '
+- '
+
+  '
+- '   +  adacl          8.2.1  (new,indirect)
+
+  '
+- '   +. adacl_embedded 8.2.1  (new,path=..)
+
+  '
+- '   +  aunit          26.0.0 (new)
+
+  '
+- 'Building with validation...
+
+  '
+- 'Note: Building adacl_embedded_test_log_off=8.2.1/adacl_embedded_test_log_off.gpr...
+
+  '
+- 'Setup
+
+  '
+- '   [mkdir]        object directory for project AdaCL_Embedded
+
+  '
+- '   [mkdir]        library directory for project AdaCL_Embedded
+
+  '
+- '   [mkdir]        object directory for project AUnit
+
+  '
+- '   [mkdir]        library directory for project AUnit
+
+  '
+- '   [mkdir]        object directory for project Adacl_Embedded_Test_Log_Off
+
+  '
+- '   [mkdir]        exec directory for project Adacl_Embedded_Test_Log_Off
+
+  '
+- 'Compile
+
+  '
+- '   [Ada]          adacl_embedded_test-main.adb
+
+  '
+- '   [Ada]          aunit-io.ads
+
+  '
+- '   [Ada]          aunit-memory.adb
+
+  '
+- '   [Ada]          aunit-memory-utils.adb
+
+  '
+- '   [Ada]          aunit-time_measure.adb
+
+  '
+- '   [Ada]          aunit-reporter-text.adb
+
+  '
+- '   [Ada]          aunit-reporter-xml.adb
+
+  '
+- '   [Ada]          aunit-reporter-gnattest.adb
+
+  '
+- '   [Ada]          aunit-reporter-junit.adb
+
+  '
+- '   [Ada]          ada_containers-aunit_lists.adb
+
+  '
+- '   [Ada]          ada_containers.ads
+
+  '
+- '   [Ada]          aunit-tests.ads
+
+  '
+- '   [Ada]          aunit-run.adb
+
+  '
+- '   [Ada]          aunit-test_filters.adb
+
+  '
+- '   [Ada]          aunit.adb
+
+  '
+- '   [Ada]          aunit-options.ads
+
+  '
+- '   [Ada]          aunit-test_results.adb
+
+  '
+- '   [Ada]          aunit-test_fixtures.adb
+
+  '
+- '   [Ada]          aunit-test_cases.adb
+
+  '
+- '   [Ada]          aunit-test_suites.adb
+
+  '
+- '   [Ada]          aunit-test_caller.adb
+
+  '
+- '   [Ada]          aunit-assertions.adb
+
+  '
+- '   [Ada]          aunit-reporter.adb
+
+  '
+- '   [Ada]          aunit-simple_test_cases.adb
+
+  '
+- '   [Ada]          adacl_config.ads
+
+  '
+- '   [Ada]          adacl_embedded_config.ads
+
+  '
+- '   [Ada]          adacl-trace_buffer.adb
+
+  '
+- '   [Ada]          adacl-text_io.adb
+
+  '
+- '   [Ada]          adacl_embedded_test.ads
+
+  '
+- '   [Ada]          adacl_embedded_test-suite.adb
+
+  '
+- '   [Ada]          adacl-trace_buffer-test.adb
+
+  '
+- 'Build Libraries
+
+  '
+- '   [gprlib]       AdaCL.lexch
+
+  '
+- '   [gprlib]       AdaCL_Embedded.lexch
+
+  '
+- '   [archive]      libAdaCL.a
+
+  '
+- '   [index]        libAdaCL.a
+
+  '
+- '   [gprlib]       aunit.lexch
+
+  '
+- '   [archive]      libAdaCL_Embedded.a
+
+  '
+- '   [index]        libAdaCL_Embedded.a
+
+  '
+- '   [archive]      libaunit.a
+
+  '
+- '   [index]        libaunit.a
+
+  '
+- 'Bind
+
+  '
+- '   [gprbind]      adacl_embedded_test-main.bexch
+
+  '
+- '   [Ada]          adacl_embedded_test-main.ali
+
+  '
+- 'Link
+
+  '
+- '   [link]         adacl_embedded_test-main.adb
+
+  '
+- 'Success: Build finished successfully in 1.93 seconds.
+
+  '
+- 'Running tests...
+
+  '
+- '
+
+  '
+- 'OK AdaCL.Trace_Buffer : Test_Put_Line_01 : put one line.
+
+  '
+- 'OK AdaCL.Trace_Buffer : Test_Get_Line_01 : get one line.
+
+  '
+- 'OK AdaCL.Trace_Buffer : Test_Buffer_Line_01 : buffer one line.
+
+  '
+- 'OK AdaCL.Trace_Buffer : Test_Buffer_Line_02 : buffer seven lines.
+
+  '
+- 'OK AdaCL.Trace_Buffer : Test_Buffer_Line_03 : async buffer seven lines.
+
+  '
+- '
+
+  '
+- 'Total Tests Run:   5
+
+  '
+- 'Successful Tests:  5
+
+  '
+- 'Failed Assertions: 0
+
+  '
+- 'Unexpected Errors: 0
+
+  '
+- 'SUCCESS: AdaCL Embedded Test Logging Off
+
+  '
+- '--------------------------------------------------
+
+  '
+- '=== AdaCL Embedded Test No Tasking ===
+
+  '
+- 'Directory: test_no_tasking
+
+  '
+- 'Updating dependencies...
+
+  '
+- 'Dependencies automatically updated as follows:
+
+  '
+- '
+
+  '
+- '   +  adacl          8.2.1  (new,indirect)
+
+  '
+- '   +. adacl_embedded 8.2.1  (new,path=..)
+
+  '
+- '   +  aunit          26.0.0 (new)
+
+  '
+- 'Building with validation...
+
+  '
+- 'Note: Building adacl_embedded_test_no_tasking=8.2.1/adacl_embedded_test_no_tasking.gpr...
+
+  '
+- 'Setup
+
+  '
+- '   [mkdir]        object directory for project Adacl_Embedded_Test_No_Tasking
+
+  '
+- '   [mkdir]        exec directory for project Adacl_Embedded_Test_No_Tasking
+
+  '
+- 'Compile
+
+  '
+- '   [Ada]          adacl_embedded_test-main.adb
+
+  '
+- '   [Ada]          adacl_config.ads
+
+  '
+- '   [Ada]          adacl_embedded_config.ads
+
+  '
+- '   [Ada]          adacl-trace_buffer.adb
+
+  '
+- '   [Ada]          adacl_embedded_test.ads
+
+  '
+- '   [Ada]          adacl_embedded_test-suite.adb
+
+  '
+- '   [Ada]          adacl-trace_buffer-test.adb
+
+  '
+- 'Build Libraries
+
+  '
+- '   [gprlib]       AdaCL.lexch
+
+  '
+- '   [gprlib]       AdaCL_Embedded.lexch
+
+  '
+- '   [archive]      libAdaCL.a
+
+  '
+- '   [index]        libAdaCL.a
+
+  '
+- '   [archive]      libAdaCL_Embedded.a
+
+  '
+- '   [index]        libAdaCL_Embedded.a
+
+  '
+- 'Bind
+
+  '
+- '   [gprbind]      adacl_embedded_test-main.bexch
+
+  '
+- '   [Ada]          adacl_embedded_test-main.ali
+
+  '
+- 'Link
+
+  '
+- '   [link]         adacl_embedded_test-main.adb
+
+  '
+- 'Success: Build finished successfully in 0.88 seconds.
+
+  '
+- 'Running tests...
+
+  '
+- '
+
+  '
+- 'OK AdaCL.Trace_Buffer : Test_Put_Line_01 : put one line.
+
+  '
+- 'OK AdaCL.Trace_Buffer : Test_Get_Line_01 : get one line.
+
+  '
+- 'OK AdaCL.Trace_Buffer : Test_Buffer_Line_01 : buffer one line.
+
+  '
+- 'OK AdaCL.Trace_Buffer : Test_Buffer_Line_02 : buffer seven lines.
+
+  '
+- 'OK AdaCL.Trace_Buffer : Test_Buffer_Line_03 : async buffer seven lines.
+
+  '
+- '
+
+  '
+- 'Total Tests Run:   5
+
+  '
+- 'Successful Tests:  5
+
+  '
+- 'Failed Assertions: 0
+
+  '
+- 'Unexpected Errors: 0
+
+  '
+- 'SUCCESS: AdaCL Embedded Test No Tasking
+
+  '
+- '--------------------------------------------------
+
+  '
+- 'All steps completed.
+
+  '
+- '[alr test] Test completed SUCCESSFULLY
+
+  '
+platform: linux
+status: success
+version: 8.2.1

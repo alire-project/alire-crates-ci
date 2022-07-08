@@ -1,0 +1,1082 @@
+Test ran at 2026-11-15 01:02:09.679222+00:00
+
+SOLUTION:
+pico_ada_c07_buzzer=1.9.0: Chapter 7: Controlling active and passive Buzzer
+Origin: source archive pico_ada_c07_buzzer-1.9.0.tgz at https://sourceforge.net/projects/pi-ada-tutorial/files/Alire/pico_ada_c07_buzzer-1.9.0.tgz with hashes sha256:7fdd30ffbd8ec3766b1af06c1066d70355df5fbe1f4e736d5e23847cac67692b, sha512:3ac2b76d14dacf726516496d5937440e1440fe61e38581db09158b2c5103b895e8eb06147ecd0dff98602d12976f7e6e064e401d8cb42207dd552d914421be67
+Properties:
+   Author: Martin Krischik <krischik@users.sourceforge.net>
+   Build Switches: 
+   Config set: embedded_rp2040 {Board := rpi_pico, Max_CPUs := 2}
+   Config set: pico_xbsp {Variant := tasking}
+   Config set: rp2040_hal {Interrupts := bb_runtimes, Use_Startup := false}
+   Configuration: no modifiers
+   Description: Chapter 7: Controlling active and passive Buzzer
+   Executable: buzz_and_blink-main
+   Executable: pwm_alert
+   Executable: sketch_07_1_doorbell
+   Executable: sketch_07_2_alert
+   License: GPL-3.0-or-later
+   Long_Description: Learn how to drive active and passive buzzers with the Raspberry Pi Pico using Ada.
+From simple doorbell switches to PWM-generated sweeping alert tones - including hardware tips with flyback diodes and
+oscilloscope measurements.
+
+In this chapter we connect both active and passive buzzers to the Pico. We start with a simple button-controlled
+doorbell, improve the passive buzzer with bit-banging, and finally create a clean sweeping alert tone using the Pico's
+PWM hardware. We also look at inductive-load protection and why a diode is essential.
+
+Contained in Chapter 07 are:
+
+1. sketch_07_1_doorbell.adb	- Chapter 7.1 Doorbell with active buzzer
+2. sketch_07_2_alert.adb	- Chapter 7.2 Alert with passive buzzer
+3. pwm_alert.adb		- Use PWM to drive an passive buzzer
+4. buzz_and_blink-main.adb	- Use tasks to drive both a buzzer and an LED
+
+Read the full tutorial at [Chapter 7: Controlling a Buzzer](https://pi-ada-tutorial.sourceforge.io/pico_ada_c07_buzzer), [GNATdoc
+documentation](https://pi-ada-tutorial.sourceforge.io/gnatdoc/pico_doc/), [SourceForge
+repository](https://sourceforge.net/p/pi-ada-tutorial/code/ci/master/tree/pico_ada_c07_buzzer/)
+
+   Maintainer: Martin Krischik <krischik@users.sourceforge.net>
+   Maintainers_Logins: krischik
+   Name: pico_ada_c07_buzzer
+   Tag: raspberry
+   Tag: pi
+   Tag: pico
+   Tag: rp2040
+   Tag: tasking
+   Tag: light-tasking
+   Tag: ada2022
+   Tag: embedded
+   Version: 1.9.0
+   Website: https://pi-ada-tutorial.sourceforge.io/pico_ada_c07_buzzer
+Dependencies (direct):
+   embedded_rp2040^15.4
+   pico_bsp^2.2
+   pico_xbsp^1.9
+   rp2040_hal^2.7.1
+Dependencies (solution):
+   adacl_embedded=7.2.1
+   atomic=1.1.0
+   bbqueue=1.0.0
+   cortex_m=1.1.0
+   embedded_rp2040=15.4.0
+   gnat=15.3.1 (gnat_arm_elf)
+   gnat_arm_elf=15.3.1
+   hal=1.0.0
+   pico_bsp=2.2.0
+   pico_xbsp=1.9.0
+   rp2040_hal=2.7.1
+   usb_embedded=1.0.1
+Dependencies (graph):
+   bbqueue=1.0.0             --> atomic=1.1.0 (^1.0.0)
+   bbqueue=1.0.0             --> gnat=15.3.1 (gnat_arm_elf) (>=10)
+   cortex_m=1.1.0            --> gnat_arm_elf=15.3.1 (>=12)
+   cortex_m=1.1.0            --> hal=1.0.0 (~0.3 | ^1.0.0)
+   embedded_rp2040=15.4.0    --> gnat_arm_elf=15.3.1 (^15)
+   pico_ada_c07_buzzer=1.9.0 --> embedded_rp2040=15.4.0 (^15.4)
+   pico_ada_c07_buzzer=1.9.0 --> pico_bsp=2.2.0 (^2.2)
+   pico_ada_c07_buzzer=1.9.0 --> pico_xbsp=1.9.0 (^1.9)
+   pico_ada_c07_buzzer=1.9.0 --> rp2040_hal=2.7.1 (^2.7.1)
+   pico_bsp=2.2.0            --> rp2040_hal=2.7.1 (^2)
+   pico_xbsp=1.9.0           --> adacl_embedded=7.2.1 (^7.2)
+   pico_xbsp=1.9.0           --> pico_bsp=2.2.0 (^2.2)
+   pico_xbsp=1.9.0           --> usb_embedded=1.0.1 (^1.0.0)
+   rp2040_hal=2.7.1          --> atomic=1.1.0 (^1)
+   rp2040_hal=2.7.1          --> cortex_m=1.1.0 (^1)
+   rp2040_hal=2.7.1          --> gnat_arm_elf=15.3.1 (>=14 & /=15.1.2)
+   rp2040_hal=2.7.1          --> hal=1.0.0 (^1)
+   rp2040_hal=2.7.1          --> usb_embedded=1.0.1 (^1)
+   usb_embedded=1.0.1        --> bbqueue=1.0.0 (^1.0.0)
+   usb_embedded=1.0.1        --> hal=1.0.0 (^1.0.0)
+
+
+LOG:
+[alr test] Testing pico_ada_c07_buzzer=1.9.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get pico_ada_c07_buzzer=1.9.0
+Note: Deploying pico_ada_c07_buzzer=1.9.0...
+
+#=#=#                                                                          
+##O#-#                                                                         
+######################################################################## 100.0%
+######################################################################## 100.0%
+######################################################################## 100.0%
+######################################################################## 100.0%
+##O=#  #                                                                       
+######################################################################## 100.0%
+Note: Deploying adacl_embedded=7.2.1...
+
+######################################################################## 100.0%
+######################################################################## 100.0%
+######################################################################## 100.0%
+######################################################################## 100.0%
+#=#=#                                                                          
+##=#=#                                                                         
+##=O#- #                                                                       
+#-#O=#  #                                                                      
+ #=#=-#   #                                                                    
+ -#O#-  #   #                                                                  
+ -=#=#   #   #                                                                 
+ -=O#- #   #   #                                                               
+ -=O=#  #    #   #                                                             
+ -=O=-#   #   #    #                                                           
+ -=O=-  #   #   #     #                                                        
+ -=O=-   #   #    #     #                                                      
+ -=O=-     #   #     #    #                                                    
+ -=O=-       #   #     #    #                                                  
+ -=O=-        #    #     #     #                                               
+######################################################################## 100.0%
+Note: Deploying atomic=1.1.0...
+Note: Deploying gnat_arm_elf=15.3.1...
+
+#=#=#                                                                          
+                                                                           0.0%
+                                                                           0.9%
+#                                                                          1.5%
+#                                                                          2.1%
+##                                                                         3.2%
+##                                                                         4.1%
+####                                                                       5.6%
+####                                                                       6.2%
+#####                                                                      8.2%
+######                                                                     9.3%
+#######                                                                    9.9%
+#######                                                                   10.0%
+#######                                                                   10.3%
+########                                                                  11.4%
+########                                                                  12.0%
+########                                                                  12.4%
+#########                                                                 13.4%
+##########                                                                14.4%
+##########                                                                15.2%
+###########                                                               16.5%
+############                                                              17.2%
+############                                                              18.0%
+#############                                                             18.5%
+##############                                                            20.4%
+##############                                                            20.6%
+###############                                                           21.6%
+################                                                          22.5%
+################                                                          22.6%
+#################                                                         23.7%
+#################                                                         24.7%
+#################                                                         24.8%
+##################                                                        25.5%
+##################                                                        26.2%
+###################                                                       26.4%
+###################                                                       26.8%
+####################                                                      28.4%
+####################                                                      28.8%
+#####################                                                     30.4%
+######################                                                    30.9%
+######################                                                    31.7%
+#######################                                                   32.8%
+#######################                                                   33.3%
+########################                                                  34.3%
+#########################                                                 35.0%
+#########################                                                 35.5%
+##########################                                                37.1%
+###########################                                               38.2%
+############################                                              39.0%
+############################                                              39.1%
+############################                                              40.3%
+#############################                                             41.2%
+##############################                                            41.9%
+##############################                                            42.6%
+###############################                                           43.2%
+###############################                                           43.9%
+################################                                          44.6%
+################################                                          45.3%
+#################################                                         46.4%
+##################################                                        47.3%
+##################################                                        47.7%
+##################################                                        47.9%
+##################################                                        48.2%
+###################################                                       49.2%
+###################################                                       49.5%
+####################################                                      50.2%
+#####################################                                     51.5%
+######################################                                    53.2%
+######################################                                    53.5%
+#######################################                                   54.4%
+#######################################                                   55.4%
+#######################################                                   55.5%
+#########################################                                 57.6%
+##########################################                                58.6%
+##########################################                                59.7%
+###########################################                               60.4%
+############################################                              61.2%
+############################################                              61.6%
+############################################                              61.7%
+#############################################                             62.8%
+#############################################                             63.8%
+##############################################                            64.8%
+###############################################                           65.8%
+###############################################                           65.8%
+################################################                          67.3%
+################################################                          67.9%
+#################################################                         68.7%
+##################################################                        69.5%
+##################################################                        70.0%
+###################################################                       71.3%
+###################################################                       72.0%
+####################################################                      72.9%
+#####################################################                     74.0%
+#####################################################                     74.1%
+######################################################                    75.2%
+######################################################                    76.1%
+#######################################################                   76.5%
+########################################################                  78.2%
+#########################################################                 79.8%
+#########################################################                 80.2%
+##########################################################                80.8%
+##########################################################                81.4%
+###########################################################               82.0%
+###########################################################               82.3%
+############################################################              83.5%
+############################################################              84.4%
+#############################################################             85.6%
+##############################################################            86.3%
+##############################################################            86.7%
+###############################################################           87.6%
+###############################################################           88.5%
+################################################################          90.2%
+#################################################################         90.6%
+#################################################################         91.3%
+##################################################################        92.5%
+##################################################################        92.6%
+##################################################################        92.6%
+##################################################################        92.7%
+##################################################################        93.0%
+###################################################################       93.6%
+####################################################################      94.7%
+####################################################################      95.5%
+#####################################################################     95.9%
+#####################################################################     96.7%
+######################################################################    97.4%
+######################################################################    98.5%
+#######################################################################   98.8%
+#######################################################################   99.7%
+######################################################################## 100.0%
+Note: gnat_arm_elf=15.3.1 installed successfully.
+Note: Deploying hal=1.0.0...
+Note: Deploying bbqueue=1.0.0...
+Note: Deploying cortex_m=1.1.0...
+Note: Deploying embedded_rp2040=15.4.0...
+
+#=#=#                                                                          
+                                                                           0.8%
+######################################################################## 100.0%
+Note: Deploying usb_embedded=1.0.1...
+Note: Deploying rp2040_hal=2.7.1...
+Note: Deploying pico_bsp=2.2.0...
+Note: Deploying pico_xbsp=1.9.0...
+
+######################################################################## 100.0%
+######################################################################## 100.0%
+######################################################################## 100.0%
+######################################################################## 100.0%
+#=#=#                                                                          
+##=#=#                                                                         
+##=O#- #                                                                       
+#-#O=#  #                                                                      
+###########################################                               60.4%
+######################################################################## 100.0%
+
+pico_ada_c07_buzzer=1.9.0 successfully retrieved.
+Dependencies were solved as follows:
+
+   +  adacl_embedded  7.2.1  (new,indirect)
+   +  atomic          1.1.0  (new,indirect)
+   +  bbqueue         1.0.0  (new,indirect)
+   +  cortex_m        1.1.0  (new,indirect)
+   +  embedded_rp2040 15.4.0 (new)
+   +b gnat            15.3.1 (new,gnat_arm_elf,indirect,binary)
+   +b gnat_arm_elf    15.3.1 (new,indirect,binary)
+   +  hal             1.0.0  (new,indirect)
+   +  pico_bsp        2.2.0  (new)
+   +  pico_xbsp       1.9.0  (new)
+   +  rp2040_hal      2.7.1  (new)
+   +  usb_embedded    1.0.1  (new,indirect)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building pico_ada_c07_buzzer=1.9.0/pico_ada_c07_buzzer.gpr...
+Setup
+   [mkdir]        object directory for project Atomic
+   [mkdir]        library directory for project Atomic
+   [mkdir]        object directory for project HAL
+   [mkdir]        library directory for project HAL
+   [mkdir]        object directory for project Cortex_M
+   [mkdir]        library directory for project Cortex_M
+   [mkdir]        object directory for project Bbqueue
+   [mkdir]        library directory for project Bbqueue
+   [mkdir]        object directory for project Usb_Embedded
+   [mkdir]        library directory for project Usb_Embedded
+   [mkdir]        object directory for project Rp2040_Hal
+   [mkdir]        library directory for project Rp2040_Hal
+   [mkdir]        object directory for project Pico_Bsp
+   [mkdir]        library directory for project Pico_Bsp
+   [mkdir]        object directory for project AdaCL_Embedded
+   [mkdir]        library directory for project AdaCL_Embedded
+   [mkdir]        object directory for project Pico_XBSP
+   [mkdir]        library directory for project Pico_XBSP
+   [mkdir]        object directory for project Runtime_Build
+   [mkdir]        library directory for project Runtime_Build
+   [mkdir]        object directory for project Pico_Ada_C07_Buzzer
+   [mkdir]        exec directory for project Pico_Ada_C07_Buzzer
+Compile
+   [Ada]          buzz_and_blink-main.adb
+   [Ada]          pwm_alert.adb
+   [Ada]          sketch_07_1_doorbell.adb
+   [Ada]          sketch_07_2_alert.adb
+   [C]            raise-gcc.c
+   [C]            newlib-bb.c
+   [C]            adaint-xi.c
+   [Asm_Cpp]      start-rom.S
+   [Asm_Cpp]      boot2-w25qxx.S
+   [Ada]          a-sblcin.adb
+   [Ada]          s-widcha.adb
+   [Ada]          g-debuti.adb
+   [Ada]          s-textio.adb
+   [Ada]          a-cihama.adb
+   [Ada]          s-boarop.ads
+   [Ada]          s-vaen16.ads
+   [Ada]          a-rbtgbk.adb
+   [Ada]          s-widboo.adb
+   [Ada]          a-chtgke.adb
+   [Ada]          s-widuns.ads
+   [Ada]          g-shshco.adb
+   [Ada]          a-szfzha.ads
+   [Ada]          a-sflcin.ads
+   [Ada]          s-rident.ads
+   [Ada]          a-stuten.adb
+   [Ada]          s-imaged.adb
+   [Ada]          a-conhel.adb
+   [Ada]          s-arit32.adb
+   [Ada]          a-wichha.adb
+   [Ada]          a-coprnu.adb
+   [Ada]          s-widwch.adb
+   [Ada]          s-wwdwch.adb
+   [Ada]          a-sttebu.adb
+   [Ada]          s-stache.adb
+   [Ada]          s-pack15.adb
+   [Ada]          s-pack25.adb
+   [Ada]          s-pack58.adb
+   [Ada]          a-storio.adb
+   [Ada]          s-fode32.ads
+   [Ada]          s-fore_d.adb
+   [Ada]          s-valuns.ads
+   [Ada]          s-imagen.adb
+   [Ada]          s-pack51.adb
+   [Ada]          a-cbhama.adb
+   [Ada]          s-pack26.adb
+   [Ada]          s-string.adb
+   [Ada]          a-cborma.adb
+   [Ada]          s-imde32.ads
+   [Ada]          a-numeri.ads
+   [Ada]          s-pack61.adb
+   [Ada]          a-cohata.ads
+   [Ada]          a-cbdlli.adb
+   [Ada]          a-textio.adb
+   [Ada]          s-rannum.adb
+   [Ada]          s-pack42.adb
+   [Ada]          s-casi16.adb
+   [Ada]          s-imgwiu.ads
+   [Ada]          s-dourea.adb
+   [Ada]          s-imgcha.adb
+   [Ada]          s-valuei.adb
+   [Ada]          s-widenu.adb
+   [Ada]          a-einuoc.adb
+   [Ada]          a-nbnbin.adb
+   [Ada]          s-wchcon.adb
+   [Ada]          a-nucoty.ads
+   [Ada]          s-stalib.adb
+   [Ada]          s-imgwch.adb
+   [Ada]          s-pack62.adb
+   [Ada]          a-coboho.adb
+   [Ada]          s-pack06.adb
+   [Ada]          a-nurear.ads
+   [Ada]          s-vs_llu.ads
+   [Ada]          s-caun16.adb
+   [Ada]          s-imad64.ads
+   [Ada]          a-cidlli.adb
+   [Ada]          a-nubinu.ads
+   [Ada]          a-szuzha.adb
+   [Ada]          s-vaispe.adb
+   [Ada]          g-arrspl.adb
+   [Ada]          a-sbecin.adb
+   [Ada]          s-exnllf.ads
+   [Ada]          s-fatllf.ads
+   [Ada]          g-sestin.ads
+   [Ada]          s-vs_int.ads
+   [Ada]          s-powlfl.ads
+   [Ada]          a-strfix.adb
+   [Ada]          g-casuti.adb
+   [Ada]          s-pack31.adb
+   [Ada]          a-stream.adb
+   [Ada]          s-valboo.adb
+   [Ada]          s-pooloc.adb
+   [Ada]          s-atopri.adb
+   [Ada]          s-widthu.adb
+   [Ada]          a-uncdea.ads
+   [Ada]          s-pack50.adb
+   [Ada]          a-crbtgk.adb
+   [Ada]          a-cobove.adb
+   [Ada]          a-coorse.adb
+   [Ada]          s-pack29.adb
+   [Ada]          s-imen16.ads
+   [Ada]          s-pack39.adb
+   [Ada]          a-stzbou.adb
+   [Ada]          s-pack45.adb
+   [Ada]          a-stwiun.adb
+   [Ada]          s-imager.adb
+   [Ada]          a-strmap.adb
+   [Ada]          s-genbig.adb
+   [Ada]          a-zchuni.adb
+   [Ada]          s-addope.adb
+   [Ada]          s-wchwts.adb
+   [Ada]          s-pack37.adb
+   [Ada]          a-suecin.adb
+   [Ada]          s-lisisq.adb
+   [Ada]          s-spark.ads
+   [Ada]          s-pack38.adb
+   [Ada]          g-md5.adb
+   [Ada]          s-pack07.adb
+   [Ada]          s-imgllf.ads
+   [Ada]          a-calend.adb
+   [Ada]          a-ioexce.ads
+   [Ada]          s-widint.ads
+   [Ada]          unchdeal.ads
+   [Ada]          a-chacon.adb
+   [Ada]          a-ciormu.adb
+   [Ada]          a-coormu.adb
+   [Ada]          s-bbarat.adb
+   [Ada]          a-stwise.adb
+   [Ada]          s-finroo.adb
+   [Ada]          s-retsta.ads
+   [Ada]          a-stzfix.adb
+   [Ada]          s-pack11.adb
+   [Ada]          g-cpp.ads
+   [Ada]          machcode.ads
+   [Ada]          s-valuer.adb
+   [Ada]          g-shsh32.adb
+   [Ada]          s-fatgen.adb
+   [Ada]          a-szmzco.ads
+   [Ada]          a-ciorma.adb
+   [Ada]          a-exctra.adb
+   [Ada]          g-moreex.adb
+   [Ada]          s-casuti.adb
+   [Ada]          a-ciorse.adb
+   [Ada]          a-decima.adb
+   [Ada]          s-imfi64.ads
+   [Ada]          s-valspe.adb
+   [Ada]          s-regexp.adb
+   [Ada]          a-string.ads
+   [Ada]          s-imgllw.ads
+   [Ada]          a-nselfu.ads
+   [Ada]          g-bubsor.adb
+   [Ada]          a-swmwco.ads
+   [Ada]          s-imagei.adb
+   [Ada]          s-valuti.adb
+   [Ada]          s-imgint.ads
+   [Ada]          s-expont.adb
+   [Ada]          a-cgarso.adb
+   [Ada]          s-ransee.adb
+   [Ada]          s-pack19.adb
+   [Ada]          a-stfiha.ads
+   [Ada]          a-numaux.ads
+   [Ada]          a-ncelfu.ads
+   [Ada]          s-valueu.adb
+   [Ada]          g-sechas.adb
+   [Ada]          g-shsh64.adb
+   [Ada]          s-powflt.ads
+   [Ada]          s-traceb.adb
+   [Ada]          a-stzhas.adb
+   [Ada]          a-undesu.adb
+   [Ada]          s-pack46.adb
+   [Ada]          s-bb.ads
+   [Ada]          s-imenu8.ads
+   [Ada]          s-pack09.adb
+   [Ada]          s-restri.adb
+   [Ada]          s-imguns.ads
+   [Ada]          g-cppstd.adb
+   [Ada]          g-sha384.ads
+   [Ada]          s-pack28.adb
+   [Ada]          g-dyntab.adb
+   [Ada]          i-fortra.adb
+   [Ada]          s-pack30.adb
+   [Ada]          s-casi64.adb
+   [Ada]          s-libpre.ads
+   [Ada]          a-chlat9.ads
+   [Ada]          s-finpri.adb
+   [Ada]          s-widlli.ads
+   [Ada]          s-poosiz.adb
+   [Ada]          s-assert.adb
+   [Ada]          s-imagew.adb
+   [Ada]          s-fofi64.ads
+   [Ada]          s-pack22.adb
+   [Ada]          s-traent.adb
+   [Ada]          s-pack63.adb
+   [Ada]          s-exctab.adb
+   [Ada]          s-imagea.adb
+   [Ada]          s-pack20.adb
+   [Ada]          s-vade32.ads
+   [Ada]          a-cohama.adb
+   [Ada]          a-stwiha.adb
+   [Ada]          s-valuen.adb
+   [Ada]          s-aridou.adb
+   [Ada]          a-ngrear.adb
+   [Ada]          g-souinf.ads
+   [Ada]          s-mantis.adb
+   [Ada]          s-vs_lli.ads
+   [Ada]          s-wchcnv.adb
+   [Ada]          a-tags.adb
+   [Ada]          s-bbpara.ads
+   [Ada]          s-wchstw.adb
+   [Ada]          a-stunau.adb
+   [Ada]          g-sha1.adb
+   [Ada]          s-imgllu.ads
+   [Ada]          s-spsufi.adb
+   [Ada]          s-scaval.adb
+   [Ada]          a-stwima.adb
+   [Ada]          a-wichun.adb
+   [Ada]          a-cgaaso.adb
+   [Ada]          interfac.ads
+   [Ada]          s-unstyp.ads
+   [Ada]          a-cihase.adb
+   [Ada]          s-pack60.adb
+   [Ada]          a-stzunb.adb
+   [Ada]          a-chzla9.ads
+   [Ada]          a-nscoty.ads
+   [Ada]          a-cbhase.adb
+   [Ada]          s-flocon.adb
+   [Ada]          a-nlelfu.ads
+   [Ada]          s-pack21.adb
+   [Ada]          s-exponr.adb
+   [Ada]          a-cwila9.ads
+   [Ada]          s-atocou.adb
+   [Ada]          g-hesorg.adb
+   [Ada]          a-finali.adb
+   [Ada]          a-cwila1.ads
+   [Ada]          s-vauspe.adb
+   [Ada]          a-swunau.adb
+   [Ada]          s-pack59.adb
+   [Ada]          i-cpoint.adb
+   [Ada]          s-wwdcha.adb
+   [Ada]          s-pack49.adb
+   [Ada]          g-hesora.adb
+   [Ada]          a-strunb.adb
+   [Ada]          s-vallfl.ads
+   [Ada]          a-strhas.adb
+   [Ada]          g-string.ads
+   [Ada]          s-stratt.adb
+   [Ada]          s-expmod.adb
+   [Ada]          i-cexten.ads
+   [Ada]          a-except.adb
+   [Ada]          g-comver.adb
+   [Ada]          a-suenst.adb
+   [Ada]          a-assert.adb
+   [Ada]          s-bbrpat.adb
+   [Ada]          s-pack35.adb
+   [Ada]          a-szbzha.adb
+   [Ada]          s-expint.ads
+   [Ada]          s-vafi32.ads
+   [Ada]          s-utf_32.adb
+   [Ada]          a-chzla1.ads
+   [Ada]          s-soflin.adb
+   [Ada]          a-sfhcin.ads
+   [Ada]          s-imguti.adb
+   [Ada]          s-pack52.adb
+   [Ada]          s-except.adb
+   [Ada]          ioexcept.ads
+   [Ada]          s-pack36.adb
+   [Ada]          a-chtgbo.adb
+   [Ada]          s-fofi32.ads
+   [Ada]          g-crc32.adb
+   [Ada]          s-expllu.ads
+   [Ada]          s-vector.ads
+   [Ada]          s-valllu.ads
+   [Ada]          s-vafi64.ads
+   [Ada]          s-pack18.adb
+   [Ada]          a-elchha.adb
+   [Ada]          g-busora.adb
+   [Ada]          a-stboha.adb
+   [Ada]          g-strspl.ads
+   [Ada]          s-pooglo.adb
+   [Ada]          s-imen32.ads
+   [Ada]          s-imde64.ads
+   [Ada]          g-table.adb
+   [Ada]          i-pacdec.adb
+   [Ada]          a-chtgop.adb
+   [Ada]          a-chahan.adb
+   [Ada]          s-pack33.adb
+   [Ada]          s-valuef.adb
+   [Ada]          a-nbnbig.adb
+   [Ada]          s-exnflt.ads
+   [Ada]          a-cogeso.adb
+   [Ada]          a-ngelfu.adb
+   [Ada]          a-shcain.adb
+   [Ada]          s-pack05.adb
+   [Ada]          a-ngcoar.adb
+   [Ada]          a-suewst.adb
+   [Ada]          s-bytswa.ads
+   [Ada]          a-cborse.adb
+   [Ada]          a-cdlili.adb
+   [Ada]          s-stposu.adb
+   [Ada]          g-wistsp.ads
+   [Ada]          s-secsta.adb
+   [Ada]          g-cstyin.adb
+   [Ada]          a-strbou.adb
+   [Ada]          s-gcmain.adb
+   [Ada]          s-explli.ads
+   [Ada]          s-pack57.adb
+   [Ada]          text_io.ads
+   [Ada]          g-sha512.ads
+   [Ada]          s-carun8.adb
+   [Ada]          s-vercon.adb
+   [Ada]          a-swfwha.ads
+   [Ada]          s-libdou.adb
+   [Ada]          g-heasor.adb
+   [Ada]          a-widcha.ads
+   [Ada]          a-nllefu.ads
+   [Ada]          s-valcha.adb
+   [Ada]          s-atacco.adb
+   [Ada]          s-pack14.adb
+   [Ada]          s-vs_uns.ads
+   [Ada]          s-imglli.ads
+   [Ada]          s-valwch.adb
+   [Ada]          s-pack23.adb
+   [Ada]          a-suezst.adb
+   [Ada]          a-nbnbre.adb
+   [Ada]          a-nscefu.ads
+   [Ada]          s-pack27.adb
+   [Ada]          s-pack44.adb
+   [Ada]          a-suenco.adb
+   [Ada]          gnat.ads
+   [Ada]          a-cohase.adb
+   [Ada]          s-semiho.adb
+   [Ada]          g-busorg.adb
+   [Ada]          s-exnint.ads
+   [Ada]          a-nllcar.ads
+   [Ada]          s-valrea.adb
+   [Ada]          a-coinve.adb
+   [Ada]          s-fode64.ads
+   [Ada]          s-imad32.ads
+   [Ada]          a-cbmutr.adb
+   [Ada]          s-htable.adb
+   [Ada]          s-libm.adb
+   [Ada]          s-carsi8.adb
+   [Ada]          a-sulcin.adb
+   [Ada]          s-bbmcpa.ads
+   [Ada]          a-crbltr.ads
+   [Ada]          s-valued.adb
+   [Ada]          a-nllcef.ads
+   [Ada]          s-mastop.adb
+   [Ada]          a-stmaco.ads
+   [Ada]          a-btgbso.adb
+   [Ada]          a-secain.adb
+   [Ada]          s-trasym.adb
+   [Ada]          system.ads
+   [Ada]          s-valint.ads
+   [Ada]          s-fatflt.ads
+   [Ada]          s-macres.adb
+   [Ada]          a-stwibo.adb
+   [Ada]          s-wchjis.adb
+   [Ada]          s-arit64.adb
+   [Ada]          a-nlrear.ads
+   [Ada]          a-coinho.adb
+   [Ada]          a-stbuut.adb
+   [Ada]          s-imgboo.adb
+   [Ada]          g-sha256.ads
+   [Ada]          a-suhcin.adb
+   [Ada]          a-charac.ads
+   [Ada]          s-widllu.ads
+   [Ada]          s-oslock.ads
+   [Ada]          s-stoele.adb
+   [Ada]          a-rbtgso.adb
+   [Ada]          s-maccod.ads
+   [Ada]          a-chlat1.ads
+   [Ada]          g-htable.adb
+   [Ada]          a-stbuun.adb
+   [Ada]          a-strsup.adb
+   [Ada]          a-unccon.ads
+   [Ada]          a-nlcoty.ads
+   [Ada]          s-crc32.adb
+   [Ada]          s-spcuop.adb
+   [Ada]          s-bootro.adb
+   [Ada]          s-pack53.adb
+   [Ada]          a-iteint.ads
+   [Ada]          g-sehash.adb
+   [Ada]          s-libsin.adb
+   [Ada]          a-contai.ads
+   [Ada]          a-nllcty.ads
+   [Ada]          a-cgcaso.adb
+   [Ada]          a-swuwha.adb
+   [Ada]          s-pack54.adb
+   [Ada]          s-vaen32.ads
+   [Ada]          s-imagef.adb
+   [Ada]          s-parame.adb
+   [Ada]          g-regexp.ads
+   [Ada]          s-wwdenu.adb
+   [Ada]          ada.ads
+   [Ada]          s-widthi.adb
+   [Ada]          s-pack10.adb
+   [Ada]          s-vallli.ads
+   [Ada]          s-expuns.ads
+   [Ada]          s-shabig.ads
+   [Ada]          a-comutr.adb
+   [Ada]          a-crbtgo.adb
+   [Ada]          s-powllf.ads
+   [Ada]          a-swbwha.adb
+   [Ada]          s-bbbopa.ads
+   [Ada]          setup_clocks.adb
+   [Ada]          a-convec.adb
+   [Ada]          a-nuflra.adb
+   [Ada]          s-imageu.adb
+   [Ada]          g-cppexc.adb
+   [Ada]          g-except.ads
+   [Ada]          a-stzsup.adb
+   [Ada]          s-fatlfl.ads
+   [Ada]          s-pack03.adb
+   [Ada]          a-stzmap.adb
+   [Ada]          s-exponn.adb
+   [Ada]          s-geveop.adb
+   [Ada]          g-tasloc.ads
+   [Ada]          s-excmac.adb
+   [Ada]          s-tasloc.adb
+   [Ada]          s-chepoo.ads
+   [Ada]          s-bitops.adb
+   [Ada]          a-stbubo.adb
+   [Ada]          a-costso.adb
+   [Ada]          a-cimutr.adb
+   [Ada]          s-imglfl.ads
+   [Ada]          s-pack47.adb
+   [Ada]          s-pack34.adb
+   [Ada]          a-nuelfu.ads
+   [Ada]          a-nucoar.ads
+   [Ada]          s-caun32.adb
+   [Ada]          s-imgflt.ads
+   [Ada]          s-strhas.adb
+   [Ada]          s-addima.adb
+   [Ada]          g-bytswa.adb
+   [Ada]          s-memory.adb
+   [Ada]          i-cstrin.adb
+   [Ada]          s-gearop.adb
+   [Ada]          s-pack41.adb
+   [Ada]          a-sfecin.ads
+   [Ada]          a-stwisu.adb
+   [Ada]          s-valflt.ads
+   [Ada]          a-nllrar.ads
+   [Ada]          s-veboop.adb
+   [Ada]          s-exnlfl.ads
+   [Ada]          i-cobol.adb
+   [Ada]          s-vaenu8.ads
+   [Ada]          s-pack43.adb
+   [Ada]          s-imfi32.ads
+   [Ada]          s-pack12.adb
+   [Ada]          a-zchhan.adb
+   [Ada]          a-stzsea.adb
+   [Ada]          s-stopoo.adb
+   [Ada]          a-szunau.adb
+   [Ada]          s-valllf.ads
+   [Ada]          s-casi32.adb
+   [Ada]          a-rbtgbo.adb
+   [Ada]          a-strsea.adb
+   [Ada]          s-statxd.adb
+   [Ada]          g-sha224.ads
+   [Ada]          s-forrea.adb
+   [Ada]          a-nudira.adb
+   [Ada]          s-io.adb
+   [Ada]          a-nlcefu.ads
+   [Ada]          s-fore_f.adb
+   [Ada]          s-init.adb
+   [Ada]          s-pack55.adb
+   [Ada]          a-stwifi.adb
+   [Ada]          s-lidosq.adb
+   [Ada]          i-c.adb
+   [Ada]          s-putima.adb
+   [Ada]          a-sbhcin.adb
+   [Ada]          a-stunha.adb
+   [Ada]          a-zchara.ads
+   [Ada]          g-sehamd.adb
+   [Ada]          a-coorma.adb
+   [Ada]          a-calcon.adb
+   [Ada]          a-chtgbk.adb
+   [Ada]          s-excdeb.adb
+   [Ada]          s-exponu.adb
+   [Ada]          unchconv.ads
+   [Ada]          a-slcain.adb
+   [Ada]          a-ngcefu.adb
+   [Ada]          a-csquin.ads
+   [Ada]          s-vade64.ads
+   [Ada]          s-caun64.adb
+   [Ada]          s-pack17.adb
+   [Ada]          a-nlcoar.ads
+   [Ada]          a-crdlli.adb
+   [Ada]          g-io.adb
+   [Ada]          a-ngcoty.adb
+   [Ada]          s-pack13.adb
+   [Ada]          s-exnlli.ads
+   [Ada]          embedded_rp2040_config.ads
+   [Ada]          rp2040_runtime_config.ads
+   [Ada]          i-rp2040.ads
+   [Ada]          i-rp2040-clocks.ads
+   [Ada]          i-rp2040-pll_sys.ads
+   [Ada]          i-rp2040-psm.ads
+   [Ada]          i-rp2040-resets.ads
+   [Ada]          i-rp2040-rosc.ads
+   [Ada]          i-rp2040-sio.ads
+   [Ada]          i-rp2040-timer.ads
+   [Ada]          i-rp2040-watchdog.ads
+   [Ada]          i-rp2040-xosc.ads
+   [Ada]          s-musplo.adb
+   [Ada]          s-bcpcst.adb
+   [Ada]          s-bbprot.adb
+   [Ada]          s-bbthqu.adb
+   [Ada]          a-taster.adb
+   [Ada]          s-tpoben.adb
+   [Ada]          s-interr.adb
+   [Ada]          s-bbtime.adb
+   [Ada]          g-boubuf.adb
+   [Ada]          s-bbexti.adb
+   [Ada]          s-bbthre.adb
+   [Ada]          g-boumai.ads
+   [Ada]          s-mufalo.adb
+   [Ada]          s-reldel.adb
+   [Ada]          s-bbinte.adb
+   [Ada]          a-extiin.adb
+   [Ada]          s-tasdeb.adb
+   [Ada]          s-putaim.adb
+   [Ada]          s-tpobmu.adb
+   [Ada]          a-interr.adb
+   [Ada]          s-multip.adb
+   [Ada]          g-semaph.adb
+   [Ada]          s-bbcppr.adb
+   [Ada]          a-taside.adb
+   [Ada]          s-tasres.ads
+   [Ada]          a-rttiev.adb
+   [Ada]          s-tasinf.adb
+   [Ada]          s-btstch.adb
+   [Ada]          a-synbar.adb
+   [Ada]          s-bbbosu.adb
+   [Ada]          s-taprop.adb
+   [Ada]          s-taspri.ads
+   [Ada]          s-tpobop.adb
+   [Ada]          s-bbtiev.adb
+   [Ada]          s-tarest.adb
+   [Ada]          s-tasque.adb
+   [Ada]          s-osinte.ads
+   [Ada]          s-bbcpsp.ads
+   [Ada]          a-sytaco.adb
+   [Ada]          a-retide.adb
+   [Ada]          s-taskin.adb
+   [Ada]          s-bcprmu.adb
+   [Ada]          a-exetim.adb
+   [Ada]          a-reatim.adb
+   [Ada]          s-tposen.adb
+   [Ada]          s-taprob.adb
+   [Ada]          a-intnam-2.ads
+   [Ada]          adacl_embedded_config.ads
+   [Ada]          adacl-trace_buffer.adb
+   [Ada]          adacl-text_io.adb
+   [Ada]          adacl.ads
+   [Ada]          pico_xbsp_config.ads
+   [Ada]          pico-debug_io.adb
+   [Ada]          pico-usb_io.adb
+   [Ada]          pico-uart_io.adb
+   [Ada]          pico-analog-output.adb
+   [Ada]          pico-analog-input.ads
+   [Ada]          pico-analog.ads
+   [Ada]          pico-analog-rgb_led.adb
+   [Ada]          pico-tone.adb
+   [Ada]          pico-utils.adb
+   [Ada]          bbqueue_config.ads
+   [Ada]          bbqueue.adb
+   [Ada]          bbqueue-buffers.adb
+   [Ada]          bbqueue-buffers-framed.adb
+   [Ada]          usb_embedded_config.ads
+   [Ada]          usb-hal-device.ads
+   [Ada]          usb-lang.ads
+   [Ada]          usb-device-hid-joystick.adb
+   [Ada]          usb-device-serial.adb
+   [Ada]          usb.adb
+   [Ada]          usb-device.adb
+   [Ada]          usb-hal.ads
+   [Ada]          usb-device-hid-keyboard.adb
+   [Ada]          usb-utils.adb
+   [Ada]          usb-device-control.adb
+   [Ada]          usb-logging.ads
+   [Ada]          usb-device-hid.adb
+   [Ada]          usb-device-midi.adb
+   [Ada]          usb-device-hid-mouse.adb
+   [Ada]          usb-device-hid-gamepad.adb
+   [Ada]          usb-logging-device__null.adb
+   [Ada]          hal-spi.ads
+   [Ada]          hal-audio.ads
+   [Ada]          hal-framebuffer.ads
+   [Ada]          hal-gpio.ads
+   [Ada]          hal-block_drivers.ads
+   [Ada]          hal-bitmap.ads
+   [Ada]          hal-time.ads
+   [Ada]          hal-filesystem.ads
+   [Ada]          hal-touch_panel.ads
+   [Ada]          hal-real_time_clock.ads
+   [Ada]          hal-uart.ads
+   [Ada]          hal-dsi.ads
+   [Ada]          hal-sdmmc.adb
+   [Ada]          hal-flash.ads
+   [Ada]          hal.ads
+   [Ada]          hal-i2c.ads
+   [Ada]          cortex_m-nvic.adb
+   [Ada]          cortex_m-cache.adb
+   [Ada]          cortex_m_svd-scb.ads
+   [Ada]          cortex_m_svd-nvic.ads
+   [Ada]          cortex_m_svd-debug.ads
+   [Ada]          cortex_m_svd-systick.ads
+   [Ada]          cortex_m_svd-dwt.ads
+   [Ada]          cortex_m_svd.ads
+   [Ada]          cortex_m_config.ads
+   [Ada]          semihosting.adb
+   [Ada]          cortex_m-dwt.adb
+   [Ada]          cortex_m-hints.adb
+   [Ada]          semihosting-filesystem.adb
+   [Ada]          cortex_m-debug.adb
+   [Ada]          cortex_m-systick.adb
+   [Ada]          cortex_m-reset.adb
+   [Ada]          memory_barriers.adb
+   [Ada]          cortex_m.ads
+   [Ada]          atomic-critical_section.adb
+   [Ada]          atomic.adb
+   [Ada]          atomic-unsigned.adb
+   [Ada]          atomic-basic_operations.adb
+   [Ada]          atomic-signed.adb
+   [Ada]          atomic_config.ads
+   [Ada]          atomic-unsigned_8.ads
+   [Ada]          atomic-unsigned_16.ads
+   [Ada]          atomic-signed_16.ads
+   [Ada]          atomic-signed_8.ads
+   [Ada]          atomic-unsigned_32.ads
+   [Ada]          atomic-signed_32.ads
+   [Ada]          rp2040_hal_config.ads
+   [Ada]          rp-timer-interrupts.adb
+   [Ada]          rp-device.ads
+   [Ada]          rp2040_svd-pll.ads
+   [Ada]          rp2040_svd-watchdog.ads
+   [Ada]          rp2040_svd-sysinfo.ads
+   [Ada]          rp2040_svd-pads_bank0.ads
+   [Ada]          rp2040_svd-tbman.ads
+   [Ada]          rp2040_svd-ppb.ads
+   [Ada]          rp2040_svd-dma.ads
+   [Ada]          rp2040_svd-usbctrl_dpram.ads
+   [Ada]          rp2040_svd-rosc.ads
+   [Ada]          rp2040_svd-resets.ads
+   [Ada]          rp2040_svd-i2c.ads
+   [Ada]          rp2040_svd-spi.ads
+   [Ada]          rp2040_svd-busctrl.ads
+   [Ada]          rp2040_svd-rtc.ads
+   [Ada]          rp2040_svd-pads_qspi.ads
+   [Ada]          rp2040_svd-pwm.ads
+   [Ada]          rp2040_svd-interrupts.ads
+   [Ada]          rp2040_svd.ads
+   [Ada]          rp2040_svd-adc.ads
+   [Ada]          rp2040_svd-uart.ads
+   [Ada]          rp2040_svd-xosc.ads
+   [Ada]          rp2040_svd-pio.ads
+   [Ada]          rp2040_svd-sio.ads
+   [Ada]          rp2040_svd-xip_ctrl.ads
+   [Ada]          rp2040_svd-timer.ads
+   [Ada]          rp2040_svd-io_qspi.ads
+   [Ada]          rp2040_svd-clocks.ads
+   [Ada]          rp2040_svd-io_bank0.ads
+   [Ada]          rp2040_svd-psm.ads
+   [Ada]          rp2040_svd-syscfg.ads
+   [Ada]          rp2040_svd-xip_ssi.ads
+   [Ada]          rp2040_svd-vreg_and_chip_reset.ads
+   [Ada]          rp2040_svd-usbctrl_regs.ads
+   [Ada]          rp-flash-cache.adb
+   [Ada]          rp-rtc.adb
+   [Ada]          rp-pio-audio_i2s.adb
+   [Ada]          rp-timer.adb
+   [Ada]          rp-pio-touch_sense_discharge_pio.ads
+   [Ada]          rp-interpolator.ads
+   [Ada]          rp-pio-ws2812_pio.ads
+   [Ada]          rp-clock.adb
+   [Ada]          rp-multicore-spinlocks.adb
+   [Ada]          rp-multicore.adb
+   [Ada]          rp-usb_device.adb
+   [Ada]          rp-pio-ws2812.adb
+   [Ada]          rp-rom.adb
+   [Ada]          rp-reset.adb
+   [Ada]          rp-i2c_master.adb
+   [Ada]          rp-multicore-fifo.adb
+   [Ada]          rp-pio-touch_sense.adb
+   [Ada]          rp-gpio.adb
+   [Ada]          rp-pio-touch_sense_charge_pio.ads
+   [Ada]          rp-uart.adb
+   [Ada]          rp-watchdog.adb
+   [Ada]          rp-flash.adb
+   [Ada]          rp-rom-floating_point.adb
+   [Ada]          rp-pio-encoding.ads
+   [Ada]          rp-spi.adb
+   [Ada]          rp-dma.adb
+   [Ada]          rp-i2c.adb
+   [Ada]          rp-pio-audio_i2s_pio.ads
+   [Ada]          rp-pio.adb
+   [Ada]          rp-adc.adb
+   [Ada]          rp-pwm.adb
+   [Ada]          rp.ads
+   [Ada]          pico_bsp_config.ads
+   [Ada]          pico-audio_i2s.ads
+   [Ada]          pico-pimoroni-rgb_keypad.adb
+   [Ada]          pico-pimoroni-audio_pack.ads
+   [Ada]          pico.ads
+   [Ada]          pico-pimoroni.ads
+   [Ada]          buzz_and_blink.adb
+Build Libraries
+   [gprlib]       Atomic.lexch
+   [gprlib]       hal.lexch
+   [gprlib]       Cortex_M.lexch
+   [archive]      libAtomic.a
+   [archive]      libhal.a
+   [index]        libhal.a
+   [index]        libAtomic.a
+   [gprlib]       Bbqueue.lexch
+   [archive]      libCortex_M.a
+   [index]        libCortex_M.a
+   [gprlib]       Usb_Embedded.lexch
+   [archive]      libBbqueue.a
+   [index]        libBbqueue.a
+   [gprlib]       Rp2040_Hal.lexch
+   [archive]      libUsb_Embedded.a
+   [index]        libUsb_Embedded.a
+   [gprlib]       Pico_Bsp.lexch
+   [archive]      libRp2040_Hal.a
+   [index]        libRp2040_Hal.a
+   [gprlib]       AdaCL_Embedded.lexch
+   [gprlib]       Pico_XBSP.lexch
+   [archive]      libPico_Bsp.a
+   [archive]      libAdaCL_Embedded.a
+   [index]        libPico_Bsp.a
+   [index]        libAdaCL_Embedded.a
+   [archive]      libPico_XBSP.a
+   [gprlib]       gnat.lexch
+   [index]        libPico_XBSP.a
+   [gprlib]       gnarl.lexch
+   [archive]      libgnat.a
+   [index]        libgnat.a
+   [archive]      libgnarl.a
+   [index]        libgnarl.a
+Bind
+   [gprbind]      buzz_and_blink-main.bexch
+   [Ada]          buzz_and_blink-main.ali
+   [gprbind]      pwm_alert.bexch
+   [Ada]          pwm_alert.ali
+   [gprbind]      sketch_07_1_doorbell.bexch
+   [Ada]          sketch_07_1_doorbell.ali
+   [gprbind]      sketch_07_2_alert.bexch
+   [Ada]          sketch_07_2_alert.ali
+Link
+   [link]         buzz_and_blink-main.adb
+   [link]         pwm_alert.adb
+   [link]         sketch_07_1_doorbell.adb
+   [link]         sketch_07_2_alert.adb
+Success: Build finished successfully in 29.70 seconds.
+Found declared GPR file: pico_ada_c07_buzzer.gpr
+[alr test] Test completed SUCCESSFULLY

@@ -1,0 +1,1110 @@
+badge: false
+crate: adacl_aunit
+creation_timestamp: 1783859516.5697331
+distro: darwin-25.4.0
+duration: 19.976170249999996
+gnat: 14.2.1
+last_attempt: 2026-07-12 12:48:36.118616+00:00
+log:
+- 'Test ran at 2026-07-12 12:48:36.118558+00:00
+
+
+  '
+- 'SOLUTION:
+
+  '
+- 'adacl_aunit=7.1.2: Ada 2022 AUnit with readable asserts & paramerised test
+
+  '
+- 'Origin: source archive adacl_aunit-7.1.2.tgz at https://sourceforge.net/projects/adacl/files/Alire/adacl_aunit-7.1.2.tgz
+  with hashes sha256:26ea0bad6222af3bed97456328d75ae292e37de7939e2f948b58ce1f613f10e7,
+  sha512:0fa1159df8cbadba08eab8c474ac8d252d2f6513530d2030d321abda32fe71ee3fbd6fe28ed369e7c4e1070862e1133c8380191259e8af12d0274f7b04ca643f
+
+  '
+- 'Properties:
+
+  '
+- '   Author: Martin Krischik <krischik@users.sourceforge.net>
+
+  '
+- "   Build Switches: \n"
+- '   Description: Ada 2022 AUnit with readable asserts & paramerised test
+
+  '
+- '   License: GPL-3.0-or-later
+
+  '
+- '   Long_Description: A versatile Ada 2022 testing library, enhancing AUnit with
+  readable assertions and parameterised tests.
+
+  '
+- '
+
+  '
+- '## Features
+
+  '
+- '
+
+  '
+- '### AUnit-Compatible Assertions
+
+  '
+- '
+
+  '
+- '  - Generic support for access, array, discrete, floating-point, fixed-point, decimal,
+  vector types, and files.
+
+  '
+- '  - **Readable Error Messages**: Assertions provide detailed feedback.
+
+  '
+- '
+
+  '
+- 'Example for unbounded strings:
+
+  '
+- '
+
+  '
+- '```ada
+
+  '
+- '    procedure Equal
+
+  '
+- '       (Actual   : Ada.Strings.Unbounded.Unbounded_String;
+
+  '
+- '        Expected : String;
+
+  '
+- '        Name     : String;
+
+  '
+- '        Source   : String  := GNAT.Source_Info.File;
+
+  '
+- '        Line     : Natural := GNAT.Source_Info.Line)
+
+  '
+- '    is
+
+  '
+- '       use Ada.Strings.Unbounded;
+
+  '
+- '    begin
+
+  '
+- '       if not (Actual = Expected) then
+
+  '
+- '          Report_Assertion
+
+  '
+- "             (Message => \"In string \xAB\" & Name & \"\xBB the \" & Actual'Image\
+  \ & \" is not equal to \" & Expected'Image,\n"
+- '              Source  => Source,
+
+  '
+- '              Line    => Line);
+
+  '
+- '       end if;
+
+  '
+- '    end Equal;
+
+  '
+- '```
+
+  '
+- '
+
+  '
+- 'This yields clear, context-rich error messages, surpassing standard AUnit
+
+  '
+- 'output.
+
+  '
+- '
+
+  '
+- '## Parameterised Tests
+
+  '
+- '
+
+  '
+- 'Run the same test with varied inputs and expected values, boosting coverage
+
+  '
+- 'efficiently.
+
+  '
+- '
+
+  '
+- 'Example from hp41cx_tools:
+
+  '
+- '
+
+  '
+- '```ada
+
+  '
+- 'overriding procedure Register_Tests (T : in out Test_Case) is
+
+  '
+- '   pragma Debug (AdaCL.Trace.Entering (In_Parameter => T.Name.all''Image));
+
+  '
+- 'begin
+
+  '
+- '   T.Parameter.Register_Routine (T, Test_To_HP_Duration_01''Access, "WAKE_UP",      "2024-12-01
+  08:00:00",   [3, 9, 4, 2, 0, 2, 8, 8, 0, 0, 0], 3942028800.0);
+
+  '
+- '   T.Parameter.Register_Routine (T, Test_To_HP_Duration_01''Access, "^LBLTEST",     "2025-07-22
+  12:00:00",   [3, 9, 6, 2, 1, 7, 4, 4, 0, 0, 0], 3962174400.0);
+
+  '
+- '   T.Parameter.Register_Routine (T, Test_To_HP_Duration_01''Access, "TONE",         "2025-11-12
+  09:12:34",   [3, 9, 7, 1, 9, 2, 7, 5, 5, 4, 0], 3971927554.0);
+
+  '
+- '   T.Parameter.Register_Routine (T, Test_To_HP_Duration_01''Access, "FRACTION",     "2025-11-12
+  09:12:34.5", [3, 9, 7, 1, 9, 2, 7, 5, 5, 4, 5], 3971927554.5);
+
+  '
+- '   T.Parameter.Register_Routine (T, Test_To_HP_Duration_01''Access, "REPEAT24",     "24:00:00",              [0,
+  0, 0, 0, 0, 8, 6, 4, 0, 0, 0], 0000086400.0);
+
+  '
+- '   T.Parameter.Register_Routine (T, Test_To_HP_Duration_01''Access, "REPEAT''First",
+  "0000:00:01.0",          [0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0], 0000000010.0);
+
+  '
+- '   T.Parameter.Register_Routine (T, Test_To_HP_Duration_01''Access, "REPEAT''Last",  "9999:59:59.9",          [0,
+  0, 3, 5, 9, 9, 9, 9, 9, 9, 9], 0035999999.9);
+
+  '
+- '   pragma Debug (AdaCL.Trace.Exiting);
+
+  '
+- '   return;
+
+  '
+- 'end Register_Tests;
+
+  '
+- '```
+
+  '
+- '
+
+  '
+- 'Registering tests multiple times with different data enhances test coverage
+
+  '
+- 'without redundant code.
+
+  '
+- '
+
+  '
+- 'Source: [SourceForge](https://sourceforge.net/p/adacl/git/ci/master/tree/adacl_aunit/test/src/)
+
+  '
+- 'Documentation: [GNATdoc](https://adacl.sourceforge.net/gnatdoc/adacl_aunit_test/index.html)
+
+  '
+- '
+
+  '
+- '   Maintainer: Martin Krischik <krischik@users.sourceforge.net>
+
+  '
+- '   Maintainers_Logins: krischik
+
+  '
+- '   Name: adacl_aunit
+
+  '
+- '   Tag: library
+
+  '
+- '   Tag: aunit
+
+  '
+- '   Tag: assert
+
+  '
+- '   Tag: ada2022
+
+  '
+- '   Version: 7.1.2
+
+  '
+- '   Website: https://sourceforge.net/projects/adacl_aunit/
+
+  '
+- 'Dependencies (direct):
+
+  '
+- '   adacl^7.1
+
+  '
+- '   aunit^26.0.0
+
+  '
+- 'Dependencies (solution):
+
+  '
+- '   adacl=7.1.2
+
+  '
+- '   aunit=26.0.0
+
+  '
+- 'Dependencies (graph):
+
+  '
+- '   adacl_aunit=7.1.2 --> adacl=7.1.2 (^7.1)
+
+  '
+- '   adacl_aunit=7.1.2 --> aunit=26.0.0 (^26.0.0)
+
+  '
+- '
+
+  '
+- '
+
+  LOG:
+
+  '
+- '[alr test] Testing adacl_aunit=7.1.2
+
+  '
+- '[alr test] Spawning retrieval for remote crate: alr -d -n get adacl_aunit=7.1.2
+
+  '
+- 'Note: Deploying adacl_aunit=7.1.2...
+
+  '
+- '
+
+  '
+- '######################################################################## 100.0%
+
+  '
+- '######################################################################## 100.0%
+
+  '
+- '######################################################################## 100.0%
+
+  '
+- '######################################################################## 100.0%
+
+  '
+- '######################################################################## 100.0%
+
+  '
+- 'Note: Deploying adacl=7.1.2...
+
+  '
+- '
+
+  '
+- '######################################################################## 100.0%
+
+  '
+- '######################################################################## 100.0%
+
+  '
+- '######################################################################## 100.0%
+
+  '
+- "######################################################################## 100.0%#=#=#\
+  \                                                                          \n"
+- '
+
+  '
+- '######################################################################## 100.0%
+
+  '
+- 'Note: Deploying aunit=26.0.0...
+
+  '
+- "#=#=#                                                                         \
+  \ \n"
+- "##O#-#                                                                        \
+  \ \n"
+- "##O=#  #                                                                      \
+  \ \n"
+- "#=#=-#  #                                                                     \
+  \ \n"
+- " #=#=-#   #                                                                   \
+  \ \n"
+- "  #=#=- #   #                                                                 \
+  \ \n"
+- '
+
+  '
+- 'adacl_aunit=7.1.2 successfully retrieved.
+
+  '
+- 'Dependencies were solved as follows:
+
+  '
+- '
+
+  '
+- '   + adacl 7.1.2  (new)
+
+  '
+- '   + aunit 26.0.0 (new)
+
+  '
+- '[alr test] Spawning default test for remote crate: alr -d -n build --release --
+  -cargs:Ada -gnatwn
+
+  '
+- 'Note: Building adacl_aunit=7.1.2/adacl_aunit.gpr...
+
+  '
+- 'Setup
+
+  '
+- '   [mkdir]        object directory for project AdaCL
+
+  '
+- '   [mkdir]        library directory for project AdaCL
+
+  '
+- '   [mkdir]        object directory for project AUnit
+
+  '
+- '   [mkdir]        library directory for project AUnit
+
+  '
+- '   [mkdir]        object directory for project AdaCL_AUnit
+
+  '
+- '   [mkdir]        library directory for project AdaCL_AUnit
+
+  '
+- 'Compile
+
+  '
+- '   [Ada]          aunit-io.ads
+
+  '
+- '   [Ada]          aunit-memory.adb
+
+  '
+- '   [Ada]          aunit-memory-utils.adb
+
+  '
+- 'clang: warning: overriding deployment version from ''16.0'' to ''26.0'' [-Woverriding-deployment-version]
+
+  '
+- '   [Ada]          aunit-time_measure.adb
+
+  '
+- 'clang: warning: overriding deployment version from ''16.0'' to ''26.0'' [-Woverriding-deployment-version]
+
+  '
+- '   [Ada]          aunit-reporter-junit.adb
+
+  '
+- 'clang: warning: overriding deployment version from ''16.0'' to ''26.0'' [-Woverriding-deployment-version]
+
+  '
+- '   [Ada]          aunit-reporter-xml.adb
+
+  '
+- 'clang: warning: overriding deployment version from ''16.0'' to ''26.0'' [-Woverriding-deployment-version]
+
+  '
+- '   [Ada]          aunit-reporter-gnattest.adb
+
+  '
+- 'clang: warning: overriding deployment version from ''16.0'' to ''26.0'' [-Woverriding-deployment-version]
+
+  '
+- '   [Ada]          aunit-reporter-text.adb
+
+  '
+- 'clang: warning: overriding deployment version from ''16.0'' to ''26.0'' [-Woverriding-deployment-version]
+
+  '
+- '   [Ada]          ada_containers.ads
+
+  '
+- 'clang: warning: overriding deployment version from ''16.0'' to ''26.0'' [-Woverriding-deployment-version]
+
+  '
+- '   [Ada]          ada_containers-aunit_lists.adb
+
+  '
+- 'clang: warning: overriding deployment version from ''16.0'' to ''26.0'' [-Woverriding-deployment-version]
+
+  '
+- '   [Ada]          aunit-assertions.adb
+
+  '
+- 'clang: warning: overriding deployment version from ''16.0'' to ''26.0'' [-Woverriding-deployment-version]
+
+  '
+- '   [Ada]          aunit-test_fixtures.adb
+
+  '
+- 'clang: warning: overriding deployment version from ''16.0'' to ''26.0'' [-Woverriding-deployment-version]
+
+  '
+- '   [Ada]          aunit-tests.ads
+
+  '
+- 'clang: warning: overriding deployment version from ''16.0'' to ''26.0'' [-Woverriding-deployment-version]
+
+  '
+- '   [Ada]          aunit-test_filters.adb
+
+  '
+- 'clang: warning: overriding deployment version from ''16.0'' to ''26.0'' [-Woverriding-deployment-version]
+
+  '
+- '   [Ada]          aunit-test_results.adb
+
+  '
+- 'clang: warning: overriding deployment version from ''16.0'' to ''26.0'' [-Woverriding-deployment-version]
+
+  '
+- '   [Ada]          aunit-reporter.adb
+
+  '
+- 'clang: warning: overriding deployment version from ''16.0'' to ''26.0'' [-Woverriding-deployment-version]
+
+  '
+- '   [Ada]          aunit.adb
+
+  '
+- 'clang: warning: overriding deployment version from ''16.0'' to ''26.0'' [-Woverriding-deployment-version]
+
+  '
+- '   [Ada]          aunit-test_caller.adb
+
+  '
+- 'clang: warning: overriding deployment version from ''16.0'' to ''26.0'' [-Woverriding-deployment-version]
+
+  '
+- '   [Ada]          aunit-options.ads
+
+  '
+- 'clang: warning: overriding deployment version from ''16.0'' to ''26.0'' [-Woverriding-deployment-version]
+
+  '
+- '   [Ada]          aunit-test_suites.adb
+
+  '
+- 'clang: warning: overriding deployment version from ''16.0'' to ''26.0'' [-Woverriding-deployment-version]
+
+  '
+- '   [Ada]          aunit-run.adb
+
+  '
+- 'clang: warning: overriding deployment version from ''16.0'' to ''26.0'' [-Woverriding-deployment-version]
+
+  '
+- '   [Ada]          aunit-simple_test_cases.adb
+
+  '
+- 'clang: warning: overriding deployment version from ''16.0'' to ''26.0'' [-Woverriding-deployment-version]
+
+  '
+- '   [Ada]          aunit-test_cases.adb
+
+  '
+- 'clang: warning: overriding deployment version from ''16.0'' to ''26.0'' [-Woverriding-deployment-version]
+
+  '
+- '   [Ada]          adacl_config.ads
+
+  '
+- 'clang: warning: overriding deployment version from ''16.0'' to ''26.0'' [-Woverriding-deployment-version]
+
+  '
+- '   [Ada]          adacl-os-to_wide_wide_string.adb
+
+  '
+- 'clang: warning: overriding deployment version from ''16.0'' to ''26.0'' [-Woverriding-deployment-version]
+
+  '
+- '   [Ada]          adacl-os-to_utf_string.adb
+
+  '
+- 'clang: warning: overriding deployment version from ''16.0'' to ''26.0'' [-Woverriding-deployment-version]
+
+  '
+- '   [Ada]          adacl-os-low_level.ads
+
+  '
+- 'clang: warning: overriding deployment version from ''16.0'' to ''26.0'' [-Woverriding-deployment-version]
+
+  '
+- '   [Ada]          adacl-strings-io.adb
+
+  '
+- 'clang: warning: overriding deployment version from ''16.0'' to ''26.0'' [-Woverriding-deployment-version]
+
+  '
+- '   [Ada]          adacl-command_line.ads
+
+  '
+- 'clang: warning: overriding deployment version from ''16.0'' to ''26.0'' [-Woverriding-deployment-version]
+
+  '
+- '   [Ada]          adacl-strings-hex.adb
+
+  '
+- 'clang: warning: overriding deployment version from ''16.0'' to ''26.0'' [-Woverriding-deployment-version]
+
+  '
+- '   [Ada]          adacl-wide_strings-hex.adb
+
+  '
+- 'clang: warning: overriding deployment version from ''16.0'' to ''26.0'' [-Woverriding-deployment-version]
+
+  '
+- '   [Ada]          adacl-strings-vectors.ads
+
+  '
+- 'clang: warning: overriding deployment version from ''16.0'' to ''26.0'' [-Woverriding-deployment-version]
+
+  '
+- '   [Ada]          adacl-os.ads
+
+  '
+- 'clang: warning: overriding deployment version from ''16.0'' to ''26.0'' [-Woverriding-deployment-version]
+
+  '
+- '   [Ada]          adacl-wide_wide_strings-vectors.ads
+
+  '
+- 'clang: warning: overriding deployment version from ''16.0'' to ''26.0'' [-Woverriding-deployment-version]
+
+  '
+- '   [Ada]          adacl-calendar.adb
+
+  '
+- 'clang: warning: overriding deployment version from ''16.0'' to ''26.0'' [-Woverriding-deployment-version]
+
+  '
+- '   [Ada]          adacl-wide_wide_strings-hex.adb
+
+  '
+- 'clang: warning: overriding deployment version from ''16.0'' to ''26.0'' [-Woverriding-deployment-version]
+
+  '
+- '   [Ada]          adacl-queue.adb
+
+  '
+- 'clang: warning: overriding deployment version from ''16.0'' to ''26.0'' [-Woverriding-deployment-version]
+
+  '
+- '   [Ada]          adacl-wide_strings-io.adb
+
+  '
+- 'clang: warning: overriding deployment version from ''16.0'' to ''26.0'' [-Woverriding-deployment-version]
+
+  '
+- '   [Ada]          adacl-pointer-shared_with_delete.adb
+
+  '
+- 'clang: warning: overriding deployment version from ''16.0'' to ''26.0'' [-Woverriding-deployment-version]
+
+  '
+- '   [Ada]          adacl-pointer-holder.adb
+
+  '
+- 'clang: warning: overriding deployment version from ''16.0'' to ''26.0'' [-Woverriding-deployment-version]
+
+  '
+- '   [Ada]          adacl-command_line-getopt.adb
+
+  '
+- 'clang: warning: overriding deployment version from ''16.0'' to ''26.0'' [-Woverriding-deployment-version]
+
+  '
+- '   [Ada]          adacl-wide_wide_strings-bin.adb
+
+  '
+- 'clang: warning: overriding deployment version from ''16.0'' to ''26.0'' [-Woverriding-deployment-version]
+
+  '
+- '   [Ada]          adacl-wide_wide_strings-io.adb
+
+  '
+- 'clang: warning: overriding deployment version from ''16.0'' to ''26.0'' [-Woverriding-deployment-version]
+
+  '
+- '   [Ada]          adacl-pointer.ads
+
+  '
+- 'clang: warning: overriding deployment version from ''16.0'' to ''26.0'' [-Woverriding-deployment-version]
+
+  '
+- '   [Ada]          adacl-pointer-element.adb
+
+  '
+- 'clang: warning: overriding deployment version from ''16.0'' to ''26.0'' [-Woverriding-deployment-version]
+
+  '
+- '   [Ada]          adacl-trace.adb
+
+  '
+- 'clang: warning: overriding deployment version from ''16.0'' to ''26.0'' [-Woverriding-deployment-version]
+
+  '
+- '   [Ada]          adacl-pointer-shared.ads
+
+  '
+- 'clang: warning: overriding deployment version from ''16.0'' to ''26.0'' [-Woverriding-deployment-version]
+
+  '
+- '   [Ada]          adacl-wide_wide_strings.adb
+
+  '
+- 'clang: warning: overriding deployment version from ''16.0'' to ''26.0'' [-Woverriding-deployment-version]
+
+  '
+- '   [Ada]          adacl-base.ads
+
+  '
+- 'clang: warning: overriding deployment version from ''16.0'' to ''26.0'' [-Woverriding-deployment-version]
+
+  '
+- '   [Ada]          adacl-strings-bin.adb
+
+  '
+- 'clang: warning: overriding deployment version from ''16.0'' to ''26.0'' [-Woverriding-deployment-version]
+
+  '
+- '   [Ada]          adacl-wide_strings-bin.adb
+
+  '
+- 'clang: warning: overriding deployment version from ''16.0'' to ''26.0'' [-Woverriding-deployment-version]
+
+  '
+- '   [Ada]          adacl-pointer-unique_with_delete.adb
+
+  '
+- 'clang: warning: overriding deployment version from ''16.0'' to ''26.0'' [-Woverriding-deployment-version]
+
+  '
+- '   [Ada]          adacl-limited_base.ads
+
+  '
+- 'clang: warning: overriding deployment version from ''16.0'' to ''26.0'' [-Woverriding-deployment-version]
+
+  '
+- '   [Ada]          adacl-wide_strings.adb
+
+  '
+- 'clang: warning: overriding deployment version from ''16.0'' to ''26.0'' [-Woverriding-deployment-version]
+
+  '
+- '   [Ada]          adacl-strings.adb
+
+  '
+- 'clang: warning: overriding deployment version from ''16.0'' to ''26.0'' [-Woverriding-deployment-version]
+
+  '
+- '   [Ada]          adacl-pointer-unique.ads
+
+  '
+- 'clang: warning: overriding deployment version from ''16.0'' to ''26.0'' [-Woverriding-deployment-version]
+
+  '
+- '   [Ada]          adacl.ads
+
+  '
+- 'clang: warning: overriding deployment version from ''16.0'' to ''26.0'' [-Woverriding-deployment-version]
+
+  '
+- '   [Ada]          adacl-wide_strings-vectors.ads
+
+  '
+- 'clang: warning: overriding deployment version from ''16.0'' to ''26.0'' [-Woverriding-deployment-version]
+
+  '
+- '   [Ada]          adacl_aunit_config.ads
+
+  '
+- 'clang: warning: overriding deployment version from ''16.0'' to ''26.0'' [-Woverriding-deployment-version]
+
+  '
+- '   [Ada]          adacl-assert-arrays.adb
+
+  '
+- '/Users/runner/work/alire-crates-ci/alire-crates-ci/test/49eb7472-09b3-44a7-ab22-34a57fce3062/adacl_aunit_7.1.2_26ea0bad/src/adacl-assert-arrays.ads:56:07:
+  warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+
+  '
+- '/Users/runner/work/alire-crates-ci/alire-crates-ci/test/49eb7472-09b3-44a7-ab22-34a57fce3062/adacl_aunit_7.1.2_26ea0bad/src/adacl-assert-arrays.ads:74:07:
+  warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+
+  '
+- 'clang: warning: overriding deployment version from ''16.0'' to ''26.0'' [-Woverriding-deployment-version]
+
+  '
+- '   [Ada]          adacl-trace-assert.ads
+
+  '
+- 'clang: warning: overriding deployment version from ''16.0'' to ''26.0'' [-Woverriding-deployment-version]
+
+  '
+- '   [Ada]          adacl-assert-indefinite_vectors.adb
+
+  '
+- '/Users/runner/work/alire-crates-ci/alire-crates-ci/test/49eb7472-09b3-44a7-ab22-34a57fce3062/adacl_aunit_7.1.2_26ea0bad/src/adacl-assert-indefinite_vectors.ads:58:07:
+  warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+
+  '
+- '/Users/runner/work/alire-crates-ci/alire-crates-ci/test/49eb7472-09b3-44a7-ab22-34a57fce3062/adacl_aunit_7.1.2_26ea0bad/src/adacl-assert-indefinite_vectors.ads:76:07:
+  warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+
+  '
+- 'clang: warning: overriding deployment version from ''16.0'' to ''26.0'' [-Woverriding-deployment-version]
+
+  '
+- '   [Ada]          adacl-assert-discrete.adb
+
+  '
+- '/Users/runner/work/alire-crates-ci/alire-crates-ci/test/49eb7472-09b3-44a7-ab22-34a57fce3062/adacl_aunit_7.1.2_26ea0bad/src/adacl-assert-discrete.ads:50:07:
+  warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+
+  '
+- '/Users/runner/work/alire-crates-ci/alire-crates-ci/test/49eb7472-09b3-44a7-ab22-34a57fce3062/adacl_aunit_7.1.2_26ea0bad/src/adacl-assert-discrete.ads:68:07:
+  warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+
+  '
+- '/Users/runner/work/alire-crates-ci/alire-crates-ci/test/49eb7472-09b3-44a7-ab22-34a57fce3062/adacl_aunit_7.1.2_26ea0bad/src/adacl-assert-discrete.ads:86:07:
+  warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+
+  '
+- '/Users/runner/work/alire-crates-ci/alire-crates-ci/test/49eb7472-09b3-44a7-ab22-34a57fce3062/adacl_aunit_7.1.2_26ea0bad/src/adacl-assert-discrete.ads:104:07:
+  warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+
+  '
+- '/Users/runner/work/alire-crates-ci/alire-crates-ci/test/49eb7472-09b3-44a7-ab22-34a57fce3062/adacl_aunit_7.1.2_26ea0bad/src/adacl-assert-discrete.ads:122:07:
+  warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+
+  '
+- '/Users/runner/work/alire-crates-ci/alire-crates-ci/test/49eb7472-09b3-44a7-ab22-34a57fce3062/adacl_aunit_7.1.2_26ea0bad/src/adacl-assert-discrete.ads:140:07:
+  warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+
+  '
+- '/Users/runner/work/alire-crates-ci/alire-crates-ci/test/49eb7472-09b3-44a7-ab22-34a57fce3062/adacl_aunit_7.1.2_26ea0bad/src/adacl-assert-discrete.ads:160:07:
+  warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+
+  '
+- 'clang: warning: overriding deployment version from ''16.0'' to ''26.0'' [-Woverriding-deployment-version]
+
+  '
+- '   [Ada]          adacl-assert-pointer.adb
+
+  '
+- 'clang: warning: overriding deployment version from ''16.0'' to ''26.0'' [-Woverriding-deployment-version]
+
+  '
+- '   [Ada]          adacl-assert-fixed.adb
+
+  '
+- '/Users/runner/work/alire-crates-ci/alire-crates-ci/test/49eb7472-09b3-44a7-ab22-34a57fce3062/adacl_aunit_7.1.2_26ea0bad/src/adacl-assert-pointer.ads:51:07:
+  warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+
+  '
+- '/Users/runner/work/alire-crates-ci/alire-crates-ci/test/49eb7472-09b3-44a7-ab22-34a57fce3062/adacl_aunit_7.1.2_26ea0bad/src/adacl-assert-pointer.ads:69:07:
+  warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+
+  '
+- '/Users/runner/work/alire-crates-ci/alire-crates-ci/test/49eb7472-09b3-44a7-ab22-34a57fce3062/adacl_aunit_7.1.2_26ea0bad/src/adacl-assert-pointer.ads:85:07:
+  warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+
+  '
+- '/Users/runner/work/alire-crates-ci/alire-crates-ci/test/49eb7472-09b3-44a7-ab22-34a57fce3062/adacl_aunit_7.1.2_26ea0bad/src/adacl-assert-pointer.ads:101:07:
+  warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+
+  '
+- 'clang: warning: overriding deployment version from ''16.0'' to ''26.0'' [-Woverriding-deployment-version]
+
+  '
+- '   [Ada]          adacl-assert.adb
+
+  '
+- '/Users/runner/work/alire-crates-ci/alire-crates-ci/test/49eb7472-09b3-44a7-ab22-34a57fce3062/adacl_aunit_7.1.2_26ea0bad/src/adacl-assert-fixed.ads:50:07:
+  warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+
+  '
+- '/Users/runner/work/alire-crates-ci/alire-crates-ci/test/49eb7472-09b3-44a7-ab22-34a57fce3062/adacl_aunit_7.1.2_26ea0bad/src/adacl-assert-fixed.ads:68:07:
+  warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+
+  '
+- '/Users/runner/work/alire-crates-ci/alire-crates-ci/test/49eb7472-09b3-44a7-ab22-34a57fce3062/adacl_aunit_7.1.2_26ea0bad/src/adacl-assert-fixed.ads:86:07:
+  warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+
+  '
+- '/Users/runner/work/alire-crates-ci/alire-crates-ci/test/49eb7472-09b3-44a7-ab22-34a57fce3062/adacl_aunit_7.1.2_26ea0bad/src/adacl-assert-fixed.ads:104:07:
+  warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+
+  '
+- '/Users/runner/work/alire-crates-ci/alire-crates-ci/test/49eb7472-09b3-44a7-ab22-34a57fce3062/adacl_aunit_7.1.2_26ea0bad/src/adacl-assert-fixed.ads:122:07:
+  warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+
+  '
+- '/Users/runner/work/alire-crates-ci/alire-crates-ci/test/49eb7472-09b3-44a7-ab22-34a57fce3062/adacl_aunit_7.1.2_26ea0bad/src/adacl-assert-fixed.ads:140:07:
+  warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+
+  '
+- '/Users/runner/work/alire-crates-ci/alire-crates-ci/test/49eb7472-09b3-44a7-ab22-34a57fce3062/adacl_aunit_7.1.2_26ea0bad/src/adacl-assert-fixed.ads:160:07:
+  warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+
+  '
+- 'clang: warning: overriding deployment version from ''16.0'' to ''26.0'' [-Woverriding-deployment-version]
+
+  '
+- '   [Ada]          adacl-test_cases.ads
+
+  '
+- '/Users/runner/work/alire-crates-ci/alire-crates-ci/test/49eb7472-09b3-44a7-ab22-34a57fce3062/adacl_aunit_7.1.2_26ea0bad/src/adacl-assert.ads:65:07:
+  warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+
+  '
+- '/Users/runner/work/alire-crates-ci/alire-crates-ci/test/49eb7472-09b3-44a7-ab22-34a57fce3062/adacl_aunit_7.1.2_26ea0bad/src/adacl-assert.ads:83:07:
+  warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+
+  '
+- '/Users/runner/work/alire-crates-ci/alire-crates-ci/test/49eb7472-09b3-44a7-ab22-34a57fce3062/adacl_aunit_7.1.2_26ea0bad/src/adacl-assert.ads:101:07:
+  warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+
+  '
+- '/Users/runner/work/alire-crates-ci/alire-crates-ci/test/49eb7472-09b3-44a7-ab22-34a57fce3062/adacl_aunit_7.1.2_26ea0bad/src/adacl-assert.ads:121:07:
+  warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+
+  '
+- '/Users/runner/work/alire-crates-ci/alire-crates-ci/test/49eb7472-09b3-44a7-ab22-34a57fce3062/adacl_aunit_7.1.2_26ea0bad/src/adacl-assert.ads:139:07:
+  warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+
+  '
+- '/Users/runner/work/alire-crates-ci/alire-crates-ci/test/49eb7472-09b3-44a7-ab22-34a57fce3062/adacl_aunit_7.1.2_26ea0bad/src/adacl-assert.ads:157:07:
+  warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+
+  '
+- '/Users/runner/work/alire-crates-ci/alire-crates-ci/test/49eb7472-09b3-44a7-ab22-34a57fce3062/adacl_aunit_7.1.2_26ea0bad/src/adacl-assert.ads:177:07:
+  warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+
+  '
+- '/Users/runner/work/alire-crates-ci/alire-crates-ci/test/49eb7472-09b3-44a7-ab22-34a57fce3062/adacl_aunit_7.1.2_26ea0bad/src/adacl-assert.ads:195:07:
+  warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+
+  '
+- '/Users/runner/work/alire-crates-ci/alire-crates-ci/test/49eb7472-09b3-44a7-ab22-34a57fce3062/adacl_aunit_7.1.2_26ea0bad/src/adacl-assert.ads:213:07:
+  warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+
+  '
+- '/Users/runner/work/alire-crates-ci/alire-crates-ci/test/49eb7472-09b3-44a7-ab22-34a57fce3062/adacl_aunit_7.1.2_26ea0bad/src/adacl-assert.ads:231:07:
+  warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+
+  '
+- '/Users/runner/work/alire-crates-ci/alire-crates-ci/test/49eb7472-09b3-44a7-ab22-34a57fce3062/adacl_aunit_7.1.2_26ea0bad/src/adacl-assert.ads:247:07:
+  warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+
+  '
+- '/Users/runner/work/alire-crates-ci/alire-crates-ci/test/49eb7472-09b3-44a7-ab22-34a57fce3062/adacl_aunit_7.1.2_26ea0bad/src/adacl-assert.ads:267:07:
+  warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+
+  '
+- '/Users/runner/work/alire-crates-ci/alire-crates-ci/test/49eb7472-09b3-44a7-ab22-34a57fce3062/adacl_aunit_7.1.2_26ea0bad/src/adacl-assert.ads:287:07:
+  warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+
+  '
+- '/Users/runner/work/alire-crates-ci/alire-crates-ci/test/49eb7472-09b3-44a7-ab22-34a57fce3062/adacl_aunit_7.1.2_26ea0bad/src/adacl-assert.ads:305:07:
+  warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+
+  '
+- '/Users/runner/work/alire-crates-ci/alire-crates-ci/test/49eb7472-09b3-44a7-ab22-34a57fce3062/adacl_aunit_7.1.2_26ea0bad/src/adacl-assert.ads:323:07:
+  warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+
+  '
+- 'clang: warning: overriding deployment version from ''16.0'' to ''26.0'' [-Woverriding-deployment-version]
+
+  '
+- '   [Ada]          adacl-test_cases-parameters.adb
+
+  '
+- 'clang: warning: overriding deployment version from ''16.0'' to ''26.0'' [-Woverriding-deployment-version]
+
+  '
+- '   [Ada]          adacl-assert-vectors.adb
+
+  '
+- '/Users/runner/work/alire-crates-ci/alire-crates-ci/test/49eb7472-09b3-44a7-ab22-34a57fce3062/adacl_aunit_7.1.2_26ea0bad/src/adacl-assert-vectors.ads:58:07:
+  warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+
+  '
+- '/Users/runner/work/alire-crates-ci/alire-crates-ci/test/49eb7472-09b3-44a7-ab22-34a57fce3062/adacl_aunit_7.1.2_26ea0bad/src/adacl-assert-vectors.ads:76:07:
+  warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+
+  '
+- 'clang: warning: overriding deployment version from ''16.0'' to ''26.0'' [-Woverriding-deployment-version]
+
+  '
+- '   [Ada]          adacl-assert-decimal.adb
+
+  '
+- '/Users/runner/.local/share/alire/builds/adacl_7.1.2_f164e66e/57d4801c62b107b1b86a04c490c100d41cc34b9d6629cea6469f43e2ac40fd18/src/adacl-trace.ads:189:07:
+  warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+
+  '
+- '/Users/runner/.local/share/alire/builds/adacl_7.1.2_f164e66e/57d4801c62b107b1b86a04c490c100d41cc34b9d6629cea6469f43e2ac40fd18/src/adacl-trace.ads:203:07:
+  warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+
+  '
+- '/Users/runner/.local/share/alire/builds/adacl_7.1.2_f164e66e/57d4801c62b107b1b86a04c490c100d41cc34b9d6629cea6469f43e2ac40fd18/src/adacl-trace.ads:217:07:
+  warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+
+  '
+- '/Users/runner/.local/share/alire/builds/adacl_7.1.2_f164e66e/57d4801c62b107b1b86a04c490c100d41cc34b9d6629cea6469f43e2ac40fd18/src/adacl-trace.ads:231:07:
+  warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+
+  '
+- '/Users/runner/.local/share/alire/builds/adacl_7.1.2_f164e66e/57d4801c62b107b1b86a04c490c100d41cc34b9d6629cea6469f43e2ac40fd18/src/adacl-trace.ads:248:15:
+  warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+
+  '
+- '/Users/runner/.local/share/alire/builds/adacl_7.1.2_f164e66e/57d4801c62b107b1b86a04c490c100d41cc34b9d6629cea6469f43e2ac40fd18/src/adacl-trace.ads:266:07:
+  warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+
+  '
+- 'clang: warning: overriding deployment version from ''16.0'' to ''26.0'' [-Woverriding-deployment-version]
+
+  '
+- '   [Ada]          adacl-assert-float.adb
+
+  '
+- '/Users/runner/work/alire-crates-ci/alire-crates-ci/test/49eb7472-09b3-44a7-ab22-34a57fce3062/adacl_aunit_7.1.2_26ea0bad/src/adacl-assert-decimal.ads:50:07:
+  warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+
+  '
+- '/Users/runner/work/alire-crates-ci/alire-crates-ci/test/49eb7472-09b3-44a7-ab22-34a57fce3062/adacl_aunit_7.1.2_26ea0bad/src/adacl-assert-decimal.ads:68:07:
+  warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+
+  '
+- '/Users/runner/work/alire-crates-ci/alire-crates-ci/test/49eb7472-09b3-44a7-ab22-34a57fce3062/adacl_aunit_7.1.2_26ea0bad/src/adacl-assert-decimal.ads:86:07:
+  warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+
+  '
+- '/Users/runner/work/alire-crates-ci/alire-crates-ci/test/49eb7472-09b3-44a7-ab22-34a57fce3062/adacl_aunit_7.1.2_26ea0bad/src/adacl-assert-decimal.ads:104:07:
+  warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+
+  '
+- '/Users/runner/work/alire-crates-ci/alire-crates-ci/test/49eb7472-09b3-44a7-ab22-34a57fce3062/adacl_aunit_7.1.2_26ea0bad/src/adacl-assert-decimal.ads:122:07:
+  warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+
+  '
+- '/Users/runner/work/alire-crates-ci/alire-crates-ci/test/49eb7472-09b3-44a7-ab22-34a57fce3062/adacl_aunit_7.1.2_26ea0bad/src/adacl-assert-decimal.ads:140:07:
+  warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+
+  '
+- '/Users/runner/work/alire-crates-ci/alire-crates-ci/test/49eb7472-09b3-44a7-ab22-34a57fce3062/adacl_aunit_7.1.2_26ea0bad/src/adacl-assert-decimal.ads:160:07:
+  warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+
+  '
+- 'clang: warning: overriding deployment version from ''16.0'' to ''26.0'' [-Woverriding-deployment-version]
+
+  '
+- '/Users/runner/work/alire-crates-ci/alire-crates-ci/test/49eb7472-09b3-44a7-ab22-34a57fce3062/adacl_aunit_7.1.2_26ea0bad/src/adacl-assert-float.ads:51:07:
+  warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+
+  '
+- '/Users/runner/work/alire-crates-ci/alire-crates-ci/test/49eb7472-09b3-44a7-ab22-34a57fce3062/adacl_aunit_7.1.2_26ea0bad/src/adacl-assert-float.ads:69:07:
+  warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+
+  '
+- '/Users/runner/work/alire-crates-ci/alire-crates-ci/test/49eb7472-09b3-44a7-ab22-34a57fce3062/adacl_aunit_7.1.2_26ea0bad/src/adacl-assert-float.ads:87:07:
+  warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+
+  '
+- '/Users/runner/work/alire-crates-ci/alire-crates-ci/test/49eb7472-09b3-44a7-ab22-34a57fce3062/adacl_aunit_7.1.2_26ea0bad/src/adacl-assert-float.ads:105:07:
+  warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+
+  '
+- '/Users/runner/work/alire-crates-ci/alire-crates-ci/test/49eb7472-09b3-44a7-ab22-34a57fce3062/adacl_aunit_7.1.2_26ea0bad/src/adacl-assert-float.ads:123:07:
+  warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+
+  '
+- '/Users/runner/work/alire-crates-ci/alire-crates-ci/test/49eb7472-09b3-44a7-ab22-34a57fce3062/adacl_aunit_7.1.2_26ea0bad/src/adacl-assert-float.ads:141:07:
+  warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+
+  '
+- '/Users/runner/work/alire-crates-ci/alire-crates-ci/test/49eb7472-09b3-44a7-ab22-34a57fce3062/adacl_aunit_7.1.2_26ea0bad/src/adacl-assert-float.ads:161:07:
+  warning: "Exit_Cases" is not a valid aspect identifier [enabled by default]
+
+  '
+- 'clang: warning: overriding deployment version from ''16.0'' to ''26.0'' [-Woverriding-deployment-version]
+
+  '
+- 'clang: warning: overriding deployment version from ''16.0'' to ''26.0'' [-Woverriding-deployment-version]
+
+  '
+- 'Build Libraries
+
+  '
+- '   [gprlib]       AdaCL.lexch
+
+  '
+- '   [gprlib]       aunit.lexch
+
+  '
+- '   [gprlib]       AdaCL_AUnit.lexch
+
+  '
+- '   [archive]      libAdaCL.a
+
+  '
+- '   [archive]      libaunit.a
+
+  '
+- '   [index]        libaunit.a
+
+  '
+- '   [index]        libAdaCL.a
+
+  '
+- '   [archive]      libAdaCL_AUnit.a
+
+  '
+- '   [index]        libAdaCL_AUnit.a
+
+  '
+- 'Success: Build finished successfully in 16.64 seconds.
+
+  '
+- 'Found declared GPR file: adacl_aunit.gpr
+
+  '
+- '[alr test] Test completed SUCCESSFULLY
+
+  '
+platform: macos
+status: success
+version: 7.1.2

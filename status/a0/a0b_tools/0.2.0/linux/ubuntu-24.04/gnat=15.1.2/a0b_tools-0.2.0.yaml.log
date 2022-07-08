@@ -1,0 +1,104 @@
+Test ran at 2026-05-14 01:23:03.880282+00:00
+
+SOLUTION:
+a0b_tools=0.2.0: A0B Tools: Runtime Generator
+Origin: commit 3ea7bd72f3de2f9f2664498c1d7a76b655a91095 from https://github.com/godunko/a0b-tools.git
+Properties:
+   Author: Vadim Godunko
+   Auto_Gpr_With: auto-gpr-with=false
+   Configuration: no modifiers
+   Description: A0B Tools: Runtime Generator
+   Environment: PATH=${PATH}:${CRATE_ROOT}/bin
+   Executable: a0b-runtime
+   License: GPL-3.0-or-later
+   Long_Description: The primary tool in this crate is the `a0b-runtime` generator.
+While GNAT provides several standard runtimes (such as `light`, `light-tasking`, and `embedded`), these can be difficult to customize for specific project requirements.
+
+`a0b-tools` solves this by allowing developers to generate a tailored, project-specific runtime from a single configuration file.
+It also enables the creation of runtimes for hardware platforms and MCUs that do not have prebuilt GNAT runtimes available, providing full control over startup code, linker scripts, and Ada library components.
+
+   Maintainer: Vadim Godunko <vgodunko@gmail.com>
+   Maintainers_Logins: godunko
+   Name: a0b_tools
+   Project_File: gnat/a0b_tools.gpr
+   Tag: a0b
+   Tag: tools
+   Tag: runtime
+   Version: 0.2.0
+   Website: https://github.com/godunko/a0b-tools
+Dependencies (direct):
+   a0b_base*
+   gnat>=15
+   gnatcoll^25
+   vss_extra*
+   vss_text*
+Dependencies (solution):
+   a0b_base=0.5.0
+   gnat=15.1.2 (gnat_native)
+   gnatcoll=25.0.0
+   libgpr=25.0.0
+   vss_extra=26.0.0
+   vss_text=26.0.0
+   xmlada=25.0.0
+Dependencies (graph):
+   a0b_tools=0.2.0  --> a0b_base=0.5.0 (*)
+   a0b_tools=0.2.0  --> gnat=15.1.2 (gnat_native) (>=15)
+   a0b_tools=0.2.0  --> gnatcoll=25.0.0 (^25)
+   a0b_tools=0.2.0  --> vss_extra=26.0.0 (*)
+   a0b_tools=0.2.0  --> vss_text=26.0.0 (*)
+   gnatcoll=25.0.0  --> gnat=15.1.2 (gnat_native) (>=13)
+   gnatcoll=25.0.0  --> libgpr=25.0.0 (~25.0.0)
+   libgpr=25.0.0    --> gnat=15.1.2 (gnat_native) (/=2020)
+   libgpr=25.0.0    --> xmlada=25.0.0 (~25.0.0)
+   vss_extra=26.0.0 --> vss_text=26.0.0 (^26.0.0)
+   xmlada=25.0.0    --> gnat=15.1.2 (gnat_native) (>=11)
+
+
+LOG:
+[alr test] Testing a0b_tools=0.2.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get a0b_tools=0.2.0
+Note: Deploying a0b_tools=0.2.0...
+
+a0b_tools=0.2.0 successfully retrieved.
+Dependencies were solved as follows:
+
+   +  a0b_base  0.5.0  (new)
+   +b gnat      15.1.2 (new,gnat_native,binary)
+   +  gnatcoll  25.0.0 (new)
+   +  libgpr    25.0.0 (new,indirect)
+   +  vss_extra 26.0.0 (new)
+   +  vss_text  26.0.0 (new)
+   +  xmlada    25.0.0 (new,indirect)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building a0b_tools=0.2.0/gnat/a0b_tools.gpr...
+Setup
+   [mkdir]        object directory for project A0B_Tools
+   [mkdir]        exec directory for project A0B_Tools
+Compile
+   [Ada]          rtg-driver.adb
+   [Ada]          rtg.ads
+   [Ada]          rtg-architecture.adb
+   [Ada]          rtg-gnat_rts_sources.adb
+   [Ada]          rtg-interrupts.ads
+   [Ada]          rtg-runtime.adb
+   [Ada]          rtg-runtime_reader.adb
+   [Ada]          rtg-startup.adb
+   [Ada]          rtg-startup-reader.adb
+rtg-runtime.adb:574:101: (style) this line is too long: 106 [-gnatyM]
+   [Ada]          rtg-svd_reader.adb
+   [Ada]          rtg-system.adb
+   [Ada]          rtg-system_bb_mcu_parameters.adb
+   [Ada]          rtg-system_bb_mcu_vectors.adb
+rtg-system.adb:220:91: (style) this line is too long: 93 [-gnatyM]
+   [Ada]          rtg-system_bb_parameters.adb
+   [Ada]          rtg-tasking.adb
+   [Ada]          rtg-diagnostics.adb
+   [Ada]          rtg-utilities.adb
+Bind
+   [gprbind]      rtg-driver.bexch
+   [Ada]          rtg-driver.ali
+Link
+   [link]         rtg-driver.adb
+Success: Build finished successfully in 13.69 seconds.
+Found declared GPR file: gnat/a0b_tools.gpr
+[alr test] Test completed SUCCESSFULLY

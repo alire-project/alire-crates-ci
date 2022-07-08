@@ -1,0 +1,700 @@
+Test ran at 2025-08-26 13:10:50.929247+00:00
+
+SOLUTION:
+hostarm=25.0.4: Local hosting of Ada Reference Manual (ARM)
+Origin: commit eb34bf780f7af3ed24598c39e39ed7f0ae92873a from https://github.com/jquorning/hostarm.git
+Properties:
+   Author: Jesper Quorning
+   Description: Local hosting of Ada Reference Manual (ARM)
+   Executable: hostarm
+   License: MIT
+   Long_Description: HostARM is a local hosting of
+- Ada Reference Manual 2012
+- Ada Reference Manual 2022
+- Annotated Ada Reference Manual 202Y (Draft 4)
+
+HostARM focuses on user friendliness and more modern look of the manuals.
+
+Benefits
+- Shorter URL: Remove two levels of the URL and no html ending
+- Optional stripping of navigation bars
+- Keypress navigation
+- Local search not dependant on external hosts
+- Optional modernized navigation bar
+- Alphabet navigation bar in index
+
+   Maintainer: Jesper Quorning <jesper.quorning@gmail.com>
+   Maintainers_Logins: jquorning
+   Name: hostarm
+   Tag: arm
+   Tag: aarm
+   Tag: reference
+   Tag: manual
+   Version: 25.0.4
+   Website: https://github.com/jquorning/hostarm
+Dependencies (direct):
+   case OS is
+      when Windows => (aws^23.0.0 and gnatcoll^23.0.0 and xmlada^23.0.0)
+      when others => (aws^24.0.0 and gnatcoll^24.0.0 and xmlada^24.0.0)
+   gnat<15
+Dependencies (solution):
+   aws=24.0.0
+   gnat=13.3.0 (gnat_external)
+   gnatcoll=24.0.0
+   libgpr=24.0.0
+   make=4.3.0
+   openssl=3.0.13
+   xmlada=24.0.0
+Dependencies (graph):
+   aws=24.0.0      --> gnat=13.3.0 (gnat_external) (>=12)
+   aws=24.0.0      --> gnatcoll=24.0.0 (~24.0.0)
+   aws=24.0.0      --> make=4.3.0 (*)
+   aws=24.0.0      --> openssl=3.0.13 (*)
+   aws=24.0.0      --> xmlada=24.0.0 (~24.0.0)
+   gnatcoll=24.0.0 --> libgpr=24.0.0 (~24.0.0)
+   hostarm=25.0.4  --> aws=24.0.0 (^24.0.0)
+   hostarm=25.0.4  --> gnat=13.3.0 (gnat_external) (<15)
+   hostarm=25.0.4  --> gnatcoll=24.0.0 (^24.0.0)
+   hostarm=25.0.4  --> xmlada=24.0.0 (^24.0.0)
+   libgpr=24.0.0   --> gnat=13.3.0 (gnat_external) (/=2020)
+   libgpr=24.0.0   --> xmlada=24.0.0 (~24.0.0)
+   xmlada=24.0.0   --> gnat=13.3.0 (gnat_external) (>=11)
+
+
+LOG:
+[alr test] Testing hostarm=25.0.4
+[alr test] Spawning retrieval for remote crate: alr -d -n get hostarm=25.0.4
+Note: Deploying hostarm=25.0.4...
+Note: Deploying openssl=3.0.13...
+The system package 'libssl-dev' is about to be installed.
+This action might require admin privileges and impact your system installation.
+Do you want Alire to install this system package?
+Using default: Yes
+debconf: delaying package configuration, since apt-utils is not installed
+Selecting previously unselected package libssl-dev:amd64.
+(Reading database ... 
+(Reading database ... 5%
+(Reading database ... 10%
+(Reading database ... 15%
+(Reading database ... 20%
+(Reading database ... 25%
+(Reading database ... 30%
+(Reading database ... 35%
+(Reading database ... 40%
+(Reading database ... 45%
+(Reading database ... 50%
+(Reading database ... 55%
+(Reading database ... 60%
+(Reading database ... 65%
+(Reading database ... 70%
+(Reading database ... 75%
+(Reading database ... 80%
+(Reading database ... 85%
+(Reading database ... 90%
+(Reading database ... 95%
+(Reading database ... 100%
+(Reading database ... 24984 files and directories currently installed.)
+Preparing to unpack .../libssl-dev_3.0.13-0ubuntu3.5_amd64.deb ...
+Unpacking libssl-dev:amd64 (3.0.13-0ubuntu3.5) ...
+Setting up libssl-dev:amd64 (3.0.13-0ubuntu3.5) ...
+Note: Deploying xmlada=24.0.0...
+#=#=#                                                                          
+##O#-#                                                                         
+##=O#- #                                                                       
+Note: Deploying libgpr=24.0.0...
+#=#=#                                                                          
+##O#-#                                                                         
+##=O#- #                                                                       
+Note: Deploying gnatcoll=24.0.0...
+#=#=#                                                                          
+##O#-#                                                                         
+##O=#  #                                                                       
+#-#O=#  #                                                                      
+Note: Deploying aws=24.0.0...
+#=#=#                                                                          
+
+###                                                                        5.0%
+######################################################################## 100.0%
+
+hostarm=25.0.4 successfully retrieved.
+Dependencies were solved as follows:
+
+   +  aws      24.0.0 (new)
+   +b gnat     13.3.0 (new,gnat_external,executable in path)
+   +  gnatcoll 24.0.0 (new)
+   +  libgpr   24.0.0 (new,indirect)
+   +b make     4.3.0  (new,indirect,system package)
+   +b openssl  3.0.13 (new,indirect,system package)
+   +  xmlada   24.0.0 (new)
+   
+   i  The solution requires a toolchain that is
+      not yet installed. Accepting the solution
+      will download and install this toolchain.
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Running post-fetch actions for xmlada=24.0.0...
+checking build system type... x86_64-pc-linux-gnu
+checking host system type... x86_64-pc-linux-gnu
+checking target system type... x86_64-pc-linux-gnu
+checking whether gnat can build shared libs... yes
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether ln -s works... yes
+configure: creating ./config.status
+config.status: creating xmlada_shared.gpr
+config.status: creating Makefile
+config.status: creating tests/dom/default.gpr
+Note: Running post-fetch actions for aws=24.0.0...
+make[1]: Entering directory '/root/.local/share/alire/builds/aws_24.0.0_2b75fe6d/22692db538e354c78cd78fea5abda5860f7d24fda6cd87d8fa000f13b76adb83/config'
+Bind
+   [gprbind]      xoscons.bexch
+   [Ada]          xoscons.ali
+Link
+   [link]         xoscons.adb
+Setup OS specific definitions
+make[1]: Leaving directory '/root/.local/share/alire/builds/aws_24.0.0_2b75fe6d/22692db538e354c78cd78fea5abda5860f7d24fda6cd87d8fa000f13b76adb83/config'
+make[1]: Entering directory '/root/.local/share/alire/builds/aws_24.0.0_2b75fe6d/22692db538e354c78cd78fea5abda5860f7d24fda6cd87d8fa000f13b76adb83/regtests'
+Can not generate system tags. The test are disabled
+make[1]: Leaving directory '/root/.local/share/alire/builds/aws_24.0.0_2b75fe6d/22692db538e354c78cd78fea5abda5860f7d24fda6cd87d8fa000f13b76adb83/regtests'
+make[1]: Entering directory '/root/.local/share/alire/builds/aws_24.0.0_2b75fe6d/22692db538e354c78cd78fea5abda5860f7d24fda6cd87d8fa000f13b76adb83/demos'
+make[1]: Nothing to be done for 'setup'.
+make[1]: Leaving directory '/root/.local/share/alire/builds/aws_24.0.0_2b75fe6d/22692db538e354c78cd78fea5abda5860f7d24fda6cd87d8fa000f13b76adb83/demos'
+make[1]: Entering directory '/root/.local/share/alire/builds/aws_24.0.0_2b75fe6d/22692db538e354c78cd78fea5abda5860f7d24fda6cd87d8fa000f13b76adb83/templates_parser'
+make[1]: Leaving directory '/root/.local/share/alire/builds/aws_24.0.0_2b75fe6d/22692db538e354c78cd78fea5abda5860f7d24fda6cd87d8fa000f13b76adb83/templates_parser'
+make[1]: Entering directory '/root/.local/share/alire/builds/aws_24.0.0_2b75fe6d/22692db538e354c78cd78fea5abda5860f7d24fda6cd87d8fa000f13b76adb83/templates_parser'
+make[1]: Leaving directory '/root/.local/share/alire/builds/aws_24.0.0_2b75fe6d/22692db538e354c78cd78fea5abda5860f7d24fda6cd87d8fa000f13b76adb83/templates_parser'
+Setup
+   [mkdir]        object directory for project Zlib
+   [mkdir]        library directory for project Zlib
+   [mkdir]        object directory for project Include
+   [mkdir]        library directory for project Include
+   [mkdir]        object directory for project XmlAda_Sax
+   [mkdir]        library directory for project XmlAda_Sax
+   [mkdir]        object directory for project XmlAda_Schema
+   [mkdir]        object directory for project GPR
+   [mkdir]        library directory for project GPR
+   [mkdir]        object directory for project GnatColl
+   [mkdir]        library directory for project GnatColl
+   [mkdir]        object directory for project SSL
+   [mkdir]        library directory for project SSL
+   [mkdir]        object directory for project Src
+   [mkdir]        library directory for project Src
+   [mkdir]        library directory for project AWS
+   [mkdir]        object directory for project Tools
+   [mkdir]        exec directory for project Tools
+Compile
+   [Ada]          awsres.adb
+   [Ada]          zlib-thin.adb
+   [Ada]          zlib-streams.adb
+   [Ada]          zlib.adb
+   [Ada]          memory_streams.adb
+   [Ada]          aws-os_lib.ads
+   [Ada]          templates_parser.adb
+   [Ada]          templates_parser-query.adb
+   [Ada]          templates_parser-utils.adb
+   [Ada]          templates_parser-debug.adb
+   [Ada]          aws-http2-stream.adb
+   [Ada]          aws-http2-frame-settings.adb
+   [Ada]          aws-http2-frame-goaway.adb
+   [Ada]          aws-http2-frame-push_promise.adb
+   [Ada]          aws-http2-frame-list.ads
+   [Ada]          aws-http2-message.adb
+   [Ada]          aws-http2-message-list.ads
+   [Ada]          aws-http2.adb
+   [Ada]          aws-http2-frame-continuation.adb
+   [Ada]          aws-http2-stream-set.ads
+   [Ada]          aws-http2-frame.adb
+   [Ada]          aws-http2-frame-data.adb
+   [Ada]          aws-http2-frame-rst_stream.adb
+   [Ada]          aws-http2-connection.adb
+   [Ada]          aws-http2-frame-headers.adb
+   [Ada]          aws-http2-frame-window_update.adb
+   [Ada]          aws-http2-hpack.adb
+   [Ada]          aws-http2-hpack-table.adb
+   [Ada]          aws-http2-frame-priority.adb
+   [Ada]          aws-http2-frame-ping.adb
+   [Ada]          aws-http2-hpack-huffman.adb
+   [Ada]          aws-services-web_block.ads
+   [Ada]          aws-services-split_pages-alpha-bounded.adb
+   [Ada]          aws-smtp.adb
+   [Ada]          aws-smtp-messages-set.adb
+   [Ada]          aws-smtp-messages.adb
+   [Ada]          aws-status-translate_table.adb
+   [Ada]          aws-communication-client.adb
+   [Ada]          aws-services-callbacks.adb
+   [Ada]          aws-client-hotplug.adb
+   [Ada]          aws-services-split_pages-uniform-alpha.adb
+   [Ada]          aws-smtp-authentication-plain.adb
+   [Ada]          aws-services-dispatchers.ads
+   [Ada]          aws-communication.adb
+   [Ada]          aws-services-web_mail.adb
+   [Ada]          aws-server-push.adb
+   [Ada]          aws-net-stream_io.adb
+   [Ada]          aws-services-split_pages-alpha.adb
+   [Ada]          aws-pop.adb
+   [Ada]          aws-services-split_pages-shared.adb
+   [Ada]          aws-smtp-client.adb
+   [Ada]          aws-services-web_block-context.adb
+   [Ada]          aws-services-split_pages-uniform-overlapping.adb
+   [Ada]          aws-communication-server.adb
+   [Ada]          aws-services-dispatchers-virtual_host.adb
+   [Ada]          aws-services-dispatchers-transient_pages.adb
+   [Ada]          aws-services-page_server.adb
+   [Ada]          aws-services-web_block-registry.adb
+   [Ada]          aws-services-download.adb
+   [Ada]          aws-services-directory.adb
+   [Ada]          aws-server-hotplug.adb
+   [Ada]          aws-services-dispatchers-uri.adb
+   [Ada]          aws-services-dispatchers-linker.adb
+   [Ada]          aws-services-split_pages.adb
+   [Ada]          aws-smtp-server.adb
+   [Ada]          aws-cookie.adb
+   [Ada]          aws-smtp-authentication.ads
+   [Ada]          aws-services-split_pages-uniform.adb
+   [Ada]          aws-resources-streams-pipe.adb
+   [Ada]          aws-net-log-callbacks.adb
+   [Ada]          aws-services-dispatchers-timer.adb
+   [Ada]          aws-services-dispatchers-method.adb
+   [Ada]          aws-net-sets.ads
+   [Ada]          aws-default.ads
+   [Ada]          aws-containers.ads
+   [Ada]          aws-resources-files.adb
+   [Ada]          aws-net.adb
+   [Ada]          aws-hotplug.adb
+   [Ada]          aws-headers.adb
+   [Ada]          aws-net-ssl-rsa_dh_generators.adb
+   [Ada]          aws-attachments.adb
+   [Ada]          aws-session.adb
+   [Ada]          aws-url-raise_url_error.adb
+   [Ada]          aws-resources.adb
+   [Ada]          aws-response.adb
+   [Ada]          aws-config-utils.adb
+   [Ada]          aws-templates.ads
+   [Ada]          aws-url.adb
+   [Ada]          aws-config.adb
+   [Ada]          aws-mime.adb
+   [Ada]          aws-server-status.adb
+   [Ada]          aws-resources-streams-disk.adb
+   [Ada]          aws-hotplug-get_status.adb
+   [Ada]          aws-net-acceptors.adb
+   [Ada]          aws-dispatchers-callback.adb
+   [Ada]          aws-client.adb
+   [Ada]          aws-net-memory.adb
+   [Ada]          aws-services-transient_pages-control.adb
+   [Ada]          aws-net-websocket-handshake_error.adb
+   [Ada]          aws-net-log.adb
+   [Ada]          aws-url-set.adb
+   [Ada]          aws-status-set.adb
+   [Ada]          aws-containers-tables.adb
+   [Ada]          aws-server-get_status.adb
+   [Ada]          aws-resources-streams-zlib.adb
+   [Ada]          aws-net-websocket-registry-control.adb
+   [Ada]          aws-net-websocket-protocol-rfc6455.adb
+   [Ada]          aws-status.adb
+   [Ada]          aws-dispatchers.adb
+   [Ada]          aws-status-translate_set.adb
+   [Ada]          aws-messages.adb
+   [Ada]          aws-session-control.adb
+   [Ada]          aws-server.adb
+   [Ada]          aws-services-transient_pages.adb
+   [Ada]          aws-net-websocket-registry-utils.adb
+   [Ada]          aws-log.adb
+   [Ada]          aws-server-log.adb
+   [Ada]          aws-containers-string_vectors.ads
+   [Ada]          aws.ads
+   [Ada]          aws-net-websocket.adb
+   [Ada]          aws-client-http_utils.adb
+   [Ada]          aws-services.ads
+   [Ada]          aws-response-set.adb
+   [Ada]          aws-net-buffered.adb
+   [Ada]          aws-translator.adb
+   [Ada]          aws-parameters-set.adb
+   [Ada]          aws-containers-memory_streams.ads
+   [Ada]          aws-utils-streams.adb
+   [Ada]          aws-net-poll_events-g_poll.adb
+   [Ada]          aws-net-generic_sets.adb
+   [Ada]          aws-net-websocket-registry.adb
+   [Ada]          aws-resources-streams-disk-once.adb
+   [Ada]          aws-server-context.ads
+   [Ada]          aws-containers-key_value.ads
+   [Ada]          aws-net-poll_events.adb
+   [Ada]          aws-config-set.adb
+   [Ada]          aws-net-websocket-protocol-draft76.adb
+   [Ada]          aws-resources-embedded.adb
+   [Ada]          aws-resources-streams-memory-zlib.adb
+   [Ada]          aws-net-websocket-protocol.ads
+   [Ada]          aws-net-ssl-certificate.adb
+   [Ada]          aws-headers-set.adb
+   [Ada]          aws-config-ini.adb
+   [Ada]          aws-containers-tables-set.ads
+   [Ada]          aws-resources-streams-memory.adb
+   [Ada]          aws-parameters.adb
+   [Ada]          aws-headers-values.adb
+   [Ada]          aws-server-http_utils.adb
+   [Ada]          aws-utils.adb
+   [Ada]          aws-exceptions.ads
+   [Ada]          aws-resources-streams.adb
+   [Ada]          aws-digest.adb
+   [Ada]          templates_parser-input__aws.adb
+   [Ada]          templates_parser_tasking__standard_tasking.adb
+   [Ada]          aws-net-std__gnat.adb
+   [Ada]          aws-net-ssl__openssl.adb
+   [Ada]          aws-net-ssl-certificate-impl__openssl.adb
+   [Ada]          templates_parser-configuration__aws.ads
+   [Ada]          schema-simple_types.adb
+   [Ada]          schema-validators.adb
+   [Ada]          schema-readers.adb
+   [Ada]          schema-decimal.adb
+   [Ada]          schema-date_time.adb
+   [Ada]          schema-schema_readers.adb
+   [Ada]          schema.adb
+   [Ada]          schema-dom_readers.adb
+   [Ada]          schema-validators-xsd_grammar.adb
+   [Ada]          dom-readers.adb
+   [Ada]          dom-core-document_types.adb
+   [Ada]          dom-core-texts.adb
+   [Ada]          dom-core-nodes.adb
+   [Ada]          dom-core-processing_instructions.ads
+   [Ada]          dom-core-attrs.adb
+   [Ada]          dom.ads
+   [Ada]          dom-core-comments.ads
+   [Ada]          dom-core-character_datas.adb
+   [Ada]          dom-core-document_fragments.ads
+   [Ada]          dom-core.adb
+   [Ada]          dom-core-elements.adb
+   [Ada]          dom-core-documents.adb
+   [Ada]          dom-core-cdata_sections.ads
+   [Ada]          dom-core-entity_references.ads
+   [Ada]          dom-core-notations.adb
+   [Ada]          input_sources.adb
+   [Ada]          input_sources-strings.adb
+   [Ada]          input_sources-socket.adb
+   [Ada]          input_sources-file.adb
+   [Ada]          input_sources-http.adb
+   [Ada]          sax-models.adb
+   [Ada]          sax.ads
+   [Ada]          sax-exceptions.adb
+   [Ada]          sax-symbols.adb
+   [Ada]          sax-pointers.adb
+   [Ada]          sax-encodings.ads
+   [Ada]          sax-attributes.adb
+   [Ada]          sax-utils.adb
+   [Ada]          sax-state_machines.adb
+   [Ada]          sax-locators.adb
+   [Ada]          sax-htable.adb
+   [Ada]          sax-readers.adb
+   [Ada]          unicode-encodings.adb
+   [Ada]          unicode-names-myanmar_extended_a.ads
+   [Ada]          unicode-names-saurashtra.ads
+   [Ada]          unicode-names-combining_diacritical_ext.ads
+   [Ada]          unicode-names-specials.ads
+   [Ada]          unicode-names-ethiopic_extended.ads
+   [Ada]          unicode-names-cjk_radicals_supplement.ads
+   [Ada]          unicode-names-modifier_tone_letters.ads
+   [Ada]          unicode-names-samaritan.ads
+   [Ada]          unicode-names-pau_cin_hau.ads
+   [Ada]          unicode-names-alpha_presentation_forms.ads
+   [Ada]          unicode-names-mahajani.ads
+   [Ada]          unicode-names-geometric_shapes_extended.ads
+   [Ada]          unicode-names-tifinagh.ads
+   [Ada]          unicode-names-hangul_compatibility_jamo.ads
+   [Ada]          unicode-names-kannada.ads
+   [Ada]          unicode-names-super_and_sub_scripts.ads
+   [Ada]          unicode-names-ethiopic_extended_a.ads
+   [Ada]          unicode-names-katakana_phonetic_ext.ads
+   [Ada]          unicode-names-mahjong_tiles.ads
+   [Ada]          unicode-names-bopomofo.ads
+   [Ada]          unicode-names-spacing_modifier_letters.ads
+   [Ada]          unicode-names-latin_extended_additional.ads
+   [Ada]          unicode-ces-utf16.adb
+   [Ada]          unicode-names-vertical_forms.ads
+   [Ada]          unicode-names-yi_radicals.ads
+   [Ada]          unicode-names-bamum_supplement.ads
+   [Ada]          unicode-names-lydian.ads
+   [Ada]          unicode-names-tamil.ads
+   [Ada]          unicode-names-meetei_mayek_extensions.ads
+   [Ada]          unicode-names-emoticons.ads
+   [Ada]          unicode-ccs.adb
+   [Ada]          unicode-names-avestan.ads
+   [Ada]          unicode-names-buhid.ads
+   [Ada]          unicode-names-arabic_present_formsa.ads
+   [Ada]          unicode-names-arabic_supplement.ads
+   [Ada]          unicode-names-sup_math_operators.ads
+   [Ada]          unicode-names-balinese.ads
+   [Ada]          unicode-names-cyrillic_extended_b.ads
+   [Ada]          unicode-names-vai.ads
+   [Ada]          unicode-names-combining_diacritical_sym.ads
+   [Ada]          unicode-names-misc_math_symbols_b.ads
+   [Ada]          unicode-names-old_north_arabian.ads
+   [Ada]          unicode-names-thai.ads
+   [Ada]          unicode-names-sharada.ads
+   [Ada]          unicode-names-basic_latin.ads
+   [Ada]          unicode-names-variation_selectors.ads
+   [Ada]          unicode-names-myanmar.ads
+   [Ada]          unicode-names-tags.ads
+   [Ada]          unicode-names-ahom.ads
+   [Ada]          unicode-names-anatolian_hieroglyphs.ads
+   [Ada]          unicode-names-misc_symbols_and_arrows.ads
+   [Ada]          unicode-names-phaistos_disc.ads
+   [Ada]          unicode-names-mro.ads
+   [Ada]          unicode-names-rumi_numeral_symbols.ads
+   [Ada]          unicode-names-georgian.ads
+   [Ada]          unicode-names-cherokee.ads
+   [Ada]          unicode-names-latin_extended_c.ads
+   [Ada]          unicode-names-currency_symbols.ads
+   [Ada]          unicode-names-ancient_symbols.ads
+   [Ada]          unicode-names-inscriptional_parthian.ads
+   [Ada]          unicode-names-linear_a.ads
+   [Ada]          unicode-names-elbasan.ads
+   [Ada]          unicode-names-hatran.ads
+   [Ada]          unicode-names-latin_extended_b.ads
+   [Ada]          unicode-names-combining_diacritical_sup.ads
+   [Ada]          unicode-names-shavian.ads
+   [Ada]          unicode-names-georgian_supplement.ads
+   [Ada]          unicode-names-lycian.ads
+   [Ada]          unicode-names-telugu.ads
+   [Ada]          unicode-names-sinhala_archaic_numbers.ads
+   [Ada]          unicode-names-mongolian.ads
+   [Ada]          unicode-names-latin_extended_a.ads
+   [Ada]          unicode-ces-basic_8bit.adb
+   [Ada]          unicode-names-ugaritic.ads
+   [Ada]          unicode-names-latin_1_supplement.ads
+   [Ada]          unicode-names-kana_supplement.ads
+   [Ada]          unicode-names-syriac.ads
+   [Ada]          unicode-names-devanagari.ads
+   [Ada]          unicode-names-modi.ads
+   [Ada]          unicode-names-latin_extended_d.ads
+   [Ada]          unicode-ces-utf8.adb
+   [Ada]          unicode-names-box_drawing.ads
+   [Ada]          unicode-names-phonetic_extensions.ads
+   [Ada]          unicode-names-oriya.ads
+   [Ada]          unicode-names-manichaean.ads
+   [Ada]          unicode-names-lao.ads
+   [Ada]          unicode-names-ornamental_dingbats.ads
+   [Ada]          unicode-names-control_pictures.ads
+   [Ada]          unicode-names-misc_symbols_pictographs.ads
+   [Ada]          unicode-names-cjk_compatibility_forms.ads
+   [Ada]          unicode-ccs-iso_8859_1.adb
+   [Ada]          unicode-names-takri.ads
+   [Ada]          unicode-names-buginese.ads
+   [Ada]          unicode-names-supplemental_arrows_b.ads
+   [Ada]          unicode-names-mathematical_operators.ads
+   [Ada]          unicode-names-rejang.ads
+   [Ada]          unicode-names-shorthand_format_controls.ads
+   [Ada]          unicode-names-tibetan.ads
+   [Ada]          unicode-names-playing_cards.ads
+   [Ada]          unicode-names-miao.ads
+   [Ada]          unicode-names-cypriot_syllabary.ads
+   [Ada]          unicode-names-nabataean.ads
+   [Ada]          unicode-names-kanbun.ads
+   [Ada]          unicode-names-chakma.ads
+   [Ada]          unicode-names-runic.ads
+   [Ada]          unicode-names-ancient_greek_numbers.ads
+   [Ada]          unicode-names-carian.ads
+   [Ada]          unicode-names-arabic_extended_a.ads
+   [Ada]          unicode-names-block_elements.ads
+   [Ada]          unicode-names-old_italic.ads
+   [Ada]          unicode-names-cyrillic_extended_a.ads
+   [Ada]          unicode-names-misc_math_symbols_a.ads
+   [Ada]          unicode-names-lepcha.ads
+   [Ada]          unicode-names-cjk_compat_ideo_sup.ads
+   [Ada]          unicode-names-sutton_signwriting.ads
+   [Ada]          unicode-names-osmanya.ads
+   [Ada]          unicode-names-hangul_jamo_extended_a.ads
+   [Ada]          unicode-names-old_persian.ads
+   [Ada]          unicode-names-phags_pa.ads
+   [Ada]          unicode-names-alchemical_symbols.ads
+   [Ada]          unicode-names-glagolitic.ads
+   [Ada]          unicode-names-caucasian_albanian.ads
+   [Ada]          unicode-names-khmer_symbols.ads
+   [Ada]          unicode-names-bassa_vah.ads
+   [Ada]          unicode-names-tai_xuan_jing_symbols.ads
+   [Ada]          unicode-names-braille_patterns.ads
+   [Ada]          unicode-names-counting_rod_numerals.ads
+   [Ada]          unicode-names-combining_diacritical.ads
+   [Ada]          unicode-names-siddham.ads
+   [Ada]          unicode-names-sinhala.ads
+   [Ada]          unicode-names-meroitic_cursive.ads
+   [Ada]          unicode-ccs-iso_8859_4.adb
+   [Ada]          unicode-names-musical_symbols.ads
+   [Ada]          unicode-names-cjk_compat_ideographs.ads
+   [Ada]          unicode-names-hiragana.ads
+   [Ada]          unicode-names-cuneiform.ads
+   [Ada]          unicode-names-old_hungarian.ads
+   [Ada]          unicode-names-ol_chiki.ads
+   [Ada]          unicode-names-nko.ads
+   [Ada]          unicode-names-pahawh_hmong.ads
+   [Ada]          unicode-names-old_permic.ads
+   [Ada]          unicode-names-old_south_arabian.ads
+   [Ada]          unicode-names-latin_extended_e.ads
+   [Ada]          unicode-names-supplemental_punctuation.ads
+   [Ada]          unicode-names-aegean_numbers.ads
+   [Ada]          unicode-names-psalter_pahlavi.ads
+   [Ada]          unicode-names-armenian.ads
+   [Ada]          unicode-names-dingbats.ads
+   [Ada]          unicode-names-ideograph_descr_chars.ads
+   [Ada]          unicode-names-kayah_li.ads
+   [Ada]          unicode-names-deseret.ads
+   [Ada]          unicode-names-devanagari_extended.ads
+   [Ada]          unicode-names-ipa_extensions.ads
+   [Ada]          unicode-names-common_indic_number_forms.ads
+   [Ada]          unicode-names-optical_chars_recognition.ads
+   [Ada]          unicode-names-warang_citi.ads
+   [Ada]          unicode-names-bamum.ads
+   [Ada]          unicode-names-tagbanwa.ads
+   [Ada]          unicode-names-meetei_mayek.ads
+   [Ada]          unicode-ccs-windows_1252.adb
+   [Ada]          unicode-names-katakana.ads
+   [Ada]          unicode-names-old_turkic.ads
+   [Ada]          unicode-names-arabic_math_alpha_symb.ads
+   [Ada]          unicode-ccs-iso_8859_15.adb
+   [Ada]          unicode-names-number_forms.ads
+   [Ada]          unicode-names-cjk_strokes.ads
+   [Ada]          unicode-names-meroitic_hieroglyphs.ads
+   [Ada]          unicode-names-cjk_letters_months.ads
+   [Ada]          unicode-names-hangul_jamo.ads
+   [Ada]          unicode-names-linear_b_ideograms.ads
+   [Ada]          unicode-names-phonetic_ext_sup.ads
+   [Ada]          unicode-names-javanese.ads
+   [Ada]          unicode-names-miscellaneous_symbols.ads
+   [Ada]          unicode-names-mende_kikakui.ads
+   [Ada]          unicode-names-cuneiform_num_punctuation.ads
+   [Ada]          unicode-names-thaana.ads
+   [Ada]          unicode-names-transport_and_map_symbols.ads
+   [Ada]          unicode-names-malayalam.ads
+   [Ada]          unicode-names-cjk_compatibility.ads
+   [Ada]          unicode-names-duployan.ads
+   [Ada]          unicode-names-sundanese_supplement.ads
+   [Ada]          unicode-names-new_tai_lue.ads
+   [Ada]          unicode-names-ethiopic.ads
+   [Ada]          unicode-names-letterlike_symbols.ads
+   [Ada]          unicode-names-variation_selectors_sup.ads
+   [Ada]          unicode-names-cyrillic_supplement.ads
+   [Ada]          unicode-names-combining_half_marks.ads
+   [Ada]          unicode-names-kangxi_radicals.ads
+   [Ada]          unicode-names-greek_extended.ads
+   [Ada]          unicode-names-domino_tiles.ads
+   [Ada]          unicode-names-bengali.ads
+   [Ada]          unicode-names-supplemental_arrows_a.ads
+   [Ada]          unicode-names-palmyrene.ads
+   [Ada]          unicode-names-enclosed_alphanum_sup.ads
+   [Ada]          unicode-names-cyrillic.ads
+   [Ada]          unicode-names-coptic.ads
+   [Ada]          unicode-names-multani.ads
+   [Ada]          unicode-ccs-iso_8859_3.adb
+   [Ada]          unicode-names-imperial_aramaic.ads
+   [Ada]          unicode-names-ethiopic_supplement.ads
+   [Ada]          unicode-names-kharoshthi.ads
+   [Ada]          unicode-names-yi_syllables.ads
+   [Ada]          unicode.adb
+   [Ada]          unicode-names-kaithi.ads
+   [Ada]          unicode-names-vedic_extensions.ads
+   [Ada]          unicode-names-greek_and_coptic.ads
+   [Ada]          unicode-names-brahmi.ads
+   [Ada]          unicode-names-geometric_shapes.ads
+   [Ada]          unicode-ccs-iso_8859_2.adb
+   [Ada]          unicode-names-supplemental_arrows_c.ads
+   [Ada]          unicode-names-tai_le.ads
+   [Ada]          unicode-names-gurmukhi.ads
+   [Ada]          unicode-names-lisu.ads
+   [Ada]          unicode-names-sundanese.ads
+   [Ada]          unicode-names-arrows.ads
+   [Ada]          unicode-names-canadian_aboriginal.ads
+   [Ada]          unicode-names-mandaic.ads
+   [Ada]          unicode-names-hangul_jamo_extended_b.ads
+   [Ada]          unicode-names-arabic_present_formsb.ads
+   [Ada]          unicode-names-batak.ads
+   [Ada]          unicode-ces.adb
+   [Ada]          unicode-names-sora_sompeng.ads
+   [Ada]          unicode-names-khojki.ads
+   [Ada]          unicode-names-egyptian_hieroglyphs.ads
+   [Ada]          unicode-names-enclosed_alphanumerics.ads
+   [Ada]          unicode-names-canadian_aboriginal_ext.ads
+   [Ada]          unicode-names-cjk_symbols_and_punct.ads
+   [Ada]          unicode-names-inscriptional_pahlavi.ads
+   [Ada]          unicode-names-gothic.ads
+   [Ada]          unicode-names-grantha.ads
+   [Ada]          unicode-names-ogham.ads
+   [Ada]          unicode-names-phoenician.ads
+   [Ada]          unicode-names-cham.ads
+   [Ada]          unicode-names-limbu.ads
+   [Ada]          unicode-names-gujarati.ads
+   [Ada]          unicode-names-linear_b_syllabary.ads
+   [Ada]          unicode-names-yijing_hexagram_symbols.ads
+   [Ada]          unicode-names-small_form_variants.ads
+   [Ada]          unicode-names-tirhuta.ads
+   [Ada]          unicode-names-arabic.ads
+   [Ada]          unicode-names-early_dynastic_cuneiform.ads
+   [Ada]          unicode-names-khmer.ads
+   [Ada]          unicode-names-enclosed_ideographic_sup.ads
+   [Ada]          unicode-names-byzantine_musical_symbols.ads
+   [Ada]          unicode-names-general_punctuation.ads
+   [Ada]          unicode-names-cherokee_supplement.ads
+   [Ada]          unicode-names-half_full_width_forms.ads
+   [Ada]          unicode-names-syloti_nagri.ads
+   [Ada]          unicode-names-tai_tham.ads
+   [Ada]          unicode-names.ads
+   [Ada]          unicode-names-hanunoo.ads
+   [Ada]          unicode-names-hebrew.ads
+   [Ada]          unicode-names-tagalog.ads
+   [Ada]          unicode-names-tai_viet.ads
+   [Ada]          unicode-names-bopomofo_extended.ads
+   [Ada]          unicode-ccs-windows_1251.adb
+   [Ada]          unicode-names-myanmar_extended_b.ads
+   [Ada]          unicode-ces-utf32.adb
+   [Ada]          unicode-names-miscellaneous_technical.ads
+   [Ada]          unicode-names-ancient_greek_music.ads
+   [Ada]          unicode-names-sup_symbols_pictographs.ads
+   [Ada]          unicode-names-khudawadi.ads
+   [Ada]          unicode-names-coptic_epact_numbers.ads
+   [Ada]          unicode-names-math_alphanumeric_symb.ads
+   [C]            gpr_imports.c
+   [Ada]          gpr-opt.ads
+   [Ada]          gpr-err.adb
+   [Ada]          gpr-debug.adb
+   [Ada]          gpr-compilation-process.adb
+   [Ada]          gpr-attr.adb
+   [Ada]          gpr-snames.adb
+   [Ada]          gpr-sinput.adb
+   [Ada]          gpr-conf.adb
+gpr-util-put_resource_usage__unix.adb:34:24: error: "Timeval" not declared in "Thin_Common"
+gpr-util-put_resource_usage__unix.adb:35:24: error: "Timeval" not declared in "Thin_Common"
+gpr-util-put_resource_usage__unix.adb:69:34: error: "Timeval" not declared in "Thin_Common"
+gpr-util-put_resource_usage__unix.adb:78:34: error: "Timeval" not declared in "Thin_Common"
+gpr-util-put_resource_usage__unix.adb:84:50: error: invalid prefix in selected component "This"
+gpr-util-put_resource_usage__unix.adb:86:20: error: invalid prefix in selected component "This"
+
+   compilation of gpr-conf.adb failed
+
+gprbuild: *** compilation phase failed
+make: *** [Makefile:188: build-awsres-tool-native] Error 4
+Warning: Execution failed for action: Post_Fetch run: make all ENABLE_SHARED=false (from ${CRATE_ROOT}/.)
+Warning: Exit code: 2
+Warning: Action output not captured, check it above.
+stderr: ALIRE.PROPERTIES.ACTIONS.ACTION_FAILED
+stderr: Action failed with exit code 2
+stderr: raised ALIRE.PROPERTIES.ACTIONS.ACTION_FAILED : Action failed with exit code 2
+[/usr/bin/alr]
+0xacc145 Alire.Properties.Actions.Executor.Execute_Actions at alire-properties-actions-executor.adb:130
+0xaca6d9 Alire.Properties.Actions.Executor.Execute_Actions at alire-properties-actions-executor.adb:36
+0xc72eae Alire.Roots.Build at alire-roots.adb:232
+0xc9832b Alire.Roots.Traverse at alire-roots.adb:2143
+0xcfee85 Alire.Solutions.Traverse.Visit at alire-solutions.adb:1472
+0xcfdca2 Alire.Solutions.Traverse at alire-solutions.adb:1539
+0xc9841e Alire.Roots.Traverse at alire-roots.adb:2147
+0xc984dd Alire.Roots.Traverse at alire-roots.adb:2127
+0xc7359b Alire.Roots.Build at alire-roots.adb:286
+0xc736d7 Alire.Roots.Build at alire-roots.adb:114
+0x49aa0d Alr.Commands.Build.Execute at alr-commands-build.adb:145
+0x49a36d Alr.Commands.Build.Execute at alr-commands-build.adb:113
+0x49a51f Alr.Commands.Build.Execute at alr-commands-build.adb:54
+0x53bbcc Alr.Commands.Sub_Cmd.Execute at clic-subcommand-instance.adb:749
+0x5472be Alr.Commands.Execute at alr-commands.adb:632
+0x43d48a Alr.Main at alr-main.adb:13
+0x4403a3 Main at b__alr-main.adb:2445
+[/lib/x86_64-linux-gnu/libc.so.6]
+0x7f7be63411c8
+0x7f7be6341289
+[/usr/bin/alr]
+0x43d323 _start at ???
+0xfffffffffffffffe
+
+ERROR: Compilation failed.

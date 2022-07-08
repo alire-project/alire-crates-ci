@@ -1,0 +1,98 @@
+Test ran at 2026-10-10 01:09:39.505998+00:00
+
+SOLUTION:
+espidf_fatfs=0.1.0: Ada/ESP-IDF: FAT filesystem bindings
+Origin: commit 49cbcad0f7fc0459f06ec65352680040eb414fd2 from https://github.com/godunko/espidf_fatfs.git
+Properties:
+   Author: Vadim Godunko
+   Configuration: no modifiers
+   Description: Ada/ESP-IDF: FAT filesystem bindings
+   License: Apache-2.0 WITH LLVM-exception
+   Long_Description: Ada bindings for the ESP-IDF FAT filesystem component (`fatfs`).
+
+Covers mounting and unmounting a FAT filesystem located in an internal flash partition
+through the wear levelling layer (`esp_vfs_fat_spiflash_mount_rw_wl`), with optional
+formatting when the mount fails. Once mounted, files are accessed through the ESP-IDF VFS.
+
+   Maintainer: Vadim Godunko <vgodunko@gmail.com>
+   Maintainers_Logins: godunko
+   Name: espidf_fatfs
+   Tag: a0b
+   Tag: embedded
+   Tag: esp
+   Tag: esp32
+   Tag: espidf
+   Tag: fatfs
+   Version: 0.1.0
+   Website: https://github.com/godunko/espidf_fatfs
+Dependencies (direct):
+   espidf_wear_levelling^0.1.0
+Dependencies (solution):
+   a0b_base=0.5.0
+   espidf=0.2.0
+   espidf_partition=0.1.0
+   espidf_wear_levelling=0.1.0
+Dependencies (graph):
+   espidf=0.2.0                --> a0b_base=0.5.0 (^0.5.0)
+   espidf_fatfs=0.1.0          --> espidf_wear_levelling=0.1.0 (^0.1.0)
+   espidf_partition=0.1.0      --> espidf=0.2.0 (^0.2.0)
+   espidf_wear_levelling=0.1.0 --> espidf_partition=0.1.0 (^0.1.0)
+
+
+LOG:
+[alr test] Testing espidf_fatfs=0.1.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get espidf_fatfs=0.1.0
+Note: Deploying espidf_fatfs=0.1.0...
+Note: Deploying espidf=0.2.0...
+Note: Deploying espidf_partition=0.1.0...
+Note: Deploying espidf_wear_levelling=0.1.0...
+Warning: Possible tilde intended instead of caret for a 0.x version.
+   Alire does not change the meaning of caret and tilde for pre/post-1.0 versions.
+   The suspicious dependency is: espidf_wear_levelling^0.1.0
+   You can disable this warning by setting the option warning.caret to false.
+
+espidf_fatfs=0.1.0 successfully retrieved.
+Dependencies were solved as follows:
+
+   + a0b_base              0.5.0 (new,indirect)
+   + espidf                0.2.0 (new,indirect)
+   + espidf_partition      0.1.0 (new,indirect)
+   + espidf_wear_levelling 0.1.0 (new)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building espidf_fatfs=0.1.0/espidf_fatfs.gpr...
+Setup
+   [mkdir]        object directory for project ESPIDF
+   [mkdir]        library directory for project ESPIDF
+   [mkdir]        object directory for project ESPIDF_Partition
+   [mkdir]        library directory for project ESPIDF_Partition
+   [mkdir]        object directory for project ESPIDF_Wear_Levelling
+   [mkdir]        library directory for project ESPIDF_Wear_Levelling
+   [mkdir]        object directory for project ESPIDF_FATFS
+   [mkdir]        library directory for project ESPIDF_FATFS
+Compile
+   [Ada]          espidf-hal.ads
+   [Ada]          espidf-driver.ads
+   [Ada]          espidf.ads
+   [Ada]          espidf-ada_esp_check_error.adb
+   [Ada]          espidf-c_strings.adb
+   [Ada]          espidf-partition.adb
+   [Ada]          espidf-wear_levelling.adb
+   [Ada]          espidf-fatfs.adb
+espidf-fatfs.ads:148:11: warning: "Finalizable" is not a valid aspect identifier [enabled by default]
+espidf-c_strings.ads:130:54: (style) bad casing of "NUL" declared in Standard
+Build Libraries
+   [gprlib]       adaespidf.lexch
+   [gprlib]       adaespidf_partition.lexch
+   [archive]      libadaespidf.a
+   [index]        libadaespidf.a
+   [gprlib]       adaespidf_wear_levelling.lexch
+   [archive]      libadaespidf_partition.a
+   [index]        libadaespidf_partition.a
+   [gprlib]       adaespidf_fatfs.lexch
+   [archive]      libadaespidf_wear_levelling.a
+   [index]        libadaespidf_wear_levelling.a
+   [archive]      libadaespidf_fatfs.a
+   [index]        libadaespidf_fatfs.a
+Success: Build finished successfully in 0.79 seconds.
+Found declared GPR file: espidf_fatfs.gpr
+[alr test] Test completed SUCCESSFULLY

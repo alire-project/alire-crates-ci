@@ -1,0 +1,102 @@
+Test ran at 2024-06-20 12:40:05.276100+00:00
+
+SOLUTION:
+mos6502_create_nop=1.5.0: Create NOP ROM
+Origin: source archive mos6502_create_nop-1.5.0.tgz at https://sourceforge.net/projects/tutorial-6502/files/Alire/mos6502_create_nop-1.5.0.tgz with hashes sha256:2f050dc7aef683274067cac4e2998ed21f234712a1cb751642e393831a1c83f4, sha512:30d9fc5617deee9adc3ebddb7e5d9a3ff285e8535ce13308617920e1b0ab6dd434d947ddf3a4b4c986cef9c765db5280871de59e46c05c11c2ec00e9d68d9681
+Properties:
+   Test run: ${CRATE_DIR}/test/alr run
+   Author: Martin Krischik <krischik@users.sourceforge.net>
+   Description: Create NOP ROM
+   Executable: create_nop
+   License: GPL-3.0-or-later
+   Long_Description: This is a tool to create a rom image with NOP commands.
+
+This program can be used to create a ROM immage for the MOS 6502 tutorial from Ben Eater.
+
+Development versions available with:
+
+```sh
+alr index --add "git+https://github.com/krischik/alire-index.git#develop" --name krischik
+``` 
+
+Source code and testsuite available on [SourceForge](https://git.code.sf.net/p/tutorial-6502/git)
+
+   Maintainer: Martin Krischik <krischik@users.sourceforge.net>
+   Maintainers_Logins: krischik
+   Name: mos6502_create_nop
+   Tag: mos-6502
+   Tag: tools
+   Tag: retrocomputing
+   Tag: ada2022
+   Version: 1.5.0
+   Website: https://sourceforge.net/projects/tutorial-6502
+Dependencies (direct):
+   gnat>=12 & <2000
+Dependencies (solution):
+   gnat=13.1.0 (gnat_native) (installed)
+Dependencies (graph):
+   mos6502_create_nop=1.5.0 --> gnat=13.1.0 (gnat_native) (>=12 & <2000)
+
+
+LOG:
+Note: Deploying mos6502_create_nop=1.5.0...
+#=#=#                                                                          
+##=#=#                                                                         
+
+######################################################################## 100.0%
+######################################################################## 100.0%
+
+mos6502_create_nop=1.5.0 successfully retrieved.
+Dependencies were solved as follows:
+
+   +i gnat 13.1.0 (new,installed,gnat_native)
+Note: Synchronizing workspace...
+Dependencies automatically updated as follows:
+
+   +  adacl              5.15.1 (new)                      
+   +  aunit              23.0.0 (new)                      
+   +i gnat               13.1.0 (new,installed,gnat_native)
+   +· mos6502_create_nop 1.5.0  (new,path=..)              
+Note: Deploying adacl=5.15.1...
+#=#=#                                                                          
+
+######################################################################## 100.0%##=#=#                                                                         
+
+######################################################################## 100.0%
+Note: Deploying aunit=23.0.0...
+#=#=#                                                                          
+
+###                                                                        5.2%
+######################################################################## 100.0%
+
+Note: Building mos6502_create_nop/mos6502_create_nop.gpr...
+Setup
+   [mkdir]        object directory for project MOS6502_Create_Nop
+   [mkdir]        exec directory for project MOS6502_Create_Nop
+Compile
+   [Ada]          create_nop.adb
+Bind
+   [gprbind]      create_nop.bexch
+   [Ada]          create_nop.ali
+Link
+   [link]         create_nop.adb
+-macosx_version_min has been renamed to -macos_version_min
+0  0x102f17f43  __assert_rtn + 64
+1  0x102e19f43  ld::AtomPlacement::findAtom(unsigned char, unsigned long long, ld::AtomPlacement::AtomLoc const*&, long long&) const + 1411
+2  0x102e36431  ld::InputFiles::SliceParser::parseObjectFile(mach_o::Header const*) const + 19745
+3  0x102e46e44  ld::InputFiles::parseAllFiles(void (ld::AtomFile const*) block_pointer)::$_7::operator()(unsigned long, ld::FileInfo const&) const + 1380
+4  0x7ff809346def  _dispatch_client_callout2 + 8
+5  0x7ff809358547  _dispatch_apply_invoke3 + 431
+6  0x7ff809346dbc  _dispatch_client_callout + 8
+7  0x7ff80934804e  _dispatch_once_callout + 20
+8  0x7ff809357740  _dispatch_apply_invoke + 184
+9  0x7ff809346dbc  _dispatch_client_callout + 8
+10  0x7ff8093562ca  _dispatch_root_queue_drain + 871
+11  0x7ff80935684f  _dispatch_worker_thread2 + 152
+12  0x7ff8094e4b43  _pthread_wqthread + 262
+ld: Assertion failed: (resultIndex < sectData.atoms.size()), function findAtom, file Relocations.cpp, line 1336.
+collect2: error: ld returned 1 exit status
+gprbuild: link of create_nop.adb failed
+gprbuild: failed command was: /users/runner/.config/alire/cache/dependencies/gnat_native_13.1.0_071d715c/bin/gcc create_nop.o b__create_nop.o -L/Users/runner/work/alire-crates-ci/alire-crates-ci/test/248ceeb4-0fb5-475e-ac1e-ef4e3bdbf0cf/mos6502_create_nop_1.5.0_2f050dc7/obj/release/ -L/Users/runner/work/alire-crates-ci/alire-crates-ci/test/248ceeb4-0fb5-475e-ac1e-ef4e3bdbf0cf/mos6502_create_nop_1.5.0_2f050dc7/obj/release/ -L/users/runner/.config/alire/cache/dependencies/gnat_native_13.1.0_071d715c/lib/gcc/x86_64-apple-darwin21.6.0/13.1.0/adalib/ /users/runner/.config/alire/cache/dependencies/gnat_native_13.1.0_071d715c/lib/gcc/x86_64-apple-darwin21.6.0/13.1.0/adalib/libgnat.a -Wl,-rpath,@executable_path/..//obj/release -Wl,-rpath,@executable_path/../../../../../../..//.config/alire/cache/dependencies/gnat_native_13.1.0_071d715c/lib/gcc/x86_64-apple-darwin21.6.0/13.1.0/adalib -o /Users/runner/work/alire-crates-ci/alire-crates-ci/test/248ceeb4-0fb5-475e-ac1e-ef4e3bdbf0cf/mos6502_create_nop_1.5.0_2f050dc7/bin//create_nop
+ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/Users/runner/work/alire-crates-ci/alire-crates-ci/test/248ceeb4-0fb5-475e-ac1e-ef4e3bdbf0cf/mos6502_create_nop_1.5.0_2f050dc7/mos6502_create_nop.gpr"] exited with code 4
+ERROR: Build failed

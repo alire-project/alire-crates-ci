@@ -1,0 +1,77 @@
+Test ran at 2025-06-29 12:30:03.374569+00:00
+
+SOLUTION:
+pygamer_bsp=1.0.0: Board Support Package for the AdaFruit PyGamer
+Origin: commit 43d69885051ae88b57ba6a64b8ff7fc63eaad67d from https://github.com/Fabien-Chouteau/pygamer-bsp.git
+Properties:
+   Description: Board Support Package for the AdaFruit PyGamer
+   License: BSD-3-Clause
+   Maintainer: fabien.chouteau@gmail.com
+   Maintainers_Logins: Fabien-Chouteau
+   Name: pygamer_bsp
+   Project_File: pygamer_bsp.gpr
+   Tag: embedded
+   Tag: nostd
+   Tag: pygamer
+   Tag: adafruit
+   Tag: game
+   Tag: console
+   Tag: bsp
+   Version: 1.0.0
+Dependencies (direct):
+   cortex_m~0.1.0
+   samd51_hal~0.1.0
+Dependencies (solution):
+   cortex_m=0.1.0
+   hal=0.4.0
+   samd51_hal=0.1.0
+Dependencies (graph):
+   cortex_m=0.1.0    --> hal=0.4.0 (^0.1.0)
+   pygamer_bsp=1.0.0 --> cortex_m=0.1.0 (~0.1.0)
+   pygamer_bsp=1.0.0 --> samd51_hal=0.1.0 (~0.1.0)
+   samd51_hal=0.1.0  --> cortex_m=0.1.0 (^0.1.0)
+   samd51_hal=0.1.0  --> hal=0.4.0 (^0.1.0)
+
+
+LOG:
+Spawning: alr -d -n get --build pygamer_bsp=1.0.0
+Note: Deploying pygamer_bsp=1.0.0...
+Note: Deploying hal=0.4.0...
+Note: Deploying cortex_m=0.1.0...
+#=#=#                                                                          
+
+#####################                                                     30.0%
+######################################################################## 100.0%
+Note: Deploying samd51_hal=0.1.0...
+#=#=#                                                                          
+
+##########################################                                59.5%
+######################################################################## 100.0%
+Note: Building pygamer_bsp=1.0.0/pygamer_bsp.gpr...
+kb: warning: can't find a toolchain for the following configuration: language 'Ada', target 'arm-eabi', runtime 'zfp-cortex-m4f'
+Setup
+   [mkdir]        object directory for project HAL
+   [mkdir]        library directory for project HAL
+   [mkdir]        object directory for project Cortex_M4F
+   [mkdir]        object directory for project ATSAMD51J19A
+   [mkdir]        object directory for project PyGamer_BSP
+hal.gpr:5:24: warning: libraries are not supported on this platform
+ATSAMD51J19A.gpr:4:09: no compiler for language "Ada", cannot compile "sam-device.ads"
+gprbuild: *** compilation phase failed
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/Users/runner/work/alire-crates-ci/alire-crates-ci/test/5bec9a16-a92e-4deb-8200-5d2eae3b3908/pygamer_bsp_1.0.0_43d69885/pygamer_bsp.gpr"] exited with code 7
+ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/Users/runner/work/alire-crates-ci/alire-crates-ci/test/5bec9a16-a92e-4deb-8200-5d2eae3b3908/pygamer_bsp_1.0.0_43d69885/pygamer_bsp.gpr"] exited with code 7
+stderr: ALIRE.CHECKED_ERROR
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/Users/runner/work/alire-crates-ci/alire-crates-ci/test/5bec9a16-a92e-4deb-8200-5d2eae3b3908/pygamer_bsp_1.0.0_43d69885/pygamer_bsp.gpr"] exited with code 7
+stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
+Load address: 0x1046f0000
+Call stack traceback locations:
+0x1053206cc 0x10532072c 0x1050f57a8 0x104d5d3ec 0x104fce03c 0x104fce5b4 0x104f1b834 0x104f1a038 0x104f3c508 0x104f9c028 0x104f9b458 0x104f3c5e4 0x104f3c6cc 0x104f1a53c 0x104f1a66c 0x10476f1a8 0x104772564 0x1047726e4 0x1047fa178 0x104804f5c 0x1046f2018 0x1046f6bd8
+
+
+Warning: pygamer_bsp=1.0.0 successfully retrieved but its build failed.
+Dependencies were solved as follows:
+
+   + cortex_m   0.1.0 (new)
+   + hal        0.4.0 (new,indirect)
+   + samd51_hal 0.1.0 (new)
+ERROR: Build ended with errors

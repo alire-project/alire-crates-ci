@@ -1,0 +1,63 @@
+Test ran at 2026-10-10 12:45:07.842952+00:00
+
+SOLUTION:
+rabbitmq=0.2.0: Ada bindings for the librabbitmq C client library
+Origin: commit 589be7e8dc1ee9ec130262ebaa56556e32a3e2f3 from https://github.com/geewiz/rabbitmq_ada.git
+Available when: (case Distribution is Arch => True, Centos => True, Debian => True, Fedora => True, Homebrew => True, Macports => True, Msys2 => True, Rhel => True, Suse => True, Ubuntu => True, others => False)
+Properties:
+   Author: Jochen Lillich
+   Description: Ada bindings for the librabbitmq C client library
+   License: MIT
+   Maintainer: Jochen Lillich <hello@geewiz.dev>
+   Maintainers_Logins: geewiz
+   Name: rabbitmq
+   Tag: rabbitmq
+   Tag: amqp
+   Tag: message
+   Tag: queue
+   Version: 0.2.0
+   Website: https://github.com/geewiz/rabbitmq_ada
+Dependencies (direct):
+   librabbitmq*
+Dependencies (solution):
+   librabbitmq=0.11.0
+Dependencies (graph):
+   rabbitmq=0.2.0 --> librabbitmq=0.11.0 (*)
+
+
+LOG:
+[alr test] Testing rabbitmq=0.2.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get rabbitmq=0.2.0
+Note: Deploying rabbitmq=0.2.0...
+
+rabbitmq=0.2.0 successfully retrieved.
+Dependencies were solved as follows:
+
+   +b librabbitmq 0.11.0 (new,system package)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building rabbitmq=0.2.0/rabbitmq.gpr...
+Setup
+   [mkdir]        object directory for project Rabbitmq
+   [mkdir]        library directory for project Rabbitmq
+Compile
+   [C]            rabbitmq_ada_helpers.c
+   [Ada]          rabbitmq_config.ads
+   [Ada]          rabbitmq-client.adb
+   [Ada]          rabbitmq-exceptions.ads
+   [Ada]          rabbitmq-publishing.adb
+   [Ada]          rabbitmq-c_binding.ads
+   [Ada]          rabbitmq-consuming.adb
+   [Ada]          rabbitmq-channels.adb
+   [Ada]          rabbitmq.ads
+   [Ada]          rabbitmq-exchanges.adb
+   [Ada]          rabbitmq-messages.adb
+   [Ada]          rabbitmq-client-urls.adb
+   [Ada]          rabbitmq-connections.adb
+   [Ada]          rabbitmq-queues.adb
+Build Libraries
+   [gprlib]       rabbitmq_ada.lexch
+   [archive]      librabbitmq_ada.a
+   [index]        librabbitmq_ada.a
+Success: Build finished successfully in 1.01 seconds.
+Found declared GPR file: rabbitmq.gpr
+[alr test] Test completed SUCCESSFULLY

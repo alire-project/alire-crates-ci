@@ -1,0 +1,83 @@
+Test ran at 2026-03-07 01:16:13.379737+00:00
+
+SOLUTION:
+audio_wavefiles=2.0.0: Ada Wavefile Library
+Origin: commit 8e1162c5b9dc604a835f60be6a78e8f9d3c85052 from https://github.com/Ada-Audio/audio_wavefiles.git
+Properties:
+   Author: Gustavo A. Hoffmann
+   Description: Ada Wavefile Library
+   License: MIT
+   Long_Description: # Ada Wavefile Library
+This crate contains Ada packages for wavefile I/O.
+
+   Maintainer: gusthoff@gusthoff.com
+   Maintainers_Logins: gusthoff
+   Name: audio_wavefiles
+   Project_File: audio_wavefiles.gpr
+   Tag: audio
+   Tag: riff
+   Tag: wavefiles
+   Version: 2.0.0
+   Website: https://github.com/Ada-Audio/audio_wavefiles
+Dependencies (direct):
+   audio_base^1.0
+Dependencies (solution):
+   audio_base=1.0.0
+Dependencies (graph):
+   audio_wavefiles=2.0.0 --> audio_base=1.0.0 (^1.0)
+
+
+LOG:
+[alr test] Testing audio_wavefiles=2.0.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get audio_wavefiles=2.0.0
+Note: Deploying audio_wavefiles=2.0.0...
+Note: Deploying audio_base=1.0.0...
+
+audio_wavefiles=2.0.0 successfully retrieved.
+Dependencies were solved as follows:
+
+   + audio_base 1.0.0 (new)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building audio_wavefiles=2.0.0/audio_wavefiles.gpr...
+Setup
+   [mkdir]        object directory for project Audio_Base
+   [mkdir]        library directory for project Audio_Base
+   [mkdir]        object directory for project Audio_Wavefiles
+   [mkdir]        library directory for project Audio_Wavefiles
+Compile
+   [Ada]          audio-riff.ads
+   [Ada]          audio.ads
+   [Ada]          audio-riff-wav.ads
+   [Ada]          audio-riff-wav-guids.ads
+   [Ada]          audio-riff-wav-formats-report.adb
+   [Ada]          audio-wavefiles-read.adb
+   [Ada]          audio-wavefiles-write.adb
+   [Ada]          audio-wavefiles-generic_float_wav_io.adb
+   [Ada]          audio-wavefiles-generic_fixed_wav_io.adb
+   [Ada]          audio-wavefiles-report.adb
+   [Ada]          audio-wavefiles-internals.adb
+   [Ada]          audio-wavefiles-generic_direct_fixed_wav_io.adb
+   [Ada]          audio-wavefiles-generic_direct_float_wav_io.adb
+   [Ada]          audio-wavefiles-data_types-text_io.ads
+audio-wavefiles-data_types.ads:71:33: error: digits value out of range, maximum is 15
+
+   compilation of audio-wavefiles-data_types-text_io.ads failed
+
+gprbuild: *** compilation phase failed
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/Users/runner/work/alire-crates-ci/alire-crates-ci/test/4c1a45d7-31eb-4204-8668-2c0e240040ca/audio_wavefiles_2.0.0_8e1162c5/audio_wavefiles.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/Users/runner/work/alire-crates-ci/alire-crates-ci/test/4c1a45d7-31eb-4204-8668-2c0e240040ca/audio_wavefiles_2.0.0_8e1162c5/audio_wavefiles.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+stderr: ALIRE.CHECKED_ERROR
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/Users/runner/work/alire-crates-ci/alire-crates-ci/test/4c1a45d7-31eb-4204-8668-2c0e240040ca/audio_wavefiles_2.0.0_8e1162c5/audio_wavefiles.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
+Load address: 0x10096c000
+Call stack traceback locations:
+0x1016780cc 0x10167812c 0x1013cc66c 0x101011568 0x101296594 0x1012974f4 0x1011d533c 0x1011d3b08 0x1011f778c 0x10125756c 0x10125699c 0x1011f7868 0x1011f7950 0x1011d400c 0x1011d4174 0x1009dd730 0x1009dd070 0x1009dd1e4 0x100a7ab38 0x100a85c78 0x10096e9f8 0x100973a2c
+
+stderr: ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED
+stderr: alire-roots.adb:202
+stderr: raised ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED : alire-roots.adb:202
+Load address: 0x10096c000
+Call stack traceback locations:
+0x1016780cc 0x10167812c 0x1011d5640 0x1011d3b08 0x1011f778c 0x10125756c 0x10125699c 0x1011f7868 0x1011f7950 0x1011d400c 0x1011d4174 0x1009dd730 0x1009dd070 0x1009dd1e4 0x100a7ab38 0x100a85c78 0x10096e9f8 0x100973a2c
+
+ERROR: Compilation failed.

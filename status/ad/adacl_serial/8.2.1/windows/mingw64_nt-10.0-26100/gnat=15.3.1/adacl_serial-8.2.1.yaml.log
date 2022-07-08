@@ -1,0 +1,258 @@
+Test ran at 2026-11-19 12:47:52.846870+00:00
+
+SOLUTION:
+adacl_serial=8.2.1: AdaCL embedded: portable serial port and SPARK-friendly character I/O
+Origin: source archive adacl_serial-8.2.1.tgz at https://sourceforge.net/projects/adacl/files/Alire/adacl_serial-8.2.1.tgz with hashes sha256:5ef191f25c89b5bf1fc35a0893775379a8708183697c2d2c4e19a34aec4a126a, sha512:c9410849a038c7cb8ae7db2ab178eb2b539603c76ae63f9f6df9f4bed052ec02350b17db31dd3888ea1abe9f473909e32392567402a7ad2db9b320034c5ab469
+Properties:
+   case OS is
+      when Linux => Pre_Build run: /bin/bash ./generate-os-constants.bash (from ${CRATE_ROOT}/xoscons)
+      when Macos => Pre_Build run: /bin/zsh ./generate-os-constants.command (from ${CRATE_ROOT}/xoscons)
+      when Windows => Pre_Build run: cmd /C generate-os-constants.cmd (from ${CRATE_ROOT}/xoscons)
+      when others => (empty)
+   case OS is
+      when Linux => Test run: /bin/bash ci-verify.sh (from ${CRATE_ROOT}/.)
+      when Macos => Test run: /bin/bash ci-verify.sh (from ${CRATE_ROOT}/.)
+      when Windows => Test run: powershell -ExecutionPolicy Bypass -File ci-verify.ps1 (from ${CRATE_ROOT}/.)
+      when others => (empty)
+   Author: Martin Krischik <krischik@users.sourceforge.net>
+   Build Switches: 
+   Description: AdaCL embedded: portable serial port and SPARK-friendly character I/O
+   License: GPL-3.0-or-later
+   Long_Description: Thin, SPARK-friendly helpers for character and string I/O on a serial port, plus a
+portable binding for the port itself.
+
+The crate contains two packages.
+
+**AdaCL.Serial_Communications**: On Linux and Windows the spec renames GNAT.Serial_Communications and  On macOS it is a
+native body. GNAT reuses the Linux termios record there, which ignores Block and Timeout; this body uses the Darwin
+layout (64-bit flags, no c_line, VMIN at 16 and VTIME at 17) so it's now fully macOS compatible.
+
+AdaCL.Serial_IO is the character and string layer. It extends AdaCL.Serial_Communications.Serial_Port (itself a
+descendant of Ada.Streams.Root_Stream_Type) with a null-record derivation, turning the type into a true class.
+Consequently all operations can be written with the convenient Class.Method syntax (Port.Get, Port.Put_Line,
+Port.Expect, ...).
+
+Provided facilities:
+* Conversion helpers between Stream_Element / Stream_Element_Array and Character / String
+* Classic Get / Put / Get_Line / Put_Line operations
+* High-level Expect procedures (discard or capture skipped text until a given sequence arrives)
+* Full SPARK contracts on Serial_IO; that package is proven to SPARK gold level
+
+Intended for console-style protocols used by classic and modern retro calculators (SwissMicros DM-series, HP-IL
+emulators, etc.).
+
+Licensed under the GNU Library General Public License version 3 (or later).
+Integrates with the Ada Class Library (AdaCL).
+
+Source: [SourceForge](https://sourceforge.net/p/adacl/git/ci/master/tree/adacl_serial/)
+Documentation: [Overview](https://adacl.sourceforge.net/adacl-serial/) and
+[GNATdoc](https://adacl.sourceforge.net/gnatdoc/index.html)
+
+   Maintainer: Martin Krischik <krischik@users.sourceforge.net>
+   Maintainers_Logins: krischik
+   Name: adacl_serial
+   Notes: # Version 8.2.0:
+* Updated AdaCL.Trace for better wide-string support
+* Added a new line-insert filter to AdaCL.SAR that can insert multiple lines and/or only at the first matched location
+* AdaCL.Serial now generates the macOS serial communication layer on the fly
+
+   Tag: library
+   Tag: serial
+   Tag: io
+   Tag: streams
+   Tag: communication
+   Tag: spark
+   Tag: ada2022
+   Tag: embedded
+   Version: 8.2.1
+   Website: https://sourceforge.net/projects/adacl/
+Dependencies (direct):
+   adacl^8.2
+Dependencies (solution):
+   adacl=8.2.1
+Dependencies (graph):
+   adacl_serial=8.2.1 --> adacl=8.2.1 (^8.2)
+
+
+LOG:
+=== Ada CI Verification ===
+=== Test Log Off ===
+Directory: test
+Remove-Item : Cannot find path 
+'D:\a\alire-crates-ci\alire-crates-ci\test\845e43e7-1b4c-4d20-b5b5-cc52a9239c7e\adacl_serial_8.2.1_5ef191f2\lib' 
+because it does not exist.
+At D:\a\alire-crates-ci\alire-crates-ci\test\845e43e7-1b4c-4d20-b5b5-cc52a9239c7e\adacl_serial_8.2.1_5ef191f2\ci-verify
+.ps1:14 char:5
++     Remove-Item -Path lib, */bin -Recurse
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (D:\a\alire-crat....1_5ef191f2\lib:String) [Remove-Item], ItemNotFoundEx 
+   ception
+    + FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.RemoveItemCommand
+ 
+Remove-Item : Cannot find path 
+'D:\a\alire-crates-ci\alire-crates-ci\test\845e43e7-1b4c-4d20-b5b5-cc52a9239c7e\adacl_serial_8.2.1_5ef191f2\obj' 
+because it does not exist.
+At D:\a\alire-crates-ci\alire-crates-ci\test\845e43e7-1b4c-4d20-b5b5-cc52a9239c7e\adacl_serial_8.2.1_5ef191f2\ci-verify
+.ps1:15 char:5
++     Remove-Item -Path obj, */obj -Recurse
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (D:\a\alire-crat....1_5ef191f2\obj:String) [Remove-Item], ItemNotFoundEx 
+   ception
+    + FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.RemoveItemCommand
+ 
+Updating dependencies...
+Dependencies automatically updated as follows:
+
+   +  adacl        8.2.1  (new,indirect)
+   +. adacl_serial 8.2.1  (new,path=..)
+   +  aunit        26.0.0 (new)
+Building with validation...
+Note: Running pre-build actions for adacl_serial=8.2.1...
+Note: Building adacl_serial_xoscons=8.2.1/adacl_serial_xoscons.gpr...
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\adacl_sar_8.2.1_34459c66\9b957e3cde9e91594956ab64228d4f0cdc6327636b79aa94f26f5671ea9b14f0\obj\release" created
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\adacl_sar_8.2.1_34459c66\9b957e3cde9e91594956ab64228d4f0cdc6327636b79aa94f26f5671ea9b14f0\lib" created
+"obj\release" created
+"bin\release" created
+[Ada Compile]     adacl-sar-filter-filter_after_last.adb
+[Ada Compile]     adacl-sar-filter-filter_before_first.adb
+[Ada Compile]     adacl-sar-filter-filter_line.adb
+[Ada Compile]     adacl-sar-filter-filter_lines.adb
+[Ada Compile]     adacl-sar-filter-filter_standard_io.adb
+[Ada Compile]     adacl-sar-filter-insert-line-only_first.adb
+[Ada Compile]     adacl-sar-filter-insert-line.adb
+[Ada Compile]     adacl-sar-filter-insert-lines-only_first.adb
+[Ada Compile]     adacl-sar-filter-insert-lines.adb
+[Ada Compile]     adacl-sar-filter-insert-text.adb
+[Ada Compile]     adacl-sar-filter-insert.adb
+[Ada Compile]     adacl-sar-filter-list.ads
+[Ada Compile]     adacl-sar-filter-remove-comment.adb
+[Ada Compile]     adacl-sar-filter-remove-line.adb
+[Ada Compile]     adacl-sar-filter-remove-tab.adb
+[Ada Compile]     adacl-sar-filter-remove.ads
+[Ada Compile]     adacl-sar-filter-replace-indent.adb
+[Ada Compile]     adacl-sar-filter-replace-text.adb
+[Ada Compile]     adacl-sar-filter-replace.ads
+[Ada Compile]     adacl-sar-filter-trim.adb
+[Ada Compile]     adacl-sar-filter.adb
+[Ada Compile]     adacl-sar-filters-search-excludes.adb
+[Ada Compile]     adacl-sar-filters-search-includes.adb
+[Ada Compile]     adacl-sar-filters-search.adb
+[Ada Compile]     adacl-sar-filters.adb
+[Ada Compile]     adacl-sar-line-list.ads
+[Ada Compile]     adacl-sar-line-read_file.adb
+[Ada Compile]     adacl-sar-line-write_file.adb
+[Ada Compile]     adacl-sar-line.ads
+[Ada Compile]     adacl-sar.ads
+[Ada Compile]     adacl-wide_sar-filter-filter_after_last.adb
+[Ada Compile]     adacl-wide_sar-filter-filter_before_first.adb
+[Ada Compile]     adacl-wide_sar-filter-filter_line.adb
+[Ada Compile]     adacl-wide_sar-filter-filter_lines.adb
+[Ada Compile]     adacl-wide_sar-filter-filter_standard_io.adb
+[Ada Compile]     adacl-wide_sar-filter-insert-line-only_first.adb
+[Ada Compile]     adacl-wide_sar-filter-insert-line.adb
+[Ada Compile]     adacl-wide_sar-filter-insert-lines-only_first.adb
+[Ada Compile]     adacl-wide_sar-filter-insert-lines.adb
+[Ada Compile]     adacl-wide_sar-filter-insert-text.adb
+[Ada Compile]     adacl-wide_sar-filter-insert.adb
+[Ada Compile]     adacl-wide_sar-filter-list.ads
+[Ada Compile]     adacl-wide_sar-filter-remove-comment.adb
+[Ada Compile]     adacl-wide_sar-filter-remove-line.adb
+[Ada Compile]     adacl-wide_sar-filter-remove-tab.adb
+[Ada Compile]     adacl-wide_sar-filter-remove.ads
+[Ada Compile]     adacl-wide_sar-filter-replace-indent.adb
+[Ada Compile]     adacl-wide_sar-filter-replace-text.adb
+[Ada Compile]     adacl-wide_sar-filter-replace.ads
+[Ada Compile]     adacl-wide_sar-filter-trim.adb
+[Ada Compile]     adacl-wide_sar-filter.adb
+[Ada Compile]     adacl-wide_sar-filters-search-excludes.adb
+[Ada Compile]     adacl-wide_sar-filters-search-includes.adb
+[Ada Compile]     adacl-wide_sar-filters-search.adb
+[Ada Compile]     adacl-wide_sar-filters.adb
+[Ada Compile]     adacl-wide_sar-line-list.ads
+[Ada Compile]     adacl-wide_sar-line-read_file.adb
+[Ada Compile]     adacl-wide_sar-line-write_file.adb
+[Ada Compile]     adacl-wide_sar-line.ads
+[Ada Compile]     adacl-wide_sar.ads
+[Ada Compile]     adacl-wide_wide_sar-filter-filter_after_last.adb
+[Ada Compile]     adacl-wide_wide_sar-filter-filter_before_first.adb
+[Ada Compile]     adacl-wide_wide_sar-filter-filter_line.adb
+[Ada Compile]     adacl-wide_wide_sar-filter-filter_lines.adb
+[Ada Compile]     adacl-wide_wide_sar-filter-filter_standard_io.adb
+[Ada Compile]     adacl-wide_wide_sar-filter-insert-line-only_first.adb
+[Ada Compile]     adacl-wide_wide_sar-filter-insert-line.adb
+[Ada Compile]     adacl-wide_wide_sar-filter-insert-lines-only_first.adb
+[Ada Compile]     adacl-wide_wide_sar-filter-insert-lines.adb
+[Ada Compile]     adacl-wide_wide_sar-filter-insert-text.adb
+[Ada Compile]     adacl-wide_wide_sar-filter-insert.adb
+[Ada Compile]     adacl-wide_wide_sar-filter-list.ads
+[Ada Compile]     adacl-wide_wide_sar-filter-remove-comment.adb
+[Ada Compile]     adacl-wide_wide_sar-filter-remove-line.adb
+[Ada Compile]     adacl-wide_wide_sar-filter-remove-tab.adb
+[Ada Compile]     adacl-wide_wide_sar-filter-remove.ads
+[Ada Compile]     adacl-wide_wide_sar-filter-replace-indent.adb
+[Ada Compile]     adacl-wide_wide_sar-filter-replace-text.adb
+[Ada Compile]     adacl-wide_wide_sar-filter-replace.ads
+[Ada Compile]     adacl-wide_wide_sar-filter-trim.adb
+[Ada Compile]     adacl-wide_wide_sar-filter.adb
+[Ada Compile]     adacl-wide_wide_sar-filters-search-excludes.adb
+[Ada Compile]     adacl-wide_wide_sar-filters-search-includes.adb
+[Ada Compile]     adacl-wide_wide_sar-filters-search.adb
+[Ada Compile]     adacl-wide_wide_sar-filters.adb
+[Ada Compile]     adacl-wide_wide_sar-line-list.ads
+[Ada Compile]     adacl-wide_wide_sar-line-read_file.adb
+[Ada Compile]     adacl-wide_wide_sar-line-write_file.adb
+[Ada Compile]     adacl-wide_wide_sar-line.ads
+[Ada Compile]     adacl-wide_wide_sar.ads
+[Ada Compile]     adacl_sar_config.ads
+[Ada Compile]     to_adacl_os_constants.adb
+[Ada Compile]     to_linux_serial.adb
+[Ada Compile]     to_macos_serial.adb
+[Ada Compile]     xoscons.adb
+[Ada Compile]     xutil.adb
+[Archive]         libAdaCL_SAR.a
+[Ada Bind]        to_adacl_os_constants
+[Ada Bind]        to_linux_serial
+[Ada Bind]        to_macos_serial
+[Ada Post-Bind]   b__to_adacl_os_constants.adb
+[Ada Post-Bind]   b__to_linux_serial.adb
+[Ada Post-Bind]   b__to_macos_serial.adb
+D:\a\alire-crates-ci\alire-crates-ci\test\845e43e7-1b4c-4d20-b5b5-cc52a9239c7e\adacl_serial_8.2.1_5ef191f2\xoscons\src\xoscons.adb:597:17: warning: array aggregate using () is an obsolescent syntax, use [] instead [-gnatwj]
+[Ada Bind]        xoscons
+[Ada Post-Bind]   b__xoscons.adb
+[Link]            to_adacl_os_constants.exe
+[Link]            to_macos_serial.exe
+[Link]            to_linux_serial.exe
+[Link]            xoscons.exe
+Success: Build finished successfully in 21.70 seconds.
+   [os-constants] generate s-oscons-tmplt.i
+   [os-constants] generate s-oscons-tmplt.s
+   [os-constants] generate System.OS_Constants
+   [os-constants] generate AdaCL.OS.Constants
+Note: Building adacl_serial_test=8.2.1/adacl_serial_test.gpr...
+"..\obj\release" created
+"..\lib" created
+"obj\validation" created
+"bin\validation" created
+[Ada Compile]     adacl-os-constants.ads
+[Ada Compile]     adacl-serial_communications.ads
+[Ada Compile]     adacl-serial_io.adb
+[Ada Compile]     adacl_serial_config.ads
+[Ada Compile]     adacl_serial_test-main.adb
+[Ada Compile]     adacl_serial_test-suite.adb
+[Ada Compile]     adacl_serial_test.ads
+D:\a\alire-crates-ci\alire-crates-ci\test\845e43e7-1b4c-4d20-b5b5-cc52a9239c7e\adacl_serial_8.2.1_5ef191f2\src\adacl-serial_io.adb:255:121: (style) this line is too long: 122 [-gnatyM]
+[Archive]         libAdaCL_Serial.a
+[Ada Bind]        adacl_serial_test-main
+[Ada Post-Bind]   b__adacl_serial_test-main.adb
+[Link]            adacl_serial_test-main.exe
+Success: Build finished successfully in 25.72 seconds.
+Running tests...
+
+Total Tests Run:   0
+Successful Tests:  0
+Failed Assertions: 0
+Unexpected Errors: 0
+SUCCESS: Test Log Off
+--------------------------------------------------
+All steps completed.
+[alr test] Test completed SUCCESSFULLY

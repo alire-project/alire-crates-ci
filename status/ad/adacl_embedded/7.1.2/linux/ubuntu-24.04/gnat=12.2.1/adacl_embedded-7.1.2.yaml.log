@@ -1,0 +1,90 @@
+Test ran at 2026-06-29 01:24:43.260611+00:00
+
+SOLUTION:
+adacl_embedded=7.1.2: Ada Embedded Library
+Origin: source archive adacl_embedded-7.1.2.tgz at https://sourceforge.net/projects/adacl/files/Alire/adacl_embedded-7.1.2.tgz with hashes sha256:fe91db4f952655498fd733d3f4132d55f33e5286a296c1e9b9a62d03afa98d6c, sha512:a0fc7fe07d29e8e26d2a16f8664297d1359be2ea4a0ba6d9dd9944162dea1f6b220263133707a52e305a0c7026f4824ac5c6167a96e70946249f7412fdc16279
+Properties:
+   Author: Martin Krischik <krischik@users.sourceforge.net>
+   Build Switches: 
+   Config type: Event_Log_Buffer_Length : Integer range 1 .. 1024 default: '200'
+   Config type: Event_Log_Buffer_Size : Integer range 0 .. 1024 default: '0'
+   Config type: Variant : Enum (tasking, no_tasking) default: 'no_tasking'
+   Configuration: no modifiers
+   Description: Ada Embedded Library
+   License: GPL-3.0-or-later
+   Long_Description: ## AdaCL Embedded - Lightweight Embedded Ada Library
+
+AdaCL-Embedded focuses on embedded and real-time programming on the Raspberry Pi and similar platforms.
+
+It favours predictability, minimal runtime overhead, and static data structures. Object-oriented programming, unbounded
+strings, and wide strings are avoided or kept to an absolute minimum.
+
+### Current Features
+
+* **AdaCL.Embedded.Trace** - Interrupt-safe, lightweight tracing facility using a ring buffer.
+* **AdaCL.Embedded.Text_IO** - Extended Ada.Text_IO.
+
+### Configuration Options
+
+* `Variant`
+  * `no_tasking`  - for the lightest runtimes (no protected objects). Also works well with interrupt-driven runtimes.
+  * `tasking`	  - for runtimes with tasking support.
+* `Event_Log_Buffer_Length` - maximum length of each trace line (default: 200, min: 1, max: 1024)
+* `Event_Log_Buffer_Size`   - number of entries in the ring buffer (default: 0, max: 1024, min: 0 (buffer disabled))
+
+A text length of 200 is the standart minimum used in the Ada Standart (i.E. `Ada.Text_IO.Get_Line`, exception messages,
+etc.pp).
+
+Memory needed is approximately `(Event_Log_Buffer_Length + 4) * Event_Log_Buffer_Size` bytes, plus some overhead for the
+buffer management. For example: 1024 buffer size with 200 line lenght is about the maximum size that can be used with
+the static memory of Raspberry Pi Pico. The buffer size can be set to 0 to disable the trace buffer and the related code
+completely.
+
+Source: [SourceForge](https://sourceforge.net/p/adacl/git/ci/master/tree/adacl-embedded/src/)
+Documentation: [GNATdoc](https://adacl-embedded.sourceforge.net/gnatdoc/adael/index.html)
+
+   Maintainer: Martin Krischik <krischik@users.sourceforge.net>
+   Maintainers_Logins: krischik
+   Name: adacl_embedded
+   Tag: library
+   Tag: embedded
+   Tag: trace
+   Tag: logging
+   Tag: raspberry-pi
+   Tag: ada2022
+   Version: 7.1.2
+   Website: https://sourceforge.net/projects/adacl/
+
+
+LOG:
+[alr test] Testing adacl_embedded=7.1.2
+[alr test] Spawning retrieval for remote crate: alr -d -n get adacl_embedded=7.1.2
+Note: Deploying adacl_embedded=7.1.2...
+#=#=#                                                                          
+
+######################################################################## 100.0%
+######################################################################## 100.0%
+######################################################################## 100.0%
+######################################################################## 100.0%##O#-#                                                                         
+
+######################################################################## 100.0%
+
+adacl_embedded=7.1.2 successfully retrieved.
+There are no dependencies.
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building adacl_embedded=7.1.2/adacl_embedded.gpr...
+Setup
+   [mkdir]        object directory for project AdaCL_Embedded
+   [mkdir]        library directory for project AdaCL_Embedded
+Compile
+   [Ada]          adacl_embedded_config.ads
+   [Ada]          adacl-trace.adb
+   [Ada]          adacl-text_io.adb
+   [Ada]          adacl.ads
+Build Libraries
+   [gprlib]       AdaEL.lexch
+   [archive]      libAdaEL.a
+   [index]        libAdaEL.a
+Success: Build finished successfully in 0.39 seconds.
+Found declared GPR file: adacl_embedded.gpr
+[alr test] Test completed SUCCESSFULLY

@@ -1,0 +1,952 @@
+badge: false
+crate: spdx_tool
+creation_timestamp: 1782178006.3784804
+distro: mingw64_nt-10.0-26100
+duration: 29.40599999999995
+gnat: 13.2.2
+last_attempt: 2026-06-25 01:44:07.377077+00:00
+log:
+- 'Test ran at 2026-06-25 01:44:07.377077+00:00
+
+
+  '
+- 'SOLUTION:
+
+  '
+- 'spdx_tool=1.0.0: SPDX license detection and management tool
+
+  '
+- 'Origin: commit a2c70523a2c712053ef6f4780b1dc0e875782058 from https://gitlab.com/stcarrez/spdx-tool.git
+
+  '
+- 'Properties:
+
+  '
+- '   Post_Fetch run: sh ./alire-setup.sh (from ${CRATE_ROOT}/.)
+
+  '
+- '   Author: ciceron
+
+  '
+- '   Description: SPDX license detection and management tool
+
+  '
+- '   Executable: spdx-tool
+
+  '
+- '   case OS is
+
+  '
+- '      when Freebsd => GPR External: USE_MAGICADA := no
+
+  '
+- '      when Linux => GPR External: USE_MAGICADA := yes
+
+  '
+- '      when Macos => GPR External: USE_MAGICADA := no
+
+  '
+- '      when Windows => GPR External: USE_MAGICADA := no
+
+  '
+- '   License: Apache-2.0
+
+  '
+- '   Long_Description: spdx-tool scans the source files to identify licenses and
+  allows to update them in order to use the
+
+  '
+- 'SPDX license format.  It can be used to:
+
+  '
+- '
+
+  '
+- '* identify the license used in source files of a project,
+
+  '
+- '* produce a JSON/XML report for the licenses found with the list of files,
+
+  '
+- '* replace a license header by the [SPDX license](https://spdx.org/licenses/) tag
+  equivalent.
+
+  '
+- '
+
+  '
+- 'Identify licenses used in a project:
+
+  '
+- '
+
+  '
+- '```
+
+  '
+- 'spdx-tool
+
+  '
+- '```
+
+  '
+- '
+
+  '
+- 'Identify files matching a given license:
+
+  '
+- '
+
+  '
+- '```
+
+  '
+- 'spdx-tool --only-licenses=Apache-2.0 -f
+
+  '
+- '```
+
+  '
+- '
+
+  '
+- 'Check the license header before replacing it:
+
+  '
+- '
+
+  '
+- '```
+
+  '
+- 'spdx-tool --only-licenses=Apache-2.0 --print-license --line-number src
+
+  '
+- '```
+
+  '
+- '
+
+  '
+- 'Replace the license header by the `SPDX-License-Identifier` header:
+
+  '
+- '
+
+  '
+- '```
+
+  '
+- 'spdx-tool --only-licenses=Apache-2.0 --update=spdx src
+
+  '
+- '```
+
+  '
+- '
+
+  '
+- 'Build an XML or JSON report of files with their licenses:
+
+  '
+- '
+
+  '
+- '```
+
+  '
+- 'spdx-tool --output-xml=report.xml
+
+  '
+- '```
+
+  '
+- '
+
+  '
+- '## Documentation
+
+  '
+- '
+
+  '
+- '* Man page: [spdx-tool (1)](https://gitlab.com/stcarrez/spdx-tool/-/blob/main/docs/spdx-tool.md?ref_type=heads)
+
+  '
+- '
+
+  '
+- '
+
+  '
+- '   Maintainer: ciceron <Stephane.Carrez@gmail.com>
+
+  '
+- '   Maintainers_Logins: stcarrez
+
+  '
+- '   Name: spdx_tool
+
+  '
+- '   Project_File: spdx_tool.gpr
+
+  '
+- '   Tag: tools
+
+  '
+- '   Tag: spdx
+
+  '
+- '   Tag: license
+
+  '
+- '   Version: 1.0.0
+
+  '
+- '   Website: https://github.com/stcarrez/spdx-tool
+
+  '
+- 'Dependencies (direct):
+
+  '
+- '   case OS is
+
+  '
+- '      when Linux => magicada^1
+
+  '
+- '   ada_toml~0.5.0
+
+  '
+- '   ansiada^1.0.0
+
+  '
+- '   intl^1.0.1
+
+  '
+- '   printer_toolkit~0.2.0
+
+  '
+- '   sciada~0.4.0
+
+  '
+- '   spdx~0.2.0
+
+  '
+- '   utilada^2.8.0
+
+  '
+- '   utilada_xml^2.8.0
+
+  '
+- 'Dependencies (solution):
+
+  '
+- '   ada_toml=0.5.0
+
+  '
+- '   ansiada=1.1.0
+
+  '
+- '   gnat=13.2.2 (gnat_native)
+
+  '
+- '   intl=1.0.1
+
+  '
+- '   printer_toolkit=0.2.0
+
+  '
+- '   sciada=0.4.0
+
+  '
+- '   spdx=0.2.0
+
+  '
+- '   utilada=2.9.0
+
+  '
+- '   utilada_xml=2.9.0
+
+  '
+- '   xmlada=25.0.0
+
+  '
+- 'Dependencies (graph):
+
+  '
+- '   printer_toolkit=0.2.0 --> ansiada=1.1.0 (^1.0.0)
+
+  '
+- '   spdx_tool=1.0.0       --> ada_toml=0.5.0 (~0.5.0)
+
+  '
+- '   spdx_tool=1.0.0       --> ansiada=1.1.0 (^1.0.0)
+
+  '
+- '   spdx_tool=1.0.0       --> intl=1.0.1 (^1.0.1)
+
+  '
+- '   spdx_tool=1.0.0       --> printer_toolkit=0.2.0 (~0.2.0)
+
+  '
+- '   spdx_tool=1.0.0       --> sciada=0.4.0 (~0.4.0)
+
+  '
+- '   spdx_tool=1.0.0       --> spdx=0.2.0 (~0.2.0)
+
+  '
+- '   spdx_tool=1.0.0       --> utilada=2.9.0 (^2.8.0)
+
+  '
+- '   spdx_tool=1.0.0       --> utilada_xml=2.9.0 (^2.8.0)
+
+  '
+- '   utilada_xml=2.9.0     --> utilada=2.9.0 (^2.9.0)
+
+  '
+- '   utilada_xml=2.9.0     --> xmlada=25.0.0 (^24.0|^25.0)
+
+  '
+- '   xmlada=25.0.0         --> gnat=13.2.2 (gnat_native) (>=11)
+
+  '
+- '
+
+  '
+- '
+
+  LOG:
+
+  '
+- '[alr test] Testing spdx_tool=1.0.0
+
+  '
+- '[alr test] Spawning retrieval for remote crate: alr -d -n get spdx_tool=1.0.0
+
+  '
+- 'Note: Deploying spdx_tool=1.0.0...
+
+  '
+- 'Note: Deploying ada_toml=0.5.0...
+
+  '
+- '
+
+  '
+- "#=#=#                                                                         \
+  \ \n"
+- 'Note: Deploying ansiada=1.1.0...
+
+  '
+- 'Note: Deploying sciada=0.4.0...
+
+  '
+- 'Note: Deploying spdx=0.2.0...
+
+  '
+- 'Note: Deploying printer_toolkit=0.2.0...
+
+  '
+- '
+
+  '
+- 'spdx_tool=1.0.0 successfully retrieved.
+
+  '
+- 'Dependencies were solved as follows:
+
+  '
+- '
+
+  '
+- '   +  ada_toml        0.5.0  (new)
+
+  '
+- '   +  ansiada         1.1.0  (new)
+
+  '
+- '   +b gnat            13.2.2 (new,gnat_native,indirect,binary)
+
+  '
+- '   +  intl            1.0.1  (new)
+
+  '
+- '   +  printer_toolkit 0.2.0  (new)
+
+  '
+- '   +  sciada          0.4.0  (new)
+
+  '
+- '   +  spdx            0.2.0  (new)
+
+  '
+- '   +  utilada         2.9.0  (new)
+
+  '
+- '   +  utilada_xml     2.9.0  (new)
+
+  '
+- '   +  xmlada          25.0.0 (new,indirect)
+
+  '
+- '[alr test] Spawning default test for remote crate: alr -d -n build --release --
+  -cargs:Ada -gnatwn
+
+  '
+- 'Note: Running post-fetch actions for spdx_tool=1.0.0...
+
+  '
+- 'Note: Building spdx_tool=1.0.0/spdx_tool.gpr...
+
+  '
+- 'Setup
+
+  '
+- '   [mkdir]        object directory for project Ada_TOML
+
+  '
+- '   [mkdir]        library directory for project Ada_TOML
+
+  '
+- '   [mkdir]        object directory for project Ansiada
+
+  '
+- '   [mkdir]        library directory for project Ansiada
+
+  '
+- '   [mkdir]        object directory for project Printer_Toolkit
+
+  '
+- '   [mkdir]        library directory for project Printer_Toolkit
+
+  '
+- '   [mkdir]        object directory for project SciAda
+
+  '
+- '   [mkdir]        library directory for project SciAda
+
+  '
+- '   [mkdir]        object directory for project Spdx
+
+  '
+- '   [mkdir]        library directory for project Spdx
+
+  '
+- '   [mkdir]        object directory for project Spdx_Tool
+
+  '
+- '   [mkdir]        exec directory for project Spdx_Tool
+
+  '
+- 'Compile
+
+  '
+- '   [Ada]          spdx_tool-main.adb
+
+  '
+- '   [Ada]          util-systems-dlls.adb
+
+  '
+- '   [Ada]          util-streams-raw.adb
+
+  '
+- '   [Ada]          util-processes-os.adb
+
+  '
+- '   [Ada]          util-processes.adb
+
+  '
+- '   [Ada]          util-processes-tools.adb
+
+  '
+- '   [Ada]          util-mail.adb
+
+  '
+- '   [Ada]          util-http.adb
+
+  '
+- '   [Ada]          util-http-tools.adb
+
+  '
+- '   [Ada]          util-http-rest.adb
+
+  '
+- '   [Ada]          util-http-rest-rest_get_vector.adb
+
+  '
+- '   [Ada]          util-http-parts.adb
+
+  '
+- '   [Ada]          util-http-mockups.adb
+
+  '
+- '   [Ada]          util-http-mimes.adb
+
+  '
+- '   [Ada]          util-http-headers.adb
+
+  '
+- '   [Ada]          util-http-cookies.adb
+
+  '
+- '   [Ada]          util-http-clients.adb
+
+  '
+- '   [Ada]          util-http-clients-mockups.adb
+
+  '
+- '   [Ada]          util-encoders.adb
+
+  '
+- '   [Ada]          util-encoders-uri.adb
+
+  '
+- '   [Ada]          util-encoders-sha256.adb
+
+  '
+- '   [Ada]          util-encoders-sha1.adb
+
+  '
+- '   [Ada]          util-encoders-quoted_printable.adb
+
+  '
+- '   [Ada]          util-encoders-kdf.ads
+
+  '
+- '   [Ada]          util-encoders-kdf-pbkdf2_hmac_sha256.ads
+
+  '
+- '   [Ada]          util-encoders-kdf-pbkdf2.adb
+
+  '
+- '   [Ada]          util-encoders-hmac.ads
+
+  '
+- '   [Ada]          util-encoders-hmac-sha256.adb
+
+  '
+- '   [Ada]          util-encoders-hmac-sha1.adb
+
+  '
+- '   [Ada]          util-encoders-hmac-hotp.adb
+
+  '
+- '   [Ada]          util-encoders-ecc.adb
+
+  '
+- '   [Ada]          util-encoders-base64.adb
+
+  '
+- '   [Ada]          util-encoders-base32.adb
+
+  '
+- '   [Ada]          util-encoders-base16.adb
+
+  '
+- '   [Ada]          util-encoders-aes.adb
+
+  '
+- '   [Ada]          util-measures.adb
+
+  '
+- '   [Ada]          util-streams.adb
+
+  '
+- '   [Ada]          util-streams-texts.adb
+
+  '
+- '   [Ada]          util-streams-texts-wtr.ads
+
+  '
+- '   [Ada]          util-streams-texts-tr.ads
+
+  '
+- '   [Ada]          util-streams-sockets.adb
+
+  '
+- '   [Ada]          util-streams-pipes.adb
+
+  '
+- '   [Ada]          util-streams-files.adb
+
+  '
+- '   [Ada]          util-streams-buffered.adb
+
+  '
+- '   [Ada]          util-streams-buffered-parts.adb
+
+  '
+- '   [Ada]          util-streams-buffered-encoders.adb
+
+  '
+- '   [Ada]          util-streams-base64.ads
+
+  '
+- '   [Ada]          util-streams-base16.ads
+
+  '
+- '   [Ada]          util-streams-aes.adb
+
+  '
+- '   [Ada]          util-serialize.ads
+
+  '
+- '   [Ada]          util-serialize-tools.adb
+
+  '
+- '   [Ada]          util-serialize-mappers.adb
+
+  '
+- '   [Ada]          util-serialize-mappers-vector_mapper.adb
+
+  '
+- '   [Ada]          util-serialize-mappers-record_mapper.adb
+
+  '
+- '   [Ada]          util-serialize-io.adb
+
+  '
+- '   [Ada]          util-serialize-io-json.adb
+
+  '
+- '   [Ada]          util-serialize-io-form.adb
+
+  '
+- '   [Ada]          util-serialize-io-csv.adb
+
+  '
+- '   [Ada]          util-serialize-contexts.adb
+
+  '
+- '   [Ada]          util-properties-json.adb
+
+  '
+- '   [Ada]          util-properties-form.adb
+
+  '
+- '   [Ada]          util-beans-objects-readers.adb
+
+  '
+- '   [Ada]          util-texts.ads
+
+  '
+- '   [Ada]          util-texts-transforms.adb
+
+  '
+- '   [Ada]          util-texts-tokenizers.adb
+
+  '
+- '   [Ada]          util-texts-formats.adb
+
+  '
+- '   [Ada]          util-texts-builders.adb
+
+  '
+- '   [Ada]          util-strings.adb
+
+  '
+- '   [Ada]          util-strings-vectors.ads
+
+  '
+- '   [Ada]          util-strings-transforms.adb
+
+  '
+- '   [Ada]          util-strings-tokenizers.ads
+
+  '
+- '   [Ada]          util-strings-sets.ads
+
+  '
+- '   [Ada]          util-strings-maps_incensitive.ads
+
+  '
+- '   [Ada]          util-strings-maps.ads
+
+  '
+- '   [Ada]          util-strings-formats.adb
+
+  '
+- '   [Ada]          util-strings-builders.ads
+
+  '
+- '   [Ada]          util-strings-builders-transforms.ads
+
+  '
+- '   [Ada]          util-listeners.ads
+
+  '
+- '   [Ada]          util-listeners-observers.adb
+
+  '
+- '   [Ada]          util-listeners-lifecycles.adb
+
+  '
+- '   [Ada]          util-concurrent-counters.adb
+
+  '
+- '   [Ada]          util-concurrent.ads
+
+  '
+- '   [Ada]          util-concurrent-sequence_queues.adb
+
+  '
+- '   [Ada]          util-concurrent-pools.adb
+
+  '
+- '   [Ada]          util-concurrent-locks.adb
+
+  '
+- '   [Ada]          util-concurrent-fifos.adb
+
+  '
+- '   [Ada]          util-concurrent-copies.adb
+
+  '
+- '   [Ada]          util-concurrent-arrays.adb
+
+  '
+- '   [Ada]          util.ads
+
+  '
+- '   [Ada]          util-stacks.adb
+
+  '
+- '   [Ada]          util-refs.adb
+
+  '
+- '   [Ada]          util-nullables.ads
+
+  '
+- '   [Ada]          util-named_lists.adb
+
+  '
+- '   [Ada]          util-locales.adb
+
+  '
+- '   [Ada]          util-executors.adb
+
+  '
+- '   [Ada]          util-blobs.adb
+
+  '
+- '   [Ada]          util-algorithms.ads
+
+  '
+- '   [Ada]          util-dates.adb
+
+  '
+- '   [Ada]          util-dates-iso8601.adb
+
+  '
+- '   [Ada]          util-dates-formats.adb
+
+  '
+- 'util-dates-to_ada_time_64.adb:17:43: error: "To_Duration_64" not declared in "Conversions"
+
+  '
+- 'util-dates-to_ada_time_64.adb:19:22: error: "To_Ada_Time_64" not declared in "Conversions"
+
+  '
+- '
+
+  '
+- '   compilation of util-dates.adb failed
+
+  '
+- '
+
+  '
+- 'gprbuild: *** compilation phase failed
+
+  '
+- 'stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "D:\a\alire-crates-ci\alire-crates-ci\test\e209cae9-a017-471c-aa52-58cb72d5c4c1\spdx_tool_1.0.0_a2c70523\spdx_tool.gpr",
+  "-cargs:Ada", "-gnatwn"] exited with code 4
+
+  '
+- 'ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "D:\a\alire-crates-ci\alire-crates-ci\test\e209cae9-a017-471c-aa52-58cb72d5c4c1\spdx_tool_1.0.0_a2c70523\spdx_tool.gpr",
+  "-cargs:Ada", "-gnatwn"] exited with code 4
+
+  '
+- 'stderr: ALIRE.CHECKED_ERROR
+
+  '
+- 'stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "D:\a\alire-crates-ci\alire-crates-ci\test\e209cae9-a017-471c-aa52-58cb72d5c4c1\spdx_tool_1.0.0_a2c70523\spdx_tool.gpr",
+  "-cargs:Ada", "-gnatwn"] exited with code 4
+
+  '
+- 'stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
+
+  '
+- '[D:\a\alire-crates-ci\alire-crates-ci\alire_install\bin\alr.exe]
+
+  '
+- '0x7ff62d45da2a Semantic_Versioning.Basic.Restrictions.First_Index at alire.adb:284
+
+  '
+- '0x7ff62d05595b Semantic_Versioning.Basic.Restrictions.First_Index at alire-os_lib-subprocess.adb:111
+
+  '
+- '0x7ff62d30cba1 Semantic_Versioning.Basic.Restrictions.First_Index at alire-spawn.adb:22
+
+  '
+- '0x7ff62d30dd5d Semantic_Versioning.Basic.Restrictions.First_Index at alire-spawn.adb:68
+
+  '
+- '0x7ff62d232d64 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:189
+
+  '
+- '0x7ff62d2311da Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:255
+
+  '
+- '0x7ff62d25912d Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2143
+
+  '
+- '0x7ff62d2c82f9 Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1472
+
+  '
+- '0x7ff62d2c7424 Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1555
+
+  '
+- '0x7ff62d25922c Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2147
+
+  '
+- '0x7ff62d2592fa Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2127
+
+  '
+- '0x7ff62d2317a7 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:286
+
+  '
+- '0x7ff62d231912 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:114
+
+  '
+- '0x7ff62c9a3baa Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:145
+
+  '
+- '0x7ff62c9a341e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:113
+
+  '
+- '0x7ff62c9a35ba Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:54
+
+  '
+- '0x7ff62ca55dea Semantic_Versioning.Basic.Restrictions.First_Index at clic-subcommand-instance.adb:749
+
+  '
+- '0x7ff62ca62b0e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands.adb:632
+
+  '
+- '0x7ff62c9316a0 Alr.Main at alr-main.adb:13
+
+  '
+- '0x7ff62c935270 Main at b__alr-main.adb:2454
+
+  '
+- '0x7ff62c93133e __tmainCRTStartup at ???
+
+  '
+- '0x7ff62c931144 mainCRTStartup at ???
+
+  '
+- '[C:\Windows\System32\KERNEL32.DLL]
+
+  '
+- '0x7ffd42ade8d5
+
+  '
+- '[C:\Windows\SYSTEM32\ntdll.dll]
+
+  '
+- '0x7ffd43dec53a
+
+  '
+- '
+
+  '
+- 'stderr: ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED
+
+  '
+- 'stderr: alire-roots.adb:202
+
+  '
+- 'stderr: raised ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED : alire-roots.adb:202
+
+  '
+- '[D:\a\alire-crates-ci\alire-crates-ci\alire_install\bin\alr.exe]
+
+  '
+- '0x7ff62d23313c Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:202
+
+  '
+- '0x7ff62d2311da Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:255
+
+  '
+- '0x7ff62d25912d Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2143
+
+  '
+- '0x7ff62d2c82f9 Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1472
+
+  '
+- '0x7ff62d2c7424 Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1555
+
+  '
+- '0x7ff62d25922c Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2147
+
+  '
+- '0x7ff62d2592fa Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2127
+
+  '
+- '0x7ff62d2317a7 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:286
+
+  '
+- '0x7ff62d231912 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:114
+
+  '
+- '0x7ff62c9a3baa Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:145
+
+  '
+- '0x7ff62c9a341e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:113
+
+  '
+- '0x7ff62c9a35ba Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:54
+
+  '
+- '0x7ff62ca55dea Semantic_Versioning.Basic.Restrictions.First_Index at clic-subcommand-instance.adb:749
+
+  '
+- '0x7ff62ca62b0e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands.adb:632
+
+  '
+- '0x7ff62c9316a0 Alr.Main at alr-main.adb:13
+
+  '
+- '0x7ff62c935270 Main at b__alr-main.adb:2454
+
+  '
+- '0x7ff62c93133e __tmainCRTStartup at ???
+
+  '
+- '0x7ff62c931144 mainCRTStartup at ???
+
+  '
+- '[C:\Windows\System32\KERNEL32.DLL]
+
+  '
+- '0x7ffd42ade8d5
+
+  '
+- '[C:\Windows\SYSTEM32\ntdll.dll]
+
+  '
+- '0x7ffd43dec53a
+
+  '
+- '
+
+  '
+- 'ERROR: Compilation failed.
+
+  '
+platform: windows
+status: failing
+version: 1.0.0

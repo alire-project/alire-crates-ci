@@ -1,0 +1,192 @@
+Test ran at 2026-08-09 00:58:12.600476+00:00
+
+SOLUTION:
+spark_math=0.1.0: Formally verified mathematical library in SPARK
+Origin: commit 8939f758a129b2dc44094de32e373f2243b9c6f7 from https://github.com/adarium-labs/spark_math.git
+Properties:
+   Author: Heziode
+   Description: Formally verified mathematical library in SPARK
+   License: Apache-2.0 WITH LLVM-exception
+   Long_Description: # Spark_Math
+
+[![License](https://img.shields.io/badge/license-Apache--2.0%20WITH%20LLVM--exception-blue.svg)](LICENSE)
+[![SPARK](https://img.shields.io/badge/SPARK-Gold-gold.svg)](https://www.adacore.com/about-spark)
+
+A formally verified mathematical library written in SPARK/Ada, providing common mathematical functions for both integer and fixed-point types with compile-time proof of correctness.
+
+## Features
+
+### Integer Math (`Spark_Math.Integer`)
+
+| Function | Description | Complexity |
+|----------|-------------|------------|
+| `Sqrt` | Integer square root (floor of sqrt N) | O(log N) |
+| `Power` | Exponentiation with overflow protection | O(Exp) |
+| `GCD` | Greatest common divisor (Euclidean algorithm) | O(log min(A,B)) |
+| `Max` | Maximum of two values | O(1) |
+| `Min` | Minimum of two values | O(1) |
+
+### Fixed-Point Math (`Spark_Math.Fixed`)
+
+| Function | Description | Complexity |
+|----------|-------------|------------|
+| `Sqrt` | Square root approximation (within `'Small`) | O(log(N/Small)) |
+| `Max` | Maximum of two values | O(1) |
+| `Min` | Minimum of two values | O(1) |
+
+## Roadmap
+
+The goal is to provide SPARK-verified equivalents of `Ada.Numerics.Generic_Elementary_Functions` for fixed-point and integer types.
+
+### Planned Functions
+
+| Category | Functions | Status |
+|----------|-----------|--------|
+| **Basic** | `Sqrt` | Implemented |
+| **Exponential** | `Log`, `Log(Base)`, `Exp`, `**` | Planned |
+| **Trigonometric** | `Sin`, `Cos`, `Tan`, `Cot` | Planned |
+| **Inverse Trig** | `Arcsin`, `Arccos`, `Arctan`, `Arccot` | Planned |
+| **Hyperbolic** | `Sinh`, `Cosh`, `Tanh`, `Coth` | Planned |
+| **Inverse Hyperbolic** | `Arcsinh`, `Arccosh`, `Arctanh`, `Arccoth` | Planned |
+
+### Implementation Notes
+
+Unlike floating-point implementations, fixed-point math requires:
+
+- **CORDIC algorithms** for trigonometric functions (no FPU dependency)
+- **Polynomial approximations** with bounded error analysis
+- **Range reduction** techniques proven correct in SPARK
+- **Cycle parameter support** for degree/radian flexibility
+
+Contributions for any of these functions are welcome!
+
+## Usage
+
+### Integer Math Example
+
+```ada
+with Spark_Math.Integer;
+
+procedure Example is
+   --  Instantiate for your integer type
+   package My_Math is new Spark_Math.Integer (Integer);
+   
+   Result : Integer;
+begin
+   --  Square root (floor)
+   Result := My_Math.Sqrt (17);      --  Returns 4
+   
+   --  Exponentiation
+   Result := My_Math.Power (2, 10);  --  Returns 1024
+   
+   --  Greatest common divisor
+   Result := My_Math.GCD (48, 18);   --  Returns 6
+   
+   --  Max and Min
+   Result := My_Math.Max (5, 3);     --  Returns 5
+   Result := My_Math.Min (5, 3);     --  Returns 3
+end Example;
+```
+
+### Fixed-Point Math Example
+
+```ada
+with Spark_Math.Fixed;
+
+procedure Example is
+   --  Define your fixed-point type
+   type Voltage is delta 0.001 range 0.0 .. 100.0;
+   
+   --  Instantiate for your type
+   package Voltage_Math is new Spark_Math.Fixed (Voltage);
+   
+   Result : Voltage;
+begin
+   --  Square root (approximation within 'Small)
+   Result := Voltage_Math.Sqrt (4.0);   --  Returns ~= 2.0
+   Result := Voltage_Math.Sqrt (2.0);   --  Returns ~= 1.414
+   
+   --  Max and Min
+   Result := Voltage_Math.Max (3.5, 2.1);  --  Returns 3.5
+   Result := Voltage_Math.Min (3.5, 2.1);  --  Returns 2.1
+end Example;
+```
+
+## SPARK Verification
+
+This library is designed for formal verification with SPARK. All functions include:
+
+- **Preconditions** (`Pre`): Specify valid input constraints
+- **Postconditions** (`Post`): Guarantee output properties
+- **Loop invariants**: Enable proof of loop correctness
+- **No runtime exceptions**: All potential issues are caught at proof time
+
+### Verification Status
+
+SPARK defines five proof levels:
+
+| Level | Description |
+|-------|-------------|
+| **Stone** | Valid SPARK code |
+| **Bronze** | Initialization and correct data flow |
+| **Silver** | Absence of run-time errors (AoRTE) |
+| **Gold** | Proof of key integrity properties |
+| **Platinum** | Full functional proof of requirements |
+
+| Package | Level |
+|---------|-------|
+| `Spark_Math.Numerics_Core` | Gold |
+| `Spark_Math.Integer` | Gold |
+| `Spark_Math.Fixed` | Gold |
+
+## Contributing
+
+Contributions are welcome!
+
+## License
+
+This project is licensed under the Apache-2.0 WITH LLVM-exception license. See [LICENSE](LICENSE) for details.
+
+
+   Maintainer: Heziode <heziode@protonmail.com>
+   Maintainers_Logins: heziode
+   Name: spark_math
+   Tag: spark
+   Tag: verification
+   Tag: math
+   Tag: sqrt
+   Tag: fixed-point
+   Version: 0.1.0
+   Website: 
+
+
+LOG:
+[alr test] Testing spark_math=0.1.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get spark_math=0.1.0
+Note: Deploying spark_math=0.1.0...
+
+spark_math=0.1.0 successfully retrieved.
+There are no dependencies.
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building spark_math=0.1.0/spark_math.gpr...
+Setup
+   [mkdir]        object directory for project Spark_Math
+   [mkdir]        library directory for project Spark_Math
+Compile
+   [Ada]          spark_math_config.ads
+   [Ada]          spark_math-fixed.ads
+   [Ada]          spark_math-integer.adb
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+   [Ada]          spark_math.ads
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+   [Ada]          spark_math-numerics_core.adb
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+Build Libraries
+   [gprlib]       Spark_Math.lexch
+   [archive]      libSpark_Math.a
+   [index]        libSpark_Math.a
+Success: Build finished successfully in 2.16 seconds.
+Found declared GPR file: spark_math.gpr
+[alr test] Test completed SUCCESSFULLY

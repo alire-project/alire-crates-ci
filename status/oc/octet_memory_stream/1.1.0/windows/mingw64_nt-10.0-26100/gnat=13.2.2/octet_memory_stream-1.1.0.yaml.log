@@ -1,0 +1,157 @@
+Test ran at 2025-12-12 12:36:46.427184+00:00
+
+SOLUTION:
+octet_memory_stream=1.1.0: Provides a Root_Stream_Type wrapper over an array of octets in memory.
+Origin: commit 54ecee472e8f78ab6d09df59f48bcca548364ee3 from https://github.com/Bread-Experts-Group/octet_memory_stream.git
+Properties:
+   Author: Miko Elbrecht
+   Description: Provides a Root_Stream_Type wrapper over an array of octets in memory.
+   License: Apache-2.0 WITH LLVM-exception
+   Long_Description: `octet_memory_stream` provides a standalone `Ada.Streams.Root_Stream_Type`
+wrapper around an `Octet_Array` (array of 8-bit bytes,) primarily for the
+purpose of protecting an over-arching stream from misalignment while reading
+from, or writing to, e.g., a file format.
+
+If the `Memory_Stream` detects an out-of-bounds error as the result of a read
+or write operation, an `Out_Of_Bounds_Error` exception will be raised.
+
+Example Use
+-----------
+All pertinent types and subprograms are available within the package 
+`Octet_Memory_Stream`. Wrapping an `Octet_Array` is done through the
+`To_Stream` function.
+```ada
+pragma Ada_2022;
+
+with Ada.Text_IO;
+with Ada.Streams.Stream_IO;
+use  Ada.Streams.Stream_IO;
+with Octet_Memory_Stream;
+
+procedure TestDemo is
+   F                : File_Type;
+   Protected_Stream : Stream_Access;
+   Memory_Stream    : Octet_Memory_Stream.Stream_Access;
+begin
+   Open (F, In_File, "example");
+   Protected_Stream := Stream (F);
+   declare
+      Data : Octet_Memory_Stream.Octet_Array (1 .. 50);
+   begin
+      Octet_Memory_Stream.Octet_Array'Read (Protected_Stream, Data);
+      Memory_Stream := Octet_Memory_Stream.To_Stream (Data);
+   end;
+   declare
+      OK_Data  : Octet_Memory_Stream.Octet_Array (1 .. 25);
+      OOB_Data : Octet_Memory_Stream.Octet_Array (1 .. 26);
+   begin
+      Octet_Memory_Stream.Octet_Array'Read (Memory_Stream, OK_Data);
+      Ada.Text_IO.Put_Line (OK_Data'Image);
+
+      Octet_Memory_Stream.Octet_Array'Read (Memory_Stream, OOB_Data);
+      --  exception raised above
+      Ada.Text_IO.Put_Line (OOB_Data'Image);
+   end;
+   Close (F);
+end TestDemo;
+```
+
+   Maintainer: Miko Elbrecht <pmt.mailservice@gmail.com>
+   Maintainers_Logins: ATPStorages
+   Name: octet_memory_stream
+   Tag: octet
+   Tag: byte
+   Tag: buffer
+   Tag: stream
+   Tag: ada
+   Tag: streams
+   Tag: memory
+   Version: 1.1.0
+   Website: https://github.com/Bread-Experts-Group/octet_memory_stream
+
+
+LOG:
+[alr test] Testing octet_memory_stream=1.1.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get octet_memory_stream=1.1.0
+Note: Deploying octet_memory_stream=1.1.0...
+
+octet_memory_stream=1.1.0 successfully retrieved.
+There are no dependencies.
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building octet_memory_stream=1.1.0/octet_memory_stream.gpr...
+Setup
+   [mkdir]        object directory for project Octet_Memory_Stream
+   [mkdir]        library directory for project Octet_Memory_Stream
+Compile
+   [Ada]          octet_memory_stream_config.ads
+completed 1 out of 2 (50%)...
+   [Ada]          octet_memory_stream.adb
+gnat1: invalid switch: -gnatw_s
+completed 2 out of 2 (100%)...
+gnat1: invalid switch: -gnatw_s
+
+   compilation of octet_memory_stream.adb failed
+   compilation of octet_memory_stream_config.ads failed
+
+gprbuild: *** compilation phase failed
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "D:\a\alire-crates-ci\alire-crates-ci\test\85780a67-5339-48ee-af9d-c8d2463e7a61\octet_memory_stream_1.1.0_54ecee47\octet_memory_stream.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "D:\a\alire-crates-ci\alire-crates-ci\test\85780a67-5339-48ee-af9d-c8d2463e7a61\octet_memory_stream_1.1.0_54ecee47\octet_memory_stream.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+stderr: ALIRE.CHECKED_ERROR
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "D:\a\alire-crates-ci\alire-crates-ci\test\85780a67-5339-48ee-af9d-c8d2463e7a61\octet_memory_stream_1.1.0_54ecee47\octet_memory_stream.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
+[D:\a\alire-crates-ci\alire-crates-ci\alire_install\bin\alr.exe]
+0x7ff70d80da2a Semantic_Versioning.Basic.Restrictions.First_Index at alire.adb:284
+0x7ff70d40595b Semantic_Versioning.Basic.Restrictions.First_Index at alire-os_lib-subprocess.adb:111
+0x7ff70d6bcba1 Semantic_Versioning.Basic.Restrictions.First_Index at alire-spawn.adb:22
+0x7ff70d6bdd5d Semantic_Versioning.Basic.Restrictions.First_Index at alire-spawn.adb:68
+0x7ff70d5e2d64 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:189
+0x7ff70d5e11da Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:255
+0x7ff70d60912d Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2143
+0x7ff70d6782f9 Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1472
+0x7ff70d677424 Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1555
+0x7ff70d60922c Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2147
+0x7ff70d6092fa Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2127
+0x7ff70d5e17a7 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:286
+0x7ff70d5e1912 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:114
+0x7ff70cd53baa Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:145
+0x7ff70cd5341e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:113
+0x7ff70cd535ba Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:54
+0x7ff70ce05dea Semantic_Versioning.Basic.Restrictions.First_Index at clic-subcommand-instance.adb:749
+0x7ff70ce12b0e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands.adb:632
+0x7ff70cce16a0 Alr.Main at alr-main.adb:13
+0x7ff70cce5270 Main at b__alr-main.adb:2454
+0x7ff70cce133e __tmainCRTStartup at ???
+0x7ff70cce1144 mainCRTStartup at ???
+[C:\Windows\System32\KERNEL32.DLL]
+0x7ffb6157e8d5
+[C:\Windows\SYSTEM32\ntdll.dll]
+0x7ffb631ec53a
+
+stderr: ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED
+stderr: alire-roots.adb:202
+stderr: raised ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED : alire-roots.adb:202
+[D:\a\alire-crates-ci\alire-crates-ci\alire_install\bin\alr.exe]
+0x7ff70d5e313c Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:202
+0x7ff70d5e11da Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:255
+0x7ff70d60912d Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2143
+0x7ff70d6782f9 Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1472
+0x7ff70d677424 Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1555
+0x7ff70d60922c Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2147
+0x7ff70d6092fa Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2127
+0x7ff70d5e17a7 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:286
+0x7ff70d5e1912 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:114
+0x7ff70cd53baa Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:145
+0x7ff70cd5341e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:113
+0x7ff70cd535ba Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:54
+0x7ff70ce05dea Semantic_Versioning.Basic.Restrictions.First_Index at clic-subcommand-instance.adb:749
+0x7ff70ce12b0e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands.adb:632
+0x7ff70cce16a0 Alr.Main at alr-main.adb:13
+0x7ff70cce5270 Main at b__alr-main.adb:2454
+0x7ff70cce133e __tmainCRTStartup at ???
+0x7ff70cce1144 mainCRTStartup at ???
+[C:\Windows\System32\KERNEL32.DLL]
+0x7ffb6157e8d5
+[C:\Windows\SYSTEM32\ntdll.dll]
+0x7ffb631ec53a
+
+ERROR: Compilation failed.

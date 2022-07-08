@@ -1,0 +1,98 @@
+Test ran at 2026-11-14 00:38:29.476523+00:00
+
+SOLUTION:
+smb=0.1.0: Pure Ada SMB 2.1 client library with a SPARK-proved protocol core
+Origin: commit ac5c6fb46d047d7ed54ac0ed232a948c06d758f4 from https://github.com/gomurin0428/AdaSMB.git
+Properties:
+   Author: Go Komura
+   Configuration: no modifiers
+   Description: Pure Ada SMB 2.1 client library with a SPARK-proved protocol core
+   case OS is
+      when Windows => GPR External: ADASMB_OS := Windows_NT
+      when others => GPR External: ADASMB_OS := Unix
+   License: MIT OR Apache-2.0
+   Long_Description: AdaSMB is a synchronous SMB 2.1 (dialect 0x0210) client library written in
+Ada. It authenticates with NTLMv2 inside SPNEGO, requires SMB signing
+(HMAC-SHA256) for the final session setup response and all later traffic, and
+supports file open/read/write/close, directory listing, mkdir, delete and
+rename on one share per connection.
+
+It uses only the regular GNAT runtime (GNAT.Sockets, Ada.Streams) and links no
+C SMB or crypto library. Hashes, HMAC, NTLM and signing are implemented in Ada.
+The default entropy source is /dev/urandom on Unix and BCryptGenRandom on
+Windows.
+
+The protocol core (crypto, UTF-8/UTF-16 conversion, NTLMv2/SPNEGO, SMB header
+and body parsing/building, framing, transfer progress, session and handle
+state) is in SPARK and proved free of run-time errors together with its stated
+contracts. Sockets, OS entropy and clock, allocation and the public facade
+remain trusted. This is not a proof of cryptographic strength or of full SMB
+conformance.
+
+Not supported: SMB1, SMB3, encryption, compression, compound requests,
+Kerberos, guest/anonymous fallback and concurrent requests. The project is
+experimental.
+
+   Maintainer: Go Komura <contact@comcomponent.com>
+   Maintainers_Logins: gomurin0428
+   Name: smb
+   Project_File: smb.gpr
+   Tag: smb
+   Tag: smb2
+   Tag: ntlm
+   Tag: network
+   Tag: client
+   Tag: spark
+   Version: 0.1.0
+   Website: https://github.com/gomurin0428/AdaSMB
+Dependencies (direct):
+   gnat>=14
+Dependencies (solution):
+   gnat=14.2.1 (gnat_native)
+Dependencies (graph):
+   smb=0.1.0 --> gnat=14.2.1 (gnat_native) (>=14)
+
+
+LOG:
+[alr test] Testing smb=0.1.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get smb=0.1.0
+Note: Deploying smb=0.1.0...
+
+smb=0.1.0 successfully retrieved.
+Dependencies were solved as follows:
+
+   +b gnat 14.2.1 (new,gnat_native,binary)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building smb=0.1.0/smb.gpr...
+Setup
+   [mkdir]        object directory for project SMB
+   [mkdir]        library directory for project SMB
+Compile
+   [Ada]          smb-entropy.adb
+   [Ada]          smb-core_auth.adb
+   [Ada]          smb-core_clock.adb
+   [Ada]          smb-client.adb
+   [Ada]          smb-heap_owner.adb
+   [Ada]          smb-core_client.adb
+   [Ada]          smb-core_framing.adb
+   [Ada]          smb-crypto.adb
+   [Ada]          smb-core_connection.adb
+   [Ada]          smb-core_text.adb
+   [Ada]          smb-core_protocol.adb
+   [Ada]          smb-core_ntlm.adb
+   [Ada]          smb.ads
+   [Ada]          smb-transport.adb
+   [Ada]          smb-core_transport.adb
+   [Ada]          smb-wire.adb
+   [Ada]          smb-core_wire.adb
+   [Ada]          smb-ntlm.adb
+   [Ada]          smb-engine.adb
+   [Ada]          smb-clock.adb
+   [Ada]          smb-text.adb
+Build Libraries
+   [gprlib]       smb.lexch
+   [archive]      libsmb.a
+   [index]        libsmb.a
+Success: Build finished successfully in 2.14 seconds.
+Found declared GPR file: smb.gpr
+[alr test] Test completed SUCCESSFULLY

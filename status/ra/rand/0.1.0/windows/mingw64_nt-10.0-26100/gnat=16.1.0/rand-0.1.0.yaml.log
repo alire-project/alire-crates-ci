@@ -1,0 +1,198 @@
+Test ran at 2026-11-05 01:12:09.020434+00:00
+
+SOLUTION:
+rand=0.1.0: Random number generation toolkit
+Origin: commit 6d1af921227f1e7e0d61bf3cee431af701b99508 from https://github.com/AldanTanneo/rand-ada.git
+Properties:
+   Author: César SAGAERT
+   Build Switches: 
+   Description: Random number generation toolkit
+   License: Apache-2.0 WITH LLVM-exception
+   Long_Description: # Random number generation toolkit for Ada
+
+Design principles mostly inspired by the [rand](https://github.com/rust-random/rand) Rust crate.
+
+The project is split into several subcrates. `rand_core`, `rand_chacha`, `rand_xoshiro256` and `rand_distributions` can be used on embedded; However, `rand_sys` (and its dependent `rand`, the main crate) pull entropy from system sources, using the [`system_random`](https://alire.ada.dev/crates/system_random) Alire crate.
+
+## Usage examples
+
+Get a thread local instance of a secure Random Number Generator (RNG), seeded with system entropy:
+
+```ada
+with Rand;
+R : Rand.Rng := Rand.Thread_Rng;
+--  alternatively:
+R : Rand.Rng := Rand.Small_Rng;
+   --  a fast, unsecure RNG seeded with system entropy
+R : Rand.Rng := Rand.Sys.Get;
+   --  RNG based on system randomness sources
+   --  (OS-dependent)
+```
+
+Use convenience methods on the RNG to generate basic types:
+
+```ada
+V1 : Float := R.Gen;        --  a float in the range [0, 1)
+V2 : Long_Integer := R.Gen; --  a long integer over the whole range
+```
+
+You can also define your own random number generators by implementing the `Rand.Core_Rng` interface (alias for `Rand_Core.Rng`).
+
+Use `Next` and `Next_Bytes` to get the raw output of any RNG:
+
+```ada
+Buf : Rand.Core.Bytes (1 .. 256);
+R.Next_Bytes (Buf);
+X : Rand.Core.U64 := R.Next;
+```
+
+Use a predefined random distribution to get finer random value selection:
+
+```ada
+use Rand.Distributions;
+D1 : Uniform_Nat.Distribution := Uniform_Nat.Create (8, 27);
+S : Natural := D1.Sample (R);
+   --  sample in the inclusive range [8, 27]
+
+D2 : Bernoulli := Bernoulli.Create (0.25);
+S : Boolean := D2.Sample (R);
+   --  a boolean that is True 25% of the time
+```
+
+Or define your own distributions:
+
+```ada
+use Rand.Distributions;
+
+type Gaussian is new Long_Float_Distr.Distribution with record
+   Sigma : Long_Float;
+end record;
+
+overriding
+function Sample (D : Gaussian; R : in out Rand.Rng) return Long_Float
+is (...); --  sampling the custom distribution
+```
+
+Even on your own types:
+
+```ada
+with Rand_Distributions; use Rand_Distributions;
+
+type My_Rec is record
+   A : Integer;
+   B : Float;
+end record;
+
+package I is new Generic_Distribution (My_Rec);
+--  define the interface distributions over your type must implement
+
+type My_Distr is new I.Distribution with null record;
+
+overriding
+function Sample (D : My_Distr; R : in out Rand.Rng) return My_Rec
+is (A => 4, --  chosen by fair dice roll
+    B => R.Gen);
+```
+
+   Maintainer: César SAGAERT <sagaert@adacore.com>
+   Maintainers_Logins: AldanTanneo
+   Name: rand
+   Tag: random
+   Tag: chacha20
+   Tag: rng
+   Tag: getrandom
+   Tag: security
+   Version: 0.1.0
+   Website: https://github.com/AldanTanneo/rand-ada
+Dependencies (direct):
+   rand_chacha~0.1.0
+   rand_core~0.1.0
+   rand_distributions~0.1.0
+   rand_sys~0.1.0
+   rand_xoshiro256~0.1.0
+Dependencies (solution):
+   rand_chacha=0.1.0
+   rand_core=0.1.0
+   rand_distributions=0.1.0
+   rand_sys=0.1.0
+   rand_xoshiro256=0.1.0
+   system_random=1.0.0
+Dependencies (graph):
+   rand=0.1.0               --> rand_chacha=0.1.0 (~0.1.0)
+   rand=0.1.0               --> rand_core=0.1.0 (~0.1.0)
+   rand=0.1.0               --> rand_distributions=0.1.0 (~0.1.0)
+   rand=0.1.0               --> rand_sys=0.1.0 (~0.1.0)
+   rand=0.1.0               --> rand_xoshiro256=0.1.0 (~0.1.0)
+   rand_chacha=0.1.0        --> rand_core=0.1.0 (~0.1.0)
+   rand_distributions=0.1.0 --> rand_core=0.1.0 (~0.1.0)
+   rand_sys=0.1.0           --> rand_core=0.1.0 (~0.1.0)
+   rand_sys=0.1.0           --> system_random=1.0.0 (^1.0.0)
+   rand_xoshiro256=0.1.0    --> rand_core=0.1.0 (~0.1.0)
+
+
+LOG:
+[alr test] Testing rand=0.1.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get rand=0.1.0
+Note: Deploying rand=0.1.0...
+Note: Deploying rand_core=0.1.0...
+Note: Deploying system_random=1.0.0...
+
+rand=0.1.0 successfully retrieved.
+Dependencies were solved as follows:
+
+   + rand_chacha        0.1.0 (new)
+   + rand_core          0.1.0 (new)
+   + rand_distributions 0.1.0 (new)
+   + rand_sys           0.1.0 (new)
+   + rand_xoshiro256    0.1.0 (new)
+   + system_random      1.0.0 (new,indirect)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building rand=0.1.0/rand.gpr...
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\rand_ada_6d1af921\2b96564f1fc69f8ee28b29f6a322977c5f7506266480903eaf9038221a13b1d9\rand_core\obj\release" created
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\rand_ada_6d1af921\2b96564f1fc69f8ee28b29f6a322977c5f7506266480903eaf9038221a13b1d9\rand_core\lib" created
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\system_random_1.0.0_3db7f76e\8e772b64f4c98910d054fb00f95b9ff4d4ec2bc960e27711b878528e74ef5617\obj" created
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\system_random_1.0.0_3db7f76e\8e772b64f4c98910d054fb00f95b9ff4d4ec2bc960e27711b878528e74ef5617\lib" created
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\rand_ada_6d1af921\4f93725be65fb2067635070c918fc8522fe389891ae7d08b66e7042c1f20c3ce\rand_xoshiro256\obj\release" created
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\rand_ada_6d1af921\4f93725be65fb2067635070c918fc8522fe389891ae7d08b66e7042c1f20c3ce\rand_xoshiro256\lib" created
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\rand_ada_6d1af921\50e37c1c2dd624715c0265dc6f77df86746bfc9bb7adacabb1c05d556144a6ba\rand_sys\obj\release" created
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\rand_ada_6d1af921\50e37c1c2dd624715c0265dc6f77df86746bfc9bb7adacabb1c05d556144a6ba\rand_sys\lib" created
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\rand_ada_6d1af921\5303852624a3ac9c2514cb26b6a4609e9e2c7d3a5291649c830a820de44d1fb6\rand_chacha\obj\release" created
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\rand_ada_6d1af921\5303852624a3ac9c2514cb26b6a4609e9e2c7d3a5291649c830a820de44d1fb6\rand_chacha\lib" created
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\rand_ada_6d1af921\bc660ee9404868f88de6c980d7dca00023f3d98b5de85c122b6ad3e8112287d3\rand_distributions\obj\release" created
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\rand_ada_6d1af921\bc660ee9404868f88de6c980d7dca00023f3d98b5de85c122b6ad3e8112287d3\rand_distributions\lib" created
+"obj\release" created
+"lib" created
+[Ada Compile]     rand_core-generators.adb
+[Ada Compile]     rand_core-utils.adb
+[Ada Compile]     rand_core.ads
+[Ada Compile]     rand_core_config.ads
+[Ada Compile]     rand_xoshiro256.adb
+[Ada Compile]     rand_xoshiro256_config.ads
+[Ada Compile]     rand_sys.adb
+[Ada Compile]     rand_sys_config.ads
+[Archive]         libRand_Core.a
+[Archive]         libRand_Xoshiro256.a
+[Ada Compile]     rand_chacha.adb
+[Ada Compile]     rand_chacha_config.ads
+[Ada Compile]     rand_distributions-bernoulli.ads
+[Ada Compile]     rand_distributions-uniform.adb
+[Ada Compile]     rand_distributions.ads
+[Archive]         libRand_Sys.a
+[Ada Compile]     rand_distributions_config.ads
+rand_chacha.adb:14:32: warning: unchecked conversion implemented by copy [enabled by default]
+rand_chacha.adb:14:32: warning: use pragma Universal_Aliasing on either type [enabled by default]
+rand_chacha.adb:14:32: warning: to enable RM 13.9(12) implementation permission [enabled by default]
+[Archive]         libRand_Chacha.a
+[Ada Compile]     system_random.adb
+[Ada Compile]     rand-distributions-standard_uniform.ads
+[Archive]         libsystem_random.a
+[Archive]         libRand_Distributions.a
+[Ada Compile]     rand-distributions.ads
+[Ada Compile]     rand-sequence.adb
+[Ada Compile]     rand-thread_local.adb
+[Ada Compile]     rand.adb
+[Ada Compile]     rand_config.ads
+[Archive]         libRand.a
+Success: Build finished successfully in 7.08 seconds.
+Found declared GPR file: rand.gpr
+[alr test] Test completed SUCCESSFULLY

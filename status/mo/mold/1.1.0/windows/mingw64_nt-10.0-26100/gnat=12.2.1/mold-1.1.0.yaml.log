@@ -1,0 +1,217 @@
+Test ran at 2026-09-02 13:10:54.294099+00:00
+
+SOLUTION:
+mold=1.1.0: Meta-variable Operations for Lean Development (cli)
+Origin: commit ad52e65be4efb83753f6ad64e22fe332e5ed1eb2 from https://github.com/rocher/mold.git
+Properties:
+   Author: Francesc Rocher
+   Build Profile: 
+   Build Switches: 
+   Description: Meta-variable Operations for Lean Development (cli)
+   Executable: mold
+   License: MIT
+   Long_Description: [![Alire](https://img.shields.io/endpoint?url=https://alire.ada.dev/badges/mold.json)](https://alire.ada.dev/crates/mold.html)
+[![Alire CI/CD](https://img.shields.io/endpoint?url=https://alire-crate-ci.ada.dev/badges/mold.json)](https://alire-crate-ci.ada.dev/crates/mold.html)
+![unit-test](https://github.com/rocher/mold/actions/workflows/unit-test.yml/badge.svg)
+[![codecov](https://codecov.io/gh/rocher/mold/graph/badge.svg?token=LB83SI4I0Y)](https://codecov.io/gh/rocher/mold)
+[![GitHub release](https://img.shields.io/github/release/rocher/mold.svg)](https://github.com/rocher/mold/releases/latest)
+[![License](https://img.shields.io/github/license/rocher/mold.svg?color=blue)](https://github.com/rocher/mold/blob/master/LICENSE)
+
+## Welcome to **Mold (cli)**
+
+> **MOLD**: *Meta-variable Operations for Lean Development*
+
+Mold is a Template Processor, or Template Engine, to work with repository
+templates. The main motivation of Mold is to have repositories in GitHub used
+as template repositories to create new, customized repositories for other
+users.
+
+Main features supported in Mold include
+
+  * variable replacement in mold files (*.mold)
+
+  * for a given directory, variable replacement recursively for all mold files
+    in all subdirectories
+
+  * variable replacement in file names
+
+  * inclusion of other templates
+
+  * definition of variables with a simple TOML file
+
+  * predefined and custom text filters to easy text transformations
+
+  * predefined variables to use in templates
+
+  * support for optional and mandatory variables
+
+  * support for custom filter and variables
+
+Variable replacement can be specified as *normal*, *optional* or *mandatory*.
+For example, the variable `foo = "bar"` can be specified with `{{foo}}`,
+`{{?foo}}` (optional) or `{{#foo}}` (mandatory). The difference is the handling
+of errors when an undefined variable is encountered.
+
+All mold files must end with the extension `.mold`, for example
+`README.md.mold`. Destination files (with variables replaced) have the same
+name without the mold extension: `README.md`. This simplifies the work done in
+large subdirectories with few templates.
+
+This crate contains the Ada library and unit tests. For a CLI tool, please
+take a look at the crate `mold`.
+
+## Reference Guide
+
+Please visit [Mold documentation](https://rocher.github.io/mold) for more
+information.
+
+---
+## License
+MIT (c) 2023-2025 Francesc Rocher
+
+   Maintainer: Francesc Rocher <francesc.rocher@gmail.com>
+   Maintainers_Logins: rocher
+   Name: mold
+   Tag: template
+   Tag: template-engine
+   Tag: template-repo
+   Version: 1.1.0
+   Website: https://rocher.github.io/mold
+Dependencies (direct):
+   clic~0.3.0
+   gnat>=2021 | (>=12 & <2000)
+   mold_lib^2.3.0
+   simple_logging^1.2.0
+Dependencies (solution):
+   aaa=0.2.6
+   ada_toml=0.3.0
+   ansiada=1.1.0
+   clic=0.3.0
+   gnat=12.2.1 (gnat_native)
+   mold_lib=2.3.1
+   simple_logging=1.2.0
+Dependencies (graph):
+   clic=0.3.0     --> aaa=0.2.6 (~0.2.4)
+   clic=0.3.0     --> ada_toml=0.3.0 (~0.2|~0.3)
+   clic=0.3.0     --> ansiada=1.1.0 (^1.0)
+   clic=0.3.0     --> simple_logging=1.2.0 (^1.2.0)
+   mold=1.1.0     --> clic=0.3.0 (~0.3.0)
+   mold=1.1.0     --> gnat=12.2.1 (gnat_native) (>=2021 | (>=12 & <2000))
+   mold=1.1.0     --> mold_lib=2.3.1 (^2.3.0)
+   mold=1.1.0     --> simple_logging=1.2.0 (^1.2.0)
+   mold_lib=2.3.1 --> ada_toml=0.3.0 (~0.3.0)
+   mold_lib=2.3.1 --> gnat=12.2.1 (gnat_native) (>=2021 | (>=12 & <2000))
+   mold_lib=2.3.1 --> simple_logging=1.2.0 (^1.2.0)
+
+
+LOG:
+[alr test] Testing mold=1.1.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get mold=1.1.0
+Note: Deploying mold=1.1.0...
+Note: Deploying aaa=0.2.6...
+Note: Deploying ada_toml=0.3.0...
+
+#=#=#                                                                          
+Note: Deploying ansiada=1.1.0...
+Note: Deploying simple_logging=1.2.0...
+Note: Deploying clic=0.3.0...
+Note: Deploying mold_lib=2.3.1...
+
+mold=1.1.0 successfully retrieved.
+Dependencies were solved as follows:
+
+   +  aaa            0.2.6  (new,indirect)
+   +  ada_toml       0.3.0  (new,indirect)
+   +  ansiada        1.1.0  (new,indirect)
+   +  clic           0.3.0  (new)
+   +b gnat           12.2.1 (new,gnat_native,binary)
+   +  mold_lib       2.3.1  (new)
+   +  simple_logging 1.2.0  (new)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building mold=1.1.0/mold.gpr...
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\ada_toml_0.3.0_862d230b\74c7ab61faf0ba3d32556d7e29ec4ec914bbb0e4cd2e24de87bec606d39e8bea\obj\static\prod" created
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\ada_toml_0.3.0_862d230b\74c7ab61faf0ba3d32556d7e29ec4ec914bbb0e4cd2e24de87bec606d39e8bea\lib\static\prod" created
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\simple_logging_1.2.0_506f0bb3\cc826bf19f104990d0ffeca933b9a8a31483bc4ddf91b82953404dd636875502\obj" created
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\simple_logging_1.2.0_506f0bb3\cc826bf19f104990d0ffeca933b9a8a31483bc4ddf91b82953404dd636875502\lib" created
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\aaa_0.2.6_dfd6339b\facdc972c9514e1f5050d0ddee5e62c1ca3708f8270af8bd73e31f2a8d4a9601\obj\release" created
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\aaa_0.2.6_dfd6339b\facdc972c9514e1f5050d0ddee5e62c1ca3708f8270af8bd73e31f2a8d4a9601\lib" created
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\ansiada_1.1.0_405f110b\ad0eea34dcd98d1a20e5fc67ac2be40bdeadfa33eab2a38ee4968f6e475c78c0\obj\release" created
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\ansiada_1.1.0_405f110b\ad0eea34dcd98d1a20e5fc67ac2be40bdeadfa33eab2a38ee4968f6e475c78c0\lib" created
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\mold_lib_2.3.1_4102d93f\ba99f60e03915601d72145071407243d98d1bd68ab3367ac00bc872199c09b17\obj\release" created
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\mold_lib_2.3.1_4102d93f\ba99f60e03915601d72145071407243d98d1bd68ab3367ac00bc872199c09b17\lib" created
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\clic_0.3.0_56bbdc00\1e12514221958cabe2c83e272a2791f3c6a9c0d9e2484aa8905045c01509aac9\obj\release" created
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\clic_0.3.0_56bbdc00\1e12514221958cabe2c83e272a2791f3c6a9c0d9e2484aa8905045c01509aac9\lib" created
+"obj\release" created
+"bin" created
+[Ada Compile]     aaa-ansi.adb
+[Ada Compile]     aaa-caches-files.adb
+[Ada Compile]     aaa-caches.ads
+[Ada Compile]     aaa-containers-indefinite_holders.adb
+[Ada Compile]     aaa-containers.ads
+[Ada Compile]     aaa-debug.adb
+[Ada Compile]     aaa-directories.ads
+[Ada Compile]     aaa-enum_tools.adb
+[Ada Compile]     aaa-filesystem.adb
+[Ada Compile]     aaa-processes.adb
+[Ada Compile]     aaa-strings.adb
+[Ada Compile]     aaa-table_io.adb
+[Ada Compile]     aaa-tests.ads
+[Ada Compile]     aaa-text_io.adb
+[Ada Compile]     aaa-traits-containers.ads
+[Ada Compile]     aaa-traits-types.ads
+[Ada Compile]     aaa-traits.ads
+[Ada Compile]     aaa.ads
+[Ada Compile]     aaa_config.ads
+[Ada Compile]     toml-file_io.adb
+[Ada Compile]     toml-generic_dump.adb
+[Ada Compile]     toml-generic_parse.adb
+[Ada Compile]     toml.adb
+[Ada Compile]     ansiada.ads
+[Ada Compile]     ansiada_config.ads
+[Archive]         libAnsiada.a
+[Ada Compile]     clic-command_line.adb
+[Ada Compile]     clic-config-edit.adb
+[Ada Compile]     clic-config-info.adb
+[Ada Compile]     clic-config-load.adb
+[Ada Compile]     clic-config.adb
+[Archive]         libaaa.a
+[Ada Compile]     clic-subcommand-instance.adb
+[Archive]         libada_toml.a
+[Ada Compile]     clic-subcommand.adb
+[Ada Compile]     clic-tty.adb
+[Ada Compile]     clic-user_input.adb
+[Ada Compile]     clic.ads
+[Ada Compile]     clic_config.ads
+[Ada Compile]     log_exceptions.adb
+[Ada Compile]     log_wrapper.ads
+[Ada Compile]     mold_lib-impl-directory.adb
+[Ada Compile]     mold_lib-impl-file.adb
+[Ada Compile]     mold_lib-impl-text.adb
+[Ada Compile]     mold_lib-impl-validation.adb
+[Ada Compile]     mold_lib-impl-variables.adb
+[Ada Compile]     mold_lib-impl.adb
+[Ada Compile]     mold_lib.adb
+[Ada Compile]     mold_lib_config.ads
+[Ada Compile]     text_filters.adb
+[Archive]         libClic.a
+[Ada Compile]     text_filters_custom.ads
+[Ada Compile]     text_filters_data.ads
+[Ada Compile]     text_filters_predefined.adb
+[Ada Compile]     simple_logging-decorators.adb
+[Ada Compile]     simple_logging-filtering.adb
+[Ada Compile]     simple_logging-support.adb
+[Ada Compile]     simple_logging.adb
+[Ada Compile]     mold.adb
+[Ada Compile]     mold_apply.adb
+[Archive]         libmold.a
+[Ada Compile]     mold_cli.adb
+[Ada Compile]     mold_config.ads
+[Ada Compile]     mold_show_variables.adb
+[Ada Compile]     mold_tools.adb
+[Archive]         libsimple_logging.a
+[Ada Bind]        mold
+[Ada Post-Bind]   b__mold.adb
+[Link]            mold.exe
+Success: Build finished successfully in 30.99 seconds.
+Found declared GPR file: mold.gpr
+[alr test] Test completed SUCCESSFULLY

@@ -1,0 +1,129 @@
+Test ran at 2026-11-21 01:09:05.696072+00:00
+
+SOLUTION:
+lmdb_ada=1.2.0: Bindings to the Lightning Memory-Mapped Database
+Origin: source archive v1.2.0.tar.gz at https://git.sr.ht/~nytpu/lmdb-ada/archive/v1.2.0.tar.gz with hashes sha256:b9d19e0eec24a79d5ff951c13062e076ff95042e6ca0e4d9ba90849437b39ce4, sha512:8af6120dd3ff8602694ec5dc52408c69b8fbf327b72a57261b7020d922f6941d0287b8b5a8dccd34ddb4f68c3ce92152990ffda58f8b76ac0313879705d3a7c4
+Properties:
+   Author: nytpu
+   Description: Bindings to the Lightning Memory-Mapped Database
+   GPR Scenario: LMDB_BUILD_MODE := debug | optimize
+   GPR Scenario: LMDB_COMPILE_CHECKS := enabled | disabled
+   GPR Scenario: LMDB_CONTRACTS := enabled | disabled
+   GPR Scenario: LMDB_LIBRARY_TYPE := dynamic | relocatable | static | static-pic
+   GPR Scenario: LMDB_PLATFORM := unix | windows
+   GPR Scenario: LMDB_RUNTIME_CHECKS := enabled | disabled
+   GPR Scenario: LMDB_STYLE_CHECKS := enabled | disabled
+   case OS is
+      when Linux => GPR External: LMDB_PLATFORM := unix
+      when Macos => GPR External: LMDB_PLATFORM := unix
+      when Windows => GPR External: LMDB_PLATFORM := windows
+   License: BSD-2-Clause AND OLDAP-2.8+
+   Maintainer: nytpu <alex@nytpu.com>
+   Maintainers_Logins: nytpu
+   Name: lmdb_ada
+   Project_File: lmdb.gpr
+   Tag: database
+   Tag: key-value
+   Version: 1.2.0
+   Website: https://git.sr.ht/~nytpu/lmdb-ada
+Dependencies (direct):
+   gnatcoll^22.0.0
+Dependencies (solution):
+   gnat=14.2.1 (gnat_native)
+   gnatcoll=22.0.0
+   libgpr=22.0.0
+   xmlada=22.0.0
+Dependencies (graph):
+   gnatcoll=22.0.0 --> libgpr=22.0.0 (~22.0.0)
+   libgpr=22.0.0   --> gnat=14.2.1 (gnat_native) (/=2020)
+   libgpr=22.0.0   --> xmlada=22.0.0 (~22.0.0)
+   lmdb_ada=1.2.0  --> gnatcoll=22.0.0 (^22.0.0)
+   xmlada=22.0.0   --> gnat=14.2.1 (gnat_native) (>=11)
+
+
+LOG:
+[alr test] Testing lmdb_ada=1.2.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get lmdb_ada=1.2.0
+Note: Deploying lmdb_ada=1.2.0...
+
+#=#=#                                                                          
+##O#-#                                                                         
+##O=#  #                                                                       
+#=#=-#  #                                                                      
+-#O#- #   #                                                                    
+######################################################################## 100.0%
+stderr: Generating Outcome_Failure with message: release integrity test failed: expected [sha256:b9d19e0eec24a79d5ff951c13062e076ff95042e6ca0e4d9ba90849437b39ce4] but got [sha256:d5a8b9664a043dbe80b55040f398b57f6e609fb293c5ee118fba465c777d7bf2]
+stderr: Generating Outcome_Failure with call stack:
+stderr: raised AAA.DEBUG.STACK_TRACE.DEBUG_EXCEPTION : aaa-debug.adb:44
+[D:\a\alire-crates-ci\alire-crates-ci\alire_install\bin\alr.exe]
+0x7ff63d5c2307 Semantic_Versioning.Basic.Restrictions.First_Index at aaa-debug.adb:44
+0x7ff63d37c118 Semantic_Versioning.Basic.Restrictions.First_Index at alire.adb:226
+0x7ff63d37c994 Semantic_Versioning.Basic.Restrictions.First_Index at alire.adb:223
+0x7ff63cec0b96 Semantic_Versioning.Basic.Restrictions.First_Index at alire-origins-deployers.adb:219
+0x7ff63cebda13 Semantic_Versioning.Basic.Restrictions.First_Index at alire-origins-deployers.adb:117
+0x7ff63cebf275 Semantic_Versioning.Basic.Restrictions.First_Index at alire-origins-deployers.adb:170
+0x7ff63d12095e Semantic_Versioning.Basic.Restrictions.First_Index at alire-releases.adb:341
+0x7ff63d15c4ab Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:723
+0x7ff63d15cafa Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:714
+0x7ff63c8d5fe3 Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-get.adb:134
+0x7ff63c8da1c2 Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-get.adb:380
+0x7ff63c8da37e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-get.adb:256
+0x7ff63c975dea Semantic_Versioning.Basic.Restrictions.First_Index at clic-subcommand-instance.adb:749
+0x7ff63c982b0e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands.adb:632
+0x7ff63c8516a0 Alr.Main at alr-main.adb:13
+0x7ff63c855270 Main at b__alr-main.adb:2454
+0x7ff63c85133e __tmainCRTStartup at ???
+0x7ff63c851144 mainCRTStartup at ???
+[C:\Windows\System32\KERNEL32.DLL]
+0x7ffb3357dd35
+[C:\Windows\SYSTEM32\ntdll.dll]
+0x7ffb3447f2ba
+
+stderr: ALIRE.CHECKED_ERROR
+stderr: release integrity test failed: expected [sha256:b9d19e0eec24a79d5ff951c13062e076ff95042e6ca0e4d9ba90849437b39ce4] but got [sha256:d5a8b9664a043dbe80b55040f398b57f6e609fb293c5ee118fba465c777d7bf2]
+stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
+[D:\a\alire-crates-ci\alire-crates-ci\alire_install\bin\alr.exe]
+0x7ff63d37a8da Semantic_Versioning.Basic.Restrictions.First_Index at alire.adb:158
+0x7ff63d120986 Semantic_Versioning.Basic.Restrictions.First_Index at alire-releases.adb:341
+0x7ff63d15c4ab Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:723
+0x7ff63d15cafa Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:714
+0x7ff63c8d5fe3 Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-get.adb:134
+0x7ff63c8da1c2 Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-get.adb:380
+0x7ff63c8da37e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-get.adb:256
+0x7ff63c975dea Semantic_Versioning.Basic.Restrictions.First_Index at clic-subcommand-instance.adb:749
+0x7ff63c982b0e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands.adb:632
+0x7ff63c8516a0 Alr.Main at alr-main.adb:13
+0x7ff63c855270 Main at b__alr-main.adb:2454
+0x7ff63c85133e __tmainCRTStartup at ???
+0x7ff63c851144 mainCRTStartup at ???
+[C:\Windows\System32\KERNEL32.DLL]
+0x7ffb3357dd35
+[C:\Windows\SYSTEM32\ntdll.dll]
+0x7ffb3447f2ba
+
+ERROR: release integrity test failed: expected [sha256:b9d19e0eec24a79d5ff951c13062e076ff95042e6ca0e4d9ba90849437b39ce4] but got [sha256:d5a8b9664a043dbe80b55040f398b57f6e609fb293c5ee118fba465c777d7bf2]
+****** UNEXPECTED EXCEPTION FOLLOWS:
+raised ADA.IO_EXCEPTIONS.NAME_ERROR : directory "lmdb_ada_1.2.0_b9d19e0e" does not exist
+[D:\a\alire-crates-ci\alire-crates-ci\alire_install\bin\alr.exe]
+0x7ff63d4f858f Semantic_Versioning.Basic.Restrictions.First_Index at a-direct.adb:1103
+0x7ff63cc4ca61 Semantic_Versioning.Basic.Restrictions.First_Index at alire-directories.adb:443
+0x7ff63cc43b52 semantic_versioning__basic__restrictions__first_index at ???
+0x7ff63c996781 Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-test.adb:243
+0x7ff63c995c49 Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-test.adb:273
+0x7ff63c99526b Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-test.adb:355
+0x7ff63c992e4d Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-test.adb:389
+0x7ff63c99154b Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-test.adb:498
+0x7ff63c99a79d Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-test.adb:691
+0x7ff63c99a9bc Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-test.adb:533
+0x7ff63c975dea Semantic_Versioning.Basic.Restrictions.First_Index at clic-subcommand-instance.adb:749
+0x7ff63c982b0e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands.adb:632
+0x7ff63c8516a0 Alr.Main at alr-main.adb:13
+0x7ff63c855270 Main at b__alr-main.adb:2454
+0x7ff63c85133e __tmainCRTStartup at ???
+0x7ff63c851144 mainCRTStartup at ???
+[C:\Windows\System32\KERNEL32.DLL]
+0x7ffb3357dd35
+[C:\Windows\SYSTEM32\ntdll.dll]
+0x7ffb3447f2ba
+
+****** TRACE END

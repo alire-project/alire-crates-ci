@@ -1,0 +1,675 @@
+Test ran at 2026-11-06 12:40:38.603215+00:00
+
+SOLUTION:
+embedded_stm32f0xx=16.0.0: embedded runtime for the STM32F0XX SoC
+Origin: source archive embedded-stm32f0xx-16.0.0.tar.gz at https://github.com/damaki/community-bb-runtimes/releases/download/v16.0.0/embedded-stm32f0xx-16.0.0.tar.gz with hashes sha256:9bcb3a93dd84b1b567001a4ddabd180972f211aa5df413c6aff779d7a7b1527f, sha512:bfe1fa8380fc56409cc6f1810bd7a9250461a7d809bc5e084a56930e2432b05263f7ffd83c9a0bf7fd23697bdf89718da1b527af5800b81399cf1dde34c0eb31
+Properties:
+   Author: AdaCore
+   Author: Daniel King
+   Config type: AHB_Pre : Enum (DIV1, DIV2, DIV4, DIV8, DIV16, DIV64, DIV128, DIV256, DIV512) default: 'DIV1'
+   Config type: APB_Pre : Enum (DIV1, DIV2, DIV4, DIV8, DIV16) default: 'DIV2'
+   Config type: HSE_Bypass : Boolean default: 'false'
+   Config type: HSE_Clock_Frequency : Integer range 1 .. 32000000 default: '8000000'
+   Config type: Interrupt_Stack_Size : Integer range 1 .. 9223372036854775807 default: '1024'
+   Config type: LSI_Enabled : Boolean default: 'true'
+   Config type: MCU_Pin_Count : Enum (C, E, F, G, K, R, V) default: 'R'
+   Config type: MCU_Sub_Family : Enum (F030, F031, F038, F042, F048, F051, F058, F070, F071, F072, F078, F091, F098) default: 'F072'
+   Config type: MCU_User_Code_Memory_Size : String default: 'B'
+   Config type: PLLMUL : Integer range 2 .. 16 default: '12'
+   Config type: PLL_Src : Enum (HSI_2, HSI_PREDIV, HSE_PREDIV, HSI48_PREDIV) default: 'HSI_2'
+   Config type: PREDIV : Integer range 1 .. 16 default: '2'
+   Config type: SYSCLK_Src : Enum (HSI, HSE, PLL, HSI48) default: 'PLL'
+   Configuration: no modifiers
+   Description: embedded runtime for the STM32F0XX SoC
+   License: GPL-3.0-or-later WITH GCC-exception-3.1
+   Long_Description: ## Usage
+
+First edit your `alire.toml` file and add the following elements:
+ - Add `embedded_stm32f0xx` in the dependency list:
+   ```toml
+   [[depends-on]]
+   embedded_stm32f0xx = "*"
+   ```
+ - if applicable, apply any runtime configuration variables (see below).
+
+Then edit your project file to add the following elements:
+ - "with" the run-time project files. With this, gprbuild will compile the run-time before your application
+   ```ada
+   with "runtime_build.gpr";
+   with "ravenscar_build.gpr";
+   ```
+ - Specify the `Target` and `Runtime` attributes:
+   ```ada
+      for Target use runtime_build'Target;
+      for Runtime ("Ada") use runtime_build'Runtime ("Ada");
+   ```
+ - specify the `Linker` switches:
+   ```ada
+   package Linker is
+     for Switches ("Ada") use Runtime_Build.Linker_Switches;
+   end Linker;
+   ```
+
+The runtime is configurable via Alire crate configuration variables.
+See the project website for full details of the available options.
+
+By default, the runtime is configured for the STM32F072RB. If your board has
+a different MCU, then you will need to specify which MCU you are using via
+the crate configuration. For example, to configure the runtime for the
+STM32F030F4, add the following to your `alire.toml`:
+```toml
+[configuration.values]
+embedded_stm32f0xx.MCU_Sub_Family            = "F030"
+embedded_stm32f0xx.MCU_Pin_Count             = "F"
+embedded_stm32f0xx.MCU_User_Code_Memory_Size = "4"
+```
+
+By default, the runtime configures the clock tree for a 48 MHz system clock
+from the high-speed internal (HSI) oscillator. If you want a different clock
+configuration, then use the crate configuration variables to specify the
+configuration you wish to use. For example, to configure the runtime to
+generate a 32 MHz system clock from a 16 MHz HSE crystal oscillator:
+```toml
+[configuration.values]
+# Configure a 16 MHz HSE crystal oscillator
+embedded_stm32f0xx.HSE_Clock_Frequency = 16000000
+embedded_stm32f0xx.HSE_Bypass = false
+
+# Use the PLL as the SYSCLK source
+embedded_stm32f0xx.SYSCLK_Src = "PLL"
+
+# Configure the PLL input for a 16 MHz input from the HSE
+embedded_stm32f0xx.PLL_Src = "HSE_PREDIV"
+embedded_stm32f0xx.PREDIV = 1
+
+# Configure the PLL to output 32 MHz (16 MHz * 2)
+embedded_stm32f0xx.PLLMUL = 2
+
+# Configure the AHB an APB to also run at 32 MHz
+embedded_stm32f0xx.AHB_Pre = "DIV1"
+embedded_stm32f0xx.APB_Pre = "DIV1"
+```
+
+   Maintainer: Daniel King <damaki.gh@gmail.com>
+   Maintainers_Logins: damaki
+   Name: embedded_stm32f0xx
+   Project_File: runtime_build.gpr
+   Project_File: ravenscar_build.gpr
+   Tag: embedded
+   Tag: runtime
+   Tag: stm32f0
+   Version: 16.0.0
+   Website: https://github.com/damaki/community-bb-runtimes
+Dependencies (direct):
+   gnat_arm_elf^16
+Dependencies (solution):
+   gnat_arm_elf=16.1.0
+Dependencies (graph):
+   embedded_stm32f0xx=16.0.0 --> gnat_arm_elf=16.1.0 (^16)
+
+
+LOG:
+[alr test] Testing embedded_stm32f0xx=16.0.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get embedded_stm32f0xx=16.0.0
+Note: Deploying embedded_stm32f0xx=16.0.0...
+
+#=#=#                                                                          
+                                                                           0.3%
+######################################################################## 100.0%
+
+embedded_stm32f0xx=16.0.0 successfully retrieved.
+Dependencies were solved as follows:
+
+   +b gnat_arm_elf 16.1.0 (new,binary)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building embedded_stm32f0xx=16.0.0/runtime_build.gpr (1/2)...
+Setup
+   [mkdir]        object directory for project Runtime_Build
+   [mkdir]        library directory for project Runtime_Build
+Compile
+   [C]            raise-gcc.c
+   [C]            newlib-bb.c
+   [C]            adaint-xi.c
+   [Asm_Cpp]      start-ram.S
+   [Asm_Cpp]      start-rom.S
+   [Asm_Cpp]      breakpoint_handler-cortexm.S
+   [Ada]          s-bbmcpa.ads
+   [Ada]          a-sblcin.adb
+   [Ada]          s-widcha.adb
+   [Ada]          g-debuti.adb
+   [Ada]          s-textio.adb
+   [Ada]          a-cihama.adb
+   [Ada]          s-boarop.ads
+   [Ada]          s-vaen16.ads
+   [Ada]          a-rbtgbk.adb
+   [Ada]          s-widboo.adb
+   [Ada]          a-chtgke.adb
+   [Ada]          s-widuns.ads
+   [Ada]          g-shshco.adb
+   [Ada]          a-szfzha.ads
+   [Ada]          a-sflcin.ads
+   [Ada]          s-rident.ads
+   [Ada]          a-stuten.adb
+   [Ada]          s-imaged.adb
+   [Ada]          a-conhel.adb
+   [Ada]          s-arit32.adb
+   [Ada]          a-wichha.adb
+   [Ada]          setup_pll.adb
+   [Ada]          a-coprnu.adb
+   [Ada]          s-widwch.adb
+   [Ada]          s-wwdwch.adb
+   [Ada]          a-sttebu.adb
+   [Ada]          s-stache.adb
+   [Ada]          s-pack15.adb
+   [Ada]          s-pack25.adb
+   [Ada]          s-pack58.adb
+   [Ada]          s-stm32.adb
+   [Ada]          a-storio.adb
+   [Ada]          s-fode32.ads
+   [Ada]          s-fore_d.adb
+   [Ada]          s-valuns.ads
+   [Ada]          s-imagen.adb
+   [Ada]          s-pack51.adb
+   [Ada]          a-cbhama.adb
+   [Ada]          s-pack26.adb
+   [Ada]          s-string.adb
+   [Ada]          a-cborma.adb
+   [Ada]          s-imde32.ads
+   [Ada]          a-numeri.ads
+   [Ada]          s-pack61.adb
+   [Ada]          a-cohata.ads
+   [Ada]          a-cbdlli.adb
+   [Ada]          a-textio.adb
+   [Ada]          s-rannum.adb
+   [Ada]          s-pack42.adb
+   [Ada]          s-casi16.adb
+   [Ada]          s-imgwiu.ads
+   [Ada]          s-dourea.adb
+   [Ada]          s-imgcha.adb
+   [Ada]          s-valuei.adb
+   [Ada]          s-widenu.adb
+   [Ada]          a-einuoc.adb
+   [Ada]          a-nbnbin.adb
+   [Ada]          s-wchcon.adb
+   [Ada]          a-nucoty.ads
+   [Ada]          s-stalib.adb
+   [Ada]          s-imgwch.adb
+   [Ada]          s-pack62.adb
+   [Ada]          a-coboho.adb
+   [Ada]          s-pack06.adb
+   [Ada]          a-nurear.ads
+   [Ada]          s-caun16.adb
+   [Ada]          s-imad64.ads
+   [Ada]          a-cidlli.adb
+   [Ada]          a-nubinu.ads
+   [Ada]          a-szuzha.adb
+   [Ada]          g-arrspl.adb
+   [Ada]          a-sbecin.adb
+   [Ada]          s-exnllf.ads
+   [Ada]          s-fatllf.ads
+   [Ada]          g-sestin.ads
+   [Ada]          s-powlfl.ads
+   [Ada]          a-strfix.adb
+   [Ada]          g-casuti.adb
+   [Ada]          s-pack31.adb
+   [Ada]          a-stream.adb
+   [Ada]          s-valboo.adb
+   [Ada]          s-pooloc.adb
+   [Ada]          s-atopri.adb
+   [Ada]          s-widthu.adb
+   [Ada]          a-uncdea.ads
+   [Ada]          s-pack50.adb
+   [Ada]          a-crbtgk.adb
+   [Ada]          a-cobove.adb
+   [Ada]          a-coorse.adb
+   [Ada]          s-pack29.adb
+   [Ada]          s-imen16.ads
+   [Ada]          s-pack39.adb
+   [Ada]          a-stzbou.adb
+   [Ada]          s-pack45.adb
+   [Ada]          a-stwiun.adb
+   [Ada]          s-imager.adb
+   [Ada]          a-strmap.adb
+   [Ada]          s-genbig.adb
+   [Ada]          a-zchuni.adb
+   [Ada]          s-addope.adb
+   [Ada]          s-wchwts.adb
+   [Ada]          s-pack37.adb
+   [Ada]          a-suecin.adb
+   [Ada]          s-lisisq.adb
+   [Ada]          s-pack38.adb
+   [Ada]          g-md5.adb
+   [Ada]          s-pack07.adb
+   [Ada]          s-imgllf.ads
+   [Ada]          a-calend.adb
+   [Ada]          a-ioexce.ads
+   [Ada]          s-widint.ads
+   [Ada]          unchdeal.ads
+   [Ada]          a-chacon.adb
+   [Ada]          a-ciormu.adb
+   [Ada]          a-coormu.adb
+   [Ada]          s-bbarat.adb
+   [Ada]          a-stwise.adb
+   [Ada]          s-finroo.adb
+   [Ada]          s-retsta.ads
+   [Ada]          a-stzfix.adb
+   [Ada]          s-pack11.adb
+   [Ada]          g-cpp.ads
+   [Ada]          machcode.ads
+   [Ada]          s-valuer.adb
+   [Ada]          g-shsh32.adb
+   [Ada]          s-fatgen.adb
+   [Ada]          a-szmzco.ads
+   [Ada]          a-ciorma.adb
+   [Ada]          a-exctra.adb
+   [Ada]          g-moreex.adb
+   [Ada]          s-casuti.adb
+   [Ada]          a-ciorse.adb
+   [Ada]          a-decima.adb
+   [Ada]          s-imfi64.ads
+   [Ada]          s-regexp.adb
+   [Ada]          a-string.ads
+   [Ada]          s-imgllw.ads
+   [Ada]          a-nselfu.ads
+   [Ada]          g-bubsor.adb
+   [Ada]          a-swmwco.ads
+   [Ada]          s-imagei.adb
+   [Ada]          s-valuti.adb
+   [Ada]          s-imgint.ads
+   [Ada]          s-expont.adb
+   [Ada]          a-cgarso.adb
+   [Ada]          s-ransee.adb
+   [Ada]          s-pack19.adb
+   [Ada]          a-stfiha.ads
+   [Ada]          a-numaux.ads
+   [Ada]          a-ncelfu.ads
+   [Ada]          s-valueu.adb
+   [Ada]          g-sechas.adb
+   [Ada]          g-shsh64.adb
+   [Ada]          s-powflt.ads
+   [Ada]          s-traceb.adb
+   [Ada]          a-stzhas.adb
+   [Ada]          a-undesu.adb
+   [Ada]          s-pack46.adb
+   [Ada]          s-bb.ads
+   [Ada]          s-imenu8.ads
+   [Ada]          s-pack09.adb
+   [Ada]          s-restri.adb
+   [Ada]          s-imguns.ads
+   [Ada]          g-cppstd.adb
+   [Ada]          g-sha384.ads
+   [Ada]          s-pack28.adb
+   [Ada]          g-dyntab.adb
+   [Ada]          i-fortra.adb
+   [Ada]          s-pack30.adb
+   [Ada]          s-casi64.adb
+   [Ada]          s-libpre.ads
+   [Ada]          a-chlat9.ads
+   [Ada]          s-finpri.adb
+   [Ada]          s-widlli.ads
+   [Ada]          s-poosiz.adb
+   [Ada]          s-assert.adb
+   [Ada]          s-imagew.adb
+   [Ada]          s-fofi64.ads
+   [Ada]          s-pack22.adb
+   [Ada]          s-traent.adb
+   [Ada]          s-pack63.adb
+   [Ada]          s-exctab.adb
+   [Ada]          s-imagea.adb
+   [Ada]          s-pack20.adb
+   [Ada]          s-vade32.ads
+   [Ada]          a-cohama.adb
+   [Ada]          a-stwiha.adb
+   [Ada]          s-valuen.adb
+   [Ada]          s-aridou.adb
+   [Ada]          a-ngrear.adb
+   [Ada]          g-souinf.ads
+   [Ada]          s-mantis.adb
+   [Ada]          s-wchcnv.adb
+   [Ada]          a-tags.adb
+   [Ada]          s-bbpara.ads
+   [Ada]          s-wchstw.adb
+   [Ada]          a-stunau.adb
+   [Ada]          g-sha1.adb
+   [Ada]          s-imgllu.ads
+   [Ada]          s-spsufi.adb
+   [Ada]          s-scaval.adb
+   [Ada]          a-stwima.adb
+   [Ada]          a-wichun.adb
+   [Ada]          a-cgaaso.adb
+   [Ada]          interfac.ads
+   [Ada]          s-unstyp.ads
+   [Ada]          a-cihase.adb
+   [Ada]          s-pack60.adb
+   [Ada]          a-stzunb.adb
+   [Ada]          a-chzla9.ads
+   [Ada]          a-nscoty.ads
+   [Ada]          a-cbhase.adb
+   [Ada]          s-flocon.adb
+   [Ada]          a-nlelfu.ads
+   [Ada]          s-pack21.adb
+   [Ada]          s-exponr.adb
+   [Ada]          a-cwila9.ads
+   [Ada]          s-atocou.adb
+   [Ada]          g-hesorg.adb
+   [Ada]          a-finali.adb
+   [Ada]          a-cwila1.ads
+   [Ada]          a-swunau.adb
+   [Ada]          s-pack59.adb
+   [Ada]          i-cpoint.adb
+   [Ada]          s-wwdcha.adb
+   [Ada]          s-pack49.adb
+   [Ada]          g-hesora.adb
+   [Ada]          a-strunb.adb
+   [Ada]          s-vallfl.ads
+   [Ada]          a-strhas.adb
+   [Ada]          g-string.ads
+   [Ada]          s-stratt.adb
+   [Ada]          s-expmod.adb
+   [Ada]          i-cexten.ads
+   [Ada]          a-except.adb
+   [Ada]          g-comver.adb
+   [Ada]          a-suenst.adb
+   [Ada]          a-assert.adb
+   [Ada]          s-pack35.adb
+   [Ada]          a-szbzha.adb
+   [Ada]          s-expint.ads
+   [Ada]          s-vafi32.ads
+   [Ada]          s-utf_32.adb
+   [Ada]          a-chzla1.ads
+   [Ada]          s-soflin.adb
+   [Ada]          a-sfhcin.ads
+   [Ada]          s-imguti.adb
+   [Ada]          s-pack52.adb
+   [Ada]          s-except.adb
+   [Ada]          ioexcept.ads
+   [Ada]          s-pack36.adb
+   [Ada]          a-chtgbo.adb
+   [Ada]          s-fofi32.ads
+   [Ada]          g-crc32.adb
+   [Ada]          s-expllu.ads
+   [Ada]          s-vector.ads
+   [Ada]          s-valllu.ads
+   [Ada]          s-vafi64.ads
+   [Ada]          s-pack18.adb
+   [Ada]          a-elchha.adb
+   [Ada]          g-busora.adb
+   [Ada]          a-stboha.adb
+   [Ada]          g-strspl.ads
+   [Ada]          s-pooglo.adb
+   [Ada]          s-imen32.ads
+   [Ada]          s-imde64.ads
+   [Ada]          g-table.adb
+   [Ada]          i-pacdec.adb
+   [Ada]          a-chtgop.adb
+   [Ada]          a-chahan.adb
+   [Ada]          s-pack33.adb
+   [Ada]          s-valuef.adb
+   [Ada]          s-exnflt.ads
+   [Ada]          a-cogeso.adb
+   [Ada]          a-ngelfu.adb
+   [Ada]          a-shcain.adb
+   [Ada]          s-pack05.adb
+   [Ada]          a-ngcoar.adb
+   [Ada]          a-suewst.adb
+   [Ada]          s-bytswa.ads
+   [Ada]          a-cborse.adb
+   [Ada]          a-cdlili.adb
+   [Ada]          s-stposu.adb
+   [Ada]          g-wistsp.ads
+   [Ada]          s-secsta.adb
+   [Ada]          g-cstyin.adb
+   [Ada]          a-strbou.adb
+   [Ada]          s-gcmain.adb
+   [Ada]          s-explli.ads
+   [Ada]          s-pack57.adb
+   [Ada]          text_io.ads
+   [Ada]          g-sha512.ads
+   [Ada]          s-carun8.adb
+   [Ada]          s-vercon.adb
+   [Ada]          a-swfwha.ads
+   [Ada]          s-libdou.adb
+   [Ada]          g-heasor.adb
+   [Ada]          a-widcha.ads
+   [Ada]          a-nllefu.ads
+   [Ada]          s-valcha.adb
+   [Ada]          s-atacco.adb
+   [Ada]          s-pack14.adb
+   [Ada]          s-imglli.ads
+   [Ada]          s-valwch.adb
+   [Ada]          s-pack23.adb
+   [Ada]          a-suezst.adb
+   [Ada]          a-nbnbre.adb
+   [Ada]          a-nscefu.ads
+   [Ada]          s-pack27.adb
+   [Ada]          s-pack44.adb
+   [Ada]          a-suenco.adb
+   [Ada]          gnat.ads
+   [Ada]          a-cohase.adb
+   [Ada]          s-semiho.adb
+   [Ada]          g-busorg.adb
+   [Ada]          s-exnint.ads
+   [Ada]          a-nllcar.ads
+   [Ada]          s-valrea.adb
+   [Ada]          a-coinve.adb
+   [Ada]          s-fode64.ads
+   [Ada]          s-imad32.ads
+   [Ada]          a-cbmutr.adb
+   [Ada]          s-htable.adb
+   [Ada]          s-libm.adb
+   [Ada]          s-carsi8.adb
+   [Ada]          a-sulcin.adb
+   [Ada]          a-crbltr.ads
+   [Ada]          s-valued.adb
+   [Ada]          a-nllcef.ads
+   [Ada]          s-mastop.adb
+   [Ada]          a-stmaco.ads
+   [Ada]          a-btgbso.adb
+   [Ada]          a-secain.adb
+   [Ada]          s-trasym.adb
+   [Ada]          system.ads
+   [Ada]          s-valint.ads
+   [Ada]          s-fatflt.ads
+   [Ada]          s-macres.adb
+   [Ada]          a-stwibo.adb
+   [Ada]          s-wchjis.adb
+   [Ada]          s-arit64.adb
+   [Ada]          a-nlrear.ads
+   [Ada]          a-coinho.adb
+   [Ada]          a-stbuut.adb
+   [Ada]          s-imgboo.adb
+   [Ada]          g-sha256.ads
+   [Ada]          a-suhcin.adb
+   [Ada]          a-charac.ads
+   [Ada]          s-widllu.ads
+   [Ada]          s-oslock.ads
+   [Ada]          s-stoele.adb
+   [Ada]          a-rbtgso.adb
+   [Ada]          s-maccod.ads
+   [Ada]          a-chlat1.ads
+   [Ada]          g-htable.adb
+   [Ada]          a-stbuun.adb
+   [Ada]          a-strsup.adb
+   [Ada]          a-unccon.ads
+   [Ada]          a-nlcoty.ads
+   [Ada]          s-crc32.adb
+   [Ada]          s-pack53.adb
+   [Ada]          a-iteint.ads
+   [Ada]          g-sehash.adb
+   [Ada]          s-libsin.adb
+   [Ada]          a-contai.ads
+   [Ada]          a-nllcty.ads
+   [Ada]          a-cgcaso.adb
+   [Ada]          a-swuwha.adb
+   [Ada]          s-pack54.adb
+   [Ada]          s-vaen32.ads
+   [Ada]          s-imagef.adb
+   [Ada]          s-parame.adb
+   [Ada]          g-regexp.ads
+   [Ada]          s-wwdenu.adb
+   [Ada]          ada.ads
+   [Ada]          s-widthi.adb
+   [Ada]          s-pack10.adb
+   [Ada]          s-vallli.ads
+   [Ada]          s-expuns.ads
+   [Ada]          s-shabig.ads
+   [Ada]          a-comutr.adb
+   [Ada]          a-crbtgo.adb
+   [Ada]          s-powllf.ads
+   [Ada]          a-swbwha.adb
+   [Ada]          s-bbbopa.ads
+   [Ada]          a-convec.adb
+   [Ada]          a-nuflra.adb
+   [Ada]          s-imageu.adb
+   [Ada]          g-cppexc.adb
+   [Ada]          g-except.ads
+   [Ada]          a-stzsup.adb
+   [Ada]          s-fatlfl.ads
+   [Ada]          s-cautns.adb
+   [Ada]          s-pack03.adb
+   [Ada]          a-stzmap.adb
+   [Ada]          s-exponn.adb
+   [Ada]          s-geveop.adb
+   [Ada]          g-tasloc.ads
+   [Ada]          s-excmac.adb
+   [Ada]          s-tasloc.adb
+   [Ada]          s-chepoo.ads
+   [Ada]          s-bitops.adb
+   [Ada]          a-stbubo.adb
+   [Ada]          a-costso.adb
+   [Ada]          a-cimutr.adb
+   [Ada]          s-imglfl.ads
+   [Ada]          s-pack47.adb
+   [Ada]          s-pack34.adb
+   [Ada]          a-nuelfu.ads
+   [Ada]          a-nucoar.ads
+   [Ada]          s-caun32.adb
+   [Ada]          s-imgflt.ads
+   [Ada]          s-strhas.adb
+   [Ada]          s-addima.adb
+   [Ada]          g-bytswa.adb
+   [Ada]          s-memory.adb
+   [Ada]          i-cstrin.adb
+   [Ada]          s-gearop.adb
+   [Ada]          s-pack41.adb
+   [Ada]          a-sfecin.ads
+   [Ada]          a-stwisu.adb
+   [Ada]          s-valflt.ads
+   [Ada]          a-nllrar.ads
+   [Ada]          s-veboop.adb
+   [Ada]          s-exnlfl.ads
+   [Ada]          i-cobol.adb
+   [Ada]          s-vaenu8.ads
+   [Ada]          s-pack43.adb
+   [Ada]          s-imfi32.ads
+   [Ada]          s-pack12.adb
+   [Ada]          a-zchhan.adb
+   [Ada]          a-stzsea.adb
+   [Ada]          s-stopoo.adb
+   [Ada]          a-szunau.adb
+   [Ada]          s-valllf.ads
+   [Ada]          s-casi32.adb
+   [Ada]          a-rbtgbo.adb
+   [Ada]          a-strsea.adb
+   [Ada]          s-statxd.adb
+   [Ada]          g-sha224.ads
+   [Ada]          s-forrea.adb
+   [Ada]          a-nudira.adb
+   [Ada]          s-io.adb
+   [Ada]          a-nlcefu.ads
+   [Ada]          s-fore_f.adb
+   [Ada]          s-init.adb
+   [Ada]          s-pack55.adb
+   [Ada]          a-stwifi.adb
+   [Ada]          s-lidosq.adb
+   [Ada]          i-c.adb
+   [Ada]          s-putima.adb
+   [Ada]          a-sbhcin.adb
+   [Ada]          a-stunha.adb
+   [Ada]          a-zchara.ads
+   [Ada]          g-sehamd.adb
+   [Ada]          a-coorma.adb
+   [Ada]          a-calcon.adb
+   [Ada]          a-chtgbk.adb
+   [Ada]          s-excdeb.adb
+   [Ada]          s-exponu.adb
+   [Ada]          unchconv.ads
+   [Ada]          a-slcain.adb
+   [Ada]          a-ngcefu.adb
+   [Ada]          a-csquin.ads
+   [Ada]          s-vade64.ads
+   [Ada]          s-caun64.adb
+   [Ada]          s-pack17.adb
+   [Ada]          a-nlcoar.ads
+   [Ada]          a-crdlli.adb
+   [Ada]          g-io.adb
+   [Ada]          a-ngcoty.adb
+   [Ada]          s-pack13.adb
+   [Ada]          s-exnlli.ads
+   [Ada]          embedded_stm32f0xx_config.ads
+   [Ada]          stm32f0xx_runtime_config.ads
+   [Ada]          i-stm32.ads
+   [Ada]          i-stm32-flash.ads
+   [Ada]          i-stm32-rcc.ads
+Build Libraries
+   [gprlib]       gnat.lexch
+   [archive]      libgnat.a
+   [index]        libgnat.a
+Note: Building embedded_stm32f0xx=16.0.0/ravenscar_build.gpr (2/2)...
+Compile
+   [Ada]          a-intnam.ads
+   [Ada]          s-musplo.adb
+   [Ada]          s-bcpcst.adb
+   [Ada]          s-bbprot.adb
+   [Ada]          s-bbthqu.adb
+   [Ada]          a-taster.adb
+   [Ada]          s-tpoben.adb
+   [Ada]          s-interr.adb
+   [Ada]          s-bbtime.adb
+   [Ada]          g-boubuf.adb
+   [Ada]          s-bbexti.adb
+   [Ada]          s-bbthre.adb
+   [Ada]          s-trahoo.adb
+   [Ada]          g-boumai.ads
+   [Ada]          s-mufalo.adb
+   [Ada]          s-reldel.adb
+   [Ada]          s-bbinte.adb
+   [Ada]          a-extiin.adb
+   [Ada]          s-tasdeb.adb
+   [Ada]          s-putaim.adb
+   [Ada]          s-tpobmu.adb
+   [Ada]          a-interr.adb
+   [Ada]          s-multip.adb
+   [Ada]          g-semaph.adb
+   [Ada]          s-bbcppr.adb
+   [Ada]          a-taside.adb
+   [Ada]          s-tasres.ads
+   [Ada]          a-rttiev.adb
+   [Ada]          s-tasinf.adb
+   [Ada]          s-btstch.adb
+   [Ada]          a-synbar.adb
+   [Ada]          s-bbbosu.adb
+   [Ada]          s-taprop.adb
+   [Ada]          s-taspri.ads
+   [Ada]          s-tpobop.adb
+   [Ada]          s-bbtiev.adb
+   [Ada]          s-tarest.adb
+   [Ada]          s-tasque.adb
+   [Ada]          s-osinte.ads
+   [Ada]          s-bbcpsp.ads
+   [Ada]          a-sytaco.adb
+   [Ada]          a-retide.adb
+   [Ada]          s-taskin.adb
+   [Ada]          s-bcprmu.adb
+   [Ada]          a-exetim.adb
+   [Ada]          a-reatim.adb
+   [Ada]          s-tposen.adb
+   [Ada]          s-taprob.adb
+Build Libraries
+   [gprlib]       gnarl.lexch
+   [archive]      libgnarl.a
+   [index]        libgnarl.a
+Success: Build finished successfully in 14.21 seconds.
+Found declared GPR file: runtime_build.gpr
+Found declared GPR file: ravenscar_build.gpr
+[alr test] Test completed SUCCESSFULLY

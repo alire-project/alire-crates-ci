@@ -1,0 +1,114 @@
+Test ran at 2026-10-14 01:03:09.933629+00:00
+
+SOLUTION:
+libgpr=26.0.0: GNAT Project File Library
+Origin: source archive v26.0.0.zip at https://github.com/AdaCore/gprbuild/archive/refs/tags/v26.0.0.zip with hash sha512:600d4a7b585755cbf746fd649d62faa79c7e9721f854efe2b74cfec415808e96d50631cd18f87cf292d198822a87beb22a458ced63c3350dd81bfb4f47ca677b
+Properties:
+   Author: AdaCore
+   Configuration: no modifiers
+   Description: GNAT Project File Library
+   GPR Scenario: GPR_BUILD := debug | production | coverage | profiling
+   GPR Scenario: LIBRARY_TYPE := static | relocatable | static-pic
+   License: GPL-3.0-or-later WITH GCC-exception-3.1
+   Maintainer: chouteau@adacore.com
+   Maintainer: sagaert@adacore.com
+   Maintainers_Logins: Fabien-Chouteau
+   Maintainers_Logins: AldanTanneo
+   Name: libgpr
+   Project_File: gpr/gpr.gpr
+   Version: 26.0.0
+   Website: https://github.com/AdaCore/gprbuild
+Dependencies (direct):
+   gnat>=15
+   xmlada~26.0.0
+Dependencies (solution):
+   gnat=15.3.1 (gnat_native)
+   xmlada=26.0.0
+Dependencies (graph):
+   libgpr=26.0.0 --> gnat=15.3.1 (gnat_native) (>=15)
+   libgpr=26.0.0 --> xmlada=26.0.0 (~26.0.0)
+   xmlada=26.0.0 --> gnat=15.3.1 (gnat_native) (>=11)
+
+
+LOG:
+[alr test] Testing libgpr=26.0.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get libgpr=26.0.0
+Note: Deploying libgpr=26.0.0...
+#=#=#                                                                          
+##O#-#                                                                         
+##O=#  #                                                                       
+#=#=-#  #                                                                      
+ #=#=-#   #                                                                    
+
+libgpr=26.0.0 successfully retrieved.
+Dependencies were solved as follows:
+
+   +b gnat   15.3.1 (new,gnat_native,binary)
+   +  xmlada 26.0.0 (new)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building libgpr=26.0.0/gpr/gpr.gpr...
+Setup
+   [mkdir]        object directory for project GPR
+   [mkdir]        library directory for project GPR
+Compile
+   [C]            gpr_imports.c
+   [Ada]          gpr-compilation-process.adb
+   [Ada]          gpr-dect.adb
+   [Ada]          gpr-compilation.adb
+   [Ada]          gpr-tempdir.adb
+   [Ada]          gpr-ext.adb
+   [Ada]          gpr-names.adb
+   [Ada]          gpr-attr.adb
+   [Ada]          gpr_build_util.adb
+   [Ada]          gpr-attr-pm.adb
+   [Ada]          gpr-sinput.adb
+   [Ada]          gpr-util.adb
+   [Ada]          gpr-com.ads
+   [Ada]          gpr-util-aux.adb
+   [Ada]          gpr-scans.adb
+   [Ada]          gpr-debug.adb
+   [Ada]          gpr-tree.adb
+   [Ada]          gpr-nmsc.adb
+   [Ada]          gpr-script.adb
+   [Ada]          gpr-conf.adb
+   [Ada]          gpr-compilation-protocol.adb
+   [Ada]          gpr-opt.ads
+   [Ada]          gpr-knowledge.adb
+   [Ada]          gpr-proc.adb
+   [Ada]          gpr-pp.adb
+   [Ada]          gpr-compilation-slave.adb
+gpr-util-put_resource_usage__unix.adb:34:25: (style) bad casing of "Timeval" declared at g-sothco.ads:59 [-gnatyr]
+gpr-util-put_resource_usage__unix.adb:35:25: (style) bad casing of "Timeval" declared at g-sothco.ads:59 [-gnatyr]
+gpr-util-put_resource_usage__unix.adb:69:35: (style) bad casing of "Timeval" declared at g-sothco.ads:59 [-gnatyr]
+gpr-util-put_resource_usage__unix.adb:78:35: (style) bad casing of "Timeval" declared at g-sothco.ads:59 [-gnatyr]
+gpr-util-put_resource_usage__unix.adb:84:55: (style) bad casing of "Tv_Usec" declared at g-sothco.ads:61 [-gnatyr]
+gpr-util-put_resource_usage__unix.adb:86:25: (style) bad casing of "Tv_Sec" declared at g-sothco.ads:60 [-gnatyr]
+   [Ada]          gpr-output.adb
+   [Ada]          gpr-ali.adb
+   [Ada]          gpr.adb
+   [Ada]          gpr-jobserver.adb
+   [Ada]          gpr-strt.adb
+   [Ada]          gpr-sdefault.adb
+   [Ada]          gpr-part.adb
+gpr-sdefault.adb:29:06: warning: "System.OS_Constants" is an internal GNAT unit [-gnatwi]
+gpr-sdefault.adb:29:06: warning: use of this unit is non-portable and version-dependent [-gnatwi]
+   [Ada]          gpr-compilation-process-waiter.adb
+   [Ada]          gpr-snames.adb
+   [Ada]          gpr-compilation-sync.adb
+   [Ada]          gpr-env.adb
+   [Ada]          gpr-osint.adb
+gpr-osint.adb:30:06: warning: "System.CRTL" is an internal GNAT unit [-gnatwi]
+gpr-osint.adb:30:06: warning: use of this unit is non-portable and version-dependent [-gnatwi]
+gpr-osint.adb:31:06: warning: "System.OS_Constants" is an internal GNAT unit [-gnatwi]
+gpr-osint.adb:31:06: warning: use of this unit is non-portable and version-dependent [-gnatwi]
+   [Ada]          gpr-erroutc.adb
+   [Ada]          gpr-cset.adb
+   [Ada]          gpr-version.adb
+   [Ada]          gpr-err.adb
+Build Libraries
+   [gprlib]       gpr.lexch
+   [archive]      libgpr.a
+   [index]        libgpr.a
+Success: Build finished successfully in 35.49 seconds.
+Found declared GPR file: gpr/gpr.gpr
+[alr test] Test completed SUCCESSFULLY

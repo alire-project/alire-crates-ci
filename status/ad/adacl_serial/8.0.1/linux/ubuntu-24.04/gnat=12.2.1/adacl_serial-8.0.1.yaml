@@ -1,0 +1,601 @@
+badge: false
+crate: adacl_serial
+creation_timestamp: 1791463137.4236248
+distro: ubuntu-24.04
+duration: 4.571785435000038
+gnat: 12.2.1
+last_attempt: 2026-10-08 12:46:33.235781+00:00
+log:
+- 'Test ran at 2026-10-08 12:46:33.235760+00:00
+
+
+  '
+- 'SOLUTION:
+
+  '
+- 'adacl_serial=8.0.1: AdaCL embedded: portable serial port and SPARK-friendly character
+  I/O
+
+  '
+- 'Origin: source archive adacl_serial-8.0.1.tgz at https://sourceforge.net/projects/adacl/files/Alire/adacl_serial-8.0.1.tgz
+  with hashes sha256:a3f522f5f8edb3451c44b9daf95b69281a096d1381d9ef00e8a5e7491cc8aa03,
+  sha512:b9cb68bd46f699e0d3877af8dfe67bd568f1820e14f71b59bcfef541c05b841cab07b68ba6458286b9b525ba390ba0aa5a70ab64e55b47e23d0d750e9e637fe1
+
+  '
+- 'Properties:
+
+  '
+- '   case OS is
+
+  '
+- '      when Linux => Test run: /bin/bash ci-verify.sh (from ${CRATE_ROOT}/.)
+
+  '
+- '      when Macos => Test run: /bin/bash ci-verify.sh (from ${CRATE_ROOT}/.)
+
+  '
+- '      when Windows => Test run: powershell -ExecutionPolicy Bypass -File ci-verify.ps1
+  (from ${CRATE_ROOT}/.)
+
+  '
+- '      when others => (empty)
+
+  '
+- '   Author: Martin Krischik <krischik@users.sourceforge.net>
+
+  '
+- "   Build Switches: \n"
+- '   Configuration: no modifiers
+
+  '
+- '   Description: AdaCL embedded: portable serial port and SPARK-friendly character
+  I/O
+
+  '
+- '   License: GPL-3.0-or-later
+
+  '
+- '   Long_Description: Thin, SPARK-friendly helpers for character and string I/O
+  on a serial port, plus a
+
+  '
+- 'portable binding for the port itself.
+
+  '
+- '
+
+  '
+- 'The crate contains two packages.
+
+  '
+- '
+
+  '
+- '**AdaCL.Serial_Communications**: On Linux and Windows the spec renames GNAT.Serial_Communications
+  and  On macOS it is a
+
+  '
+- 'native body. GNAT reuses the Linux termios record there, which ignores Block and
+  Timeout; this body uses the Darwin
+
+  '
+- 'layout (64-bit flags, no c_line, VMIN at 16 and VTIME at 17) so it''s now fully
+  macOS compatible.
+
+  '
+- '
+
+  '
+- 'AdaCL.Serial_IO is the character and string layer. It extends AdaCL.Serial_Communications.Serial_Port
+  (itself a
+
+  '
+- 'descendant of Ada.Streams.Root_Stream_Type) with a null-record derivation, turning
+  the type into a true class.
+
+  '
+- 'Consequently all operations can be written with the convenient Class.Method syntax
+  (Port.Get, Port.Put_Line,
+
+  '
+- 'Port.Expect, ...).
+
+  '
+- '
+
+  '
+- 'Provided facilities:
+
+  '
+- '* Conversion helpers between Stream_Element / Stream_Element_Array and Character
+  / String
+
+  '
+- '* Classic Get / Put / Get_Line / Put_Line operations
+
+  '
+- '* High-level Expect procedures (discard or capture skipped text until a given sequence
+  arrives)
+
+  '
+- '* Full SPARK contracts on Serial_IO; that package is proven to SPARK gold level
+
+  '
+- '
+
+  '
+- 'Intended for console-style protocols used by classic and modern retro calculators
+  (SwissMicros DM-series, HP-IL
+
+  '
+- 'emulators, etc.).
+
+  '
+- '
+
+  '
+- 'Licensed under the GNU Library General Public License version 3 (or later).
+
+  '
+- 'Integrates with the Ada Class Library (AdaCL).
+
+  '
+- '
+
+  '
+- 'Source: [SourceForge](https://sourceforge.net/p/adacl/git/ci/master/tree/adacl_serial/)
+
+  '
+- 'Documentation: [Overview](https://adacl.sourceforge.net/adacl-serial/) and
+
+  '
+- '[GNATdoc](https://adacl.sourceforge.net/gnatdoc/index.html)
+
+  '
+- '
+
+  '
+- '   Maintainer: Martin Krischik <krischik@users.sourceforge.net>
+
+  '
+- '   Maintainers_Logins: krischik
+
+  '
+- '   Name: adacl_serial
+
+  '
+- '   Tag: library
+
+  '
+- '   Tag: serial
+
+  '
+- '   Tag: io
+
+  '
+- '   Tag: streams
+
+  '
+- '   Tag: communication
+
+  '
+- '   Tag: spark
+
+  '
+- '   Tag: ada2022
+
+  '
+- '   Tag: embedded
+
+  '
+- '   Version: 8.0.1
+
+  '
+- '   Website: https://sourceforge.net/projects/adacl/
+
+  '
+- 'Dependencies (direct):
+
+  '
+- '   adacl^8.0
+
+  '
+- 'Dependencies (solution):
+
+  '
+- '   adacl=8.0.0
+
+  '
+- 'Dependencies (graph):
+
+  '
+- '   adacl_serial=8.0.1 --> adacl=8.0.0 (^8.0)
+
+  '
+- '
+
+  '
+- '
+
+  LOG:
+
+  '
+- '=== Ada CI Verification ===
+
+  '
+- '=== AdaCL Serial Prove ===
+
+  '
+- 'Directory: prove
+
+  '
+- 'Updating dependencies...
+
+  '
+- 'Dependencies automatically updated as follows:
+
+  '
+- '
+
+  '
+- '   +  adacl        8.0.0  (new,indirect)
+
+  '
+- '   +. adacl_serial 8.0.1  (new,path=..)
+
+  '
+- '   +b gnatprove    16.1.0 (new,binary)
+
+  '
+- 'Building with validation...
+
+  '
+- 'Note: Building adacl_serial_prove=8.0.1/adacl_serial_prove.gpr...
+
+  '
+- 'Setup
+
+  '
+- '   [mkdir]        object directory for project AdaCL
+
+  '
+- '   [mkdir]        library directory for project AdaCL
+
+  '
+- '   [mkdir]        object directory for project AdaCL_Serial
+
+  '
+- '   [mkdir]        library directory for project AdaCL_Serial
+
+  '
+- '   [mkdir]        object directory for project AdaCl_Serial_Prove
+
+  '
+- '   [mkdir]        exec directory for project AdaCl_Serial_Prove
+
+  '
+- 'Compile
+
+  '
+- '   [Ada]          dummy-main.adb
+
+  '
+- '   [Ada]          adacl_config.ads
+
+  '
+- '   [Ada]          adacl.ads
+
+  '
+- '   [Ada]          adacl_serial_config.ads
+
+  '
+- '   [Ada]          adacl-serial_communications.ads
+
+  '
+- '   [Ada]          adacl-serial_io.adb
+
+  '
+- '   [Ada]          dummy.ads
+
+  '
+- '/home/runner/work/alire-crates-ci/alire-crates-ci/test/3fb0344e-142a-4268-9055-1d7c79d78f37/adacl_serial_8.0.1_a3f522f5/src/adacl-serial_io.ads:121:24:
+  warning: "Exceptional_Cases" is not a valid aspect identifier [enabled by default]
+
+  '
+- '/home/runner/work/alire-crates-ci/alire-crates-ci/test/3fb0344e-142a-4268-9055-1d7c79d78f37/adacl_serial_8.0.1_a3f522f5/src/adacl-serial_io.ads:134:15:
+  warning: "Side_Effects" is not a valid aspect identifier [enabled by default]
+
+  '
+- '/home/runner/work/alire-crates-ci/alire-crates-ci/test/3fb0344e-142a-4268-9055-1d7c79d78f37/adacl_serial_8.0.1_a3f522f5/src/adacl-serial_io.ads:177:07:
+  warning: "Exceptional_Cases" is not a valid aspect identifier [enabled by default]
+
+  '
+- '/home/runner/work/alire-crates-ci/alire-crates-ci/test/3fb0344e-142a-4268-9055-1d7c79d78f37/adacl_serial_8.0.1_a3f522f5/src/adacl-serial_io.ads:249:07:
+  warning: "Exceptional_Cases" is not a valid aspect identifier [enabled by default]
+
+  '
+- '/home/runner/work/alire-crates-ci/alire-crates-ci/test/3fb0344e-142a-4268-9055-1d7c79d78f37/adacl_serial_8.0.1_a3f522f5/src/adacl-serial_io.ads:277:07:
+  warning: "Exceptional_Cases" is not a valid aspect identifier [enabled by default]
+
+  '
+- 'Build Libraries
+
+  '
+- '   [gprlib]       AdaCL.lexch
+
+  '
+- '   [gprlib]       AdaCL_Serial.lexch
+
+  '
+- '   [archive]      libAdaCL.a
+
+  '
+- '   [index]        libAdaCL.a
+
+  '
+- '   [archive]      libAdaCL_Serial.a
+
+  '
+- '   [index]        libAdaCL_Serial.a
+
+  '
+- 'Bind
+
+  '
+- '   [gprbind]      dummy-main.bexch
+
+  '
+- '   [Ada]          dummy-main.ali
+
+  '
+- 'Link
+
+  '
+- '   [link]         dummy-main.adb
+
+  '
+- 'Success: Build finished successfully in 0.58 seconds.
+
+  '
+- 'Running tests...
+
+  '
+- 'Success: Test ended successfully.
+
+  '
+- 'Note: Check log at /home/runner/work/alire-crates-ci/alire-crates-ci/test/3fb0344e-142a-4268-9055-1d7c79d78f37/adacl_serial_8.0.1_a3f522f5/prove/alire/alr_test_local.log
+
+  '
+- 'SUCCESS: AdaCL Serial Prove
+
+  '
+- '--------------------------------------------------
+
+  '
+- '=== AdaCL Serial Test ===
+
+  '
+- 'Directory: test
+
+  '
+- 'Updating dependencies...
+
+  '
+- 'Dependencies automatically updated as follows:
+
+  '
+- '
+
+  '
+- '   +  adacl        8.0.0  (new,indirect)
+
+  '
+- '   +. adacl_serial 8.0.1  (new,path=..)
+
+  '
+- '   +  aunit        26.0.0 (new)
+
+  '
+- 'Building with validation...
+
+  '
+- 'Note: Building adacl_serial_test=8.0.1/adacl_serial_test.gpr...
+
+  '
+- 'Setup
+
+  '
+- '   [mkdir]        object directory for project AdaCL_Serial
+
+  '
+- '   [mkdir]        object directory for project AdaCL_Serial_Test
+
+  '
+- '   [mkdir]        exec directory for project AdaCL_Serial_Test
+
+  '
+- 'Compile
+
+  '
+- '   [Ada]          adacl_serial_test-main.adb
+
+  '
+- '   [Ada]          aunit-io.ads
+
+  '
+- '   [Ada]          aunit-memory.adb
+
+  '
+- '   [Ada]          aunit-memory-utils.adb
+
+  '
+- '   [Ada]          aunit-time_measure.adb
+
+  '
+- '   [Ada]          aunit-reporter-gnattest.adb
+
+  '
+- '   [Ada]          aunit-reporter-junit.adb
+
+  '
+- '   [Ada]          aunit-reporter-xml.adb
+
+  '
+- '   [Ada]          aunit-reporter-text.adb
+
+  '
+- '   [Ada]          ada_containers.ads
+
+  '
+- '   [Ada]          ada_containers-aunit_lists.adb
+
+  '
+- '   [Ada]          aunit-test_suites.adb
+
+  '
+- '   [Ada]          aunit.adb
+
+  '
+- '   [Ada]          aunit-test_filters.adb
+
+  '
+- '   [Ada]          aunit-test_cases.adb
+
+  '
+- '   [Ada]          aunit-tests.ads
+
+  '
+- '   [Ada]          aunit-run.adb
+
+  '
+- '   [Ada]          aunit-assertions.adb
+
+  '
+- '   [Ada]          aunit-reporter.adb
+
+  '
+- '   [Ada]          aunit-test_fixtures.adb
+
+  '
+- '   [Ada]          aunit-options.ads
+
+  '
+- '   [Ada]          aunit-test_caller.adb
+
+  '
+- '   [Ada]          aunit-simple_test_cases.adb
+
+  '
+- '   [Ada]          aunit-test_results.adb
+
+  '
+- '   [Ada]          adacl_config.ads
+
+  '
+- '   [Ada]          adacl_serial_config.ads
+
+  '
+- '   [Ada]          adacl-serial_communications.ads
+
+  '
+- '   [Ada]          adacl-serial_io.adb
+
+  '
+- '   [Ada]          adacl_serial_test.ads
+
+  '
+- '   [Ada]          adacl_serial_test-suite.adb
+
+  '
+- '/home/runner/work/alire-crates-ci/alire-crates-ci/test/3fb0344e-142a-4268-9055-1d7c79d78f37/adacl_serial_8.0.1_a3f522f5/src/adacl-serial_io.ads:121:24:
+  warning: "Exceptional_Cases" is not a valid aspect identifier [enabled by default]
+
+  '
+- '/home/runner/work/alire-crates-ci/alire-crates-ci/test/3fb0344e-142a-4268-9055-1d7c79d78f37/adacl_serial_8.0.1_a3f522f5/src/adacl-serial_io.ads:134:15:
+  warning: "Side_Effects" is not a valid aspect identifier [enabled by default]
+
+  '
+- '/home/runner/work/alire-crates-ci/alire-crates-ci/test/3fb0344e-142a-4268-9055-1d7c79d78f37/adacl_serial_8.0.1_a3f522f5/src/adacl-serial_io.ads:177:07:
+  warning: "Exceptional_Cases" is not a valid aspect identifier [enabled by default]
+
+  '
+- '/home/runner/work/alire-crates-ci/alire-crates-ci/test/3fb0344e-142a-4268-9055-1d7c79d78f37/adacl_serial_8.0.1_a3f522f5/src/adacl-serial_io.ads:249:07:
+  warning: "Exceptional_Cases" is not a valid aspect identifier [enabled by default]
+
+  '
+- '/home/runner/work/alire-crates-ci/alire-crates-ci/test/3fb0344e-142a-4268-9055-1d7c79d78f37/adacl_serial_8.0.1_a3f522f5/src/adacl-serial_io.ads:277:07:
+  warning: "Exceptional_Cases" is not a valid aspect identifier [enabled by default]
+
+  '
+- 'Build Libraries
+
+  '
+- '   [gprlib]       AdaCL.lexch
+
+  '
+- '   [gprlib]       AdaCL_Serial.lexch
+
+  '
+- '   [archive]      libAdaCL.a
+
+  '
+- '   [index]        libAdaCL.a
+
+  '
+- '   [gprlib]       aunit.lexch
+
+  '
+- '   [archive]      libAdaCL_Serial.a
+
+  '
+- '   [archive]      libaunit.a
+
+  '
+- '   [index]        libAdaCL_Serial.a
+
+  '
+- '   [index]        libaunit.a
+
+  '
+- 'Bind
+
+  '
+- '   [gprbind]      adacl_serial_test-main.bexch
+
+  '
+- '   [Ada]          adacl_serial_test-main.ali
+
+  '
+- 'Link
+
+  '
+- '   [link]         adacl_serial_test-main.adb
+
+  '
+- 'Success: Build finished successfully in 1.44 seconds.
+
+  '
+- 'Running tests...
+
+  '
+- 'ERROR: Local test of adacl_serial_test=8.0.1 failed:
+
+  '
+- 'ERROR:    Check alire/alr_test_local.log for details.
+
+  '
+- 'FAILED: AdaCL Serial Test (Exit-Code: 1)
+
+  '
+- '--------------------------------------------------
+
+  '
+- 'All steps completed.
+
+  '
+- '[alr test] Test completed SUCCESSFULLY
+
+  '
+platform: linux
+status: success
+version: 8.0.1

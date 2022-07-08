@@ -1,0 +1,243 @@
+Test ran at 2025-09-27 12:37:17.984984+00:00
+
+SOLUTION:
+excel_writer=19.0.0: Produce Excel spreadsheets
+Origin: source archive excel_writer_19.zip at https://sourceforge.net/projects/excel-writer/files/excel-writer/excel_writer_19.zip with hash sha512:121a552097bd41965e8aeecf29ab3bed59755704c21c81fb85eac852bab8aa377388d949971f999e039a1e6ca52f05a4a05ab4a95dbb7653df5a6b7481ecbf9e
+Properties:
+   Author: Gautier de Montmollin
+   Description: Produce Excel spreadsheets
+   Executable: excel_out_demo
+   License: MIT
+   Long_Description: ![Excel Writer logo](https://excel-writer.sourceforge.io/ew_logo_no_shadow.png)
+
+Excel_Out is a standalone, portable Ada package for writing Excel spreadsheets with basic formattings and formulas, easily and programmatically.
+
+* Enables the automatic production of reports
+* Fast: 50 sheets per second, with 10,000 data cells each on a slow 1.66 GHz computer
+* No interaction needed with Excel or MS Office
+* Unconditionally portable (*)
+* Endian-neutral
+* Object oriented
+* Task safe
+* Pure Ada 95 (nothing compiler/system specific), can be used in projects in Ada 95, Ada 2005, Ada 2012 and later versions of the language
+* Floating-point hardware neutral: no IEEE hardware required
+* Tests and demos included
+* Includes a CSV parser with related tools.
+* Free, open-source
+
+The creation of an Excel file is as simple as this small procedure:
+
+```ada
+with Excel_Out;
+
+procedure Small_Demo is
+  xl : Excel_Out.Excel_Out_File;
+begin
+  xl.Create ("small.xls");
+  xl.Put_Line ("This is a small demo for Excel_Out");
+  for row in 3 .. 8 loop
+    for column in 1 .. 8 loop
+      xl.Write (row, column, row * 1000 + column);
+    end loop;
+  end loop;
+  xl.Close;
+end Small_Demo;
+```
+
+___
+
+(*) within limits of compiler's provided integer types and target architecture capacity.
+
+   Maintainer: gdemont@hotmail.com
+   Maintainers_Logins: mosteo
+   Maintainers_Logins: zertovitch
+   Name: excel_writer
+   Project_File: excel_out.gpr
+   Tag: excel
+   Tag: spreadsheet
+   Tag: xls
+   Tag: csv
+   Version: 19.0.0
+   Website: https://excel-writer.sourceforge.io/
+
+
+LOG:
+[alr test] Testing excel_writer=19.0.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get excel_writer=19.0.0
+Note: Deploying excel_writer=19.0.0...
+#=#=#                                                                          
+
+######################################################################## 100.0%
+######################################################################## 100.0%
+######################################################################## 100.0%##O#-#                                                                         
+
+######################################################################## 100.0%##=O#- #                                                                       
+# #=O#- #                                                                      
+ #-#O=#   #                                                                    
+  #=#=- #   #                                                                  
+  -#O#-  #   #                                                                 
+  -=#=-#   #   #                                                               
+  -=O#- #    #   #                                                             
+
+######################################################################## 100.0%
+
+excel_writer=19.0.0 successfully retrieved.
+There are no dependencies.
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building excel_writer=19.0.0/excel_out.gpr...
+Setup
+   [mkdir]        object directory for project Excel_Out
+Compile
+   [Ada]          excel_out_demo.adb
+   [Ada]          biff_dump.adb
+   [Ada]          spreadsheet_references_demo.adb
+   [Ada]          csv2ada.adb
+   [Ada]          csv2tex.adb
+   [Ada]          csv2html.adb
+   [Ada]          csv2xls.adb
+   [Ada]          paypal.adb
+   [Ada]          ew_test.adb
+   [Ada]          spreadsheet_references.adb
+   [Ada]          csv.adb
+   [Ada]          excel_out.adb
+   [Ada]          excel_out-formulas.adb
+   [Ada]          excel_out-ieee_754.ads
+   [Ada]          excel_out-ieee_754-generic_double_precision.adb
+Bind
+   [gprbind]      excel_out_demo.bexch
+   [gprbind]      biff_dump.bexch
+   [gprbind]      spreadsheet_references_demo.bexch
+   [gprbind]      csv2ada.bexch
+   [Ada]          excel_out_demo.ali
+   [Ada]          biff_dump.ali
+   [Ada]          spreadsheet_references_demo.ali
+   [Ada]          csv2ada.ali
+   [gprbind]      csv2tex.bexch
+   [Ada]          csv2tex.ali
+   [gprbind]      csv2html.bexch
+   [gprbind]      csv2xls.bexch
+   [Ada]          csv2html.ali
+   [Ada]          csv2xls.ali
+   [gprbind]      paypal.bexch
+   [Ada]          paypal.ali
+   [gprbind]      ew_test.bexch
+   [Ada]          ew_test.ali
+Link
+   [link]         excel_out_demo.adb
+   [link]         biff_dump.adb
+   [link]         spreadsheet_references_demo.adb
+   [link]         csv2ada.adb
+/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86_64-pc-linux-gnu/bin/ld: /lib/x86_64-linux-gnu/libc.so.6: unknown type [0x13] section `.relr.dyn'
+/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86_64-pc-linux-gnu/bin/ld: skipping incompatible /lib/x86_64-linux-gnu/libc.so.6 when searching for /lib/x86_64-linux-gnu/libc.so.6
+/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86_64-pc-linux-gnu/bin/ld: cannot find /lib/x86_64-linux-gnu/libc.so.6
+/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86_64-pc-linux-gnu/bin/ld: /lib/x86_64-linux-gnu/libc.so.6: unknown type [0x13] section `.relr.dyn'
+/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86_64-pc-linux-gnu/bin/ld: skipping incompatible /lib/x86_64-linux-gnu/libc.so.6 when searching for /lib/x86_64-linux-gnu/libc.so.6
+/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86_64-pc-linux-gnu/bin/ld: /lib64/ld-linux-x86-64.so.2: unknown type [0x13] section `.relr.dyn'
+/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86_64-pc-linux-gnu/bin/ld: skipping incompatible /lib64/ld-linux-x86-64.so.2 when searching for /lib64/ld-linux-x86-64.so.2
+/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86_64-pc-linux-gnu/bin/ld: cannot find /lib64/ld-linux-x86-64.so.2
+/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86_64-pc-linux-gnu/bin/ld: /lib64/ld-linux-x86-64.so.2: unknown type [0x13] section `.relr.dyn'
+/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86_64-pc-linux-gnu/bin/ld: skipping incompatible /lib64/ld-linux-x86-64.so.2 when searching for /lib64/ld-linux-x86-64.so.2
+collect2: error: ld returned 1 exit status
+/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86_64-pc-linux-gnu/bin/ld: /lib/x86_64-linux-gnu/libc.so.6: unknown type [0x13] section `.relr.dyn'
+/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86_64-pc-linux-gnu/bin/ld: skipping incompatible /lib/x86_64-linux-gnu/libc.so.6 when searching for /lib/x86_64-linux-gnu/libc.so.6
+/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86_64-pc-linux-gnu/bin/ld: cannot find /lib/x86_64-linux-gnu/libc.so.6
+/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86_64-pc-linux-gnu/bin/ld: /lib/x86_64-linux-gnu/libc.so.6/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86: unknown type [_64-pc-linux-gnu/bin/ld: 0x13/lib/x86_64-linux-gnu/libc.so.6] section `: unknown type [.relr.dyn0x13'] section `
+.relr.dyn'
+/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86_64-pc-linux-gnu/bin/ld: skipping incompatible /lib/x86_64-linux-gnu/libc.so.6 when searching for /lib/x86_64-linux-gnu/libc.so.6
+/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86_64-pc-linux-gnu/bin/ld: skipping incompatible /lib/x86_64-linux-gnu/libc.so.6 when searching for /lib/x86_64-linux-gnu/libc.so.6
+/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86_64-pc-linux-gnu/bin/ld: cannot find /lib/x86_64-linux-gnu/libc.so.6
+/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86_64-pc-linux-gnu/bin/ld: /lib64/ld-linux-x86-64.so.2: unknown type [0x13] section `.relr.dyn'
+/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86_64-pc-linux-gnu/bin/ld: /lib/x86_64-linux-gnu/libc.so.6: unknown type [0x13] section `.relr.dyn'
+/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86_64-pc-linux-gnu/bin/ld: skipping incompatible /lib64/ld-linux-x86-64.so.2 when searching for /lib64/ld-linux-x86-64.so.2
+/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86_64-pc-linux-gnu/bin/ld: skipping incompatible /lib/x86_64-linux-gnu/libc.so.6 when searching for /lib/x86_64-linux-gnu/libc.so.6
+/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86_64-pc-linux-gnu/bin/ld: cannot find /lib64/ld-linux-x86-64.so.2
+/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86_64-pc-linux-gnu/bin/ld: /lib64/ld-linux-x86-64.so.2: unknown type [0x13] section `.relr.dyn'
+/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86_64-pc-linux-gnu/bin/ld: /lib64/ld-linux-x86-64.so.2: unknown type [0x13] section `.relr.dyn'
+/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86_64-pc-linux-gnu/bin/ld: skipping incompatible /lib64/ld-linux-x86-64.so.2 when searching for /lib64/ld-linux-x86-64.so.2
+/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86_64-pc-linux-gnu/bin/ld: skipping incompatible /lib64/ld-linux-x86-64.so.2 when searching for /lib64/ld-linux-x86-64.so.2
+/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86_64-pc-linux-gnu/bin/ld: cannot find /lib64/ld-linux-x86-64.so.2
+/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86_64-pc-linux-gnu/bin/ld: /lib64/ld-linux-x86-64.so.2: unknown type [0x13] section `.relr.dyn'
+/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86_64-pc-linux-gnu/bin/ld: skipping incompatible /lib64/ld-linux-x86-64.so.2 when searching for /lib64/ld-linux-x86-64.so.2
+collect2: error: ld returned 1 exit status
+collect2: error: ld returned 1 exit status
+/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86_64-pc-linux-gnu/bin/ld: /lib/x86_64-linux-gnu/libc.so.6: unknown type [0x13] section `.relr.dyn'
+/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86_64-pc-linux-gnu/bin/ld: skipping incompatible /lib/x86_64-linux-gnu/libc.so.6 when searching for /lib/x86_64-linux-gnu/libc.so.6
+/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86_64-pc-linux-gnu/bin/ld: cannot find /lib/x86_64-linux-gnu/libc.so.6
+/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86_64-pc-linux-gnu/bin/ld: /lib/x86_64-linux-gnu/libc.so.6: unknown type [0x13] section `.relr.dyn'
+/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86_64-pc-linux-gnu/bin/ld: skipping incompatible /lib/x86_64-linux-gnu/libc.so.6 when searching for /lib/x86_64-linux-gnu/libc.so.6
+/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86_64-pc-linux-gnu/bin/ld: /lib64/ld-linux-x86-64.so.2: unknown type [0x13] section `.relr.dyn'
+/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86_64-pc-linux-gnu/bin/ld: skipping incompatible /lib64/ld-linux-x86-64.so.2 when searching for /lib64/ld-linux-x86-64.so.2
+/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86_64-pc-linux-gnu/bin/ld: cannot find /lib64/ld-linux-x86-64.so.2
+/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86_64-pc-linux-gnu/bin/ld: /lib64/ld-linux-x86-64.so.2: unknown type [0x13] section `.relr.dyn'
+/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86_64-pc-linux-gnu/bin/ld: skipping incompatible /lib64/ld-linux-x86-64.so.2 when searching for /lib64/ld-linux-x86-64.so.2
+collect2: error: ld returned 1 exit status
+   link of spreadsheet_references_demo.adb failed
+   failed command was: /home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/gcc spreadsheet_references_demo.o b__spreadsheet_references_demo.o /home/runner/work/alire-crates-ci/alire-crates-ci/test/d7273b21-e635-4008-b0f1-6557a10eda96/excel_writer_19.0.0_121a5520/obj_debug/spreadsheet_references.o -L/home/runner/work/alire-crates-ci/alire-crates-ci/test/d7273b21-e635-4008-b0f1-6557a10eda96/excel_writer_19.0.0_121a5520/obj_debug/ -L/home/runner/work/alire-crates-ci/alire-crates-ci/test/d7273b21-e635-4008-b0f1-6557a10eda96/excel_writer_19.0.0_121a5520/obj_debug/ -L/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/lib/gcc/x86_64-pc-linux-gnu/10.3.0/adalib/ -static-libgcc /home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/lib/gcc/x86_64-pc-linux-gnu/10.3.0/adalib/libgnat.a -ldl -Wl,-rpath-link,/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/lib/gcc/x86_64-pc-linux-gnu/10.3.0//adalib -Wl,-z,origin,-rpath,$ORIGIN//obj_debug:$ORIGIN/../../../../../..//.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/lib/gcc/x86_64-pc-linux-gnu/10.3.0/adalib -o /home/runner/work/alire-crates-ci/alire-crates-ci/test/d7273b21-e635-4008-b0f1-6557a10eda96/excel_writer_19.0.0_121a5520//spreadsheet_references_demo 
+   link of excel_out_demo.adb failed
+   failed command was: /home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/gcc excel_out_demo.o b__excel_out_demo.o /home/runner/work/alire-crates-ci/alire-crates-ci/test/d7273b21-e635-4008-b0f1-6557a10eda96/excel_writer_19.0.0_121a5520/obj_debug/excel_out-formulas.o /home/runner/work/alire-crates-ci/alire-crates-ci/test/d7273b21-e635-4008-b0f1-6557a10eda96/excel_writer_19.0.0_121a5520/obj_debug/excel_out-ieee_754.o /home/runner/work/alire-crates-ci/alire-crates-ci/test/d7273b21-e635-4008-b0f1-6557a10eda96/excel_writer_19.0.0_121a5520/obj_debug/excel_out-ieee_754-generic_double_precision.o /home/runner/work/alire-crates-ci/alire-crates-ci/test/d7273b21-e635-4008-b0f1-6557a10eda96/excel_writer_19.0.0_121a5520/obj_debug/excel_out.o -L/home/runner/work/alire-crates-ci/alire-crates-ci/test/d7273b21-e635-4008-b0f1-6557a10eda96/excel_writer_19.0.0_121a5520/obj_debug/ -L/home/runner/work/alire-crates-ci/alire-crates-ci/test/d7273b21-e635-4008-b0f1-6557a10eda96/excel_writer_19.0.0_121a5520/obj_debug/ -L/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/lib/gcc/x86_64-pc-linux-gnu/10.3.0/adalib/ -static-libgcc /home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/lib/gcc/x86_64-pc-linux-gnu/10.3.0/adalib/libgnat.a -ldl -Wl,-rpath-link,/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/lib/gcc/x86_64-pc-linux-gnu/10.3.0//adalib -Wl,-z,origin,-rpath,$ORIGIN//obj_debug:$ORIGIN/../../../../../..//.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/lib/gcc/x86_64-pc-linux-gnu/10.3.0/adalib -o /home/runner/work/alire-crates-ci/alire-crates-ci/test/d7273b21-e635-4008-b0f1-6557a10eda96/excel_writer_19.0.0_121a5520//excel_out_demo 
+   link of csv2ada.adb failed
+   failed command was: /home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/gcc csv2ada.o b__csv2ada.o /home/runner/work/alire-crates-ci/alire-crates-ci/test/d7273b21-e635-4008-b0f1-6557a10eda96/excel_writer_19.0.0_121a5520/obj_debug/csv.o -L/home/runner/work/alire-crates-ci/alire-crates-ci/test/d7273b21-e635-4008-b0f1-6557a10eda96/excel_writer_19.0.0_121a5520/obj_debug/ -L/home/runner/work/alire-crates-ci/alire-crates-ci/test/d7273b21-e635-4008-b0f1-6557a10eda96/excel_writer_19.0.0_121a5520/obj_debug/ -L/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/lib/gcc/x86_64-pc-linux-gnu/10.3.0/adalib/ -static-libgcc /home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/lib/gcc/x86_64-pc-linux-gnu/10.3.0/adalib/libgnat.a -ldl -Wl,-rpath-link,/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/lib/gcc/x86_64-pc-linux-gnu/10.3.0//adalib -Wl,-z,origin,-rpath,$ORIGIN//obj_debug:$ORIGIN/../../../../../..//.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/lib/gcc/x86_64-pc-linux-gnu/10.3.0/adalib -o /home/runner/work/alire-crates-ci/alire-crates-ci/test/d7273b21-e635-4008-b0f1-6557a10eda96/excel_writer_19.0.0_121a5520//csv2ada 
+   link of biff_dump.adb failed
+   failed command was: /home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/gcc biff_dump.o b__biff_dump.o /home/runner/work/alire-crates-ci/alire-crates-ci/test/d7273b21-e635-4008-b0f1-6557a10eda96/excel_writer_19.0.0_121a5520/obj_debug/excel_out-formulas.o /home/runner/work/alire-crates-ci/alire-crates-ci/test/d7273b21-e635-4008-b0f1-6557a10eda96/excel_writer_19.0.0_121a5520/obj_debug/excel_out-ieee_754.o /home/runner/work/alire-crates-ci/alire-crates-ci/test/d7273b21-e635-4008-b0f1-6557a10eda96/excel_writer_19.0.0_121a5520/obj_debug/excel_out-ieee_754-generic_double_precision.o /home/runner/work/alire-crates-ci/alire-crates-ci/test/d7273b21-e635-4008-b0f1-6557a10eda96/excel_writer_19.0.0_121a5520/obj_debug/excel_out.o -L/home/runner/work/alire-crates-ci/alire-crates-ci/test/d7273b21-e635-4008-b0f1-6557a10eda96/excel_writer_19.0.0_121a5520/obj_debug/ -L/home/runner/work/alire-crates-ci/alire-crates-ci/test/d7273b21-e635-4008-b0f1-6557a10eda96/excel_writer_19.0.0_121a5520/obj_debug/ -L/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/lib/gcc/x86_64-pc-linux-gnu/10.3.0/adalib/ -static-libgcc /home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/lib/gcc/x86_64-pc-linux-gnu/10.3.0/adalib/libgnat.a -ldl -Wl,-rpath-link,/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/lib/gcc/x86_64-pc-linux-gnu/10.3.0//adalib -Wl,-z,origin,-rpath,$ORIGIN//obj_debug:$ORIGIN/../../../../../..//.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/lib/gcc/x86_64-pc-linux-gnu/10.3.0/adalib -o /home/runner/work/alire-crates-ci/alire-crates-ci/test/d7273b21-e635-4008-b0f1-6557a10eda96/excel_writer_19.0.0_121a5520//biff_dump 
+gprbuild: *** link phase failed
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/d7273b21-e635-4008-b0f1-6557a10eda96/excel_writer_19.0.0_121a5520/excel_out.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/d7273b21-e635-4008-b0f1-6557a10eda96/excel_writer_19.0.0_121a5520/excel_out.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+stderr: ALIRE.CHECKED_ERROR
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/d7273b21-e635-4008-b0f1-6557a10eda96/excel_writer_19.0.0_121a5520/excel_out.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
+[/home/runner/work/alire-crates-ci/alire-crates-ci/alire_install/bin/alr]
+0xe75bc6 Alire.Raise_Checked_Error at alire.adb:284
+0xac1a54 Alire.Os_Lib.Subprocess.Checked_Spawn at alire-os_lib-subprocess.adb:111
+0xd40276 Alire.Spawn.Command at alire-spawn.adb:22
+0xd412ee Alire.Spawn.Gprbuild at alire-spawn.adb:68
+0xc748cb Alire.Roots.Build at alire-roots.adb:189
+0xc7301a Alire.Roots.Build at alire-roots.adb:255
+0xc9832b Alire.Roots.Traverse at alire-roots.adb:2143
+0xcfee85 Alire.Solutions.Traverse.Visit at alire-solutions.adb:1472
+0xcfdfcc Alire.Solutions.Traverse at alire-solutions.adb:1555
+0xc9841e Alire.Roots.Traverse at alire-roots.adb:2147
+0xc984dd Alire.Roots.Traverse at alire-roots.adb:2127
+0xc7359b Alire.Roots.Build at alire-roots.adb:286
+0xc736d7 Alire.Roots.Build at alire-roots.adb:114
+0x49aa0d Alr.Commands.Build.Execute at alr-commands-build.adb:145
+0x49a36d Alr.Commands.Build.Execute at alr-commands-build.adb:113
+0x49a51f Alr.Commands.Build.Execute at alr-commands-build.adb:54
+0x53bbcc Alr.Commands.Sub_Cmd.Execute at clic-subcommand-instance.adb:749
+0x5472be Alr.Commands.Execute at alr-commands.adb:632
+0x43d48a Alr.Main at alr-main.adb:13
+0x4403a3 Main at b__alr-main.adb:2445
+[/lib/x86_64-linux-gnu/libc.so.6]
+0x7f022ec2a1c8
+0x7f022ec2a289
+[/home/runner/work/alire-crates-ci/alire-crates-ci/alire_install/bin/alr]
+0x43d323 _start at ???
+0xfffffffffffffffe
+
+stderr: ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED
+stderr: alire-roots.adb:202
+stderr: raised ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED : alire-roots.adb:202
+[/home/runner/work/alire-crates-ci/alire-crates-ci/alire_install/bin/alr]
+0xc74cc7 Alire.Roots.Build at alire-roots.adb:202
+0xc7301a Alire.Roots.Build at alire-roots.adb:255
+0xc9832b Alire.Roots.Traverse at alire-roots.adb:2143
+0xcfee85 Alire.Solutions.Traverse.Visit at alire-solutions.adb:1472
+0xcfdfcc Alire.Solutions.Traverse at alire-solutions.adb:1555
+0xc9841e Alire.Roots.Traverse at alire-roots.adb:2147
+0xc984dd Alire.Roots.Traverse at alire-roots.adb:2127
+0xc7359b Alire.Roots.Build at alire-roots.adb:286
+0xc736d7 Alire.Roots.Build at alire-roots.adb:114
+0x49aa0d Alr.Commands.Build.Execute at alr-commands-build.adb:145
+0x49a36d Alr.Commands.Build.Execute at alr-commands-build.adb:113
+0x49a51f Alr.Commands.Build.Execute at alr-commands-build.adb:54
+0x53bbcc Alr.Commands.Sub_Cmd.Execute at clic-subcommand-instance.adb:749
+0x5472be Alr.Commands.Execute at alr-commands.adb:632
+0x43d48a Alr.Main at alr-main.adb:13
+0x4403a3 Main at b__alr-main.adb:2445
+[/lib/x86_64-linux-gnu/libc.so.6]
+0x7f022ec2a1c8
+0x7f022ec2a289
+[/home/runner/work/alire-crates-ci/alire-crates-ci/alire_install/bin/alr]
+0x43d323 _start at ???
+0xfffffffffffffffe
+
+ERROR: Compilation failed.

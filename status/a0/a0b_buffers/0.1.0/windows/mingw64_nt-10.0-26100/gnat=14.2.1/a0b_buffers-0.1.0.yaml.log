@@ -1,0 +1,60 @@
+Test ran at 2026-09-29 13:01:20.117762+00:00
+
+SOLUTION:
+a0b_buffers=0.1.0: A0B: Buffers
+Origin: commit 280d5d3d71ded322d08579dd7dc53684c9ec3f4f from https://github.com/godunko/a0b-buffers.git
+Properties:
+   Author: Vadim Godunko
+   Configuration: no modifiers
+   Description: A0B: Buffers
+   License: Apache-2.0 WITH LLVM-exception
+   Long_Description: Provides memory-safe data buffer abstractions with customizable allocation strategies (fixed and dynamic capacity), optimized for I/O handling and serialization builders.
+
+   Maintainer: Vadim Godunko <vgodunko@gmail.com>
+   Maintainers_Logins: godunko
+   Name: a0b_buffers
+   Tag: a0b
+   Tag: buffers
+   Version: 0.1.0
+   Website: https://github.com/godunko/a0b-buffers
+Dependencies (direct):
+   a0b_base*
+Dependencies (solution):
+   a0b_base=0.5.0
+Dependencies (graph):
+   a0b_buffers=0.1.0 --> a0b_base=0.5.0 (*)
+
+
+LOG:
+[alr test] Testing a0b_buffers=0.1.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get a0b_buffers=0.1.0
+Note: Deploying a0b_buffers=0.1.0...
+Note: Deploying a0b_base=0.5.0...
+
+a0b_buffers=0.1.0 successfully retrieved.
+Dependencies were solved as follows:
+
+   + a0b_base 0.5.0 (new)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building a0b_buffers=0.1.0/a0b_buffers.gpr...
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\a0b_base_0.5.0_882bbc92\915d9e449026d1d4f43f3226bfc4b70abfde071dd71458b799fa5d10a341a7e6\.objs\x86_64-windows\none" created
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\a0b_base_0.5.0_882bbc92\915d9e449026d1d4f43f3226bfc4b70abfde071dd71458b799fa5d10a341a7e6\.libs\x86_64-windows\none" created
+".objs\x86_64-windows\none" created
+".libs\x86_64-windows\none" created
+[Ada Compile]     a0b-peripherals.ads
+[Ada Compile]     a0b-types-arrays.ads
+[Ada Compile]     a0b-types-big_endian.adb
+[Ada Compile]     a0b-types-enumerable.ads
+[Ada Compile]     a0b-types-gcc_builtins.ads
+[Ada Compile]     a0b-types-svd.ads
+a0b-types-big_endian.adb:10:04: warning: "Unsigned_64" is already use-visible through previous use_type_clause at a0b-types.ads:297 [-gnatwr]
+a0b-types-big_endian.adb:10:04: warning: use clause for type "Unsigned_64" defined at a0b-types.ads:88 has no effect [-gnatwu]
+[Ada Compile]     a0b-types.ads
+[Ada Compile]     a0b.ads
+[Ada Compile]     a0b-buffers-static.adb
+[Ada Compile]     a0b-buffers.ads
+[Archive]         liba0b_base.a
+[Archive]         liba0b_buffers.a
+Success: Build finished successfully in 1.77 seconds.
+Found declared GPR file: a0b_buffers.gpr
+[alr test] Test completed SUCCESSFULLY

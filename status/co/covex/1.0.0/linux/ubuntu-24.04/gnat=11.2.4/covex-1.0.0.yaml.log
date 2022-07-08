@@ -1,0 +1,223 @@
+Test ran at 2026-07-31 00:57:54.538551+00:00
+
+SOLUTION:
+covex=1.0.0: Ada/SPARK coverage, proof, DO-178C compliance tool
+Origin: commit 2c52a79e846b9c6b2f7cb1b1c4762acaf2e9ee09 from https://github.com/bladeacer/adacovex
+Properties:
+   Author: bladeacer
+   Description: Ada/SPARK coverage, proof, DO-178C compliance tool
+   License: Apache-2.0
+   Long_Description: Zero-dependency Ada/SPARK CLI tool for coverage analysis, proof verification,
+test-result parsing, DO-178C DAL compliance assessment, and interactive dashboards.
+
+- Source scanning: walks .ads files, extracts subprogram declarations, docstring
+  annotations (@param, @return, @field, @formal), and HLR traceability tags
+- Proof analysis: parses GNATprove gnatprove.out summaries; assesses SPARK
+  assurance levels (Stone through Platinum)
+- Test parsing: reads markdown test results for pass/fail counts (native Ada or
+  AUnit format)
+- DAL compliance: assesses DO-178C DAL A-E criteria (HLR coverage, orphan tags,
+  test status, minimum SPARK proof level)
+- Multiple outputs: ANSI terminal report, SVG badges, Markdown reports,
+  HTML dashboard, and JSON API via built-in HTTP/1.1 server
+- Scalable: package/subprogram collections use Ada.Containers.Vectors
+  (heap-allocated, no compile-time limits)
+- No external dependencies beyond the GNAT runtime library
+- Self-assessment: 100% docstring coverage, Platinum SPARK (28/28 VCs proved),
+  DAL-C Achieved, 152/152 native tests passing
+
+   Maintainer: bladeacer <wg.nick.exe@gmail.com>
+   Maintainers_Logins: bladeacer
+   Name: covex
+   Project_File: adacovex.gpr
+   Tag: ada
+   Tag: spark
+   Tag: coverage
+   Tag: do-178c
+   Tag: compliance
+   Version: 1.0.0
+   Website: https://github.com/bladeacer/adacovex
+
+
+LOG:
+[alr test] Testing covex=1.0.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get covex=1.0.0
+Note: Deploying covex=1.0.0...
+
+covex=1.0.0 successfully retrieved.
+There are no dependencies.
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building covex=1.0.0/adacovex.gpr...
+Setup
+   [mkdir]        exec directory for project Adacovex
+Compile
+   [Ada]          adacovex_main.adb
+   [Ada]          test_runner.adb
+test_runner.adb:24:28: warning: declaration hides "Out_File" at a-textio.ads:67
+test_runner.adb:34:25: warning: declaration hides "Name" at a-textio.ads:160
+test_runner.adb:102:25: warning: declaration hides "Name" at a-textio.ads:160
+   [Ada]          adacovex.ads
+   [Ada]          adacovex-test_support.adb
+   [Ada]          adacovex_config_tests.adb
+   [Ada]          adacovex_dal_tests.adb
+   [Ada]          adacovex_prove_tests.adb
+   [Ada]          adacovex_renderer_svg_tests.adb
+   [Ada]          adacovex_scanner_tests.adb
+   [Ada]          adacovex_testparser_tests.adb
+   [Ada]          adacovex_types_tests.adb
+   [Ada]          adacovex-config.adb
+   [Ada]          adacovex-types.adb
+   [Ada]          adacovex-compliance.ads
+   [Ada]          adacovex-compliance-dal.adb
+adacovex_scanner_tests.adb:118:29: warning: condition can only be False if invalid values present
+adacovex_scanner_tests.adb:119:23: warning: condition can only be False if invalid values present
+adacovex_scanner_tests.adb:155:36: warning: aggregate not fully initialized
+adacovex_scanner_tests.adb:156:36: warning: aggregate not fully initialized
+adacovex_scanner_tests.adb:157:36: warning: aggregate not fully initialized
+adacovex_scanner_tests.adb:158:36: warning: aggregate not fully initialized
+adacovex_scanner_tests.adb:159:36: warning: aggregate not fully initialized
+adacovex_scanner_tests.adb:160:33: warning: aggregate not fully initialized
+adacovex_scanner_tests.adb:161:33: warning: aggregate not fully initialized
+adacovex_scanner_tests.adb:225:27: warning: condition can only be False if invalid values present
+adacovex_scanner_tests.adb:226:21: warning: condition can only be False if invalid values present
+   [Ada]          adacovex-parsers.ads
+   [Ada]          adacovex-parsers-gnatprove.adb
+   [Ada]          adacovex-parsers-source.adb
+adacovex-compliance-dal.ads:2:22: warning: unit "Adacovex.Parsers.DO178C" is not referenced in spec
+adacovex-compliance-dal.ads:2:22: warning: with clause might be moved to body
+adacovex-compliance-dal.ads:3:22: warning: unit "Adacovex.Parsers.Source" is not referenced
+   [Ada]          adacovex-parsers-tests.adb
+adacovex-parsers-gnatprove.adb:49:07: warning: declaration hides "Line" at a-textio.ads:366
+adacovex-parsers-gnatprove.adb:222:07: warning: declaration hides "Line" at a-textio.ads:366
+   [Ada]          adacovex-renderers.ads
+   [Ada]          adacovex-renderers-ansi.adb
+adacovex-parsers-tests.adb:12:07: warning: declaration hides "Line" at a-textio.ads:366
+adacovex-parsers-tests.adb:51:22: warning: variable "PIdx" is assigned but never read
+   [Ada]          adacovex-renderers-markdown.adb
+adacovex-renderers-ansi.adb:5:04: warning: use clause for type "Test_Status" defined at adacovex-types.ads:42 has no effect
+   [Ada]          adacovex-renderers-svg.adb
+   [Ada]          adacovex-server.ads
+   [Ada]          adacovex-server-http.adb
+adacovex-renderers-svg.adb:125:07: warning: "Num" is not modified, could be declared constant
+adacovex-renderers-svg.adb:173:07: warning: "Num" is not modified, could be declared constant
+   [Ada]          adacovex-parsers-do178c.adb
+adacovex-server-http.adb:20:07: warning: declaration hides "Keep_Alive" at g-socket.ads:811
+adacovex-server-http.adb:31:52: warning: declaration hides "Keep_Alive" at g-socket.ads:811
+adacovex-server-http.adb:59:07: warning: "Family" is not modified, could be declared constant
+adacovex-server-http.adb:142:07: warning: declaration hides "Keep_Alive" at g-socket.ads:811
+adacovex-server-http.adb:175:34: warning: "Last" modified by call, but value might not be referenced
+adacovex-server-http.adb:202:07: warning: declaration hides "Start" at adacovex-server-http.ads:26
+adacovex-server-http.adb:222:52: warning: declaration hides "Keep_Alive" at g-socket.ads:811
+adacovex-server-http.ads:27:27: warning: condition can only be False if invalid values present
+   [Ada]          adacovex-renderers-html.adb
+adacovex-parsers-source.adb:20:51: warning: condition is always False
+adacovex-parsers-source.adb:21:51: warning: condition is always False
+adacovex-parsers-source.adb:161:07: warning: declaration hides "Line" at a-textio.ads:366
+adacovex-parsers-source.adb:201:14: warning: aggregate not fully initialized
+adacovex-parsers-source.adb:266:53: warning: aggregate not fully initialized
+adacovex-parsers-source.adb:432:07: warning: declaration hides "Search" at a-direct.ads:407
+adacovex-parsers-source.adb:457:13: warning: "Current" is not modified, could be declared constant
+adacovex-parsers-do178c.adb:12:07: warning: declaration hides "Line" at a-textio.ads:366
+adacovex-parsers-do178c.adb:62:47: warning: aggregate not fully initialized
+adacovex-parsers-do178c.adb:110:07: warning: declaration hides "Line" at a-textio.ads:366
+adacovex-parsers-do178c.adb:197:47: warning: aggregate not fully initialized
+adacovex-types.adb:53:17: warning: condition can only be False if invalid values present
+adacovex-types.adb:53:17: warning: condition is always True
+adacovex-types.adb:54:28: warning: condition can only be False if invalid values present
+adacovex-types.adb:54:28: warning: condition is always True
+Bind
+   [gprbind]      adacovex_main.bexch
+   [gprbind]      test_runner.bexch
+   [Ada]          adacovex_main.ali
+   [Ada]          test_runner.ali
+Link
+   [link]         adacovex_main.adb
+   [link]         test_runner.adb
+/home/runner/.local/share/alire/toolchains/gnat_native_11.2.4_2f37a10b/bin/../lib/gcc/x86_64-pc-linux-gnu/11.2.0/../../../../x86_64-pc-linux-gnu/bin/ld: /lib/x86_64-linux-gnu/libc.so.6: unknown type [0x13] section `.relr.dyn'
+/home/runner/.local/share/alire/toolchains/gnat_native_11.2.4_2f37a10b/bin/../lib/gcc/x86_64-pc-linux-gnu/11.2.0/../../../../x86_64-pc-linux-gnu/bin/ld: skipping incompatible /lib/x86_64-linux-gnu/libc.so.6 when searching for /lib/x86_64-linux-gnu/libc.so.6
+/home/runner/.local/share/alire/toolchains/gnat_native_11.2.4_2f37a10b/bin/../lib/gcc/x86_64-pc-linux-gnu/11.2.0/../../../../x86_64-pc-linux-gnu/bin/ld: cannot find /lib/x86_64-linux-gnu/libc.so.6
+/home/runner/.local/share/alire/toolchains/gnat_native_11.2.4_2f37a10b/bin/../lib/gcc/x86_64-pc-linux-gnu/11.2.0/../../../../x86_64-pc-linux-gnu/bin/ld: /lib/x86_64-linux-gnu/libc.so.6: unknown type [0x13] section `.relr.dyn'
+/home/runner/.local/share/alire/toolchains/gnat_native_11.2.4_2f37a10b/bin/../lib/gcc/x86_64-pc-linux-gnu/11.2.0/../../../../x86_64-pc-linux-gnu/bin/ld: skipping incompatible /lib/x86_64-linux-gnu/libc.so.6 when searching for /lib/x86_64-linux-gnu/libc.so.6
+/home/runner/.local/share/alire/toolchains/gnat_native_11.2.4_2f37a10b/bin/../lib/gcc/x86_64-pc-linux-gnu/11.2.0/../../../../x86_64-pc-linux-gnu/bin/ld: /lib64/ld-linux-x86-64.so.2: unknown type [0x13] section `.relr.dyn'
+/home/runner/.local/share/alire/toolchains/gnat_native_11.2.4_2f37a10b/bin/../lib/gcc/x86_64-pc-linux-gnu/11.2.0/../../../../x86_64-pc-linux-gnu/bin/ld: skipping incompatible /lib64/ld-linux-x86-64.so.2 when searching for /lib64/ld-linux-x86-64.so.2
+/home/runner/.local/share/alire/toolchains/gnat_native_11.2.4_2f37a10b/bin/../lib/gcc/x86_64-pc-linux-gnu/11.2.0/../../../../x86_64-pc-linux-gnu/bin/ld: cannot find /lib64/ld-linux-x86-64.so.2
+/home/runner/.local/share/alire/toolchains/gnat_native_11.2.4_2f37a10b/bin/../lib/gcc/x86_64-pc-linux-gnu/11.2.0/../../../../x86_64-pc-linux-gnu/bin/ld: /lib64/ld-linux-x86-64.so.2: unknown type [0x13] section `.relr.dyn'
+/home/runner/.local/share/alire/toolchains/gnat_native_11.2.4_2f37a10b/bin/../lib/gcc/x86_64-pc-linux-gnu/11.2.0/../../../../x86_64-pc-linux-gnu/bin/ld: skipping incompatible /lib64/ld-linux-x86-64.so.2 when searching for /lib64/ld-linux-x86-64.so.2
+collect2: error: ld returned 1 exit status
+/home/runner/.local/share/alire/toolchains/gnat_native_11.2.4_2f37a10b/bin/../lib/gcc/x86_64-pc-linux-gnu/11.2.0/../../../../x86_64-pc-linux-gnu/bin/ld: /lib/x86_64-linux-gnu/libc.so.6: unknown type [0x13] section `.relr.dyn'
+/home/runner/.local/share/alire/toolchains/gnat_native_11.2.4_2f37a10b/bin/../lib/gcc/x86_64-pc-linux-gnu/11.2.0/../../../../x86_64-pc-linux-gnu/bin/ld: skipping incompatible /lib/x86_64-linux-gnu/libc.so.6 when searching for /lib/x86_64-linux-gnu/libc.so.6
+/home/runner/.local/share/alire/toolchains/gnat_native_11.2.4_2f37a10b/bin/../lib/gcc/x86_64-pc-linux-gnu/11.2.0/../../../../x86_64-pc-linux-gnu/bin/ld: cannot find /lib/x86_64-linux-gnu/libc.so.6
+/home/runner/.local/share/alire/toolchains/gnat_native_11.2.4_2f37a10b/bin/../lib/gcc/x86_64-pc-linux-gnu/11.2.0/../../../../x86_64-pc-linux-gnu/bin/ld: /lib/x86_64-linux-gnu/libc.so.6: unknown type [0x13] section `.relr.dyn'
+/home/runner/.local/share/alire/toolchains/gnat_native_11.2.4_2f37a10b/bin/../lib/gcc/x86_64-pc-linux-gnu/11.2.0/../../../../x86_64-pc-linux-gnu/bin/ld: skipping incompatible /lib/x86_64-linux-gnu/libc.so.6 when searching for /lib/x86_64-linux-gnu/libc.so.6
+/home/runner/.local/share/alire/toolchains/gnat_native_11.2.4_2f37a10b/bin/../lib/gcc/x86_64-pc-linux-gnu/11.2.0/../../../../x86_64-pc-linux-gnu/bin/ld: /lib64/ld-linux-x86-64.so.2: unknown type [0x13] section `.relr.dyn'
+/home/runner/.local/share/alire/toolchains/gnat_native_11.2.4_2f37a10b/bin/../lib/gcc/x86_64-pc-linux-gnu/11.2.0/../../../../x86_64-pc-linux-gnu/bin/ld: skipping incompatible /lib64/ld-linux-x86-64.so.2 when searching for /lib64/ld-linux-x86-64.so.2
+/home/runner/.local/share/alire/toolchains/gnat_native_11.2.4_2f37a10b/bin/../lib/gcc/x86_64-pc-linux-gnu/11.2.0/../../../../x86_64-pc-linux-gnu/bin/ld: cannot find /lib64/ld-linux-x86-64.so.2
+/home/runner/.local/share/alire/toolchains/gnat_native_11.2.4_2f37a10b/bin/../lib/gcc/x86_64-pc-linux-gnu/11.2.0/../../../../x86_64-pc-linux-gnu/bin/ld: /lib64/ld-linux-x86-64.so.2: unknown type [0x13] section `.relr.dyn'
+/home/runner/.local/share/alire/toolchains/gnat_native_11.2.4_2f37a10b/bin/../lib/gcc/x86_64-pc-linux-gnu/11.2.0/../../../../x86_64-pc-linux-gnu/bin/ld: skipping incompatible /lib64/ld-linux-x86-64.so.2 when searching for /lib64/ld-linux-x86-64.so.2
+collect2: error: ld returned 1 exit status
+   link of test_runner.adb failed
+   failed command was: /home/runner/.local/share/alire/toolchains/gnat_native_11.2.4_2f37a10b/bin/gcc test_runner.o b__test_runner.o /home/runner/work/alire-crates-ci/alire-crates-ci/test/e074457d-d9bc-4c8b-9523-d77a34d1630f/covex_1.0.0_2c52a79e/adacovex.o /home/runner/work/alire-crates-ci/alire-crates-ci/test/e074457d-d9bc-4c8b-9523-d77a34d1630f/covex_1.0.0_2c52a79e/adacovex-compliance.o /home/runner/work/alire-crates-ci/alire-crates-ci/test/e074457d-d9bc-4c8b-9523-d77a34d1630f/covex_1.0.0_2c52a79e/adacovex-parsers.o /home/runner/work/alire-crates-ci/alire-crates-ci/test/e074457d-d9bc-4c8b-9523-d77a34d1630f/covex_1.0.0_2c52a79e/adacovex-renderers.o /home/runner/work/alire-crates-ci/alire-crates-ci/test/e074457d-d9bc-4c8b-9523-d77a34d1630f/covex_1.0.0_2c52a79e/adacovex-test_support.o /home/runner/work/alire-crates-ci/alire-crates-ci/test/e074457d-d9bc-4c8b-9523-d77a34d1630f/covex_1.0.0_2c52a79e/adacovex-types.o /home/runner/work/alire-crates-ci/alire-crates-ci/test/e074457d-d9bc-4c8b-9523-d77a34d1630f/covex_1.0.0_2c52a79e/adacovex-config.o /home/runner/work/alire-crates-ci/alire-crates-ci/test/e074457d-d9bc-4c8b-9523-d77a34d1630f/covex_1.0.0_2c52a79e/adacovex-parsers-do178c.o /home/runner/work/alire-crates-ci/alire-crates-ci/test/e074457d-d9bc-4c8b-9523-d77a34d1630f/covex_1.0.0_2c52a79e/adacovex-parsers-gnatprove.o /home/runner/work/alire-crates-ci/alire-crates-ci/test/e074457d-d9bc-4c8b-9523-d77a34d1630f/covex_1.0.0_2c52a79e/adacovex-parsers-source.o /home/runner/work/alire-crates-ci/alire-crates-ci/test/e074457d-d9bc-4c8b-9523-d77a34d1630f/covex_1.0.0_2c52a79e/adacovex-compliance-dal.o /home/runner/work/alire-crates-ci/alire-crates-ci/test/e074457d-d9bc-4c8b-9523-d77a34d1630f/covex_1.0.0_2c52a79e/adacovex-parsers-tests.o /home/runner/work/alire-crates-ci/alire-crates-ci/test/e074457d-d9bc-4c8b-9523-d77a34d1630f/covex_1.0.0_2c52a79e/adacovex-renderers-svg.o /home/runner/work/alire-crates-ci/alire-crates-ci/test/e074457d-d9bc-4c8b-9523-d77a34d1630f/covex_1.0.0_2c52a79e/adacovex_config_tests.o /home/runner/work/alire-crates-ci/alire-crates-ci/test/e074457d-d9bc-4c8b-9523-d77a34d1630f/covex_1.0.0_2c52a79e/adacovex_dal_tests.o /home/runner/work/alire-crates-ci/alire-crates-ci/test/e074457d-d9bc-4c8b-9523-d77a34d1630f/covex_1.0.0_2c52a79e/adacovex_prove_tests.o /home/runner/work/alire-crates-ci/alire-crates-ci/test/e074457d-d9bc-4c8b-9523-d77a34d1630f/covex_1.0.0_2c52a79e/adacovex_renderer_svg_tests.o /home/runner/work/alire-crates-ci/alire-crates-ci/test/e074457d-d9bc-4c8b-9523-d77a34d1630f/covex_1.0.0_2c52a79e/adacovex_scanner_tests.o /home/runner/work/alire-crates-ci/alire-crates-ci/test/e074457d-d9bc-4c8b-9523-d77a34d1630f/covex_1.0.0_2c52a79e/adacovex_testparser_tests.o /home/runner/work/alire-crates-ci/alire-crates-ci/test/e074457d-d9bc-4c8b-9523-d77a34d1630f/covex_1.0.0_2c52a79e/adacovex_types_tests.o -L/home/runner/work/alire-crates-ci/alire-crates-ci/test/e074457d-d9bc-4c8b-9523-d77a34d1630f/covex_1.0.0_2c52a79e/ -L/home/runner/work/alire-crates-ci/alire-crates-ci/test/e074457d-d9bc-4c8b-9523-d77a34d1630f/covex_1.0.0_2c52a79e/ -L/home/runner/.local/share/alire/toolchains/gnat_native_11.2.4_2f37a10b/lib/gcc/x86_64-pc-linux-gnu/11.2.0/adalib/ -static-libgcc /home/runner/.local/share/alire/toolchains/gnat_native_11.2.4_2f37a10b/lib/gcc/x86_64-pc-linux-gnu/11.2.0/adalib/libgnat.a -ldl -Wl,-rpath-link,/home/runner/.local/share/alire/toolchains/gnat_native_11.2.4_2f37a10b/lib/gcc/x86_64-pc-linux-gnu/11.2.0//adalib -Wl,-z,origin,-rpath,$ORIGIN/../:$ORIGIN/../../../../../../..//.local/share/alire/toolchains/gnat_native_11.2.4_2f37a10b/lib/gcc/x86_64-pc-linux-gnu/11.2.0/adalib -o /home/runner/work/alire-crates-ci/alire-crates-ci/test/e074457d-d9bc-4c8b-9523-d77a34d1630f/covex_1.0.0_2c52a79e/bin//test_runner 
+   link of adacovex_main.adb failed
+   failed command was: /home/runner/.local/share/alire/toolchains/gnat_native_11.2.4_2f37a10b/bin/gcc adacovex_main.o b__adacovex_main.o /home/runner/work/alire-crates-ci/alire-crates-ci/test/e074457d-d9bc-4c8b-9523-d77a34d1630f/covex_1.0.0_2c52a79e/adacovex.o /home/runner/work/alire-crates-ci/alire-crates-ci/test/e074457d-d9bc-4c8b-9523-d77a34d1630f/covex_1.0.0_2c52a79e/adacovex-compliance.o /home/runner/work/alire-crates-ci/alire-crates-ci/test/e074457d-d9bc-4c8b-9523-d77a34d1630f/covex_1.0.0_2c52a79e/adacovex-parsers.o /home/runner/work/alire-crates-ci/alire-crates-ci/test/e074457d-d9bc-4c8b-9523-d77a34d1630f/covex_1.0.0_2c52a79e/adacovex-renderers.o /home/runner/work/alire-crates-ci/alire-crates-ci/test/e074457d-d9bc-4c8b-9523-d77a34d1630f/covex_1.0.0_2c52a79e/adacovex-server.o /home/runner/work/alire-crates-ci/alire-crates-ci/test/e074457d-d9bc-4c8b-9523-d77a34d1630f/covex_1.0.0_2c52a79e/adacovex-types.o /home/runner/work/alire-crates-ci/alire-crates-ci/test/e074457d-d9bc-4c8b-9523-d77a34d1630f/covex_1.0.0_2c52a79e/adacovex-config.o /home/runner/work/alire-crates-ci/alire-crates-ci/test/e074457d-d9bc-4c8b-9523-d77a34d1630f/covex_1.0.0_2c52a79e/adacovex-parsers-do178c.o /home/runner/work/alire-crates-ci/alire-crates-ci/test/e074457d-d9bc-4c8b-9523-d77a34d1630f/covex_1.0.0_2c52a79e/adacovex-parsers-gnatprove.o /home/runner/work/alire-crates-ci/alire-crates-ci/test/e074457d-d9bc-4c8b-9523-d77a34d1630f/covex_1.0.0_2c52a79e/adacovex-parsers-source.o /home/runner/work/alire-crates-ci/alire-crates-ci/test/e074457d-d9bc-4c8b-9523-d77a34d1630f/covex_1.0.0_2c52a79e/adacovex-compliance-dal.o /home/runner/work/alire-crates-ci/alire-crates-ci/test/e074457d-d9bc-4c8b-9523-d77a34d1630f/covex_1.0.0_2c52a79e/adacovex-parsers-tests.o /home/runner/work/alire-crates-ci/alire-crates-ci/test/e074457d-d9bc-4c8b-9523-d77a34d1630f/covex_1.0.0_2c52a79e/adacovex-renderers-ansi.o /home/runner/work/alire-crates-ci/alire-crates-ci/test/e074457d-d9bc-4c8b-9523-d77a34d1630f/covex_1.0.0_2c52a79e/adacovex-renderers-html.o /home/runner/work/alire-crates-ci/alire-crates-ci/test/e074457d-d9bc-4c8b-9523-d77a34d1630f/covex_1.0.0_2c52a79e/adacovex-renderers-markdown.o /home/runner/work/alire-crates-ci/alire-crates-ci/test/e074457d-d9bc-4c8b-9523-d77a34d1630f/covex_1.0.0_2c52a79e/adacovex-renderers-svg.o /home/runner/work/alire-crates-ci/alire-crates-ci/test/e074457d-d9bc-4c8b-9523-d77a34d1630f/covex_1.0.0_2c52a79e/adacovex-server-http.o -L/home/runner/work/alire-crates-ci/alire-crates-ci/test/e074457d-d9bc-4c8b-9523-d77a34d1630f/covex_1.0.0_2c52a79e/ -L/home/runner/work/alire-crates-ci/alire-crates-ci/test/e074457d-d9bc-4c8b-9523-d77a34d1630f/covex_1.0.0_2c52a79e/ -L/home/runner/.local/share/alire/toolchains/gnat_native_11.2.4_2f37a10b/lib/gcc/x86_64-pc-linux-gnu/11.2.0/adalib/ -static-libgcc /home/runner/.local/share/alire/toolchains/gnat_native_11.2.4_2f37a10b/lib/gcc/x86_64-pc-linux-gnu/11.2.0/adalib/libgnarl.a /home/runner/.local/share/alire/toolchains/gnat_native_11.2.4_2f37a10b/lib/gcc/x86_64-pc-linux-gnu/11.2.0/adalib/libgnat.a -lrt -lpthread -ldl -Wl,-rpath-link,/home/runner/.local/share/alire/toolchains/gnat_native_11.2.4_2f37a10b/lib/gcc/x86_64-pc-linux-gnu/11.2.0//adalib -Wl,-z,origin,-rpath,$ORIGIN/../:$ORIGIN/../../../../../../..//.local/share/alire/toolchains/gnat_native_11.2.4_2f37a10b/lib/gcc/x86_64-pc-linux-gnu/11.2.0/adalib -o /home/runner/work/alire-crates-ci/alire-crates-ci/test/e074457d-d9bc-4c8b-9523-d77a34d1630f/covex_1.0.0_2c52a79e/bin//adacovex_main 
+gprbuild: *** link phase failed
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/e074457d-d9bc-4c8b-9523-d77a34d1630f/covex_1.0.0_2c52a79e/adacovex.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/e074457d-d9bc-4c8b-9523-d77a34d1630f/covex_1.0.0_2c52a79e/adacovex.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+stderr: ALIRE.CHECKED_ERROR
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/e074457d-d9bc-4c8b-9523-d77a34d1630f/covex_1.0.0_2c52a79e/adacovex.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
+[/home/runner/work/alire-crates-ci/alire-crates-ci/alire_install/bin/alr]
+0xe75bc6 Alire.Raise_Checked_Error at alire.adb:284
+0xac1a54 Alire.Os_Lib.Subprocess.Checked_Spawn at alire-os_lib-subprocess.adb:111
+0xd40276 Alire.Spawn.Command at alire-spawn.adb:22
+0xd412ee Alire.Spawn.Gprbuild at alire-spawn.adb:68
+0xc748cb Alire.Roots.Build at alire-roots.adb:189
+0xc7301a Alire.Roots.Build at alire-roots.adb:255
+0xc9832b Alire.Roots.Traverse at alire-roots.adb:2143
+0xcfee85 Alire.Solutions.Traverse.Visit at alire-solutions.adb:1472
+0xcfdfcc Alire.Solutions.Traverse at alire-solutions.adb:1555
+0xc9841e Alire.Roots.Traverse at alire-roots.adb:2147
+0xc984dd Alire.Roots.Traverse at alire-roots.adb:2127
+0xc7359b Alire.Roots.Build at alire-roots.adb:286
+0xc736d7 Alire.Roots.Build at alire-roots.adb:114
+0x49aa0d Alr.Commands.Build.Execute at alr-commands-build.adb:145
+0x49a36d Alr.Commands.Build.Execute at alr-commands-build.adb:113
+0x49a51f Alr.Commands.Build.Execute at alr-commands-build.adb:54
+0x53bbcc Alr.Commands.Sub_Cmd.Execute at clic-subcommand-instance.adb:749
+0x5472be Alr.Commands.Execute at alr-commands.adb:632
+0x43d48a Alr.Main at alr-main.adb:13
+0x4403a3 Main at b__alr-main.adb:2445
+[/lib/x86_64-linux-gnu/libc.so.6]
+0x7f143582a1c8
+0x7f143582a289
+[/home/runner/work/alire-crates-ci/alire-crates-ci/alire_install/bin/alr]
+0x43d323 _start at ???
+0xfffffffffffffffe
+
+stderr: ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED
+stderr: alire-roots.adb:202
+stderr: raised ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED : alire-roots.adb:202
+[/home/runner/work/alire-crates-ci/alire-crates-ci/alire_install/bin/alr]
+0xc74cc7 Alire.Roots.Build at alire-roots.adb:202
+0xc7301a Alire.Roots.Build at alire-roots.adb:255
+0xc9832b Alire.Roots.Traverse at alire-roots.adb:2143
+0xcfee85 Alire.Solutions.Traverse.Visit at alire-solutions.adb:1472
+0xcfdfcc Alire.Solutions.Traverse at alire-solutions.adb:1555
+0xc9841e Alire.Roots.Traverse at alire-roots.adb:2147
+0xc984dd Alire.Roots.Traverse at alire-roots.adb:2127
+0xc7359b Alire.Roots.Build at alire-roots.adb:286
+0xc736d7 Alire.Roots.Build at alire-roots.adb:114
+0x49aa0d Alr.Commands.Build.Execute at alr-commands-build.adb:145
+0x49a36d Alr.Commands.Build.Execute at alr-commands-build.adb:113
+0x49a51f Alr.Commands.Build.Execute at alr-commands-build.adb:54
+0x53bbcc Alr.Commands.Sub_Cmd.Execute at clic-subcommand-instance.adb:749
+0x5472be Alr.Commands.Execute at alr-commands.adb:632
+0x43d48a Alr.Main at alr-main.adb:13
+0x4403a3 Main at b__alr-main.adb:2445
+[/lib/x86_64-linux-gnu/libc.so.6]
+0x7f143582a1c8
+0x7f143582a289
+[/home/runner/work/alire-crates-ci/alire-crates-ci/alire_install/bin/alr]
+0x43d323 _start at ???
+0xfffffffffffffffe
+
+ERROR: Compilation failed.

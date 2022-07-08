@@ -1,0 +1,708 @@
+badge: true
+badge_color: red
+crate: lsystem_editor
+creation_timestamp: 1752662910.6497066
+distro: centos-9
+duration: 1.268101645999991
+gnat: 14.2.0
+last_attempt: 2025-09-01 13:10:52.013956+00:00
+log:
+- 'Test ran at 2025-09-01 13:10:52.013882+00:00
+
+
+  '
+- 'SOLUTION:
+
+  '
+- 'lsystem_editor=1.0.0: L-Systems editor in Ada
+
+  '
+- 'Origin: commit b01f05b870b2eb91e95f4868e259d9208afdbe34 from https://github.com/Heziode/lsystem-editor
+
+  '
+- 'Properties:
+
+  '
+- '   Author: Heziode
+
+  '
+- '   Description: L-Systems editor in Ada
+
+  '
+- '   Executable: lsystem-editor
+
+  '
+- '   License: MIT
+
+  '
+- '   Long_Description: <img src="https://github.com/Heziode/lsystem-editor/blob/master/share/lsystem_editor/ressources/icon.png?raw=true"
+  alt="App Icon">
+
+  '
+- '
+
+  '
+- '# L-System Editor
+
+  '
+- '
+
+  '
+- '<img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License">
+
+  '
+- '
+
+  '
+- 'A comprehensive graphical and command-line editor for creating, manipulating, and
+  visualizing Lindenmayer systems (L-systems).
+
+  '
+- '
+
+  '
+- 'This project was initially developed as part of a university project.
+
+  '
+- '
+
+  '
+- '## What are L-Systems?
+
+  '
+- '
+
+  '
+- 'L-systems (Lindenmayer systems) are a type of formal grammar introduced by biologist
+  Aristid Lindenmayer in 1968. They are particularly useful for modeling plant growth
+  and generating fractals. An L-system consists of:
+
+  '
+- '
+
+  '
+- '- An **alphabet** of symbols that can be used to make strings
+
+  '
+- '- An **axiom** (initial string) to start with
+
+  '
+- '- A set of **production rules** that expand each symbol into a larger string of
+  symbols
+
+  '
+- '
+
+  '
+- 'Through recursive application of these rules, complex structures can be generated
+  from simple initial conditions.
+
+  '
+- '
+
+  '
+- '## Features
+
+  '
+- '
+
+  '
+- '- **Interactive GUI** for creating and editing L-systems
+
+  '
+- '- **Command-line interface** for batch processing and automated workflows
+
+  '
+- '- **Real-time visualization** of the L-system at different development levels
+
+  '
+- '- **Export capabilities** to PS (PostScript) format for now
+
+  '
+- '- **Customizable rendering** with adjustable parameters (colors, margins, dimensions)
+
+  '
+- '- **Save and load** L-system definitions using `.ls` files
+
+  '
+- '
+
+  '
+- '## Installation
+
+  '
+- '
+
+  '
+- '### Using Alire (recommended)
+
+  '
+- '
+
+  '
+- '```
+
+  '
+- 'alr install lsystem_editor
+
+  '
+- '```
+
+  '
+- '
+
+  '
+- '### From Source
+
+  '
+- '
+
+  '
+- '1. Ensure you have Ada and GtkAda installed. This project depends on GNAT Lib.
+
+  '
+- '2. Clone the repository: `git clone https://github.com/Heziode/lsystem-editor.git`
+
+  '
+- '3. Build with Alire: `alr build` or manually with `make`
+
+  '
+- '
+
+  '
+- '## Usage
+
+  '
+- '
+
+  '
+- '### GUI Mode
+
+  '
+- '
+
+  '
+- 'Launch the graphical interface:
+
+  '
+- '
+
+  '
+- '```
+
+  '
+- './bin/lsystem_editor
+
+  '
+- '# Or
+
+  '
+- 'alr run
+
+  '
+- '```
+
+  '
+- '
+
+  '
+- 'The GUI offers:
+
+  '
+- '- A text editor area for defining L-system rules
+
+  '
+- '- Controls to adjust the development level
+
+  '
+- '- Real-time visualization of the L-system
+
+  '
+- '- Export options
+
+  '
+- '- Customization of colors and rendering parameters
+
+  '
+- '
+
+  '
+- '### Command-Line Mode
+
+  '
+- '
+
+  '
+- 'For automated processing or batch operations:
+
+  '
+- '
+
+  '
+- '```
+
+  '
+- 'lsystem_editor --no-gui [OPTIONS]
+
+  '
+- '```
+
+  '
+- '
+
+  '
+- '#### Command-Line Options
+
+  '
+- '
+
+  '
+- '| Option | Long Form | Description |
+
+  '
+- '|--------|-----------|-------------|
+
+  '
+- '| `-i` | `--input=FILE` | Input file containing an L-system definition |
+
+  '
+- '| `-o` | `--output=FILE` | Output file to store an L-system definition |
+
+  '
+- '| `-e` | `--export=FORMAT` | Export format for the L-system representation |
+
+  '
+- '| `-p` | `--export-file=FILE` | Output file for the exported representation |
+
+  '
+- '| `-d` | `--develop=N` | Number of development steps to apply |
+
+  '
+- '| `-w` | `--width=N` | Width of the output representation |
+
+  '
+- '| `-h` | `--height=N` | Height of the output representation |
+
+  '
+- '| `-b` | `--background-color=COLOR` | Background color in hex format (e.g., #AABBCC)
+  |
+
+  '
+- '| `-f` | `--foreground-color=COLOR` | Foreground color in hex format (e.g., #AABBCC)
+  |
+
+  '
+- '| `-mt` | `--margin-top=N` | Top margin for rendering |
+
+  '
+- '| `-mr` | `--margin-right=N` | Right margin for rendering |
+
+  '
+- '| `-mb` | `--margin-bottom=N` | Bottom margin for rendering |
+
+  '
+- '| `-ml` | `--margin-left=N` | Left margin for rendering |
+
+  '
+- '
+
+  '
+- '## L-System File Format
+
+  '
+- '
+
+  '
+- 'L-system definitions are stored in `.ls` files with the following syntax:
+
+  '
+- '
+
+  '
+- '```
+
+  '
+- '<angle> [angle in degrees]
+
+  '
+- '<axiom> [initial string]
+
+  '
+- '<rules>
+
+  '
+- '[symbol] [replacement string]
+
+  '
+- '[symbol] [replacement string]
+
+  '
+- '...
+
+  '
+- '</rules>
+
+  '
+- '```
+
+  '
+- '
+
+  '
+- '### Example L-System: Koch Curve
+
+  '
+- '
+
+  '
+- '```
+
+  '
+- '60.0
+
+  '
+- '-F++F++F
+
+  '
+- 'F F-F++F-F
+
+  '
+- '```
+
+  '
+- '
+
+  '
+- 'Where:
+
+  '
+- '- `F` means "draw forward"
+
+  '
+- '- `+` means "turn left by angle"
+
+  '
+- '- `-` means "turn right by angle"
+
+  '
+- '
+
+  '
+- '## Controls in GUI Mode
+
+  '
+- '
+
+  '
+- '- **Text Editor**: Define and edit your L-system
+
+  '
+- '- **Validate Button**: Check if your L-system definition is valid
+
+  '
+- '- **Level Spinner**: Adjust the development level
+
+  '
+- '- **Color Controls**: Change foreground and background colors
+
+  '
+- '- **Export Options**: Save visualizations
+
+  '
+- '
+
+  '
+- '## License
+
+  '
+- '
+
+  '
+- 'L-System Editor is distributed under the MIT License.
+
+  '
+- '
+
+  '
+- 'Copyright (c) 2018 Quentin Dauprat (Heziode)
+
+  '
+- '
+
+  '
+- 'See the [LICENSE](https://github.com/Heziode/lsystem-editor/blob/master/LICENSE)
+  file for full details.
+
+  '
+- '
+
+  '
+- '   Maintainer: Heziode <heziode@protonmail.com>
+
+  '
+- '   Maintainers_Logins: heziode
+
+  '
+- '   Name: lsystem_editor
+
+  '
+- '   Project_File: LSystem_Editor.gpr
+
+  '
+- '   Tag: gtk
+
+  '
+- '   Tag: gtk3
+
+  '
+- '   Tag: ada
+
+  '
+- '   Tag: l-systems
+
+  '
+- '   Tag: gtkada
+
+  '
+- '   Tag: l-system
+
+  '
+- '   Tag: editor
+
+  '
+- '   Tag: gui
+
+  '
+- '   Version: 1.0.0
+
+  '
+- '   Website: https://github.com/Heziode/lsystem-editor
+
+  '
+- 'Dependencies (direct):
+
+  '
+- '   gtkada^25.0.1
+
+  '
+- '   resources~0.1.0
+
+  '
+- 'Dependencies (solution):
+
+  '
+- '   gtkada=25.0.1
+
+  '
+- '   libgtk3=3.24.31
+
+  '
+- '   make=4.3.0
+
+  '
+- '   pkg_config=1.7.3
+
+  '
+- '   resources=0.1.0
+
+  '
+- 'Dependencies (graph):
+
+  '
+- '   gtkada=25.0.1        --> libgtk3=3.24.31 (>=3.24.24)
+
+  '
+- '   gtkada=25.0.1        --> make=4.3.0 (*)
+
+  '
+- '   gtkada=25.0.1        --> pkg_config=1.7.3 (*)
+
+  '
+- '   lsystem_editor=1.0.0 --> gtkada=25.0.1 (^25.0.1)
+
+  '
+- '   lsystem_editor=1.0.0 --> resources=0.1.0 (~0.1.0)
+
+  '
+- '
+
+  '
+- '
+
+  LOG:
+
+  '
+- '[alr test] Testing lsystem_editor=1.0.0
+
+  '
+- '[alr test] Spawning retrieval for remote crate: alr -d -n get lsystem_editor=1.0.0
+
+  '
+- 'Note: Deploying lsystem_editor=1.0.0...
+
+  '
+- '
+
+  '
+- 'lsystem_editor=1.0.0 successfully retrieved.
+
+  '
+- 'Dependencies were solved as follows:
+
+  '
+- '
+
+  '
+- '   +  gtkada     25.0.1  (new)
+
+  '
+- '   +b libgtk3    3.24.31 (new,indirect,system package)
+
+  '
+- '   +b make       4.3.0   (new,indirect,system package)
+
+  '
+- '   +b pkg_config 1.7.3   (new,indirect,executable in path)
+
+  '
+- '   +  resources  0.1.0   (new)
+
+  '
+- '[alr test] Spawning default test for remote crate: alr -d -n build --release --
+  -cargs:Ada -gnatwn
+
+  '
+- 'Note: Running post-fetch actions for gtkada=25.0.1...
+
+  '
+- 'checking build system type... x86_64-pc-linux-gnu
+
+  '
+- 'checking host system type... x86_64-pc-linux-gnu
+
+  '
+- 'checking target system type... x86_64-pc-linux-gnu
+
+  '
+- 'checking for pkg-config... /usr/bin/pkg-config
+
+  '
+- 'checking pkg-config is at least version 0.9.0... yes
+
+  '
+- 'checking for gcc... gcc
+
+  '
+- 'checking whether the C compiler works... no
+
+  '
+- 'configure: error: in `/root/.local/share/alire/builds/gtkada_25.0.1_d3787772/8ba8e2781413e8a4400b4f378cd30565016a7b5929b7a80eece549321cc58bbe'':
+
+  '
+- 'configure: error: C compiler cannot create executables
+
+  '
+- 'See `config.log'' for more details
+
+  '
+- 'Warning: Execution failed for action: Post_Fetch run: bash -c PATH=${DISTRIB_ROOT}/mingw64/bin:${PATH}
+  ./configure (from ${CRATE_ROOT}/.)
+
+  '
+- 'Warning: Exit code: 77
+
+  '
+- 'Warning: Action output not captured, check it above.
+
+  '
+- 'stderr: ALIRE.PROPERTIES.ACTIONS.ACTION_FAILED
+
+  '
+- 'stderr: Action failed with exit code 77
+
+  '
+- 'stderr: raised ALIRE.PROPERTIES.ACTIONS.ACTION_FAILED : Action failed with exit
+  code 77
+
+  '
+- '[/usr/bin/alr]
+
+  '
+- '0xacc145 Alire.Properties.Actions.Executor.Execute_Actions at alire-properties-actions-executor.adb:130
+
+  '
+- '0xaca6d9 Alire.Properties.Actions.Executor.Execute_Actions at alire-properties-actions-executor.adb:36
+
+  '
+- '0xc72eae Alire.Roots.Build at alire-roots.adb:232
+
+  '
+- '0xc9832b Alire.Roots.Traverse at alire-roots.adb:2143
+
+  '
+- '0xcfee85 Alire.Solutions.Traverse.Visit at alire-solutions.adb:1472
+
+  '
+- '0xcfdca2 Alire.Solutions.Traverse at alire-solutions.adb:1539
+
+  '
+- '0xc9841e Alire.Roots.Traverse at alire-roots.adb:2147
+
+  '
+- '0xc984dd Alire.Roots.Traverse at alire-roots.adb:2127
+
+  '
+- '0xc7359b Alire.Roots.Build at alire-roots.adb:286
+
+  '
+- '0xc736d7 Alire.Roots.Build at alire-roots.adb:114
+
+  '
+- '0x49aa0d Alr.Commands.Build.Execute at alr-commands-build.adb:145
+
+  '
+- '0x49a36d Alr.Commands.Build.Execute at alr-commands-build.adb:113
+
+  '
+- '0x49a51f Alr.Commands.Build.Execute at alr-commands-build.adb:54
+
+  '
+- '0x53bbcc Alr.Commands.Sub_Cmd.Execute at clic-subcommand-instance.adb:749
+
+  '
+- '0x5472be Alr.Commands.Execute at alr-commands.adb:632
+
+  '
+- '0x43d48a Alr.Main at alr-main.adb:13
+
+  '
+- '0x4403a3 Main at b__alr-main.adb:2445
+
+  '
+- '[/lib64/libc.so.6]
+
+  '
+- '0x7f828a7735ce
+
+  '
+- '0x7f828a77367e
+
+  '
+- '[/usr/bin/alr]
+
+  '
+- '0x43d323 _start at ???
+
+  '
+- '0xfffffffffffffffe
+
+  '
+- '
+
+  '
+- 'ERROR: Compilation failed.
+
+  '
+platform: linux
+status: failing
+version: 1.0.0

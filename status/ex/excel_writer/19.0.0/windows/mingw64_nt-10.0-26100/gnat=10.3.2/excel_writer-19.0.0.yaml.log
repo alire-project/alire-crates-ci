@@ -1,0 +1,130 @@
+Test ran at 2025-09-17 01:07:08.505900+00:00
+
+SOLUTION:
+excel_writer=19.0.0: Produce Excel spreadsheets
+Origin: source archive excel_writer_19.zip at https://sourceforge.net/projects/excel-writer/files/excel-writer/excel_writer_19.zip with hash sha512:121a552097bd41965e8aeecf29ab3bed59755704c21c81fb85eac852bab8aa377388d949971f999e039a1e6ca52f05a4a05ab4a95dbb7653df5a6b7481ecbf9e
+Properties:
+   Author: Gautier de Montmollin
+   Description: Produce Excel spreadsheets
+   Executable: excel_out_demo
+   License: MIT
+   Long_Description: ![Excel Writer logo](https://excel-writer.sourceforge.io/ew_logo_no_shadow.png)
+
+Excel_Out is a standalone, portable Ada package for writing Excel spreadsheets with basic formattings and formulas, easily and programmatically.
+
+* Enables the automatic production of reports
+* Fast: 50 sheets per second, with 10,000 data cells each on a slow 1.66 GHz computer
+* No interaction needed with Excel or MS Office
+* Unconditionally portable (*)
+* Endian-neutral
+* Object oriented
+* Task safe
+* Pure Ada 95 (nothing compiler/system specific), can be used in projects in Ada 95, Ada 2005, Ada 2012 and later versions of the language
+* Floating-point hardware neutral: no IEEE hardware required
+* Tests and demos included
+* Includes a CSV parser with related tools.
+* Free, open-source
+
+The creation of an Excel file is as simple as this small procedure:
+
+```ada
+with Excel_Out;
+
+procedure Small_Demo is
+  xl : Excel_Out.Excel_Out_File;
+begin
+  xl.Create ("small.xls");
+  xl.Put_Line ("This is a small demo for Excel_Out");
+  for row in 3 .. 8 loop
+    for column in 1 .. 8 loop
+      xl.Write (row, column, row * 1000 + column);
+    end loop;
+  end loop;
+  xl.Close;
+end Small_Demo;
+```
+
+___
+
+(*) within limits of compiler's provided integer types and target architecture capacity.
+
+   Maintainer: gdemont@hotmail.com
+   Maintainers_Logins: mosteo
+   Maintainers_Logins: zertovitch
+   Name: excel_writer
+   Project_File: excel_out.gpr
+   Tag: excel
+   Tag: spreadsheet
+   Tag: xls
+   Tag: csv
+   Version: 19.0.0
+   Website: https://excel-writer.sourceforge.io/
+
+
+LOG:
+[alr test] Testing excel_writer=19.0.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get excel_writer=19.0.0
+Note: Deploying excel_writer=19.0.0...
+
+######################################################################## 100.0%
+######################################################################## 100.0%
+######################################################################## 100.0%
+######################################################################## 100.0%
+#=#=#                                                                          
+##=#=#                                                                         
+######################################################################## 100.0%
+
+excel_writer=19.0.0 successfully retrieved.
+There are no dependencies.
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building excel_writer=19.0.0/excel_out.gpr...
+Setup
+   [mkdir]        object directory for project Excel_Out
+Compile
+   [Ada]          excel_out_demo.adb
+   [Ada]          biff_dump.adb
+   [Ada]          spreadsheet_references_demo.adb
+   [Ada]          csv2ada.adb
+   [Ada]          csv2tex.adb
+   [Ada]          csv2html.adb
+   [Ada]          csv2xls.adb
+   [Ada]          paypal.adb
+   [Ada]          ew_test.adb
+   [Ada]          spreadsheet_references.adb
+   [Ada]          csv.adb
+   [Ada]          excel_out.adb
+   [Ada]          excel_out-formulas.adb
+   [Ada]          excel_out-ieee_754.ads
+   [Ada]          excel_out-ieee_754-generic_double_precision.adb
+Bind
+   [gprbind]      excel_out_demo.bexch
+   [gprbind]      biff_dump.bexch
+   [Ada]          excel_out_demo.ali
+   [gprbind]      spreadsheet_references_demo.bexch
+   [Ada]          biff_dump.ali
+   [gprbind]      csv2ada.bexch
+   [Ada]          spreadsheet_references_demo.ali
+   [Ada]          csv2ada.ali
+   [gprbind]      csv2tex.bexch
+   [Ada]          csv2tex.ali
+   [gprbind]      csv2html.bexch
+   [gprbind]      csv2xls.bexch
+   [Ada]          csv2html.ali
+   [gprbind]      paypal.bexch
+   [Ada]          csv2xls.ali
+   [Ada]          paypal.ali
+   [gprbind]      ew_test.bexch
+   [Ada]          ew_test.ali
+Link
+   [link]         excel_out_demo.adb
+   [link]         biff_dump.adb
+   [link]         spreadsheet_references_demo.adb
+   [link]         csv2ada.adb
+   [link]         csv2tex.adb
+   [link]         csv2html.adb
+   [link]         csv2xls.adb
+   [link]         paypal.adb
+   [link]         ew_test.adb
+Success: Build finished successfully in 5.42 seconds.
+Found declared GPR file: excel_out.gpr
+[alr test] Test completed SUCCESSFULLY

@@ -1,0 +1,80 @@
+Test ran at 2026-05-17 13:20:45.764729+00:00
+
+SOLUTION:
+gnatcov=26.2.1: Coverage Analysis Tool
+Origin: (case OS is Linux => (case Host_Arch is Aarch64 => binary archive gnatcov-aarch64-linux-26.2-1.tar.gz at https://github.com/alire-project/GNAT-FSF-builds/releases/download/gnatcov-26.2-1/gnatcov-aarch64-linux-26.2-1.tar.gz, X86_64 => binary archive gnatcov-x86_64-linux-26.2-1.tar.gz at https://github.com/alire-project/GNAT-FSF-builds/releases/download/gnatcov-26.2-1/gnatcov-x86_64-linux-26.2-1.tar.gz), Macos => (case Host_Arch is Aarch64 => binary archive gnatcov-aarch64-darwin-26.2-1.tar.gz at https://github.com/alire-project/GNAT-FSF-builds/releases/download/gnatcov-26.2-1/gnatcov-aarch64-darwin-26.2-1.tar.gz, X86_64 => binary archive gnatcov-x86_64-darwin-26.2-1.tar.gz at https://github.com/alire-project/GNAT-FSF-builds/releases/download/gnatcov-26.2-1/gnatcov-x86_64-darwin-26.2-1.tar.gz), Windows => (case Host_Arch is X86_64 => binary archive gnatcov-x86_64-windows64-26.2-1.tar.gz at https://github.com/alire-project/GNAT-FSF-builds/releases/download/gnatcov-26.2-1/gnatcov-x86_64-windows64-26.2-1.tar.gz)) with hash sha256:6a186a9ba103dbc21957124769a4b51f2ccf87d6af1d81f474496fc480089a48
+Properties:
+   Auto_Gpr_With: auto-gpr-with=false
+   Configuration: no modifiers
+   Description: Coverage Analysis Tool
+   Environment: PATH=${CRATE_ROOT}/bin:${PATH}
+   Long_Description: GNATcoverage is a code coverage analysis tool offering support for a range of coverage metrics and output formats associated with powerful _consolidation_ features letting users assess the combined coverage achievements of multiple program executions.
+It supports Ada, C and C++, but this binary only has Ada support.
+
+Simple use example:
+- Ensure your test project is well formed by building it a first time:
+  `gprbuild -f -p -Ptests.gpr`
+- Setup the instrumentation context in a known location:
+  `gnatcov setup --prefix=/path/to/gnatcov-rts`
+- Let further commands know about the location of the RTS via the `GPR_PROJECT_PATH` variable:
+  On UNIX systems, `export GPR_PROJECT_PATH="$GPR_PROJECT_PATH:/path/to/gnatcov-rts/share/gpr"`
+- In addition, when using shared libraries, make the runtime's shared libraries discoverable:
+  On UNIX systems, `export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/path/to/gnatcov-rts/lib"`;
+  On Windows, `set PATH=%PATH%;C:\path\to\gnatcov-rts\bin`
+- Instrument the sources:
+  `gnatcov instrument -Ptests.gpr --level=stmt`
+- Build the instrumented sources:
+  `gprbuild -f -p -Ptests.gpr --src-subdirs=gnatcov-instr --implicit-with=gnatcov_rts.gpr`
+- Execute the tests normally; for each executable, a `.srctrace` file will be produced in the current directory.
+- Analyze the coverage with:
+  `gnatcov coverage --level=stmt --annotate=xcov *.srctrace -Ptests.gpr`.
+  This produces annotated sources in the projects' object directory, in the format `filename.adb.xcov`.
+
+Further information can be found in the [GNATcoverage User's Guide](https://docs.adacore.com/gnatcoverage-docs/html/gnatcov/gnatcov_part.html).
+
+   Maintainer: chouteau@adacore.com
+   Maintainer: sagaert@adacore.com
+   Maintainers_Logins: Fabien-Chouteau
+   Maintainers_Logins: AldanTanneo
+   Name: gnatcov
+   Tag: coverage
+   Tag: analysis
+   Tag: test
+   Version: 26.2.1
+   Website: https://docs.adacore.com/gnatcoverage-docs/html/gnatcov/gnatcov_part.html
+
+
+LOG:
+[alr test] Testing gnatcov=26.2.1
+[alr test] Spawning retrieval for remote crate: alr -d -n get gnatcov=26.2.1
+Note: Deploying gnatcov=26.2.1...
+#=#=#                                                                          
+##O#-#                                                                         
+
+                                                                           0.0%
+                                                                           0.5%
+##                                                                         3.8%
+########                                                                  11.7%
+########                                                                  12.3%
+###########                                                               16.4%
+#################                                                         24.0%
+#####################                                                     29.2%
+#########################                                                 35.1%
+#############################                                             40.9%
+#################################                                         46.2%
+####################################                                      50.4%
+######################################                                    53.4%
+##########################################                                58.4%
+#############################################                             63.4%
+###############################################                           65.5%
+##################################################                        70.1%
+######################################################                    76.2%
+##########################################################                81.8%
+###################################################################       93.5%
+#####################################################################     96.7%
+#######################################################################   99.1%
+######################################################################## 100.0%
+
+gnatcov=26.2.1 successfully retrieved.
+There are no dependencies.
+[alr test] Test completed SUCCESSFULLY
