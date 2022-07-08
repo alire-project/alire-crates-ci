@@ -1,0 +1,463 @@
+badge: false
+crate: bigints
+creation_timestamp: 1773059403.9818776
+distro: mingw64_nt-10.0-26100
+duration: 3.859000000000151
+gnat: 12.2.1
+last_attempt: 2026-03-09 12:42:45.186071+00:00
+log:
+- 'Test ran at 2026-03-09 12:42:45.186071+00:00
+
+
+  '
+- 'SOLUTION:
+
+  '
+- 'bigints=0.2.0: Experimental SPARK Constant Time Big Integer library
+
+  '
+- 'Origin: commit 414589c10e5dec87aebf9cfe8fda675a047d45b1 from https://github.com/AldanTanneo/bigints.git
+
+  '
+- 'Properties:
+
+  '
+- "   Author: C\xE9sar SAGAERT\n"
+- "   Build Switches: \n"
+- '   Description: Experimental SPARK Constant Time Big Integer library
+
+  '
+- '   License: MIT
+
+  '
+- '   Long_Description: # SPARK Constant Time Big Integer library
+
+  '
+- '
+
+  '
+- 'Implementation of a constant time big integer library, inspired by [crypto-bigint](https://github.com/RustCrypto/crypto-bigint).
+
+  '
+- '
+
+  '
+- 'All functions are implemented in constant time, except those with an explicit `_Vartime`
+  suffix. Overloaded operators are also constant time.
+
+  '
+- '
+
+  '
+- "> \u26A0\uFE0F The constant time choice primitives like `Ct_Eq`, `Ct_Gt`, `Cond_Select`\
+  \ and `CSwap` rely on best-effort optimisation barriers.\n"
+- '
+
+  '
+- '## Usage
+
+  '
+- '
+
+  '
+- 'The implementations are generic over the size of the integer:
+
+  '
+- '
+
+  '
+- '```ada
+
+  '
+- 'package U256 is new Bigints.Uint (256);
+
+  '
+- 'package U1024 is new Bigints.Uint (1024);
+
+  '
+- '```
+
+  '
+- '
+
+  '
+- 'There is also a generic package to deal with modular integers (over a prime field):
+
+  '
+- '
+
+  '
+- '```ada
+
+  '
+- 'P : U256.Uint := ... --  a big prime, like 2**255 - 19
+
+  '
+- 'package GF_P is new Bigints.Modular (U256, P);
+
+  '
+- '```
+
+  '
+- '
+
+  '
+- 'It is up to the user of the library to ensure the chosen modulus is effectively
+  prime. Otherwise, operations like field inversion become invalid (as it relies on
+  Fermat''s little theorem).
+
+  '
+- '
+
+  '
+- '## Formal proof
+
+  '
+- '
+
+  '
+- 'The preinstantations in the library (packages `U256s` and `F25519`), as well as
+  the constant time primitives and basic limb primitives, are formally checked using
+  GNATprove.
+
+  '
+- '
+
+  '
+- "   Maintainer: C\xE9sar SAGAERT <sagaert@adacore.com>\n"
+- '   Maintainers_Logins: AldanTanneo
+
+  '
+- '   Name: bigints
+
+  '
+- '   Tag: bigint
+
+  '
+- '   Tag: cryptography
+
+  '
+- '   Tag: constant-time
+
+  '
+- '   Tag: spark
+
+  '
+- '   Tag: ada2022
+
+  '
+- '   Version: 0.2.0
+
+  '
+- '   Website: https://github.com/AldanTanneo/bigints
+
+  '
+- '
+
+  '
+- '
+
+  LOG:
+
+  '
+- '[alr test] Testing bigints=0.2.0
+
+  '
+- '[alr test] Spawning retrieval for remote crate: alr -d -n get bigints=0.2.0
+
+  '
+- 'Note: Deploying bigints=0.2.0...
+
+  '
+- '
+
+  '
+- 'bigints=0.2.0 successfully retrieved.
+
+  '
+- 'There are no dependencies.
+
+  '
+- '[alr test] Spawning default test for remote crate: alr -d -n build --release --
+  -cargs:Ada -gnatwn
+
+  '
+- 'Note: Building bigints=0.2.0/bigints.gpr...
+
+  '
+- 'Setup
+
+  '
+- '   [mkdir]        object directory for project Bigints
+
+  '
+- '   [mkdir]        library directory for project Bigints
+
+  '
+- 'Compile
+
+  '
+- '   [Ada]          bigints_config.ads
+
+  '
+- '   [Ada]          bigints.ads
+
+  '
+- '   [Ada]          bigints-uints.adb
+
+  '
+- '   [Ada]          bigints-uints-modulo_ops.adb
+
+  '
+- 'bigints-machine_ints.ads:81:06: error: aspect "Post" is not allowed for a static
+  expression function
+
+  '
+- 'bigints-machine_ints.ads:91:06: error: aspect "Post" is not allowed for a static
+  expression function
+
+  '
+- 'bigints-machine_ints.ads:121:06: error: aspect "Post" is not allowed for a static
+  expression function
+
+  '
+- 'bigints-machine_ints.ads:131:06: error: aspect "Post" is not allowed for a static
+  expression function
+
+  '
+- 'bigints-machine_ints.ads:141:06: error: aspect "Post" is not allowed for a static
+  expression function
+
+  '
+- 'bigints-machine_ints.ads:151:06: error: aspect "Post" is not allowed for a static
+  expression function
+
+  '
+- 'bigints-machine_ints.ads:81:06: error: aspect "Post" is not allowed for a static
+  expression function
+
+  '
+- 'bigints-machine_ints.ads:91:06: error: aspect "Post" is not allowed for a static
+  expression function
+
+  '
+- 'bigints-machine_ints.ads:121:06: error: aspect "Post" is not allowed for a static
+  expression function
+
+  '
+- 'bigints-machine_ints.ads:131:06: error: aspect "Post" is not allowed for a static
+  expression function
+
+  '
+- 'bigints-machine_ints.ads:141:06: error: aspect "Post" is not allowed for a static
+  expression function
+
+  '
+- 'bigints-machine_ints.ads:151:06: error: aspect "Post" is not allowed for a static
+  expression function
+
+  '
+- '
+
+  '
+- '   compilation of bigints-uints-modulo_ops.adb failed
+
+  '
+- '   compilation of bigints-uints.adb failed
+
+  '
+- '
+
+  '
+- 'gprbuild: *** compilation phase failed
+
+  '
+- 'stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "D:\a\alire-crates-ci\alire-crates-ci\test\a1f24ac8-1dcf-441e-9ec5-366b2628594f\bigints_0.2.0_414589c1\bigints.gpr",
+  "-cargs:Ada", "-gnatwn"] exited with code 4
+
+  '
+- 'ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "D:\a\alire-crates-ci\alire-crates-ci\test\a1f24ac8-1dcf-441e-9ec5-366b2628594f\bigints_0.2.0_414589c1\bigints.gpr",
+  "-cargs:Ada", "-gnatwn"] exited with code 4
+
+  '
+- 'stderr: ALIRE.CHECKED_ERROR
+
+  '
+- 'stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "D:\a\alire-crates-ci\alire-crates-ci\test\a1f24ac8-1dcf-441e-9ec5-366b2628594f\bigints_0.2.0_414589c1\bigints.gpr",
+  "-cargs:Ada", "-gnatwn"] exited with code 4
+
+  '
+- 'stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
+
+  '
+- '[D:\a\alire-crates-ci\alire-crates-ci\alire_install\bin\alr.exe]
+
+  '
+- '0x7ff7b303da2a Semantic_Versioning.Basic.Restrictions.First_Index at alire.adb:284
+
+  '
+- '0x7ff7b2c3595b Semantic_Versioning.Basic.Restrictions.First_Index at alire-os_lib-subprocess.adb:111
+
+  '
+- '0x7ff7b2eecba1 Semantic_Versioning.Basic.Restrictions.First_Index at alire-spawn.adb:22
+
+  '
+- '0x7ff7b2eedd5d Semantic_Versioning.Basic.Restrictions.First_Index at alire-spawn.adb:68
+
+  '
+- '0x7ff7b2e12d64 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:189
+
+  '
+- '0x7ff7b2e111da Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:255
+
+  '
+- '0x7ff7b2e3912d Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2143
+
+  '
+- '0x7ff7b2ea82f9 Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1472
+
+  '
+- '0x7ff7b2ea7424 Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1555
+
+  '
+- '0x7ff7b2e3922c Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2147
+
+  '
+- '0x7ff7b2e392fa Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2127
+
+  '
+- '0x7ff7b2e117a7 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:286
+
+  '
+- '0x7ff7b2e11912 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:114
+
+  '
+- '0x7ff7b2583baa Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:145
+
+  '
+- '0x7ff7b258341e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:113
+
+  '
+- '0x7ff7b25835ba Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:54
+
+  '
+- '0x7ff7b2635dea Semantic_Versioning.Basic.Restrictions.First_Index at clic-subcommand-instance.adb:749
+
+  '
+- '0x7ff7b2642b0e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands.adb:632
+
+  '
+- '0x7ff7b25116a0 Alr.Main at alr-main.adb:13
+
+  '
+- '0x7ff7b2515270 Main at b__alr-main.adb:2454
+
+  '
+- '0x7ff7b251133e __tmainCRTStartup at ???
+
+  '
+- '0x7ff7b2511144 mainCRTStartup at ???
+
+  '
+- '[C:\Windows\System32\KERNEL32.DLL]
+
+  '
+- '0x7ff8fbdee8d5
+
+  '
+- '[C:\Windows\SYSTEM32\ntdll.dll]
+
+  '
+- '0x7ff8fd40c53a
+
+  '
+- '
+
+  '
+- 'stderr: ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED
+
+  '
+- 'stderr: alire-roots.adb:202
+
+  '
+- 'stderr: raised ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED : alire-roots.adb:202
+
+  '
+- '[D:\a\alire-crates-ci\alire-crates-ci\alire_install\bin\alr.exe]
+
+  '
+- '0x7ff7b2e1313c Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:202
+
+  '
+- '0x7ff7b2e111da Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:255
+
+  '
+- '0x7ff7b2e3912d Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2143
+
+  '
+- '0x7ff7b2ea82f9 Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1472
+
+  '
+- '0x7ff7b2ea7424 Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1555
+
+  '
+- '0x7ff7b2e3922c Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2147
+
+  '
+- '0x7ff7b2e392fa Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2127
+
+  '
+- '0x7ff7b2e117a7 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:286
+
+  '
+- '0x7ff7b2e11912 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:114
+
+  '
+- '0x7ff7b2583baa Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:145
+
+  '
+- '0x7ff7b258341e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:113
+
+  '
+- '0x7ff7b25835ba Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:54
+
+  '
+- '0x7ff7b2635dea Semantic_Versioning.Basic.Restrictions.First_Index at clic-subcommand-instance.adb:749
+
+  '
+- '0x7ff7b2642b0e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands.adb:632
+
+  '
+- '0x7ff7b25116a0 Alr.Main at alr-main.adb:13
+
+  '
+- '0x7ff7b2515270 Main at b__alr-main.adb:2454
+
+  '
+- '0x7ff7b251133e __tmainCRTStartup at ???
+
+  '
+- '0x7ff7b2511144 mainCRTStartup at ???
+
+  '
+- '[C:\Windows\System32\KERNEL32.DLL]
+
+  '
+- '0x7ff8fbdee8d5
+
+  '
+- '[C:\Windows\SYSTEM32\ntdll.dll]
+
+  '
+- '0x7ff8fd40c53a
+
+  '
+- '
+
+  '
+- 'ERROR: Compilation failed.
+
+  '
+platform: windows
+status: failing
+version: 0.2.0

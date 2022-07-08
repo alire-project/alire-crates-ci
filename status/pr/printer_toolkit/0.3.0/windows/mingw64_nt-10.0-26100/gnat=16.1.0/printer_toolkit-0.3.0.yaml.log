@@ -1,0 +1,73 @@
+Test ran at 2026-09-22 01:26:45.129292+00:00
+
+SOLUTION:
+printer_toolkit=0.3.0: Printer toolkit to write reports
+Origin: commit 0ea56e5abd8557e3b4a35f4c3a09bf66bbdc4b15 from https://gitlab.com/stcarrez/printer-toolkit.git
+Properties:
+   Author: Stephane.Carrez@gmail.com
+   Configuration: no modifiers
+   Description: Printer toolkit to write reports
+   GPR Scenario: PT_BUILD := distrib | debug | optimize | profile | coverage
+   GPR Scenario: PT_LIBRARY_TYPE := relocatable | static | static-pic
+   License: Apache-2.0
+   Long_Description: Printer toolkit provides support to write reports on console or to produce SVG files with almost
+the same Ada code.  It can display simple bar charts as well as images on the console.
+
+The core library is provided by `printer_toolkit` and the SVG support implemented by the `printer_toolkit_svg`.
+Run one of the following Alire commands or both:
+
+```
+alr with printer_toolkit
+alr with printer_toolkit_svg
+```
+
+   Maintainer: Stephane.Carrez@gmail.com
+   Maintainers_Logins: stcarrez
+   Name: printer_toolkit
+   Tag: reports
+   Tag: console
+   Tag: charts
+   Version: 0.3.0
+   Website: https://gitlab.com/stcarrez/printer-toolkit
+Dependencies (direct):
+   ansiada^1.0.0
+Dependencies (solution):
+   ansiada=1.1.0
+Dependencies (graph):
+   printer_toolkit=0.3.0 --> ansiada=1.1.0 (^1.0.0)
+
+
+LOG:
+[alr test] Testing printer_toolkit=0.3.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get printer_toolkit=0.3.0
+Note: Deploying printer_toolkit=0.3.0...
+Note: Deploying ansiada=1.1.0...
+
+printer_toolkit=0.3.0 successfully retrieved.
+Dependencies were solved as follows:
+
+   + ansiada 1.1.0 (new)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building printer_toolkit=0.3.0/printer_toolkit.gpr...
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\ansiada_1.1.0_405f110b\7840aa5f29640f615d3c6f701453dd9e8992a28afb358ba2880fc35237dbec40\obj\release" created
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\ansiada_1.1.0_405f110b\7840aa5f29640f615d3c6f701453dd9e8992a28afb358ba2880fc35237dbec40\lib" created
+"obj\printer_toolkit\static" created
+"lib\static" created
+[Ada Compile]     ansiada.ads
+[Ada Compile]     ansiada_config.ads
+[Ada Compile]     pt-charts-barcharts.adb
+[Ada Compile]     pt-charts.adb
+[Ada Compile]     pt-colors.adb
+[Ada Compile]     pt-drivers-images-kitty.adb
+[Ada Compile]     pt-drivers-images.adb
+[Ada Compile]     pt-drivers-texts-gnat_io.adb
+[Archive]         libAnsiada.a
+[Ada Compile]     pt-drivers-texts.adb
+[Ada Compile]     pt-drivers.ads
+[Ada Compile]     pt-texts.adb
+[Ada Compile]     pt.adb
+[C Compile]       terminal.c
+[Archive]         libprinter_toolkit.a
+Success: Build finished successfully in 4.81 seconds.
+Found declared GPR file: printer_toolkit.gpr
+[alr test] Test completed SUCCESSFULLY

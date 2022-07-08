@@ -1,0 +1,1510 @@
+Test ran at 2025-08-09 12:41:52.487067+00:00
+
+SOLUTION:
+adacl=6.2.1: Ada Class Library (String, Trace, AUnit, Smart Pointer. GetOpt)
+Origin: source archive adacl-6.2.1.tgz at https://sourceforge.net/projects/adacl/files/Alire/adacl-6.2.1.tgz with hashes sha256:9723c4cbd36b390208aee3740bba11c3af47739ad8481b61b015bd02acd511bb, sha512:39b265ab90770b076856d7da8afc9ed3a776d224bf21444f5812cf35dc480345e84999e46eb12472d899a5f950b2cdec4114ecff44dbbde3d9247db199feadde
+Properties:
+   Test run: alr run (from ${CRATE_ROOT}/test)
+   Author: Martin Krischik <krischik@users.sourceforge.net>
+   Build Switches: 
+   Description: Ada Class Library (String, Trace, AUnit, Smart Pointer. GetOpt)
+   License: GPL-3.0-or-later
+   Long_Description: A class library for Ada for those who like OO programming.
+
+Currently the following functionality is migrated to Ada 2022:
+
+* Getopt commandline argument parser - with wide character support.
+* String utilities - with wide character support.
+* Calendar utilities - with wide character support.
+* Trace utility - with wide character support.
+* Protected queue - with finish, wait for finish and abort support.
+* Smart pointer
+  * Reference counted
+  * Unique pointer
+  * Shared pointer
+* AUnit compatible informative asserts
+  * generic for access types
+  * generic for arrays types
+  * generic for discrete types
+  * generic for floating point types
+  * generic for fixed point types
+  * generic for decimal fixed point types
+  * generic for vector types
+* AUnit parameter
+  * Call one test with multipe input and expected values
+
+See [GNATdoc](https://adacl.sourceforge.net/gnatdoc/adacl/index.html) for details.
+
+Development versions and testsuite available using the follwowing index:
+
+```sh
+alr index --add "git+https://github.com/krischik/alire-index.git#develop" --name krischik
+```
+
+Source code and testsuite available on [SourceForge](https://git.code.sf.net/p/adacl/git)
+
+   Maintainer: Martin Krischik <krischik@users.sourceforge.net>
+   Maintainers_Logins: krischik
+   Name: adacl
+   Tag: library
+   Tag: command-line
+   Tag: trace
+   Tag: logging
+   Tag: string
+   Tag: aunit
+   Tag: assert
+   Tag: container
+   Tag: smart-pointer
+   Tag: ada2022
+   Version: 6.2.1
+   Website: https://sourceforge.net/projects/adacl/
+Dependencies (direct):
+   aunit25.0.0
+   gnat_native^15.1
+Dependencies (solution):
+   aunit=25.0.0
+   gnat_native=15.1.2
+Dependencies (graph):
+   adacl=6.2.1 --> aunit=25.0.0 (25.0.0)
+   adacl=6.2.1 --> gnat_native=15.1.2 (^15.1)
+
+
+LOG:
+Note: Synchronizing workspace...
+Dependencies automatically updated as follows:
+
+   +. adacl       6.2.1  (new,path=..)
+   +  aunit       25.0.0 (new)
+   +b gnat        15.1.2 (new,gnat_native,binary)
+   +b gnat_native 15.1.2 (new,indirect,binary)
+
+Note: Building adacl_test=6.2.1/adacl_test.gpr...
+Setup
+   [mkdir]        object directory for project AUnit
+   [mkdir]        library directory for project AUnit
+   [mkdir]        object directory for project AdaCL
+   [mkdir]        library directory for project AdaCL
+   [mkdir]        object directory for project AdaCL_Test
+   [mkdir]        exec directory for project AdaCL_Test
+Compile
+   [Ada]          adacl_test-main.adb
+   [Ada]          aunit-io.ads
+   [Ada]          aunit-memory.adb
+   [Ada]          aunit-memory-utils.adb
+   [Ada]          aunit-time_measure.adb
+   [Ada]          aunit-reporter-xml.adb
+   [Ada]          aunit-reporter-text.adb
+   [Ada]          aunit-reporter-junit.adb
+   [Ada]          aunit-reporter-gnattest.adb
+   [Ada]          ada_containers.ads
+   [Ada]          ada_containers-aunit_lists.adb
+   [Ada]          aunit.adb
+   [Ada]          aunit-test_suites.adb
+   [Ada]          aunit-test_results.adb
+   [Ada]          aunit-test_fixtures.adb
+   [Ada]          aunit-test_filters.adb
+   [Ada]          aunit-test_cases.adb
+   [Ada]          aunit-test_caller.adb
+   [Ada]          aunit-tests.ads
+   [Ada]          aunit-simple_test_cases.adb
+   [Ada]          aunit-run.adb
+   [Ada]          aunit-reporter.adb
+   [Ada]          aunit-options.ads
+   [Ada]          aunit-assertions.adb
+   [Ada]          adacl_config.ads
+   [Ada]          adacl-to_wide_wide_string.adb
+   [Ada]          adacl-to_utf_string.adb
+   [Ada]          adacl-os-low_level.ads
+   [Ada]          adacl.ads
+   [Ada]          adacl-wide_wide_strings.adb
+   [Ada]          adacl-wide_wide_strings-vectors.ads
+   [Ada]          adacl-wide_wide_strings-io.adb
+   [Ada]          adacl-wide_wide_strings-hex.adb
+   [Ada]          adacl-wide_strings.adb
+   [Ada]          adacl-wide_strings-vectors.ads
+   [Ada]          adacl-wide_strings-io.adb
+   [Ada]          adacl-wide_strings-hex.adb
+   [Ada]          adacl-trace.adb
+   [Ada]          adacl-trace-assert.ads
+   [Ada]          adacl-test_cases.ads
+   [Ada]          adacl-test_cases-parameters.adb
+   [Ada]          adacl-strings.adb
+   [Ada]          adacl-strings-vectors.ads
+   [Ada]          adacl-strings-io.adb
+   [Ada]          adacl-strings-hex.adb
+   [Ada]          adacl-queue.adb
+   [Ada]          adacl-pointer.ads
+   [Ada]          adacl-pointer-unique_with_delete.adb
+   [Ada]          adacl-pointer-unique.ads
+   [Ada]          adacl-pointer-shared_with_delete.adb
+   [Ada]          adacl-pointer-shared.ads
+   [Ada]          adacl-pointer-holder.adb
+   [Ada]          adacl-pointer-element.adb
+   [Ada]          adacl-os.ads
+   [Ada]          adacl-limited_base.ads
+   [Ada]          adacl-command_line.ads
+   [Ada]          adacl-command_line-getopt.adb
+   [Ada]          adacl-calendar.adb
+   [Ada]          adacl-base.ads
+   [Ada]          adacl-assert.adb
+   [Ada]          adacl-assert-vectors.adb
+   [Ada]          adacl-assert-pointer.adb
+   [Ada]          adacl-assert-float.adb
+   [Ada]          adacl-assert-fixed.adb
+   [Ada]          adacl-assert-discrete.adb
+   [Ada]          adacl-assert-decimal.adb
+   [Ada]          adacl-assert-arrays.adb
+   [Ada]          adacl_test.ads
+   [Ada]          adacl_test-suite.adb
+   [Ada]          adacl-calendar-test.adb
+   [Ada]          adacl-pointer-element-test.adb
+   [Ada]          adacl-strings-hex-test.adb
+   [Ada]          adacl-strings-io-test.adb
+   [Ada]          adacl-strings-test.adb
+   [Ada]          adacl-trace-test.adb
+   [Ada]          adacl-wide_strings-hex-test.adb
+   [Ada]          adacl-wide_strings-io-test.adb
+   [Ada]          adacl-wide_strings-test.adb
+   [Ada]          adacl-wide_wide_strings-hex-test.adb
+   [Ada]          adacl-wide_wide_strings-io-test.adb
+   [Ada]          adacl-wide_wide_strings-test.adb
+   [Ada]          adacl_test-pointer_holder.adb
+   [Ada]          adacl_test-pointer_shared.adb
+   [Ada]          adacl_test-pointer_shared_with_delete.adb
+   [Ada]          adacl_test-pointer_unique.adb
+   [Ada]          adacl_test-pointer_unique_with_delete.adb
+   [Ada]          adacl_test-queue.adb
+Build Libraries
+   [gprlib]       aunit.lexch
+   [gprlib]       AdaCL.lexch
+   [archive]      libaunit.a
+   [index]        libaunit.a
+   [archive]      libAdaCL.a
+   [index]        libAdaCL.a
+Bind
+   [gprbind]      adacl_test-main.bexch
+   [Ada]          adacl_test-main.ali
+Link
+   [link]         adacl_test-main.adb
+Success: Build finished successfully in 61.70 seconds.
+
+OK AdaCL.Calendar.Image_01 : 2024-12-01_08:00:00.0 : No 1 fraction
+OK AdaCL.Calendar.Image_01 : 2025-07-22_12:00:00.1 : small 1 fraction
+OK AdaCL.Calendar.Image_01 : 2025-11-12_09:12:34.5 : mediumn 1 fraction
+OK AdaCL.Calendar.Image_01 : 2025-11-12_09:12:34.9 : Large 1 fraction
+OK AdaCL.Calendar.Image_01 : 2024-12-01_08:00:00.0000 : No 4 fraction
+OK AdaCL.Calendar.Image_01 : 2025-07-22_12:00:00.0001 : small 4 fraction
+OK AdaCL.Calendar.Image_01 : 2025-11-12_09:12:34.5000 : mediumn 4 fraction
+OK AdaCL.Calendar.Image_01 : 2025-11-12_09:12:34.9999 : Large 4 fraction
+OK AdaCL.Calendar.Image_02 : 08:00:00.0 : Morning, 2 hour, 1 fraction
+OK AdaCL.Calendar.Image_02 : 12:00:00.1 : Small, 2 hour, 1 fraction
+OK AdaCL.Calendar.Image_02 : 09:12:34.5 : Medium, 2 hour, 1 fraction
+OK AdaCL.Calendar.Image_02 : 99:12:34.9 : Large, 2 hour, 1 fraction
+OK AdaCL.Calendar.Image_02 : 08:00:00.0000 : Morning, 2 hour, 4 fraction
+OK AdaCL.Calendar.Image_02 : 12:00:00.0001 : Small, 2 hour, 4 fraction
+OK AdaCL.Calendar.Image_02 : 09:12:34.5000 : Medium, 2 hour, 4 fraction
+OK AdaCL.Calendar.Image_02 : 99:12:34.9999 : Large, 2 hour, 4 fraction
+OK AdaCL.Calendar.Image_02 : 0018:00:00.0 : Morning, 4 hour, 1 fraction
+OK AdaCL.Calendar.Image_02 : 0112:00:00.1 : Small, 4 hour, 1 fraction
+OK AdaCL.Calendar.Image_02 : 1119:12:34.5 : Medium, 4 hour, 1 fraction
+OK AdaCL.Calendar.Image_02 : 9999:12:34.9 : Large, 4 hour, 1 fraction
+OK AdaCL.Calendar.Image_02 : 0008:00:00.0000 : Morning, 4 hour, 4 fraction
+OK AdaCL.Calendar.Image_02 : 0112:00:00.0001 : Small, 4 hour, 4 fraction
+OK AdaCL.Calendar.Image_02 : 1109:12:34.5000 : Medium, 4 hour, 4 fraction
+OK AdaCL.Calendar.Image_02 : 9909:12:34.9999 : Large, 4 hour, 4 fraction
+OK AdaCL.Pointer.Element : Test_Add_Reference_01 : simple add
+OK AdaCL.Pointer.Element : Test_Add_Reference_02 : two add
+OK AdaCL.Pointer.Element : Test_Remove_Reference_01 : add remove
+OK AdaCL.Pointer.Element : Test_Remove_Reference_02 : add remove
+OK AdaCL.Pointer.Holder : Test_Create_01 : create holder without instance
+OK AdaCL.Pointer.Holder : Test_Create_02 : create holder from instance
+OK AdaCL.Pointer.Holder : Test_Create_03 : create holder from assignement
+OK AdaCL.Pointer.Holder : Test_Reset_01 : one level
+OK AdaCL.Pointer.Holder : Test_Reset_02 : add remove
+OK AdaCL.Queue : Test_Create_01 : create queue.
+OK AdaCL.Queue : Test_Enqueue_01 : add element to queue
+OK AdaCL.Queue : Test_Dequeue_01 : remove element from queue
+OK AdaCL.Queue : Test_Finish_01 : finish queue
+OK AdaCL.Queue : Test_Task_01 : using tasks.
+OK AdaCL.Queue : Test_Task_02 : adding 10 elements.
+OK AdaCL.Queue : Test_Task_03 : Wait for finish.
+OK AdaCL.Queue : Test_Task_04 : abort queue
+OK AdaCL.Pointer.Shared : Test_Create_01 : create set no instance
+OK AdaCL.Pointer.Shared : Test_Create_02 : create shared from instance
+OK AdaCL.Pointer.Shared : Test_Create_03 : create shared from assignement
+OK AdaCL.Pointer.Shared : Test_Reset_01 : one level
+OK AdaCL.Pointer.Shared : Test_Reset_02 : add remove
+OK AdaCL.Pointer.Shared_With_Delete : Test_Create_01 : create set no instance
+OK AdaCL.Pointer.Shared_With_Delete : Test_Create_02 : create shared from instance
+OK AdaCL.Pointer.Shared_With_Delete : Test_Create_03 : create shared from assignement
+OK AdaCL.Pointer.Shared_With_Delete : Test_Reset_01 : one level
+OK AdaCL.Pointer.Shared_With_Delete : Test_Reset_02 : add remove
+OK AdaCL.Strings.Test.Append_All : 00 : Append empty
+OK AdaCL.Strings.Test.Append_All : 01 : Append middle
+OK AdaCL.Strings.Test.Append_All : 02 : Append beginning
+OK AdaCL.Strings.Test.Append_All : 03 : Append ending
+OK AdaCL.Strings.Test.Append_All : 04 : Append zero
+OK AdaCL.Strings.Test.Append_All : 05 : Append two
+OK AdaCL.Strings.Test.Append_All : 06 : Append upper
+OK AdaCL.Strings.Test.Append_All : 07 : Append upper
+OK AdaCL.Strings.Test.Append_All : 08 : Append upper
+OK AdaCL.Strings.Test.Append_All : 09 : Append lower
+OK AdaCL.Strings.Test.Append_All : 10 : Append lower
+OK AdaCL.Strings.Test.Append_All : 11 : Append lower
+OK AdaCL.Strings.Test.Append_All : 12 : Append two upper
+OK AdaCL.Strings.Test.Append_All : 13 : Append two lower
+OK AdaCL.Strings.Test.Append_All : 14 : Append exiting
+OK AdaCL.Strings.Test.Append_All : 15 : Append exiting two
+OK AdaCL.Strings.Test.Append_All : 16 : Append two end
+OK AdaCL.Strings.Test.Append_All : 17 : Append two start
+OK AdaCL.Strings.Test.Append_All : 00 : Without Result Append empty
+OK AdaCL.Strings.Test.Append_All : 01 : Without Result Append middle
+OK AdaCL.Strings.Test.Append_All : 02 : Without Result Append beginning
+OK AdaCL.Strings.Test.Append_All : 03 : Without Result Append ending
+OK AdaCL.Strings.Test.Append_All : 04 : Without Result Append zero
+OK AdaCL.Strings.Test.Append_All : 05 : Without Result Append two
+OK AdaCL.Strings.Test.Append_All : 06 : Without Result Append upper
+OK AdaCL.Strings.Test.Append_All : 07 : Without Result Append upper
+OK AdaCL.Strings.Test.Append_All : 08 : Without Result Append upper
+OK AdaCL.Strings.Test.Append_All : 09 : Without Result Append lower
+OK AdaCL.Strings.Test.Append_All : 10 : Without Result Append lower
+OK AdaCL.Strings.Test.Append_All : 11 : Without Result Append lower
+OK AdaCL.Strings.Test.Append_All : 12 : Without Result Append two upper
+OK AdaCL.Strings.Test.Append_All : 13 : Without Result Append two lower
+OK AdaCL.Strings.Test.Append_All : 14 : Without Result Append exiting
+OK AdaCL.Strings.Test.Append_All : 15 : Without Result Append exiting two
+OK AdaCL.Strings.Test.Append_All : 16 : Without Result Append two end
+OK AdaCL.Strings.Test.Append_All : 17 : Without Result Append two start
+OK AdaCL.Strings.Test.Append_First : 00 : Append empty
+OK AdaCL.Strings.Test.Append_First : 01 : Append middle
+OK AdaCL.Strings.Test.Append_First : 02 : Append beginning
+OK AdaCL.Strings.Test.Append_First : 03 : Append ending
+OK AdaCL.Strings.Test.Append_First : 04 : Append zero
+OK AdaCL.Strings.Test.Append_First : 05 : Append two
+OK AdaCL.Strings.Test.Append_First : 06 : Append upper
+OK AdaCL.Strings.Test.Append_First : 07 : Append upper
+OK AdaCL.Strings.Test.Append_First : 08 : Append upper
+OK AdaCL.Strings.Test.Append_First : 09 : Append lower
+OK AdaCL.Strings.Test.Append_First : 10 : Append lower
+OK AdaCL.Strings.Test.Append_First : 11 : Append lower
+OK AdaCL.Strings.Test.Append_First : 12 : Append two upper
+OK AdaCL.Strings.Test.Append_First : 13 : Append two lower
+OK AdaCL.Strings.Test.Append_First : 14 : Append exiting
+OK AdaCL.Strings.Test.Append_First : 15 : Append exiting two
+OK AdaCL.Strings.Test.Append_First : 16 : Append two end
+OK AdaCL.Strings.Test.Append_First : 17 : Append two start
+OK AdaCL.Strings.Test.Append_First : 00 : Without Result Append empty
+OK AdaCL.Strings.Test.Append_First : 01 : Without Result Append middle
+OK AdaCL.Strings.Test.Append_First : 02 : Without Result Append beginning
+OK AdaCL.Strings.Test.Append_First : 03 : Without Result Append ending
+OK AdaCL.Strings.Test.Append_First : 04 : Without Result Append zero
+OK AdaCL.Strings.Test.Append_First : 05 : Without Result Append two
+OK AdaCL.Strings.Test.Append_First : 06 : Without Result Append upper
+OK AdaCL.Strings.Test.Append_First : 07 : Without Result Append upper
+OK AdaCL.Strings.Test.Append_First : 08 : Without Result Append upper
+OK AdaCL.Strings.Test.Append_First : 09 : Without Result Append lower
+OK AdaCL.Strings.Test.Append_First : 10 : Without Result Append lower
+OK AdaCL.Strings.Test.Append_First : 11 : Without Result Append lower
+OK AdaCL.Strings.Test.Append_First : 12 : Without Result Append two upper
+OK AdaCL.Strings.Test.Append_First : 13 : Without Result Append two lower
+OK AdaCL.Strings.Test.Append_First : 14 : Without Result Append exiting
+OK AdaCL.Strings.Test.Append_First : 15 : Without Result Append exiting two
+OK AdaCL.Strings.Test.Append_First : 16 : Without Result Append two end
+OK AdaCL.Strings.Test.Append_First : 17 : Without Result Append two start
+OK AdaCL.Strings.Test.Append_Last : 00 : Append empty
+OK AdaCL.Strings.Test.Append_Last : 01 : Append middle
+OK AdaCL.Strings.Test.Append_Last : 02 : Append beginning
+OK AdaCL.Strings.Test.Append_Last : 03 : Append ending
+OK AdaCL.Strings.Test.Append_Last : 04 : Append zero
+OK AdaCL.Strings.Test.Append_Last : 05 : Append two
+OK AdaCL.Strings.Test.Append_Last : 06 : Append upper
+OK AdaCL.Strings.Test.Append_Last : 07 : Append upper
+OK AdaCL.Strings.Test.Append_Last : 08 : Append upper
+OK AdaCL.Strings.Test.Append_Last : 09 : Append lower
+OK AdaCL.Strings.Test.Append_Last : 10 : Append lower
+OK AdaCL.Strings.Test.Append_Last : 11 : Append lower
+OK AdaCL.Strings.Test.Append_Last : 12 : Append two upper
+OK AdaCL.Strings.Test.Append_Last : 13 : Append two lower
+OK AdaCL.Strings.Test.Append_Last : 14 : Append exiting
+OK AdaCL.Strings.Test.Append_Last : 15 : Append exiting two
+OK AdaCL.Strings.Test.Append_Last : 16 : Append two end
+OK AdaCL.Strings.Test.Append_Last : 17 : Append two start
+OK AdaCL.Strings.Test.Append_Last : 00 : Without Result Append empty
+OK AdaCL.Strings.Test.Append_Last : 01 : Without Result Append middle
+OK AdaCL.Strings.Test.Append_Last : 02 : Without Result Append beginning
+OK AdaCL.Strings.Test.Append_Last : 03 : Without Result Append ending
+OK AdaCL.Strings.Test.Append_Last : 04 : Without Result Append zero
+OK AdaCL.Strings.Test.Append_Last : 05 : Without Result Append two
+OK AdaCL.Strings.Test.Append_Last : 06 : Without Result Append upper
+OK AdaCL.Strings.Test.Append_Last : 07 : Without Result Append upper
+OK AdaCL.Strings.Test.Append_Last : 08 : Without Result Append upper
+OK AdaCL.Strings.Test.Append_Last : 09 : Without Result Append lower
+OK AdaCL.Strings.Test.Append_Last : 10 : Without Result Append lower
+OK AdaCL.Strings.Test.Append_Last : 11 : Without Result Append lower
+OK AdaCL.Strings.Test.Append_Last : 12 : Without Result Append two upper
+OK AdaCL.Strings.Test.Append_Last : 13 : Without Result Append two lower
+OK AdaCL.Strings.Test.Append_Last : 14 : Without Result Append exiting
+OK AdaCL.Strings.Test.Append_Last : 15 : Without Result Append exiting two
+OK AdaCL.Strings.Test.Append_Last : 16 : Without Result Append two end
+OK AdaCL.Strings.Test.Append_Last : 17 : Without Result Append two start
+OK AdaCL.Strings.Test.Change_All : 00 : Replace empty
+OK AdaCL.Strings.Test.Change_All : 01 : Replace middle
+OK AdaCL.Strings.Test.Change_All : 02 : Replace beginning
+OK AdaCL.Strings.Test.Change_All : 03 : Replace ending
+OK AdaCL.Strings.Test.Change_All : 04 : Replace zero
+OK AdaCL.Strings.Test.Change_All : 05 : Replace two
+OK AdaCL.Strings.Test.Change_All : 06 : Replace upper
+OK AdaCL.Strings.Test.Change_All : 07 : Replace upper
+OK AdaCL.Strings.Test.Change_All : 08 : Replace upper
+OK AdaCL.Strings.Test.Change_All : 09 : Replace lower
+OK AdaCL.Strings.Test.Change_All : 10 : Replace lower
+OK AdaCL.Strings.Test.Change_All : 11 : Replace lower
+OK AdaCL.Strings.Test.Change_All : 12 : Replace two upper
+OK AdaCL.Strings.Test.Change_All : 13 : Replace two lower
+OK AdaCL.Strings.Test.Change_All : 14 : Replace two end
+OK AdaCL.Strings.Test.Change_All : 00 : Without Result Replace empty
+OK AdaCL.Strings.Test.Change_All : 01 : Without Result Replace middle
+OK AdaCL.Strings.Test.Change_All : 02 : Without Result Replace beginning
+OK AdaCL.Strings.Test.Change_All : 03 : Without Result Replace ending
+OK AdaCL.Strings.Test.Change_All : 04 : Without Result Replace zero
+OK AdaCL.Strings.Test.Change_All : 05 : Without Result Replace two
+OK AdaCL.Strings.Test.Change_All : 06 : Without Result Replace upper
+OK AdaCL.Strings.Test.Change_All : 07 : Without Result Replace upper
+OK AdaCL.Strings.Test.Change_All : 08 : Without Result Replace upper
+OK AdaCL.Strings.Test.Change_All : 09 : Without Result Replace lower
+OK AdaCL.Strings.Test.Change_All : 10 : Without Result Replace lower
+OK AdaCL.Strings.Test.Change_All : 11 : Without Result Replace lower
+OK AdaCL.Strings.Test.Change_All : 12 : Without Result Replace two upper
+OK AdaCL.Strings.Test.Change_All : 13 : Without Result Replace two lower
+OK AdaCL.Strings.Test.Change_All : 14 : Without Result Replace two end
+OK AdaCL.Strings.Test.Change_First : 00 : Replace empty
+OK AdaCL.Strings.Test.Change_First : 01 : Replace middle
+OK AdaCL.Strings.Test.Change_First : 02 : Replace beginning
+OK AdaCL.Strings.Test.Change_First : 03 : Replace ending
+OK AdaCL.Strings.Test.Change_First : 04 : Replace zero
+OK AdaCL.Strings.Test.Change_First : 05 : Replace two
+OK AdaCL.Strings.Test.Change_First : 06 : Replace upper
+OK AdaCL.Strings.Test.Change_First : 07 : Replace upper
+OK AdaCL.Strings.Test.Change_First : 08 : Replace upper
+OK AdaCL.Strings.Test.Change_First : 09 : Replace lower
+OK AdaCL.Strings.Test.Change_First : 10 : Replace lower
+OK AdaCL.Strings.Test.Change_First : 11 : Replace lower
+OK AdaCL.Strings.Test.Change_First : 12 : Replace two upper
+OK AdaCL.Strings.Test.Change_First : 13 : Replace two lower
+OK AdaCL.Strings.Test.Change_First : 14 : Replace two end
+OK AdaCL.Strings.Test.Change_First : 00 : Without Result Replace empty
+OK AdaCL.Strings.Test.Change_First : 01 : Without Result Replace middle
+OK AdaCL.Strings.Test.Change_First : 02 : Without Result Replace beginning
+OK AdaCL.Strings.Test.Change_First : 03 : Without Result Replace ending
+OK AdaCL.Strings.Test.Change_First : 04 : Without Result Replace zero
+OK AdaCL.Strings.Test.Change_First : 05 : Without Result Replace two
+OK AdaCL.Strings.Test.Change_First : 06 : Without Result Replace upper
+OK AdaCL.Strings.Test.Change_First : 07 : Without Result Replace upper
+OK AdaCL.Strings.Test.Change_First : 08 : Without Result Replace upper
+OK AdaCL.Strings.Test.Change_First : 09 : Without Result Replace lower
+OK AdaCL.Strings.Test.Change_First : 10 : Without Result Replace lower
+OK AdaCL.Strings.Test.Change_First : 11 : Without Result Replace lower
+OK AdaCL.Strings.Test.Change_First : 12 : Without Result Replace two upper
+OK AdaCL.Strings.Test.Change_First : 13 : Without Result Replace two lower
+OK AdaCL.Strings.Test.Change_First : 14 : Without Result Replace two end
+OK AdaCL.Strings.Test.Change_Last : 00 : Replace empty
+OK AdaCL.Strings.Test.Change_Last : 01 : Replace middle
+OK AdaCL.Strings.Test.Change_Last : 02 : Replace beginning
+OK AdaCL.Strings.Test.Change_Last : 03 : Replace ending
+OK AdaCL.Strings.Test.Change_Last : 04 : Replace zero
+OK AdaCL.Strings.Test.Change_Last : 05 : Replace two
+OK AdaCL.Strings.Test.Change_Last : 06 : Replace upper
+OK AdaCL.Strings.Test.Change_Last : 07 : Replace upper
+OK AdaCL.Strings.Test.Change_Last : 08 : Replace upper
+OK AdaCL.Strings.Test.Change_Last : 09 : Replace lower
+OK AdaCL.Strings.Test.Change_Last : 10 : Replace lower
+OK AdaCL.Strings.Test.Change_Last : 11 : Replace lower
+OK AdaCL.Strings.Test.Change_Last : 12 : Replace two upper
+OK AdaCL.Strings.Test.Change_Last : 13 : Replace two lower
+OK AdaCL.Strings.Test.Change_Last : 14 : Replace two end
+OK AdaCL.Strings.Test.Change_Last : 15 : Replace two start
+OK AdaCL.Strings.Test.Change_Last : 00 : Without Result Replace empty
+OK AdaCL.Strings.Test.Change_Last : 01 : Without Result Replace middle
+OK AdaCL.Strings.Test.Change_Last : 02 : Without Result Replace beginning
+OK AdaCL.Strings.Test.Change_Last : 03 : Without Result Replace ending
+OK AdaCL.Strings.Test.Change_Last : 04 : Without Result Replace zero
+OK AdaCL.Strings.Test.Change_Last : 05 : Without Result Replace two
+OK AdaCL.Strings.Test.Change_Last : 06 : Without Result Replace upper
+OK AdaCL.Strings.Test.Change_Last : 07 : Without Result Replace upper
+OK AdaCL.Strings.Test.Change_Last : 08 : Without Result Replace upper
+OK AdaCL.Strings.Test.Change_Last : 09 : Without Result Replace lower
+OK AdaCL.Strings.Test.Change_Last : 10 : Without Result Replace lower
+OK AdaCL.Strings.Test.Change_Last : 11 : Without Result Replace lower
+OK AdaCL.Strings.Test.Change_Last : 12 : Without Result Replace two upper
+OK AdaCL.Strings.Test.Change_Last : 13 : Without Result Replace two lower
+OK AdaCL.Strings.Test.Change_Last : 14 : Without Result Replace two end
+OK AdaCL.Strings.Test.Change_Last : 15 : Without Result Replace two start
+OK AdaCL.Strings.Hex.Unsigned_16 : Image_0000 : 4 Digits
+OK AdaCL.Strings.Hex.Unsigned_16 : Image_FFFF : 4 Digits
+OK AdaCL.Strings.Hex.Unsigned_16 : Image_0012 : 2 Digits
+OK AdaCL.Strings.Hex.Unsigned_16 : Image_0123 : 3 Digits
+OK AdaCL.Strings.Hex.Unsigned_16 : Value_0000 : 4 Digits
+OK AdaCL.Strings.Hex.Unsigned_16 : Value_FFFF : 4 Digits
+OK AdaCL.Strings.Hex.Unsigned_16 : Value_0012 : 4 Digits
+OK AdaCL.Strings.Hex.Unsigned_16 : Value_0123 : 4 Digits
+OK AdaCL.Strings.Hex.Unsigned_16 : Value_1 : 1 Digits
+OK AdaCL.Strings.Hex.Unsigned_16 : Value_12 : 2 Digits
+OK AdaCL.Strings.Hex.Unsigned_16 : Value_123 : 3 Digits
+OK AdaCL.Strings.Hex.Unsigned_32 : Image_00000000 : 8 Digits
+OK AdaCL.Strings.Hex.Unsigned_32 : Image_00000012 : 8 Digits
+OK AdaCL.Strings.Hex.Unsigned_32 : Image_00000123 : 8 Digits
+OK AdaCL.Strings.Hex.Unsigned_32 : Image_00001234 : 8 Digits
+OK AdaCL.Strings.Hex.Unsigned_32 : Image_00012345 : 8 Digits
+OK AdaCL.Strings.Hex.Unsigned_32 : Image_00123456 : 8 Digits
+OK AdaCL.Strings.Hex.Unsigned_32 : Image_01234567 : 8 Digits
+OK AdaCL.Strings.Hex.Unsigned_32 : Image_FFFFFFFF : 8 Digits
+OK AdaCL.Strings.Hex.Unsigned_32 : Value_00000000 : 8 Digits
+OK AdaCL.Strings.Hex.Unsigned_32 : Value_00000012 : 8 Digits
+OK AdaCL.Strings.Hex.Unsigned_32 : Value_00000123 : 8 Digits
+OK AdaCL.Strings.Hex.Unsigned_32 : Value_00001234 : 8 Digits
+OK AdaCL.Strings.Hex.Unsigned_32 : Value_00012345 : 8 Digits
+OK AdaCL.Strings.Hex.Unsigned_32 : Value_00123456 : 8 Digits
+OK AdaCL.Strings.Hex.Unsigned_32 : Value_01234567 : 8 Digits
+OK AdaCL.Strings.Hex.Unsigned_32 : Value_1 : 1 Digits
+OK AdaCL.Strings.Hex.Unsigned_32 : Value_12 : 2 Digits
+OK AdaCL.Strings.Hex.Unsigned_32 : Value_123 : 3 Digits
+OK AdaCL.Strings.Hex.Unsigned_32 : Value_1234 : 4 Digits
+OK AdaCL.Strings.Hex.Unsigned_32 : Value_12345 : 5 Digits
+OK AdaCL.Strings.Hex.Unsigned_32 : Value_123456 : 6 Digits
+OK AdaCL.Strings.Hex.Unsigned_32 : Value_1234567 : 7 Digits
+OK AdaCL.Strings.Hex.Unsigned_32 : Value_FFFFFFFF : 8 Digits
+OK AdaCL.Strings.Hex.Unsigned_64 : Image_0000000000000000 : 16 Digits
+OK AdaCL.Strings.Hex.Unsigned_64 : Image_0000000000000012 : 16 Digits
+OK AdaCL.Strings.Hex.Unsigned_64 : Image_0000000000000123 : 16 Digits
+OK AdaCL.Strings.Hex.Unsigned_64 : Image_0000000000001234 : 16 Digits
+OK AdaCL.Strings.Hex.Unsigned_64 : Image_0000000000012345 : 16 Digits
+OK AdaCL.Strings.Hex.Unsigned_64 : Image_0000000000123456 : 16 Digits
+OK AdaCL.Strings.Hex.Unsigned_64 : Image_0000000001234567 : 16 Digits
+OK AdaCL.Strings.Hex.Unsigned_64 : Image_0000000012345678 : 16 Digits
+OK AdaCL.Strings.Hex.Unsigned_64 : Image_0000000123456789 : 16 Digits
+OK AdaCL.Strings.Hex.Unsigned_64 : Image_0000001234567890 : 16 Digits
+OK AdaCL.Strings.Hex.Unsigned_64 : Image_000001234567890A : 16 Digits
+OK AdaCL.Strings.Hex.Unsigned_64 : Image_00001234567890AB : 16 Digits
+OK AdaCL.Strings.Hex.Unsigned_64 : Image_0001234567890ABC : 16 Digits
+OK AdaCL.Strings.Hex.Unsigned_64 : Image_001234567890ABCD : 16 Digits
+OK AdaCL.Strings.Hex.Unsigned_64 : Image_01234567890ABCDE : 16 Digits
+OK AdaCL.Strings.Hex.Unsigned_64 : Image_FFFFFFFFFFFFFFFF : 16 Digits
+OK AdaCL.Strings.Hex.Unsigned_64 : Value_0000000000000000 : 16 Digits
+OK AdaCL.Strings.Hex.Unsigned_64 : Value_0000000000000012 : 16 Digits
+OK AdaCL.Strings.Hex.Unsigned_64 : Value_0000000000000123 : 16 Digits
+OK AdaCL.Strings.Hex.Unsigned_64 : Value_0000000000001234 : 16 Digits
+OK AdaCL.Strings.Hex.Unsigned_64 : Value_0000000000012345 : 16 Digits
+OK AdaCL.Strings.Hex.Unsigned_64 : Value_0000000000123456 : 16 Digits
+OK AdaCL.Strings.Hex.Unsigned_64 : Value_0000000001234567 : 16 Digits
+OK AdaCL.Strings.Hex.Unsigned_64 : Value_0000000012345678 : 16 Digits
+OK AdaCL.Strings.Hex.Unsigned_64 : Value_0000000123456789 : 16 Digits
+OK AdaCL.Strings.Hex.Unsigned_64 : Value_0000001234567890 : 16 Digits
+OK AdaCL.Strings.Hex.Unsigned_64 : Value_000001234567890A : 16 Digits
+OK AdaCL.Strings.Hex.Unsigned_64 : Value_00001234567890AB : 16 Digits
+OK AdaCL.Strings.Hex.Unsigned_64 : Value_0001234567890ABC : 16 Digits
+OK AdaCL.Strings.Hex.Unsigned_64 : Value_001234567890ABCD : 16 Digits
+OK AdaCL.Strings.Hex.Unsigned_64 : Value_01234567890ABCDE : 16 Digits
+OK AdaCL.Strings.Hex.Unsigned_64 : Value_FFFFFFFFFFFFFFFF : 16 Digits
+OK AdaCL.Strings.Hex.Unsigned_64 : Value_1 : 1 Digits
+OK AdaCL.Strings.Hex.Unsigned_64 : Value_12 : 2 Digits
+OK AdaCL.Strings.Hex.Unsigned_64 : Value_123 : 3 Digits
+OK AdaCL.Strings.Hex.Unsigned_64 : Value_1234 : 4 Digits
+OK AdaCL.Strings.Hex.Unsigned_64 : Value_12345 : 5 Digits
+OK AdaCL.Strings.Hex.Unsigned_64 : Value_123456 : 6 Digits
+OK AdaCL.Strings.Hex.Unsigned_64 : Value_1234567 : 7 Digits
+OK AdaCL.Strings.Hex.Unsigned_64 : Value_FFFFFFFF : 8 Digits
+OK AdaCL.Strings.Hex.Unsigned_64 : Value_123456789 : 9 Digits
+OK AdaCL.Strings.Hex.Unsigned_64 : Value_1234567890 : 10 Digits
+OK AdaCL.Strings.Hex.Unsigned_64 : Value_1234567890A : 11 Digits
+OK AdaCL.Strings.Hex.Unsigned_64 : Value_1234567890AB : 12 Digits
+OK AdaCL.Strings.Hex.Unsigned_64 : Value_1234567890ABC : 13 Digits
+OK AdaCL.Strings.Hex.Unsigned_64 : Value_1234567890ABCD : 14 Digits
+OK AdaCL.Strings.Hex.Unsigned_64 : Value_1234567890ABCDE : 15 Digits
+OK AdaCL.Strings.Hex.Unsigned_64 : Value_1234567890ABCDEF : 16 Digits
+OK AdaCL.Strings.Hex.Unsigned_8 : Image_00 : 2 Digit
+OK AdaCL.Strings.Hex.Unsigned_8 : Image_FF : 2 Digit
+OK AdaCL.Strings.Hex.Unsigned_8 : Value_0 : 1 Digit
+OK AdaCL.Strings.Hex.Unsigned_8 : Value_00 : 2 Digit
+OK AdaCL.Strings.Hex.Unsigned_8 : Value_FF : 2 Digit
+OK AdaCL.Strings.Test.Insert_All : 00 : Insert empty
+OK AdaCL.Strings.Test.Insert_All : 01 : Insert middle
+OK AdaCL.Strings.Test.Insert_All : 02 : Insert beginning
+OK AdaCL.Strings.Test.Insert_All : 03 : Insert ending
+OK AdaCL.Strings.Test.Insert_All : 04 : Insert zero
+OK AdaCL.Strings.Test.Insert_All : 05 : Insert two
+OK AdaCL.Strings.Test.Insert_All : 06 : Insert upper
+OK AdaCL.Strings.Test.Insert_All : 07 : Insert upper
+OK AdaCL.Strings.Test.Insert_All : 08 : Insert upper
+OK AdaCL.Strings.Test.Insert_All : 09 : Insert lower
+OK AdaCL.Strings.Test.Insert_All : 10 : Insert lower
+OK AdaCL.Strings.Test.Insert_All : 11 : Insert lower
+OK AdaCL.Strings.Test.Insert_All : 12 : Insert two upper
+OK AdaCL.Strings.Test.Insert_All : 13 : Insert two lower
+OK AdaCL.Strings.Test.Insert_All : 14 : Insert exiting
+OK AdaCL.Strings.Test.Insert_All : 15 : Insert exiting two
+OK AdaCL.Strings.Test.Insert_All : 16 : Insert two end
+OK AdaCL.Strings.Test.Insert_All : 17 : Insert two start
+OK AdaCL.Strings.Test.Insert_All : 00 : Without Result Insert empty
+OK AdaCL.Strings.Test.Insert_All : 01 : Without Result Insert middle
+OK AdaCL.Strings.Test.Insert_All : 02 : Without Result Insert beginning
+OK AdaCL.Strings.Test.Insert_All : 03 : Without Result Insert ending
+OK AdaCL.Strings.Test.Insert_All : 04 : Without Result Insert zero
+OK AdaCL.Strings.Test.Insert_All : 05 : Without Result Insert two
+OK AdaCL.Strings.Test.Insert_All : 06 : Without Result Insert upper
+OK AdaCL.Strings.Test.Insert_All : 07 : Without Result Insert upper
+OK AdaCL.Strings.Test.Insert_All : 08 : Without Result Insert upper
+OK AdaCL.Strings.Test.Insert_All : 09 : Without Result Insert lower
+OK AdaCL.Strings.Test.Insert_All : 10 : Without Result Insert lower
+OK AdaCL.Strings.Test.Insert_All : 11 : Without Result Insert lower
+OK AdaCL.Strings.Test.Insert_All : 12 : Without Result Insert two upper
+OK AdaCL.Strings.Test.Insert_All : 13 : Without Result Insert two lower
+OK AdaCL.Strings.Test.Insert_All : 14 : Without Result Insert exiting
+OK AdaCL.Strings.Test.Insert_All : 15 : Without Result Insert exiting two
+OK AdaCL.Strings.Test.Insert_All : 16 : Without Result Insert two end
+OK AdaCL.Strings.Test.Insert_All : 17 : Without Result Insert two start
+OK AdaCL.Strings.Test.Insert_First : 00 : Insert empty
+OK AdaCL.Strings.Test.Insert_First : 01 : Insert middle
+OK AdaCL.Strings.Test.Insert_First : 02 : Insert beginning
+OK AdaCL.Strings.Test.Insert_First : 03 : Insert ending
+OK AdaCL.Strings.Test.Insert_First : 04 : Insert zero
+OK AdaCL.Strings.Test.Insert_First : 05 : Insert two
+OK AdaCL.Strings.Test.Insert_First : 06 : Insert upper
+OK AdaCL.Strings.Test.Insert_First : 07 : Insert upper
+OK AdaCL.Strings.Test.Insert_First : 08 : Insert upper
+OK AdaCL.Strings.Test.Insert_First : 09 : Insert lower
+OK AdaCL.Strings.Test.Insert_First : 10 : Insert lower
+OK AdaCL.Strings.Test.Insert_First : 11 : Insert lower
+OK AdaCL.Strings.Test.Insert_First : 12 : Insert two upper
+OK AdaCL.Strings.Test.Insert_First : 13 : Insert two lower
+OK AdaCL.Strings.Test.Insert_First : 14 : Insert exiting
+OK AdaCL.Strings.Test.Insert_First : 15 : Insert exiting two
+OK AdaCL.Strings.Test.Insert_First : 16 : Insert two end
+OK AdaCL.Strings.Test.Insert_First : 17 : Insert two start
+OK AdaCL.Strings.Test.Insert_First : 18 : Insert two start
+OK AdaCL.Strings.Test.Insert_First : 19 : Insert two start
+OK AdaCL.Strings.Test.Insert_First : 00 : Without Result Insert empty
+OK AdaCL.Strings.Test.Insert_First : 01 : Without Result Insert middle
+OK AdaCL.Strings.Test.Insert_First : 02 : Without Result Insert beginning
+OK AdaCL.Strings.Test.Insert_First : 03 : Without Result Insert ending
+OK AdaCL.Strings.Test.Insert_First : 04 : Without Result Insert zero
+OK AdaCL.Strings.Test.Insert_First : 05 : Without Result Insert two
+OK AdaCL.Strings.Test.Insert_First : 06 : Without Result Insert upper
+OK AdaCL.Strings.Test.Insert_First : 07 : Without Result Insert upper
+OK AdaCL.Strings.Test.Insert_First : 08 : Without Result Insert upper
+OK AdaCL.Strings.Test.Insert_First : 09 : Without Result Insert lower
+OK AdaCL.Strings.Test.Insert_First : 10 : Without Result Insert lower
+OK AdaCL.Strings.Test.Insert_First : 11 : Without Result Insert lower
+OK AdaCL.Strings.Test.Insert_First : 12 : Without Result Insert two upper
+OK AdaCL.Strings.Test.Insert_First : 13 : Without Result Insert two lower
+OK AdaCL.Strings.Test.Insert_First : 14 : Without Result Insert exiting
+OK AdaCL.Strings.Test.Insert_First : 15 : Without Result Insert exiting two
+OK AdaCL.Strings.Test.Insert_First : 16 : Without Result Insert two end
+OK AdaCL.Strings.Test.Insert_First : 17 : Without Result Insert two start
+OK AdaCL.Strings.Test.Insert_First : 18 : Without Result Insert two start
+OK AdaCL.Strings.Test.Insert_First : 19 : Without Result Insert two start
+OK AdaCL.Strings.Test.Insert_Last : 00 : Insert empty
+OK AdaCL.Strings.Test.Insert_Last : 01 : Insert middle
+OK AdaCL.Strings.Test.Insert_Last : 02 : Insert beginning
+OK AdaCL.Strings.Test.Insert_Last : 03 : Insert ending
+OK AdaCL.Strings.Test.Insert_Last : 04 : Insert zero
+OK AdaCL.Strings.Test.Insert_Last : 05 : Insert two
+OK AdaCL.Strings.Test.Insert_Last : 06 : Insert upper
+OK AdaCL.Strings.Test.Insert_Last : 07 : Insert upper
+OK AdaCL.Strings.Test.Insert_Last : 08 : Insert upper
+OK AdaCL.Strings.Test.Insert_Last : 09 : Insert lower
+OK AdaCL.Strings.Test.Insert_Last : 10 : Insert lower
+OK AdaCL.Strings.Test.Insert_Last : 11 : Insert lower
+OK AdaCL.Strings.Test.Insert_Last : 12 : Insert two upper
+OK AdaCL.Strings.Test.Insert_Last : 13 : Insert two lower
+OK AdaCL.Strings.Test.Insert_Last : 14 : Insert exiting
+OK AdaCL.Strings.Test.Insert_Last : 15 : Insert exiting two
+OK AdaCL.Strings.Test.Insert_Last : 16 : Insert two end
+OK AdaCL.Strings.Test.Insert_Last : 17 : Insert two start
+OK AdaCL.Strings.Test.Insert_Last : 00 : Without Result Insert empty
+OK AdaCL.Strings.Test.Insert_Last : 01 : Without Result Insert middle
+OK AdaCL.Strings.Test.Insert_Last : 02 : Without Result Insert beginning
+OK AdaCL.Strings.Test.Insert_Last : 03 : Without Result Insert ending
+OK AdaCL.Strings.Test.Insert_Last : 04 : Without Result Insert zero
+OK AdaCL.Strings.Test.Insert_Last : 05 : Without Result Insert two
+OK AdaCL.Strings.Test.Insert_Last : 06 : Without Result Insert upper
+OK AdaCL.Strings.Test.Insert_Last : 07 : Without Result Insert upper
+OK AdaCL.Strings.Test.Insert_Last : 08 : Without Result Insert upper
+OK AdaCL.Strings.Test.Insert_Last : 09 : Without Result Insert lower
+OK AdaCL.Strings.Test.Insert_Last : 10 : Without Result Insert lower
+OK AdaCL.Strings.Test.Insert_Last : 11 : Without Result Insert lower
+OK AdaCL.Strings.Test.Insert_Last : 12 : Without Result Insert two upper
+OK AdaCL.Strings.Test.Insert_Last : 13 : Without Result Insert two lower
+OK AdaCL.Strings.Test.Insert_Last : 14 : Without Result Insert exiting
+OK AdaCL.Strings.Test.Insert_Last : 15 : Without Result Insert exiting two
+OK AdaCL.Strings.Test.Insert_Last : 16 : Without Result Insert two end
+OK AdaCL.Strings.Test.Insert_Last : 17 : Without Result Insert two start
+OK AdaCL.Strings.IO : Test_Get_Line_01 : string read two lines.
+OK AdaCL.Strings.IO : Test_Get_Line_02 : string read three lines, last line buffer lenght without LF.
+OK AdaCL.Strings.IO : Test_Get_Line_03 : string read three lines, last line two times buffer lenght without LF.
+OK AdaCL.Strings.IO : Test_Get_Line_04 : string read three lines, last line with non Latin 1 characters.
+OK AdaCL.Strings.IO : Test_Get_Line_11 : unbounded read two lines.
+OK AdaCL.Strings.IO : Test_Get_Line_12 : unbounded read three lines, last line buffer lenght without LF.
+OK AdaCL.Strings.IO : Test_Get_Line_13 : unbounded read three lines, last line two times buffer lenght without LF.
+OK AdaCL.Strings.IO : Test_Get_Line_14 : unbounded read three lines, last line with non Latin 1 characters.
+OK AdaCL.Strings.IO : Test_Read_File_01 : vector read two lines.
+OK AdaCL.Strings.IO : Test_Read_File_02 : vector read three lines, last line buffer lenght without LF.
+OK AdaCL.Strings.IO : Test_Read_File_03 : vector read three lines, last line two times buffer lenght without LF.
+OK AdaCL.Strings.IO : Test_Read_File_04 : vector read three lines, last line with non Latin 1 characters.
+OK AdaCL.Strings : Test_First_Word_01 : Find first word
+OK AdaCL.Strings : Test_Last_Word_01 : Find last word
+OK AdaCL.Pointer.Unique : Test_Create_01 : Create without instance
+OK AdaCL.Pointer.Unique : Test_Create_02 : Create instance from access
+OK AdaCL.Pointer.Unique : Test_Create_03 : Create by assignement
+OK AdaCL.Pointer.Unique : Test_Release_01 : Release the pointer
+OK AdaCL.Pointer.Unique : Test_Reset_01 : set new instance
+OK AdaCL.Pointer.Unique : Test_Swap_01 : swap references
+OK AdaCL.Pointer.Unique_With_Delete : Test_Create_01 : Create without instance
+OK AdaCL.Pointer.Unique_With_Delete : Test_Create_02 : Create instance from access
+OK AdaCL.Pointer.Unique_With_Delete : Test_Create_03 : Create by assignement
+OK AdaCL.Pointer.Unique_With_Delete : Test_Release_01 : Release the access
+OK AdaCL.Pointer.Unique_With_Delete : Test_Reset_01 : set new instance
+OK AdaCL.Pointer.Unique_With_Delete : Test_Swap_01 : swap references
+OK AdaCL.Wide_Strings.Test.Append_All : 00 : Append empty
+OK AdaCL.Wide_Strings.Test.Append_All : 01 : Append middle
+OK AdaCL.Wide_Strings.Test.Append_All : 02 : Append beginning
+OK AdaCL.Wide_Strings.Test.Append_All : 03 : Append ending
+OK AdaCL.Wide_Strings.Test.Append_All : 04 : Append zero
+OK AdaCL.Wide_Strings.Test.Append_All : 05 : Append two
+OK AdaCL.Wide_Strings.Test.Append_All : 06 : Append upper
+OK AdaCL.Wide_Strings.Test.Append_All : 07 : Append upper
+OK AdaCL.Wide_Strings.Test.Append_All : 08 : Append upper
+OK AdaCL.Wide_Strings.Test.Append_All : 09 : Append lower
+OK AdaCL.Wide_Strings.Test.Append_All : 10 : Append lower
+OK AdaCL.Wide_Strings.Test.Append_All : 11 : Append lower
+OK AdaCL.Wide_Strings.Test.Append_All : 12 : Append two upper
+OK AdaCL.Wide_Strings.Test.Append_All : 13 : Append two lower
+OK AdaCL.Wide_Strings.Test.Append_All : 14 : Append exiting
+OK AdaCL.Wide_Strings.Test.Append_All : 15 : Append exiting two
+OK AdaCL.Wide_Strings.Test.Append_All : 16 : Append two end
+OK AdaCL.Wide_Strings.Test.Append_All : 17 : Append two start
+OK AdaCL.Wide_Strings.Test.Append_All : 00 : Without Result Append empty
+OK AdaCL.Wide_Strings.Test.Append_All : 01 : Without Result Append middle
+OK AdaCL.Wide_Strings.Test.Append_All : 02 : Without Result Append beginning
+OK AdaCL.Wide_Strings.Test.Append_All : 03 : Without Result Append ending
+OK AdaCL.Wide_Strings.Test.Append_All : 04 : Without Result Append zero
+OK AdaCL.Wide_Strings.Test.Append_All : 05 : Without Result Append two
+OK AdaCL.Wide_Strings.Test.Append_All : 06 : Without Result Append upper
+OK AdaCL.Wide_Strings.Test.Append_All : 07 : Without Result Append upper
+OK AdaCL.Wide_Strings.Test.Append_All : 08 : Without Result Append upper
+OK AdaCL.Wide_Strings.Test.Append_All : 09 : Without Result Append lower
+OK AdaCL.Wide_Strings.Test.Append_All : 10 : Without Result Append lower
+OK AdaCL.Wide_Strings.Test.Append_All : 11 : Without Result Append lower
+OK AdaCL.Wide_Strings.Test.Append_All : 12 : Without Result Append two upper
+OK AdaCL.Wide_Strings.Test.Append_All : 13 : Without Result Append two lower
+OK AdaCL.Wide_Strings.Test.Append_All : 14 : Without Result Append exiting
+OK AdaCL.Wide_Strings.Test.Append_All : 15 : Without Result Append exiting two
+OK AdaCL.Wide_Strings.Test.Append_All : 16 : Without Result Append two end
+OK AdaCL.Wide_Strings.Test.Append_All : 17 : Without Result Append two start
+OK AdaCL.Wide_Strings.Test.Append_First : 00 : Append empty
+OK AdaCL.Wide_Strings.Test.Append_First : 01 : Append middle
+OK AdaCL.Wide_Strings.Test.Append_First : 02 : Append beginning
+OK AdaCL.Wide_Strings.Test.Append_First : 03 : Append ending
+OK AdaCL.Wide_Strings.Test.Append_First : 04 : Append zero
+OK AdaCL.Wide_Strings.Test.Append_First : 05 : Append two
+OK AdaCL.Wide_Strings.Test.Append_First : 06 : Append upper
+OK AdaCL.Wide_Strings.Test.Append_First : 07 : Append upper
+OK AdaCL.Wide_Strings.Test.Append_First : 08 : Append upper
+OK AdaCL.Wide_Strings.Test.Append_First : 09 : Append lower
+OK AdaCL.Wide_Strings.Test.Append_First : 10 : Append lower
+OK AdaCL.Wide_Strings.Test.Append_First : 11 : Append lower
+OK AdaCL.Wide_Strings.Test.Append_First : 12 : Append two upper
+OK AdaCL.Wide_Strings.Test.Append_First : 13 : Append two lower
+OK AdaCL.Wide_Strings.Test.Append_First : 14 : Append exiting
+OK AdaCL.Wide_Strings.Test.Append_First : 15 : Append exiting two
+OK AdaCL.Wide_Strings.Test.Append_First : 16 : Append two end
+OK AdaCL.Wide_Strings.Test.Append_First : 17 : Append two start
+OK AdaCL.Wide_Strings.Test.Append_First : 00 : Without Result Append empty
+OK AdaCL.Wide_Strings.Test.Append_First : 01 : Without Result Append middle
+OK AdaCL.Wide_Strings.Test.Append_First : 02 : Without Result Append beginning
+OK AdaCL.Wide_Strings.Test.Append_First : 03 : Without Result Append ending
+OK AdaCL.Wide_Strings.Test.Append_First : 04 : Without Result Append zero
+OK AdaCL.Wide_Strings.Test.Append_First : 05 : Without Result Append two
+OK AdaCL.Wide_Strings.Test.Append_First : 06 : Without Result Append upper
+OK AdaCL.Wide_Strings.Test.Append_First : 07 : Without Result Append upper
+OK AdaCL.Wide_Strings.Test.Append_First : 08 : Without Result Append upper
+OK AdaCL.Wide_Strings.Test.Append_First : 09 : Without Result Append lower
+OK AdaCL.Wide_Strings.Test.Append_First : 10 : Without Result Append lower
+OK AdaCL.Wide_Strings.Test.Append_First : 11 : Without Result Append lower
+OK AdaCL.Wide_Strings.Test.Append_First : 12 : Without Result Append two upper
+OK AdaCL.Wide_Strings.Test.Append_First : 13 : Without Result Append two lower
+OK AdaCL.Wide_Strings.Test.Append_First : 14 : Without Result Append exiting
+OK AdaCL.Wide_Strings.Test.Append_First : 15 : Without Result Append exiting two
+OK AdaCL.Wide_Strings.Test.Append_First : 16 : Without Result Append two end
+OK AdaCL.Wide_Strings.Test.Append_First : 17 : Without Result Append two start
+OK AdaCL.Wide_Strings.Test.Append_Last : 00 : Append empty
+OK AdaCL.Wide_Strings.Test.Append_Last : 01 : Append middle
+OK AdaCL.Wide_Strings.Test.Append_Last : 02 : Append beginning
+OK AdaCL.Wide_Strings.Test.Append_Last : 03 : Append ending
+OK AdaCL.Wide_Strings.Test.Append_Last : 04 : Append zero
+OK AdaCL.Wide_Strings.Test.Append_Last : 05 : Append two
+OK AdaCL.Wide_Strings.Test.Append_Last : 06 : Append upper
+OK AdaCL.Wide_Strings.Test.Append_Last : 07 : Append upper
+OK AdaCL.Wide_Strings.Test.Append_Last : 08 : Append upper
+OK AdaCL.Wide_Strings.Test.Append_Last : 09 : Append lower
+OK AdaCL.Wide_Strings.Test.Append_Last : 10 : Append lower
+OK AdaCL.Wide_Strings.Test.Append_Last : 11 : Append lower
+OK AdaCL.Wide_Strings.Test.Append_Last : 12 : Append two upper
+OK AdaCL.Wide_Strings.Test.Append_Last : 13 : Append two lower
+OK AdaCL.Wide_Strings.Test.Append_Last : 14 : Append exiting
+OK AdaCL.Wide_Strings.Test.Append_Last : 15 : Append exiting two
+OK AdaCL.Wide_Strings.Test.Append_Last : 16 : Append two end
+OK AdaCL.Wide_Strings.Test.Append_Last : 17 : Append two start
+OK AdaCL.Wide_Strings.Test.Append_Last : 00 : Without Result Append empty
+OK AdaCL.Wide_Strings.Test.Append_Last : 01 : Without Result Append middle
+OK AdaCL.Wide_Strings.Test.Append_Last : 02 : Without Result Append beginning
+OK AdaCL.Wide_Strings.Test.Append_Last : 03 : Without Result Append ending
+OK AdaCL.Wide_Strings.Test.Append_Last : 04 : Without Result Append zero
+OK AdaCL.Wide_Strings.Test.Append_Last : 05 : Without Result Append two
+OK AdaCL.Wide_Strings.Test.Append_Last : 06 : Without Result Append upper
+OK AdaCL.Wide_Strings.Test.Append_Last : 07 : Without Result Append upper
+OK AdaCL.Wide_Strings.Test.Append_Last : 08 : Without Result Append upper
+OK AdaCL.Wide_Strings.Test.Append_Last : 09 : Without Result Append lower
+OK AdaCL.Wide_Strings.Test.Append_Last : 10 : Without Result Append lower
+OK AdaCL.Wide_Strings.Test.Append_Last : 11 : Without Result Append lower
+OK AdaCL.Wide_Strings.Test.Append_Last : 12 : Without Result Append two upper
+OK AdaCL.Wide_Strings.Test.Append_Last : 13 : Without Result Append two lower
+OK AdaCL.Wide_Strings.Test.Append_Last : 14 : Without Result Append exiting
+OK AdaCL.Wide_Strings.Test.Append_Last : 15 : Without Result Append exiting two
+OK AdaCL.Wide_Strings.Test.Append_Last : 16 : Without Result Append two end
+OK AdaCL.Wide_Strings.Test.Append_Last : 17 : Without Result Append two start
+OK AdaCL.Wide_Strings.Test.Change_All : 00 : Replace empty
+OK AdaCL.Wide_Strings.Test.Change_All : 01 : Replace middle
+OK AdaCL.Wide_Strings.Test.Change_All : 02 : Replace beginning
+OK AdaCL.Wide_Strings.Test.Change_All : 03 : Replace ending
+OK AdaCL.Wide_Strings.Test.Change_All : 04 : Replace zero
+OK AdaCL.Wide_Strings.Test.Change_All : 05 : Replace two
+OK AdaCL.Wide_Strings.Test.Change_All : 06 : Replace upper
+OK AdaCL.Wide_Strings.Test.Change_All : 07 : Replace upper
+OK AdaCL.Wide_Strings.Test.Change_All : 08 : Replace upper
+OK AdaCL.Wide_Strings.Test.Change_All : 09 : Replace lower
+OK AdaCL.Wide_Strings.Test.Change_All : 10 : Replace lower
+OK AdaCL.Wide_Strings.Test.Change_All : 11 : Replace lower
+OK AdaCL.Wide_Strings.Test.Change_All : 12 : Replace two upper
+OK AdaCL.Wide_Strings.Test.Change_All : 13 : Replace two lower
+OK AdaCL.Wide_Strings.Test.Change_All : 14 : Replace two end
+OK AdaCL.Wide_Strings.Test.Change_All : 00 : Without Result Replace empty
+OK AdaCL.Wide_Strings.Test.Change_All : 01 : Without Result Replace middle
+OK AdaCL.Wide_Strings.Test.Change_All : 02 : Without Result Replace beginning
+OK AdaCL.Wide_Strings.Test.Change_All : 03 : Without Result Replace ending
+OK AdaCL.Wide_Strings.Test.Change_All : 04 : Without Result Replace zero
+OK AdaCL.Wide_Strings.Test.Change_All : 05 : Without Result Replace two
+OK AdaCL.Wide_Strings.Test.Change_All : 06 : Without Result Replace upper
+OK AdaCL.Wide_Strings.Test.Change_All : 07 : Without Result Replace upper
+OK AdaCL.Wide_Strings.Test.Change_All : 08 : Without Result Replace upper
+OK AdaCL.Wide_Strings.Test.Change_All : 09 : Without Result Replace lower
+OK AdaCL.Wide_Strings.Test.Change_All : 10 : Without Result Replace lower
+OK AdaCL.Wide_Strings.Test.Change_All : 11 : Without Result Replace lower
+OK AdaCL.Wide_Strings.Test.Change_All : 12 : Without Result Replace two upper
+OK AdaCL.Wide_Strings.Test.Change_All : 13 : Without Result Replace two lower
+OK AdaCL.Wide_Strings.Test.Change_All : 14 : Without Result Replace two end
+OK AdaCL.Strings.Test.Change_First : 00 : Replace empty
+OK AdaCL.Strings.Test.Change_First : 01 : Replace middle
+OK AdaCL.Strings.Test.Change_First : 02 : Replace beginning
+OK AdaCL.Strings.Test.Change_First : 03 : Replace ending
+OK AdaCL.Strings.Test.Change_First : 04 : Replace zero
+OK AdaCL.Strings.Test.Change_First : 05 : Replace two
+OK AdaCL.Strings.Test.Change_First : 06 : Replace upper
+OK AdaCL.Strings.Test.Change_First : 07 : Replace upper
+OK AdaCL.Strings.Test.Change_First : 08 : Replace upper
+OK AdaCL.Strings.Test.Change_First : 09 : Replace lower
+OK AdaCL.Strings.Test.Change_First : 10 : Replace lower
+OK AdaCL.Strings.Test.Change_First : 11 : Replace lower
+OK AdaCL.Strings.Test.Change_First : 12 : Replace two upper
+OK AdaCL.Strings.Test.Change_First : 13 : Replace two lower
+OK AdaCL.Strings.Test.Change_First : 14 : Replace two end
+OK AdaCL.Strings.Test.Change_First : 00 : Without Result Replace empty
+OK AdaCL.Strings.Test.Change_First : 01 : Without Result Replace middle
+OK AdaCL.Strings.Test.Change_First : 02 : Without Result Replace beginning
+OK AdaCL.Strings.Test.Change_First : 03 : Without Result Replace ending
+OK AdaCL.Strings.Test.Change_First : 04 : Without Result Replace zero
+OK AdaCL.Strings.Test.Change_First : 05 : Without Result Replace two
+OK AdaCL.Strings.Test.Change_First : 06 : Without Result Replace upper
+OK AdaCL.Strings.Test.Change_First : 07 : Without Result Replace upper
+OK AdaCL.Strings.Test.Change_First : 08 : Without Result Replace upper
+OK AdaCL.Strings.Test.Change_First : 09 : Without Result Replace lower
+OK AdaCL.Strings.Test.Change_First : 10 : Without Result Replace lower
+OK AdaCL.Strings.Test.Change_First : 11 : Without Result Replace lower
+OK AdaCL.Strings.Test.Change_First : 12 : Without Result Replace two upper
+OK AdaCL.Strings.Test.Change_First : 13 : Without Result Replace two lower
+OK AdaCL.Strings.Test.Change_First : 14 : Without Result Replace two end
+OK AdaCL.Wide_Strings.Test.Change_Last : 00 : Replace empty
+OK AdaCL.Wide_Strings.Test.Change_Last : 01 : Replace middle
+OK AdaCL.Wide_Strings.Test.Change_Last : 02 : Replace beginning
+OK AdaCL.Wide_Strings.Test.Change_Last : 03 : Replace ending
+OK AdaCL.Wide_Strings.Test.Change_Last : 04 : Replace zero
+OK AdaCL.Wide_Strings.Test.Change_Last : 05 : Replace two
+OK AdaCL.Wide_Strings.Test.Change_Last : 06 : Replace upper
+OK AdaCL.Wide_Strings.Test.Change_Last : 07 : Replace upper
+OK AdaCL.Wide_Strings.Test.Change_Last : 08 : Replace upper
+OK AdaCL.Wide_Strings.Test.Change_Last : 09 : Replace lower
+OK AdaCL.Wide_Strings.Test.Change_Last : 10 : Replace lower
+OK AdaCL.Wide_Strings.Test.Change_Last : 11 : Replace lower
+OK AdaCL.Wide_Strings.Test.Change_Last : 12 : Replace two upper
+OK AdaCL.Wide_Strings.Test.Change_Last : 13 : Replace two lower
+OK AdaCL.Wide_Strings.Test.Change_Last : 14 : Replace two end
+OK AdaCL.Wide_Strings.Test.Change_Last : 15 : Replace two start
+OK AdaCL.Wide_Strings.Test.Change_Last : 00 : Without Result Replace empty
+OK AdaCL.Wide_Strings.Test.Change_Last : 01 : Without Result Replace middle
+OK AdaCL.Wide_Strings.Test.Change_Last : 02 : Without Result Replace beginning
+OK AdaCL.Wide_Strings.Test.Change_Last : 03 : Without Result Replace ending
+OK AdaCL.Wide_Strings.Test.Change_Last : 04 : Without Result Replace zero
+OK AdaCL.Wide_Strings.Test.Change_Last : 05 : Without Result Replace two
+OK AdaCL.Wide_Strings.Test.Change_Last : 06 : Without Result Replace upper
+OK AdaCL.Wide_Strings.Test.Change_Last : 07 : Without Result Replace upper
+OK AdaCL.Wide_Strings.Test.Change_Last : 08 : Without Result Replace upper
+OK AdaCL.Wide_Strings.Test.Change_Last : 09 : Without Result Replace lower
+OK AdaCL.Wide_Strings.Test.Change_Last : 10 : Without Result Replace lower
+OK AdaCL.Wide_Strings.Test.Change_Last : 11 : Without Result Replace lower
+OK AdaCL.Wide_Strings.Test.Change_Last : 12 : Without Result Replace two upper
+OK AdaCL.Wide_Strings.Test.Change_Last : 13 : Without Result Replace two lower
+OK AdaCL.Wide_Strings.Test.Change_Last : 14 : Without Result Replace two end
+OK AdaCL.Wide_Strings.Test.Change_Last : 15 : Without Result Replace two start
+OK AdaCL.Wide_Strings.Hex.Unsigned_16 : Image_0000 : 4 Digits
+OK AdaCL.Wide_Strings.Hex.Unsigned_16 : Image_FFFF : 4 Digits
+OK AdaCL.Wide_Strings.Hex.Unsigned_16 : Image_0012 : 2 Digits
+OK AdaCL.Wide_Strings.Hex.Unsigned_16 : Image_0123 : 3 Digits
+OK AdaCL.Wide_Strings.Hex.Unsigned_16 : Value_0000 : 4 Digits
+OK AdaCL.Wide_Strings.Hex.Unsigned_16 : Value_FFFF : 4 Digits
+OK AdaCL.Wide_Strings.Hex.Unsigned_16 : Value_0012 : 4 Digits
+OK AdaCL.Wide_Strings.Hex.Unsigned_16 : Value_0123 : 4 Digits
+OK AdaCL.Wide_Strings.Hex.Unsigned_16 : Value_1 : 1 Digits
+OK AdaCL.Wide_Strings.Hex.Unsigned_16 : Value_12 : 2 Digits
+OK AdaCL.Wide_Strings.Hex.Unsigned_16 : Value_123 : 3 Digits
+OK AdaCL.Wide_Strings.Hex.Unsigned_32 : Image_00000000 : 8 Digits
+OK AdaCL.Wide_Strings.Hex.Unsigned_32 : Image_00000012 : 8 Digits
+OK AdaCL.Wide_Strings.Hex.Unsigned_32 : Image_00000123 : 8 Digits
+OK AdaCL.Wide_Strings.Hex.Unsigned_32 : Image_00001234 : 8 Digits
+OK AdaCL.Wide_Strings.Hex.Unsigned_32 : Image_00012345 : 8 Digits
+OK AdaCL.Wide_Strings.Hex.Unsigned_32 : Image_00123456 : 8 Digits
+OK AdaCL.Wide_Strings.Hex.Unsigned_32 : Image_01234567 : 8 Digits
+OK AdaCL.Wide_Strings.Hex.Unsigned_32 : Image_FFFFFFFF : 8 Digits
+OK AdaCL.Wide_Strings.Hex.Unsigned_32 : Value_00000000 : 8 Digits
+OK AdaCL.Wide_Strings.Hex.Unsigned_32 : Value_00000012 : 8 Digits
+OK AdaCL.Wide_Strings.Hex.Unsigned_32 : Value_00000123 : 8 Digits
+OK AdaCL.Wide_Strings.Hex.Unsigned_32 : Value_00001234 : 8 Digits
+OK AdaCL.Wide_Strings.Hex.Unsigned_32 : Value_00012345 : 8 Digits
+OK AdaCL.Wide_Strings.Hex.Unsigned_32 : Value_00123456 : 8 Digits
+OK AdaCL.Wide_Strings.Hex.Unsigned_32 : Value_01234567 : 8 Digits
+OK AdaCL.Wide_Strings.Hex.Unsigned_32 : Value_1 : 1 Digits
+OK AdaCL.Wide_Strings.Hex.Unsigned_32 : Value_12 : 2 Digits
+OK AdaCL.Wide_Strings.Hex.Unsigned_32 : Value_123 : 3 Digits
+OK AdaCL.Wide_Strings.Hex.Unsigned_32 : Value_1234 : 4 Digits
+OK AdaCL.Wide_Strings.Hex.Unsigned_32 : Value_12345 : 5 Digits
+OK AdaCL.Wide_Strings.Hex.Unsigned_32 : Value_123456 : 6 Digits
+OK AdaCL.Wide_Strings.Hex.Unsigned_32 : Value_1234567 : 7 Digits
+OK AdaCL.Wide_Strings.Hex.Unsigned_32 : Value_FFFFFFFF : 8 Digits
+OK AdaCL.Wide_Strings.Hex.Unsigned_64 : Image_0000000000000000 : 16 Digits
+OK AdaCL.Wide_Strings.Hex.Unsigned_64 : Image_0000000000000012 : 16 Digits
+OK AdaCL.Wide_Strings.Hex.Unsigned_64 : Image_0000000000000123 : 16 Digits
+OK AdaCL.Wide_Strings.Hex.Unsigned_64 : Image_0000000000001234 : 16 Digits
+OK AdaCL.Wide_Strings.Hex.Unsigned_64 : Image_0000000000012345 : 16 Digits
+OK AdaCL.Wide_Strings.Hex.Unsigned_64 : Image_0000000000123456 : 16 Digits
+OK AdaCL.Wide_Strings.Hex.Unsigned_64 : Image_0000000001234567 : 16 Digits
+OK AdaCL.Wide_Strings.Hex.Unsigned_64 : Image_0000000012345678 : 16 Digits
+OK AdaCL.Wide_Strings.Hex.Unsigned_64 : Image_0000000123456789 : 16 Digits
+OK AdaCL.Wide_Strings.Hex.Unsigned_64 : Image_0000001234567890 : 16 Digits
+OK AdaCL.Wide_Strings.Hex.Unsigned_64 : Image_000001234567890A : 16 Digits
+OK AdaCL.Wide_Strings.Hex.Unsigned_64 : Image_00001234567890AB : 16 Digits
+OK AdaCL.Wide_Strings.Hex.Unsigned_64 : Image_0001234567890ABC : 16 Digits
+OK AdaCL.Wide_Strings.Hex.Unsigned_64 : Image_001234567890ABCD : 16 Digits
+OK AdaCL.Wide_Strings.Hex.Unsigned_64 : Image_01234567890ABCDE : 16 Digits
+OK AdaCL.Wide_Strings.Hex.Unsigned_64 : Image_FFFFFFFFFFFFFFFF : 16 Digits
+OK AdaCL.Wide_Strings.Hex.Unsigned_64 : Value_0000000000000000 : 16 Digits
+OK AdaCL.Wide_Strings.Hex.Unsigned_64 : Value_0000000000000012 : 16 Digits
+OK AdaCL.Wide_Strings.Hex.Unsigned_64 : Value_0000000000000123 : 16 Digits
+OK AdaCL.Wide_Strings.Hex.Unsigned_64 : Value_0000000000001234 : 16 Digits
+OK AdaCL.Wide_Strings.Hex.Unsigned_64 : Value_0000000000012345 : 16 Digits
+OK AdaCL.Wide_Strings.Hex.Unsigned_64 : Value_0000000000123456 : 16 Digits
+OK AdaCL.Wide_Strings.Hex.Unsigned_64 : Value_0000000001234567 : 16 Digits
+OK AdaCL.Wide_Strings.Hex.Unsigned_64 : Value_0000000012345678 : 16 Digits
+OK AdaCL.Wide_Strings.Hex.Unsigned_64 : Value_0000000123456789 : 16 Digits
+OK AdaCL.Wide_Strings.Hex.Unsigned_64 : Value_0000001234567890 : 16 Digits
+OK AdaCL.Wide_Strings.Hex.Unsigned_64 : Value_000001234567890A : 16 Digits
+OK AdaCL.Wide_Strings.Hex.Unsigned_64 : Value_00001234567890AB : 16 Digits
+OK AdaCL.Wide_Strings.Hex.Unsigned_64 : Value_0001234567890ABC : 16 Digits
+OK AdaCL.Wide_Strings.Hex.Unsigned_64 : Value_001234567890ABCD : 16 Digits
+OK AdaCL.Wide_Strings.Hex.Unsigned_64 : Value_01234567890ABCDE : 16 Digits
+OK AdaCL.Wide_Strings.Hex.Unsigned_64 : Value_FFFFFFFFFFFFFFFF : 16 Digits
+OK AdaCL.Wide_Strings.Hex.Unsigned_64 : Value_1 : 1 Digits
+OK AdaCL.Wide_Strings.Hex.Unsigned_64 : Value_12 : 2 Digits
+OK AdaCL.Wide_Strings.Hex.Unsigned_64 : Value_123 : 3 Digits
+OK AdaCL.Wide_Strings.Hex.Unsigned_64 : Value_1234 : 4 Digits
+OK AdaCL.Wide_Strings.Hex.Unsigned_64 : Value_12345 : 5 Digits
+OK AdaCL.Wide_Strings.Hex.Unsigned_64 : Value_123456 : 6 Digits
+OK AdaCL.Wide_Strings.Hex.Unsigned_64 : Value_1234567 : 7 Digits
+OK AdaCL.Wide_Strings.Hex.Unsigned_64 : Value_FFFFFFFF : 8 Digits
+OK AdaCL.Wide_Strings.Hex.Unsigned_64 : Value_123456789 : 9 Digits
+OK AdaCL.Wide_Strings.Hex.Unsigned_64 : Value_1234567890 : 10 Digits
+OK AdaCL.Wide_Strings.Hex.Unsigned_64 : Value_1234567890A : 11 Digits
+OK AdaCL.Wide_Strings.Hex.Unsigned_64 : Value_1234567890AB : 12 Digits
+OK AdaCL.Wide_Strings.Hex.Unsigned_64 : Value_1234567890ABC : 13 Digits
+OK AdaCL.Wide_Strings.Hex.Unsigned_64 : Value_1234567890ABCD : 14 Digits
+OK AdaCL.Wide_Strings.Hex.Unsigned_64 : Value_1234567890ABCDE : 15 Digits
+OK AdaCL.Wide_Strings.Hex.Unsigned_64 : Value_1234567890ABCDEF : 16 Digits
+OK AdaCL.Wide_Strings.Hex.Unsigned_8 : Image_00 : 2 Digit
+OK AdaCL.Wide_Strings.Hex.Unsigned_8 : Image_FF : 2 Digit
+OK AdaCL.Wide_Strings.Hex.Unsigned_8 : Value_0 : 1 Digit
+OK AdaCL.Wide_Strings.Hex.Unsigned_8 : Value_00 : 2 Digit
+OK AdaCL.Wide_Strings.Hex.Unsigned_8 : Value_FF : 2 Digit
+OK AdaCL.Wide_Strings.Test.Insert_All : 00 : Insert empty
+OK AdaCL.Wide_Strings.Test.Insert_All : 01 : Insert middle
+OK AdaCL.Wide_Strings.Test.Insert_All : 02 : Insert beginning
+OK AdaCL.Wide_Strings.Test.Insert_All : 03 : Insert ending
+OK AdaCL.Wide_Strings.Test.Insert_All : 04 : Insert zero
+OK AdaCL.Wide_Strings.Test.Insert_All : 05 : Insert two
+OK AdaCL.Wide_Strings.Test.Insert_All : 06 : Insert upper
+OK AdaCL.Wide_Strings.Test.Insert_All : 07 : Insert upper
+OK AdaCL.Wide_Strings.Test.Insert_All : 08 : Insert upper
+OK AdaCL.Wide_Strings.Test.Insert_All : 09 : Insert lower
+OK AdaCL.Wide_Strings.Test.Insert_All : 10 : Insert lower
+OK AdaCL.Wide_Strings.Test.Insert_All : 11 : Insert lower
+OK AdaCL.Wide_Strings.Test.Insert_All : 12 : Insert two upper
+OK AdaCL.Wide_Strings.Test.Insert_All : 13 : Insert two lower
+OK AdaCL.Wide_Strings.Test.Insert_All : 14 : Insert exiting
+OK AdaCL.Wide_Strings.Test.Insert_All : 15 : Insert exiting two
+OK AdaCL.Wide_Strings.Test.Insert_All : 16 : Insert two end
+OK AdaCL.Wide_Strings.Test.Insert_All : 17 : Insert two start
+OK AdaCL.Wide_Strings.Test.Insert_All : 00 : Without Result Insert empty
+OK AdaCL.Wide_Strings.Test.Insert_All : 01 : Without Result Insert middle
+OK AdaCL.Wide_Strings.Test.Insert_All : 02 : Without Result Insert beginning
+OK AdaCL.Wide_Strings.Test.Insert_All : 03 : Without Result Insert ending
+OK AdaCL.Wide_Strings.Test.Insert_All : 04 : Without Result Insert zero
+OK AdaCL.Wide_Strings.Test.Insert_All : 05 : Without Result Insert two
+OK AdaCL.Wide_Strings.Test.Insert_All : 06 : Without Result Insert upper
+OK AdaCL.Wide_Strings.Test.Insert_All : 07 : Without Result Insert upper
+OK AdaCL.Wide_Strings.Test.Insert_All : 08 : Without Result Insert upper
+OK AdaCL.Wide_Strings.Test.Insert_All : 09 : Without Result Insert lower
+OK AdaCL.Wide_Strings.Test.Insert_All : 10 : Without Result Insert lower
+OK AdaCL.Wide_Strings.Test.Insert_All : 11 : Without Result Insert lower
+OK AdaCL.Wide_Strings.Test.Insert_All : 12 : Without Result Insert two upper
+OK AdaCL.Wide_Strings.Test.Insert_All : 13 : Without Result Insert two lower
+OK AdaCL.Wide_Strings.Test.Insert_All : 14 : Without Result Insert exiting
+OK AdaCL.Wide_Strings.Test.Insert_All : 15 : Without Result Insert exiting two
+OK AdaCL.Wide_Strings.Test.Insert_All : 16 : Without Result Insert two end
+OK AdaCL.Wide_Strings.Test.Insert_All : 17 : Without Result Insert two start
+OK AdaCL.Wide_Strings.Test.Insert_First : 00 : Insert empty
+OK AdaCL.Wide_Strings.Test.Insert_First : 01 : Insert middle
+OK AdaCL.Wide_Strings.Test.Insert_First : 02 : Insert beginning
+OK AdaCL.Wide_Strings.Test.Insert_First : 03 : Insert ending
+OK AdaCL.Wide_Strings.Test.Insert_First : 04 : Insert zero
+OK AdaCL.Wide_Strings.Test.Insert_First : 05 : Insert two
+OK AdaCL.Wide_Strings.Test.Insert_First : 06 : Insert upper
+OK AdaCL.Wide_Strings.Test.Insert_First : 07 : Insert upper
+OK AdaCL.Wide_Strings.Test.Insert_First : 08 : Insert upper
+OK AdaCL.Wide_Strings.Test.Insert_First : 09 : Insert lower
+OK AdaCL.Wide_Strings.Test.Insert_First : 10 : Insert lower
+OK AdaCL.Wide_Strings.Test.Insert_First : 11 : Insert lower
+OK AdaCL.Wide_Strings.Test.Insert_First : 12 : Insert two upper
+OK AdaCL.Wide_Strings.Test.Insert_First : 13 : Insert two lower
+OK AdaCL.Wide_Strings.Test.Insert_First : 14 : Insert exiting
+OK AdaCL.Wide_Strings.Test.Insert_First : 15 : Insert exiting two
+OK AdaCL.Wide_Strings.Test.Insert_First : 16 : Insert two end
+OK AdaCL.Wide_Strings.Test.Insert_First : 17 : Insert two start
+OK AdaCL.Wide_Strings.Test.Insert_First : 18 : Insert two start
+OK AdaCL.Wide_Strings.Test.Insert_First : 19 : Insert two start
+OK AdaCL.Wide_Strings.Test.Insert_First : 00 : Without Result Insert empty
+OK AdaCL.Wide_Strings.Test.Insert_First : 01 : Without Result Insert middle
+OK AdaCL.Wide_Strings.Test.Insert_First : 02 : Without Result Insert beginning
+OK AdaCL.Wide_Strings.Test.Insert_First : 03 : Without Result Insert ending
+OK AdaCL.Wide_Strings.Test.Insert_First : 04 : Without Result Insert zero
+OK AdaCL.Wide_Strings.Test.Insert_First : 05 : Without Result Insert two
+OK AdaCL.Wide_Strings.Test.Insert_First : 06 : Without Result Insert upper
+OK AdaCL.Wide_Strings.Test.Insert_First : 07 : Without Result Insert upper
+OK AdaCL.Wide_Strings.Test.Insert_First : 08 : Without Result Insert upper
+OK AdaCL.Wide_Strings.Test.Insert_First : 09 : Without Result Insert lower
+OK AdaCL.Wide_Strings.Test.Insert_First : 10 : Without Result Insert lower
+OK AdaCL.Wide_Strings.Test.Insert_First : 11 : Without Result Insert lower
+OK AdaCL.Wide_Strings.Test.Insert_First : 12 : Without Result Insert two upper
+OK AdaCL.Wide_Strings.Test.Insert_First : 13 : Without Result Insert two lower
+OK AdaCL.Wide_Strings.Test.Insert_First : 14 : Without Result Insert exiting
+OK AdaCL.Wide_Strings.Test.Insert_First : 15 : Without Result Insert exiting two
+OK AdaCL.Wide_Strings.Test.Insert_First : 16 : Without Result Insert two end
+OK AdaCL.Wide_Strings.Test.Insert_First : 17 : Without Result Insert two start
+OK AdaCL.Wide_Strings.Test.Insert_First : 18 : Without Result Insert two start
+OK AdaCL.Wide_Strings.Test.Insert_First : 19 : Without Result Insert two start
+OK AdaCL.Wide_Strings.Test.Insert_Last : 00 : Insert empty
+OK AdaCL.Wide_Strings.Test.Insert_Last : 01 : Insert middle
+OK AdaCL.Wide_Strings.Test.Insert_Last : 02 : Insert beginning
+OK AdaCL.Wide_Strings.Test.Insert_Last : 03 : Insert ending
+OK AdaCL.Wide_Strings.Test.Insert_Last : 04 : Insert zero
+OK AdaCL.Wide_Strings.Test.Insert_Last : 05 : Insert two
+OK AdaCL.Wide_Strings.Test.Insert_Last : 06 : Insert upper
+OK AdaCL.Wide_Strings.Test.Insert_Last : 07 : Insert upper
+OK AdaCL.Wide_Strings.Test.Insert_Last : 08 : Insert upper
+OK AdaCL.Wide_Strings.Test.Insert_Last : 09 : Insert lower
+OK AdaCL.Wide_Strings.Test.Insert_Last : 10 : Insert lower
+OK AdaCL.Wide_Strings.Test.Insert_Last : 11 : Insert lower
+OK AdaCL.Wide_Strings.Test.Insert_Last : 12 : Insert two upper
+OK AdaCL.Wide_Strings.Test.Insert_Last : 13 : Insert two lower
+OK AdaCL.Wide_Strings.Test.Insert_Last : 14 : Insert exiting
+OK AdaCL.Wide_Strings.Test.Insert_Last : 15 : Insert exiting two
+OK AdaCL.Wide_Strings.Test.Insert_Last : 16 : Insert two end
+OK AdaCL.Wide_Strings.Test.Insert_Last : 17 : Insert two start
+OK AdaCL.Wide_Strings.Test.Insert_Last : 00 : Without Result Insert empty
+OK AdaCL.Wide_Strings.Test.Insert_Last : 01 : Without Result Insert middle
+OK AdaCL.Wide_Strings.Test.Insert_Last : 02 : Without Result Insert beginning
+OK AdaCL.Wide_Strings.Test.Insert_Last : 03 : Without Result Insert ending
+OK AdaCL.Wide_Strings.Test.Insert_Last : 04 : Without Result Insert zero
+OK AdaCL.Wide_Strings.Test.Insert_Last : 05 : Without Result Insert two
+OK AdaCL.Wide_Strings.Test.Insert_Last : 06 : Without Result Insert upper
+OK AdaCL.Wide_Strings.Test.Insert_Last : 07 : Without Result Insert upper
+OK AdaCL.Wide_Strings.Test.Insert_Last : 08 : Without Result Insert upper
+OK AdaCL.Wide_Strings.Test.Insert_Last : 09 : Without Result Insert lower
+OK AdaCL.Wide_Strings.Test.Insert_Last : 10 : Without Result Insert lower
+OK AdaCL.Wide_Strings.Test.Insert_Last : 11 : Without Result Insert lower
+OK AdaCL.Wide_Strings.Test.Insert_Last : 12 : Without Result Insert two upper
+OK AdaCL.Wide_Strings.Test.Insert_Last : 13 : Without Result Insert two lower
+OK AdaCL.Wide_Strings.Test.Insert_Last : 14 : Without Result Insert exiting
+OK AdaCL.Wide_Strings.Test.Insert_Last : 15 : Without Result Insert exiting two
+OK AdaCL.Wide_Strings.Test.Insert_Last : 16 : Without Result Insert two end
+OK AdaCL.Wide_Strings.Test.Insert_Last : 17 : Without Result Insert two start
+OK AdaCL.Wide_Strings.IO : Test_Get_Line_01 : string read two lines.
+OK AdaCL.Wide_Strings.IO : Test_Get_Line_02 : string read three lines, last line buffer lenght without LF.
+OK AdaCL.Wide_Strings.IO : Test_Get_Line_03 : string read three lines, last line two times buffer lenght without LF.
+OK AdaCL.Wide_Strings.IO : Test_Get_Line_04 : string read three lines, last line with non Latin 1 characters.
+OK AdaCL.Wide_Strings.IO : Test_Get_Line_11 : unbounded read two lines.
+OK AdaCL.Wide_Strings.IO : Test_Get_Line_12 : unbounded read three lines, last line buffer lenght without LF.
+OK AdaCL.Wide_Strings.IO : Test_Get_Line_13 : unbounded read three lines, last line two times buffer lenght without LF.
+OK AdaCL.Wide_Strings.IO : Test_Get_Line_14 : unbounded read three lines, last line with non Latin 1 characters.
+OK AdaCL.Wide_Strings.IO : Test_Read_File_01 : vector read two lines.
+OK AdaCL.Wide_Strings.IO : Test_Read_File_02 : vector read three lines, last line buffer lenght without LF.
+OK AdaCL.Wide_Strings.IO : Test_Read_File_03 : vector read three lines, last line two times buffer lenght without LF.
+OK AdaCL.Wide_Strings.IO : Test_Read_File_04 : vector read three lines, last line with non Latin 1 characters.
+OK AdaCL.Wide_Strings : Test_First_Word_01 : Find first word
+OK AdaCL.Wide_Strings : Test_Last_Word_01 : Find last word
+OK AdaCL.Strings.Test.Append_All : 00 : Append empty
+OK AdaCL.Strings.Test.Append_All : 01 : Append middle
+OK AdaCL.Strings.Test.Append_All : 02 : Append beginning
+OK AdaCL.Strings.Test.Append_All : 03 : Append ending
+OK AdaCL.Strings.Test.Append_All : 04 : Append zero
+OK AdaCL.Strings.Test.Append_All : 05 : Append two
+OK AdaCL.Strings.Test.Append_All : 06 : Append upper
+OK AdaCL.Strings.Test.Append_All : 07 : Append upper
+OK AdaCL.Strings.Test.Append_All : 08 : Append upper
+OK AdaCL.Strings.Test.Append_All : 09 : Append lower
+OK AdaCL.Strings.Test.Append_All : 10 : Append lower
+OK AdaCL.Strings.Test.Append_All : 11 : Append lower
+OK AdaCL.Strings.Test.Append_All : 12 : Append two upper
+OK AdaCL.Strings.Test.Append_All : 13 : Append two lower
+OK AdaCL.Strings.Test.Append_All : 14 : Append exiting
+OK AdaCL.Strings.Test.Append_All : 15 : Append exiting two
+OK AdaCL.Strings.Test.Append_All : 16 : Append two end
+OK AdaCL.Strings.Test.Append_All : 17 : Append two start
+OK AdaCL.Strings.Test.Append_All : 00 : Without Result Append empty
+OK AdaCL.Strings.Test.Append_All : 01 : Without Result Append middle
+OK AdaCL.Strings.Test.Append_All : 02 : Without Result Append beginning
+OK AdaCL.Strings.Test.Append_All : 03 : Without Result Append ending
+OK AdaCL.Strings.Test.Append_All : 04 : Without Result Append zero
+OK AdaCL.Strings.Test.Append_All : 05 : Without Result Append two
+OK AdaCL.Strings.Test.Append_All : 06 : Without Result Append upper
+OK AdaCL.Strings.Test.Append_All : 07 : Without Result Append upper
+OK AdaCL.Strings.Test.Append_All : 08 : Without Result Append upper
+OK AdaCL.Strings.Test.Append_All : 09 : Without Result Append lower
+OK AdaCL.Strings.Test.Append_All : 10 : Without Result Append lower
+OK AdaCL.Strings.Test.Append_All : 11 : Without Result Append lower
+OK AdaCL.Strings.Test.Append_All : 12 : Without Result Append two upper
+OK AdaCL.Strings.Test.Append_All : 13 : Without Result Append two lower
+OK AdaCL.Strings.Test.Append_All : 14 : Without Result Append exiting
+OK AdaCL.Strings.Test.Append_All : 15 : Without Result Append exiting two
+OK AdaCL.Strings.Test.Append_All : 16 : Without Result Append two end
+OK AdaCL.Strings.Test.Append_All : 17 : Without Result Append two start
+OK AdaCL.Strings.Test.Append_First : 00 : Append empty
+OK AdaCL.Strings.Test.Append_First : 01 : Append middle
+OK AdaCL.Strings.Test.Append_First : 02 : Append beginning
+OK AdaCL.Strings.Test.Append_First : 03 : Append ending
+OK AdaCL.Strings.Test.Append_First : 04 : Append zero
+OK AdaCL.Strings.Test.Append_First : 05 : Append two
+OK AdaCL.Strings.Test.Append_First : 06 : Append upper
+OK AdaCL.Strings.Test.Append_First : 07 : Append upper
+OK AdaCL.Strings.Test.Append_First : 08 : Append upper
+OK AdaCL.Strings.Test.Append_First : 09 : Append lower
+OK AdaCL.Strings.Test.Append_First : 10 : Append lower
+OK AdaCL.Strings.Test.Append_First : 11 : Append lower
+OK AdaCL.Strings.Test.Append_First : 12 : Append two upper
+OK AdaCL.Strings.Test.Append_First : 13 : Append two lower
+OK AdaCL.Strings.Test.Append_First : 14 : Append exiting
+OK AdaCL.Strings.Test.Append_First : 15 : Append exiting two
+OK AdaCL.Strings.Test.Append_First : 16 : Append two end
+OK AdaCL.Strings.Test.Append_First : 17 : Append two start
+OK AdaCL.Strings.Test.Append_First : 00 : Without Result Append empty
+OK AdaCL.Strings.Test.Append_First : 01 : Without Result Append middle
+OK AdaCL.Strings.Test.Append_First : 02 : Without Result Append beginning
+OK AdaCL.Strings.Test.Append_First : 03 : Without Result Append ending
+OK AdaCL.Strings.Test.Append_First : 04 : Without Result Append zero
+OK AdaCL.Strings.Test.Append_First : 05 : Without Result Append two
+OK AdaCL.Strings.Test.Append_First : 06 : Without Result Append upper
+OK AdaCL.Strings.Test.Append_First : 07 : Without Result Append upper
+OK AdaCL.Strings.Test.Append_First : 08 : Without Result Append upper
+OK AdaCL.Strings.Test.Append_First : 09 : Without Result Append lower
+OK AdaCL.Strings.Test.Append_First : 10 : Without Result Append lower
+OK AdaCL.Strings.Test.Append_First : 11 : Without Result Append lower
+OK AdaCL.Strings.Test.Append_First : 12 : Without Result Append two upper
+OK AdaCL.Strings.Test.Append_First : 13 : Without Result Append two lower
+OK AdaCL.Strings.Test.Append_First : 14 : Without Result Append exiting
+OK AdaCL.Strings.Test.Append_First : 15 : Without Result Append exiting two
+OK AdaCL.Strings.Test.Append_First : 16 : Without Result Append two end
+OK AdaCL.Strings.Test.Append_First : 17 : Without Result Append two start
+OK AdaCL.Strings.Test.Append_Last : 00 : Append empty
+OK AdaCL.Strings.Test.Append_Last : 01 : Append middle
+OK AdaCL.Strings.Test.Append_Last : 02 : Append beginning
+OK AdaCL.Strings.Test.Append_Last : 03 : Append ending
+OK AdaCL.Strings.Test.Append_Last : 04 : Append zero
+OK AdaCL.Strings.Test.Append_Last : 05 : Append two
+OK AdaCL.Strings.Test.Append_Last : 06 : Append upper
+OK AdaCL.Strings.Test.Append_Last : 07 : Append upper
+OK AdaCL.Strings.Test.Append_Last : 08 : Append upper
+OK AdaCL.Strings.Test.Append_Last : 09 : Append lower
+OK AdaCL.Strings.Test.Append_Last : 10 : Append lower
+OK AdaCL.Strings.Test.Append_Last : 11 : Append lower
+OK AdaCL.Strings.Test.Append_Last : 12 : Append two upper
+OK AdaCL.Strings.Test.Append_Last : 13 : Append two lower
+OK AdaCL.Strings.Test.Append_Last : 14 : Append exiting
+OK AdaCL.Strings.Test.Append_Last : 15 : Append exiting two
+OK AdaCL.Strings.Test.Append_Last : 16 : Append two end
+OK AdaCL.Strings.Test.Append_Last : 17 : Append two start
+OK AdaCL.Strings.Test.Append_Last : 00 : Without Result Append empty
+OK AdaCL.Strings.Test.Append_Last : 01 : Without Result Append middle
+OK AdaCL.Strings.Test.Append_Last : 02 : Without Result Append beginning
+OK AdaCL.Strings.Test.Append_Last : 03 : Without Result Append ending
+OK AdaCL.Strings.Test.Append_Last : 04 : Without Result Append zero
+OK AdaCL.Strings.Test.Append_Last : 05 : Without Result Append two
+OK AdaCL.Strings.Test.Append_Last : 06 : Without Result Append upper
+OK AdaCL.Strings.Test.Append_Last : 07 : Without Result Append upper
+OK AdaCL.Strings.Test.Append_Last : 08 : Without Result Append upper
+OK AdaCL.Strings.Test.Append_Last : 09 : Without Result Append lower
+OK AdaCL.Strings.Test.Append_Last : 10 : Without Result Append lower
+OK AdaCL.Strings.Test.Append_Last : 11 : Without Result Append lower
+OK AdaCL.Strings.Test.Append_Last : 12 : Without Result Append two upper
+OK AdaCL.Strings.Test.Append_Last : 13 : Without Result Append two lower
+OK AdaCL.Strings.Test.Append_Last : 14 : Without Result Append exiting
+OK AdaCL.Strings.Test.Append_Last : 15 : Without Result Append exiting two
+OK AdaCL.Strings.Test.Append_Last : 16 : Without Result Append two end
+OK AdaCL.Strings.Test.Append_Last : 17 : Without Result Append two start
+OK AdaCL.Strings.Test.Change_All : 00 : Replace empty
+OK AdaCL.Strings.Test.Change_All : 01 : Replace middle
+OK AdaCL.Strings.Test.Change_All : 02 : Replace beginning
+OK AdaCL.Strings.Test.Change_All : 03 : Replace ending
+OK AdaCL.Strings.Test.Change_All : 04 : Replace zero
+OK AdaCL.Strings.Test.Change_All : 05 : Replace two
+OK AdaCL.Strings.Test.Change_All : 06 : Replace upper
+OK AdaCL.Strings.Test.Change_All : 07 : Replace upper
+OK AdaCL.Strings.Test.Change_All : 08 : Replace upper
+OK AdaCL.Strings.Test.Change_All : 09 : Replace lower
+OK AdaCL.Strings.Test.Change_All : 10 : Replace lower
+OK AdaCL.Strings.Test.Change_All : 11 : Replace lower
+OK AdaCL.Strings.Test.Change_All : 12 : Replace two upper
+OK AdaCL.Strings.Test.Change_All : 13 : Replace two lower
+OK AdaCL.Strings.Test.Change_All : 14 : Replace two end
+OK AdaCL.Strings.Test.Change_All : 00 : Without Result Replace empty
+OK AdaCL.Strings.Test.Change_All : 01 : Without Result Replace middle
+OK AdaCL.Strings.Test.Change_All : 02 : Without Result Replace beginning
+OK AdaCL.Strings.Test.Change_All : 03 : Without Result Replace ending
+OK AdaCL.Strings.Test.Change_All : 04 : Without Result Replace zero
+OK AdaCL.Strings.Test.Change_All : 05 : Without Result Replace two
+OK AdaCL.Strings.Test.Change_All : 06 : Without Result Replace upper
+OK AdaCL.Strings.Test.Change_All : 07 : Without Result Replace upper
+OK AdaCL.Strings.Test.Change_All : 08 : Without Result Replace upper
+OK AdaCL.Strings.Test.Change_All : 09 : Without Result Replace lower
+OK AdaCL.Strings.Test.Change_All : 10 : Without Result Replace lower
+OK AdaCL.Strings.Test.Change_All : 11 : Without Result Replace lower
+OK AdaCL.Strings.Test.Change_All : 12 : Without Result Replace two upper
+OK AdaCL.Strings.Test.Change_All : 13 : Without Result Replace two lower
+OK AdaCL.Strings.Test.Change_All : 14 : Without Result Replace two end
+OK AdaCL.Strings.Test.Change_First : 00 : Replace empty
+OK AdaCL.Strings.Test.Change_First : 01 : Replace middle
+OK AdaCL.Strings.Test.Change_First : 02 : Replace beginning
+OK AdaCL.Strings.Test.Change_First : 03 : Replace ending
+OK AdaCL.Strings.Test.Change_First : 04 : Replace zero
+OK AdaCL.Strings.Test.Change_First : 05 : Replace two
+OK AdaCL.Strings.Test.Change_First : 06 : Replace upper
+OK AdaCL.Strings.Test.Change_First : 07 : Replace upper
+OK AdaCL.Strings.Test.Change_First : 08 : Replace upper
+OK AdaCL.Strings.Test.Change_First : 09 : Replace lower
+OK AdaCL.Strings.Test.Change_First : 10 : Replace lower
+OK AdaCL.Strings.Test.Change_First : 11 : Replace lower
+OK AdaCL.Strings.Test.Change_First : 12 : Replace two upper
+OK AdaCL.Strings.Test.Change_First : 13 : Replace two lower
+OK AdaCL.Strings.Test.Change_First : 14 : Replace two end
+OK AdaCL.Strings.Test.Change_First : 00 : Without Result Replace empty
+OK AdaCL.Strings.Test.Change_First : 01 : Without Result Replace middle
+OK AdaCL.Strings.Test.Change_First : 02 : Without Result Replace beginning
+OK AdaCL.Strings.Test.Change_First : 03 : Without Result Replace ending
+OK AdaCL.Strings.Test.Change_First : 04 : Without Result Replace zero
+OK AdaCL.Strings.Test.Change_First : 05 : Without Result Replace two
+OK AdaCL.Strings.Test.Change_First : 06 : Without Result Replace upper
+OK AdaCL.Strings.Test.Change_First : 07 : Without Result Replace upper
+OK AdaCL.Strings.Test.Change_First : 08 : Without Result Replace upper
+OK AdaCL.Strings.Test.Change_First : 09 : Without Result Replace lower
+OK AdaCL.Strings.Test.Change_First : 10 : Without Result Replace lower
+OK AdaCL.Strings.Test.Change_First : 11 : Without Result Replace lower
+OK AdaCL.Strings.Test.Change_First : 12 : Without Result Replace two upper
+OK AdaCL.Strings.Test.Change_First : 13 : Without Result Replace two lower
+OK AdaCL.Strings.Test.Change_First : 14 : Without Result Replace two end
+OK AdaCL.Strings.Test.Change_Last : 00 : Replace empty
+OK AdaCL.Strings.Test.Change_Last : 01 : Replace middle
+OK AdaCL.Strings.Test.Change_Last : 02 : Replace beginning
+OK AdaCL.Strings.Test.Change_Last : 03 : Replace ending
+OK AdaCL.Strings.Test.Change_Last : 04 : Replace zero
+OK AdaCL.Strings.Test.Change_Last : 05 : Replace two
+OK AdaCL.Strings.Test.Change_Last : 06 : Replace upper
+OK AdaCL.Strings.Test.Change_Last : 07 : Replace upper
+OK AdaCL.Strings.Test.Change_Last : 08 : Replace upper
+OK AdaCL.Strings.Test.Change_Last : 09 : Replace lower
+OK AdaCL.Strings.Test.Change_Last : 10 : Replace lower
+OK AdaCL.Strings.Test.Change_Last : 11 : Replace lower
+OK AdaCL.Strings.Test.Change_Last : 12 : Replace two upper
+OK AdaCL.Strings.Test.Change_Last : 13 : Replace two lower
+OK AdaCL.Strings.Test.Change_Last : 14 : Replace two end
+OK AdaCL.Strings.Test.Change_Last : 15 : Replace two start
+OK AdaCL.Strings.Test.Change_Last : 00 : Without Result Replace empty
+OK AdaCL.Strings.Test.Change_Last : 01 : Without Result Replace middle
+OK AdaCL.Strings.Test.Change_Last : 02 : Without Result Replace beginning
+OK AdaCL.Strings.Test.Change_Last : 03 : Without Result Replace ending
+OK AdaCL.Strings.Test.Change_Last : 04 : Without Result Replace zero
+OK AdaCL.Strings.Test.Change_Last : 05 : Without Result Replace two
+OK AdaCL.Strings.Test.Change_Last : 06 : Without Result Replace upper
+OK AdaCL.Strings.Test.Change_Last : 07 : Without Result Replace upper
+OK AdaCL.Strings.Test.Change_Last : 08 : Without Result Replace upper
+OK AdaCL.Strings.Test.Change_Last : 09 : Without Result Replace lower
+OK AdaCL.Strings.Test.Change_Last : 10 : Without Result Replace lower
+OK AdaCL.Strings.Test.Change_Last : 11 : Without Result Replace lower
+OK AdaCL.Strings.Test.Change_Last : 12 : Without Result Replace two upper
+OK AdaCL.Strings.Test.Change_Last : 13 : Without Result Replace two lower
+OK AdaCL.Strings.Test.Change_Last : 14 : Without Result Replace two end
+OK AdaCL.Strings.Test.Change_Last : 15 : Without Result Replace two start
+OK AdaCL.Wide_Wide_Strings.Hex.Unsigned_16 : Image_0000 : 4 Digits
+OK AdaCL.Wide_Wide_Strings.Hex.Unsigned_16 : Image_FFFF : 4 Digits
+OK AdaCL.Wide_Wide_Strings.Hex.Unsigned_16 : Image_0012 : 2 Digits
+OK AdaCL.Wide_Wide_Strings.Hex.Unsigned_16 : Image_0123 : 3 Digits
+OK AdaCL.Wide_Wide_Strings.Hex.Unsigned_16 : Value_0000 : 4 Digits
+OK AdaCL.Wide_Wide_Strings.Hex.Unsigned_16 : Value_FFFF : 4 Digits
+OK AdaCL.Wide_Wide_Strings.Hex.Unsigned_16 : Value_0012 : 4 Digits
+OK AdaCL.Wide_Wide_Strings.Hex.Unsigned_16 : Value_0123 : 4 Digits
+OK AdaCL.Wide_Wide_Strings.Hex.Unsigned_16 : Value_1 : 1 Digits
+OK AdaCL.Wide_Wide_Strings.Hex.Unsigned_16 : Value_12 : 2 Digits
+OK AdaCL.Wide_Wide_Strings.Hex.Unsigned_16 : Value_123 : 3 Digits
+OK AdaCL.Wide_Wide_Strings.Hex.Unsigned_32 : Image_00000000 : 8 Digits
+OK AdaCL.Wide_Wide_Strings.Hex.Unsigned_32 : Image_00000012 : 8 Digits
+OK AdaCL.Wide_Wide_Strings.Hex.Unsigned_32 : Image_00000123 : 8 Digits
+OK AdaCL.Wide_Wide_Strings.Hex.Unsigned_32 : Image_00001234 : 8 Digits
+OK AdaCL.Wide_Wide_Strings.Hex.Unsigned_32 : Image_00012345 : 8 Digits
+OK AdaCL.Wide_Wide_Strings.Hex.Unsigned_32 : Image_00123456 : 8 Digits
+OK AdaCL.Wide_Wide_Strings.Hex.Unsigned_32 : Image_01234567 : 8 Digits
+OK AdaCL.Wide_Wide_Strings.Hex.Unsigned_32 : Image_FFFFFFFF : 8 Digits
+OK AdaCL.Wide_Wide_Strings.Hex.Unsigned_32 : Value_00000000 : 8 Digits
+OK AdaCL.Wide_Wide_Strings.Hex.Unsigned_32 : Value_00000012 : 8 Digits
+OK AdaCL.Wide_Wide_Strings.Hex.Unsigned_32 : Value_00000123 : 8 Digits
+OK AdaCL.Wide_Wide_Strings.Hex.Unsigned_32 : Value_00001234 : 8 Digits
+OK AdaCL.Wide_Wide_Strings.Hex.Unsigned_32 : Value_00012345 : 8 Digits
+OK AdaCL.Wide_Wide_Strings.Hex.Unsigned_32 : Value_00123456 : 8 Digits
+OK AdaCL.Wide_Wide_Strings.Hex.Unsigned_32 : Value_01234567 : 8 Digits
+OK AdaCL.Wide_Wide_Strings.Hex.Unsigned_32 : Value_1 : 1 Digits
+OK AdaCL.Wide_Wide_Strings.Hex.Unsigned_32 : Value_12 : 2 Digits
+OK AdaCL.Wide_Wide_Strings.Hex.Unsigned_32 : Value_123 : 3 Digits
+OK AdaCL.Wide_Wide_Strings.Hex.Unsigned_32 : Value_1234 : 4 Digits
+OK AdaCL.Wide_Wide_Strings.Hex.Unsigned_32 : Value_12345 : 5 Digits
+OK AdaCL.Wide_Wide_Strings.Hex.Unsigned_32 : Value_123456 : 6 Digits
+OK AdaCL.Wide_Wide_Strings.Hex.Unsigned_32 : Value_1234567 : 7 Digits
+OK AdaCL.Wide_Wide_Strings.Hex.Unsigned_32 : Value_FFFFFFFF : 8 Digits
+OK AdaCL.Wide_Wide_Strings.Hex.Unsigned_64 : Image_0000000000000000 : 16 Digits
+OK AdaCL.Wide_Wide_Strings.Hex.Unsigned_64 : Image_0000000000000012 : 16 Digits
+OK AdaCL.Wide_Wide_Strings.Hex.Unsigned_64 : Image_0000000000000123 : 16 Digits
+OK AdaCL.Wide_Wide_Strings.Hex.Unsigned_64 : Image_0000000000001234 : 16 Digits
+OK AdaCL.Wide_Wide_Strings.Hex.Unsigned_64 : Image_0000000000012345 : 16 Digits
+OK AdaCL.Wide_Wide_Strings.Hex.Unsigned_64 : Image_0000000000123456 : 16 Digits
+OK AdaCL.Wide_Wide_Strings.Hex.Unsigned_64 : Image_0000000001234567 : 16 Digits
+OK AdaCL.Wide_Wide_Strings.Hex.Unsigned_64 : Image_0000000012345678 : 16 Digits
+OK AdaCL.Wide_Wide_Strings.Hex.Unsigned_64 : Image_0000000123456789 : 16 Digits
+OK AdaCL.Wide_Wide_Strings.Hex.Unsigned_64 : Image_0000001234567890 : 16 Digits
+OK AdaCL.Wide_Wide_Strings.Hex.Unsigned_64 : Image_000001234567890A : 16 Digits
+OK AdaCL.Wide_Wide_Strings.Hex.Unsigned_64 : Image_00001234567890AB : 16 Digits
+OK AdaCL.Wide_Wide_Strings.Hex.Unsigned_64 : Image_0001234567890ABC : 16 Digits
+OK AdaCL.Wide_Wide_Strings.Hex.Unsigned_64 : Image_001234567890ABCD : 16 Digits
+OK AdaCL.Wide_Wide_Strings.Hex.Unsigned_64 : Image_01234567890ABCDE : 16 Digits
+OK AdaCL.Wide_Wide_Strings.Hex.Unsigned_64 : Image_FFFFFFFFFFFFFFFF : 16 Digits
+OK AdaCL.Wide_Wide_Strings.Hex.Unsigned_64 : Value_0000000000000000 : 16 Digits
+OK AdaCL.Wide_Wide_Strings.Hex.Unsigned_64 : Value_0000000000000012 : 16 Digits
+OK AdaCL.Wide_Wide_Strings.Hex.Unsigned_64 : Value_0000000000000123 : 16 Digits
+OK AdaCL.Wide_Wide_Strings.Hex.Unsigned_64 : Value_0000000000001234 : 16 Digits
+OK AdaCL.Wide_Wide_Strings.Hex.Unsigned_64 : Value_0000000000012345 : 16 Digits
+OK AdaCL.Wide_Wide_Strings.Hex.Unsigned_64 : Value_0000000000123456 : 16 Digits
+OK AdaCL.Wide_Wide_Strings.Hex.Unsigned_64 : Value_0000000001234567 : 16 Digits
+OK AdaCL.Wide_Wide_Strings.Hex.Unsigned_64 : Value_0000000012345678 : 16 Digits
+OK AdaCL.Wide_Wide_Strings.Hex.Unsigned_64 : Value_0000000123456789 : 16 Digits
+OK AdaCL.Wide_Wide_Strings.Hex.Unsigned_64 : Value_0000001234567890 : 16 Digits
+OK AdaCL.Wide_Wide_Strings.Hex.Unsigned_64 : Value_000001234567890A : 16 Digits
+OK AdaCL.Wide_Wide_Strings.Hex.Unsigned_64 : Value_00001234567890AB : 16 Digits
+OK AdaCL.Wide_Wide_Strings.Hex.Unsigned_64 : Value_0001234567890ABC : 16 Digits
+OK AdaCL.Wide_Wide_Strings.Hex.Unsigned_64 : Value_001234567890ABCD : 16 Digits
+OK AdaCL.Wide_Wide_Strings.Hex.Unsigned_64 : Value_01234567890ABCDE : 16 Digits
+OK AdaCL.Wide_Wide_Strings.Hex.Unsigned_64 : Value_FFFFFFFFFFFFFFFF : 16 Digits
+OK AdaCL.Wide_Wide_Strings.Hex.Unsigned_64 : Value_1 : 1 Digits
+OK AdaCL.Wide_Wide_Strings.Hex.Unsigned_64 : Value_12 : 2 Digits
+OK AdaCL.Wide_Wide_Strings.Hex.Unsigned_64 : Value_123 : 3 Digits
+OK AdaCL.Wide_Wide_Strings.Hex.Unsigned_64 : Value_1234 : 4 Digits
+OK AdaCL.Wide_Wide_Strings.Hex.Unsigned_64 : Value_12345 : 5 Digits
+OK AdaCL.Wide_Wide_Strings.Hex.Unsigned_64 : Value_123456 : 6 Digits
+OK AdaCL.Wide_Wide_Strings.Hex.Unsigned_64 : Value_1234567 : 7 Digits
+OK AdaCL.Wide_Wide_Strings.Hex.Unsigned_64 : Value_FFFFFFFF : 8 Digits
+OK AdaCL.Wide_Wide_Strings.Hex.Unsigned_64 : Value_123456789 : 9 Digits
+OK AdaCL.Wide_Wide_Strings.Hex.Unsigned_64 : Value_1234567890 : 10 Digits
+OK AdaCL.Wide_Wide_Strings.Hex.Unsigned_64 : Value_1234567890A : 11 Digits
+OK AdaCL.Wide_Wide_Strings.Hex.Unsigned_64 : Value_1234567890AB : 12 Digits
+OK AdaCL.Wide_Wide_Strings.Hex.Unsigned_64 : Value_1234567890ABC : 13 Digits
+OK AdaCL.Wide_Wide_Strings.Hex.Unsigned_64 : Value_1234567890ABCD : 14 Digits
+OK AdaCL.Wide_Wide_Strings.Hex.Unsigned_64 : Value_1234567890ABCDE : 15 Digits
+OK AdaCL.Wide_Wide_Strings.Hex.Unsigned_64 : Value_1234567890ABCDEF : 16 Digits
+OK AdaCL.Wide_Wide_Strings.Hex.Unsigned_8 : Image_00 : 2 Digit
+OK AdaCL.Wide_Wide_Strings.Hex.Unsigned_8 : Image_FF : 2 Digit
+OK AdaCL.Wide_Wide_Strings.Hex.Unsigned_8 : Value_0 : 1 Digit
+OK AdaCL.Wide_Wide_Strings.Hex.Unsigned_8 : Value_00 : 2 Digit
+OK AdaCL.Wide_Wide_Strings.Hex.Unsigned_8 : Value_FF : 2 Digit
+OK AdaCL.Strings.Test.Insert_All : 00 : Insert empty
+OK AdaCL.Strings.Test.Insert_All : 01 : Insert middle
+OK AdaCL.Strings.Test.Insert_All : 02 : Insert beginning
+OK AdaCL.Strings.Test.Insert_All : 03 : Insert ending
+OK AdaCL.Strings.Test.Insert_All : 04 : Insert zero
+OK AdaCL.Strings.Test.Insert_All : 05 : Insert two
+OK AdaCL.Strings.Test.Insert_All : 06 : Insert upper
+OK AdaCL.Strings.Test.Insert_All : 07 : Insert upper
+OK AdaCL.Strings.Test.Insert_All : 08 : Insert upper
+OK AdaCL.Strings.Test.Insert_All : 09 : Insert lower
+OK AdaCL.Strings.Test.Insert_All : 10 : Insert lower
+OK AdaCL.Strings.Test.Insert_All : 11 : Insert lower
+OK AdaCL.Strings.Test.Insert_All : 12 : Insert two upper
+OK AdaCL.Strings.Test.Insert_All : 13 : Insert two lower
+OK AdaCL.Strings.Test.Insert_All : 14 : Insert exiting
+OK AdaCL.Strings.Test.Insert_All : 15 : Insert exiting two
+OK AdaCL.Strings.Test.Insert_All : 16 : Insert two end
+OK AdaCL.Strings.Test.Insert_All : 17 : Insert two start
+OK AdaCL.Strings.Test.Insert_All : 00 : Without Result Insert empty
+OK AdaCL.Strings.Test.Insert_All : 01 : Without Result Insert middle
+OK AdaCL.Strings.Test.Insert_All : 02 : Without Result Insert beginning
+OK AdaCL.Strings.Test.Insert_All : 03 : Without Result Insert ending
+OK AdaCL.Strings.Test.Insert_All : 04 : Without Result Insert zero
+OK AdaCL.Strings.Test.Insert_All : 05 : Without Result Insert two
+OK AdaCL.Strings.Test.Insert_All : 06 : Without Result Insert upper
+OK AdaCL.Strings.Test.Insert_All : 07 : Without Result Insert upper
+OK AdaCL.Strings.Test.Insert_All : 08 : Without Result Insert upper
+OK AdaCL.Strings.Test.Insert_All : 09 : Without Result Insert lower
+OK AdaCL.Strings.Test.Insert_All : 10 : Without Result Insert lower
+OK AdaCL.Strings.Test.Insert_All : 11 : Without Result Insert lower
+OK AdaCL.Strings.Test.Insert_All : 12 : Without Result Insert two upper
+OK AdaCL.Strings.Test.Insert_All : 13 : Without Result Insert two lower
+OK AdaCL.Strings.Test.Insert_All : 14 : Without Result Insert exiting
+OK AdaCL.Strings.Test.Insert_All : 15 : Without Result Insert exiting two
+OK AdaCL.Strings.Test.Insert_All : 16 : Without Result Insert two end
+OK AdaCL.Strings.Test.Insert_All : 17 : Without Result Insert two start
+OK AdaCL.Strings.Test.Insert_First : 00 : Insert empty
+OK AdaCL.Strings.Test.Insert_First : 01 : Insert middle
+OK AdaCL.Strings.Test.Insert_First : 02 : Insert beginning
+OK AdaCL.Strings.Test.Insert_First : 03 : Insert ending
+OK AdaCL.Strings.Test.Insert_First : 04 : Insert zero
+OK AdaCL.Strings.Test.Insert_First : 05 : Insert two
+OK AdaCL.Strings.Test.Insert_First : 06 : Insert upper
+OK AdaCL.Strings.Test.Insert_First : 07 : Insert upper
+OK AdaCL.Strings.Test.Insert_First : 08 : Insert upper
+OK AdaCL.Strings.Test.Insert_First : 09 : Insert lower
+OK AdaCL.Strings.Test.Insert_First : 10 : Insert lower
+OK AdaCL.Strings.Test.Insert_First : 11 : Insert lower
+OK AdaCL.Strings.Test.Insert_First : 12 : Insert two upper
+OK AdaCL.Strings.Test.Insert_First : 13 : Insert two lower
+OK AdaCL.Strings.Test.Insert_First : 14 : Insert exiting
+OK AdaCL.Strings.Test.Insert_First : 15 : Insert exiting two
+OK AdaCL.Strings.Test.Insert_First : 16 : Insert two end
+OK AdaCL.Strings.Test.Insert_First : 17 : Insert two start
+OK AdaCL.Strings.Test.Insert_First : 18 : Insert two start
+OK AdaCL.Strings.Test.Insert_First : 19 : Insert two start
+OK AdaCL.Strings.Test.Insert_First : 00 : Without Result Insert empty
+OK AdaCL.Strings.Test.Insert_First : 01 : Without Result Insert middle
+OK AdaCL.Strings.Test.Insert_First : 02 : Without Result Insert beginning
+OK AdaCL.Strings.Test.Insert_First : 03 : Without Result Insert ending
+OK AdaCL.Strings.Test.Insert_First : 04 : Without Result Insert zero
+OK AdaCL.Strings.Test.Insert_First : 05 : Without Result Insert two
+OK AdaCL.Strings.Test.Insert_First : 06 : Without Result Insert upper
+OK AdaCL.Strings.Test.Insert_First : 07 : Without Result Insert upper
+OK AdaCL.Strings.Test.Insert_First : 08 : Without Result Insert upper
+OK AdaCL.Strings.Test.Insert_First : 09 : Without Result Insert lower
+OK AdaCL.Strings.Test.Insert_First : 10 : Without Result Insert lower
+OK AdaCL.Strings.Test.Insert_First : 11 : Without Result Insert lower
+OK AdaCL.Strings.Test.Insert_First : 12 : Without Result Insert two upper
+OK AdaCL.Strings.Test.Insert_First : 13 : Without Result Insert two lower
+OK AdaCL.Strings.Test.Insert_First : 14 : Without Result Insert exiting
+OK AdaCL.Strings.Test.Insert_First : 15 : Without Result Insert exiting two
+OK AdaCL.Strings.Test.Insert_First : 16 : Without Result Insert two end
+OK AdaCL.Strings.Test.Insert_First : 17 : Without Result Insert two start
+OK AdaCL.Strings.Test.Insert_First : 18 : Without Result Insert two start
+OK AdaCL.Strings.Test.Insert_First : 19 : Without Result Insert two start
+OK AdaCL.Strings.Test.Insert_Last : 00 : Insert empty
+OK AdaCL.Strings.Test.Insert_Last : 01 : Insert middle
+OK AdaCL.Strings.Test.Insert_Last : 02 : Insert beginning
+OK AdaCL.Strings.Test.Insert_Last : 03 : Insert ending
+OK AdaCL.Strings.Test.Insert_Last : 04 : Insert zero
+OK AdaCL.Strings.Test.Insert_Last : 05 : Insert two
+OK AdaCL.Strings.Test.Insert_Last : 06 : Insert upper
+OK AdaCL.Strings.Test.Insert_Last : 07 : Insert upper
+OK AdaCL.Strings.Test.Insert_Last : 08 : Insert upper
+OK AdaCL.Strings.Test.Insert_Last : 09 : Insert lower
+OK AdaCL.Strings.Test.Insert_Last : 10 : Insert lower
+OK AdaCL.Strings.Test.Insert_Last : 11 : Insert lower
+OK AdaCL.Strings.Test.Insert_Last : 12 : Insert two upper
+OK AdaCL.Strings.Test.Insert_Last : 13 : Insert two lower
+OK AdaCL.Strings.Test.Insert_Last : 14 : Insert exiting
+OK AdaCL.Strings.Test.Insert_Last : 15 : Insert exiting two
+OK AdaCL.Strings.Test.Insert_Last : 16 : Insert two end
+OK AdaCL.Strings.Test.Insert_Last : 17 : Insert two start
+OK AdaCL.Strings.Test.Insert_Last : 00 : Without Result Insert empty
+OK AdaCL.Strings.Test.Insert_Last : 01 : Without Result Insert middle
+OK AdaCL.Strings.Test.Insert_Last : 02 : Without Result Insert beginning
+OK AdaCL.Strings.Test.Insert_Last : 03 : Without Result Insert ending
+OK AdaCL.Strings.Test.Insert_Last : 04 : Without Result Insert zero
+OK AdaCL.Strings.Test.Insert_Last : 05 : Without Result Insert two
+OK AdaCL.Strings.Test.Insert_Last : 06 : Without Result Insert upper
+OK AdaCL.Strings.Test.Insert_Last : 07 : Without Result Insert upper
+OK AdaCL.Strings.Test.Insert_Last : 08 : Without Result Insert upper
+OK AdaCL.Strings.Test.Insert_Last : 09 : Without Result Insert lower
+OK AdaCL.Strings.Test.Insert_Last : 10 : Without Result Insert lower
+OK AdaCL.Strings.Test.Insert_Last : 11 : Without Result Insert lower
+OK AdaCL.Strings.Test.Insert_Last : 12 : Without Result Insert two upper
+OK AdaCL.Strings.Test.Insert_Last : 13 : Without Result Insert two lower
+OK AdaCL.Strings.Test.Insert_Last : 14 : Without Result Insert exiting
+OK AdaCL.Strings.Test.Insert_Last : 15 : Without Result Insert exiting two
+OK AdaCL.Strings.Test.Insert_Last : 16 : Without Result Insert two end
+OK AdaCL.Strings.Test.Insert_Last : 17 : Without Result Insert two start
+OK AdaCL.Wide_Wide_Strings.IO : Test_Get_Line_01 : string read two lines.
+OK AdaCL.Wide_Wide_Strings.IO : Test_Get_Line_02 : string read three lines, last line buffer lenght without LF.
+OK AdaCL.Wide_Wide_Strings.IO : Test_Get_Line_03 : string read three lines, last line two times buffer lenght without LF.
+OK AdaCL.Wide_Wide_Strings.IO : Test_Get_Line_04 : string read three lines, last line with non Latin 1 characters.
+OK AdaCL.Wide_Wide_Strings.IO : Test_Get_Line_11 : unbounded read two lines.
+OK AdaCL.Wide_Wide_Strings.IO : Test_Get_Line_12 : unbounded read three lines, last line buffer lenght without LF.
+OK AdaCL.Wide_Wide_Strings.IO : Test_Get_Line_13 : unbounded read three lines, last line two times buffer lenght without LF.
+OK AdaCL.Wide_Wide_Strings.IO : Test_Get_Line_14 : unbounded read three lines, last line with non Latin 1 characters.
+OK AdaCL.Wide_Wide_Strings.IO : Test_Read_File_01 : vector read two lines.
+OK AdaCL.Wide_Wide_Strings.IO : Test_Read_File_02 : vector read three lines, last line buffer lenght without LF.
+OK AdaCL.Wide_Wide_Strings.IO : Test_Read_File_03 : vector read three lines, last line two times buffer lenght without LF.
+OK AdaCL.Wide_Wide_Strings.IO : Test_Read_File_04 : vector read three lines, last line with non Latin 1 characters.
+OK AdaCL.Wide_Wide_Strings : Test_First_Word_01 : Find first word
+OK AdaCL.Wide_Wide_Strings : Test_Last_Word_01 : Find last word
+OK AdaCL.Trace : Test_Enable_Trace_01 : enable trace
+OK AdaCL.Trace : Test_Write_To_File_01 : trace to file
+OK AdaCL.Trace : Test_Write_01 : simple string output
+OK AdaCL.Trace : Test_Write_02 : unbounded string output
+OK AdaCL.Trace : Test_Write_03 : write address
+OK AdaCL.Trace : Test_Write_Dump_01 : unbounded string
+OK AdaCL.Trace : Test_Write_Dump_02 : string with Size
+OK AdaCL.Trace : Test_Write_Dump_03 : string with Length
+OK AdaCL.Trace : Test_Function_Trace_01 : function trace one string
+OK AdaCL.Trace : Test_Function_Trace_02 : function trace two strings
+OK AdaCL.Trace : Test_Function_Trace_03 : function trace no parameter
+OK AdaCL.Trace : Test_Function_Trace_04 : function trace two level
+
+Total Tests Run:   1314
+Successful Tests:  1314
+Failed Assertions: 0
+Unexpected Errors: 0
+[alr test] Test completed SUCCESSFULLY

@@ -1,0 +1,156 @@
+Test ran at 2025-05-15 12:44:34.578714+00:00
+
+SOLUTION:
+qplt=20230720.0.0: An Ada-GUI program to quickly produce a plot of a data set
+Origin: commit 2f7f77c911a868ea77d215a81d4d23175f531af8 from https://github.com/bracke/Qplt.git
+Properties:
+   Author: Jeff Carter
+   Build Switches: 
+   Description: An Ada-GUI program to quickly produce a plot of a data set
+   Executable: qplt
+   License: BSD-3-Clause
+   Long_Description: # Qplt
+Quick Plot: an Ada-GUI program to quickly produce a plot of a data set
+
+## Usage
+type
+
+qplt -?
+
+for usage instructions, or read the code that outputs them.
+
+## Dependencies
+Qplt requires Ada GUI (https://github.com/jrcarter/Ada_GUI) and the PragmAda Reusable Components (https://github.com/jrcarter/PragmARC). Those unfamiliar with Ada GUI should install it, run the test programs, and be familiar with its Readme before running Qplt.
+
+## Sample Input
+The files qplt_sine.txt, qplt_sombrero.txt, and qplt_wpop.txt contain sample data for Qplt.
+
+qplt_sine.txt contains a sine curve. Suggested use:
+
+qplt np -t Sine qplt_sine.txt
+
+qplt_sombrero.txt contains the "Sombrero" curve, sin x / x (with the limit of 1 plotted for x = 0). Suggested use:
+
+qplt np -t Sombrero qplt_sombrero.txt
+
+qplt_wpop.txt contains values of world population since 1600. Suggested use:
+
+qplt -t "World Population" -x Year -y "Population in billions" qplt_wpop.txt
+
+The sample input files are proveded under the CC BY-SA license (https://creativecommons.org/licenses/by-sa/4.0/).
+
+   Maintainer: Bent Bracke <bent@bracke.dk>
+   Maintainers_Logins: bracke
+   Name: qplt
+   Tag: plot
+   Tag: data
+   Version: 20230720
+   Website: https://github.com/bracke/Qplt
+Dependencies (direct):
+   ada_gui^20240224.0.0
+   gnat<13.0 | >=13.3
+   pragmarc^20240323.0.0
+   ssl*
+Dependencies (solution):
+   ada_gui=20240224.0.1
+   gnat=14.2.1 (gnat_native)
+   libgnutls=3.8.9
+   pragmarc=20240323.0.0
+   simple_components=4.68.0
+   ssl=3.5.0
+   unixodbc=2.3.12
+Dependencies (graph):
+   ada_gui=20240224.0.1     --> gnat=14.2.1 (gnat_native) (<13.0 | >=13.3)
+   ada_gui=20240224.0.1     --> simple_components=4.68.0 (^4.68.0)
+   pragmarc=20240323.0.0    --> gnat=14.2.1 (gnat_native) (<13.0 | >=13.3)
+   qplt=20230720.0.0        --> ada_gui=20240224.0.1 (^20240224.0.0)
+   qplt=20230720.0.0        --> gnat=14.2.1 (gnat_native) (<13.0 | >=13.3)
+   qplt=20230720.0.0        --> pragmarc=20240323.0.0 (^20240323.0.0)
+   qplt=20230720.0.0        --> ssl=3.5.0 (*)
+   simple_components=4.68.0 --> gnat=14.2.1 (gnat_native) (>=2021 | (>=12 & <2000))
+   simple_components=4.68.0 --> libgnutls=3.8.9 (^3.7)
+   simple_components=4.68.0 --> unixodbc=2.3.12 (^2.3)
+
+
+LOG:
+Spawning: alr -d -n get --build qplt=20230720.0.0
+Note: Deploying qplt=20230720.0.0...
+Note: Deploying ada_gui=20240224.0.1...
+Note: Building qplt=20230720.0.0/qplt.gpr...
+Setup
+   [mkdir]        object directory for project Ada_Gui
+   [mkdir]        library directory for project Ada_Gui
+   [mkdir]        object directory for project Qplt
+   [mkdir]        exec directory for project Qplt
+Compile
+   [Ada]          qplt.adb
+   [C]            py_conversions.c
+   [C]            sqlite3.c
+   [Ada]          ada_gui_config.ads
+   [Ada]          ada_gui-gnoga-server-template_parser-simple.adb
+   [Ada]          ada_gui-gnoga-server-mime.adb
+   [Ada]          ada_gui-gnoga-gui-window.adb
+   [Ada]          ada_gui-gnoga-gui-element.adb
+   [Ada]          ada_gui-gnoga-server-model.adb
+   [Ada]          ada_gui-gnoga-gui-document.adb
+   [Ada]          ada_gui-gnoga-gui-view-grid.adb
+   [Ada]          ada_gui-gnoga-application.adb
+   [Ada]          ada_gui-gnoga-gui-view.adb
+   [Ada]          ada_gui-gnoga-server-template_parser.adb
+   [Ada]          ada_gui-gnoga-server-model-queries.adb
+   [Ada]          parsers-generic_source-xpm.adb
+   [Ada]          ada_gui-gnoga-gui-element-list.adb
+   [Ada]          ada_gui-gnoga-server-connection.adb
+   [Ada]          parsers-multiline_source-xpm.ads
+   [Ada]          ada_gui-gnoga-server-database.adb
+   [Ada]          ada_gui-gnoga-client_storage.adb
+   [Ada]          ada_gui-gnoga-gui-element-multimedia.adb
+   [Ada]          ada_gui-gnoga-gui.adb
+   [Ada]          ada_gui-gnoga-gui-location.adb
+   [Ada]          ada_gui-gnoga-gui-view-console.adb
+   [Ada]          ada_gui-gnoga-gui-element-canvas-context_2d.adb
+   [Ada]          ada_gui-gnoga-gui-element-form.adb
+   [Ada]          ada_gui-gnoga-server-connection-common.ads
+   [Ada]          ada_gui-gnoga-server.adb
+   [Ada]          ada_gui-gnoga.adb
+/Users/runner/.local/share/alire/builds/simple_components_4.68.0_da9b0f3a/51daa0112412a77162cdd64b4e30b9d9c063e453a7bd7766c0b3e76c92091743/sqlite-sources/sqlite3.c: In function 'sqlite3DefaultRowEst':
+/Users/runner/.local/share/alire/builds/simple_components_4.68.0_da9b0f3a/51daa0112412a77162cdd64b4e30b9d9c063e453a7bd7766c0b3e76c92091743/sqlite-sources/sqlite3.c:109169:3: warning: this 'if' clause does not guard... [-Wmisleading-indentation]
+109169 |   if( pIdx->pPartIdxWhere!=0 ) a[0] -= 10;  assert( 10==sqlite3LogEst(2) );
+       |   ^~
+In file included from /Users/runner/.local/share/alire/builds/simple_components_4.68.0_da9b0f3a/51daa0112412a77162cdd64b4e30b9d9c063e453a7bd7766c0b3e76c92091743/sqlite-sources/sqlite3.c:13475:
+/Users/runner/.local/share/alire/builds/simple_components_4.68.0_da9b0f3a/51daa0112412a77162cdd64b4e30b9d9c063e453a7bd7766c0b3e76c92091743/sqlite-sources/sqlite3.c:109169:45: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'if'
+109169 |   if( pIdx->pPartIdxWhere!=0 ) a[0] -= 10;  assert( 10==sqlite3LogEst(2) );
+       |                                             ^~~~~~
+/Users/runner/.local/share/alire/builds/simple_components_4.68.0_da9b0f3a/51daa0112412a77162cdd64b4e30b9d9c063e453a7bd7766c0b3e76c92091743/sqlite-sources/sqlite3.c:109170:3: warning: this 'if' clause does not guard... [-Wmisleading-indentation]
+109170 |   if( a[0]<33 ) a[0] = 33;                  assert( 33==sqlite3LogEst(10) );
+       |   ^~
+/Users/runner/.local/share/alire/builds/simple_components_4.68.0_da9b0f3a/51daa0112412a77162cdd64b4e30b9d9c063e453a7bd7766c0b3e76c92091743/sqlite-sources/sqlite3.c:109170:45: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'if'
+109170 |   if( a[0]<33 ) a[0] = 33;                  assert( 33==sqlite3LogEst(10) );
+       |                                             ^~~~~~
+   [Ada]          ada_gui-gnoga-gui-element-canvas.adb
+   [Ada]          ada_gui.adb
+   [Ada]          ada_gui-gnoga-colors.adb
+   [Ada]          ada_gui-gnoga-gui-element-common.adb
+Build Libraries
+   [gprlib]       Ada_GUI.lexch
+   [archive]      libAda_GUI.a
+   [index]        libAda_GUI.a
+Bind
+   [gprbind]      qplt.bexch
+   [Ada]          qplt.ali
+Link
+   [archive]      libqplt.a
+   [index]        libqplt.a
+   [link]         qplt.adb
+
+qplt=20230720.0.0 successfully retrieved and built.
+Dependencies were solved as follows:
+
+   +  ada_gui           20240224.0.1 (new)
+   +b gnat              14.2.1       (new,gnat_native,binary)
+   +b libgnutls         3.8.9        (new,indirect,system package)
+   +  pragmarc          20240323.0.0 (new)
+   +  simple_components 4.68.0       (new,indirect)
+   +b ssl               3.5.0        (new,system package)
+   +b unixodbc          2.3.12       (new,indirect,system package)
+Found declared GPR file: qplt.gpr

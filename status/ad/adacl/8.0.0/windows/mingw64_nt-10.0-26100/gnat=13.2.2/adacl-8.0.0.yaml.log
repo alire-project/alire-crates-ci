@@ -1,0 +1,221 @@
+Test ran at 2026-09-22 13:07:58.873415+00:00
+
+SOLUTION:
+adacl=8.0.0: AdaCL: SPARK gold core shared by desktop, embedded and bare-metal
+Origin: source archive adacl-8.0.0.tgz at https://sourceforge.net/projects/adacl/files/Alire/adacl-8.0.0.tgz with hashes sha256:99495ecbf9ef78e4ebea5dd2e6fb61b13de71284b522feaf2e2d1ae829efd80b, sha512:572d2db8a56819d9610eb5ba8f575b6a74f7e0a320c84076fcedc1928041f6d9fb79afe2bfbbbda2e2f9f95b9f12703cb71e5919019db4dd7c0ff66277de89d8
+Properties:
+   case OS is
+      when Linux => Test run: /bin/bash ci-verify.sh (from ${CRATE_ROOT}/.)
+      when Macos => Test run: /bin/bash ci-verify.sh (from ${CRATE_ROOT}/.)
+      when Windows => Test run: powershell -ExecutionPolicy Bypass -File ci-verify.ps1 (from ${CRATE_ROOT}/.)
+      when others => (empty)
+   Author: Martin Krischik <krischik@users.sourceforge.net>
+   Build Switches: 
+   Description: AdaCL: SPARK gold core shared by desktop, embedded and bare-metal
+   License: GPL-3.0-or-later
+   Long_Description: Ada Class Library core crate for Ada 2022.
+
+`adacl` is the shared root of the AdaCL family. It is suitable for both
+embedded and desktop targets and is proven to SPARK gold. The former
+desktop utilities no longer live here; they were moved to `adacl_desktop`
+in 8.0.0.
+
+Sister crates:
+
+- [adacl_aunit](https://alire.ada.dev/crates/adacl_aunit) - AUnit-compatible assertions and parameterised tests
+- [adacl_desktop](https://alire.ada.dev/crates/adacl_desktop) - Getopt, strings, calendar, tracing, queues, and smart pointers
+- [adacl_eastrings](https://alire.ada.dev/crates/adacl_eastrings) - encoding-aware string utilities
+- [adacl_embedded](https://alire.ada.dev/crates/adacl_embedded) - lightweight tracing and text I/O for embedded targets
+- [adacl_regexp](https://alire.ada.dev/crates/adacl_regexp) - regular expressions and SPITBOL patterns
+- [adacl_sar](https://alire.ada.dev/crates/adacl_sar) - search and replace for String, Wide_String, and Wide_Wide_String
+- [adacl_serial](https://alire.ada.dev/crates/adacl_serial) - SPARK-friendly serial I/O helpers over GNAT.Serial_Communications
+
+Source: [SourceForge](https://sourceforge.net/p/adacl/git/ci/master/tree/adacl/src/)
+Documentation: [GNATdoc](https://adacl.sourceforge.net/gnatdoc/adacl/index.html)
+
+   Maintainer: Martin Krischik <krischik@users.sourceforge.net>
+   Maintainers_Logins: krischik
+   Name: adacl
+   Notes: Breaking change in 8.0.0: AdaCL has been split.
+
+`adacl` is now the SPARK-proven common foundation used by both desktop and
+embedded crates. The previous desktop API (Getopt, Strings, Calendar,
+Tracing, Protected Queue, Smart Pointers) lives in `adacl_desktop`.
+
+Applications that used those utilities must replace the old dependency:
+
+    [[depends-on]]
+    adacl = "^7.2"
+
+with:
+
+    [[depends-on]]
+    adacl_desktop = "^8.0"
+
+`adacl_desktop` depends on `adacl`. Keep a direct `adacl` dependency only
+when the shared core is all you need.
+
+   Tag: library
+   Tag: embedded
+   Tag: spark
+   Tag: ada2022
+   Version: 8.0.0
+   Website: https://adacl.sourceforge.net/
+
+
+LOG:
+=== Ada CI Verification ===
+=== adacl_prove ===
+Directory: prove
+Updating dependencies...
+Dependencies automatically updated as follows:
+
+   +. adacl     8.0.0  (new,path=..)
+   +b gnatprove 16.1.0 (new,binary)
+Note: Deploying gnatprove=16.1.0...
+
+#=#=#                                                                          
+                                                                           0.0%
+                                                                           1.1%
+#                                                                          1.8%
+#                                                                          1.9%
+#                                                                          2.0%
+#                                                                          2.7%
+##                                                                         3.7%
+###                                                                        5.1%
+###                                                                        5.6%
+####                                                                       6.5%
+#####                                                                      7.3%
+#####                                                                      8.2%
+######                                                                     9.0%
+######                                                                     9.3%
+#######                                                                    9.9%
+#######                                                                   11.0%
+#########                                                                 12.7%
+#########                                                                 13.2%
+##########                                                                14.2%
+##########                                                                14.7%
+###########                                                               15.4%
+###########                                                               15.8%
+###########                                                               16.4%
+############                                                              17.5%
+#############                                                             18.4%
+##############                                                            19.8%
+##############                                                            20.4%
+###############                                                           22.0%
+################                                                          23.0%
+#################                                                         23.9%
+#################                                                         24.4%
+##################                                                        25.4%
+##################                                                        26.0%
+###################                                                       27.3%
+####################                                                      28.1%
+#####################                                                     29.2%
+#####################                                                     30.4%
+######################                                                    31.4%
+######################                                                    31.9%
+#######################                                                   32.3%
+#######################                                                   32.8%
+#######################                                                   33.1%
+########################                                                  33.4%
+########################                                                  34.1%
+#########################                                                 34.9%
+#########################                                                 35.9%
+##########################                                                36.7%
+###########################                                               38.4%
+###########################                                               38.6%
+#############################                                             40.5%
+##############################                                            41.9%
+##############################                                            42.5%
+###############################                                           43.3%
+###############################                                           44.1%
+################################                                          45.7%
+#################################                                         46.8%
+##################################                                        47.4%
+##################################                                        48.0%
+###################################                                       49.1%
+###################################                                       49.6%
+####################################                                      51.1%
+#####################################                                     51.4%
+#####################################                                     51.5%
+#####################################                                     51.6%
+#####################################                                     52.2%
+######################################                                    53.3%
+#######################################                                   54.9%
+#######################################                                   55.1%
+#######################################                                   55.2%
+########################################                                  55.6%
+########################################                                  56.9%
+#########################################                                 57.8%
+##########################################                                58.7%
+##########################################                                59.3%
+###########################################                               60.6%
+############################################                              62.1%
+#############################################                             63.0%
+##############################################                            64.0%
+##############################################                            64.6%
+##############################################                            65.3%
+###############################################                           66.1%
+################################################                          66.9%
+################################################                          67.8%
+#################################################                         68.1%
+#################################################                         69.2%
+##################################################                        69.8%
+##################################################                        70.4%
+##################################################                        70.6%
+###################################################                       70.9%
+###################################################                       71.6%
+####################################################                      73.5%
+######################################################                    75.2%
+######################################################                    76.3%
+#######################################################                   77.3%
+########################################################                  79.0%
+#########################################################                 79.9%
+##########################################################                80.8%
+##########################################################                81.1%
+###########################################################               81.9%
+###########################################################               82.6%
+############################################################              83.5%
+############################################################              84.4%
+############################################################              84.5%
+##############################################################            86.7%
+###############################################################           87.7%
+###############################################################           88.3%
+################################################################          89.2%
+################################################################          90.0%
+#################################################################         91.1%
+##################################################################        91.8%
+##################################################################        93.0%
+###################################################################       93.6%
+####################################################################      95.4%
+####################################################################      95.5%
+####################################################################      95.5%
+####################################################################      95.7%
+#####################################################################     96.1%
+######################################################################    97.3%
+######################################################################    98.3%
+######################################################################## 100.0%
+Building with validation...
+Note: Building adacl_prove=8.0.0/adacl_prove.gpr...
+"..\obj\validation" created
+"..\lib\validation" created
+"obj\validation" created
+"bin\validation" created
+[Ada Compile]     adacl.ads
+[Ada Compile]     adacl_config.ads
+[Ada Compile]     dummy-main.adb
+[Ada Compile]     dummy.ads
+[Archive]         libAdaCL.a
+[Ada Bind]        dummy-main
+[Ada Post-Bind]   b__dummy-main.adb
+[Link]            dummy-main.exe
+Success: Build finished successfully in 2.13 seconds.
+Running GNATprove...
+Phase 1 of 3: generation of data representation information ...
+Phase 2 of 3: generation of Global contracts ...
+Phase 3 of 3: flow analysis and proof ...
+Summary logged in D:\a\alire-crates-ci\alire-crates-ci\test\9c494a5f-3392-4975-a8e2-eba95ea4de90\adacl_8.0.0_99495ecb\prove\obj\validation\gnatprove\gnatprove.out
+SUCCESS: adacl_prove
+--------------------------------------------------
+All steps completed.
+[alr test] Test completed SUCCESSFULLY

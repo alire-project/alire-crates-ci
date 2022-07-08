@@ -1,0 +1,152 @@
+Test ran at 2024-12-30 13:28:44.591387+00:00
+
+SOLUTION:
+sdlada=2.5.20: Ada 2012 SDL 2.x bindings.
+Origin: commit cd53c280e95697ad7f1b2151f1bad68742a0e7b8 from https://github.com/Lucretia/sdlada.git
+Properties:
+   Pre_Build run: ${CRATE_DIR}/./make -C ./build/gnat tools
+   Author: Luke A. Guest
+   Description: Ada 2012 SDL 2.x bindings.
+   case Distribution is
+      when Msys2 => Environment: C_INCLUDE_PATH=${C_INCLUDE_PATH}:${DISTRIB_ROOT}/mingw64/include/SDL2
+   GPR Scenario: SDL_MODE := debug | release
+   GPR Scenario: SDL_PLATFORM := linux | bsd | windows | macosx | macos_homebrew | macos_ports | ios | android
+   case OS is
+      when Linux => GPR External: SDL_PLATFORM := linux
+      when Macos => GPR External: SDL_PLATFORM := macosx
+      when Windows => GPR External: SDL_PLATFORM := windows
+   License: Zlib
+   Maintainer: Luke A. Guest <laguest@archeia.com>
+   Maintainers_Logins: Lucretia
+   Name: sdlada
+   Project_File: build/gnat/sdlada.gpr
+   Tag: gamedev
+   Tag: games
+   Tag: portable
+   Tag: cross-platform
+   Version: 2.5.20
+   Website: https://github.com/Lucretia/sdlada
+Dependencies (direct):
+   libsdl2^2.0.0
+   libsdl2_image^2.0.0
+   libsdl2_mixer^2.0.0
+   libsdl2_ttf^2.0.0
+   make*
+Dependencies (solution):
+   libsdl2=2.26.5
+   libsdl2_image=2.6.3
+   libsdl2_mixer=2.6.2
+   libsdl2_ttf=2.20.1
+   make=4.3.0
+Dependencies (graph):
+   sdlada=2.5.20 --> libsdl2=2.26.5 (^2.0.0)     
+   sdlada=2.5.20 --> libsdl2_image=2.6.3 (^2.0.0)
+   sdlada=2.5.20 --> libsdl2_mixer=2.6.2 (^2.0.0)
+   sdlada=2.5.20 --> libsdl2_ttf=2.20.1 (^2.0.0) 
+   sdlada=2.5.20 --> make=4.3.0 (*)              
+
+
+LOG:
+Note: Deploying sdlada=2.5.20...
+Note: Deploying libsdl2=2.26.5...
+Note: Deploying libsdl2_image=2.6.3...
+Note: Deploying libsdl2_mixer=2.6.2...
+Note: Deploying libsdl2_ttf=2.20.1...
+Note: Deploying make=4.3.0...
+Note: Running pre_build actions for sdlada=2.5.20...
+make: Entering directory '/home/runner/work/alire-crates-ci/alire-crates-ci/test/9492284f-8e33-4975-828b-0fd0cdd9657c/sdlada_2.5.20_cd53c280/build/gnat'
+mkdir -p gen/src/
+gprbuild -p -gnat2012 -XSDL_MODE=debug -XSDL_PLATFORM=linux \
+	-Ptools.gpr
+Setup
+   [mkdir]        object directory for project Tools
+Compile
+   [Ada]          gen_keyboard.adb
+   [Ada]          scancodes.ads
+   [Ada]          utils.adb
+Bind
+   [gprbind]      gen_keyboard.bexch
+   [Ada]          gen_keyboard.ali
+Link
+   [link]         gen_keyboard.adb
+./gen/debug/tools/gen_keyboard > gen/src/sdl-events-keyboards.ads
+make: Leaving directory '/home/runner/work/alire-crates-ci/alire-crates-ci/test/9492284f-8e33-4975-828b-0fd0cdd9657c/sdlada_2.5.20_cd53c280/build/gnat'
+Note: Building sdlada/build/gnat/sdlada.gpr...
+Setup
+   [mkdir]        object directory for project SDLAda
+Compile
+   [C]            version_ttf.c
+   [C]            version_images.c
+   [C]            version.c
+   [Ada]          sdl-ttfs-versions.adb
+   [Ada]          sdl-ttfs.adb
+   [Ada]          sdl-ttfs-makers.adb
+   [Ada]          sdl-images.adb
+   [Ada]          sdl-images-io.adb
+   [Ada]          sdl-images-versions.adb
+   [Ada]          sdl-video-surfaces.adb
+   [Ada]          sdl-video-windows-makers.adb
+   [Ada]          sdl-video-windows-manager.adb
+   [Ada]          sdl-video-textures.adb
+   [Ada]          sdl-video-textures-makers.adb
+   [Ada]          sdl-video-pixel_formats.adb
+   [Ada]          sdl-video-renderers.adb
+   [Ada]          sdl-video-rectangles.adb
+   [Ada]          sdl-video-renderers-makers.adb
+   [Ada]          sdl-video.adb
+   [Ada]          sdl-video-gl.adb
+   [Ada]          sdl-video-palettes.adb
+   [Ada]          sdl-video-displays.adb
+   [Ada]          sdl-video-windows.adb
+   [Ada]          sdl-video-pixels.ads
+   [Ada]          sdl-video-surfaces-makers.adb
+   [Ada]          sdl-rwops-streams.adb
+   [Ada]          sdl-rwops.adb
+   [Ada]          sdl-inputs-joysticks.adb
+   [Ada]          sdl-inputs.ads
+   [Ada]          sdl-inputs-mice.adb
+   [Ada]          sdl-inputs-joysticks-game_controllers.adb
+   [Ada]          sdl-inputs-joysticks-makers.adb
+   [Ada]          sdl-inputs-keyboards.adb
+   [Ada]          sdl-inputs-joysticks-game_controllers-makers.adb
+   [Ada]          sdl-inputs-mice-cursors.adb
+   [Ada]          sdl-events.ads
+   [Ada]          sdl-events-joysticks-game_controllers.adb
+   [Ada]          sdl-events-controllers.ads
+   [Ada]          sdl-events-windows.ads
+   [Ada]          sdl-events-mice.ads
+   [Ada]          sdl-events-keyboards.adb
+   [Ada]          sdl-events-touches.ads
+   [Ada]          sdl-events-events.adb
+   [Ada]          sdl-events-joysticks.adb
+   [Ada]          sdl-events-files.ads
+   [Ada]          sdl-audio-sample_formats.ads
+   [Ada]          sdl-audio.adb
+   [Ada]          sdl-audio-devices.adb
+   [Ada]          sdl-c_pointers.ads
+   [Ada]          sdl.adb
+   [Ada]          sdl-versions.adb
+   [Ada]          sdl-log.adb
+   [Ada]          sdl-clipboard.adb
+   [Ada]          sdl-hints.adb
+   [Ada]          sdl-cpus.adb
+   [Ada]          sdl-timers.ads
+   [Ada]          sdl-error.adb
+   [Ada]          sdl-power.adb
+   [Ada]          sdl-libraries.adb
+   [Ada]          sdl-platform.adb
+Build Libraries
+   [gprlib]       sdlada.lexch
+   [archive]      libsdlada.a
+   [index]        libsdlada.a
+Build finished successfully in 4.56 seconds.
+
+sdlada=2.5.20 successfully retrieved and built.
+Dependencies were solved as follows:
+
+   + libsdl2       2.26.5 (new)
+   + libsdl2_image 2.6.3  (new)
+   + libsdl2_mixer 2.6.2  (new)
+   + libsdl2_ttf   2.20.1 (new)
+   + make          4.3.0  (new)
+Found declared GPR file: build/gnat/sdlada.gpr

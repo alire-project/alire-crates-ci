@@ -1,0 +1,111 @@
+Test ran at 2025-02-03 12:37:12.557062+00:00
+
+SOLUTION:
+matreshka_spikedog_api=21.0.0: Web-application server. API library
+Origin: commit 2b70f85edf6c8ebc980d54c9b0e918ebaa0a4535 from https://github.com/reznikmm/matreshka-alire
+Properties:
+   Author: Vadim Godunko
+   Description: Web-application server. API library
+   License: BSD-3-Clause
+   Maintainer: Vadim Godunko <vgodunko@gmail.com>
+   Maintainer: Maxim Reznik <reznikmm@gmail.com>
+   Maintainers_Logins: godunko
+   Maintainers_Logins: reznikmm
+   Name: matreshka_spikedog_api
+   Project_File: build_matreshka_spikedog_api.gpr
+   Tag: web
+   Tag: servlet
+   Version: 21.0.0
+   Website: https://github.com/godunko/matreshka
+Dependencies (direct):
+   matreshka_league21.0.0
+   matreshka_servlet21.0.0
+Dependencies (solution):
+   gnat=13.1.0 (gnat_native) (installed)
+   make=3.81.0
+   matreshka_league=21.0.0
+   matreshka_servlet=21.0.0
+Dependencies (graph):
+   matreshka_league=21.0.0       --> gnat=13.1.0 (gnat_native) (<2000)
+   matreshka_league=21.0.0       --> make=3.81.0 (*)                  
+   matreshka_servlet=21.0.0      --> matreshka_league=21.0.0 (21.0.0) 
+   matreshka_spikedog_api=21.0.0 --> matreshka_league=21.0.0 (21.0.0) 
+   matreshka_spikedog_api=21.0.0 --> matreshka_servlet=21.0.0 (21.0.0)
+
+
+LOG:
+Note: Deploying matreshka_spikedog_api=21.0.0...
+Note: Deploying make=3.81.0...
+Note: Deploying matreshka_league=21.0.0...
+#=#=#                                                                          
+##O#-#                                                                         
+
+                                                                           0.1%
+########                                                                  12.3%
+####################                                                      28.5%
+###################################                                       49.4%
+#######################################################                   77.1%
+######################################################################## 100.0%
+Note: Running post_fetch actions for matreshka_league=21.0.0...
+gnatmake -p -j0  -Pgnat/tools_configure.gpr
+Setup
+   [mkdir]        object directory for project Tools_Configure
+Compile
+   [Ada]          configure-driver.adb
+   [Ada]          configure.adb
+   [Ada]          configure-architecture.adb
+   [Ada]          configure-instantiate.adb
+   [Ada]          configure-internals.adb
+   [Ada]          configure-rtl_version.adb
+   [Ada]          configure-tests.ads
+   [Ada]          configure-tests-asis.adb
+   [Ada]          configure-tests-aws.adb
+   [Ada]          configure-tests-firebird.adb
+   [Ada]          configure-tests-gprbuild.adb
+   [Ada]          configure-tests-install.adb
+   [Ada]          configure-tests-installation_directories.adb
+   [Ada]          configure-tests-modules.ads
+   [Ada]          configure-tests-modules-amf.adb
+   [Ada]          configure-tests-mysql.adb
+   [Ada]          configure-tests-oci.adb
+   [Ada]          configure-tests-operating_system.adb
+   [Ada]          configure-tests-postgresql.adb
+   [Ada]          configure-tests-sqlite3.adb
+   [Ada]          configure-tests-valgrind.adb
+   [Ada]          configure-version.adb
+   [Ada]          configure-builder.adb
+   [Ada]          configure-abstract_tests.adb
+   [Ada]          configure-pkg_config.adb
+   [Ada]          configure-component_switches.adb
+Bind
+   [gprbind]      configure-driver.bexch
+   [Ada]          configure-driver.ali
+Link
+   [link]         configure-driver.adb
+-macosx_version_min has been renamed to -macos_version_min
+./configure
+[os        ] detecting target operating system...: MacOS
+[gprbuild  ] looking for GPRbuild...: /Users/runner/.config/alire/cache/dependencies/gprbuild_22.0.1_b1220e2b/bin/gprbuild
+[gprbuild  ] checking GPRbuild version...: ok
+[gprbuild  ] looking for GPRinstall...: /Users/runner/.config/alire/cache/dependencies/gprbuild_22.0.1_b1220e2b/bin/gprinstall
+[asis      ] checking whether ASIS library is available...: no
+[aws       ] checking whether AWS library is available...: no
+[modules   ] checking whether to build AMF module...: yes
+[mysql     ] checking whether to build MySQL module...: no (mysql_config not found)
+configure: (info) MySQL driver module is disabled
+[oci       ] checking whether to build Oracle module...: no (not found)
+configure: (info) Oracle driver module is disabled
+[postgresql] checking whether to build PostgreSQL module...
+
+raised GNAT.EXPECT.INVALID_PROCESS : g-expect.adb:1129
+make: *** [reconfig] Error 1
+stderr: Command ["make", "reconfig"] exited with code 2
+stderr: ALIRE.CHECKED_ERROR
+stderr: Command ["make", "reconfig"] exited with code 2
+stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
+Load address: 0x102f7c000
+Call stack traceback locations:
+0x103884415 0x103557e83 0x10355d729 0x10355e909 0x10355dd1b 0x1036cf299 0x1036cffd4 0x1036e6873 0x103732dc1 0x1037313c2 0x1036e69b8 0x1036d0346 0x102fec1cf 0x102ff101c 0x10307705c 0x1030823b8 0x102f7d605 0x102f80914
+
+stderr: A post-fetch action failed, re-run with -vv -d for details
+ERROR: A post-fetch action failed, re-run with -vv -d for details

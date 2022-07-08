@@ -1,0 +1,316 @@
+badge: false
+crate: adacl_aunit
+creation_timestamp: 1790211681.4941812
+distro: mingw64_nt-10.0-26100
+duration: 6.704000000000178
+gnat: 11.2.4
+last_attempt: 2026-09-24 01:34:06.463920+00:00
+log:
+- 'Test ran at 2026-09-24 01:34:06.463920+00:00
+
+
+  '
+- 'SOLUTION:
+
+  '
+- 'adacl_aunit=8.0.0: AdaCL desktop: Readable AUnit asserts and parameterised tests
+
+  '
+- 'Origin: source archive adacl_aunit-8.0.0.tgz at https://sourceforge.net/projects/adacl/files/Alire/adacl_aunit-8.0.0.tgz
+  with hashes sha256:0347c69c8c1da1b36d6235ff861ccb49479ae65ca4376645e69f41f7e018b1c2,
+  sha512:3ca2a083fe987f6fa2baf8b096fe73eaeb871732a5b0902fa062ca9f6aa1c6d890215e0a8ece4af59856842f25072b7b4385ee4648ef336768498b9c89146247
+
+  '
+- 'Properties:
+
+  '
+- '   Test run: alr test (from ${CRATE_ROOT}/test)
+
+  '
+- '   Author: Martin Krischik <krischik@users.sourceforge.net>
+
+  '
+- "   Build Switches: \n"
+- '   Description: AdaCL desktop: Readable AUnit asserts and parameterised tests
+
+  '
+- '   License: GPL-3.0-or-later
+
+  '
+- '   Long_Description: A versatile Ada 2022 testing library, enhancing AUnit with
+  readable assertions and
+
+  '
+- 'parameterised tests.
+
+  '
+- '
+
+  '
+- '## Features
+
+  '
+- '
+
+  '
+- '### AUnit-Compatible Assertions
+
+  '
+- '
+
+  '
+- '  - Generic support for access, array, discrete, floating-point, fixed-point, decimal,
+  vector types, and files.
+
+  '
+- '  - **Readable Error Messages**: Assertions provide detailed feedback.
+
+  '
+- '
+
+  '
+- 'Example for unbounded strings:
+
+  '
+- '
+
+  '
+- '```ada
+
+  '
+- '    procedure Equal
+
+  '
+- "       (Actual\t : Ada.Strings.Unbounded.Unbounded_String;\n"
+- "\tExpected : String;\n"
+- "\tName\t : String;\n"
+- "\tSource\t : String  := GNAT.Source_Info.File;\n"
+- "\tLine\t : Natural := GNAT.Source_Info.Line)\n"
+- '    is
+
+  '
+- '       use Ada.Strings.Unbounded;
+
+  '
+- '    begin
+
+  '
+- '       if not (Actual = Expected) then
+
+  '
+- "\t  Report_Assertion\n"
+- "\t     (Message => \"In string \xC2\xAB\" & Name & \"\xC2\xBB the \" & Actual'Image\
+  \ & \" is not equal to \" & Expected'Image,\n"
+- "\t      Source  => Source,\n"
+- "\t      Line    => Line);\n"
+- '       end if;
+
+  '
+- '    end Equal;
+
+  '
+- '```
+
+  '
+- '
+
+  '
+- 'This yields clear, context-rich error messages, surpassing standard AUnit
+
+  '
+- 'output.
+
+  '
+- '
+
+  '
+- '## Parameterised Tests
+
+  '
+- '
+
+  '
+- 'Run the same test with varied inputs and expected values, boosting coverage
+
+  '
+- 'efficiently.
+
+  '
+- '
+
+  '
+- 'Example from hp41cx_tools:
+
+  '
+- '
+
+  '
+- '```ada
+
+  '
+- 'overriding procedure Register_Tests (T : in out Test_Case) is
+
+  '
+- '   pragma Debug (AdaCL.Trace.Entering (In_Parameter => T.Name.all''Image));
+
+  '
+- 'begin
+
+  '
+- "   T.Parameter.Register_Routine (T, Test_To_HP_Duration_01'Access, \"WAKE_UP\"\
+  ,\t   \"2024-12-01 08:00:00\",   [3, 9, 4, 2, 0, 2, 8, 8, 0, 0, 0], 3942028800.0);\n"
+- "   T.Parameter.Register_Routine (T, Test_To_HP_Duration_01'Access, \"^LBLTEST\"\
+  ,\t   \"2025-07-22 12:00:00\",   [3, 9, 6, 2, 1, 7, 4, 4, 0, 0, 0], 3962174400.0);\n"
+- "   T.Parameter.Register_Routine (T, Test_To_HP_Duration_01'Access, \"TONE\",\t\
+  \   \"2025-11-12 09:12:34\",   [3, 9, 7, 1, 9, 2, 7, 5, 5, 4, 0], 3971927554.0);\n"
+- "   T.Parameter.Register_Routine (T, Test_To_HP_Duration_01'Access, \"FRACTION\"\
+  ,\t   \"2025-11-12 09:12:34.5\", [3, 9, 7, 1, 9, 2, 7, 5, 5, 4, 5], 3971927554.5);\n"
+- "   T.Parameter.Register_Routine (T, Test_To_HP_Duration_01'Access, \"REPEAT24\"\
+  ,\t   \"24:00:00\",\t\t    [0, 0, 0, 0, 0, 8, 6, 4, 0, 0, 0], 0000086400.0);\n"
+- "   T.Parameter.Register_Routine (T, Test_To_HP_Duration_01'Access, \"REPEAT'First\"\
+  , \"0000:00:01.0\",\t    [0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0], 0000000010.0);\n"
+- "   T.Parameter.Register_Routine (T, Test_To_HP_Duration_01'Access, \"REPEAT'Last\"\
+  ,  \"9999:59:59.9\",\t    [0, 0, 3, 5, 9, 9, 9, 9, 9, 9, 9], 0035999999.9);\n"
+- '   pragma Debug (AdaCL.Trace.Exiting);
+
+  '
+- '   return;
+
+  '
+- 'end Register_Tests;
+
+  '
+- '```
+
+  '
+- '
+
+  '
+- 'Registering tests multiple times with different data enhances test coverage
+
+  '
+- 'without redundant code.
+
+  '
+- '
+
+  '
+- 'Source: [SourceForge](https://sourceforge.net/p/adacl/git/ci/master/tree/adacl_aunit/test/src/)
+
+  '
+- 'Documentation: [GNATdoc](https://adacl.sourceforge.net/gnatdoc/adacl_aunit_test/index.html)
+
+  '
+- '
+
+  '
+- '   Maintainer: Martin Krischik <krischik@users.sourceforge.net>
+
+  '
+- '   Maintainers_Logins: krischik
+
+  '
+- '   Name: adacl_aunit
+
+  '
+- '   Tag: library
+
+  '
+- '   Tag: aunit
+
+  '
+- '   Tag: assert
+
+  '
+- '   Tag: ada2022
+
+  '
+- '   Version: 8.0.0
+
+  '
+- '   Website: https://sourceforge.net/projects/adacl_aunit/
+
+  '
+- 'Dependencies (direct):
+
+  '
+- '   adacl^8.0
+
+  '
+- '   adacl_desktop^8.0
+
+  '
+- '   aunit^26.0.0
+
+  '
+- 'Dependencies (solution):
+
+  '
+- '   adacl=8.0.0
+
+  '
+- '   adacl_desktop=8.0.0
+
+  '
+- '   aunit=26.0.0
+
+  '
+- 'Dependencies (graph):
+
+  '
+- '   adacl_aunit=8.0.0   --> adacl=8.0.0 (^8.0)
+
+  '
+- '   adacl_aunit=8.0.0   --> adacl_desktop=8.0.0 (^8.0)
+
+  '
+- '   adacl_aunit=8.0.0   --> aunit=26.0.0 (^26.0.0)
+
+  '
+- '   adacl_desktop=8.0.0 --> adacl=8.0.0 (^8.0)
+
+  '
+- '
+
+  '
+- '
+
+  LOG:
+
+  '
+- 'Note: Synchronizing workspace...
+
+  '
+- 'Dependencies automatically updated as follows:
+
+  '
+- '
+
+  '
+- '   +  adacl         8.0.0  (new)
+
+  '
+- '   +. adacl_aunit   8.0.0  (new,path=..)
+
+  '
+- '   +  adacl_desktop 8.0.0  (new,indirect)
+
+  '
+- '   +  aunit         26.0.0 (new,indirect)
+
+  '
+- '
+
+  '
+- 'ERROR: Local test of adacl_aunit_test=8.0.0 failed:
+
+  '
+- 'ERROR:    Check alire\alr_test_local.log for details.
+
+  '
+- '[alr test] Test action exited with error code 1
+
+  '
+platform: windows
+status: failing
+version: 8.0.0

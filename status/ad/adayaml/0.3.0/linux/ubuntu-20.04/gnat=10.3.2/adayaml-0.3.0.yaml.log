@@ -1,4 +1,4 @@
-Test ran at 2022-06-14 00:36:38.385783+00:00
+Test ran at 2022-08-02 00:44:47.620613+00:00
 
 SOLUTION:
 adayaml=0.3.0: Experimental YAML 1.3 implementation in Ada
@@ -26,13 +26,17 @@ Dependencies (solution):
    simple_components=4.42.0
    unixodbc=2.3.7
 Dependencies (graph):
-   adayaml=0.3.0            --> simple_components=4.42.0 (^4.27)        
-   simple_components=4.42.0 --> gnat=10.3.2 (gnat_native) (/=2021 & <11)
-   simple_components=4.42.0 --> libgnutls=3.6.13 (^3.5.8)               
-   simple_components=4.42.0 --> unixodbc=2.3.7 (^2.3)                   
+   adayaml=0.3.0            --> simple_components=4.42.0 (^4.27)                 
+   simple_components=4.42.0 --> gnat=10.3.2 (gnat_native) (<2020 & (<11 | >2000))
+   simple_components=4.42.0 --> libgnutls=3.6.13 (^3.5.8)                        
+   simple_components=4.42.0 --> unixodbc=2.3.7 (^2.3)                            
 
 
 LOG:
+Package gnutls was not found in the pkg-config search path.
+Perhaps you should add the directory containing `gnutls.pc'
+to the PKG_CONFIG_PATH environment variable
+No package 'gnutls' found
 Note: Deploying adayaml=0.3.0...
 #=#=#                                                                         
 ##O#- #                                                                       
@@ -63,7 +67,7 @@ Selecting previously unselected package libgnutls-openssl27:amd64.
 (Reading database ... 90%
 (Reading database ... 95%
 (Reading database ... 100%
-(Reading database ... 235595 files and directories currently installed.)
+(Reading database ... 231739 files and directories currently installed.)
 Preparing to unpack .../0-libgnutls-openssl27_3.6.13-2ubuntu1.6_amd64.deb ...
 Unpacking libgnutls-openssl27:amd64 (3.6.13-2ubuntu1.6) ...
 Selecting previously unselected package libunbound8:amd64.
@@ -115,15 +119,11 @@ Setup
    [mkdir]        object directory for project Yaml
    [mkdir]        library directory for project Yaml
 Compile
-   [ada]          lexer-source-file.adb
-   [ada]          lexer-base.adb
-   [ada]          text.adb
-lexer-source-file.adb:26:09: warning: object designated by anonymous access object might not be finalized until its enclosing library unit goes out of scope
-lexer-source-file.adb:26:09: warning: use named access type instead
-lexer-source-file.adb:26:09: warning: use of an anonymous access type allocator
-lexer-source-file.adb:33:23: warning: accessibility check fails
-lexer-source-file.adb:33:23: warning: Program_Error will be raised at run time
+   [ada]          text-pool.adb
+   [ada]          text-builder.adb
    [ada]          lexer-source-text_io.adb
+   [ada]          lexer-source-file.adb
+   [ada]          text.adb
 +===========================GNAT BUG DETECTED==============================+
 | 10.3.0 (x86_64-pc-linux-gnu) Storage_Error stack overflow or erroneous memory access|
 | Error detected at text.adb:25:15                                         |
@@ -140,18 +140,23 @@ so please double check that the problem can still
 be reproduced with the set of files listed.
 Consider also -gnatd.n switch (see debug.adb).
 
-/home/runner/work/alire-crates-ci/alire-crates-ci/test/8b8ec48a-ab47-4faa-abc6-17f9a2b04d66/adayaml_0.3.0_ab19e387/Parser_Tools/src/implementation/text.adb
-/home/runner/work/alire-crates-ci/alire-crates-ci/test/8b8ec48a-ab47-4faa-abc6-17f9a2b04d66/adayaml_0.3.0_ab19e387/Parser_Tools/src/interface/text.ads
+/home/runner/work/alire-crates-ci/alire-crates-ci/test/3680d1a7-f789-4a40-a9db-3c8da42a78ad/adayaml_0.3.0_ab19e387/Parser_Tools/src/implementation/text.adb
+/home/runner/work/alire-crates-ci/alire-crates-ci/test/3680d1a7-f789-4a40-a9db-3c8da42a78ad/adayaml_0.3.0_ab19e387/Parser_Tools/src/interface/text.ads
 
 compilation abandoned
+lexer-source-file.adb:26:09: warning: object designated by anonymous access object might not be finalized until its enclosing library unit goes out of scope
+lexer-source-file.adb:26:09: warning: use named access type instead
+lexer-source-file.adb:26:09: warning: use of an anonymous access type allocator
+lexer-source-file.adb:33:23: warning: accessibility check fails
+lexer-source-file.adb:33:23: warning: Program_Error will be raised at run time
 
    compilation of text.adb failed
 
 gprbuild: *** compilation phase failed
-stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/8b8ec48a-ab47-4faa-abc6-17f9a2b04d66/adayaml_0.3.0_ab19e387/yaml.gpr"] exited with code 4
-ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/8b8ec48a-ab47-4faa-abc6-17f9a2b04d66/adayaml_0.3.0_ab19e387/yaml.gpr"] exited with code 4
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/3680d1a7-f789-4a40-a9db-3c8da42a78ad/adayaml_0.3.0_ab19e387/yaml.gpr"] exited with code 4
+ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/3680d1a7-f789-4a40-a9db-3c8da42a78ad/adayaml_0.3.0_ab19e387/yaml.gpr"] exited with code 4
 stderr: ALIRE.CHECKED_ERROR
-stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/8b8ec48a-ab47-4faa-abc6-17f9a2b04d66/adayaml_0.3.0_ab19e387/yaml.gpr"] exited with code 4
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/3680d1a7-f789-4a40-a9db-3c8da42a78ad/adayaml_0.3.0_ab19e387/yaml.gpr"] exited with code 4
 stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
 [/home/runner/work/alire-crates-ci/alire-crates-ci/alire_install/bin/alr]
 0xd65c78 Alire.Raise_Checked_Error at alire.adb:251
@@ -173,7 +178,7 @@ stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
 0x42b9ca Alr.Main at alr-main.adb:10
 0x42e297 Main at b__alr-main.adb:2132
 [/lib/x86_64-linux-gnu/libc.so.6]
-0x7f0f8e5b5081
+0x7fcf0bf1b081
 [/home/runner/work/alire-crates-ci/alire-crates-ci/alire_install/bin/alr]
 0x42b8a8 _start at ???
 0xfffffffffffffffe

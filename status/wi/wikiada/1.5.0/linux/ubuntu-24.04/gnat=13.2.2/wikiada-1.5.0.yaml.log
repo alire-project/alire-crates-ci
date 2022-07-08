@@ -1,0 +1,168 @@
+Test ran at 2026-07-14 00:57:09.206331+00:00
+
+SOLUTION:
+wikiada=1.5.0: Parser and renderer for Markdown and other wiki syntaxes
+Origin: commit 3e5dac64f570d60d8e8f9b078a1efabead129244 from https://gitlab.com/stcarrez/ada-wiki.git
+Properties:
+   Author: Stephane.Carrez@gmail.com
+   Configuration: no modifiers
+   Description: Parser and renderer for Markdown and other wiki syntaxes
+   GPR Scenario: WIKI_BUILD := distrib | debug | optimize | profile | coverage
+   GPR Scenario: WIKI_LIBRARY_TYPE := relocatable | static | static-pic
+   License: Apache-2.0
+   Long_Description: [![Build Status](https://img.shields.io/endpoint?url=https://porion.vacs.fr/porion/api/v1/projects/ada-wiki/badges/build.json)](https://porion.vacs.fr/porion/projects/view/ada-wiki/summary)
+[![Test Status](https://img.shields.io/endpoint?url=https://porion.vacs.fr/porion/api/v1/projects/ada-wiki/badges/tests.json)](https://porion.vacs.fr/porion/projects/view/ada-wiki/xunits)
+[![Coverage](https://img.shields.io/endpoint?url=https://porion.vacs.fr/porion/api/v1/projects/ada-wiki/badges/coverage.json)](https://porion.vacs.fr/porion/projects/view/ada-wiki/summary)
+
+Ada Wiki is a small library that provides a parser and renderer for Markdown and several
+other Wiki syntaxes.  The library allows to:
+
+* Parse a Markdown text but other Wiki such as Mediawiki, Creole, PhpBB, Dotclear and Google Code,
+* Parse HTML content in embedded wiki text,
+* Filter out the wiki, HTML or text through customizable filters,
+* Render the wiki text in HTML, text or another wiki format
+
+The Ada Wiki library is used by [Ada Web Application](https://gitlab.com/stcarrez/ada-awa)
+for the implementation of the blog and wiki online plugins and by [mdshow](https://gitlab.com/stcarrez/mdshow) a terminal based
+Markdown viewer.
+
+
+   Maintainer: Stephane.Carrez@gmail.com
+   Maintainers_Logins: stcarrez
+   Name: wikiada
+   Project_File: wikiada.gpr
+   Tag: wiki-engine
+   Tag: markdown
+   Tag: mediawiki
+   Tag: dotclear
+   Tag: html
+   Tag: parser
+   Tag: renderer
+   Version: 1.5.0
+   Website: https://gitlab.com/stcarrez/ada-wiki
+Dependencies (direct):
+   utilada^2.8.0
+Dependencies (solution):
+   utilada=2.9.0
+Dependencies (graph):
+   wikiada=1.5.0 --> utilada=2.9.0 (^2.8.0)
+
+
+LOG:
+[alr test] Testing wikiada=1.5.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get wikiada=1.5.0
+Note: Deploying wikiada=1.5.0...
+Note: Deploying utilada=2.9.0...
+
+wikiada=1.5.0 successfully retrieved.
+Dependencies were solved as follows:
+
+   + utilada 2.9.0 (new)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building wikiada=1.5.0/wikiada.gpr...
+Setup
+   [mkdir]        object directory for project UtilAda_Core
+   [mkdir]        library directory for project UtilAda_Core
+   [mkdir]        object directory for project UtilAda_Sys
+   [mkdir]        library directory for project UtilAda_Sys
+   [mkdir]        object directory for project WikiAda
+   [mkdir]        library directory for project WikiAda
+Compile
+   [Ada]          util-systems-constants.ads
+   [Ada]          util-systems-types.ads
+   [Ada]          util-systems-io.adb
+   [Ada]          util-systems-os.ads
+   [Ada]          util-properties-basic.adb
+   [Ada]          util-properties.adb
+   [Ada]          util-properties-discrete.adb
+   [Ada]          util-properties-bundles.adb
+   [Ada]          util-log-loggers.adb
+   [Ada]          util-log.adb
+   [Ada]          util-log-appenders-consoles.adb
+   [Ada]          util-log-locations.adb
+   [Ada]          util-log-appenders-files.adb
+   [Ada]          util-log-formatters.adb
+   [Ada]          util-log-appenders-factories.adb
+   [Ada]          util-log-formatters-factories.adb
+   [Ada]          util-log-appenders-formatter.adb
+   [Ada]          util-log-appenders.adb
+   [Ada]          util-log-appenders-rolling_files.adb
+   [Ada]          util-files-walk.adb
+   [Ada]          util-files-rolling.adb
+   [Ada]          util-files.adb
+   [Ada]          util-files-filters.adb
+   [Ada]          util-events.adb
+   [Ada]          util-events-channels.adb
+   [Ada]          util-events-timers.adb
+   [Ada]          util-dates-formats.adb
+   [Ada]          util-dates-rfc7231.adb
+   [Ada]          util-dates-simple_format.adb
+   [Ada]          util-dates-iso8601.adb
+   [Ada]          util-dates.adb
+util-dates-to_ada_time_64.adb:17:43: error: "To_Duration_64" not declared in "Conversions"
+util-dates-to_ada_time_64.adb:19:22: error: "To_Ada_Time_64" not declared in "Conversions"
+
+   compilation of util-dates.adb failed
+
+gprbuild: *** compilation phase failed
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/43e9e958-8b36-4b4c-92a7-dde9c3396815/wikiada_1.5.0_3e5dac64/wikiada.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/43e9e958-8b36-4b4c-92a7-dde9c3396815/wikiada_1.5.0_3e5dac64/wikiada.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+stderr: ALIRE.CHECKED_ERROR
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/43e9e958-8b36-4b4c-92a7-dde9c3396815/wikiada_1.5.0_3e5dac64/wikiada.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
+[/home/runner/work/alire-crates-ci/alire-crates-ci/alire_install/bin/alr]
+0xe75bc6 Alire.Raise_Checked_Error at alire.adb:284
+0xac1a54 Alire.Os_Lib.Subprocess.Checked_Spawn at alire-os_lib-subprocess.adb:111
+0xd40276 Alire.Spawn.Command at alire-spawn.adb:22
+0xd412ee Alire.Spawn.Gprbuild at alire-spawn.adb:68
+0xc748cb Alire.Roots.Build at alire-roots.adb:189
+0xc7301a Alire.Roots.Build at alire-roots.adb:255
+0xc9832b Alire.Roots.Traverse at alire-roots.adb:2143
+0xcfee85 Alire.Solutions.Traverse.Visit at alire-solutions.adb:1472
+0xcfdfcc Alire.Solutions.Traverse at alire-solutions.adb:1555
+0xc9841e Alire.Roots.Traverse at alire-roots.adb:2147
+0xc984dd Alire.Roots.Traverse at alire-roots.adb:2127
+0xc7359b Alire.Roots.Build at alire-roots.adb:286
+0xc736d7 Alire.Roots.Build at alire-roots.adb:114
+0x49aa0d Alr.Commands.Build.Execute at alr-commands-build.adb:145
+0x49a36d Alr.Commands.Build.Execute at alr-commands-build.adb:113
+0x49a51f Alr.Commands.Build.Execute at alr-commands-build.adb:54
+0x53bbcc Alr.Commands.Sub_Cmd.Execute at clic-subcommand-instance.adb:749
+0x5472be Alr.Commands.Execute at alr-commands.adb:632
+0x43d48a Alr.Main at alr-main.adb:13
+0x4403a3 Main at b__alr-main.adb:2445
+[/lib/x86_64-linux-gnu/libc.so.6]
+0x7f627c02a1c8
+0x7f627c02a289
+[/home/runner/work/alire-crates-ci/alire-crates-ci/alire_install/bin/alr]
+0x43d323 _start at ???
+0xfffffffffffffffe
+
+stderr: ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED
+stderr: alire-roots.adb:202
+stderr: raised ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED : alire-roots.adb:202
+[/home/runner/work/alire-crates-ci/alire-crates-ci/alire_install/bin/alr]
+0xc74cc7 Alire.Roots.Build at alire-roots.adb:202
+0xc7301a Alire.Roots.Build at alire-roots.adb:255
+0xc9832b Alire.Roots.Traverse at alire-roots.adb:2143
+0xcfee85 Alire.Solutions.Traverse.Visit at alire-solutions.adb:1472
+0xcfdfcc Alire.Solutions.Traverse at alire-solutions.adb:1555
+0xc9841e Alire.Roots.Traverse at alire-roots.adb:2147
+0xc984dd Alire.Roots.Traverse at alire-roots.adb:2127
+0xc7359b Alire.Roots.Build at alire-roots.adb:286
+0xc736d7 Alire.Roots.Build at alire-roots.adb:114
+0x49aa0d Alr.Commands.Build.Execute at alr-commands-build.adb:145
+0x49a36d Alr.Commands.Build.Execute at alr-commands-build.adb:113
+0x49a51f Alr.Commands.Build.Execute at alr-commands-build.adb:54
+0x53bbcc Alr.Commands.Sub_Cmd.Execute at clic-subcommand-instance.adb:749
+0x5472be Alr.Commands.Execute at alr-commands.adb:632
+0x43d48a Alr.Main at alr-main.adb:13
+0x4403a3 Main at b__alr-main.adb:2445
+[/lib/x86_64-linux-gnu/libc.so.6]
+0x7f627c02a1c8
+0x7f627c02a289
+[/home/runner/work/alire-crates-ci/alire-crates-ci/alire_install/bin/alr]
+0x43d323 _start at ???
+0xfffffffffffffffe
+
+ERROR: Compilation failed.

@@ -1,0 +1,88 @@
+Test ran at 2026-07-26 01:17:21.531731+00:00
+
+SOLUTION:
+pygamer_bsp=1.0.0: Board Support Package for the AdaFruit PyGamer
+Origin: commit 43d69885051ae88b57ba6a64b8ff7fc63eaad67d from https://github.com/Fabien-Chouteau/pygamer-bsp.git
+Properties:
+   Description: Board Support Package for the AdaFruit PyGamer
+   License: BSD-3-Clause
+   Maintainer: fabien.chouteau@gmail.com
+   Maintainers_Logins: Fabien-Chouteau
+   Name: pygamer_bsp
+   Project_File: pygamer_bsp.gpr
+   Tag: embedded
+   Tag: nostd
+   Tag: pygamer
+   Tag: adafruit
+   Tag: game
+   Tag: console
+   Tag: bsp
+   Version: 1.0.0
+Dependencies (direct):
+   cortex_m~0.1.0
+   samd51_hal~0.1.0
+Dependencies (solution):
+   cortex_m=0.1.0
+   hal=0.4.0
+   samd51_hal=0.1.0
+Dependencies (graph):
+   cortex_m=0.1.0    --> hal=0.4.0 (^0.1.0)
+   pygamer_bsp=1.0.0 --> cortex_m=0.1.0 (~0.1.0)
+   pygamer_bsp=1.0.0 --> samd51_hal=0.1.0 (~0.1.0)
+   samd51_hal=0.1.0  --> cortex_m=0.1.0 (^0.1.0)
+   samd51_hal=0.1.0  --> hal=0.4.0 (^0.1.0)
+
+
+LOG:
+[alr test] Testing pygamer_bsp=1.0.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get pygamer_bsp=1.0.0
+Note: Deploying pygamer_bsp=1.0.0...
+Note: Deploying hal=0.4.0...
+Note: Deploying cortex_m=0.1.0...
+#=#=#                                                                          
+##O#-#                                                                         
+
+##################################################################        92.1%
+######################################################################## 100.0%
+Note: Deploying samd51_hal=0.1.0...
+#=#=#                                                                          
+##O#-#                                                                         
+
+##############################################################            87.3%
+######################################################################## 100.0%
+
+pygamer_bsp=1.0.0 successfully retrieved.
+Dependencies were solved as follows:
+
+   + cortex_m   0.1.0 (new)
+   + hal        0.4.0 (new,indirect)
+   + samd51_hal 0.1.0 (new)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building pygamer_bsp=1.0.0/pygamer_bsp.gpr...
+kb: warning: can't find a toolchain for the following configuration: language 'Ada', target 'arm-eabi', runtime 'zfp-cortex-m4f'
+Setup
+   [mkdir]        object directory for project HAL
+   [mkdir]        library directory for project HAL
+   [mkdir]        object directory for project Cortex_M4F
+   [mkdir]        object directory for project ATSAMD51J19A
+   [mkdir]        object directory for project PyGamer_BSP
+hal.gpr:5:24: warning: libraries are not supported on this platform
+ATSAMD51J19A.gpr:4:09: no compiler for language "Ada", cannot compile "sam-device.ads"
+gprbuild: *** compilation phase failed
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/Users/runner/work/alire-crates-ci/alire-crates-ci/test/f93390ef-8e04-4d44-b0a7-aa5231e51c8d/pygamer_bsp_1.0.0_43d69885/pygamer_bsp.gpr", "-cargs:Ada", "-gnatwn"] exited with code 7
+ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/Users/runner/work/alire-crates-ci/alire-crates-ci/test/f93390ef-8e04-4d44-b0a7-aa5231e51c8d/pygamer_bsp_1.0.0_43d69885/pygamer_bsp.gpr", "-cargs:Ada", "-gnatwn"] exited with code 7
+stderr: ALIRE.CHECKED_ERROR
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/Users/runner/work/alire-crates-ci/alire-crates-ci/test/f93390ef-8e04-4d44-b0a7-aa5231e51c8d/pygamer_bsp_1.0.0_43d69885/pygamer_bsp.gpr", "-cargs:Ada", "-gnatwn"] exited with code 7
+stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
+Load address: 0x1024cc000
+Call stack traceback locations:
+0x1031d80cc 0x1031d812c 0x102f2c66c 0x102b71568 0x102df6594 0x102df74f4 0x102d3533c 0x102d33b08 0x102d5778c 0x102db756c 0x102db699c 0x102d57868 0x102d57950 0x102d3400c 0x102d34174 0x10253d730 0x10253d070 0x10253d1e4 0x1025dab38 0x1025e5c78 0x1024ce9f8 0x1024d3a2c
+
+stderr: ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED
+stderr: alire-roots.adb:202
+stderr: raised ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED : alire-roots.adb:202
+Load address: 0x1024cc000
+Call stack traceback locations:
+0x1031d80cc 0x1031d812c 0x102d35640 0x102d33b08 0x102d5778c 0x102db756c 0x102db699c 0x102d57868 0x102d57950 0x102d3400c 0x102d34174 0x10253d730 0x10253d070 0x10253d1e4 0x1025dab38 0x1025e5c78 0x1024ce9f8 0x1024d3a2c
+
+ERROR: Compilation failed.

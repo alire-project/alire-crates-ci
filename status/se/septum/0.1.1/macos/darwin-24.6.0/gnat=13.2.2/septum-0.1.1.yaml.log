@@ -1,0 +1,131 @@
+Test ran at 2026-05-06 01:25:15.056497+00:00
+
+SOLUTION:
+septum=0.1.1: An interactive context-based text search tool for large codebases.
+Origin: commit 6d2cb146250ba68753b61bf93afaae398596b385 from https://github.com/pyjarrett/septum.git
+Properties:
+   Author: Paul Jarrett
+   Build Switches: 
+   Description: An interactive context-based text search tool for large codebases.
+   Executable: septum
+   case OS is
+      when Linux => GPR External: Septum_Platform := linux
+      when Macos => GPR External: Septum_Platform := macos
+      when Windows => GPR External: Septum_Platform := windows
+   License: Apache-2.0
+   Maintainer: Paul Jarrett <jarrett.paul.young@gmail.com>
+   Maintainers_Logins: pyjarrett
+   Name: septum
+   Tag: search
+   Tag: code
+   Tag: text
+   Version: 0.1.1
+   Website: https://github.com/pyjarrett/septum
+Dependencies (direct):
+   atomic~1.0.0
+   dir_iterators~0.0.5
+   progress_indicators~0.0.1
+   trendy_terminal~0.0.5
+Dependencies (solution):
+   ansiada=1.1.0
+   atomic=1.0.0
+   dir_iterators=0.0.5
+   progress_indicators=0.0.2
+   trendy_terminal=0.0.6
+Dependencies (graph):
+   progress_indicators=0.0.2 --> ansiada=1.1.0 (^1.1.0)
+   septum=0.1.1              --> atomic=1.0.0 (~1.0.0)
+   septum=0.1.1              --> dir_iterators=0.0.5 (~0.0.5)
+   septum=0.1.1              --> progress_indicators=0.0.2 (~0.0.1)
+   septum=0.1.1              --> trendy_terminal=0.0.6 (~0.0.5)
+
+
+LOG:
+[alr test] Testing septum=0.1.1
+[alr test] Spawning retrieval for remote crate: alr -d -n get septum=0.1.1
+Note: Deploying septum=0.1.1...
+Note: Deploying atomic=1.0.0...
+Note: Deploying dir_iterators=0.0.5...
+Note: Deploying trendy_terminal=0.0.6...
+Note: Deploying progress_indicators=0.0.2...
+
+septum=0.1.1 successfully retrieved.
+Dependencies were solved as follows:
+
+   + ansiada             1.1.0 (new,indirect)
+   + atomic              1.0.0 (new)
+   + dir_iterators       0.0.5 (new)
+   + progress_indicators 0.0.2 (new)
+   + trendy_terminal     0.0.6 (new)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building septum=0.1.1/septum.gpr...
+Setup
+   [mkdir]        object directory for project Atomic
+   [mkdir]        library directory for project Atomic
+   [mkdir]        object directory for project Dir_Iterators
+   [mkdir]        library directory for project Dir_Iterators
+   [mkdir]        object directory for project Progress_Indicators
+   [mkdir]        library directory for project Progress_Indicators
+   [mkdir]        object directory for project Trendy_Terminal
+   [mkdir]        library directory for project Trendy_Terminal
+   [mkdir]        object directory for project Septum
+   [mkdir]        exec directory for project Septum
+Compile
+   [Ada]          septum.adb
+   [Ada]          trendy_terminal-platform.adb
+   [Ada]          trendy_terminal-mac.ads
+   [Ada]          trendy_terminal.ads
+   [Ada]          trendy_terminal-completions.adb
+   [Ada]          trendy_terminal-environments.adb
+   [Ada]          trendy_terminal-vt100.adb
+   [Ada]          trendy_terminal-maps.adb
+   [Ada]          trendy_terminal-lines-line_vectors.ads
+   [Ada]          trendy_terminal-io.adb
+   [Ada]          trendy_terminal-histories.adb
+   [Ada]          trendy_terminal-string_vectors.ads
+   [Ada]          trendy_terminal-lines.adb
+   [Ada]          trendy_terminal-io-line_editors.adb
+   [Ada]          progress_indicators_config.ads
+   [Ada]          progress_indicators-bars.adb
+   [Ada]          progress_indicators-spinners.adb
+   [Ada]          progress_indicators-work_trackers.adb
+   [Ada]          progress_indicators.ads
+   [Ada]          dir_iterators-recursive.adb
+   [Ada]          dir_iterators-ancestor.adb
+   [Ada]          dir_iterators.ads
+   [Ada]          atomic.adb
+   [Ada]          atomic-unsigned.adb
+   [Ada]          atomic-signed.adb
+   [Ada]          atomic_config.ads
+   [Ada]          atomic-unsigned_32.ads
+   [Ada]          atomic-signed_32.ads
+   [Ada]          atomic-unsigned_8.ads
+   [Ada]          atomic-signed_8.ads
+   [Ada]          atomic-signed_16.ads
+   [Ada]          atomic-unsigned_16.ads
+   [Ada]          sp.ads
+   [Ada]          sp-commands.adb
+sp-commands.adb:23:06: error: file "ansi.ads" not found
+sp-commands.adb:23:06: error: "SP.COMMANDS (body)" depends on "SP.TERMINAL (spec)"
+sp-commands.adb:23:06: error: "SP.TERMINAL (spec)" depends on "ANSI (spec)"
+
+   compilation of sp-commands.adb failed
+
+gprbuild: *** compilation phase failed
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/Users/runner/work/alire-crates-ci/alire-crates-ci/test/9f61dc1a-450e-488f-880d-e4546663c12e/septum_0.1.1_6d2cb146/septum.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/Users/runner/work/alire-crates-ci/alire-crates-ci/test/9f61dc1a-450e-488f-880d-e4546663c12e/septum_0.1.1_6d2cb146/septum.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+stderr: ALIRE.CHECKED_ERROR
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/Users/runner/work/alire-crates-ci/alire-crates-ci/test/9f61dc1a-450e-488f-880d-e4546663c12e/septum_0.1.1_6d2cb146/septum.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
+Load address: 0x102fb0000
+Call stack traceback locations:
+0x103cbc0cc 0x103cbc12c 0x103a1066c 0x103655568 0x1038da594 0x1038db4f4 0x10381933c 0x103817b08 0x10383b78c 0x10389b56c 0x10389a99c 0x10383b868 0x10383b950 0x10381800c 0x103818174 0x103021730 0x103021070 0x1030211e4 0x1030beb38 0x1030c9c78 0x102fb29f8 0x102fb7a2c
+
+stderr: ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED
+stderr: alire-roots.adb:202
+stderr: raised ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED : alire-roots.adb:202
+Load address: 0x102fb0000
+Call stack traceback locations:
+0x103cbc0cc 0x103cbc12c 0x103819640 0x103817b08 0x10383b78c 0x10389b56c 0x10389a99c 0x10383b868 0x10383b950 0x10381800c 0x103818174 0x103021730 0x103021070 0x1030211e4 0x1030beb38 0x1030c9c78 0x102fb29f8 0x102fb7a2c
+
+ERROR: Compilation failed.
