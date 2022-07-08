@@ -1,0 +1,70 @@
+Test ran at 2024-01-14 13:03:53.294803+00:00
+
+SOLUTION:
+magicada=1.0.0: Magic Number Recognition Library Ada binding
+Origin: commit 8a67ea102940bb05ea8eae783f04eb6e8cb33b56 from https://gitlab.com/stcarrez/ada-libmagic.git
+Available when: (case OS is Freebsd => True, Linux => True, others => False)
+Properties:
+   Author: Stephane.Carrez@gmail.com
+   Configuration: no modifiers
+   Description: Magic Number Recognition Library Ada binding
+   GPR Scenario: MAGICADA_BUILD := distrib | debug | optimize | profile | coverage
+   GPR Scenario: MAGICADA_LIBRARY_TYPE := relocatable | static | static-pic
+   License: Apache-2.0
+   Long_Description: Small Ada binding library to the [libmagic (3)](https://linux.die.net/man/3/libmagic)
+library which is used by the implementation of the
+[file (1)](https://linux.die.net/man/1/file) command.
+
+To simplify and help in the use of the magic Ada library, the
+`Magic.Manager` package encapsulates the management of the libmagic library
+and provides high level simple operations to hide the details of interacting
+with the C library.  The package defines the `Magic_Manager` tagged record
+that takes care of the C library interaction and cleaning of the libmagic
+library once the manager is no longer required.  To use it, declare the
+instance and initialize it with the `Initialize` procedure:
+
+```Ada
+ with Magic.Manager;
+ ...
+    Mgr : Magic.Manager.Magic_Manager;
+    ...
+       Mgr.Initialize (Magic.MAGIC_MIME, Magic.DEFAULT_PATH);
+```
+
+The first parameter defines a set of flags represented by the `Magic.Flags`
+type to control various options of the libmagic library.   The second
+parameter indicates the default path to the magic file
+(see [magic (5)](https://linux.die.net/man/5/magic)).
+Once configured, the `Identify` functions can be used to identify a content.
+For the first form, a path of the file is given:
+
+```Ada
+ Mime : constant String := Mgr.Identify ("file.ads");
+```
+
+With the second form, a `Stream_Element_Array` with the content to identify
+is given to the function.
+
+## Example
+
+- [examples.adb](https://gitlab.com/stcarrez/ada-libmagic/-/blob/main/examples/src/examples.adb?ref_type=heads)
+
+
+   Maintainer: Stephane.Carrez@gmail.com
+   Maintainers_Logins: stcarrez
+   Name: magicada
+   Tag: magic
+   Tag: file
+   Tag: bindings
+   Version: 1.0.0
+   Website: https://gitlab.com/stcarrez/ada-libmagic
+Dependencies (direct):
+   libmagic*
+Dependencies (external):
+   libmagic* (direct,hinted)
+Dependencies (graph):
+   magicada=1.0.0 --> libmagic*
+Dependencies cannot be met
+
+
+LOG:

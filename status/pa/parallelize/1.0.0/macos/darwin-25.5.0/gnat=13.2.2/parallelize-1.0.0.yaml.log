@@ -1,0 +1,49 @@
+Test ran at 2026-08-02 12:52:49.246253+00:00
+
+SOLUTION:
+parallelize=1.0.0: Execute multiple commands in parallel
+Origin: commit b5ceb7596673c4ffe96cfc54f67cc1e40c89d19c from https://github.com/simonjwright/parallelize.git
+Properties:
+   Author: Simon Wright
+   Build Switches: 
+   Description: Execute multiple commands in parallel
+   Executable: parallelize
+   License: Apache-2.0
+   Maintainer: Simon Wright <simon@pushface.org>
+   Maintainers_Logins: simonjwright
+   Name: parallelize
+   Tag: parallel
+   Tag: execution
+   Version: 1.0.0
+   Website: 
+
+
+LOG:
+[alr test] Testing parallelize=1.0.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get parallelize=1.0.0
+Note: Deploying parallelize=1.0.0...
+
+parallelize=1.0.0 successfully retrieved.
+There are no dependencies.
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building parallelize=1.0.0/parallelize.gpr...
+Setup
+   [mkdir]        object directory for project Parallelize
+   [mkdir]        exec directory for project Parallelize
+Compile
+   [Ada]          parallelize.adb
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+   [Ada]          commands.adb
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+Bind
+   [gprbind]      parallelize.bexch
+   [Ada]          parallelize.ali
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+Link
+   [link]         parallelize.adb
+ld: warning: object file (b__parallelize.o) was built for newer macOS version (26.0) than being linked (16.0)ld: warning: object file (parallelize.o) was built for newer macOS version (26.0) than being linked (16.0)
+
+ld: warning: object file (/Users/runner/work/alire-crates-ci/alire-crates-ci/test/6dee4b1d-af7f-44a8-92f1-067a65ab6cf8/parallelize_1.0.0_b5ceb759/obj/release/commands.o) was built for newer macOS version (26.0) than being linked (16.0)
+Success: Build finished successfully in 10.69 seconds.
+Found declared GPR file: parallelize.gpr
+[alr test] Test completed SUCCESSFULLY

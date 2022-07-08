@@ -1,0 +1,120 @@
+Test ran at 2025-08-27 13:17:13.894967+00:00
+
+SOLUTION:
+xmlada=25.0.0: The XML/Ada toolkit
+Origin: source archive xmlada-25.0.0.zip at https://github.com/adacore/xmlada/archive/v25.0.0/xmlada-25.0.0.zip with hash sha512:7f12fe3af650530590c8199b8900ef903f647b0421603cfee8141ab57321c23b8e5dd1e1f3205476fdac874aaf5666511d822d24f64f263d492966aa1df19f82
+Properties:
+   case Distribution is
+      when others => Post_Fetch run: sh configure (from ${CRATE_ROOT}/.)
+   Author: AdaCore
+   Configuration: no modifiers
+   Description: The XML/Ada toolkit
+   GPR Scenario: LIBRARY_TYPE := static | relocatable | static-pic
+   GPR Scenario: XMLADA_BUILD_MODE := distrib | Debug | Production | profile | coverage | nochecks
+   License: GPL-3.0-or-later WITH GCC-exception-3.1
+   Maintainer: chouteau@adacore.com
+   Maintainers_Logins: Fabien-Chouteau
+   Name: xmlada
+   Project_File: distrib/xmlada.gpr
+   Project_File: dom/xmlada_dom.gpr
+   Project_File: sax/xmlada_sax.gpr
+   Project_File: input_sources/xmlada_input.gpr
+   Project_File: schema/xmlada_schema.gpr
+   Project_File: unicode/xmlada_unicode.gpr
+   Version: 25.0.0
+   Website: https://github.com/AdaCore/xmlada
+Dependencies (direct):
+   gnat>=11
+Dependencies (solution):
+   gnat=15.1.2 (gnat_native)
+Dependencies (graph):
+   xmlada=25.0.0 --> gnat=15.1.2 (gnat_native) (>=11)
+
+
+LOG:
+[alr test] Testing xmlada=25.0.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get xmlada=25.0.0
+Note: Deploying xmlada=25.0.0...
+#=#=#                                                                         
+##O#-#                                                                        
+##=O#- #                                                                      
+
+xmlada=25.0.0 successfully retrieved.
+Dependencies were solved as follows:
+
+   +b gnat 15.1.2 (new,gnat_native,binary)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Running post-fetch actions for xmlada=25.0.0...
+checking build system type... x86_64-pc-linux-gnu
+checking host system type... x86_64-pc-linux-gnu
+checking target system type... x86_64-pc-linux-gnu
+checking whether gnat can build shared libs... no
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether ln -s works... yes
+configure: creating ./config.status
+config.status: creating xmlada_shared.gpr
+config.status: creating Makefile
+config.status: creating tests/dom/default.gpr
+Note: Building xmlada=25.0.0/distrib/xmlada.gpr (1/6)...
+/root/.local/share/alire/toolchains/gprbuild_25.0.1_9a2e6cfb/bin/gprbuild: /lib64/libc.so.6: version `GLIBC_2.35' not found (required by /root/.local/share/alire/toolchains/gprbuild_25.0.1_9a2e6cfb/bin/gprbuild)
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/706114a2-6516-4656-b55e-8b5abf0b9a3c/xmlada_25.0.0_7f12fe3a/distrib/xmlada.gpr", "-cargs:Ada", "-gnatwn"] exited with code 1
+ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/706114a2-6516-4656-b55e-8b5abf0b9a3c/xmlada_25.0.0_7f12fe3a/distrib/xmlada.gpr", "-cargs:Ada", "-gnatwn"] exited with code 1
+stderr: ALIRE.CHECKED_ERROR
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/706114a2-6516-4656-b55e-8b5abf0b9a3c/xmlada_25.0.0_7f12fe3a/distrib/xmlada.gpr", "-cargs:Ada", "-gnatwn"] exited with code 1
+stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
+[/usr/bin/alr]
+0xe75bc6 Alire.Raise_Checked_Error at alire.adb:284
+0xac1a54 Alire.Os_Lib.Subprocess.Checked_Spawn at alire-os_lib-subprocess.adb:111
+0xd40276 Alire.Spawn.Command at alire-spawn.adb:22
+0xd412ee Alire.Spawn.Gprbuild at alire-spawn.adb:68
+0xc748cb Alire.Roots.Build at alire-roots.adb:189
+0xc7301a Alire.Roots.Build at alire-roots.adb:255
+0xc9832b Alire.Roots.Traverse at alire-roots.adb:2143
+0xcfee85 Alire.Solutions.Traverse.Visit at alire-solutions.adb:1472
+0xcfdfcc Alire.Solutions.Traverse at alire-solutions.adb:1555
+0xc9841e Alire.Roots.Traverse at alire-roots.adb:2147
+0xc984dd Alire.Roots.Traverse at alire-roots.adb:2127
+0xc7359b Alire.Roots.Build at alire-roots.adb:286
+0xc736d7 Alire.Roots.Build at alire-roots.adb:114
+0x49aa0d Alr.Commands.Build.Execute at alr-commands-build.adb:145
+0x49a36d Alr.Commands.Build.Execute at alr-commands-build.adb:113
+0x49a51f Alr.Commands.Build.Execute at alr-commands-build.adb:54
+0x53bbcc Alr.Commands.Sub_Cmd.Execute at clic-subcommand-instance.adb:749
+0x5472be Alr.Commands.Execute at alr-commands.adb:632
+0x43d48a Alr.Main at alr-main.adb:13
+0x4403a3 Main at b__alr-main.adb:2445
+[/lib64/libc.so.6]
+0x7fef4fae35ce
+0x7fef4fae367e
+[/usr/bin/alr]
+0x43d323 _start at ???
+0xfffffffffffffffe
+
+stderr: ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED
+stderr: alire-roots.adb:202
+stderr: raised ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED : alire-roots.adb:202
+[/usr/bin/alr]
+0xc74cc7 Alire.Roots.Build at alire-roots.adb:202
+0xc7301a Alire.Roots.Build at alire-roots.adb:255
+0xc9832b Alire.Roots.Traverse at alire-roots.adb:2143
+0xcfee85 Alire.Solutions.Traverse.Visit at alire-solutions.adb:1472
+0xcfdfcc Alire.Solutions.Traverse at alire-solutions.adb:1555
+0xc9841e Alire.Roots.Traverse at alire-roots.adb:2147
+0xc984dd Alire.Roots.Traverse at alire-roots.adb:2127
+0xc7359b Alire.Roots.Build at alire-roots.adb:286
+0xc736d7 Alire.Roots.Build at alire-roots.adb:114
+0x49aa0d Alr.Commands.Build.Execute at alr-commands-build.adb:145
+0x49a36d Alr.Commands.Build.Execute at alr-commands-build.adb:113
+0x49a51f Alr.Commands.Build.Execute at alr-commands-build.adb:54
+0x53bbcc Alr.Commands.Sub_Cmd.Execute at clic-subcommand-instance.adb:749
+0x5472be Alr.Commands.Execute at alr-commands.adb:632
+0x43d48a Alr.Main at alr-main.adb:13
+0x4403a3 Main at b__alr-main.adb:2445
+[/lib64/libc.so.6]
+0x7fef4fae35ce
+0x7fef4fae367e
+[/usr/bin/alr]
+0x43d323 _start at ???
+0xfffffffffffffffe
+
+ERROR: Compilation failed.

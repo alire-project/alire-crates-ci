@@ -1,0 +1,144 @@
+Test ran at 2025-04-30 00:44:52.363992+00:00
+
+SOLUTION:
+matreshka_sql_firebird=21.0.0: Firebird SQL binding for Ada
+Origin: commit 3f0d1ed6f8ca07fbe19bcb05ec8018a24d36c815 from https://github.com/reznikmm/matreshka-alire
+Properties:
+   Author: Vadim Godunko
+   Description: Firebird SQL binding for Ada
+   License: BSD-3-Clause
+   Maintainer: Vadim Godunko <vgodunko@gmail.com>
+   Maintainer: Maxim Reznik <reznikmm@gmail.com>
+   Maintainers_Logins: godunko
+   Maintainers_Logins: reznikmm
+   Name: matreshka_sql_firebird
+   Project_File: build_matreshka_sql_firebird.gpr
+   Tag: sql
+   Tag: database
+   Tag: db
+   Tag: firebird
+   Version: 21.0.0
+   Website: https://github.com/godunko/matreshka
+Dependencies (direct):
+   libfbclient*
+   matreshka_league21.0.0
+   matreshka_sql21.0.0
+Dependencies (solution):
+   libfbclient=3.0.11+33703.
+   make=4.3.0
+   matreshka_league=21.0.0
+   matreshka_sql=21.0.0
+Dependencies (graph):
+   matreshka_league=21.0.0       --> make=4.3.0 (*)
+   matreshka_sql=21.0.0          --> matreshka_league=21.0.0 (21.0.0)
+   matreshka_sql_firebird=21.0.0 --> libfbclient=3.0.11+33703. (*)
+   matreshka_sql_firebird=21.0.0 --> matreshka_league=21.0.0 (21.0.0)
+   matreshka_sql_firebird=21.0.0 --> matreshka_sql=21.0.0 (21.0.0)
+
+
+LOG:
+Spawning: alr -d -n get --build matreshka_sql_firebird=21.0.0
+Note: Deploying matreshka_sql_firebird=21.0.0...
+Note: Deploying libfbclient=3.0.11+33703....
+The system package 'firebird-dev' is about to be installed.
+This action might require admin privileges and impact your system installation.
+Do you want Alire to install this system package?
+Using default: Yes
+Selecting previously unselected package libib-util:amd64.
+(Reading database ... 
+(Reading database ... 5%
+(Reading database ... 10%
+(Reading database ... 15%
+(Reading database ... 20%
+(Reading database ... 25%
+(Reading database ... 30%
+(Reading database ... 35%
+(Reading database ... 40%
+(Reading database ... 45%
+(Reading database ... 50%
+(Reading database ... 55%
+(Reading database ... 60%
+(Reading database ... 65%
+(Reading database ... 70%
+(Reading database ... 75%
+(Reading database ... 80%
+(Reading database ... 85%
+(Reading database ... 90%
+(Reading database ... 95%
+(Reading database ... 100%
+(Reading database ... 222582 files and directories currently installed.)
+Preparing to unpack .../libib-util_3.0.11.33703.ds4-2ubuntu2_amd64.deb ...
+Unpacking libib-util:amd64 (3.0.11.33703.ds4-2ubuntu2) ...
+Selecting previously unselected package firebird-dev.
+Preparing to unpack .../firebird-dev_3.0.11.33703.ds4-2ubuntu2_amd64.deb ...
+Unpacking firebird-dev (3.0.11.33703.ds4-2ubuntu2) ...
+Setting up libib-util:amd64 (3.0.11.33703.ds4-2ubuntu2) ...
+Setting up firebird-dev (3.0.11.33703.ds4-2ubuntu2) ...
+Processing triggers for man-db (2.12.0-4build2) ...
+Processing triggers for libc-bin (2.39-0ubuntu8.4) ...
+
+Running kernel seems to be up-to-date.
+
+Restarting services...
+
+Service restarts being deferred:
+ systemctl restart runner-provisioner.service
+
+No containers need to be restarted.
+
+No user sessions are running outdated binaries.
+
+No VM guests are running outdated hypervisor (qemu) binaries on this host.
+Note: Deploying matreshka_sql=21.0.0...
+Note: Building matreshka_sql_firebird=21.0.0/build_matreshka_sql_firebird.gpr...
+Setup
+   [mkdir]        object directory for project Matreshka_SQL
+   [mkdir]        object directory for project Matreshka_SQL_Firebird
+Compile
+   [Ada]          sql-queries.adb
+   [Ada]          sql-databases-internals.adb
+   [Ada]          sql-options-internals.adb
+   [Ada]          matreshka-internals-sql_drivers-dummy.adb
+   [Ada]          matreshka-internals-sql_parameter_sets.adb
+   [Ada]          matreshka-internals-sql_drivers.adb
+   [Ada]          matreshka-internals-sql_parameter_rewriters.adb
+sql-queries.adb:245:14: warning: procedure "Previous" is not referenced [-gnatwu]
+   [Ada]          sql-databases.adb
+   [Ada]          sql-queries-internals.adb
+   [Ada]          sql-options.adb
+   [Ada]          sql-queries-holders.adb
+   [Ada]          sql.ads
+   [Ada]          matreshka-internals-sql_drivers-firebird-records.adb
+   [Ada]          matreshka-internals-sql_drivers-firebird-fields.adb
+   [Ada]          matreshka-internals-sql_drivers-firebird-factory.adb
+matreshka-internals-sql_drivers-firebird-fields.adb:205:07: warning: use clause for package "ISO_8601" has no effect [-gnatwu]
+matreshka-internals-sql_drivers-firebird-fields.adb:206:07: warning: use clause for type "Interfaces.C.int" has no effect [-gnatwu]
+matreshka-internals-sql_drivers-firebird-fields.adb:325:07: warning: use clause for package "ISO_8601" has no effect [-gnatwu]
+matreshka-internals-sql_drivers-firebird-fields.adb:524:07: warning: use clause for type "Interfaces.C.char" has no effect [-gnatwu]
+   [Ada]          matreshka-internals-sql_parameter_rewriters-firebird.adb
+matreshka-internals-sql_drivers-firebird-factory.adb:63:04: warning: use clause for type "Interfaces.C.int" has no effect [-gnatwu]
+   [Ada]          matreshka-internals-sql_drivers-firebird.adb
+   [Ada]          matreshka-internals-sql_drivers-firebird-databases.adb
+matreshka-internals-sql_parameter_rewriters-firebird.adb:58:07: warning: use clause for private type "Universal_String" defined at league-strings.ads:83 has no effect [-gnatwu]
+   [Ada]          matreshka-internals-sql_drivers-firebird-queries.adb
+matreshka-internals-sql_drivers-firebird.adb:67:07: warning: use clause for type "Interfaces.C.long" has no effect [-gnatwu]
+matreshka-internals-sql_drivers-firebird.adb:103:07: warning: use clause for type "Isc_Result_Code" defined at matreshka-internals-sql_drivers-firebird.ads:87 has no effect [-gnatwu]
+matreshka-internals-sql_drivers-firebird-queries.adb:224:07: warning: use clause for type "Isc_Long" defined at matreshka-internals-sql_drivers-firebird.ads:85 has no effect [-gnatwu]
+matreshka-internals-sql_drivers-firebird-queries.adb:260:07: warning: use clause for type "Isc_Long" defined at matreshka-internals-sql_drivers-firebird.ads:85 has no effect [-gnatwu]
+matreshka-internals-sql_drivers-firebird-queries.adb:350:07: warning: use clause for type "Isc_Long" defined at matreshka-internals-sql_drivers-firebird.ads:85 has no effect [-gnatwu]
+matreshka-internals-sql_drivers-firebird-databases.adb:218:07: warning: use clause for type "Isc_Result_Code" defined at matreshka-internals-sql_drivers-firebird.ads:87 has no effect [-gnatwu]
+matreshka-internals-sql_drivers-firebird-databases.ads:69:04: warning: use clause for type "Isc_Long" defined at matreshka-internals-sql_drivers-firebird.ads:85 has no effect [-gnatwu]
+Build Libraries
+   [gprlib]       matreshka-sql-12.2.lexch
+   [gprlib]       matreshka-sql-firebird-12.2.lexch
+   [link library] libmatreshka-sql-12.2.so
+   [link library] libmatreshka-sql-firebird-12.2.so
+
+matreshka_sql_firebird=21.0.0 successfully retrieved and built.
+Dependencies were solved as follows:
+
+   +b libfbclient      3.0.11+33703. (new,system package)
+   +b make             4.3.0         (new,indirect,system package)
+   +  matreshka_league 21.0.0        (new)
+   +  matreshka_sql    21.0.0        (new)
+Found declared GPR file: build_matreshka_sql_firebird.gpr

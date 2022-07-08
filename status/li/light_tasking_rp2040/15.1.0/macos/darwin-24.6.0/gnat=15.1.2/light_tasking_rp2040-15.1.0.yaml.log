@@ -1,0 +1,493 @@
+Test ran at 2026-02-08 12:48:29.600947+00:00
+
+SOLUTION:
+light_tasking_rp2040=15.1.0: light-tasking runtime for the RP2040 SoC
+Origin: source archive light-tasking-rp2040-15.1.0.tar.gz at https://github.com/damaki/rp-runtimes/releases/download/v15.1.0/light-tasking-rp2040-15.1.0.tar.gz with hashes sha256:2e19ff7b6cc09661793362bc764dabb8bf9095084abe892fc03e4102175ac717, sha512:1a7a349b563a033faea0461744955088d34308b54d1a0aa3fc54eb540353b564ad8c97d931dff97c064175f2928d1d2fc0e4cdced77d936a228875d040ba49a1
+Properties:
+   Author: AdaCore
+   Author: Daniel King
+   Config type: Board : Enum (generic_board, rpi_pico, adafruit_feather_rp2040, adafruit_itsybitsy_rp2040, adafruit_macropad_rp2040, adafruit_qt2040_trinkey, adafruit_qtpy_rp2040, arduino_nano_rp2040_connect, pimoroni_interstate75, pimoroni_keybow2040, pimoroni_pga2040, pimoroni_picolipo_4m, pimoroni_picolipo_16m, pimoroni_picosystem, pimoroni_plasma2040, pimoroni_tiny2040, sparkfun_micromod, sparkfun_promicro, sparkfun_thingplus) default: 'rpi_pico'
+   Config type: Flash_Chip : Enum (generic_qspi_128, at25sf128a, gd25q64c, w25q16jv, w25q32jv, w25q64jv, w25q128jv) default: 'generic_qspi_128'
+   Config type: Interrupt_Secondary_Stack_Size : Integer range 1 .. 9223372036854775807 default: '128'
+   Config type: Interrupt_Stack_Size : Integer range 1 .. 9223372036854775807 default: '1024'
+   Config type: Max_CPUs : Integer range 1 .. 2 default: '2'
+   Config type: PLL_Sys_Post_Div_1 : Integer range 1 .. 7 default: '6'
+   Config type: PLL_Sys_Post_Div_2 : Integer range 1 .. 7 default: '2'
+   Config type: PLL_Sys_Reference_Div : Integer range 1 .. 63 default: '1'
+   Config type: PLL_Sys_VCO_Multiple : Integer range 16 .. 320 default: '125'
+   Config type: PLL_USB_Post_Div_1 : Integer range 1 .. 7 default: '5'
+   Config type: PLL_USB_Post_Div_2 : Integer range 1 .. 7 default: '2'
+   Config type: PLL_USB_Reference_Div : Integer range 1 .. 63 default: '1'
+   Config type: PLL_USB_VCO_Multiple : Integer range 16 .. 320 default: '40'
+   Config type: Time_Base : Enum (ALARM0, ALARM1, ALARM2, ALARM3) default: 'ALARM3'
+   Config type: XOSC_Frequency : Integer range 0 .. 9223372036854775807 default: '12000000'
+   Config type: XOSC_Startup_Delay_Mult : Integer range 1 .. 16383 default: '64'
+   Configuration: no modifiers
+   Description: light-tasking runtime for the RP2040 SoC
+   License: GPL-3.0-or-later WITH GCC-exception-3.1
+   Long_Description: ## Usage
+
+First edit your `alire.toml` file and add the following elements:
+ - Add `light_tasking_rp2040` in the dependency list:
+   ```toml
+   [[depends-on]]
+   light_tasking_rp2040 = "*"
+   ```
+
+Then edit your project file to add the following elements:
+ - "with" the run-time project file. With this, gprbuild will compile the run-time before your application
+   ```ada
+   with "runtime_build.gpr";
+   ```
+ - Specify the `Target` and `Runtime` attributes:
+   ```ada
+      for Target use runtime_build'Target;
+      for Runtime ("Ada") use runtime_build'Runtime ("Ada");
+   ```
+ - specify the `Linker` switches:
+   ```ada
+   package Linker is
+     for Switches ("Ada") use Runtime_Build.Linker_Switches & ("-Wl,--gc-sections");
+   end Linker;
+   ```
+   Note that `--gc-switches` is recommended as it reduces flash and RAM usage
+   by removing unused code and data, but it is not mandatory.
+
+See the project website for details on configuring the runtime.
+
+   Maintainer: Daniel King <damaki.gh@gmail.com>
+   Maintainers_Logins: damaki
+   Name: light_tasking_rp2040
+   Project_File: runtime_build.gpr
+   Project_File: ravenscar_build.gpr
+   Tag: embedded
+   Tag: runtime
+   Version: 15.1.0
+   Website: https://github.com/damaki/rp-runtimes
+Dependencies (direct):
+   gnat_arm_elf^15
+Dependencies (solution):
+   gnat_arm_elf=15.1.2
+Dependencies (graph):
+   light_tasking_rp2040=15.1.0 --> gnat_arm_elf=15.1.2 (^15)
+
+
+LOG:
+[alr test] Testing light_tasking_rp2040=15.1.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get light_tasking_rp2040=15.1.0
+Note: Deploying light_tasking_rp2040=15.1.0...
+#=#=#                                                                          
+##O#-#                                                                         
+
+######################################################################## 100.0%
+Note: Deploying gnat_arm_elf=15.1.2...
+#=#=#                                                                          
+##O#-#                                                                         
+
+                                                                           0.8%
+##                                                                         2.8%
+###                                                                        4.9%
+####                                                                       5.9%
+#####                                                                      7.9%
+######                                                                     9.1%
+#######                                                                   10.9%
+########                                                                  12.3%
+#########                                                                 13.9%
+##########                                                                14.0%
+##########                                                                15.1%
+###########                                                               16.2%
+############                                                              16.9%
+#############                                                             19.1%
+##############                                                            19.8%
+##############                                                            20.4%
+##############                                                            20.4%
+###############                                                           21.0%
+################                                                          22.3%
+################                                                          22.5%
+#################                                                         23.9%
+##################                                                        25.3%
+###################                                                       26.9%
+####################                                                      28.0%
+####################                                                      28.1%
+####################                                                      28.4%
+#####################                                                     29.4%
+######################                                                    30.9%
+#######################                                                   33.1%
+########################                                                  33.7%
+#########################                                                 35.9%
+##########################                                                36.5%
+###########################                                               38.5%
+############################                                              39.3%
+##############################                                            42.1%
+##############################                                            43.0%
+###############################                                           43.7%
+################################                                          44.7%
+################################                                          44.9%
+##################################                                        47.4%
+##################################                                        47.7%
+###################################                                       49.0%
+####################################                                      50.0%
+####################################                                      50.5%
+#####################################                                     52.7%
+######################################                                    53.3%
+#######################################                                   55.1%
+########################################                                  56.1%
+#########################################                                 58.0%
+##########################################                                58.9%
+###########################################                               60.1%
+###########################################                               60.9%
+############################################                              61.7%
+##############################################                            64.5%
+###############################################                           65.9%
+################################################                          66.9%
+################################################                          67.3%
+#################################################                         68.5%
+#################################################                         69.3%
+##################################################                        70.1%
+####################################################                      72.4%
+####################################################                      72.9%
+#####################################################                     74.4%
+######################################################                    75.8%
+#######################################################                   77.2%
+########################################################                  78.6%
+#########################################################                 79.2%
+#########################################################                 79.8%
+##########################################################                80.9%
+##########################################################                81.8%
+###########################################################               82.7%
+############################################################              83.6%
+############################################################              84.2%
+#############################################################             86.1%
+##############################################################            87.0%
+################################################################          89.2%
+################################################################          89.8%
+################################################################          90.3%
+#################################################################         91.4%
+##################################################################        92.6%
+####################################################################      94.8%
+####################################################################      95.4%
+#####################################################################     97.2%
+######################################################################    98.2%
+#######################################################################   99.3%
+######################################################################## 100.0%
+Note: gnat_arm_elf=15.1.2 installed successfully.
+
+light_tasking_rp2040=15.1.0 successfully retrieved.
+Dependencies were solved as follows:
+
+   +b gnat_arm_elf 15.1.2 (new,binary)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building light_tasking_rp2040=15.1.0/runtime_build.gpr (1/2)...
+Setup
+   [mkdir]        object directory for project Runtime_Build
+   [mkdir]        library directory for project Runtime_Build
+Compile
+   [Asm_Cpp]      start-rom-2.s
+   [Asm_Cpp]      boot2-w25qxx.s
+   [Ada]          s-powlfl.ads
+   [Ada]          s-widint.ads
+   [Ada]          s-imguns.ads
+   [Ada]          s-pack43.adb
+   [Ada]          s-pack57.adb
+   [Ada]          s-textio.adb
+   [Ada]          s-spcuop.adb
+   [Ada]          s-pack42.adb
+   [Ada]          s-imagew.adb
+   [Ada]          s-exponr.adb
+   [Ada]          a-nllefu.ads
+   [Ada]          s-valuei.adb
+   [Ada]          s-veboop.adb
+   [Ada]          s-atocou.adb
+   [Ada]          s-vector.ads
+   [Ada]          s-memory.adb
+   [Ada]          s-valuns.ads
+   [Ada]          s-imageu.adb
+   [Ada]          s-vs_lli.ads
+   [Ada]          s-pack54.adb
+   [Ada]          a-strmap.adb
+   [Ada]          s-pack41.adb
+   [Ada]          s-pack55.adb
+   [Ada]          i-cpoint.adb
+   [Ada]          s-bbmcpa.ads
+   [Ada]          s-expllu.ads
+   [Ada]          s-exponu.adb
+   [Ada]          s-vade64.ads
+   [Ada]          s-imgflt.ads
+   [Ada]          s-expmod.adb
+   [Ada]          gnat.ads
+   [Ada]          s-widthi.adb
+   [Ada]          s-pack51.adb
+   [Ada]          s-pack45.adb
+   [Ada]          s-imglli.ads
+   [Ada]          a-nselfu.ads
+   [Ada]          s-pack44.adb
+   [Ada]          s-pack50.adb
+   [Ada]          s-fatllf.ads
+   [Ada]          s-imagef.adb
+   [Ada]          s-memtyp.ads
+   [Ada]          i-rp2040-rosc.ads
+   [Ada]          s-stache.adb
+   [Ada]          s-expont.adb
+   [Ada]          s-valflt.ads
+   [Ada]          s-imenu8.ads
+   [Ada]          s-libm.adb
+   [Ada]          s-imaged.adb
+   [Ada]          s-pack46.adb
+   [Ada]          s-pack52.adb
+   [Ada]          s-libpre.ads
+   [Ada]          s-carun8.adb
+   [Ada]          s-pack53.adb
+   [Ada]          s-pack47.adb
+   [Ada]          s-imager.adb
+   [Ada]          s-vallli.ads
+   [Ada]          s-vs_uns.ads
+   [Ada]          i-rp2040-pll_sys.ads
+   [Ada]          s-vaispe.adb
+   [Ada]          s-geveop.adb
+   [Ada]          s-valuen.adb
+   [Ada]          s-imfi64.ads
+   [Ada]          unchconv.ads
+   [Ada]          s-vaen16.ads
+   [Ada]          s-pack20.adb
+   [Ada]          s-pack34.adb
+   [Ada]          s-assert.adb
+   [Ada]          unchdeal.ads
+   [Ada]          s-valint.ads
+   [Ada]          s-exnllf.ads
+   [Ada]          a-string.ads
+   [Ada]          s-pack35.adb
+   [Ada]          s-pack21.adb
+   [Ada]          s-pack09.adb
+   [Ada]          a-strsup.adb
+   [Ada]          s-bbbopa.ads
+   [Ada]          s-imgcha.adb
+   [Ada]          s-vallfl.ads
+   [Ada]          a-unccon.ads
+   [Ada]          a-strbou.adb
+   [Ada]          g-sestin.ads
+   [Ada]          s-casi32.adb
+   [Ada]          g-debuti.adb
+   [Ada]          a-elchha.adb
+   [Ada]          s-imgwiu.ads
+   [Ada]          s-arit32.adb
+   [Ada]          s-pack37.adb
+   [Ada]          s-pack23.adb
+   [Ada]          s-unstyp.ads
+   [Ada]          s-pack22.adb
+   [Ada]          s-flocon.adb
+   [Ada]          s-imglfl.ads
+   [Ada]          s-valcha.adb
+   [Ada]          s-pack36.adb
+   [Ada]          s-widuns.ads
+   [Ada]          s-imgint.ads
+   [Ada]          s-fatgen.adb
+   [Ada]          s-memset.adb
+   [Ada]          s-vauspe.adb
+   [Ada]          i-rp2040-sio.ads
+   [Ada]          s-casuti.adb
+   [Ada]          i-rp2040-watchdog.ads
+   [Ada]          s-imen32.ads
+   [Ada]          s-pack26.adb
+   [Ada]          s-vs_int.ads
+   [Ada]          i-rp2040-clocks.ads
+   [Ada]          s-pack27.adb
+   [Ada]          s-pack33.adb
+   [Ada]          s-vafi32.ads
+   [Ada]          s-memmov.adb
+   [Ada]          a-nlelfu.ads
+   [Ada]          s-boarop.ads
+   [Ada]          machcode.ads
+   [Ada]          s-carsi8.adb
+   [Ada]          i-rp2040-xosc.ads
+   [Ada]          s-imde32.ads
+   [Ada]          s-pack25.adb
+   [Ada]          s-pack31.adb
+   [Ada]          s-pack19.adb
+   [Ada]          s-widlli.ads
+   [Ada]          i-cstrin.adb
+   [Ada]          s-pack18.adb
+   [Ada]          s-pack30.adb
+   [Ada]          s-powflt.ads
+   [Ada]          s-caun32.adb
+   [Ada]          s-memcom.adb
+   [Ada]          s-lisisq.adb
+   [Ada]          s-valuti.adb
+   [Ada]          s-pack29.adb
+   [Ada]          a-nuelfu.ads
+   [Ada]          s-pack15.adb
+   [Ada]          i-c.adb
+   [Ada]          s-atopri.adb
+   [Ada]          s-pack14.adb
+   [Ada]          s-pack28.adb
+   [Ada]          s-caun16.adb
+   [Ada]          i-rp2040-resets.ads
+   [Ada]          s-expint.ads
+   [Ada]          s-valboo.adb
+   [Ada]          s-powllf.ads
+   [Ada]          s-imguti.adb
+   [Ada]          a-numeri.ads
+   [Ada]          s-imen16.ads
+   [Ada]          a-nbnbig.adb
+   [Ada]          s-aridou.adb
+   [Ada]          s-gcmain.adb
+   [Ada]          i-rp2040-timer.ads
+   [Ada]          s-pack03.adb
+   [Ada]          s-pack17.adb
+   [Ada]          a-ngelfu.adb
+   [Ada]          s-spark.ads
+   [Ada]          a-chahan.adb
+   [Ada]          s-imgboo.adb
+   [Ada]          a-uncdea.ads
+   [Ada]          i-cexten.ads
+   [Ada]          s-casi16.adb
+   [Ada]          s-vade32.ads
+   [Ada]          a-stmaco.ads
+   [Ada]          s-exnflt.ads
+   [Ada]          s-stoele.adb
+   [Ada]          a-nubinu.ads
+   [Ada]          s-bb.ads
+   [Ada]          s-pack13.adb
+   [Ada]          s-pack07.adb
+   [Ada]          s-widllu.ads
+   [Ada]          s-exnlli.ads
+   [Ada]          s-pack06.adb
+   [Ada]          s-pack12.adb
+   [Ada]          s-libdou.adb
+   [Ada]          g-io.adb
+   [Ada]          s-memcop.adb
+   [Ada]          s-valrea.adb
+   [Ada]          s-bootro.adb
+   [Ada]          s-bitops.adb
+   [Ada]          a-charac.ads
+   [Ada]          s-addope.adb
+   [Ada]          s-pack10.adb
+   [Ada]          s-vaen32.ads
+   [Ada]          s-pack38.adb
+   [Ada]          s-sssita.adb
+   [Ada]          s-pack39.adb
+   [Ada]          a-textio.adb
+   [Ada]          s-pack11.adb
+   [Ada]          s-pack05.adb
+   [Ada]          ada.ads
+   [Ada]          s-fatlfl.ads
+   [Ada]          s-imfi32.ads
+   [Ada]          s-fatflt.ads
+   [Ada]          s-maccod.ads
+   [Ada]          a-strsea.adb
+   [Ada]          s-pack62.adb
+   [Ada]          s-imgllf.ads
+   [Ada]          s-pack63.adb
+   [Ada]          s-bbarat.adb
+   [Ada]          s-vs_llu.ads
+   [Ada]          s-imagei.adb
+   [Ada]          s-valspe.adb
+   [Ada]          s-valueu.adb
+   [Ada]          s-atacco.adb
+   [Ada]          s-expuns.ads
+   [Ada]          s-exponn.adb
+   [Ada]          s-casi64.adb
+   [Ada]          g-souinf.ads
+   [Ada]          a-tags.adb
+   [Ada]          s-arit64.adb
+   [Ada]          interfac.ads
+   [Ada]          s-pack49.adb
+   [Ada]          s-pack61.adb
+   [Ada]          s-secsta.adb
+   [Ada]          s-exnlfl.ads
+   [Ada]          s-pack60.adb
+   [Ada]          a-chlat1.ads
+   [Ada]          s-exnint.ads
+   [Ada]          a-strfix.adb
+   [Ada]          s-valllf.ads
+   [Ada]          s-macres.adb
+   [Ada]          s-valuer.adb
+   [Ada]          a-numaux.ads
+   [Ada]          s-valllu.ads
+   [Ada]          s-vaenu8.ads
+   [Ada]          s-imagen.adb
+   [Ada]          i-rp2040-psm.ads
+   [Ada]          s-bytswa.ads
+   [Ada]          s-pack58.adb
+   [Ada]          s-imgllw.ads
+   [Ada]          s-pack59.adb
+   [Ada]          s-vafi64.ads
+   [Ada]          s-valued.adb
+   [Ada]          s-semiho.adb
+   [Ada]          s-parame.adb
+   [Ada]          s-valuef.adb
+   [Ada]          text_io.ads
+   [Ada]          system.ads
+   [Ada]          a-except.adb
+   [Ada]          s-libsin.adb
+   [Ada]          s-imde64.ads
+   [Ada]          s-imgllu.ads
+   [Ada]          setup_clocks.adb
+   [Ada]          a-assert.adb
+   [Ada]          s-caun64.adb
+   [Ada]          s-retsta.ads
+   [Ada]          i-rp2040.ads
+   [Ada]          s-widthu.adb
+   [Ada]          s-dourea.adb
+   [Ada]          s-explli.ads
+   [Ada]          s-lidosq.adb
+   [Ada]          rp2040_runtime_config.ads
+   [Ada]          light_tasking_rp2040_config.ads
+Build Libraries
+   [gprlib]       gnat.lexch
+   [archive]      libgnat.a
+   [index]        libgnat.a
+Note: Building light_tasking_rp2040=15.1.0/ravenscar_build.gpr (2/2)...
+Compile
+   [Ada]          a-synbar.adb
+   [Ada]          a-retide.adb
+   [Ada]          s-tasque.adb
+   [Ada]          s-tpoben.adb
+   [Ada]          s-bcprmu.adb
+   [Ada]          s-taprop.adb
+   [Ada]          s-interr.adb
+   [Ada]          s-rident.ads
+   [Ada]          s-bbbosu.adb
+   [Ada]          s-taprob.adb
+   [Ada]          s-bbpara.ads
+   [Ada]          s-bbcpsp.ads
+   [Ada]          s-taskin.adb
+   [Ada]          s-taspri.ads
+   [Ada]          a-extiin.adb
+   [Ada]          s-restri.adb
+   [Ada]          a-reatim.adb
+   [Ada]          s-bbcppr.adb
+   [Ada]          s-tarest.adb
+   [Ada]          s-multip.adb
+   [Ada]          s-tasres.ads
+   [Ada]          s-bbtime.adb
+   [Ada]          s-tasdeb.adb
+   [Ada]          s-tpobmu.adb
+   [Ada]          a-taside.adb
+   [Ada]          a-sytaco.adb
+   [Ada]          s-bbthre.adb
+   [Ada]          a-taster.adb
+   [Ada]          s-tasinf.adb
+   [Ada]          a-exetim.adb
+   [Ada]          s-tpobop.adb
+   [Ada]          a-interr.adb
+   [Ada]          s-bbexti.adb
+   [Ada]          s-bbthqu.adb
+   [Ada]          s-mufalo.adb
+   [Ada]          s-bcpcst.adb
+   [Ada]          s-osinte.ads
+   [Ada]          a-rttiev.adb
+   [Ada]          s-tposen.adb
+   [Ada]          s-bbtiev.adb
+   [Ada]          s-reldel.adb
+   [Ada]          s-bbprot.adb
+   [Ada]          s-musplo.adb
+   [Ada]          s-bbinte.adb
+   [Ada]          a-intnam-2.ads
+Build Libraries
+   [gprlib]       gnarl.lexch
+   [archive]      libgnarl.a
+   [index]        libgnarl.a
+Success: Build finished successfully in 12.57 seconds.
+Found declared GPR file: runtime_build.gpr
+Found declared GPR file: ravenscar_build.gpr
+[alr test] Test completed SUCCESSFULLY

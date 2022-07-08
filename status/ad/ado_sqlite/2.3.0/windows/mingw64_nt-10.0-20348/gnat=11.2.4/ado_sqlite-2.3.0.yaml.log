@@ -1,0 +1,194 @@
+Test ran at 2024-12-17 01:07:01.327594+00:00
+
+SOLUTION:
+ado_sqlite=2.3.0: Ada Database Objects (SQLite)
+Origin: commit a59fa70f33f842a76bbe68bfcdc97ada1add756c from https://gitlab.com/stcarrez/ada-ado.git
+Properties:
+   Author: Stephane.Carrez@gmail.com
+   Configuration: no modifiers
+   Description: Ada Database Objects (SQLite)
+   GPR Scenario: ADO_LIBRARY_TYPE := relocatable | static | static-pic
+   GPR Scenario: BUILD := distrib | debug | optimize | profile | coverage
+   License: Apache-2.0
+   Long_Description: [![Build Status](https://img.shields.io/jenkins/s/https/jenkins.vacs.fr/Ada-ADO.svg)](https://jenkins.vacs.fr/job/Ada-ADO/)
+[![Test Status](https://img.shields.io/jenkins/t/https/jenkins.vacs.fr/Ada-ADO.svg)](https://jenkins.vacs.fr/job/Ada-ADO/)
+[![codecov](https://codecov.io/gh/stcarrez/ada-ado/branch/master/graph/badge.svg)](https://codecov.io/gh/stcarrez/ada-ado)
+[![Documentation Status](https://readthedocs.org/projects/ada-ado/badge/?version=latest)](https://ada-ado.readthedocs.io/en/latest/?badge=latest)
+
+This is the SQLite driver for the Ada Database Objects library.
+
+
+   Maintainer: Stephane.Carrez@gmail.com
+   Maintainers_Logins: stcarrez
+   Name: ado_sqlite
+   Project_File: .alire/sqlite/ado_sqlite.gpr
+   Tag: database
+   Tag: uml
+   Tag: sql
+   Tag: sqlite
+   Version: 2.3.0
+   Website: https://gitlab.com/stcarrez/ada-ado
+Dependencies (direct):
+   ado^2.3.0
+   libsqlite3*
+Dependencies (solution):
+   ado=2.3.0
+   gnat=11.2.4 (gnat_native) (installed)
+   libsqlite3=3.41.2
+   utilada=2.5.0
+   utilada_xml=2.5.0
+   xmlada=23.0.0
+Dependencies (graph):
+   ado=2.3.0         --> utilada=2.5.0 (^2.5.0)          
+   ado=2.3.0         --> utilada_xml=2.5.0 (^2.5.0)      
+   ado_sqlite=2.3.0  --> ado=2.3.0 (^2.3.0)              
+   ado_sqlite=2.3.0  --> libsqlite3=3.41.2 (*)           
+   utilada_xml=2.5.0 --> utilada=2.5.0 (^2.5.0)          
+   utilada_xml=2.5.0 --> xmlada=23.0.0 (*)               
+   xmlada=23.0.0     --> gnat=11.2.4 (gnat_native) (>=11)
+
+
+LOG:
+Note: Deploying ado_sqlite=2.3.0...
+Note: Deploying libsqlite3=3.41.2...
+The system package 'mingw-w64-x86_64-sqlite3' is about to be installed.
+This action might require admin privileges and impact your system installation.
+Do you want Alire to install this system package?
+Using default: Yes
+resolving dependencies...
+looking for conflicting packages...
+
+Packages (7) mingw-w64-x86_64-gcc-libs-12.2.0-10  mingw-w64-x86_64-libwinpthread-git-10.0.0.r248.g5f566373f-1  mingw-w64-x86_64-readline-8.2.001-6  mingw-w64-x86_64-tcl-8.6.12-1  mingw-w64-x86_64-termcap-1.3.1-6  mingw-w64-x86_64-zlib-1.2.13-3  mingw-w64-x86_64-sqlite3-3.41.2-1
+
+Total Download Size:    5.57 MiB
+Total Installed Size:  27.46 MiB
+
+:: Proceed with installation? [Y/n] 
+:: Retrieving packages...
+ mingw-w64-x86_64-tcl-8.6.12-1-any downloading...
+ mingw-w64-x86_64-sqlite3-3.41.2-1-any downloading...
+ mingw-w64-x86_64-gcc-libs-12.2.0-10-any downloading...
+ mingw-w64-x86_64-readline-8.2.001-6-any downloading...
+ mingw-w64-x86_64-zlib-1.2.13-3-any downloading...
+ mingw-w64-x86_64-libwinpthread-git-10.0.0.r248.g5f566373f-1-any downloading...
+ mingw-w64-x86_64-termcap-1.3.1-6-any downloading...
+checking keyring...
+checking package integrity...
+error: mingw-w64-x86_64-termcap: signature from "David Macek <david.macek.0@gmail.com>" is unknown trust
+:: File /var/cache/pacman/pkg/mingw-w64-x86_64-termcap-1.3.1-6-any.pkg.tar.zst is corrupted (invalid or corrupted package (PGP signature)).
+Do you want to delete it? [Y/n] error: failed to commit transaction (invalid or corrupted package)
+
+Errors occurred, no packages were upgraded.
+stderr: Command ["pacman", "--needed", "--noconfirm", "-S", "mingw-w64-x86_64-sqlite3"] exited with code 1
+stderr: Generating Outcome_Failure with message: Command ["pacman", "--needed", "--noconfirm", "-S", "mingw-w64-x86_64-sqlite3"] exited with code 1
+stderr: Generating Outcome_Failure with call stack:
+stderr: raised AAA.DEBUG.STACK_TRACE.DEBUG_EXCEPTION : aaa-debug.adb:44
+[D:\a\alire-crates-ci\alire-crates-ci\alire_install\bin\alr.exe]
+0xfe81df semantic_versioning__basic__at_least at ???
+0xdc81db Semantic_Versioning.Basic.At_Least at alire.adb:193
+0x7f4a0b Semantic_Versioning.Basic.At_Least at alire-errors.adb:101
+0x996b58 Semantic_Versioning.Basic.At_Least at alire-origins-deployers-system-pacman.adb:124
+0x99f1d8 Semantic_Versioning.Basic.At_Least at alire-origins-deployers-system.adb:32
+0x9a622e Semantic_Versioning.Basic.At_Least at alire-origins-deployers.adb:123
+0x9a7713 Semantic_Versioning.Basic.At_Least at alire-origins-deployers.adb:161
+0xbcce1e Semantic_Versioning.Basic.At_Least at alire-releases.adb:310
+0xc0090c Semantic_Versioning.Basic.At_Least at alire-roots.adb:405
+0xc17363 Semantic_Versioning.Basic.At_Least at alire-roots.adb:1364
+0xc62228 Semantic_Versioning.Basic.At_Least at alire-solutions.adb:1443
+0xc609cd Semantic_Versioning.Basic.At_Least at alire-solutions.adb:1502
+0xc174a4 Semantic_Versioning.Basic.At_Least at alire-roots.adb:1368
+0xc00c71 Semantic_Versioning.Basic.At_Least at alire-roots.adb:434
+0x48874a Semantic_Versioning.Basic.At_Least at alr-commands-get.adb:173
+0x48d3cc Semantic_Versioning.Basic.At_Least at alr-commands-get.adb:348
+0x51c0a3 Semantic_Versioning.Basic.At_Least at clic-subcommand-instance.adb:742
+0x528a27 Semantic_Versioning.Basic.At_Least at alr-commands.adb:492
+0x401761 Alr.Main at alr-main.adb:10
+0x404bd6 Main at b__alr-main.adb:2130
+0x401423 __tmainCRTStartup at ???
+0x40113b mainCRTStartup at ???
+[C:\Windows\System32\KERNEL32.DLL]
+0x7ffc709e4cae
+[C:\Windows\SYSTEM32\ntdll.dll]
+0x7ffc71f5edc9
+
+stderr: ALIRE.CHECKED_ERROR
+stderr: Command ["pacman", "--needed", "--noconfirm", "-S", "mingw-w64-x86_64-sqlite3"] exited with code 1
+stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:2
+[D:\a\alire-crates-ci\alire-crates-ci\alire_install\bin\alr.exe]
+0xdc6919 Semantic_Versioning.Basic.At_Least at alire.adb:129
+0x9a6240 Semantic_Versioning.Basic.At_Least at alire-origins-deployers.adb:123
+0x9a7713 Semantic_Versioning.Basic.At_Least at alire-origins-deployers.adb:161
+0xbcce1e Semantic_Versioning.Basic.At_Least at alire-releases.adb:310
+0xc0090c Semantic_Versioning.Basic.At_Least at alire-roots.adb:405
+0xc17363 Semantic_Versioning.Basic.At_Least at alire-roots.adb:1364
+0xc62228 Semantic_Versioning.Basic.At_Least at alire-solutions.adb:1443
+0xc609cd Semantic_Versioning.Basic.At_Least at alire-solutions.adb:1502
+0xc174a4 Semantic_Versioning.Basic.At_Least at alire-roots.adb:1368
+0xc00c71 Semantic_Versioning.Basic.At_Least at alire-roots.adb:434
+0x48874a Semantic_Versioning.Basic.At_Least at alr-commands-get.adb:173
+0x48d3cc Semantic_Versioning.Basic.At_Least at alr-commands-get.adb:348
+0x51c0a3 Semantic_Versioning.Basic.At_Least at clic-subcommand-instance.adb:742
+0x528a27 Semantic_Versioning.Basic.At_Least at alr-commands.adb:492
+0x401761 Alr.Main at alr-main.adb:10
+0x404bd6 Main at b__alr-main.adb:2130
+0x401423 __tmainCRTStartup at ???
+0x40113b mainCRTStartup at ???
+[C:\Windows\System32\KERNEL32.DLL]
+0x7ffc709e4cae
+[C:\Windows\SYSTEM32\ntdll.dll]
+0x7ffc71f5edc9
+
+stderr: Generating Outcome_Failure with message: Deployment of system package from platform software manager: mingw-w64-x86_64-sqlite3 to D:\a\alire-crates-ci\alire-crates-ci\test\edf0c866-b2d9-4825-a826-9c5f5da00c38\ado_sqlite_2.3.0_a59fa70f\alire\cache\dependencies\libsqlite3_3.41.2_system failed
+stderr: Generating Outcome_Failure with call stack:
+stderr: raised AAA.DEBUG.STACK_TRACE.DEBUG_EXCEPTION : aaa-debug.adb:44
+[D:\a\alire-crates-ci\alire-crates-ci\alire_install\bin\alr.exe]
+0xfe81df semantic_versioning__basic__at_least at ???
+0xdc81db Semantic_Versioning.Basic.At_Least at alire.adb:193
+0x9a6d52 Semantic_Versioning.Basic.At_Least at alire-origins-deployers.adb:149
+0x9a7713 Semantic_Versioning.Basic.At_Least at alire-origins-deployers.adb:161
+0xbcce1e Semantic_Versioning.Basic.At_Least at alire-releases.adb:310
+0xc0090c Semantic_Versioning.Basic.At_Least at alire-roots.adb:405
+0xc17363 Semantic_Versioning.Basic.At_Least at alire-roots.adb:1364
+0xc62228 Semantic_Versioning.Basic.At_Least at alire-solutions.adb:1443
+0xc609cd Semantic_Versioning.Basic.At_Least at alire-solutions.adb:1502
+0xc174a4 Semantic_Versioning.Basic.At_Least at alire-roots.adb:1368
+0xc00c71 Semantic_Versioning.Basic.At_Least at alire-roots.adb:434
+0x48874a Semantic_Versioning.Basic.At_Least at alr-commands-get.adb:173
+0x48d3cc Semantic_Versioning.Basic.At_Least at alr-commands-get.adb:348
+0x51c0a3 Semantic_Versioning.Basic.At_Least at clic-subcommand-instance.adb:742
+0x528a27 Semantic_Versioning.Basic.At_Least at alr-commands.adb:492
+0x401761 Alr.Main at alr-main.adb:10
+0x404bd6 Main at b__alr-main.adb:2130
+0x401423 __tmainCRTStartup at ???
+0x40113b mainCRTStartup at ???
+[C:\Windows\System32\KERNEL32.DLL]
+0x7ffc709e4cae
+[C:\Windows\SYSTEM32\ntdll.dll]
+0x7ffc71f5edc9
+
+stderr: ALIRE.CHECKED_ERROR
+stderr: Deployment of system package from platform software manager: mingw-w64-x86_64-sqlite3 to D:\a\alire-crates-ci\alire-crates-ci\test\edf0c866-b2d9-4825-a826-9c5f5da00c38\ado_sqlite_2.3.0_a59fa70f\alire\cache\dependencies\libsqlite3_3.41.2_system failed
+stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:3
+[D:\a\alire-crates-ci\alire-crates-ci\alire_install\bin\alr.exe]
+0xdc6919 Semantic_Versioning.Basic.At_Least at alire.adb:129
+0xbcce30 Semantic_Versioning.Basic.At_Least at alire-releases.adb:310
+0xc0090c Semantic_Versioning.Basic.At_Least at alire-roots.adb:405
+0xc17363 Semantic_Versioning.Basic.At_Least at alire-roots.adb:1364
+0xc62228 Semantic_Versioning.Basic.At_Least at alire-solutions.adb:1443
+0xc609cd Semantic_Versioning.Basic.At_Least at alire-solutions.adb:1502
+0xc174a4 Semantic_Versioning.Basic.At_Least at alire-roots.adb:1368
+0xc00c71 Semantic_Versioning.Basic.At_Least at alire-roots.adb:434
+0x48874a Semantic_Versioning.Basic.At_Least at alr-commands-get.adb:173
+0x48d3cc Semantic_Versioning.Basic.At_Least at alr-commands-get.adb:348
+0x51c0a3 Semantic_Versioning.Basic.At_Least at clic-subcommand-instance.adb:742
+0x528a27 Semantic_Versioning.Basic.At_Least at alr-commands.adb:492
+0x401761 Alr.Main at alr-main.adb:10
+0x404bd6 Main at b__alr-main.adb:2130
+0x401423 __tmainCRTStartup at ???
+0x40113b mainCRTStartup at ???
+[C:\Windows\System32\KERNEL32.DLL]
+0x7ffc709e4cae
+[C:\Windows\SYSTEM32\ntdll.dll]
+0x7ffc71f5edc9
+
+ERROR: Deployment of system package from platform software manager: mingw-w64-x86_64-sqlite3 to D:\a\alire-crates-ci\alire-crates-ci\test\edf0c866-b2d9-4825-a826-9c5f5da00c38\ado_sqlite_2.3.0_a59fa70f\alire\cache\dependencies\libsqlite3_3.41.2_system failed

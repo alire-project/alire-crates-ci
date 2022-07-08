@@ -1,0 +1,3460 @@
+badge: false
+crate: adacl_embedded
+creation_timestamp: 1788179992.4743235
+distro: mingw64_nt-10.0-26100
+duration: 238.15600000000018
+gnat: 11.2.4
+last_attempt: 2026-08-31 12:59:03.482095+00:00
+log:
+- 'Test ran at 2026-08-31 12:59:03.482095+00:00
+
+
+  '
+- 'SOLUTION:
+
+  '
+- 'adacl_embedded=7.2.1: Ada Embedded Library
+
+  '
+- 'Origin: source archive adacl_embedded-7.2.1.tgz at https://sourceforge.net/projects/adacl/files/Alire/adacl_embedded-7.2.1.tgz
+  with hashes sha256:8becc52664f1477b089ae46099bd46df8b56e62f334ebfbb0b85d6b610d28daa,
+  sha512:7d51088fea3931a5829b05beb9f2a73bb155fc520b9f00c9dcb9581c94d0c71933dacc347f6095b3cc53c4363e372874ac6089b5d5edf2924ffd949e45317f14
+
+  '
+- 'Properties:
+
+  '
+- '   case OS is
+
+  '
+- '      when Linux => Test run: /bin/bash ci-verify.sh (from ${CRATE_ROOT}/.)
+
+  '
+- '      when Macos => Test run: /bin/bash ci-verify.sh (from ${CRATE_ROOT}/.)
+
+  '
+- '      when Windows => Test run: powershell -ExecutionPolicy Bypass -File ci-verify.ps1
+  (from ${CRATE_ROOT}/.)
+
+  '
+- '      when others => (empty)
+
+  '
+- '   Author: Martin Krischik <krischik@users.sourceforge.net>
+
+  '
+- "   Build Switches: \n"
+- '   Config type: Event_Log_Buffer_Length : Integer range 1 .. 1024 default: ''200''
+
+  '
+- '   Config type: Event_Log_Buffer_Size : Integer range 0 .. 1024 default: ''0''
+
+  '
+- '   Config type: Variant : Enum (tasking, no_tasking) default: ''no_tasking''
+
+  '
+- '   Configuration: no modifiers
+
+  '
+- '   Description: Ada Embedded Library
+
+  '
+- '   License: GPL-3.0-or-later
+
+  '
+- '   Long_Description: AdaCL Embedded - Lightweight Embedded Ada Library
+
+  '
+- '
+
+  '
+- 'AdaCL-Embedded focuses on embedded and real-time programming on the Raspberry Pi
+  and similar platforms.
+
+  '
+- '
+
+  '
+- 'It favours predictability, minimal runtime overhead, and static data structures.
+  Object-oriented programming, unbounded
+
+  '
+- 'strings, and wide strings are avoided or kept to an absolute minimum.
+
+  '
+- '
+
+  '
+- '### Current Features
+
+  '
+- '
+
+  '
+- '* **AdaCL.Embedded.Trace** - Interrupt-safe, lightweight tracing facility using
+  a ring buffer.
+
+  '
+- '* **AdaCL.Embedded.Text_IO** - Extended Ada.Text_IO.
+
+  '
+- '
+
+  '
+- '### Configuration Options
+
+  '
+- '
+
+  '
+- '* `Variant`
+
+  '
+- '  * `no_tasking`  - for the lightest runtimes (no protected objects). Also works
+  well with interrupt-driven runtimes.
+
+  '
+- "  * `tasking`\t  - for runtimes with tasking support.\n"
+- '* `Event_Log_Buffer_Length` - maximum length of each trace line (default: 200,
+  min: 1, max: 1024)
+
+  '
+- '* `Event_Log_Buffer_Size`   - number of entries in the ring buffer (default: 0,
+  max: 1024, min: 0 (buffer disabled))
+
+  '
+- '
+
+  '
+- 'A text length of 200 is the standart minimum used in the Ada Standart (i.E. `Ada.Text_IO.Get_Line`,
+  exception messages,
+
+  '
+- 'etc.pp).
+
+  '
+- '
+
+  '
+- 'Memory needed is approximately `(Event_Log_Buffer_Length + 4) * Event_Log_Buffer_Size`
+  bytes, plus some overhead for the
+
+  '
+- 'buffer management. For example: 1024 buffer size with 200 line lenght is about
+  the maximum size that can be used with
+
+  '
+- 'the static memory of Raspberry Pi Pico. The buffer size can be set to 0 to disable
+  the trace buffer and the related code
+
+  '
+- 'completely.
+
+  '
+- '
+
+  '
+- 'Source: [SourceForge](https://sourceforge.net/p/adacl/git/ci/master/tree/adacl-embedded/src/)
+
+  '
+- 'Documentation: [GNATdoc](https://adacl-embedded.sourceforge.net/gnatdoc/adael/index.html)
+
+  '
+- '
+
+  '
+- '   Maintainer: Martin Krischik <krischik@users.sourceforge.net>
+
+  '
+- '   Maintainers_Logins: krischik
+
+  '
+- '   Name: adacl_embedded
+
+  '
+- '   Tag: library
+
+  '
+- '   Tag: embedded
+
+  '
+- '   Tag: trace
+
+  '
+- '   Tag: logging
+
+  '
+- '   Tag: spark
+
+  '
+- '   Tag: ada2022
+
+  '
+- '   Version: 7.2.1
+
+  '
+- '   Website: https://sourceforge.net/projects/adacl/
+
+  '
+- '
+
+  '
+- '
+
+  LOG:
+
+  '
+- '=== Ada CI Verification ===
+
+  '
+- '=== Prove Log Off ===
+
+  '
+- 'Directory: prove_log_off
+
+  '
+- 'Updating dependencies...
+
+  '
+- 'Dependencies automatically updated as follows:
+
+  '
+- '
+
+  '
+- '   +. adacl_embedded 7.2.1  (new,path=..)
+
+  '
+- '   +b gnat_arm_elf   15.3.1 (new,indirect,binary)
+
+  '
+- '   +b gnatprove      16.1.0 (new,binary)
+
+  '
+- '   +  light_rp2040   15.4.0 (new)
+
+  '
+- "   \n"
+- '   i  The solution requires a toolchain that is
+
+  '
+- '      not yet installed. Accepting the solution
+
+  '
+- '      will download and install this toolchain.
+
+  '
+- 'Note: Deploying gnat_arm_elf=15.3.1...
+
+  '
+- '
+
+  '
+- "#=#=#                                                                         \
+  \ \n"
+- '#                                                                          2.3%
+
+  '
+- '#####                                                                      7.9%
+
+  '
+- '########                                                                  11.3%
+
+  '
+- '################                                                          23.0%
+
+  '
+- '######################                                                    31.6%
+
+  '
+- '##############################                                            42.8%
+
+  '
+- '#####################################                                     51.8%
+
+  '
+- '##########################################                                59.6%
+
+  '
+- '################################################                          68.0%
+
+  '
+- '#####################################################                     74.9%
+
+  '
+- '#############################################################             85.5%
+
+  '
+- '#####################################################################     95.9%
+
+  '
+- '######################################################################## 100.0%
+
+  '
+- 'Note: gnat_arm_elf=15.3.1 installed successfully.
+
+  '
+- 'Note: Deploying gnatprove=16.1.0...
+
+  '
+- '
+
+  '
+- "#=#=#                                                                         \
+  \ \n"
+- '###                                                                        5.4%
+
+  '
+- '##########                                                                14.0%
+
+  '
+- '#################                                                         24.2%
+
+  '
+- '#######################                                                   32.1%
+
+  '
+- '#############################                                             41.4%
+
+  '
+- '###################################                                       49.2%
+
+  '
+- '####################################                                      50.0%
+
+  '
+- '########################################                                  56.9%
+
+  '
+- '##############################################                            64.5%
+
+  '
+- '###################################################                       71.8%
+
+  '
+- '########################################################                  78.7%
+
+  '
+- '##############################################################            86.2%
+
+  '
+- '##################################################################        92.5%
+
+  '
+- '######################################################################## 100.0%
+
+  '
+- 'Note: Deploying light_rp2040=15.4.0...
+
+  '
+- '
+
+  '
+- "#=#=#                                                                         \
+  \ \n"
+- '######################################################################## 100.0%
+
+  '
+- 'Building with validation...
+
+  '
+- 'Note: Building adacl_embedded_prove_log_off=7.2.1/adacl_embedded_prove_log_off.gpr...
+
+  '
+- '"C:\Users\runneradmin\AppData\Local\alire\cache\builds\light_rp2040_15.4.0_40e6b553\c7ed84cea90a21a833678f5d9ea57bea365fdc26882315c9bec542b6785a54ed\obj"
+  created
+
+  '
+- '"C:\Users\runneradmin\AppData\Local\alire\cache\builds\light_rp2040_15.4.0_40e6b553\c7ed84cea90a21a833678f5d9ea57bea365fdc26882315c9bec542b6785a54ed\adalib"
+  created
+
+  '
+- '"..\obj\validation" created
+
+  '
+- '"..\lib" created
+
+  '
+- '"obj\validation" created
+
+  '
+- '"bin\validation" created
+
+  '
+- '[Ada Compile]     a-assert.adb
+
+  '
+- '[Ada Compile]     a-chahan.adb
+
+  '
+- '[Ada Compile]     a-charac.ads
+
+  '
+- '[Ada Compile]     a-chlat1.ads
+
+  '
+- '[Ada Compile]     a-elchha.adb
+
+  '
+- '[Ada Compile]     a-except.adb
+
+  '
+- '[Ada Compile]     a-nbnbig.adb
+
+  '
+- '[Ada Compile]     a-ngelfu.adb
+
+  '
+- '[Ada Compile]     a-nlelfu.ads
+
+  '
+- '[Ada Compile]     a-nllefu.ads
+
+  '
+- '[Ada Compile]     a-nselfu.ads
+
+  '
+- '[Ada Compile]     a-nubinu.ads
+
+  '
+- '[Ada Compile]     a-nuelfu.ads
+
+  '
+- '[Ada Compile]     a-numaux.ads
+
+  '
+- '[Ada Compile]     a-numeri.ads
+
+  '
+- '[Ada Compile]     a-stmaco.ads
+
+  '
+- '[Ada Compile]     a-strbou.adb
+
+  '
+- '[Ada Compile]     a-strfix.adb
+
+  '
+- '[Ada Compile]     a-string.ads
+
+  '
+- '[Ada Compile]     a-strmap.adb
+
+  '
+- '[Ada Compile]     a-strsea.adb
+
+  '
+- '[Ada Compile]     a-strsup.adb
+
+  '
+- '[Ada Compile]     a-tags.adb
+
+  '
+- '[Ada Compile]     a-textio.adb
+
+  '
+- '[Ada Compile]     a-unccon.ads
+
+  '
+- '[Ada Compile]     a-uncdea.ads
+
+  '
+- '[Ada Compile]     ada.ads
+
+  '
+- '[Ada Compile]     g-debuti.adb
+
+  '
+- '[Ada Compile]     g-io.adb
+
+  '
+- '[Ada Compile]     g-sestin.ads
+
+  '
+- '[Ada Compile]     g-souinf.ads
+
+  '
+- '[Ada Compile]     gnat.ads
+
+  '
+- '[Ada Compile]     i-c.adb
+
+  '
+- '[Ada Compile]     i-cexten.ads
+
+  '
+- '[Ada Compile]     i-cpoint.adb
+
+  '
+- '[Ada Compile]     i-cstrin.adb
+
+  '
+- '[Ada Compile]     i-rp2040-clocks.ads
+
+  '
+- '[Ada Compile]     i-rp2040-pll_sys.ads
+
+  '
+- '[Ada Compile]     i-rp2040-psm.ads
+
+  '
+- '[Ada Compile]     i-rp2040-resets.ads
+
+  '
+- '[Ada Compile]     i-rp2040-rosc.ads
+
+  '
+- '[Ada Compile]     i-rp2040-sio.ads
+
+  '
+- '[Ada Compile]     i-rp2040-timer.ads
+
+  '
+- '[Ada Compile]     i-rp2040-watchdog.ads
+
+  '
+- '[Ada Compile]     i-rp2040-xosc.ads
+
+  '
+- '[Ada Compile]     i-rp2040.ads
+
+  '
+- '[Ada Compile]     interfac.ads
+
+  '
+- '[Ada Compile]     light_rp2040_config.ads
+
+  '
+- '[Ada Compile]     machcode.ads
+
+  '
+- '[Ada Compile]     rp2040_runtime_config.ads
+
+  '
+- '[Ada Compile]     s-addope.adb
+
+  '
+- '[Ada Compile]     s-aridou.adb
+
+  '
+- '[Ada Compile]     s-arit32.adb
+
+  '
+- '[Ada Compile]     s-arit64.adb
+
+  '
+- '[Ada Compile]     s-assert.adb
+
+  '
+- '[Ada Compile]     s-atacco.ads
+
+  '
+- '[Ada Compile]     s-atocou.adb
+
+  '
+- '[Ada Compile]     s-atopri.adb
+
+  '
+- '[Ada Compile]     s-bb.ads
+
+  '
+- '[Ada Compile]     s-bbarat.adb
+
+  '
+- '[Ada Compile]     s-bbbopa.ads
+
+  '
+- '[Ada Compile]     s-bbmcpa.ads
+
+  '
+- '[Ada Compile]     s-bbpara.ads
+
+  '
+- '[Ada Compile]     s-bbrpat.adb
+
+  '
+- '[Ada Compile]     s-bitops.adb
+
+  '
+- '[Ada Compile]     s-boarop.ads
+
+  '
+- '[Ada Compile]     s-bootro.adb
+
+  '
+- '[Ada Compile]     s-bytswa.ads
+
+  '
+- '[Ada Compile]     s-carsi8.adb
+
+  '
+- '[Ada Compile]     s-carun8.adb
+
+  '
+- '[Ada Compile]     s-casi16.adb
+
+  '
+- '[Ada Compile]     s-casi32.adb
+
+  '
+- '[Ada Compile]     s-casi64.adb
+
+  '
+- '[Ada Compile]     s-casuti.adb
+
+  '
+- '[Ada Compile]     s-caun16.adb
+
+  '
+- '[Ada Compile]     s-caun32.adb
+
+  '
+- '[Ada Compile]     s-caun64.adb
+
+  '
+- '[Ada Compile]     s-dourea.adb
+
+  '
+- '[Ada Compile]     s-exnflt.ads
+
+  '
+- '[Ada Compile]     s-exnint.ads
+
+  '
+- '[Ada Compile]     s-exnlfl.ads
+
+  '
+- '[Ada Compile]     s-exnllf.ads
+
+  '
+- '[Ada Compile]     s-exnlli.ads
+
+  '
+- '[Ada Compile]     s-expint.ads
+
+  '
+- '[Ada Compile]     s-explli.ads
+
+  '
+- '[Ada Compile]     s-expllu.ads
+
+  '
+- '[Ada Compile]     s-expmod.adb
+
+  '
+- '[Ada Compile]     s-exponn.adb
+
+  '
+- '[Ada Compile]     s-exponr.adb
+
+  '
+- '[Ada Compile]     s-expont.adb
+
+  '
+- '[Ada Compile]     s-exponu.adb
+
+  '
+- '[Ada Compile]     s-expuns.ads
+
+  '
+- '[Ada Compile]     s-fatflt.ads
+
+  '
+- '[Ada Compile]     s-fatgen.adb
+
+  '
+- '[Ada Compile]     s-fatlfl.ads
+
+  '
+- '[Ada Compile]     s-fatllf.ads
+
+  '
+- '[Ada Compile]     s-flocon.adb
+
+  '
+- '[Ada Compile]     s-gcmain.adb
+
+  '
+- '[Ada Compile]     s-geveop.adb
+
+  '
+- '[Ada Compile]     s-imaged.adb
+
+  '
+- '[Ada Compile]     s-imagef.adb
+
+  '
+- '[Ada Compile]     s-imagei.adb
+
+  '
+- '[Ada Compile]     s-imagen.adb
+
+  '
+- '[Ada Compile]     s-imager.adb
+
+  '
+- '[Ada Compile]     s-imageu.adb
+
+  '
+- '[Ada Compile]     s-imagew.adb
+
+  '
+- '[Ada Compile]     s-imde32.ads
+
+  '
+- '[Ada Compile]     s-imde64.ads
+
+  '
+- '[Ada Compile]     s-imen16.ads
+
+  '
+- '[Ada Compile]     s-imen32.ads
+
+  '
+- '[Ada Compile]     s-imenu8.ads
+
+  '
+- '[Ada Compile]     s-imfi32.ads
+
+  '
+- '[Ada Compile]     s-imfi64.ads
+
+  '
+- '[Ada Compile]     s-imgboo.adb
+
+  '
+- '[Ada Compile]     s-imgcha.adb
+
+  '
+- '[Ada Compile]     s-imgflt.ads
+
+  '
+- '[Ada Compile]     s-imgint.ads
+
+  '
+- '[Ada Compile]     s-imglfl.ads
+
+  '
+- '[Ada Compile]     s-imgllf.ads
+
+  '
+- '[Ada Compile]     s-imglli.ads
+
+  '
+- '[Ada Compile]     s-imgllu.ads
+
+  '
+- '[Ada Compile]     s-imgllw.ads
+
+  '
+- '[Ada Compile]     s-imguns.ads
+
+  '
+- '[Ada Compile]     s-imguti.adb
+
+  '
+- '[Ada Compile]     s-imgwiu.ads
+
+  '
+- '[Ada Compile]     s-libdou.adb
+
+  '
+- '[Ada Compile]     s-libm.adb
+
+  '
+- '[Ada Compile]     s-libpre.ads
+
+  '
+- '[Ada Compile]     s-libsin.adb
+
+  '
+- '[Ada Compile]     s-lidosq.adb
+
+  '
+- '[Ada Compile]     s-lisisq.adb
+
+  '
+- '[Ada Compile]     s-maccod.ads
+
+  '
+- '[Ada Compile]     s-macres.adb
+
+  '
+- '[Ada Compile]     s-memcom.adb
+
+  '
+- '[Ada Compile]     s-memcop.adb
+
+  '
+- '[Ada Compile]     s-memmov.adb
+
+  '
+- '[Ada Compile]     s-memory.adb
+
+  '
+- '[Ada Compile]     s-memset.adb
+
+  '
+- '[Ada Compile]     s-memtyp.ads
+
+  '
+- '[Ada Compile]     s-pack03.adb
+
+  '
+- '[Ada Compile]     s-pack05.adb
+
+  '
+- '[Ada Compile]     s-pack06.adb
+
+  '
+- '[Ada Compile]     s-pack07.adb
+
+  '
+- '[Ada Compile]     s-pack09.adb
+
+  '
+- '[Ada Compile]     s-pack10.adb
+
+  '
+- '[Ada Compile]     s-pack11.adb
+
+  '
+- '[Ada Compile]     s-pack12.adb
+
+  '
+- '[Ada Compile]     s-pack13.adb
+
+  '
+- '[Ada Compile]     s-pack14.adb
+
+  '
+- '[Ada Compile]     s-pack15.adb
+
+  '
+- '[Ada Compile]     s-pack17.adb
+
+  '
+- '[Ada Compile]     s-pack18.adb
+
+  '
+- '[Ada Compile]     s-pack19.adb
+
+  '
+- '[Ada Compile]     s-pack20.adb
+
+  '
+- '[Ada Compile]     s-pack21.adb
+
+  '
+- '[Ada Compile]     s-pack22.adb
+
+  '
+- '[Ada Compile]     s-pack23.adb
+
+  '
+- '[Ada Compile]     s-pack25.adb
+
+  '
+- '[Ada Compile]     s-pack26.adb
+
+  '
+- '[Ada Compile]     s-pack27.adb
+
+  '
+- '[Ada Compile]     s-pack28.adb
+
+  '
+- '[Ada Compile]     s-pack29.adb
+
+  '
+- '[Ada Compile]     s-pack30.adb
+
+  '
+- '[Ada Compile]     s-pack31.adb
+
+  '
+- '[Ada Compile]     s-pack33.adb
+
+  '
+- '[Ada Compile]     s-pack34.adb
+
+  '
+- '[Ada Compile]     s-pack35.adb
+
+  '
+- '[Ada Compile]     s-pack36.adb
+
+  '
+- '[Ada Compile]     s-pack37.adb
+
+  '
+- '[Ada Compile]     s-pack38.adb
+
+  '
+- '[Ada Compile]     s-pack39.adb
+
+  '
+- '[Ada Compile]     s-pack41.adb
+
+  '
+- '[Ada Compile]     s-pack42.adb
+
+  '
+- '[Ada Compile]     s-pack43.adb
+
+  '
+- '[Ada Compile]     s-pack44.adb
+
+  '
+- '[Ada Compile]     s-pack45.adb
+
+  '
+- '[Ada Compile]     s-pack46.adb
+
+  '
+- '[Ada Compile]     s-pack47.adb
+
+  '
+- '[Ada Compile]     s-pack49.adb
+
+  '
+- '[Ada Compile]     s-pack50.adb
+
+  '
+- '[Ada Compile]     s-pack51.adb
+
+  '
+- '[Ada Compile]     s-pack52.adb
+
+  '
+- '[Ada Compile]     s-pack53.adb
+
+  '
+- '[Ada Compile]     s-pack54.adb
+
+  '
+- '[Ada Compile]     s-pack55.adb
+
+  '
+- '[Ada Compile]     s-pack57.adb
+
+  '
+- '[Ada Compile]     s-pack58.adb
+
+  '
+- '[Ada Compile]     s-pack59.adb
+
+  '
+- '[Ada Compile]     s-pack60.adb
+
+  '
+- '[Ada Compile]     s-pack61.adb
+
+  '
+- '[Ada Compile]     s-pack62.adb
+
+  '
+- '[Ada Compile]     s-pack63.adb
+
+  '
+- '[Ada Compile]     s-parame.ads
+
+  '
+- '[Ada Compile]     s-powflt.ads
+
+  '
+- '[Ada Compile]     s-powlfl.ads
+
+  '
+- '[Ada Compile]     s-powllf.ads
+
+  '
+- '[Ada Compile]     s-retsta.ads
+
+  '
+- '[Ada Compile]     s-secsta.adb
+
+  '
+- '[Ada Compile]     s-semiho.adb
+
+  '
+- '[Ada Compile]     s-spark.ads
+
+  '
+- '[Ada Compile]     s-spcuop.adb
+
+  '
+- '[Ada Compile]     s-sssita.adb
+
+  '
+- '[Ada Compile]     s-stache.adb
+
+  '
+- '[Ada Compile]     s-stoele.ads
+
+  '
+- '[Ada Compile]     s-textio.adb
+
+  '
+- '[Ada Compile]     s-unstyp.ads
+
+  '
+- '[Ada Compile]     s-vade32.ads
+
+  '
+- '[Ada Compile]     s-vade64.ads
+
+  '
+- '[Ada Compile]     s-vaen16.ads
+
+  '
+- '[Ada Compile]     s-vaen32.ads
+
+  '
+- '[Ada Compile]     s-vaenu8.ads
+
+  '
+- '[Ada Compile]     s-vafi32.ads
+
+  '
+- '[Ada Compile]     s-vafi64.ads
+
+  '
+- '[Ada Compile]     s-vaispe.adb
+
+  '
+- '[Ada Compile]     s-valboo.adb
+
+  '
+- '[Ada Compile]     s-valcha.adb
+
+  '
+- '[Ada Compile]     s-valflt.ads
+
+  '
+- '[Ada Compile]     s-valint.ads
+
+  '
+- '[Ada Compile]     s-vallfl.ads
+
+  '
+- '[Ada Compile]     s-valllf.ads
+
+  '
+- '[Ada Compile]     s-vallli.ads
+
+  '
+- '[Ada Compile]     s-valllu.ads
+
+  '
+- '[Ada Compile]     s-valrea.adb
+
+  '
+- '[Ada Compile]     s-valspe.adb
+
+  '
+- '[Ada Compile]     s-valued.adb
+
+  '
+- '[Ada Compile]     s-valuef.adb
+
+  '
+- '[Ada Compile]     s-valuei.adb
+
+  '
+- '[Ada Compile]     s-valuen.adb
+
+  '
+- '[Ada Compile]     s-valuer.adb
+
+  '
+- '[Ada Compile]     s-valueu.adb
+
+  '
+- '[Ada Compile]     s-valuns.ads
+
+  '
+- '[Ada Compile]     s-valuti.adb
+
+  '
+- '[Ada Compile]     s-vauspe.adb
+
+  '
+- '[Ada Compile]     s-veboop.adb
+
+  '
+- '[Ada Compile]     s-vector.ads
+
+  '
+- '[Ada Compile]     s-vs_int.ads
+
+  '
+- '[Ada Compile]     s-vs_lli.ads
+
+  '
+- '[Ada Compile]     s-vs_llu.ads
+
+  '
+- '[Ada Compile]     s-vs_uns.ads
+
+  '
+- '[Ada Compile]     s-widint.ads
+
+  '
+- '[Ada Compile]     s-widlli.ads
+
+  '
+- '[Ada Compile]     s-widllu.ads
+
+  '
+- '[Ada Compile]     s-widthi.adb
+
+  '
+- '[Ada Compile]     s-widthu.adb
+
+  '
+- '[Ada Compile]     s-widuns.ads
+
+  '
+- '[Ada Compile]     setup_clocks.adb
+
+  '
+- '[Ada Compile]     system.ads
+
+  '
+- '[Ada Compile]     text_io.ads
+
+  '
+- '[Ada Compile]     unchconv.ads
+
+  '
+- '[Ada Compile]     unchdeal.ads
+
+  '
+- '[Asm_Cpp Compile] boot2-w25qxx.S
+
+  '
+- '[Asm_Cpp Compile] start-rom.S
+
+  '
+- '[Ada Compile]     adacl-text_io.adb
+
+  '
+- '[Ada Compile]     adacl-trace_buffer.adb
+
+  '
+- '[Ada Compile]     adacl.ads
+
+  '
+- '[Archive]         libgnat.a
+
+  '
+- '[Ada Compile]     adacl_embedded_config.ads
+
+  '
+- '[Ada Compile]     dummy-main.adb
+
+  '
+- '[Ada Compile]     dummy.adb
+
+  '
+- '[Archive]         libAdaCL_Embedded.a
+
+  '
+- '[Ada Bind]        dummy-main
+
+  '
+- '[Ada Post-Bind]   b__dummy-main.adb
+
+  '
+- '[Link]            dummy-main
+
+  '
+- 'Success: Build finished successfully in 18.39 seconds.
+
+  '
+- 'Running GNATprove...
+
+  '
+- 'Phase 1 of 3: generation of data representation information ...
+
+  '
+- 'Phase 2 of 3: generation of Global contracts ...
+
+  '
+- 'Phase 3 of 3: flow analysis and proof ...
+
+  '
+- 'Summary logged in D:\a\alire-crates-ci\alire-crates-ci\test\1bc35bc8-e550-4830-aded-e38028f24f3d\adacl_embedded_7.2.1_8becc526\prove_log_off\obj\validation\gnatprove\gnatprove.out
+
+  '
+- 'SUCCESS: Prove Log Off
+
+  '
+- '--------------------------------------------------
+
+  '
+- '=== Prove No Tasking ===
+
+  '
+- 'Directory: prove_no_tasking
+
+  '
+- 'Updating dependencies...
+
+  '
+- 'Dependencies automatically updated as follows:
+
+  '
+- '
+
+  '
+- '   +. adacl_embedded       7.2.1  (new,path=..)
+
+  '
+- '   +b gnat_arm_elf         15.3.1 (new,indirect,binary)
+
+  '
+- '   +b gnatprove            16.1.0 (new,binary)
+
+  '
+- '   +  light_tasking_rp2040 15.4.0 (new)
+
+  '
+- 'Note: Deploying light_tasking_rp2040=15.4.0...
+
+  '
+- '
+
+  '
+- '#################################################                         69.2%
+
+  '
+- '######################################################################## 100.0%
+
+  '
+- 'Building with validation...
+
+  '
+- 'Note: Building adacl_embedded_prove_no_tasking=7.2.1/adacl_embedded_prove_no_tasking.gpr...
+
+  '
+- '"C:\Users\runneradmin\AppData\Local\alire\cache\builds\light_tasking_rp2040_15.4.0_c3806fc6\ed8f87ff9aebc56e00ab458bd16c9aef890024b42b874edab7447b77dac855f4\obj"
+  created
+
+  '
+- '"C:\Users\runneradmin\AppData\Local\alire\cache\builds\light_tasking_rp2040_15.4.0_c3806fc6\ed8f87ff9aebc56e00ab458bd16c9aef890024b42b874edab7447b77dac855f4\adalib"
+  created
+
+  '
+- '"obj\validation" created
+
+  '
+- '"bin\validation" created
+
+  '
+- '[Ada Compile]     a-exetim.adb
+
+  '
+- '[Ada Compile]     a-extiin.adb
+
+  '
+- '[Ada Compile]     a-interr.adb
+
+  '
+- '[Ada Compile]     a-intnam-2.ads
+
+  '
+- '[Ada Compile]     a-reatim.adb
+
+  '
+- '[Ada Compile]     a-retide.adb
+
+  '
+- '[Ada Compile]     a-rttiev.adb
+
+  '
+- '[Ada Compile]     a-synbar.adb
+
+  '
+- '[Ada Compile]     a-sytaco.adb
+
+  '
+- '[Ada Compile]     a-taside.adb
+
+  '
+- '[Ada Compile]     a-taster.adb
+
+  '
+- '[Ada Compile]     s-bbbosu.adb
+
+  '
+- '[Ada Compile]     s-bbcppr.adb
+
+  '
+- '[Ada Compile]     s-bbcpsp.ads
+
+  '
+- '[Ada Compile]     s-bbexti.adb
+
+  '
+- '[Ada Compile]     s-bbinte.adb
+
+  '
+- '[Ada Compile]     s-bbprot.adb
+
+  '
+- '[Ada Compile]     s-bbthqu.adb
+
+  '
+- '[Ada Compile]     s-bbthre.adb
+
+  '
+- '[Ada Compile]     s-bbtiev.adb
+
+  '
+- '[Ada Compile]     s-bbtime.adb
+
+  '
+- '[Ada Compile]     s-bcpcst.adb
+
+  '
+- '[Ada Compile]     s-bcprmu.adb
+
+  '
+- '[Ada Compile]     s-interr.adb
+
+  '
+- '[Ada Compile]     s-mufalo.adb
+
+  '
+- '[Ada Compile]     s-multip.adb
+
+  '
+- '[Ada Compile]     s-musplo.adb
+
+  '
+- '[Ada Compile]     s-osinte.ads
+
+  '
+- '[Ada Compile]     s-reldel.adb
+
+  '
+- '[Ada Compile]     s-restri.adb
+
+  '
+- '[Ada Compile]     s-rident.ads
+
+  '
+- '[Ada Compile]     s-taprob.adb
+
+  '
+- '[Ada Compile]     s-taprop.adb
+
+  '
+- '[Ada Compile]     s-tarest.adb
+
+  '
+- '[Ada Compile]     s-tasdeb.adb
+
+  '
+- '[Ada Compile]     s-tasinf.adb
+
+  '
+- '[Ada Compile]     s-taskin.adb
+
+  '
+- '[Ada Compile]     s-taspri.ads
+
+  '
+- '[Ada Compile]     s-tasque.adb
+
+  '
+- '[Ada Compile]     s-tasres.ads
+
+  '
+- '[Ada Compile]     s-tpoben.adb
+
+  '
+- '[Ada Compile]     s-tpobmu.adb
+
+  '
+- '[Ada Compile]     s-tpobop.adb
+
+  '
+- '[Ada Compile]     s-tposen.adb
+
+  '
+- '[Ada Compile]     a-assert.adb
+
+  '
+- '[Ada Compile]     a-chahan.adb
+
+  '
+- '[Ada Compile]     a-charac.ads
+
+  '
+- '[Ada Compile]     a-chlat1.ads
+
+  '
+- '[Archive]         libgnarl.a
+
+  '
+- '[Ada Compile]     a-elchha.adb
+
+  '
+- '[Ada Compile]     a-except.adb
+
+  '
+- '[Ada Compile]     a-nbnbig.adb
+
+  '
+- '[Ada Compile]     a-ngelfu.adb
+
+  '
+- '[Ada Compile]     a-nlelfu.ads
+
+  '
+- '[Ada Compile]     a-nllefu.ads
+
+  '
+- '[Ada Compile]     a-nselfu.ads
+
+  '
+- '[Ada Compile]     a-nubinu.ads
+
+  '
+- '[Ada Compile]     a-nuelfu.ads
+
+  '
+- '[Ada Compile]     a-numaux.ads
+
+  '
+- '[Ada Compile]     a-numeri.ads
+
+  '
+- '[Ada Compile]     a-stmaco.ads
+
+  '
+- '[Ada Compile]     a-strbou.adb
+
+  '
+- '[Ada Compile]     a-strfix.adb
+
+  '
+- '[Ada Compile]     a-string.ads
+
+  '
+- '[Ada Compile]     a-strmap.adb
+
+  '
+- '[Ada Compile]     a-strsea.adb
+
+  '
+- '[Ada Compile]     a-strsup.adb
+
+  '
+- '[Ada Compile]     a-tags.adb
+
+  '
+- '[Ada Compile]     a-textio.adb
+
+  '
+- '[Ada Compile]     a-unccon.ads
+
+  '
+- '[Ada Compile]     a-uncdea.ads
+
+  '
+- '[Ada Compile]     ada.ads
+
+  '
+- '[Ada Compile]     g-debuti.adb
+
+  '
+- '[Ada Compile]     g-io.adb
+
+  '
+- '[Ada Compile]     g-sestin.ads
+
+  '
+- '[Ada Compile]     g-souinf.ads
+
+  '
+- '[Ada Compile]     gnat.ads
+
+  '
+- '[Ada Compile]     i-c.adb
+
+  '
+- '[Ada Compile]     i-cexten.ads
+
+  '
+- '[Ada Compile]     i-cpoint.adb
+
+  '
+- '[Ada Compile]     i-cstrin.adb
+
+  '
+- '[Ada Compile]     i-rp2040-clocks.ads
+
+  '
+- '[Ada Compile]     i-rp2040-pll_sys.ads
+
+  '
+- '[Ada Compile]     i-rp2040-psm.ads
+
+  '
+- '[Ada Compile]     i-rp2040-resets.ads
+
+  '
+- '[Ada Compile]     i-rp2040-rosc.ads
+
+  '
+- '[Ada Compile]     i-rp2040-sio.ads
+
+  '
+- '[Ada Compile]     i-rp2040-timer.ads
+
+  '
+- '[Ada Compile]     i-rp2040-watchdog.ads
+
+  '
+- '[Ada Compile]     i-rp2040-xosc.ads
+
+  '
+- '[Ada Compile]     i-rp2040.ads
+
+  '
+- '[Ada Compile]     interfac.ads
+
+  '
+- '[Ada Compile]     light_tasking_rp2040_config.ads
+
+  '
+- '[Ada Compile]     machcode.ads
+
+  '
+- '[Ada Compile]     rp2040_runtime_config.ads
+
+  '
+- '[Ada Compile]     s-addope.adb
+
+  '
+- '[Ada Compile]     s-aridou.adb
+
+  '
+- '[Ada Compile]     s-arit32.adb
+
+  '
+- '[Ada Compile]     s-arit64.adb
+
+  '
+- '[Ada Compile]     s-assert.adb
+
+  '
+- '[Ada Compile]     s-atacco.ads
+
+  '
+- '[Ada Compile]     s-atocou.adb
+
+  '
+- '[Ada Compile]     s-atopri.adb
+
+  '
+- '[Ada Compile]     s-bb.ads
+
+  '
+- '[Ada Compile]     s-bbarat.adb
+
+  '
+- '[Ada Compile]     s-bbbopa.ads
+
+  '
+- '[Ada Compile]     s-bbmcpa.ads
+
+  '
+- '[Ada Compile]     s-bbpara.ads
+
+  '
+- '[Ada Compile]     s-bbrpat.adb
+
+  '
+- '[Ada Compile]     s-bitops.adb
+
+  '
+- '[Ada Compile]     s-boarop.ads
+
+  '
+- '[Ada Compile]     s-bootro.adb
+
+  '
+- '[Ada Compile]     s-bytswa.ads
+
+  '
+- '[Ada Compile]     s-carsi8.adb
+
+  '
+- '[Ada Compile]     s-carun8.adb
+
+  '
+- '[Ada Compile]     s-casi16.adb
+
+  '
+- '[Ada Compile]     s-casi32.adb
+
+  '
+- '[Ada Compile]     s-casi64.adb
+
+  '
+- '[Ada Compile]     s-casuti.adb
+
+  '
+- '[Ada Compile]     s-caun16.adb
+
+  '
+- '[Ada Compile]     s-caun32.adb
+
+  '
+- '[Ada Compile]     s-caun64.adb
+
+  '
+- '[Ada Compile]     s-dourea.adb
+
+  '
+- '[Ada Compile]     s-exnflt.ads
+
+  '
+- '[Ada Compile]     s-exnint.ads
+
+  '
+- '[Ada Compile]     s-exnlfl.ads
+
+  '
+- '[Ada Compile]     s-exnllf.ads
+
+  '
+- '[Ada Compile]     s-exnlli.ads
+
+  '
+- '[Ada Compile]     s-expint.ads
+
+  '
+- '[Ada Compile]     s-explli.ads
+
+  '
+- '[Ada Compile]     s-expllu.ads
+
+  '
+- '[Ada Compile]     s-expmod.adb
+
+  '
+- '[Ada Compile]     s-exponn.adb
+
+  '
+- '[Ada Compile]     s-exponr.adb
+
+  '
+- '[Ada Compile]     s-expont.adb
+
+  '
+- '[Ada Compile]     s-exponu.adb
+
+  '
+- '[Ada Compile]     s-expuns.ads
+
+  '
+- '[Ada Compile]     s-fatflt.ads
+
+  '
+- '[Ada Compile]     s-fatgen.adb
+
+  '
+- '[Ada Compile]     s-fatlfl.ads
+
+  '
+- '[Ada Compile]     s-fatllf.ads
+
+  '
+- '[Ada Compile]     s-flocon.adb
+
+  '
+- '[Ada Compile]     s-gcmain.adb
+
+  '
+- '[Ada Compile]     s-geveop.adb
+
+  '
+- '[Ada Compile]     s-imaged.adb
+
+  '
+- '[Ada Compile]     s-imagef.adb
+
+  '
+- '[Ada Compile]     s-imagei.adb
+
+  '
+- '[Ada Compile]     s-imagen.adb
+
+  '
+- '[Ada Compile]     s-imager.adb
+
+  '
+- '[Ada Compile]     s-imageu.adb
+
+  '
+- '[Ada Compile]     s-imagew.adb
+
+  '
+- '[Ada Compile]     s-imde32.ads
+
+  '
+- '[Ada Compile]     s-imde64.ads
+
+  '
+- '[Ada Compile]     s-imen16.ads
+
+  '
+- '[Ada Compile]     s-imen32.ads
+
+  '
+- '[Ada Compile]     s-imenu8.ads
+
+  '
+- '[Ada Compile]     s-imfi32.ads
+
+  '
+- '[Ada Compile]     s-imfi64.ads
+
+  '
+- '[Ada Compile]     s-imgboo.adb
+
+  '
+- '[Ada Compile]     s-imgcha.adb
+
+  '
+- '[Ada Compile]     s-imgflt.ads
+
+  '
+- '[Ada Compile]     s-imgint.ads
+
+  '
+- '[Ada Compile]     s-imglfl.ads
+
+  '
+- '[Ada Compile]     s-imgllf.ads
+
+  '
+- '[Ada Compile]     s-imglli.ads
+
+  '
+- '[Ada Compile]     s-imgllu.ads
+
+  '
+- '[Ada Compile]     s-imgllw.ads
+
+  '
+- '[Ada Compile]     s-imguns.ads
+
+  '
+- '[Ada Compile]     s-imguti.adb
+
+  '
+- '[Ada Compile]     s-imgwiu.ads
+
+  '
+- '[Ada Compile]     s-libdou.adb
+
+  '
+- '[Ada Compile]     s-libm.adb
+
+  '
+- '[Ada Compile]     s-libpre.ads
+
+  '
+- '[Ada Compile]     s-libsin.adb
+
+  '
+- '[Ada Compile]     s-lidosq.adb
+
+  '
+- '[Ada Compile]     s-lisisq.adb
+
+  '
+- '[Ada Compile]     s-maccod.ads
+
+  '
+- '[Ada Compile]     s-macres.adb
+
+  '
+- '[Ada Compile]     s-memcom.adb
+
+  '
+- '[Ada Compile]     s-memcop.adb
+
+  '
+- '[Ada Compile]     s-memmov.adb
+
+  '
+- '[Ada Compile]     s-memory.adb
+
+  '
+- '[Ada Compile]     s-memset.adb
+
+  '
+- '[Ada Compile]     s-memtyp.ads
+
+  '
+- '[Ada Compile]     s-pack03.adb
+
+  '
+- '[Ada Compile]     s-pack05.adb
+
+  '
+- '[Ada Compile]     s-pack06.adb
+
+  '
+- '[Ada Compile]     s-pack07.adb
+
+  '
+- '[Ada Compile]     s-pack09.adb
+
+  '
+- '[Ada Compile]     s-pack10.adb
+
+  '
+- '[Ada Compile]     s-pack11.adb
+
+  '
+- '[Ada Compile]     s-pack12.adb
+
+  '
+- '[Ada Compile]     s-pack13.adb
+
+  '
+- '[Ada Compile]     s-pack14.adb
+
+  '
+- '[Ada Compile]     s-pack15.adb
+
+  '
+- '[Ada Compile]     s-pack17.adb
+
+  '
+- '[Ada Compile]     s-pack18.adb
+
+  '
+- '[Ada Compile]     s-pack19.adb
+
+  '
+- '[Ada Compile]     s-pack20.adb
+
+  '
+- '[Ada Compile]     s-pack21.adb
+
+  '
+- '[Ada Compile]     s-pack22.adb
+
+  '
+- '[Ada Compile]     s-pack23.adb
+
+  '
+- '[Ada Compile]     s-pack25.adb
+
+  '
+- '[Ada Compile]     s-pack26.adb
+
+  '
+- '[Ada Compile]     s-pack27.adb
+
+  '
+- '[Ada Compile]     s-pack28.adb
+
+  '
+- '[Ada Compile]     s-pack29.adb
+
+  '
+- '[Ada Compile]     s-pack30.adb
+
+  '
+- '[Ada Compile]     s-pack31.adb
+
+  '
+- '[Ada Compile]     s-pack33.adb
+
+  '
+- '[Ada Compile]     s-pack34.adb
+
+  '
+- '[Ada Compile]     s-pack35.adb
+
+  '
+- '[Ada Compile]     s-pack36.adb
+
+  '
+- '[Ada Compile]     s-pack37.adb
+
+  '
+- '[Ada Compile]     s-pack38.adb
+
+  '
+- '[Ada Compile]     s-pack39.adb
+
+  '
+- '[Ada Compile]     s-pack41.adb
+
+  '
+- '[Ada Compile]     s-pack42.adb
+
+  '
+- '[Ada Compile]     s-pack43.adb
+
+  '
+- '[Ada Compile]     s-pack44.adb
+
+  '
+- '[Ada Compile]     s-pack45.adb
+
+  '
+- '[Ada Compile]     s-pack46.adb
+
+  '
+- '[Ada Compile]     s-pack47.adb
+
+  '
+- '[Ada Compile]     s-pack49.adb
+
+  '
+- '[Ada Compile]     s-pack50.adb
+
+  '
+- '[Ada Compile]     s-pack51.adb
+
+  '
+- '[Ada Compile]     s-pack52.adb
+
+  '
+- '[Ada Compile]     s-pack53.adb
+
+  '
+- '[Ada Compile]     s-pack54.adb
+
+  '
+- '[Ada Compile]     s-pack55.adb
+
+  '
+- '[Ada Compile]     s-pack57.adb
+
+  '
+- '[Ada Compile]     s-pack58.adb
+
+  '
+- '[Ada Compile]     s-pack59.adb
+
+  '
+- '[Ada Compile]     s-pack60.adb
+
+  '
+- '[Ada Compile]     s-pack61.adb
+
+  '
+- '[Ada Compile]     s-pack62.adb
+
+  '
+- '[Ada Compile]     s-pack63.adb
+
+  '
+- '[Ada Compile]     s-parame.adb
+
+  '
+- '[Ada Compile]     s-powflt.ads
+
+  '
+- '[Ada Compile]     s-powlfl.ads
+
+  '
+- '[Ada Compile]     s-powllf.ads
+
+  '
+- '[Ada Compile]     s-retsta.ads
+
+  '
+- '[Ada Compile]     s-secsta.adb
+
+  '
+- '[Ada Compile]     s-semiho.adb
+
+  '
+- '[Ada Compile]     s-spark.ads
+
+  '
+- '[Ada Compile]     s-spcuop.adb
+
+  '
+- '[Ada Compile]     s-sssita.adb
+
+  '
+- '[Ada Compile]     s-stache.adb
+
+  '
+- '[Ada Compile]     s-stoele.ads
+
+  '
+- '[Ada Compile]     s-textio.adb
+
+  '
+- '[Ada Compile]     s-unstyp.ads
+
+  '
+- '[Ada Compile]     s-vade32.ads
+
+  '
+- '[Ada Compile]     s-vade64.ads
+
+  '
+- '[Ada Compile]     s-vaen16.ads
+
+  '
+- '[Ada Compile]     s-vaen32.ads
+
+  '
+- '[Ada Compile]     s-vaenu8.ads
+
+  '
+- '[Ada Compile]     s-vafi32.ads
+
+  '
+- '[Ada Compile]     s-vafi64.ads
+
+  '
+- '[Ada Compile]     s-vaispe.adb
+
+  '
+- '[Ada Compile]     s-valboo.adb
+
+  '
+- '[Ada Compile]     s-valcha.adb
+
+  '
+- '[Ada Compile]     s-valflt.ads
+
+  '
+- '[Ada Compile]     s-valint.ads
+
+  '
+- '[Ada Compile]     s-vallfl.ads
+
+  '
+- '[Ada Compile]     s-valllf.ads
+
+  '
+- '[Ada Compile]     s-vallli.ads
+
+  '
+- '[Ada Compile]     s-valllu.ads
+
+  '
+- '[Ada Compile]     s-valrea.adb
+
+  '
+- '[Ada Compile]     s-valspe.adb
+
+  '
+- '[Ada Compile]     s-valued.adb
+
+  '
+- '[Ada Compile]     s-valuef.adb
+
+  '
+- '[Ada Compile]     s-valuei.adb
+
+  '
+- '[Ada Compile]     s-valuen.adb
+
+  '
+- '[Ada Compile]     s-valuer.adb
+
+  '
+- '[Ada Compile]     s-valueu.adb
+
+  '
+- '[Ada Compile]     s-valuns.ads
+
+  '
+- '[Ada Compile]     s-valuti.adb
+
+  '
+- '[Ada Compile]     s-vauspe.adb
+
+  '
+- '[Ada Compile]     s-veboop.adb
+
+  '
+- '[Ada Compile]     s-vector.ads
+
+  '
+- '[Ada Compile]     s-vs_int.ads
+
+  '
+- '[Ada Compile]     s-vs_lli.ads
+
+  '
+- '[Ada Compile]     s-vs_llu.ads
+
+  '
+- '[Ada Compile]     s-vs_uns.ads
+
+  '
+- '[Ada Compile]     s-widint.ads
+
+  '
+- '[Ada Compile]     s-widlli.ads
+
+  '
+- '[Ada Compile]     s-widllu.ads
+
+  '
+- '[Ada Compile]     s-widthi.adb
+
+  '
+- '[Ada Compile]     s-widthu.adb
+
+  '
+- '[Ada Compile]     s-widuns.ads
+
+  '
+- '[Ada Compile]     setup_clocks.adb
+
+  '
+- '[Ada Compile]     system.ads
+
+  '
+- '[Ada Compile]     text_io.ads
+
+  '
+- '[Ada Compile]     unchconv.ads
+
+  '
+- '[Ada Compile]     unchdeal.ads
+
+  '
+- '[Asm_Cpp Compile] boot2-w25qxx.S
+
+  '
+- '[Asm_Cpp Compile] start-rom.S
+
+  '
+- '[Ada Compile]     adacl-trace_buffer.adb
+
+  '
+- '[Ada Compile]     adacl_embedded_config.ads
+
+  '
+- '[Ada Compile]     dummy-main.adb
+
+  '
+- '[Ada Compile]     dummy.adb
+
+  '
+- '[Archive]         libAdaCL_Embedded.a
+
+  '
+- '[Archive]         libgnat.a
+
+  '
+- '[Ada Bind]        dummy-main
+
+  '
+- '[Ada Post-Bind]   b__dummy-main.adb
+
+  '
+- '[Link]            dummy-main
+
+  '
+- 'Success: Build finished successfully in 16.84 seconds.
+
+  '
+- 'Running GNATprove...
+
+  '
+- 'Phase 1 of 3: generation of data representation information ...
+
+  '
+- 'Phase 2 of 3: generation of Global contracts ...
+
+  '
+- 'Phase 3 of 3: flow analysis and proof ...
+
+  '
+- 'Summary logged in D:\a\alire-crates-ci\alire-crates-ci\test\1bc35bc8-e550-4830-aded-e38028f24f3d\adacl_embedded_7.2.1_8becc526\prove_no_tasking\obj\validation\gnatprove\gnatprove.out
+
+  '
+- 'SUCCESS: Prove No Tasking
+
+  '
+- '--------------------------------------------------
+
+  '
+- '=== Prove Tasking ===
+
+  '
+- 'Directory: prove_tasking
+
+  '
+- 'Updating dependencies...
+
+  '
+- 'Dependencies automatically updated as follows:
+
+  '
+- '
+
+  '
+- '   +. adacl_embedded       7.2.1  (new,path=..)
+
+  '
+- '   +b gnat_arm_elf         15.3.1 (new,indirect,binary)
+
+  '
+- '   +b gnatprove            16.1.0 (new,binary)
+
+  '
+- '   +  light_tasking_rp2040 15.4.0 (new)
+
+  '
+- 'Building with validation...
+
+  '
+- 'Note: Building adacl_embedded_prove_tasking=7.2.1/adacl_embedded_prove_tasking.gpr...
+
+  '
+- '"obj\validation" created
+
+  '
+- '"bin\validation" created
+
+  '
+- '[Ada Compile]     a-exetim.adb
+
+  '
+- '[Ada Compile]     a-extiin.adb
+
+  '
+- '[Ada Compile]     a-interr.adb
+
+  '
+- '[Ada Compile]     a-intnam-2.ads
+
+  '
+- '[Ada Compile]     a-reatim.adb
+
+  '
+- '[Ada Compile]     a-retide.adb
+
+  '
+- '[Ada Compile]     a-rttiev.adb
+
+  '
+- '[Ada Compile]     a-synbar.adb
+
+  '
+- '[Ada Compile]     a-sytaco.adb
+
+  '
+- '[Ada Compile]     a-taside.adb
+
+  '
+- '[Ada Compile]     a-taster.adb
+
+  '
+- '[Ada Compile]     s-bbbosu.adb
+
+  '
+- '[Ada Compile]     s-bbcppr.adb
+
+  '
+- '[Ada Compile]     s-bbcpsp.ads
+
+  '
+- '[Ada Compile]     s-bbexti.adb
+
+  '
+- '[Ada Compile]     s-bbinte.adb
+
+  '
+- '[Ada Compile]     s-bbprot.adb
+
+  '
+- '[Ada Compile]     s-bbthqu.adb
+
+  '
+- '[Ada Compile]     s-bbthre.adb
+
+  '
+- '[Ada Compile]     s-bbtiev.adb
+
+  '
+- '[Ada Compile]     s-bbtime.adb
+
+  '
+- '[Ada Compile]     s-bcpcst.adb
+
+  '
+- '[Ada Compile]     s-bcprmu.adb
+
+  '
+- '[Ada Compile]     s-interr.adb
+
+  '
+- '[Ada Compile]     s-mufalo.adb
+
+  '
+- '[Ada Compile]     s-multip.adb
+
+  '
+- '[Ada Compile]     s-musplo.adb
+
+  '
+- '[Ada Compile]     s-osinte.ads
+
+  '
+- '[Ada Compile]     s-reldel.adb
+
+  '
+- '[Ada Compile]     s-restri.adb
+
+  '
+- '[Ada Compile]     s-rident.ads
+
+  '
+- '[Ada Compile]     s-taprob.adb
+
+  '
+- '[Ada Compile]     s-taprop.adb
+
+  '
+- '[Ada Compile]     s-tarest.adb
+
+  '
+- '[Ada Compile]     s-tasdeb.adb
+
+  '
+- '[Ada Compile]     s-tasinf.adb
+
+  '
+- '[Ada Compile]     s-taskin.adb
+
+  '
+- '[Ada Compile]     s-taspri.ads
+
+  '
+- '[Ada Compile]     s-tasque.adb
+
+  '
+- '[Ada Compile]     s-tasres.ads
+
+  '
+- '[Ada Compile]     s-tpoben.adb
+
+  '
+- '[Ada Compile]     s-tpobmu.adb
+
+  '
+- '[Ada Compile]     s-tpobop.adb
+
+  '
+- '[Ada Compile]     s-tposen.adb
+
+  '
+- '[Ada Compile]     a-assert.adb
+
+  '
+- '[Ada Compile]     a-chahan.adb
+
+  '
+- '[Ada Compile]     a-charac.ads
+
+  '
+- '[Ada Compile]     a-chlat1.ads
+
+  '
+- '[Archive]         libgnarl.a
+
+  '
+- '[Ada Compile]     a-elchha.adb
+
+  '
+- '[Ada Compile]     a-except.adb
+
+  '
+- '[Ada Compile]     a-nbnbig.adb
+
+  '
+- '[Ada Compile]     a-ngelfu.adb
+
+  '
+- '[Ada Compile]     a-nlelfu.ads
+
+  '
+- '[Ada Compile]     a-nllefu.ads
+
+  '
+- '[Ada Compile]     a-nselfu.ads
+
+  '
+- '[Ada Compile]     a-nubinu.ads
+
+  '
+- '[Ada Compile]     a-nuelfu.ads
+
+  '
+- '[Ada Compile]     a-numaux.ads
+
+  '
+- '[Ada Compile]     a-numeri.ads
+
+  '
+- '[Ada Compile]     a-stmaco.ads
+
+  '
+- '[Ada Compile]     a-strbou.adb
+
+  '
+- '[Ada Compile]     a-strfix.adb
+
+  '
+- '[Ada Compile]     a-string.ads
+
+  '
+- '[Ada Compile]     a-strmap.adb
+
+  '
+- '[Ada Compile]     a-strsea.adb
+
+  '
+- '[Ada Compile]     a-strsup.adb
+
+  '
+- '[Ada Compile]     a-tags.adb
+
+  '
+- '[Ada Compile]     a-textio.adb
+
+  '
+- '[Ada Compile]     a-unccon.ads
+
+  '
+- '[Ada Compile]     a-uncdea.ads
+
+  '
+- '[Ada Compile]     ada.ads
+
+  '
+- '[Ada Compile]     g-debuti.adb
+
+  '
+- '[Ada Compile]     g-io.adb
+
+  '
+- '[Ada Compile]     g-sestin.ads
+
+  '
+- '[Ada Compile]     g-souinf.ads
+
+  '
+- '[Ada Compile]     gnat.ads
+
+  '
+- '[Ada Compile]     i-c.adb
+
+  '
+- '[Ada Compile]     i-cexten.ads
+
+  '
+- '[Ada Compile]     i-cpoint.adb
+
+  '
+- '[Ada Compile]     i-cstrin.adb
+
+  '
+- '[Ada Compile]     i-rp2040-clocks.ads
+
+  '
+- '[Ada Compile]     i-rp2040-pll_sys.ads
+
+  '
+- '[Ada Compile]     i-rp2040-psm.ads
+
+  '
+- '[Ada Compile]     i-rp2040-resets.ads
+
+  '
+- '[Ada Compile]     i-rp2040-rosc.ads
+
+  '
+- '[Ada Compile]     i-rp2040-sio.ads
+
+  '
+- '[Ada Compile]     i-rp2040-timer.ads
+
+  '
+- '[Ada Compile]     i-rp2040-watchdog.ads
+
+  '
+- '[Ada Compile]     i-rp2040-xosc.ads
+
+  '
+- '[Ada Compile]     i-rp2040.ads
+
+  '
+- '[Ada Compile]     interfac.ads
+
+  '
+- '[Ada Compile]     light_tasking_rp2040_config.ads
+
+  '
+- '[Ada Compile]     machcode.ads
+
+  '
+- '[Ada Compile]     rp2040_runtime_config.ads
+
+  '
+- '[Ada Compile]     s-addope.adb
+
+  '
+- '[Ada Compile]     s-aridou.adb
+
+  '
+- '[Ada Compile]     s-arit32.adb
+
+  '
+- '[Ada Compile]     s-arit64.adb
+
+  '
+- '[Ada Compile]     s-assert.adb
+
+  '
+- '[Ada Compile]     s-atacco.ads
+
+  '
+- '[Ada Compile]     s-atocou.adb
+
+  '
+- '[Ada Compile]     s-atopri.adb
+
+  '
+- '[Ada Compile]     s-bb.ads
+
+  '
+- '[Ada Compile]     s-bbarat.adb
+
+  '
+- '[Ada Compile]     s-bbbopa.ads
+
+  '
+- '[Ada Compile]     s-bbmcpa.ads
+
+  '
+- '[Ada Compile]     s-bbpara.ads
+
+  '
+- '[Ada Compile]     s-bbrpat.adb
+
+  '
+- '[Ada Compile]     s-bitops.adb
+
+  '
+- '[Ada Compile]     s-boarop.ads
+
+  '
+- '[Ada Compile]     s-bootro.adb
+
+  '
+- '[Ada Compile]     s-bytswa.ads
+
+  '
+- '[Ada Compile]     s-carsi8.adb
+
+  '
+- '[Ada Compile]     s-carun8.adb
+
+  '
+- '[Ada Compile]     s-casi16.adb
+
+  '
+- '[Ada Compile]     s-casi32.adb
+
+  '
+- '[Ada Compile]     s-casi64.adb
+
+  '
+- '[Ada Compile]     s-casuti.adb
+
+  '
+- '[Ada Compile]     s-caun16.adb
+
+  '
+- '[Ada Compile]     s-caun32.adb
+
+  '
+- '[Ada Compile]     s-caun64.adb
+
+  '
+- '[Ada Compile]     s-dourea.adb
+
+  '
+- '[Ada Compile]     s-exnflt.ads
+
+  '
+- '[Ada Compile]     s-exnint.ads
+
+  '
+- '[Ada Compile]     s-exnlfl.ads
+
+  '
+- '[Ada Compile]     s-exnllf.ads
+
+  '
+- '[Ada Compile]     s-exnlli.ads
+
+  '
+- '[Ada Compile]     s-expint.ads
+
+  '
+- '[Ada Compile]     s-explli.ads
+
+  '
+- '[Ada Compile]     s-expllu.ads
+
+  '
+- '[Ada Compile]     s-expmod.adb
+
+  '
+- '[Ada Compile]     s-exponn.adb
+
+  '
+- '[Ada Compile]     s-exponr.adb
+
+  '
+- '[Ada Compile]     s-expont.adb
+
+  '
+- '[Ada Compile]     s-exponu.adb
+
+  '
+- '[Ada Compile]     s-expuns.ads
+
+  '
+- '[Ada Compile]     s-fatflt.ads
+
+  '
+- '[Ada Compile]     s-fatgen.adb
+
+  '
+- '[Ada Compile]     s-fatlfl.ads
+
+  '
+- '[Ada Compile]     s-fatllf.ads
+
+  '
+- '[Ada Compile]     s-flocon.adb
+
+  '
+- '[Ada Compile]     s-gcmain.adb
+
+  '
+- '[Ada Compile]     s-geveop.adb
+
+  '
+- '[Ada Compile]     s-imaged.adb
+
+  '
+- '[Ada Compile]     s-imagef.adb
+
+  '
+- '[Ada Compile]     s-imagei.adb
+
+  '
+- '[Ada Compile]     s-imagen.adb
+
+  '
+- '[Ada Compile]     s-imager.adb
+
+  '
+- '[Ada Compile]     s-imageu.adb
+
+  '
+- '[Ada Compile]     s-imagew.adb
+
+  '
+- '[Ada Compile]     s-imde32.ads
+
+  '
+- '[Ada Compile]     s-imde64.ads
+
+  '
+- '[Ada Compile]     s-imen16.ads
+
+  '
+- '[Ada Compile]     s-imen32.ads
+
+  '
+- '[Ada Compile]     s-imenu8.ads
+
+  '
+- '[Ada Compile]     s-imfi32.ads
+
+  '
+- '[Ada Compile]     s-imfi64.ads
+
+  '
+- '[Ada Compile]     s-imgboo.adb
+
+  '
+- '[Ada Compile]     s-imgcha.adb
+
+  '
+- '[Ada Compile]     s-imgflt.ads
+
+  '
+- '[Ada Compile]     s-imgint.ads
+
+  '
+- '[Ada Compile]     s-imglfl.ads
+
+  '
+- '[Ada Compile]     s-imgllf.ads
+
+  '
+- '[Ada Compile]     s-imglli.ads
+
+  '
+- '[Ada Compile]     s-imgllu.ads
+
+  '
+- '[Ada Compile]     s-imgllw.ads
+
+  '
+- '[Ada Compile]     s-imguns.ads
+
+  '
+- '[Ada Compile]     s-imguti.adb
+
+  '
+- '[Ada Compile]     s-imgwiu.ads
+
+  '
+- '[Ada Compile]     s-libdou.adb
+
+  '
+- '[Ada Compile]     s-libm.adb
+
+  '
+- '[Ada Compile]     s-libpre.ads
+
+  '
+- '[Ada Compile]     s-libsin.adb
+
+  '
+- '[Ada Compile]     s-lidosq.adb
+
+  '
+- '[Ada Compile]     s-lisisq.adb
+
+  '
+- '[Ada Compile]     s-maccod.ads
+
+  '
+- '[Ada Compile]     s-macres.adb
+
+  '
+- '[Ada Compile]     s-memcom.adb
+
+  '
+- '[Ada Compile]     s-memcop.adb
+
+  '
+- '[Ada Compile]     s-memmov.adb
+
+  '
+- '[Ada Compile]     s-memory.adb
+
+  '
+- '[Ada Compile]     s-memset.adb
+
+  '
+- '[Ada Compile]     s-memtyp.ads
+
+  '
+- '[Ada Compile]     s-pack03.adb
+
+  '
+- '[Ada Compile]     s-pack05.adb
+
+  '
+- '[Ada Compile]     s-pack06.adb
+
+  '
+- '[Ada Compile]     s-pack07.adb
+
+  '
+- '[Ada Compile]     s-pack09.adb
+
+  '
+- '[Ada Compile]     s-pack10.adb
+
+  '
+- '[Ada Compile]     s-pack11.adb
+
+  '
+- '[Ada Compile]     s-pack12.adb
+
+  '
+- '[Ada Compile]     s-pack13.adb
+
+  '
+- '[Ada Compile]     s-pack14.adb
+
+  '
+- '[Ada Compile]     s-pack15.adb
+
+  '
+- '[Ada Compile]     s-pack17.adb
+
+  '
+- '[Ada Compile]     s-pack18.adb
+
+  '
+- '[Ada Compile]     s-pack19.adb
+
+  '
+- '[Ada Compile]     s-pack20.adb
+
+  '
+- '[Ada Compile]     s-pack21.adb
+
+  '
+- '[Ada Compile]     s-pack22.adb
+
+  '
+- '[Ada Compile]     s-pack23.adb
+
+  '
+- '[Ada Compile]     s-pack25.adb
+
+  '
+- '[Ada Compile]     s-pack26.adb
+
+  '
+- '[Ada Compile]     s-pack27.adb
+
+  '
+- '[Ada Compile]     s-pack28.adb
+
+  '
+- '[Ada Compile]     s-pack29.adb
+
+  '
+- '[Ada Compile]     s-pack30.adb
+
+  '
+- '[Ada Compile]     s-pack31.adb
+
+  '
+- '[Ada Compile]     s-pack33.adb
+
+  '
+- '[Ada Compile]     s-pack34.adb
+
+  '
+- '[Ada Compile]     s-pack35.adb
+
+  '
+- '[Ada Compile]     s-pack36.adb
+
+  '
+- '[Ada Compile]     s-pack37.adb
+
+  '
+- '[Ada Compile]     s-pack38.adb
+
+  '
+- '[Ada Compile]     s-pack39.adb
+
+  '
+- '[Ada Compile]     s-pack41.adb
+
+  '
+- '[Ada Compile]     s-pack42.adb
+
+  '
+- '[Ada Compile]     s-pack43.adb
+
+  '
+- '[Ada Compile]     s-pack44.adb
+
+  '
+- '[Ada Compile]     s-pack45.adb
+
+  '
+- '[Ada Compile]     s-pack46.adb
+
+  '
+- '[Ada Compile]     s-pack47.adb
+
+  '
+- '[Ada Compile]     s-pack49.adb
+
+  '
+- '[Ada Compile]     s-pack50.adb
+
+  '
+- '[Ada Compile]     s-pack51.adb
+
+  '
+- '[Ada Compile]     s-pack52.adb
+
+  '
+- '[Ada Compile]     s-pack53.adb
+
+  '
+- '[Ada Compile]     s-pack54.adb
+
+  '
+- '[Ada Compile]     s-pack55.adb
+
+  '
+- '[Ada Compile]     s-pack57.adb
+
+  '
+- '[Ada Compile]     s-pack58.adb
+
+  '
+- '[Ada Compile]     s-pack59.adb
+
+  '
+- '[Ada Compile]     s-pack60.adb
+
+  '
+- '[Ada Compile]     s-pack61.adb
+
+  '
+- '[Ada Compile]     s-pack62.adb
+
+  '
+- '[Ada Compile]     s-pack63.adb
+
+  '
+- '[Ada Compile]     s-parame.adb
+
+  '
+- '[Ada Compile]     s-powflt.ads
+
+  '
+- '[Ada Compile]     s-powlfl.ads
+
+  '
+- '[Ada Compile]     s-powllf.ads
+
+  '
+- '[Ada Compile]     s-retsta.ads
+
+  '
+- '[Ada Compile]     s-secsta.adb
+
+  '
+- '[Ada Compile]     s-semiho.adb
+
+  '
+- '[Ada Compile]     s-spark.ads
+
+  '
+- '[Ada Compile]     s-spcuop.adb
+
+  '
+- '[Ada Compile]     s-sssita.adb
+
+  '
+- '[Ada Compile]     s-stache.adb
+
+  '
+- '[Ada Compile]     s-stoele.ads
+
+  '
+- '[Ada Compile]     s-textio.adb
+
+  '
+- '[Ada Compile]     s-unstyp.ads
+
+  '
+- '[Ada Compile]     s-vade32.ads
+
+  '
+- '[Ada Compile]     s-vade64.ads
+
+  '
+- '[Ada Compile]     s-vaen16.ads
+
+  '
+- '[Ada Compile]     s-vaen32.ads
+
+  '
+- '[Ada Compile]     s-vaenu8.ads
+
+  '
+- '[Ada Compile]     s-vafi32.ads
+
+  '
+- '[Ada Compile]     s-vafi64.ads
+
+  '
+- '[Ada Compile]     s-vaispe.adb
+
+  '
+- '[Ada Compile]     s-valboo.adb
+
+  '
+- '[Ada Compile]     s-valcha.adb
+
+  '
+- '[Ada Compile]     s-valflt.ads
+
+  '
+- '[Ada Compile]     s-valint.ads
+
+  '
+- '[Ada Compile]     s-vallfl.ads
+
+  '
+- '[Ada Compile]     s-valllf.ads
+
+  '
+- '[Ada Compile]     s-vallli.ads
+
+  '
+- '[Ada Compile]     s-valllu.ads
+
+  '
+- '[Ada Compile]     s-valrea.adb
+
+  '
+- '[Ada Compile]     s-valspe.adb
+
+  '
+- '[Ada Compile]     s-valued.adb
+
+  '
+- '[Ada Compile]     s-valuef.adb
+
+  '
+- '[Ada Compile]     s-valuei.adb
+
+  '
+- '[Ada Compile]     s-valuen.adb
+
+  '
+- '[Ada Compile]     s-valuer.adb
+
+  '
+- '[Ada Compile]     s-valueu.adb
+
+  '
+- '[Ada Compile]     s-valuns.ads
+
+  '
+- '[Ada Compile]     s-valuti.adb
+
+  '
+- '[Ada Compile]     s-vauspe.adb
+
+  '
+- '[Ada Compile]     s-veboop.adb
+
+  '
+- '[Ada Compile]     s-vector.ads
+
+  '
+- '[Ada Compile]     s-vs_int.ads
+
+  '
+- '[Ada Compile]     s-vs_lli.ads
+
+  '
+- '[Ada Compile]     s-vs_llu.ads
+
+  '
+- '[Ada Compile]     s-vs_uns.ads
+
+  '
+- '[Ada Compile]     s-widint.ads
+
+  '
+- '[Ada Compile]     s-widlli.ads
+
+  '
+- '[Ada Compile]     s-widllu.ads
+
+  '
+- '[Ada Compile]     s-widthi.adb
+
+  '
+- '[Ada Compile]     s-widthu.adb
+
+  '
+- '[Ada Compile]     s-widuns.ads
+
+  '
+- '[Ada Compile]     setup_clocks.adb
+
+  '
+- '[Ada Compile]     system.ads
+
+  '
+- '[Ada Compile]     text_io.ads
+
+  '
+- '[Ada Compile]     unchconv.ads
+
+  '
+- '[Ada Compile]     unchdeal.ads
+
+  '
+- '[Ada Compile]     adacl-text_io.adb
+
+  '
+- '[Ada Compile]     adacl-trace_buffer.adb
+
+  '
+- '[Ada Compile]     adacl.ads
+
+  '
+- '[Archive]         libgnat.a
+
+  '
+- '[Ada Compile]     adacl_embedded_config.ads
+
+  '
+- '[Ada Compile]     dummy-main.adb
+
+  '
+- '[Ada Compile]     dummy.adb
+
+  '
+- '[Archive]         libAdaCL_Embedded.a
+
+  '
+- '[Ada Bind]        dummy-main
+
+  '
+- '[Ada Post-Bind]   b__dummy-main.adb
+
+  '
+- 'Unexpected exception:
+
+  '
+- 'raised ADA.ASSERTIONS.ASSERTION_ERROR : DYNAMIC_PREDICATE failed at gpr2-build-actions-link.adb:165
+
+  '
+- 'Load address: 0x7ff77f500000
+
+  '
+- '[C:\Users\runneradmin\AppData\Local\alire\cache\toolchains\gprbuild_26.0.1_68a6817f\bin\gprbuild.exe]
+
+  '
+- '0x7ff7803b5006 System.Assertions.Raise_Assert_Failure at s-assert.adb:44
+
+  '
+- '0x7ff77f5f0148 gpr2__build__actions__link__compute_command__add_attr__add.36 at
+  ???
+
+  '
+- '0x7ff77f5f1c70 gpr2__build__actions__link__compute_command__add_attr.35.constprop.0
+  at ???
+
+  '
+- '0x7ff77f60bef3 gpr2__build__actions__link__compute_command at ???
+
+  '
+- '0x7ff77f65c9a8 gpr2__build__actions__update_command_line at ???
+
+  '
+- '0x7ff77f75da00 gpr2__build__process_manager__launch_job at ???
+
+  '
+- '0x7ff77f760911 gpr2__build__process_manager__execute at ???
+
+  '
+- '0x7ff77f82fff8 gpr2__build__tree_db__execute at ???
+
+  '
+- '0x7ff77f5019f3 gprbuild__main__execute.8 at ???
+
+  '
+- '0x7ff77f504682 _ada_gprbuild__main at ???
+
+  '
+- '0x7ff78041715d main at ???
+
+  '
+- '0x7ff77f501339 __tmainCRTStartup at ???
+
+  '
+- '0x7ff77f501145 mainCRTStartup at ???
+
+  '
+- '[C:\Windows\System32\KERNEL32.DLL]
+
+  '
+- '0x7fff0043e8d5
+
+  '
+- '[C:\Windows\SYSTEM32\ntdll.dll]
+
+  '
+- '0x7fff0158c53a
+
+  '
+- '
+
+  '
+- 'ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "D:\a\alire-crates-ci\alire-crates-ci\test\1bc35bc8-e550-4830-aded-e38028f24f3d\adacl_embedded_7.2.1_8becc526\prove_tasking\adacl_embedded_prove_tasking.gpr"]
+  exited with code 7
+
+  '
+- 'ERROR: Compilation failed.
+
+  '
+- 'Running GNATprove...
+
+  '
+- 'Phase 1 of 3: generation of data representation information ...
+
+  '
+- 'Phase 2 of 3: generation of Global contracts ...
+
+  '
+- 'Phase 3 of 3: flow analysis and proof ...
+
+  '
+- 'Summary logged in D:\a\alire-crates-ci\alire-crates-ci\test\1bc35bc8-e550-4830-aded-e38028f24f3d\adacl_embedded_7.2.1_8becc526\prove_tasking\obj\validation\gnatprove\gnatprove.out
+
+  '
+- 'SUCCESS: Prove Tasking
+
+  '
+- '--------------------------------------------------
+
+  '
+- '=== Test Log Off ===
+
+  '
+- 'Directory: test_log_off
+
+  '
+- 'Updating dependencies...
+
+  '
+- 'Dependencies automatically updated as follows:
+
+  '
+- '
+
+  '
+- '   +. adacl_embedded 7.2.1  (new,path=..)
+
+  '
+- '   +  aunit          26.0.0 (new)
+
+  '
+- 'Note: Deploying aunit=26.0.0...
+
+  '
+- '
+
+  '
+- "#=#=#                                                                         \
+  \ \n"
+- 'Building with validation...
+
+  '
+- 'Note: Building adacl_embedded_test_log_off=7.2.1/adacl_embedded_test_log_off.gpr...
+
+  '
+- '"C:\Users\runneradmin\AppData\Local\alire\cache\builds\aunit_26.0.0_b882e96a\9b330cbe0835e411ef3a293afb7a33998808edaed362781c82e940240c61a4aa\lib\aunit-obj\native-full"
+  created
+
+  '
+- '"C:\Users\runneradmin\AppData\Local\alire\cache\builds\aunit_26.0.0_b882e96a\9b330cbe0835e411ef3a293afb7a33998808edaed362781c82e940240c61a4aa\lib\aunit\native-full"
+  created
+
+  '
+- '"obj\validation" created
+
+  '
+- '"bin\validation" created
+
+  '
+- '[Ada Compile]     ada_containers-aunit_lists.adb
+
+  '
+- '[Ada Compile]     ada_containers.ads
+
+  '
+- '[Ada Compile]     aunit-assertions.adb
+
+  '
+- '[Ada Compile]     aunit-io.ads
+
+  '
+- '[Ada Compile]     aunit-memory-utils.adb
+
+  '
+- '[Ada Compile]     aunit-memory.adb
+
+  '
+- '[Ada Compile]     aunit-options.ads
+
+  '
+- '[Ada Compile]     aunit-reporter-gnattest.adb
+
+  '
+- '[Ada Compile]     aunit-reporter-junit.adb
+
+  '
+- '[Ada Compile]     aunit-reporter-text.adb
+
+  '
+- '[Ada Compile]     aunit-reporter-xml.adb
+
+  '
+- '[Ada Compile]     aunit-reporter.adb
+
+  '
+- '[Ada Compile]     aunit-run.adb
+
+  '
+- '[Ada Compile]     aunit-simple_test_cases.adb
+
+  '
+- '[Ada Compile]     aunit-test_caller.adb
+
+  '
+- '[Ada Compile]     aunit-test_cases.adb
+
+  '
+- '[Ada Compile]     aunit-test_filters.adb
+
+  '
+- '[Ada Compile]     aunit-test_fixtures.adb
+
+  '
+- '[Ada Compile]     aunit-test_results.adb
+
+  '
+- '[Ada Compile]     aunit-test_suites.adb
+
+  '
+- '[Ada Compile]     aunit-tests.ads
+
+  '
+- '[Ada Compile]     aunit-time_measure.adb
+
+  '
+- '[Ada Compile]     aunit.adb
+
+  '
+- '[Ada Compile]     adacl-text_io.adb
+
+  '
+- '[Ada Compile]     adacl-trace_buffer.adb
+
+  '
+- 'gnat1: invalid switch: -gnat2022
+
+  '
+- 'adacl_embedded.gpr: error: [Ada Compile] adacl-text_io.adb (adacl_embedded.gpr)
+  failed with status 1
+
+  '
+- 'gnat1: invalid switch: -gnat2022
+
+  '
+- 'adacl_embedded.gpr: error: [Ada Compile] adacl-trace_buffer.adb (adacl_embedded.gpr)
+  failed with status 1
+
+  '
+- 'ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "D:\a\alire-crates-ci\alire-crates-ci\test\1bc35bc8-e550-4830-aded-e38028f24f3d\adacl_embedded_7.2.1_8becc526\test_log_off\adacl_embedded_test_log_off.gpr"]
+  exited with code 4
+
+  '
+- 'ERROR: Compilation failed.
+
+  '
+- 'Running tests...
+
+  '
+- 'Note: Building adacl_embedded_test_log_off=7.2.1/adacl_embedded_test_log_off.gpr...
+
+  '
+- '[Archive]         libaunit.a
+
+  '
+- '[Ada Compile]     adacl-text_io.adb
+
+  '
+- '[Ada Compile]     adacl-trace_buffer.adb
+
+  '
+- '[Ada Compile]     adacl.ads
+
+  '
+- '[Ada Compile]     adacl_embedded_config.ads
+
+  '
+- 'gnat1: invalid switch: -gnat2022
+
+  '
+- 'adacl_embedded.gpr: error: [Ada Compile] adacl.ads (adacl_embedded.gpr) failed
+  with status 1
+
+  '
+- 'gnat1: invalid switch: -gnat2022
+
+  '
+- 'adacl_embedded.gpr: error: [Ada Compile] adacl-text_io.adb (adacl_embedded.gpr)
+  failed with status 1
+
+  '
+- 'gnat1: invalid switch: -gnat2022
+
+  '
+- 'adacl_embedded.gpr: error: [Ada Compile] adacl-trace_buffer.adb (adacl_embedded.gpr)
+  failed with status 1
+
+  '
+- 'gnat1: invalid switch: -gnat2022
+
+  '
+- 'adacl_embedded.gpr: error: [Ada Compile] adacl_embedded_config.ads (adacl_embedded.gpr)
+  failed with status 1
+
+  '
+- 'ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "D:\a\alire-crates-ci\alire-crates-ci\test\1bc35bc8-e550-4830-aded-e38028f24f3d\adacl_embedded_7.2.1_8becc526\test_log_off\adacl_embedded_test_log_off.gpr"]
+  exited with code 4
+
+  '
+- 'ERROR: Build failed
+
+  '
+- 'FAILED: Test Log Off (Exit-Code: 1)
+
+  '
+- 'Fail-Fast: Stopping on first error.
+
+  '
+- '[alr test] Test action exited with error code 1
+
+  '
+platform: windows
+status: failing
+version: 7.2.1

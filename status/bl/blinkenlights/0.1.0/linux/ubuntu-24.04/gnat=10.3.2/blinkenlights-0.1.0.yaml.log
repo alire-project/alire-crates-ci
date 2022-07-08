@@ -1,0 +1,277 @@
+Test ran at 2025-02-24 12:42:49.629894+00:00
+
+SOLUTION:
+blinkenlights=0.1.0: Project to blink LEDs in interesting patterns
+Origin: commit 339e553ee12a1386f68873e311792cb4d2c94045 from https://github.com/BrentSeidel/Pi-Mainframe.git
+Available when: (case OS is Windows => False, others => True)
+Properties:
+   Author: Brent Seidel
+   Description: Project to blink LEDs in interesting patterns
+   Executable: blinkenlights
+   License: GPL-3.0-or-later
+   Long_Description: This is a complex project involving 3D printing and soldering as well as
+software.  Alr will take care of the software dependencies for you, but
+you will have to read the README and documentation to find the other parts.
+
+This project is intended to replicate the look and feel of older computers
+with the switches and lights.  It uses the simulators from bbs_simcpu to
+drive the LEDs and act on the switches.  Using the Intel 8080 simulator,
+I was actually able to toggle a bootstrap program in using the panel and
+get it to boot CP/M.  If you use the Motorola 68000 simulator, it will
+load and run a simple multitasking OS.  The example simulator can be used
+to flash the lights in a variaty of ways.
+
+There is a lamp test program in the lamp-test directory that may be useful
+for debugging the hardware.
+
+Note that since each cycle of the simulator involves multiple I2C bus
+transactions to read switches and set LEDs, any CPU simulation will run
+rather slowly.  The intention of this project is more for display than
+simulator usage.
+
+There is also a web server that can be used to select the CPU variant.
+This is most useful with the example simulator to select the light pattern.
+
+This project run on a Raspberry Pi.  It will build on most Unix or Unix-like
+systems, but unless the hardware interface matches the Raspberry Pi, it
+won't run.  You are welcome to try porting it to other systems, if you like.
+
+   Maintainer: Brent Seidel <brentseidel@mac.com>
+   Maintainers_Logins: BrentSeidel
+   Name: blinkenlights
+   Tag: embedded
+   Tag: simulation
+   Tag: i8080
+   Tag: m68000
+   Tag: hardware
+   Version: 0.1.0
+   Website: https://github.com/BrentSeidel/Pi-Mainframe
+Dependencies (direct):
+   bbs_embed_common~0.1.0
+   bbs_embed_linux~0.1.0
+   bbs_simcpu~0.1.0
+   bbs_webif~0.1.0
+   bbs~0.1.0
+Dependencies (solution):
+   bbs=0.1.0
+   bbs_embed_common=0.1.0
+   bbs_embed_linux=0.1.0
+   bbs_simcpu=0.1.0
+   bbs_webif=0.1.0
+Dependencies (graph):
+   bbs_embed_common=0.1.0 --> bbs=0.1.0 (~0.1.0)
+   bbs_embed_linux=0.1.0  --> bbs=0.1.0 (~0.1.0)
+   bbs_embed_linux=0.1.0  --> bbs_embed_common=0.1.0 (~0.1.0)
+   bbs_simcpu=0.1.0       --> bbs=0.1.0 (~0.1.0)
+   bbs_webif=0.1.0        --> bbs=0.1.0 (~0.1.0)
+   blinkenlights=0.1.0    --> bbs=0.1.0 (~0.1.0)
+   blinkenlights=0.1.0    --> bbs_embed_common=0.1.0 (~0.1.0)
+   blinkenlights=0.1.0    --> bbs_embed_linux=0.1.0 (~0.1.0)
+   blinkenlights=0.1.0    --> bbs_simcpu=0.1.0 (~0.1.0)
+   blinkenlights=0.1.0    --> bbs_webif=0.1.0 (~0.1.0)
+
+
+LOG:
+Spawning: alr -d -n get --build blinkenlights=0.1.0
+Note: Deploying blinkenlights=0.1.0...
+Note: Deploying bbs_embed_common=0.1.0...
+Note: Deploying bbs_simcpu=0.1.0...
+Note: Deploying bbs_webif=0.1.0...
+Note: Deploying bbs_embed_linux=0.1.0...
+Note: Building blinkenlights=0.1.0/blinkenlights.gpr...
+Setup
+   [mkdir]        object directory for project bbs_embed_common
+   [mkdir]        library directory for project bbs_embed_common
+   [mkdir]        object directory for project bbs_embed_linux
+   [mkdir]        library directory for project bbs_embed_linux
+   [mkdir]        object directory for project bbs_simcpu
+   [mkdir]        library directory for project bbs_simcpu
+   [mkdir]        object directory for project bbs_webif
+   [mkdir]        library directory for project bbs_webif
+   [mkdir]        object directory for project blinkenlights
+Compile
+   [Ada]          blinkenlights.adb
+   [Ada]          bbs-web-svg.adb
+   [Ada]          bbs-web-files.adb
+   [Ada]          bbs-web.adb
+   [Ada]          bbs-web-http.adb
+   [Ada]          bbs-web-html.adb
+   [Ada]          bbs-web-internal.adb
+   [Ada]          bbs-web-server.adb
+   [Ada]          bbs-sim_cpu-m68000-line_9.adb
+   [Ada]          bbs-sim_cpu-m68000-line_e.adb
+   [Ada]          bbs-sim_cpu-m68000.adb
+   [Ada]          bbs-sim_cpu-m68000-exceptions.adb
+   [Ada]          bbs-sim_cpu-m68000-line_6.adb
+   [Ada]          bbs-sim_cpu-m68000-line_c.adb
+   [Ada]          bbs-sim_cpu-m68000-line_d.adb
+   [Ada]          bbs-sim_cpu-m68000-line_b.adb
+   [Ada]          bbs-sim_cpu-m68000-line_4.adb
+   [Ada]          bbs-sim_cpu-m68000-line_3.adb
+   [Ada]          bbs-sim_cpu-m68000-line_8.adb
+   [Ada]          bbs-sim_cpu-m68000-line_1.adb
+   [Ada]          bbs-sim_cpu-m68000-line_0.adb
+   [Ada]          bbs-sim_cpu-m68000-line_2.adb
+   [Ada]          bbs-sim_cpu-m68000-line_7.adb
+   [Ada]          bbs-sim_cpu-m68000-line_5.adb
+   [Ada]          bbs-sim_cpu-i8080.adb
+   [Ada]          bbs-sim_cpu-serial-mux.adb
+   [Ada]          bbs-sim_cpu-serial.adb
+   [Ada]          bbs-sim_cpu-clock.adb
+bbs-sim_cpu-serial-mux.adb:188:39: warning: "sock_com" may be referenced before it has a value
+   [Ada]          bbs-sim_cpu-serial-telnet.adb
+   [Ada]          bbs-sim_cpu-disk.adb
+   [Ada]          bbs-sim_cpu-example.adb
+   [Ada]          bbs-sim_cpu.adb
+   [C]            errors.c
+   [Ada]          bbs-embed-log-linux.adb
+   [Ada]          bbs-embed-i2c-linux.adb
+   [Ada]          bbs-embed-gpio-linux.adb
+bbs-sim_cpu-serial-telnet.adb:165:39: warning: "sock_com" may be referenced before it has a value
+   [Ada]          bbs-embed-ain-linux.adb
+   [Ada]          bbs-embed-rpi.ads
+   [Ada]          bbs-embed-pwm.adb
+   [Ada]          bbs-embed-led.adb
+   [Ada]          bbs-embed-bbb.ads
+   [Ada]          bbs-embed-spi-linux.adb
+   [Ada]          bbs-embed.ads
+   [Ada]          bbs-embed-i2c-mcp23008.adb
+   [Ada]          bbs-embed-ain.ads
+   [Ada]          bbs-embed-i2c-devices.ads
+   [Ada]          bbs-embed-i2c.ads
+   [Ada]          bbs-embed-i2c-mcp23017.adb
+   [Ada]          bbs-embed-i2c-bme280.adb
+   [Ada]          bbs-embed-log.ads
+   [Ada]          bbs-embed-i2c-mcp4725.adb
+   [Ada]          bbs-embed-i2c-l3gd20h.adb
+   [Ada]          bbs-embed-spi-ra8875.adb
+   [Ada]          bbs-embed-i2c-bmp180.adb
+   [Ada]          bbs-embed-i2c-ads1015.adb
+   [Ada]          bbs-embed-gpio-tb6612.adb
+   [Ada]          bbs-embed-i2c-pca9685.adb
+   [Ada]          bbs-embed-i2c-lsm303dlhc.adb
+   [Ada]          bbs-embed-spi.ads
+   [Ada]          bbs-embed-gpio.ads
+   [Ada]          bbs.ads
+   [Ada]          bbs-units.adb
+   [Ada]          i2c.adb
+   [Ada]          panel.adb
+Build Libraries
+   [gprlib]       Bbs.lexch
+   [gprlib]       BBS-embed.lexch
+   [archive]      libBbs.a
+   [index]        libBbs.a
+   [gprlib]       BBS-embed-linux.lexch
+   [archive]      libBBS-embed.a
+   [index]        libBBS-embed.a
+   [gprlib]       bbs_simcpu.lexch
+   [gprlib]       bbs_web.lexch
+   [archive]      libBBS-embed-linux.a
+   [archive]      libbbs_simcpu.a
+   [archive]      libbbs_web.a
+   [index]        libBBS-embed-linux.a
+   [index]        libbbs_web.a
+   [index]        libbbs_simcpu.a
+Bind
+   [gprbind]      blinkenlights.bexch
+   [Ada]          blinkenlights.ali
+
+--  The following additional restrictions may be applied to this partition:
+pragma Restrictions (Simple_Barriers);
+pragma Restrictions (Pure_Barriers);
+pragma Restrictions (No_Access_Parameter_Allocators);
+pragma Restrictions (No_Asynchronous_Control);
+pragma Restrictions (No_Coextensions);
+pragma Restrictions (No_Default_Stream_Attributes);
+pragma Restrictions (No_Dynamic_Attachment);
+pragma Restrictions (No_Dynamic_Priorities);
+pragma Restrictions (No_Enumeration_Maps);
+pragma Restrictions (No_Entry_Calls_In_Elaboration_Code);
+pragma Restrictions (No_Entry_Queue);
+pragma Restrictions (No_Exception_Registration);
+pragma Restrictions (No_Fixed_Io);
+pragma Restrictions (No_Implicit_Heap_Allocations);
+pragma Restrictions (No_Implicit_Task_Allocations);
+pragma Restrictions (No_Implicit_Protected_Object_Allocations);
+pragma Restrictions (No_Initialize_Scalars);
+pragma Restrictions (No_Local_Timing_Events);
+pragma Restrictions (No_Local_Protected_Objects);
+pragma Restrictions (No_Multiple_Elaboration);
+pragma Restrictions (No_Protected_Type_Allocators);
+pragma Restrictions (No_Requeue_Statements);
+pragma Restrictions (No_Specific_Termination_Handlers);
+pragma Restrictions (No_Stream_Optimizations);
+pragma Restrictions (No_Task_Allocators);
+pragma Restrictions (No_Task_Attributes_Package);
+pragma Restrictions (No_Task_At_Interrupt_Priority);
+pragma Restrictions (No_Task_Termination);
+pragma Restrictions (No_Terminate_Alternatives);
+pragma Restrictions (Static_Priorities);
+pragma Restrictions (Static_Storage_Size);
+pragma Restrictions (Immediate_Reclamation);
+pragma Restrictions (No_Implementation_Identifiers);
+pragma Restrictions (No_Implementation_Units);
+pragma Restrictions (No_Wide_Characters);
+pragma Restrictions (Static_Dispatch_Tables);
+pragma Restrictions (Max_Protected_Entries => 0);
+pragma Restrictions (Max_Select_Alternatives => 3);
+pragma Restrictions (Max_Task_Entries => 3);
+pragma Restrictions (Max_Asynchronous_Select_Nesting => 0);
+Link
+   [link]         blinkenlights.adb
+/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86_64-pc-linux-gnu/bin/ld: /lib/x86_64-linux-gnu/libc.so.6: unknown type [0x13] section `.relr.dyn'
+/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86_64-pc-linux-gnu/bin/ld: skipping incompatible /lib/x86_64-linux-gnu/libc.so.6 when searching for /lib/x86_64-linux-gnu/libc.so.6
+/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86_64-pc-linux-gnu/bin/ld: cannot find /lib/x86_64-linux-gnu/libc.so.6
+/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86_64-pc-linux-gnu/bin/ld: /lib/x86_64-linux-gnu/libc.so.6: unknown type [0x13] section `.relr.dyn'
+/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86_64-pc-linux-gnu/bin/ld: skipping incompatible /lib/x86_64-linux-gnu/libc.so.6 when searching for /lib/x86_64-linux-gnu/libc.so.6
+/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86_64-pc-linux-gnu/bin/ld: /lib64/ld-linux-x86-64.so.2: unknown type [0x13] section `.relr.dyn'
+/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86_64-pc-linux-gnu/bin/ld: skipping incompatible /lib64/ld-linux-x86-64.so.2 when searching for /lib64/ld-linux-x86-64.so.2
+/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86_64-pc-linux-gnu/bin/ld: cannot find /lib64/ld-linux-x86-64.so.2
+/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86_64-pc-linux-gnu/bin/ld: /lib64/ld-linux-x86-64.so.2: unknown type [0x13] section `.relr.dyn'
+/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86_64-pc-linux-gnu/bin/ld: skipping incompatible /lib64/ld-linux-x86-64.so.2 when searching for /lib64/ld-linux-x86-64.so.2
+collect2: error: ld returned 1 exit status
+gprbuild: link of blinkenlights.adb failed
+gprbuild: failed command was: /home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/gcc blinkenlights.o b__blinkenlights.o /home/runner/work/alire-crates-ci/alire-crates-ci/test/614c31f8-9935-4b7c-abd7-b291f22ff0d1/blinkenlights_0.1.0_339e553e/obj/i2c.o /home/runner/work/alire-crates-ci/alire-crates-ci/test/614c31f8-9935-4b7c-abd7-b291f22ff0d1/blinkenlights_0.1.0_339e553e/obj/panel.o /home/runner/.local/share/alire/builds/bbs_webif_0.1.0_3aacf510/f6a374e78d6d18ec5ae4feadd655d167d958e22ed4105f79eb6507bfc4039d31/lib/libbbs_web.a /home/runner/.local/share/alire/builds/bbs_simcpu_0.1.0_73ecd6e3/75990b27868554a8477d1f074015a092a0d4d15992b0b3469433022d768340a9/lib/libbbs_simcpu.a /home/runner/.local/share/alire/builds/BBS_BBB_Ada_17b6af3a/4ade26882ac64508109f89b6c64e4c24c5fb17a2f38908456fce1c45b3e40ee7/src-linux/lib/libBBS-embed-linux.a /home/runner/.local/share/alire/builds/BBS_BBB_Ada_cfbd52e3/212d96d17d24972e24ed5ccf3920e6422531df957f4626d6eee4eb4481fea91f/src-common/lib/libBBS-embed.a /home/runner/.local/share/alire/builds/bbs_0.1.0_d0806fab/d9410e8a5539a6f5405d0a6e1c95cf1e7657ac2f9254acaf9b95477edd613f65/lib/libBbs.a -g -L/home/runner/work/alire-crates-ci/alire-crates-ci/test/614c31f8-9935-4b7c-abd7-b291f22ff0d1/blinkenlights_0.1.0_339e553e/obj/ -L/home/runner/work/alire-crates-ci/alire-crates-ci/test/614c31f8-9935-4b7c-abd7-b291f22ff0d1/blinkenlights_0.1.0_339e553e/obj/ -L/home/runner/.local/share/alire/builds/bbs_0.1.0_d0806fab/d9410e8a5539a6f5405d0a6e1c95cf1e7657ac2f9254acaf9b95477edd613f65/lib/ -L/home/runner/.local/share/alire/builds/BBS_BBB_Ada_cfbd52e3/212d96d17d24972e24ed5ccf3920e6422531df957f4626d6eee4eb4481fea91f/src-common/lib/ -L/home/runner/.local/share/alire/builds/BBS_BBB_Ada_17b6af3a/4ade26882ac64508109f89b6c64e4c24c5fb17a2f38908456fce1c45b3e40ee7/src-linux/lib/ -L/home/runner/.local/share/alire/builds/bbs_simcpu_0.1.0_73ecd6e3/75990b27868554a8477d1f074015a092a0d4d15992b0b3469433022d768340a9/lib/ -L/home/runner/.local/share/alire/builds/bbs_webif_0.1.0_3aacf510/f6a374e78d6d18ec5ae4feadd655d167d958e22ed4105f79eb6507bfc4039d31/lib/ -L/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/lib/gcc/x86_64-pc-linux-gnu/10.3.0/adalib/ -static-libgcc /home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/lib/gcc/x86_64-pc-linux-gnu/10.3.0/adalib/libgnarl.a /home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/lib/gcc/x86_64-pc-linux-gnu/10.3.0/adalib/libgnat.a -lrt -lpthread -ldl -Wl,-rpath-link,/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/lib/gcc/x86_64-pc-linux-gnu/10.3.0//adalib -Wl,-z,origin,-rpath,$ORIGIN//obj:$ORIGIN/../../../../../..//.local/share/alire/builds/bbs_0.1.0_d0806fab/d9410e8a5539a6f5405d0a6e1c95cf1e7657ac2f9254acaf9b95477edd613f65/lib:$ORIGIN/../../../../../..//.local/share/alire/builds/BBS_BBB_Ada_cfbd52e3/212d96d17d24972e24ed5ccf3920e6422531df957f4626d6eee4eb4481fea91f/src-common/lib:$ORIGIN/../../../../../..//.local/share/alire/builds/BBS_BBB_Ada_17b6af3a/4ade26882ac64508109f89b6c64e4c24c5fb17a2f38908456fce1c45b3e40ee7/src-linux/lib:$ORIGIN/../../../../../..//.local/share/alire/builds/bbs_simcpu_0.1.0_73ecd6e3/75990b27868554a8477d1f074015a092a0d4d15992b0b3469433022d768340a9/lib:$ORIGIN/../../../../../..//.local/share/alire/builds/bbs_webif_0.1.0_3aacf510/f6a374e78d6d18ec5ae4feadd655d167d958e22ed4105f79eb6507bfc4039d31/lib:$ORIGIN/../../../../../..//.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/lib/gcc/x86_64-pc-linux-gnu/10.3.0/adalib -o /home/runner/work/alire-crates-ci/alire-crates-ci/test/614c31f8-9935-4b7c-abd7-b291f22ff0d1/blinkenlights_0.1.0_339e553e//blinkenlights
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/614c31f8-9935-4b7c-abd7-b291f22ff0d1/blinkenlights_0.1.0_339e553e/blinkenlights.gpr"] exited with code 4
+ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/614c31f8-9935-4b7c-abd7-b291f22ff0d1/blinkenlights_0.1.0_339e553e/blinkenlights.gpr"] exited with code 4
+stderr: ALIRE.CHECKED_ERROR
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/614c31f8-9935-4b7c-abd7-b291f22ff0d1/blinkenlights_0.1.0_339e553e/blinkenlights.gpr"] exited with code 4
+stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
+[/home/runner/work/alire-crates-ci/alire-crates-ci/alire_install/bin/alr]
+0xe16f5e Alire.Raise_Checked_Error at alire.adb:284
+0xa845be Alire.Os_Lib.Subprocess.Checked_Spawn at alire-os_lib-subprocess.adb:111
+0xcef7be Alire.Spawn.Command at alire-spawn.adb:21
+0xcefdde Alire.Spawn.Gprbuild at alire-spawn.adb:41
+0xc31d1f Alire.Roots.Build at alire-roots.adb:186
+0xc304da Alire.Roots.Build at alire-roots.adb:252
+0xc53d6f Alire.Roots.Traverse at alire-roots.adb:2075
+0xcba1fd Alire.Solutions.Traverse.Visit at alire-solutions.adb:1480
+0xcb9344 Alire.Solutions.Traverse at alire-solutions.adb:1563
+0xc53e62 Alire.Roots.Traverse at alire-roots.adb:2079
+0xc53f21 Alire.Roots.Traverse at alire-roots.adb:2059
+0xc30a46 Alire.Roots.Build at alire-roots.adb:283
+0xc30b2b Alire.Roots.Build at alire-roots.adb:111
+0x4a5e38 Alr.Commands.Get.Retrieve at alr-commands-get.adb:205
+0x4a94f3 Alr.Commands.Get.Execute at alr-commands-get.adb:378
+0x4a96a1 Alr.Commands.Get.Execute at alr-commands-get.adb:256
+0x533c96 Alr.Commands.Sub_Cmd.Execute at clic-subcommand-instance.adb:749
+0x53eff7 Alr.Commands.Execute at alr-commands.adb:561
+0x43953a Alr.Main at alr-main.adb:13
+0x43c1d3 Main at b__alr-main.adb:2299
+[/lib/x86_64-linux-gnu/libc.so.6]
+0x7fd96e02a1c8
+0x7fd96e02a289
+[/home/runner/work/alire-crates-ci/alire-crates-ci/alire_install/bin/alr]
+0x4393dc _start at ???
+0xfffffffffffffffe
+
+
+Warning: blinkenlights=0.1.0 successfully retrieved but its build failed.
+Dependencies were solved as follows:
+
+   + bbs              0.1.0 (new)
+   + bbs_embed_common 0.1.0 (new)
+   + bbs_embed_linux  0.1.0 (new)
+   + bbs_simcpu       0.1.0 (new)
+   + bbs_webif        0.1.0 (new)
+ERROR: Build ended with errors

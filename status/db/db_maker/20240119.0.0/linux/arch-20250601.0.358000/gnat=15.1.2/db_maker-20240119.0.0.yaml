@@ -1,0 +1,721 @@
+badge: false
+badge_color: green
+crate: db_maker
+creation_timestamp: 1756256970.4664304
+distro: arch-20250601.0.358000
+duration: 39.89117867999994
+gnat: 15.1.2
+last_attempt: 2026-07-04 01:19:16.108601+00:00
+log:
+- 'Test ran at 2026-07-04 01:19:16.108540+00:00
+
+
+  '
+- 'SOLUTION:
+
+  '
+- 'db_maker=20240119.0.0: A generic for creating simple DBs (one table in an RDBMS)
+
+  '
+- 'Origin: commit 05feea71716e21f6c3b0bf32eef7eb33b22806db from https://github.com/bracke/DB_Maker.git
+
+  '
+- 'Properties:
+
+  '
+- "   Author: Jeff Carter \n"
+- "   Build Switches: \n"
+- '   Description: A generic for creating simple DBs (one table in an RDBMS)
+
+  '
+- '   License: GPL-3.0-or-later
+
+  '
+- '   Long_Description: # DB_Maker
+
+  '
+- 'A generic for creating simple DBs (one table in an RDBMS) with PragmARC.Persistent_Skip_List_Unbounded
+  and Ada GUI.
+
+  '
+- '
+
+  '
+- 'Searching does not use the O(log N) search of the underlying skip list, but instead
+  does a linear search for fields that have the corresponding search text as a substring
+  (case insensitive). This is much slower, but is still quite fast. If you have less
+  than 100,000 records it should be fast enough. "Search" starts from the 1st record;
+  "Search More" from the record after the last search. "Clear" clears the edit fields
+  to make entering a new search easier.
+
+  '
+- '
+
+  '
+- 'Because searching is case insensitive and matches substrings, searching for "son"
+  would match "Orson Welles", "Fowler De Johnsone", and "Son House".
+
+  '
+- '
+
+  '
+- 'Only about 7 fields will fit vertically in the typical browser window. This could
+  perhaps be increased by making the font smaller. A vertical scroll bar will appear
+  if needed.
+
+  '
+- '
+
+  '
+- 'Movies is a small demo program that could be used to catalogue a collection of
+  films. DB_Strings is a non-limited replacement for PragmARC.B_Strings, since type
+  B_String is limited in the Ada-12 version of the PragmARCs.
+
+  '
+- '
+
+  '
+- '   Maintainer: Bent Bracke <bent@bracke.dk>
+
+  '
+- '   Maintainers_Logins: bracke
+
+  '
+- '   Name: db_maker
+
+  '
+- '   Tag: database
+
+  '
+- '   Tag: table
+
+  '
+- '   Version: 20240119
+
+  '
+- '   Website: https://github.com/bracke/DB_Maker
+
+  '
+- 'Dependencies (direct):
+
+  '
+- '   ada_gui^20240224.0.0
+
+  '
+- '   gnat<13.0 | >=13.3
+
+  '
+- '   pragmarc^20240323.0.0
+
+  '
+- 'Dependencies (solution):
+
+  '
+- '   ada_gui=20240224.0.1
+
+  '
+- '   gnat=15.1.2 (gnat_native)
+
+  '
+- '   libgnutls=3.8.3
+
+  '
+- '   pragmarc=20240323.0.0
+
+  '
+- '   simple_components=4.68.0
+
+  '
+- '   unixodbc=2.3.12
+
+  '
+- 'Dependencies (graph):
+
+  '
+- '   ada_gui=20240224.0.1     --> gnat=15.1.2 (gnat_native) (<13.0 | >=13.3)
+
+  '
+- '   ada_gui=20240224.0.1     --> simple_components=4.68.0 (^4.68.0)
+
+  '
+- '   db_maker=20240119.0.0    --> ada_gui=20240224.0.1 (^20240224.0.0)
+
+  '
+- '   db_maker=20240119.0.0    --> gnat=15.1.2 (gnat_native) (<13.0 | >=13.3)
+
+  '
+- '   db_maker=20240119.0.0    --> pragmarc=20240323.0.0 (^20240323.0.0)
+
+  '
+- '   pragmarc=20240323.0.0    --> gnat=15.1.2 (gnat_native) (<13.0 | >=13.3)
+
+  '
+- '   simple_components=4.68.0 --> gnat=15.1.2 (gnat_native) (>=2021 | (>=12 & <2000))
+
+  '
+- '   simple_components=4.68.0 --> libgnutls=3.8.3 (^3.7)
+
+  '
+- '   simple_components=4.68.0 --> unixodbc=2.3.12 (^2.3)
+
+  '
+- '
+
+  '
+- '
+
+  LOG:
+
+  '
+- '[alr test] Testing db_maker=20240119.0.0
+
+  '
+- '[alr test] Spawning retrieval for remote crate: alr -d -n get db_maker=20240119.0.0
+
+  '
+- 'Note: Deploying db_maker=20240119.0.0...
+
+  '
+- 'Note: Deploying pragmarc=20240323.0.0...
+
+  '
+- 'Note: Deploying ada_gui=20240224.0.1...
+
+  '
+- '
+
+  '
+- 'db_maker=20240119.0.0 successfully retrieved.
+
+  '
+- 'Dependencies were solved as follows:
+
+  '
+- '
+
+  '
+- '   +  ada_gui           20240224.0.1 (new)
+
+  '
+- '   +b gnat              15.1.2       (new,gnat_native,binary)
+
+  '
+- '   +b libgnutls         3.8.3        (new,indirect,system package)
+
+  '
+- '   +  pragmarc          20240323.0.0 (new)
+
+  '
+- '   +  simple_components 4.68.0       (new,indirect)
+
+  '
+- '   +b unixodbc          2.3.12       (new,indirect,system package)
+
+  '
+- '[alr test] Spawning default test for remote crate: alr -d -n build --release --
+  -cargs:Ada -gnatwn
+
+  '
+- 'Note: Building db_maker=20240119.0.0/db_maker.gpr...
+
+  '
+- 'Setup
+
+  '
+- '   [mkdir]        object directory for project Ada_Gui
+
+  '
+- '   [mkdir]        library directory for project Ada_Gui
+
+  '
+- '   [mkdir]        object directory for project PragmARC
+
+  '
+- '   [mkdir]        library directory for project PragmARC
+
+  '
+- '   [mkdir]        object directory for project DB_Maker
+
+  '
+- '   [mkdir]        library directory for project DB_Maker
+
+  '
+- 'Compile
+
+  '
+- '   [Ada]          pragmarc_config.ads
+
+  '
+- '   [Ada]          pragmarc-concurrent_pipeline.adb
+
+  '
+- '   [Ada]          pragmarc-ansi_tty_control.adb
+
+  '
+- '   [Ada]          pragmarc-randomness-real_values.ads
+
+  '
+- '   [Ada]          pragmarc-randomness-isaac.adb
+
+  '
+- '   [Ada]          pragmarc-data_structures-queues.ads
+
+  '
+- '   [Ada]          pragmarc-mixed_case.adb
+
+  '
+- '   [Ada]          pragmarc-rational_postfix_calculator.adb
+
+  '
+- '   [Ada]          compile_all.adb
+
+  '
+- '   [Ada]          pragmarc-images.adb
+
+  '
+- '   [Ada]          pragmarc-data_structures-lists-unbounded.ads
+
+  '
+- '   [Ada]          pragmarc-genetic_algorithm.adb
+
+  '
+- '   [Ada]          pragmarc-hash.adb
+
+  '
+- '   [Ada]          pragmarc-conversions-vectors.adb
+
+  '
+- '   [Ada]          pragmarc-data_structures-bags-unbounded-unprotected.adb
+
+  '
+- '   [Ada]          pragmarc-conversions-unbounded_strings.ads
+
+  '
+- '   [Ada]          pragmarc-b_strings.adb
+
+  '
+- '   [Ada]          pragmarc-encryption-threefish.adb
+
+  '
+- '   [Ada]          pragmarc-title_comparisons.adb
+
+  '
+- '   [Ada]          pragmarc-unbounded_numbers.ads
+
+  '
+- '   [Ada]          pragmarc-data_structures-stacks.ads
+
+  '
+- '   [Ada]          pragmarc-text_io.adb
+
+  '
+- '   [Ada]          pragmarc-line_fields.adb
+
+  '
+- '   [Ada]          pragmarc-luhn_generation.adb
+
+  '
+- '   [Ada]          pragmarc-data_structures-stacks-unbounded-protection.adb
+
+  '
+- '   [Ada]          pragmarc-wrapping.ads
+
+  '
+- '   [Ada]          pragmarc-task_communication-transporters.adb
+
+  '
+- '   [Ada]          pragmarc-binary_semaphore_handler.adb
+
+  '
+- '   [Ada]          pragmarc-rem_nn_wrapper.adb
+
+  '
+- '   [Ada]          pragmarc-data_structures-skip_lists-unbounded.adb
+
+  '
+- '   [Ada]          pragmarc-data_structures-bags.ads
+
+  '
+- '   [Ada]          pragmarc-images-image.ads
+
+  '
+- '   [Ada]          pragmarc-data_structures-queues-bounded-protection-blocking.ads
+
+  '
+- '   [Ada]          pragmarc-min_max.ads
+
+  '
+- '   [Ada]          pragmarc-encryption-threefish-block_256.adb
+
+  '
+- '   [Ada]          pragmarc-postfix_calculator.adb
+
+  '
+- '   [Ada]          pragmarc-encryption-simple_xor.adb
+
+  '
+- '   [Ada]          pragmarc-word_input.adb
+
+  '
+- '   [Ada]          pragmarc-data_structures-stacks-unbounded-unprotected.adb
+
+  '
+- '   [Ada]          pragmarc-task_communication-forwarders.adb
+
+  '
+- '   [Ada]          pragmarc-comparisons.ads
+
+  '
+- '   [Ada]          pragmarc-matching-regular_expression.adb
+
+  '
+- '   [Ada]          pragmarc-data_structures-queues-unbounded-protection-blocking.ads
+
+  '
+- '   [Ada]          pragmarc-conversions.ads
+
+  '
+- '   [Ada]          pragmarc-safety.ads
+
+  '
+- '   [Ada]          pragmarc-cards-decks-us.adb
+
+  '
+- '   [Ada]          pragmarc-encryption-threefish-block_512.adb
+
+  '
+- '   [Ada]          pragmarc-cards-decks-general.adb
+
+  '
+- '   [Ada]          pragmarc-data_structures-queues-bounded-protection-non_blocking.adb
+
+  '
+- '   [Ada]          pragmarc-data_structures-sets-discrete.adb
+
+  '
+- '   [Ada]          pragmarc-data_structures-bags-unbounded.ads
+
+  '
+- '   [Ada]          pragmarc-safety-semaphores.adb
+
+  '
+- '   [Ada]          pragmarc-data_structures-stacks-unbounded.ads
+
+  '
+- '   [Ada]          pragmarc-reflection.ads
+
+  '
+- '   [Ada]          pragmarc-matching.ads
+
+  '
+- '   [Ada]          pragmarc-cards-decks.ads
+
+  '
+- '   [Ada]          pragmarc-hash_fast_variable_length.adb
+
+  '
+- '   [Ada]          pragmarc-encryption.ads
+
+  '
+- '   [Ada]          pragmarc-encryption-bifid.adb
+
+  '
+- '   [Ada]          pragmarc-math.adb
+
+  '
+- '   [Ada]          pragmarc-data_structures-skip_lists.ads
+
+  '
+- '   [Ada]          pragmarc-cards.ads
+
+  '
+- '   [Ada]          pragmarc-randomness-kiss.adb
+
+  '
+- '   [Ada]          pragmarc-sorting-radix.adb
+
+  '
+- '   [Ada]          pragmarc-unbounded_numbers-rationals.adb
+
+  '
+- '   [Ada]          pragmarc-job_pools.adb
+
+  '
+- '   [Ada]          pragmarc-data_structures-lists-unbounded-protection.adb
+
+  '
+- '   [Ada]          pragmarc-data_structures-queues-bounded-unprotected.adb
+
+  '
+- '   [Ada]          pragmarc-data_structures-queues-unbounded-unprotected.adb
+
+  '
+- '   [Ada]          pragmarc-cards-us.adb
+
+  '
+- '   [Ada]          pragmarc-randomness.ads
+
+  '
+- '   [Ada]          pragmarc-unbounded_numbers-integers.adb
+
+  '
+- '   [Ada]          pragmarc-randomness-threefry.adb
+
+  '
+- '   [Ada]          pragmarc-sorting-insertion.adb
+
+  '
+- '   [Ada]          pragmarc-data_structures-sets.ads
+
+  '
+- '   [Ada]          pragmarc-randomness-combined.adb
+
+  '
+- '   [Ada]          pragmarc-data_structures-queues-unbounded-protection.ads
+
+  '
+- '   [Ada]          pragmarc-permutations.adb
+
+  '
+- '   [Ada]          pragmarc-data_structures-lists-bounded.ads
+
+  '
+- '   [Ada]          pragmarc-date_handler.adb
+
+  '
+- '   [Ada]          pragmarc-data_structures-bags-unbounded-protection.adb
+
+  '
+- '   [Ada]          pragmarc-persistent_skip_list_unbounded.adb
+
+  '
+- '   [Ada]          pragmarc-randomness-real_ranges.adb
+
+  '
+- '   [Ada]          pragmarc-matching-quick_string.adb
+
+  '
+- '   [Ada]          pragmarc-sorting.ads
+
+  '
+- '   [Ada]          pragmarc-least_squares_fitting.adb
+
+  '
+- '   [Ada]          pragmarc-data_structures-queues-bounded.ads
+
+  '
+- '   [Ada]          pragmarc-safety-suspension_objects.adb
+
+  '
+- '   [Ada]          pragmarc-safety-pointers.adb
+
+  '
+- '   [Ada]          pragmarc-matching-character_regular_expression.adb
+
+  '
+- '   [Ada]          pragmarc-task_communication.ads
+
+  '
+- '   [Ada]          pragmarc-randomness-universal.adb
+
+  '
+- '   [Ada]          pragmarc-data_structures-lists.ads
+
+  '
+- '   [Ada]          pragmarc-randomness-u32_ranges.adb
+
+  '
+- '   [Ada]          pragmarc-protected_option.adb
+
+  '
+- '   [Ada]          pragmarc-sorting-heap.adb
+
+  '
+- '   [Ada]          pragmarc-binary_searcher.adb
+
+  '
+- '   [Ada]          pragmarc-encryption-threefish-block_1024.adb
+
+  '
+- '   [Ada]          pragmarc-data_structures-queues-unbounded.ads
+
+  '
+- '   [Ada]          pragmarc-data_structures-queues-bounded-protection.ads
+
+  '
+- '   [Ada]          pragmarc-sorting-quick.adb
+
+  '
+- '   [Ada]          pragmarc-data_structures-queues-unbounded-protection-non_blocking.adb
+
+  '
+- '   [Ada]          pragmarc-data_structures.ads
+
+  '
+- '   [Ada]          pragmarc-menu_handler.adb
+
+  '
+- '   [Ada]          pragmarc.ads
+
+  '
+- '   [Ada]          pragmarc-task_communication-monitors.adb
+
+  '
+- '   [Ada]          pragmarc-data_structures-lists-bounded-protection.adb
+
+  '
+- '   [Ada]          pragmarc-three_way.adb
+
+  '
+- '   [Ada]          ada_gui_config.ads
+
+  '
+- '   [Ada]          ada_gui-gnoga.adb
+
+  '
+- '   [Ada]          parsers-multiline_source-xpm.ads
+
+  '
+- '   [Ada]          ada_gui-gnoga-server-mime.adb
+
+  '
+- '   [Ada]          parsers-generic_source-xpm.adb
+
+  '
+- '   [Ada]          ada_gui-gnoga-gui-window.adb
+
+  '
+- '   [Ada]          ada_gui-gnoga-gui-document.adb
+
+  '
+- '   [Ada]          ada_gui-gnoga-application.adb
+
+  '
+- '   [Ada]          ada_gui-gnoga-gui-element-form.adb
+
+  '
+- '   [Ada]          ada_gui-gnoga-gui-element.adb
+
+  '
+- 'pragmarc-matching-character_regular_expression.ads:31:04: warning: in instantiation
+  at pragmarc-matching-regular_expression.adb:30 [-gnatwv]
+
+  '
+- 'pragmarc-matching-character_regular_expression.ads:31:04: warning: aggregate not
+  fully initialized [-gnatwv]
+
+  '
+- '   [Ada]          ada_gui-gnoga-server-template_parser-simple.adb
+
+  '
+- '   [Ada]          ada_gui-gnoga-server-template_parser.adb
+
+  '
+- '   [Ada]          ada_gui-gnoga-server.adb
+
+  '
+- '   [Ada]          ada_gui-gnoga-server-model.adb
+
+  '
+- '   [Ada]          ada_gui-gnoga-client_storage.adb
+
+  '
+- '   [Ada]          ada_gui-gnoga-colors.adb
+
+  '
+- '   [Ada]          ada_gui-gnoga-gui-location.adb
+
+  '
+- '   [Ada]          ada_gui-gnoga-gui-element-common.adb
+
+  '
+- '   [Ada]          ada_gui-gnoga-server-connection-common.ads
+
+  '
+- '   [Ada]          ada_gui-gnoga-gui-element-canvas.adb
+
+  '
+- '   [Ada]          ada_gui-gnoga-gui-element-multimedia.adb
+
+  '
+- '   [Ada]          ada_gui-gnoga-gui-element-canvas-context_2d.adb
+
+  '
+- '   [Ada]          ada_gui-gnoga-gui-view-console.adb
+
+  '
+- '   [Ada]          ada_gui-gnoga-gui-view.adb
+
+  '
+- '   [Ada]          ada_gui-gnoga-gui-element-list.adb
+
+  '
+- '   [Ada]          ada_gui-gnoga-gui-view-grid.adb
+
+  '
+- '   [Ada]          ada_gui-gnoga-server-database.adb
+
+  '
+- '   [Ada]          ada_gui.adb
+
+  '
+- '   [Ada]          ada_gui-gnoga-server-model-queries.adb
+
+  '
+- '   [Ada]          ada_gui-gnoga-server-connection.adb
+
+  '
+- '   [Ada]          ada_gui-gnoga-gui.adb
+
+  '
+- '   [Ada]          db_maker_config.ads
+
+  '
+- '   [Ada]          db_strings.ads
+
+  '
+- '   [Ada]          db_maker.adb
+
+  '
+- 'Build Libraries
+
+  '
+- '   [gprlib]       Ada_GUI.lexch
+
+  '
+- '   [gprlib]       PragmARC.lexch
+
+  '
+- '   [gprlib]       DB_Maker.lexch
+
+  '
+- '   [archive]      libAda_GUI.a
+
+  '
+- '   [archive]      libPragmARC.a
+
+  '
+- '   [index]        libPragmARC.a
+
+  '
+- '   [index]        libAda_GUI.a
+
+  '
+- '   [archive]      libDB_Maker.a
+
+  '
+- '   [index]        libDB_Maker.a
+
+  '
+- 'Success: Build finished successfully in 36.94 seconds.
+
+  '
+- 'Found declared GPR file: db_maker.gpr
+
+  '
+- '[alr test] Test completed SUCCESSFULLY
+
+  '
+platform: linux
+status: success
+version: 20240119.0.0

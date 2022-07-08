@@ -1,0 +1,855 @@
+Test ran at 2026-09-08 01:35:45.795474+00:00
+
+SOLUTION:
+gnatformat=26.0.0: Opinionated code formatter for the Ada language
+Origin: source archive v26.0.0.zip at https://github.com/AdaCore/gnatformat/archive/refs/tags/v26.0.0.zip with hash sha512:a0a869fab27e7138eb049a13f1784161633e5e2296ef33c1ff09ec5ec70085b09bd38f2dd45766c3de1c94f18b418331abca7845641978b4783d041619f0170d
+Properties:
+   Post_Fetch run: sed -i -e s/Version    : constant String := "debug"/Version    : constant String := "26.0.0"/ gnatformat.ads (from ${CRATE_ROOT}/src)
+   Post_Fetch run: sed -i -e s/Build_Date : constant String := "debug"/Build_Date : constant String := "976b276ba6"/ gnatformat.ads (from ${CRATE_ROOT}/src)
+   Author: AdaCore
+   Configuration: no modifiers
+   Description: Opinionated code formatter for the Ada language
+   Executable: gnatformat
+   GPR Scenario: GNATFORMAT_BUILD_MODE := dev | prod
+   GPR External: GNATFORMAT_BUILD_MODE := prod
+   License: MIT OR Apache-2.0 WITH LLVM-exception
+   Maintainer: Fabien Chouteau <chouteau@adacore.com>
+   Maintainer: sagaert@adacore.com
+   Maintainers_Logins: Fabien-Chouteau
+   Maintainers_Logins: AldanTanneo
+   Name: gnatformat
+   Project_File: gnat/gnatformat.gpr
+   Project_File: gnat/gnatformat_driver.gpr
+   Tag: formatting
+   Tag: ada
+   Tag: tool
+   Version: 26.0.0
+   Website: https://github.com/AdaCore/gnatformat
+Dependencies (direct):
+   adasat^26
+   gnatcoll^26
+   libadalang^26
+   prettier_ada^26
+   vss_extra^26
+   vss_text^26
+Dependencies (solution):
+   adasat=26.0.0
+   gnat=15.3.1 (gnat_native)
+   gnatcoll=26.0.0
+   gnatcoll_gmp=26.0.0
+   gnatcoll_iconv=26.0.0
+   gnatcoll_minimal=26.0.0
+   gnatcoll_projects=26.0.0
+   gprconfig_kb=26.0.0
+   langkit_support=26.0.0
+   libadalang=26.0.0
+   libgmp=6.3.0
+   libgpr=26.0.0
+   libgpr2=26.0.0
+   make=4.3.0
+   prettier_ada=26.0.0
+   vss_extra=26.2.0
+   vss_text=26.2.0
+   xmlada=26.0.0
+Dependencies (graph):
+   gnatcoll=26.0.0          --> gnat=15.3.1 (gnat_native) (>=14)
+   gnatcoll=26.0.0          --> gnatcoll_minimal=26.0.0 (~26.0.0)
+   gnatcoll_gmp=26.0.0      --> gnatcoll_minimal=26.0.0 (~26.0.0)
+   gnatcoll_gmp=26.0.0      --> libgmp=6.3.0 (*)
+   gnatcoll_iconv=26.0.0    --> gnatcoll=26.0.0 (~26.0.0)
+   gnatcoll_minimal=26.0.0  --> gnat=15.3.1 (gnat_native) (>=14)
+   gnatcoll_projects=26.0.0 --> gnat=15.3.1 (gnat_native) (>=14)
+   gnatcoll_projects=26.0.0 --> gnatcoll=26.0.0 (~26.0.0)
+   gnatcoll_projects=26.0.0 --> libgpr=26.0.0 (>=25.0.0)
+   gnatformat=26.0.0        --> adasat=26.0.0 (^26)
+   gnatformat=26.0.0        --> gnatcoll=26.0.0 (^26)
+   gnatformat=26.0.0        --> libadalang=26.0.0 (^26)
+   gnatformat=26.0.0        --> prettier_ada=26.0.0 (^26)
+   gnatformat=26.0.0        --> vss_extra=26.2.0 (^26)
+   gnatformat=26.0.0        --> vss_text=26.2.0 (^26)
+   langkit_support=26.0.0   --> adasat=26.0.0 (^26)
+   langkit_support=26.0.0   --> gnatcoll=26.0.0 (^26)
+   langkit_support=26.0.0   --> gnatcoll_gmp=26.0.0 (^26)
+   langkit_support=26.0.0   --> gnatcoll_iconv=26.0.0 (^26)
+   langkit_support=26.0.0   --> prettier_ada=26.0.0 (^26)
+   libadalang=26.0.0        --> gnatcoll=26.0.0 (^26)
+   libadalang=26.0.0        --> gnatcoll_gmp=26.0.0 (^26)
+   libadalang=26.0.0        --> gnatcoll_iconv=26.0.0 (^26)
+   libadalang=26.0.0        --> gnatcoll_projects=26.0.0 (^26)
+   libadalang=26.0.0        --> langkit_support=26.0.0 (^26)
+   libadalang=26.0.0        --> libgpr2=26.0.0 (^26)
+   libgpr=26.0.0            --> gnat=15.3.1 (gnat_native) (>=15)
+   libgpr=26.0.0            --> xmlada=26.0.0 (~26.0.0)
+   libgpr2=26.0.0           --> gnat=15.3.1 (gnat_native) (<16)
+   libgpr2=26.0.0           --> gnatcoll=26.0.0 (^26.0.0)
+   libgpr2=26.0.0           --> gnatcoll_gmp=26.0.0 (^26.0.0)
+   libgpr2=26.0.0           --> gnatcoll_iconv=26.0.0 (^26.0.0)
+   libgpr2=26.0.0           --> gprconfig_kb=26.0.0 (^26.0.0)
+   libgpr2=26.0.0           --> make=4.3.0 (*)
+   libgpr2=26.0.0           --> xmlada=26.0.0 (^26.0.0)
+   prettier_ada=26.0.0      --> gnatcoll=26.0.0 (^26)
+   prettier_ada=26.0.0      --> vss_text=26.2.0 (^26)
+   vss_extra=26.2.0         --> vss_text=26.2.0 (^26.2.0)
+   xmlada=26.0.0            --> gnat=15.3.1 (gnat_native) (>=11)
+
+
+LOG:
+[alr test] Testing gnatformat=26.0.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get gnatformat=26.0.0
+Note: Deploying gnatformat=26.0.0...
+#=#=#                                                                          
+##O#-#                                                                         
+##O=#  #                                                                       
+#=#=-#  #                                                                      
+ #=#=-#   #                                                                    
+  #=#=- #   #                                                                  
+   #=#=- #   #                                                                 
+Note: Deploying adasat=26.0.0...
+#=#=#                                                                          
+##O#-#                                                                         
+##O=#  #                                                                       
+#=#=-#  #                                                                      
+Note: Deploying vss_text=26.2.0...
+Note: Deploying vss_extra=26.2.0...
+Note: Deploying libgpr=26.0.0...
+#=#=#                                                                          
+##O#-#                                                                         
+##O=#  #                                                                       
+#=#=-#  #                                                                      
+ #=#=-#   #                                                                    
+  #=#=- #   #                                                                  
+   #=#=- #   #                                                                 
+Note: Deploying gnatcoll_projects=26.0.0...
+#=#=#                                                                          
+##O#-#                                                                         
+##O=#  #                                                                       
+#=#=-#  #                                                                      
+ #=#=-#   #                                                                    
+  #=#=- #   #                                                                  
+   #=#=- #   #                                                                 
+    #=O#-  #   #                                                               
+     #=O#-   #   #                                                             
+      #=O=#   #    #                                                           
+       -#O=-#   #     #                                                        
+Note: Deploying prettier_ada=26.0.0...
+#=#=#                                                                          
+##O#-#                                                                         
+##O=#  #                                                                       
+#=#=-#  #                                                                      
+Note: Deploying langkit_support=26.0.0...
+#=#=#                                                                          
+##O#-#                                                                         
+##O=#  #                                                                       
+#=#=-#  #                                                                      
+ #=#=-#   #                                                                    
+  #=#=- #   #                                                                  
+   #=#=- #   #                                                                 
+    #=O#-  #   #                                                               
+     #=O#-   #   #                                                             
+Note: Deploying libgpr2=26.0.0...
+#=#=#                                                                          
+##O#-#                                                                         
+##O=#  #                                                                       
+#=#=-#  #                                                                      
+ #=#=-#   #                                                                    
+  #=#=- #   #                                                                  
+   #=#=- #   #                                                                 
+    #=O#-  #   #                                                               
+Note: Deploying libadalang=26.0.0...
+#=#=#                                                                          
+##O#-#                                                                         
+
+                                                                           0.6%
+######################################################################## 100.0%
+
+gnatformat=26.0.0 successfully retrieved.
+Dependencies were solved as follows:
+
+   +  adasat            26.0.0 (new)
+   +b gnat              15.3.1 (new,gnat_native,indirect,binary)
+   +  gnatcoll          26.0.0 (new)
+   +  gnatcoll_gmp      26.0.0 (new,indirect)
+   +  gnatcoll_iconv    26.0.0 (new,indirect)
+   +  gnatcoll_minimal  26.0.0 (new,indirect)
+   +  gnatcoll_projects 26.0.0 (new,indirect)
+   +b gprconfig_kb      26.0.0 (new,indirect,binary)
+   +  langkit_support   26.0.0 (new,indirect)
+   +  libadalang        26.0.0 (new)
+   +b libgmp            6.3.0  (new,indirect,system package)
+   +  libgpr            26.0.0 (new,indirect)
+   +  libgpr2           26.0.0 (new,indirect)
+   +b make              4.3.0  (new,indirect,system package)
+   +  prettier_ada      26.0.0 (new)
+   +  vss_extra         26.2.0 (new)
+   +  vss_text          26.2.0 (new)
+   +  xmlada            26.0.0 (new,indirect)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Running post-fetch actions for adasat=26.0.0...
+Note: Running post-fetch actions for libgpr2=26.0.0...
+mkdir -p .build/kb
+gprbuild -p -P ./kb/collect_kb.gpr -XKB_BUILD_DIR=.build/kb --relocate-build-tree
+Setup
+   [mkdir]        object directory for project Collect_KB
+Compile
+   [Ada]          collect_kb.adb
+Bind
+   [gprbind]      collect_kb.bexch
+   [Ada]          collect_kb.ali
+Link
+   [link]         collect_kb.adb
+cp ./kb/gpr2-kb-embedded.ads .build/kb
+.build/kb/collect_kb -o .build/kb $GPRCONFIG_KB_ALIRE_PREFIX//db
+collect_kb: parsing /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db...
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/compilers-asis.xml
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/e500v2-vx653.xml
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/ppc64-vx7r2.xml
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/aarch64-vx7.xml
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/compilers-e500v2-vx7.xml
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/compilers-ppc-vx7r2.xml
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/aamp.xml
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/ppc-vx7r2.xml
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/vx7r2_compilers.xml
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/gnat.xml
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/compilers-e500v2-vx7r2.xml
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/clean.xml
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/compilers-baselined.xml
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/vx7.ent
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/x86_64-vx7.xml
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/compilers-ppc64-vx7r2.xml
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/compilers-arm-vx7.xml
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/gprconfig.xsd
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/compilers-vxworks.xml
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/vx6.ent
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/cpp.xml
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/env.ent
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/aarch64-vx7r2.xml
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/compilers-x86-vx7.xml
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/asm.xml
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/compilers-ppc64-vx7r2-clang.xml
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/compilers-e500v2-vx6.xml
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/asis.xml
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/linker.xml
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/fortran.xml
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/arm-vx7r2.xml
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/ppc64-vx7.xml
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/arm-vx6.xml
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/compilers.xml
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/compilers-x86_64-vx7.xml
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/cross.xml
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/vx7r2.ent
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/compilers-e500v2-vx653.xml
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/x86_64-vx7r2.xml
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/compilers-ppc64-vx7.xml
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/x86-vx7.xml
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/e500v2-vx6.xml
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/windres.xml
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/tricore-compilers.xml
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/nocompiler.xml
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/vx653.ent
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/aamp_compilers.xml
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/ppc-vx653.xml
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/c.xml
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/bin_img.xml
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/x86-vx7r2.xml
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/e500v2-vx7r2.xml
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/tricore-target.xml
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/compilers-aarch64-vx7r2-clang.xml
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/compilers-x86_64-vx7r2-clang.xml
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/shortcuts.ent
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/e500v2-vx7.xml
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/baselined.xml
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/tricore-configuration.xml
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/arm-vx7.xml
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/vxworks.ent
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/fallback_targets.xml
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/compilers-ppc-vx7.xml
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/compilers-ppc-vx653.xml
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/morello-vx7r2.xml
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/0_default.xml
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/targetset.xml
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/x86-vx6.xml
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/vxworks.xml
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/ppc-vx6.xml
+  /home/runner/.local/share/alire/releases/gprconfig_kb_26.0.0_8d626e98/db/ppc-vx7.xml
+Note: Running post-fetch actions for gnatformat=26.0.0...
+Note: Building gnatformat=26.0.0/gnat/gnatformat.gpr (1/2)...
+Setup
+   [mkdir]        object directory for project VSS_GNAT
+   [mkdir]        library directory for project VSS_GNAT
+   [mkdir]        object directory for project Prettier_Ada
+   [mkdir]        library directory for project Prettier_Ada
+   [mkdir]        object directory for project AdaSAT
+   [mkdir]        exec directory for project AdaSAT
+   [mkdir]        library directory for project AdaSAT
+   [mkdir]        object directory for project Langkit_Support
+   [mkdir]        library directory for project Langkit_Support
+   [mkdir]        object directory for project GPR
+   [mkdir]        library directory for project GPR
+   [mkdir]        object directory for project GNATCOLL_Projects
+   [mkdir]        library directory for project GNATCOLL_Projects
+   [mkdir]        object directory for project GPR2
+   [mkdir]        library directory for project GPR2
+   [mkdir]        object directory for project Libadalang
+   [mkdir]        library directory for project Libadalang
+   [mkdir]        object directory for project VSS_OS
+   [mkdir]        library directory for project VSS_OS
+   [mkdir]        object directory for project Gnatformat
+   [mkdir]        library directory for project Gnatformat
+Compile
+   [Ada]          vss-text_streams-file_input.adb
+   [Ada]          vss-command_line.adb
+   [Ada]          vss-application.adb
+   [Ada]          vss-environments.adb
+   [Ada]          vss-text_streams-standards.adb
+   [Ada]          vss-text_streams-file_output.adb
+   [Ada]          vss-command_line-parsers.adb
+   [Ada]          vss-implementation-environment_utilities__posix.adb
+   [Ada]          vss-standard_paths__posix.adb
+   [C]            gpr_parser-gdb.c
+   [Ada]          gpr_parser_support-diagnostics-output.adb
+   [Ada]          gpr_parser_support-lexical_envs_impl.adb
+   [Ada]          gpr_parser_support-text.adb
+   [Ada]          gpr_parser_adasat-formulas.adb
+   [Ada]          gpr_parser-unparsing.adb
+   [Ada]          gpr_parser_support-packrat.adb
+   [Ada]          gpr_parser_support-internal.ads
+   [Ada]          gpr_parser-generic_introspection.adb
+   [Ada]          gpr_parser_support-adalog-main_support.ads
+   [Ada]          gpr_parser_support-adalog-debug.adb
+   [Ada]          gpr_parser_support-adalog.ads
+   [Ada]          gpr_parser_support-symbols.adb
+   [Ada]          gpr_parser_support-errors.ads
+   [Ada]          gpr_parser_support-hashes.adb
+   [Ada]          gpr_parser_support-generic_api.adb
+   [Ada]          gpr_parser_adasat-helpers.adb
+   [Ada]          gpr_parser-generic_api-introspection.ads
+   [Ada]          gpr_parser-c.adb
+   [Ada]          gpr_parser_support-adalog-logic_var.adb
+   [Ada]          gpr_parser_support-adalog-generic_main_support.adb
+   [Ada]          gpr_parser_support-cheap_sets.adb
+   [Ada]          gpr_parser_support-generic_api-analysis.adb
+   [Ada]          gpr_parser-lexer_state_machine.adb
+   [Ada]          gpr_parser_support-generic_bump_ptr.adb
+   [Ada]          gpr_parser-iterators.adb
+   [Ada]          gpr_parser-private_converters.adb
+   [Ada]          gpr_parser-lexer_implementation.adb
+   [Ada]          gpr_parser-parsers.adb
+   [Ada]          gpr_parser_support-types.ads
+   [Ada]          gpr_parser_support-internal-conversions.ads
+   [Ada]          gpr_parser-rewriting.adb
+   [Ada]          gpr_parser.ads
+   [Ada]          gpr_parser_support-internal-descriptor.ads
+   [Ada]          gpr_parser_support-boxes.adb
+   [Ada]          gpr_parser-unparsing_implementation.adb
+   [Ada]          gpr_parser_support-file_readers.adb
+   [Ada]          gpr_parser_adasat-vectors.adb
+   [Ada]          gpr_parser-common.adb
+   [Ada]          gpr_parser-debug.adb
+   [Ada]          gpr_parser_adasat-dpll.adb
+   [Ada]          gpr_parser_support-tree_traversal_iterator.adb
+   [Ada]          gpr_parser_support-adalog-solver.adb
+   [Ada]          gpr_parser_support-iterators.adb
+   [Ada]          gpr_parser_support-diagnostics.adb
+   [Ada]          gpr_parser_support-slocs.adb
+   [Ada]          gpr_parser_support-array_utils.adb
+   [Ada]          gpr_parser-public_converters.adb
+   [Ada]          gpr_parser_support-images.adb
+   [Ada]          gpr_parser_support-adalog-solver_interface.adb
+   [Ada]          gpr_parser-generic_impl.adb
+   [Ada]          gpr_parser_support-vectors.adb
+   [Ada]          gpr_parser-implementation.adb
+   [Ada]          gpr_parser_adasat-decisions.adb
+   [Ada]          gpr_parser_support-relative_get.adb
+   [Ada]          gpr_parser_support-internal-analysis.adb
+   [Ada]          gpr_parser_support.ads
+   [Ada]          gpr_parser_support-symbols-precomputed.adb
+   [Ada]          gpr_parser-rewriting_implementation.adb
+   [Ada]          gpr_parser_support-names.adb
+   [Ada]          gpr_parser_support-bump_ptr.ads
+   [Ada]          gpr_parser_support-lexical_envs.ads
+   [Ada]          gpr_parser_adasat.adb
+   [Ada]          gpr_parser_support-token_data_handlers.adb
+   [Ada]          gpr_parser_support-bump_ptr_vectors.adb
+   [Ada]          gpr_parser-analysis.adb
+   [Ada]          gpr_parser_adasat-theory.ads
+   [Ada]          gpr_parser-implementation-c.adb
+   [Ada]          gpr_parser_support-generic_api-introspection.adb
+   [Ada]          gpr_parser_adasat-internals.ads
+   [Ada]          gpr_parser_support-names-maps.adb
+   [Ada]          gpr_parser-generic_api.adb
+   [Ada]          gpr_parser_adasat-builders.adb
+   [Ada]          gpr_parser_support-internal-introspection.adb
+   [Ada]          gpr_parser-lexer.adb
+   [Ada]          gpr2-kb-embedded.adb
+   [Ada]          gpr2-project_parser-create.adb
+   [Ada]          gpr2-tree_internal-view_builder.adb
+   [Ada]          gpr2-project_parser-registry.adb
+   [Ada]          gpr2-build-jobserver_protocol-pipe.adb
+   [Ada]          gpr2-project_parser-set.ads
+   [Ada]          gpr2-tree_internal.adb
+   [Ada]          gpr2-pack_internal.ads
+   [Ada]          gpr2-configuration_internal.adb
+   [Ada]          gpr2-build-jobserver_protocol.ads
+   [Ada]          gpr2-view_base_internal.ads
+   [Ada]          gpr2-project_parser.adb
+   [Ada]          gpr2-build-view_tables.adb
+   [Ada]          gpr2-view_internal.adb
+   [Ada]          gpr2-build-actions-ada_bind.adb
+   [Ada]          gpr2-build-actions-sets.ads
+   [Ada]          gpr2-build-actions_population.adb
+   [Ada]          gpr2-build-options.ads
+   [Ada]          gpr2-build-actions.adb
+   [Ada]          gpr2-build-actions-post_bind.adb
+   [Ada]          gpr2-build-signature.adb
+   [Ada]          gpr2-build-process_manager-json.adb
+   [Ada]          gpr2-build-tree_db.adb
+   [Ada]          gpr2-build.ads
+   [Ada]          gpr2-build-response_files.adb
+   [Ada]          gpr2-build-artifacts-key_value.adb
+   [Ada]          gpr2-build-artifacts.adb
+   [Ada]          gpr2-build-source_base.adb
+   [Ada]          gpr2-build-makefile_parser.adb
+   [Ada]          gpr2-build-source.ads
+   [Ada]          gpr2-build-actions-link-partial.adb
+   [Ada]          gpr2-build-process_manager.adb
+   [Ada]          gpr2-build-view_db.adb
+   [Ada]          gpr2-build-ali_parser.adb
+   [Ada]          gpr2-build-unit_info.adb
+   [Ada]          gpr2-build-artifacts-object_file.ads
+   [Ada]          gpr2-build-unit_info-list.adb
+   [Ada]          gpr2-build-source_base-vectors.ads
+   [Ada]          gpr2-build-artifacts-files.adb
+   [Ada]          gpr2-build-compilation_unit-maps.ads
+   [Ada]          gpr2-build-external_options.adb
+   [Ada]          gpr2-build-actions-link_options_extract.adb
+   [Ada]          gpr2-build-actions-link.adb
+   [Ada]          gpr2-build-source_base-ada_parser.adb
+   [Ada]          gpr2-build-artifacts-library.ads
+   [Ada]          gpr2-build-jobserver.adb
+   [Ada]          gpr2-build-compilation_unit.adb
+   [Ada]          gpr2-build-actions-archive_extract.adb
+   [Ada]          gpr2-build-actions-compile.adb
+   [Ada]          gpr2-build-actions-archive_table_list.adb
+   [Ada]          gpr2-build-actions-link_options_insert.adb
+   [Ada]          gpr2-build-command_line.adb
+   [Ada]          gpr2-build-actions-compile-ada.adb
+   [Ada]          gpr2-build-source-sets.adb
+   [Ada]          gpr2-kb.adb
+   [Ada]          gpr2-project-variable-set.ads
+   [Ada]          gpr2-source_reference-identifier.ads
+   [Ada]          gpr2-project-external.adb
+   [Ada]          gpr2-source_reference-identifier-set.ads
+   [Ada]          gpr2-environment.adb
+   [Ada]          gpr2-options-opt_parse.adb
+   [Ada]          gpr2-project-name_values.adb
+   [Ada]          gpr2-project-registry-pack-description.adb
+   [Ada]          gpr2-reporter-console.adb
+   [Ada]          gpr2-project-attribute_index.adb
+   [Ada]          gpr2-log.adb
+   [Ada]          gpr2-view_ids-set.ads
+   [Ada]          gpr2.adb
+   [Ada]          gpr2-version.adb
+   [Ada]          gpr2-project-configuration.adb
+   [Ada]          gpr2-kb-parsing.adb
+   [Ada]          gpr2-project-view-vector.ads
+   [Ada]          gpr2-view_ids-dags.adb
+   [Ada]          gpr2-project-typ-set.ads
+   [Ada]          gpr2-path_name.adb
+   [Ada]          gpr2-view_ids.adb
+   [Ada]          gpr2-project.adb
+   [Ada]          gpr2-project-attribute_cache.adb
+   [Ada]          gpr2-reporter-holders.ads
+   [Ada]          gpr2-source_reference.adb
+   [Ada]          gpr2-utils.ads
+   [Ada]          gpr2-project-registry-pack.adb
+   [Ada]          gpr2-project-view-set.ads
+   [Ada]          gpr2-source_reference-text_value-g_set.ads
+   [Ada]          gpr2-source_reference-attribute.ads
+   [Ada]          gpr2-options.adb
+   [Ada]          gpr2-project-attribute-set.adb
+   [Ada]          gpr2-project-registry-attribute-description.adb
+   [Ada]          gpr2-kb-compiler_iterator.adb
+   [Ada]          gpr2-project-import.adb
+   [Ada]          gpr2-project-variable.adb
+   [Ada]          gpr2-reporter.adb
+   [Ada]          gpr2-context.adb
+   [Ada]          gpr_parser-basic_ada_parser.adb
+   [Ada]          gpr2-project-registry-attribute.adb
+   [Ada]          gpr2-view_ids-vector.ads
+   [Ada]          gpr2-project-attribute.adb
+   [Ada]          gpr2-source_reference-value.ads
+   [Ada]          gpr2-source_reference-scalar_value.ads
+   [Ada]          gpr2-file_readers.adb
+   [Ada]          gpr2-utils-hash.adb
+   [Ada]          gpr2-project-tree.adb
+   [Ada]          gpr2-project-import-set.adb
+   [Ada]          gpr2-project-typ.adb
+   [Ada]          gpr2-path_name-set.adb
+   [Ada]          gpr2-project-pretty_printer.adb
+   [Ada]          gpr2-project-registry.ads
+   [Ada]          gpr2-project-external-set.ads
+   [Ada]          gpr2-source_reference-text_value.adb
+   [Ada]          gpr2-project-attr_values.adb
+   [Ada]          gpr2-project-registry-exchange.adb
+   [Ada]          gpr2-project-tree-view_builder.adb
+   [Ada]          gpr2-message.adb
+   [Ada]          gpr2-reporter-log.adb
+   [Ada]          gpr2-project-view.adb
+   [Ada]          gpr2-source_reference-pack.ads
+   [Ada]          gpr2-containers.adb
+   [Ada]          gpr2-builtin.adb
+   [Ada]          gpr2-build-jobserver_protocol-semaphore__dummy.adb
+   [C]            gpr_imports.c
+   [Ada]          gpr-osint.adb
+   [Ada]          gpr-nmsc.adb
+gpr-osint.adb:30:06: warning: "System.CRTL" is an internal GNAT unit [-gnatwi]
+gpr-osint.adb:30:06: warning: use of this unit is non-portable and version-dependent [-gnatwi]
+gpr-osint.adb:31:06: warning: "System.OS_Constants" is an internal GNAT unit [-gnatwi]
+gpr-osint.adb:31:06: warning: use of this unit is non-portable and version-dependent [-gnatwi]
+   [Ada]          gpr-scans.adb
+   [Ada]          gpr-sdefault.adb
+gpr-sdefault.adb:29:06: warning: "System.OS_Constants" is an internal GNAT unit [-gnatwi]
+gpr-sdefault.adb:29:06: warning: use of this unit is non-portable and version-dependent [-gnatwi]
+   [Ada]          gpr-script.adb
+   [Ada]          gpr-compilation-slave.adb
+   [Ada]          gpr-util-aux.adb
+   [Ada]          gpr-names.adb
+   [Ada]          gpr-conf.adb
+   [Ada]          gpr-compilation-protocol.adb
+   [Ada]          gpr-output.adb
+   [Ada]          gpr.adb
+   [Ada]          gpr-erroutc.adb
+   [Ada]          gpr-pp.adb
+   [Ada]          gpr-tempdir.adb
+   [Ada]          gpr-com.ads
+   [Ada]          gpr-util.adb
+   [Ada]          gpr-part.adb
+   [Ada]          gpr-compilation-process-waiter.adb
+   [Ada]          gpr-ali.adb
+   [Ada]          gpr-snames.adb
+   [Ada]          gpr-proc.adb
+   [Ada]          gpr-opt.ads
+   [Ada]          gpr-knowledge.adb
+   [Ada]          gpr-compilation-process.adb
+gpr-util-put_resource_usage__unix.adb:34:25: (style) bad casing of "Timeval" declared at g-sothco.ads:59 [-gnatyr]
+gpr-util-put_resource_usage__unix.adb:35:25: (style) bad casing of "Timeval" declared at g-sothco.ads:59 [-gnatyr]
+gpr-util-put_resource_usage__unix.adb:69:35: (style) bad casing of "Timeval" declared at g-sothco.ads:59 [-gnatyr]
+gpr-util-put_resource_usage__unix.adb:78:35: (style) bad casing of "Timeval" declared at g-sothco.ads:59 [-gnatyr]
+gpr-util-put_resource_usage__unix.adb:84:55: (style) bad casing of "Tv_Usec" declared at g-sothco.ads:61 [-gnatyr]
+gpr-util-put_resource_usage__unix.adb:86:25: (style) bad casing of "Tv_Sec" declared at g-sothco.ads:60 [-gnatyr]
+   [Ada]          gpr-debug.adb
+   [Ada]          gpr-tree.adb
+   [Ada]          gpr-jobserver.adb
+   [Ada]          gpr-cset.adb
+   [Ada]          gpr-ext.adb
+   [Ada]          gpr-err.adb
+   [Ada]          gpr-sinput.adb
+   [Ada]          gpr-compilation-sync.adb
+   [Ada]          gpr-attr-pm.adb
+   [Ada]          gpr-version.adb
+   [Ada]          gpr_build_util.adb
+   [Ada]          gpr-attr.adb
+   [Ada]          gpr-env.adb
+   [Ada]          gpr-dect.adb
+   [Ada]          gpr-strt.adb
+   [Ada]          gpr-compilation.adb
+   [Ada]          gnatcoll-projects-normalize.adb
+   [Ada]          gnatcoll-projects.adb
+   [Ada]          gnatcoll-projects-krunch.adb
+   [Ada]          gnatcoll-scripts-projects.adb
+   [Ada]          gnatcoll-scripts-files.adb
+   [Ada]          gnatcoll-projects-aux.adb
+   [Ada]          adasat-theory.ads
+   [Ada]          adasat-decisions.adb
+   [Ada]          adasat-vectors.adb
+   [Ada]          adasat-builders.adb
+   [Ada]          adasat.adb
+   [Ada]          adasat-helpers.adb
+   [Ada]          adasat-internals.ads
+   [Ada]          adasat-dpll.adb
+   [Ada]          adasat-formulas.adb
+   [Ada]          langkit_support-boxes.adb
+   [Ada]          langkit_support-internal-descriptor.ads
+   [Ada]          langkit_support-rewriting-types.adb
+   [Ada]          langkit_support-file_readers.adb
+   [Ada]          langkit_support-vectors.adb
+   [Ada]          langkit_support-lexical_envs_impl.adb
+   [Ada]          langkit_support.ads
+   [Ada]          langkit_support-bump_ptr_vectors.adb
+   [Ada]          langkit_support-symbols-precomputed.adb
+   [Ada]          langkit_support-text.adb
+   [Ada]          langkit_support-images.adb
+   [Ada]          langkit_support-names.adb
+   [Ada]          langkit_support-adalog-solver_interface.adb
+   [Ada]          langkit_support-names-maps.adb
+   [Ada]          langkit_support-adalog-solver-diagnostics.adb
+   [Ada]          langkit_support-symbols.adb
+   [Ada]          langkit_support-adalog-debug.adb
+   [Ada]          langkit_support-hashes.adb
+   [Ada]          langkit_support-generic_api.adb
+   [Ada]          langkit_support-internal.ads
+   [Ada]          langkit_support-lexical_envs.ads
+   [Ada]          langkit_support-generic_api-rewriting.adb
+   [Ada]          langkit_support-adalog-solver.adb
+   [Ada]          langkit_support-relative_get.adb
+   [Ada]          langkit_support-packrat.adb
+   [Ada]          langkit_support-tree_traversal_iterator.adb
+   [Ada]          langkit_support-iterators.adb
+   [Ada]          langkit_support-rewriting.ads
+   [Ada]          langkit_support-types.ads
+   [Ada]          langkit_support-internal-introspection.adb
+   [Ada]          langkit_support-adalog-logic_var.adb
+   [Ada]          langkit_support-internal-analysis.adb
+   [Ada]          langkit_support-adalog.ads
+   [Ada]          langkit_support-token_data_handlers.adb
+   [Ada]          langkit_support-internal-conversions.ads
+   [Ada]          langkit_support-diagnostics.adb
+   [Ada]          langkit_support-slocs.adb
+   [Ada]          langkit_support-generic_api-unparsing.adb
+   [Ada]          langkit_support-diagnostics-output.adb
+   [Ada]          langkit_support-adalog-main_support.ads
+   [Ada]          langkit_support-errors.ads
+   [Ada]          langkit_support-cheap_sets.adb
+   [Ada]          langkit_support-generic_api-analysis.adb
+   [Ada]          langkit_support-array_utils.adb
+   [Ada]          langkit_support-internal-unparsing.ads
+   [Ada]          langkit_support-generic_bump_ptr.adb
+   [Ada]          langkit_support-bump_ptr.ads
+   [Ada]          langkit_support-adalog-generic_main_support.adb
+   [Ada]          langkit_support-generic_api-introspection.adb
+   [Ada]          a-szuvau.adb
+   [Ada]          vss-implementation-ucd_core.ads
+   [Ada]          vss-implementation-ucd_casing_utf8.ads
+   [Ada]          vss-implementation-ucd_normalization_common.ads
+   [Ada]          vss-implementation-ucd_normalization_utf8.ads
+   [Ada]          vss-strings-converters-decoders-shiftjis.adb
+   [Ada]          vss-strings-cursors-iterators-words.adb
+   [Ada]          vss-implementation-character_codes.ads
+   [Ada]          vss-strings-converters-decoders-iso88599.adb
+   [Ada]          vss-strings-converters-decoders.adb
+   [Ada]          vss-implementation-utf8_casing.adb
+   [Ada]          vss-implementation-text_storages.ads
+   [Ada]          vss-implementation-utf8_strings-mutable_operations.adb
+   [Ada]          vss-transformers-casing.adb
+   [Ada]          vss-characters.adb
+   [Ada]          vss-strings-cursors-iterators-grapheme_clusters.adb
+   [Ada]          vss-transformers-caseless.adb
+   [Ada]          vss-strings-converters-decoders-utf8.adb
+   [Ada]          vss-strings-converters-encoders.adb
+   [Ada]          vss-implementation-numbers-eisel_lemire.adb
+   [Ada]          vss-implementation-interfaces_c.ads
+   [Ada]          vss-strings-internals.adb
+   [Ada]          vss-strings-cursors-markers-internals.adb
+   [Ada]          vss-string_vectors-internals.adb
+   [Ada]          vss-strings-hash.adb
+   [Ada]          vss-strings-converters-decoders-iso88591.adb
+   [Ada]          vss-strings-formatters-strings.adb
+   [Ada]          vss-strings-converters-decoders-iso88598.adb
+   [Ada]          vss-implementation-referrers.adb
+   [Ada]          vss-strings-converters.adb
+   [Ada]          vss-implementation-fnv_hash.adb
+   [Ada]          vss-locales.adb
+   [Ada]          vss-implementation-numbers-clinger.adb
+   [Ada]          vss-implementation-packed_decimals.adb
+   [Ada]          vss-implementation-text_storages-heap.adb
+   [Ada]          vss-strings-converters-decoders-iso88595.adb
+   [Ada]          vss-strings-converters-decoders-iso885915.adb
+   [Ada]          vss-strings-converters-decoders-gb18030-ranges.ads
+   [Ada]          vss-implementation-ucd_casing.adb
+   [Ada]          vss-implementation-numbers-tables.ads
+   [Ada]          vss-implementation-numbers.adb
+   [Ada]          vss-strings-formatters-generic_integers.adb
+   [Ada]          vss-implementation-line_iterators.adb
+   [Ada]          vss-strings-converters-encoders-utf8.adb
+   [Ada]          vss-strings-converters-decoders-index_jis0208.ads
+   [Ada]          vss-strings-utilities.adb
+   [Ada]          vss-strings-conversions.adb
+   [Ada]          vss-strings-converters-decoders-eucjp-jis0212.ads
+   [Ada]          vss-implementation-utf8_normalization.adb
+   [Ada]          vss-strings-cursors-iterators-lines.adb
+   [Ada]          vss-strings-converters-decoders-gb18030-indices.ads
+   [Ada]          vss-implementation-big_integers.adb
+   [Ada]          vss-strings-cursors-iterators-characters.adb
+   [Ada]          vss-string_vectors.adb
+   [Ada]          vss-implementation-utf8_encoding.adb
+   [Ada]          vss-strings-converters-decoders-eucjp.adb
+   [Ada]          vss-strings-converters-decoders-koi8r.adb
+   [Ada]          vss-strings-cursors-markers.adb
+   [Ada]          vss-strings-converters-decoders-iso88597.adb
+   [Ada]          vss-implementation.ads
+   [Ada]          vss-strings-formatters-generic_modulars.adb
+   [Ada]          vss-strings-formatters-generic_enumerations.adb
+   [Ada]          vss-strings-converters-decoders-iso88592.adb
+   [Ada]          vss-implementation-strings.adb
+   [Ada]          vss-strings-cursors.adb
+   [Ada]          vss-strings.adb
+   [Ada]          vss-strings-converters-decoders-iso88596.adb
+   [Ada]          vss-transformers-normalization.adb
+   [Ada]          vss-strings-converters-decoders-gb18030.adb
+   [Ada]          vss-strings-cursors-internals.adb
+   [Ada]          vss-strings-templates.adb
+   [Ada]          vss-implementation-utf8_strings.adb
+   [Ada]          vss-implementation-string_vectors.adb
+   [Ada]          vss-characters-punctuations.ads
+   [Ada]          vss-characters-specials.ads
+   [Ada]          vss-strings-markers.ads
+   [Ada]          vss-strings-word_iterators.ads
+   [Ada]          vss-strings-cursors-iterators.ads
+   [Ada]          vss-strings-formatters.ads
+   [Ada]          vss-unicode.ads
+   [Ada]          vss-strings-formatters-booleans.ads
+   [Ada]          vss-strings-character_iterators.ads
+   [Ada]          vss-characters-latin.ads
+   [Ada]          vss-strings-formatters-integers.ads
+   [Ada]          vss-strings-grapheme_cluster_iterators.ads
+   [Ada]          vss-strings-line_iterators.ads
+   [Ada]          vss.ads
+   [Ada]          vss-transformers.ads
+   [Ada]          vss-implementation-line_terminator.adb
+   [Ada]          vss-stream_element_vectors-internals.adb
+   [Ada]          vss-stream_element_vectors-conversions.adb
+   [Ada]          vss-text_streams-memory_utf8_input.adb
+   [Ada]          vss-text_streams-memory_utf8_output.adb
+   [Ada]          vss-stream_element_vectors.adb
+   [Ada]          vss-text_streams.ads
+   [Ada]          vss-implementation-gcc.ads
+   [Ada]          vss-implementation-arithmetic_64__128.adb
+   [Ada]          prettier_ada-documents-implementation.adb
+   [Ada]          prettier_ada-documents-builders.adb
+   [Ada]          prettier_ada-documents-json.adb
+   [Ada]          prettier_ada.ads
+   [Ada]          prettier_ada-document_vector_vectors.ads
+   [Ada]          prettier_ada-document_vectors.ads
+   [Ada]          prettier_ada-optionals.ads
+   [Ada]          prettier_ada-generic_formatters.adb
+   [Ada]          prettier_ada-documents.adb
+   [Ada]          libadalang-lexer.adb
+   [Ada]          libadalang-generic_api-introspection.ads
+   [Ada]          libadalang-config_pragmas_impl.adb
+   [Ada]          libadalang-config_pragmas.adb
+   [Ada]          libadalang-rewriting_c.adb
+   [Ada]          libadalang-parsers.adb
+   [Ada]          libadalang-preprocessing.adb
+   [Ada]          libadalang.ads
+   [Ada]          libadalang-pp_impl.adb
+   [Ada]          libadalang-analysis.adb
+   [Ada]          libadalang-common.adb
+   [Ada]          libadalang-project_provider.adb
+   [Ada]          libadalang-semantic_diagnostics.adb
+   [Ada]          libadalang-unit_files.adb
+   [Ada]          libadalang-debug.adb
+   [Ada]          libadalang-implementation-c.adb
+   [Ada]          libadalang-implementation-extensions.adb
+   [Ada]          libadalang-pp_lexer.adb
+   [Ada]          libadalang-generic_api.adb
+   [Ada]          libadalang-implementation.adb
+   [Ada]          libadalang-sources.adb
+   [Ada]          libadalang-gpr_impl.adb
+   [Ada]          libadalang-iterators.adb
+   [Ada]          libadalang-target_info.adb
+   [Ada]          libadalang-lexer_implementation.adb
+   [Ada]          libadalang-helpers.adb
+   [Ada]          libadalang-expr_eval.adb
+   [Ada]          libadalang-iterators-extensions.adb
+   [Ada]          libadalang-c.adb
+   [Ada]          libadalang-rewriting.adb
+   [Ada]          libadalang-gpr_utils.adb
+   [Ada]          libadalang-data_decomposition.adb
+   [Ada]          libadalang-lexer_state_machine.adb
+   [Ada]          libadalang-env_hooks.adb
+   [Ada]          libadalang-doc_utils.adb
+   [Ada]          libadalang-implementation-c-extensions.adb
+   [Ada]          libadalang-private_converters.adb
+   [Ada]          libadalang-auto_provider.adb
+   [Ada]          libadalang-internal_default_provider.adb
+   [Ada]          libadalang-public_converters.adb
+   [Ada]          gnatformat-utils.ads
+   [Ada]          gnatformat-formatting.adb
+   [Ada]          gnatformat-configuration.adb
+   [Ada]          gnatformat-edits.adb
+   [Ada]          gnatformat-helpers.adb
+   [Ada]          gnatformat.ads
+   [Ada]          langkit_support-rewriting-unparsing.adb
+   [Ada]          langkit_support-prettier_utils.adb
+   [Ada]          libadalang-parsers_impl.adb
+   [Ada]          libadalang-generic_impl.adb
+   [Ada]          libadalang-generic_introspection.adb
+   [Ada]          libadalang-unparsers.ads
+Build Libraries
+   [gprlib]       vss-gnat.lexch
+   [gprlib]       vss-text.lexch
+   [archive]      libvss-gnat.a
+   [index]        libvss-gnat.a
+   [gprlib]       prettier_ada.lexch
+   [archive]      libvss-text.a
+   [index]        libvss-text.a
+   [gprlib]       adasat.lexch
+   [archive]      libprettier_ada.a
+   [archive]      libadasat.a
+   [index]        libadasat.a
+   [index]        libprettier_ada.a
+   [gprlib]       langkit_support.lexch
+   [gprlib]       gpr.lexch
+   [bind SAL]     langkit_support
+   [gprlib]       gnatcoll_projects.lexch
+   [archive]      libgpr.a
+   [index]        libgpr.a
+   [Ada]          b__langkit_support.adb
+   [gprlib]       gpr2.lexch
+   [archive]      libgnatcoll_projects.a
+   [archive]      libgpr2.a
+   [index]        libgnatcoll_projects.a
+   [gprlib]       adalang.lexch
+   [objcopy]      p__langkit_support_1.o
+   [archive]      liblangkit_support.a
+   [index]        liblangkit_support.a
+   [index]        libgpr2.a
+   [gprlib]       vss-os.lexch
+   [gprlib]       gnatformat.lexch
+   [archive]      libvss-os.a
+   [bind SAL]     adalang
+   [index]        libvss-os.a
+   [Ada]          b__adalang.adb
+   [objcopy]      p__adalang_0.o
+   [archive]      libadalang.a
+   [index]        libadalang.a
+   [archive]      libgnatformat.a
+   [index]        libgnatformat.a
+Note: Building gnatformat=26.0.0/gnat/gnatformat_driver.gpr (2/2)...
+Setup
+   [mkdir]        exec directory for project Gnatformat_Driver
+Compile
+   [Ada]          gnatformat-ada_driver.adb
+   [Ada]          gnatformat-abstract_writers.ads
+   [Ada]          gnatformat-command_line.ads
+   [Ada]          gnatformat-command_line-configuration.adb
+   [Ada]          gnatformat-console_writers.adb
+   [Ada]          gnatformat-file_writers.adb
+   [Ada]          gnatformat-full_format.adb
+   [Ada]          gnatformat-project.adb
+   [Ada]          gnatformat-range_format.adb
+   [Ada]          gitdiff.adb
+gnatformat-project.adb:339:07: warning: "Explicit_Project" is not modified, could be declared constant [-gnatwk]
+gnatformat-range_format.adb:54:13: warning: "Project_Formatting_Config" is not modified, could be declared constant [-gnatwk]
+Bind
+   [gprbind]      gnatformat-ada_driver.bexch
+   [Ada]          gnatformat-ada_driver.ali
+Link
+   [link]         gnatformat-ada_driver.adb
+Using built-in specs.
+COLLECT_GCC=/home/runner/.local/share/alire/toolchains/gnat_native_15.3.1_a6af58cb/bin/gcc
+COLLECT_LTO_WRAPPER=/home/runner/.local/share/alire/toolchains/gnat_native_15.3.1_a6af58cb/bin/../libexec/gcc/x86_64-pc-linux-gnu/15.3.0/lto-wrapper
+Target: x86_64-pc-linux-gnu
+Configured with: ../src/configure --prefix=/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/x86_64-linux/gcc/install --with-build-time-tools=/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/x86_64-linux/binutils/install/bin --enable-languages=c,ada,c++ --enable-libstdcxx --enable-libstdcxx-threads --enable-libada --with-pkgversion=GNAT-FSF-builds --disable-nls --without-libiconv-prefix --disable-libstdcxx-pch --enable-lto --disable-multilib --enable-threads=posix --enable-default-pie --with-gnu-ld --with-gnu-as --with-mpfr=/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/x86_64-linux/mpfr/install --with-gmp=/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/x86_64-linux/gmp/install --with-mpc=/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/x86_64-linux/mpc/install --with-isl=/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/x86_64-linux/isl/install --build=x86_64-pc-linux-gnu
+Thread model: posix
+Supported LTO compression algorithms: zlib zstd
+gcc version 15.3.0 (GNAT-FSF-builds) 
+COMPILER_PATH=/home/runner/.local/share/alire/toolchains/gnat_native_15.3.1_a6af58cb/bin/../libexec/gcc/x86_64-pc-linux-gnu/15.3.0/:/home/runner/.local/share/alire/toolchains/gnat_native_15.3.1_a6af58cb/bin/../libexec/gcc/:/home/runner/.local/share/alire/toolchains/gnat_native_15.3.1_a6af58cb/bin/../lib/gcc/x86_64-pc-linux-gnu/15.3.0/../../../../x86_64-pc-linux-gnu/bin/
+LIBRARY_PATH=/home/runner/.local/share/alire/toolchains/gnat_native_15.3.1_a6af58cb/bin/../lib/gcc/x86_64-pc-linux-gnu/15.3.0/:/home/runner/.local/share/alire/toolchains/gnat_native_15.3.1_a6af58cb/bin/../lib/gcc/:/home/runner/.local/share/alire/toolchains/gnat_native_15.3.1_a6af58cb/lib64/../lib64/:/home/runner/.local/share/alire/toolchains/gnat_native_15.3.1_a6af58cb/bin/../lib/gcc/x86_64-pc-linux-gnu/15.3.0/../../../../lib64/:/lib/x86_64-linux-gnu/:/lib/../lib64/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib64/:/home/runner/.local/share/alire/toolchains/gnat_native_15.3.1_a6af58cb/lib64/:/home/runner/.local/share/alire/toolchains/gnat_native_15.3.1_a6af58cb/bin/../lib/gcc/x86_64-pc-linux-gnu/15.3.0/../../../../x86_64-pc-linux-gnu/lib/:/home/runner/.local/share/alire/toolchains/gnat_native_15.3.1_a6af58cb/bin/../lib/gcc/x86_64-pc-linux-gnu/15.3.0/../../../:/lib/:/usr/lib/
+COLLECT_GCC_OPTIONS='-v' '-L/home/runner/work/alire-crates-ci/alire-crates-ci/test/ecbedf98-8cf6-4e15-a73c-302c0c396686/gnatformat_26.0.0_a0a869fa/obj/' '-L/home/runner/work/alire-crates-ci/alire-crates-ci/test/ecbedf98-8cf6-4e15-a73c-302c0c396686/gnatformat_26.0.0_a0a869fa/obj/' '-L/home/runner/work/alire-crates-ci/alire-crates-ci/test/ecbedf98-8cf6-4e15-a73c-302c0c396686/gnatformat_26.0.0_a0a869fa/lib/static.prod/' '-L/home/runner/.local/share/alire/builds/libadalang_26.0.0_75276b8d/9ee2ab54968db3e1af133d9f4f2daa8356fa9e19d68a5c4cdc9e07d55a17b7bc/lib/static/prod/' '-L/home/runner/.local/share/alire/builds/gnatcoll_26.0.0_cc5dd0a1/b43b4138d8608791d3961d5c605501a38a35a40ff79937346797f72f24f86bd7/core/lib/gnatcoll_core/static/' '-L/home/runner/.local/share/alire/builds/gnatcoll_minimal_26.0.0_cc5dd0a1/a402f876cd06696c8b12b8a4af91d2afb9fa9f391d1d328fba43a33a7f5f172a/minimal/lib/gnatcoll_core/static/' '-L/home/runner/.local/share/alire/builds/gnatcoll_gmp_26.0.0_dacec6f3/015f95158d7300e973104a61c2b64f1ca035f54ba3da4bfa002be20947aa24d8/gmp/lib/static/' '-L/home/runner/.local/share/alire/builds/gnatcoll_iconv_26.0.0_dacec6f3/8995b732bc5f3b8f41606e884e447118f414235d9a9e83deee03054f3dd6ed4a/iconv/lib/static/' '-L/home/runner/.local/share/alire/builds/prettier_ada_26.0.0_8fa12a56/3f826a238da96490aa2ca92d3ee3a2570834d92679e7bc6d4a08ba49d2c06f2d/lib/static/prod/' '-L/home/runner/.local/share/alire/builds/vss_text_26.2.0_c021ca33/19cda9cef9aea9a42c346efbf832b60c91402bfda28704e572212b73a84efba1/.libs/release/static/' '-L/home/runner/.local/share/alire/builds/langkit_support_26.0.0_1745168f/bca2fe7600b920b05d0070ae39033256230bad56c7d23650f6a527bdb6ce325d/langkit/support/lib/static/prod/' '-L/home/runner/.local/share/alire/builds/adasat_26.0.0_37336738/d4390058985146cd82b5637306127ab4409d797ececabe1fdeb40d41bd96bf03/lib/static/prod/' '-L/home/runner/.local/share/alire/builds/gnatcoll_projects_26.0.0_cc5dd0a1/34cea13a1ce4283f557e3b9ca65d943e2425fed6c1465924e859b64e3149580d/projects/lib/gnatcoll_projects/static/' '-L/home/runner/.local/share/alire/builds/libgpr_26.0.0_600d4a7b/532f137cc1bb5d310b70efa055931bc69fef4561ddc177554cbab6f11411fbb4/gpr/lib/production/static/' '-L/home/runner/.local/share/alire/builds/xmlada_26.0.0_b140ed4a/d742d3eb05395e43cb8d228624b1f652ccc6ec71a070dc9d50d1ba6f2db9480b/unicode/lib/static/' '-L/home/runner/.local/share/alire/builds/xmlada_26.0.0_b140ed4a/d742d3eb05395e43cb8d228624b1f652ccc6ec71a070dc9d50d1ba6f2db9480b/sax/lib/static/' '-L/home/runner/.local/share/alire/builds/xmlada_26.0.0_b140ed4a/d742d3eb05395e43cb8d228624b1f652ccc6ec71a070dc9d50d1ba6f2db9480b/input_sources/lib/static/' '-L/home/runner/.local/share/alire/builds/xmlada_26.0.0_b140ed4a/d742d3eb05395e43cb8d228624b1f652ccc6ec71a070dc9d50d1ba6f2db9480b/dom/lib/static/' '-L/home/runner/.local/share/alire/builds/xmlada_26.0.0_b140ed4a/d742d3eb05395e43cb8d228624b1f652ccc6ec71a070dc9d50d1ba6f2db9480b/schema/lib/static/' '-L/home/runner/.local/share/alire/builds/libgpr2_26.0.0_99e9d2cd/ca0d148d1a6fcf74d4981d994a9d03fdeed16564e4f3b6f72c14f19a15cb4b29/.build/release/lib-static/' '-L/home/runner/.local/share/alire/builds/vss_extra_26.2.0_879b9b89/c2639720376005432a96beaa39d397eaa3aaf77f62345aa676e6ca8da2e95223/.libs/release/static/' '-L/home/runner/.local/share/alire/toolchains/gnat_native_15.3.1_a6af58cb/lib/gcc/x86_64-pc-linux-gnu/15.3.0/adalib/' '-static-libgcc' '-L/home/runner/.local/share/alire/builds/libadalang_26.0.0_75276b8d/9ee2ab54968db3e1af133d9f4f2daa8356fa9e19d68a5c4cdc9e07d55a17b7bc/obj/prod/' '-L/home/runner/.local/share/alire/builds/libgpr2_26.0.0_99e9d2cd/ca0d148d1a6fcf74d4981d994a9d03fdeed16564e4f3b6f72c14f19a15cb4b29/.build/release/lib-static/' '-L/home/runner/.local/share/alire/builds/xmlada_26.0.0_b140ed4a/d742d3eb05395e43cb8d228624b1f652ccc6ec71a070dc9d50d1ba6f2db9480b/schema/lib/static/' '-L/home/runner/.local/share/alire/builds/xmlada_26.0.0_b140ed4a/d742d3eb05395e43cb8d228624b1f652ccc6ec71a070dc9d50d1ba6f2db9480b/dom/lib/static/' '-L/home/runner/.local/share/alire/builds/xmlada_26.0.0_b140ed4a/d742d3eb05395e43cb8d228624b1f652ccc6ec71a070dc9d50d1ba6f2db9480b/input_sources/lib/static/' '-L/home/runner/.local/share/alire/builds/xmlada_26.0.0_b140ed4a/d742d3eb05395e43cb8d228624b1f652ccc6ec71a070dc9d50d1ba6f2db9480b/sax/lib/static/' '-L/home/runner/.local/share/alire/builds/xmlada_26.0.0_b140ed4a/d742d3eb05395e43cb8d228624b1f652ccc6ec71a070dc9d50d1ba6f2db9480b/unicode/lib/static/' '-L/home/runner/.local/share/alire/builds/libgpr_26.0.0_600d4a7b/532f137cc1bb5d310b70efa055931bc69fef4561ddc177554cbab6f11411fbb4/gpr/lib/production/static/' '-L/home/runner/.local/share/alire/builds/gnatcoll_projects_26.0.0_cc5dd0a1/34cea13a1ce4283f557e3b9ca65d943e2425fed6c1465924e859b64e3149580d/projects/lib/gnatcoll_projects/static/' '-L/home/runner/.local/share/alire/builds/adasat_26.0.0_37336738/d4390058985146cd82b5637306127ab4409d797ececabe1fdeb40d41bd96bf03/lib/static/prod/' '-L/home/runner/.local/share/alire/builds/langkit_support_26.0.0_1745168f/bca2fe7600b920b05d0070ae39033256230bad56c7d23650f6a527bdb6ce325d/langkit/support/lib/static/prod/' '-L/home/runner/.local/share/alire/builds/vss_text_26.2.0_c021ca33/19cda9cef9aea9a42c346efbf832b60c91402bfda28704e572212b73a84efba1/.libs/release/static/' '-L/home/runner/.local/share/alire/builds/prettier_ada_26.0.0_8fa12a56/3f826a238da96490aa2ca92d3ee3a2570834d92679e7bc6d4a08ba49d2c06f2d/lib/static/prod/' '-L/home/runner/.local/share/alire/builds/gnatcoll_iconv_26.0.0_dacec6f3/8995b732bc5f3b8f41606e884e447118f414235d9a9e83deee03054f3dd6ed4a/iconv/lib/static/' '-L/home/runner/.local/share/alire/builds/gnatcoll_gmp_26.0.0_dacec6f3/015f95158d7300e973104a61c2b64f1ca035f54ba3da4bfa002be20947aa24d8/gmp/lib/static/' '-L/home/runner/.local/share/alire/builds/gnatcoll_minimal_26.0.0_cc5dd0a1/a402f876cd06696c8b12b8a4af91d2afb9fa9f391d1d328fba43a33a7f5f172a/minimal/lib/gnatcoll_core/static/' '-L/home/runner/.local/share/alire/builds/gnatcoll_26.0.0_cc5dd0a1/b43b4138d8608791d3961d5c605501a38a35a40ff79937346797f72f24f86bd7/core/lib/gnatcoll_core/static/' '-L/home/runner/.local/share/alire/toolchains/gnat_native_15.3.1_a6af58cb/lib/gcc/x86_64-pc-linux-gnu/15.3.0/adalib/' '-L/home/runner/.local/share/alire/builds/langkit_support_26.0.0_1745168f/bca2fe7600b920b05d0070ae39033256230bad56c7d23650f6a527bdb6ce325d/langkit/support/obj/prod/' '-o' '/home/runner/work/alire-crates-ci/alire-crates-ci/test/ecbedf98-8cf6-4e15-a73c-302c0c396686/gnatformat_26.0.0_a0a869fa/bin//gnatformat' '-mtune=generic' '-march=x86-64' '-dumpdir' '/home/runner/work/alire-crates-ci/alire-crates-ci/test/ecbedf98-8cf6-4e15-a73c-302c0c396686/gnatformat_26.0.0_a0a869fa/bin//gnatformat.'
+ /home/runner/.local/share/alire/toolchains/gnat_native_15.3.1_a6af58cb/bin/../libexec/gcc/x86_64-pc-linux-gnu/15.3.0/collect2 -plugin /home/runner/.local/share/alire/toolchains/gnat_native_15.3.1_a6af58cb/bin/../libexec/gcc/x86_64-pc-linux-gnu/15.3.0/liblto_plugin.so -plugin-opt=/home/runner/.local/share/alire/toolchains/gnat_native_15.3.1_a6af58cb/bin/../libexec/gcc/x86_64-pc-linux-gnu/15.3.0/lto-wrapper -plugin-opt=-fresolution=/tmp/ccxQqW8G.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_eh -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_eh --eh-frame-hdr -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -o /home/runner/work/alire-crates-ci/alire-crates-ci/test/ecbedf98-8cf6-4e15-a73c-302c0c396686/gnatformat_26.0.0_a0a869fa/bin//gnatformat /lib/x86_64-linux-gnu/Scrt1.o /lib/x86_64-linux-gnu/crti.o /home/runner/.local/share/alire/toolchains/gnat_native_15.3.1_a6af58cb/bin/../lib/gcc/x86_64-pc-linux-gnu/15.3.0/crtbeginS.o @/tmp/ccBc0GYv -L/home/runner/.local/share/alire/toolchains/gnat_native_15.3.1_a6af58cb/bin/../lib/gcc/x86_64-pc-linux-gnu/15.3.0 -L/home/runner/.local/share/alire/toolchains/gnat_native_15.3.1_a6af58cb/bin/../lib/gcc -L/home/runner/.local/share/alire/toolchains/gnat_native_15.3.1_a6af58cb/lib64/../lib64 -L/home/runner/.local/share/alire/toolchains/gnat_native_15.3.1_a6af58cb/bin/../lib/gcc/x86_64-pc-linux-gnu/15.3.0/../../../../lib64 -L/lib/x86_64-linux-gnu -L/lib/../lib64 -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib64 -L/home/runner/.local/share/alire/toolchains/gnat_native_15.3.1_a6af58cb/lib64 -L/home/runner/.local/share/alire/toolchains/gnat_native_15.3.1_a6af58cb/bin/../lib/gcc/x86_64-pc-linux-gnu/15.3.0/../../../../x86_64-pc-linux-gnu/lib -L/home/runner/.local/share/alire/toolchains/gnat_native_15.3.1_a6af58cb/bin/../lib/gcc/x86_64-pc-linux-gnu/15.3.0/../../.. -L/lib -L/usr/lib @/tmp/cckbrzp7 -lgcc -lgcc_eh -lc -lgcc -lgcc_eh /home/runner/.local/share/alire/toolchains/gnat_native_15.3.1_a6af58cb/bin/../lib/gcc/x86_64-pc-linux-gnu/15.3.0/crtendS.o /lib/x86_64-linux-gnu/crtn.o
+COLLECT_GCC_OPTIONS='-v' '-L/home/runner/work/alire-crates-ci/alire-crates-ci/test/ecbedf98-8cf6-4e15-a73c-302c0c396686/gnatformat_26.0.0_a0a869fa/obj/' '-L/home/runner/work/alire-crates-ci/alire-crates-ci/test/ecbedf98-8cf6-4e15-a73c-302c0c396686/gnatformat_26.0.0_a0a869fa/obj/' '-L/home/runner/work/alire-crates-ci/alire-crates-ci/test/ecbedf98-8cf6-4e15-a73c-302c0c396686/gnatformat_26.0.0_a0a869fa/lib/static.prod/' '-L/home/runner/.local/share/alire/builds/libadalang_26.0.0_75276b8d/9ee2ab54968db3e1af133d9f4f2daa8356fa9e19d68a5c4cdc9e07d55a17b7bc/lib/static/prod/' '-L/home/runner/.local/share/alire/builds/gnatcoll_26.0.0_cc5dd0a1/b43b4138d8608791d3961d5c605501a38a35a40ff79937346797f72f24f86bd7/core/lib/gnatcoll_core/static/' '-L/home/runner/.local/share/alire/builds/gnatcoll_minimal_26.0.0_cc5dd0a1/a402f876cd06696c8b12b8a4af91d2afb9fa9f391d1d328fba43a33a7f5f172a/minimal/lib/gnatcoll_core/static/' '-L/home/runner/.local/share/alire/builds/gnatcoll_gmp_26.0.0_dacec6f3/015f95158d7300e973104a61c2b64f1ca035f54ba3da4bfa002be20947aa24d8/gmp/lib/static/' '-L/home/runner/.local/share/alire/builds/gnatcoll_iconv_26.0.0_dacec6f3/8995b732bc5f3b8f41606e884e447118f414235d9a9e83deee03054f3dd6ed4a/iconv/lib/static/' '-L/home/runner/.local/share/alire/builds/prettier_ada_26.0.0_8fa12a56/3f826a238da96490aa2ca92d3ee3a2570834d92679e7bc6d4a08ba49d2c06f2d/lib/static/prod/' '-L/home/runner/.local/share/alire/builds/vss_text_26.2.0_c021ca33/19cda9cef9aea9a42c346efbf832b60c91402bfda28704e572212b73a84efba1/.libs/release/static/' '-L/home/runner/.local/share/alire/builds/langkit_support_26.0.0_1745168f/bca2fe7600b920b05d0070ae39033256230bad56c7d23650f6a527bdb6ce325d/langkit/support/lib/static/prod/' '-L/home/runner/.local/share/alire/builds/adasat_26.0.0_37336738/d4390058985146cd82b5637306127ab4409d797ececabe1fdeb40d41bd96bf03/lib/static/prod/' '-L/home/runner/.local/share/alire/builds/gnatcoll_projects_26.0.0_cc5dd0a1/34cea13a1ce4283f557e3b9ca65d943e2425fed6c1465924e859b64e3149580d/projects/lib/gnatcoll_projects/static/' '-L/home/runner/.local/share/alire/builds/libgpr_26.0.0_600d4a7b/532f137cc1bb5d310b70efa055931bc69fef4561ddc177554cbab6f11411fbb4/gpr/lib/production/static/' '-L/home/runner/.local/share/alire/builds/xmlada_26.0.0_b140ed4a/d742d3eb05395e43cb8d228624b1f652ccc6ec71a070dc9d50d1ba6f2db9480b/unicode/lib/static/' '-L/home/runner/.local/share/alire/builds/xmlada_26.0.0_b140ed4a/d742d3eb05395e43cb8d228624b1f652ccc6ec71a070dc9d50d1ba6f2db9480b/sax/lib/static/' '-L/home/runner/.local/share/alire/builds/xmlada_26.0.0_b140ed4a/d742d3eb05395e43cb8d228624b1f652ccc6ec71a070dc9d50d1ba6f2db9480b/input_sources/lib/static/' '-L/home/runner/.local/share/alire/builds/xmlada_26.0.0_b140ed4a/d742d3eb05395e43cb8d228624b1f652ccc6ec71a070dc9d50d1ba6f2db9480b/dom/lib/static/' '-L/home/runner/.local/share/alire/builds/xmlada_26.0.0_b140ed4a/d742d3eb05395e43cb8d228624b1f652ccc6ec71a070dc9d50d1ba6f2db9480b/schema/lib/static/' '-L/home/runner/.local/share/alire/builds/libgpr2_26.0.0_99e9d2cd/ca0d148d1a6fcf74d4981d994a9d03fdeed16564e4f3b6f72c14f19a15cb4b29/.build/release/lib-static/' '-L/home/runner/.local/share/alire/builds/vss_extra_26.2.0_879b9b89/c2639720376005432a96beaa39d397eaa3aaf77f62345aa676e6ca8da2e95223/.libs/release/static/' '-L/home/runner/.local/share/alire/toolchains/gnat_native_15.3.1_a6af58cb/lib/gcc/x86_64-pc-linux-gnu/15.3.0/adalib/' '-static-libgcc' '-L/home/runner/.local/share/alire/builds/libadalang_26.0.0_75276b8d/9ee2ab54968db3e1af133d9f4f2daa8356fa9e19d68a5c4cdc9e07d55a17b7bc/obj/prod/' '-L/home/runner/.local/share/alire/builds/libgpr2_26.0.0_99e9d2cd/ca0d148d1a6fcf74d4981d994a9d03fdeed16564e4f3b6f72c14f19a15cb4b29/.build/release/lib-static/' '-L/home/runner/.local/share/alire/builds/xmlada_26.0.0_b140ed4a/d742d3eb05395e43cb8d228624b1f652ccc6ec71a070dc9d50d1ba6f2db9480b/schema/lib/static/' '-L/home/runner/.local/share/alire/builds/xmlada_26.0.0_b140ed4a/d742d3eb05395e43cb8d228624b1f652ccc6ec71a070dc9d50d1ba6f2db9480b/dom/lib/static/' '-L/home/runner/.local/share/alire/builds/xmlada_26.0.0_b140ed4a/d742d3eb05395e43cb8d228624b1f652ccc6ec71a070dc9d50d1ba6f2db9480b/input_sources/lib/static/' '-L/home/runner/.local/share/alire/builds/xmlada_26.0.0_b140ed4a/d742d3eb05395e43cb8d228624b1f652ccc6ec71a070dc9d50d1ba6f2db9480b/sax/lib/static/' '-L/home/runner/.local/share/alire/builds/xmlada_26.0.0_b140ed4a/d742d3eb05395e43cb8d228624b1f652ccc6ec71a070dc9d50d1ba6f2db9480b/unicode/lib/static/' '-L/home/runner/.local/share/alire/builds/libgpr_26.0.0_600d4a7b/532f137cc1bb5d310b70efa055931bc69fef4561ddc177554cbab6f11411fbb4/gpr/lib/production/static/' '-L/home/runner/.local/share/alire/builds/gnatcoll_projects_26.0.0_cc5dd0a1/34cea13a1ce4283f557e3b9ca65d943e2425fed6c1465924e859b64e3149580d/projects/lib/gnatcoll_projects/static/' '-L/home/runner/.local/share/alire/builds/adasat_26.0.0_37336738/d4390058985146cd82b5637306127ab4409d797ececabe1fdeb40d41bd96bf03/lib/static/prod/' '-L/home/runner/.local/share/alire/builds/langkit_support_26.0.0_1745168f/bca2fe7600b920b05d0070ae39033256230bad56c7d23650f6a527bdb6ce325d/langkit/support/lib/static/prod/' '-L/home/runner/.local/share/alire/builds/vss_text_26.2.0_c021ca33/19cda9cef9aea9a42c346efbf832b60c91402bfda28704e572212b73a84efba1/.libs/release/static/' '-L/home/runner/.local/share/alire/builds/prettier_ada_26.0.0_8fa12a56/3f826a238da96490aa2ca92d3ee3a2570834d92679e7bc6d4a08ba49d2c06f2d/lib/static/prod/' '-L/home/runner/.local/share/alire/builds/gnatcoll_iconv_26.0.0_dacec6f3/8995b732bc5f3b8f41606e884e447118f414235d9a9e83deee03054f3dd6ed4a/iconv/lib/static/' '-L/home/runner/.local/share/alire/builds/gnatcoll_gmp_26.0.0_dacec6f3/015f95158d7300e973104a61c2b64f1ca035f54ba3da4bfa002be20947aa24d8/gmp/lib/static/' '-L/home/runner/.local/share/alire/builds/gnatcoll_minimal_26.0.0_cc5dd0a1/a402f876cd06696c8b12b8a4af91d2afb9fa9f391d1d328fba43a33a7f5f172a/minimal/lib/gnatcoll_core/static/' '-L/home/runner/.local/share/alire/builds/gnatcoll_26.0.0_cc5dd0a1/b43b4138d8608791d3961d5c605501a38a35a40ff79937346797f72f24f86bd7/core/lib/gnatcoll_core/static/' '-L/home/runner/.local/share/alire/toolchains/gnat_native_15.3.1_a6af58cb/lib/gcc/x86_64-pc-linux-gnu/15.3.0/adalib/' '-L/home/runner/.local/share/alire/builds/langkit_support_26.0.0_1745168f/bca2fe7600b920b05d0070ae39033256230bad56c7d23650f6a527bdb6ce325d/langkit/support/obj/prod/' '-o' '/home/runner/work/alire-crates-ci/alire-crates-ci/test/ecbedf98-8cf6-4e15-a73c-302c0c396686/gnatformat_26.0.0_a0a869fa/bin//gnatformat' '-mtune=generic' '-march=x86-64' '-dumpdir' '/home/runner/work/alire-crates-ci/alire-crates-ci/test/ecbedf98-8cf6-4e15-a73c-302c0c396686/gnatformat_26.0.0_a0a869fa/bin//gnatformat.'
+Success: Build finished successfully in 1173.68 seconds.
+Found declared GPR file: gnat/gnatformat.gpr
+Found declared GPR file: gnat/gnatformat_driver.gpr
+[alr test] Test completed SUCCESSFULLY

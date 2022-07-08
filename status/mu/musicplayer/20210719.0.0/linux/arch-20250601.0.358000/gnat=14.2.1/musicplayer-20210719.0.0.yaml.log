@@ -1,0 +1,481 @@
+Test ran at 2025-11-17 12:44:38.175427+00:00
+
+SOLUTION:
+musicplayer=20210719.0.0: A Music Player
+Origin: commit 495babedd83cc48294de981baafd4f7c488ab8f6 from https://github.com/bracke/MP.git
+Properties:
+   Author: Jeff Carter
+   Build Switches: 
+   Description: A Music Player
+   Executable: mp
+   License: BSD-3-Clause
+   Long_Description: # MP
+A Music Player
+
+Uses the Gnoga audio widget to create a music player.
+
+This does what I want from a music player. Considering all the features that most music players have that this doesn't, I presume that most people will find MP lacking. However, it may serve someone as the basis for a more complex player.
+
+The audio widget seems to require relative paths to the audio files. The file browser in this program will only choose audio files that are in the program's working directory, or in a directory under that.
+
+MP uses [the Gnoga File Selection widget](https://github.com/jrcarter/Gnoga_File_Selection), which has only been tested on Linux.
+
+MP uses [the PragmAda Reusable Components](https://github.com/jrcarter/PragmARC).
+
+   Maintainer: Bent Bracke <bent@bracke.dk>
+   Maintainers_Logins: bracke
+   Name: musicplayer
+   Tag: music
+   Tag: audio
+   Tag: player
+   Version: 20210719
+   Website: https://github.com/bracke/MP
+Dependencies (direct):
+   ada_gui^20240224.0.0
+   gnat<13.0 | >=13.3
+   pragmarc^20240323.0.0
+   ssl^3.0.2
+Dependencies (solution):
+   ada_gui=20240224.0.1
+   gnat=14.2.1 (gnat_native)
+   libgnutls=3.8.3
+   pragmarc=20240323.0.0
+   simple_components=4.68.0
+   ssl=3.0.13
+   unixodbc=2.3.12
+Dependencies (graph):
+   ada_gui=20240224.0.1     --> gnat=14.2.1 (gnat_native) (<13.0 | >=13.3)
+   ada_gui=20240224.0.1     --> simple_components=4.68.0 (^4.68.0)
+   musicplayer=20210719.0.0 --> ada_gui=20240224.0.1 (^20240224.0.0)
+   musicplayer=20210719.0.0 --> gnat=14.2.1 (gnat_native) (<13.0 | >=13.3)
+   musicplayer=20210719.0.0 --> pragmarc=20240323.0.0 (^20240323.0.0)
+   musicplayer=20210719.0.0 --> ssl=3.0.13 (^3.0.2)
+   pragmarc=20240323.0.0    --> gnat=14.2.1 (gnat_native) (<13.0 | >=13.3)
+   simple_components=4.68.0 --> gnat=14.2.1 (gnat_native) (>=2021 | (>=12 & <2000))
+   simple_components=4.68.0 --> libgnutls=3.8.3 (^3.7)
+   simple_components=4.68.0 --> unixodbc=2.3.12 (^2.3)
+
+
+LOG:
+[alr test] Testing musicplayer=20210719.0.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get musicplayer=20210719.0.0
+Note: Deploying musicplayer=20210719.0.0...
+Note: Deploying libgnutls=3.8.3...
+The system package 'libgnutls28-dev' is about to be installed.
+This action might require admin privileges and impact your system installation.
+Do you want Alire to install this system package?
+Using default: Yes
+Selecting previously unselected package libevent-2.1-7t64:amd64.
+(Reading database ... 
+(Reading database ... 5%
+(Reading database ... 10%
+(Reading database ... 15%
+(Reading database ... 20%
+(Reading database ... 25%
+(Reading database ... 30%
+(Reading database ... 35%
+(Reading database ... 40%
+(Reading database ... 45%
+(Reading database ... 50%
+(Reading database ... 55%
+(Reading database ... 60%
+(Reading database ... 65%
+(Reading database ... 70%
+(Reading database ... 75%
+(Reading database ... 80%
+(Reading database ... 85%
+(Reading database ... 90%
+(Reading database ... 95%
+(Reading database ... 100%
+(Reading database ... 216225 files and directories currently installed.)
+Preparing to unpack .../0-libevent-2.1-7t64_2.1.12-stable-9ubuntu2_amd64.deb ...
+Unpacking libevent-2.1-7t64:amd64 (2.1.12-stable-9ubuntu2) ...
+Selecting previously unselected package libunbound8:amd64.
+Preparing to unpack .../1-libunbound8_1.19.2-1ubuntu3.6_amd64.deb ...
+Unpacking libunbound8:amd64 (1.19.2-1ubuntu3.6) ...
+Selecting previously unselected package libgnutls-dane0t64:amd64.
+Preparing to unpack .../2-libgnutls-dane0t64_3.8.3-1.1ubuntu3.4_amd64.deb ...
+Unpacking libgnutls-dane0t64:amd64 (3.8.3-1.1ubuntu3.4) ...
+Selecting previously unselected package libgnutls-openssl27t64:amd64.
+Preparing to unpack .../3-libgnutls-openssl27t64_3.8.3-1.1ubuntu3.4_amd64.deb ...
+Unpacking libgnutls-openssl27t64:amd64 (3.8.3-1.1ubuntu3.4) ...
+Selecting previously unselected package libidn2-dev:amd64.
+Preparing to unpack .../4-libidn2-dev_2.3.7-2build1.1_amd64.deb ...
+Unpacking libidn2-dev:amd64 (2.3.7-2build1.1) ...
+Selecting previously unselected package libp11-kit-dev:amd64.
+Preparing to unpack .../5-libp11-kit-dev_0.25.3-4ubuntu2.1_amd64.deb ...
+Unpacking libp11-kit-dev:amd64 (0.25.3-4ubuntu2.1) ...
+Selecting previously unselected package libtasn1-6-dev:amd64.
+Preparing to unpack .../6-libtasn1-6-dev_4.19.0-3ubuntu0.24.04.1_amd64.deb ...
+Unpacking libtasn1-6-dev:amd64 (4.19.0-3ubuntu0.24.04.1) ...
+Selecting previously unselected package nettle-dev:amd64.
+Preparing to unpack .../7-nettle-dev_3.9.1-2.2build1.1_amd64.deb ...
+Unpacking nettle-dev:amd64 (3.9.1-2.2build1.1) ...
+Selecting previously unselected package libgnutls28-dev:amd64.
+Preparing to unpack .../8-libgnutls28-dev_3.8.3-1.1ubuntu3.4_amd64.deb ...
+Unpacking libgnutls28-dev:amd64 (3.8.3-1.1ubuntu3.4) ...
+Selecting previously unselected package libtasn1-doc.
+Preparing to unpack .../9-libtasn1-doc_4.19.0-3ubuntu0.24.04.1_all.deb ...
+Unpacking libtasn1-doc (4.19.0-3ubuntu0.24.04.1) ...
+Setting up libgnutls-openssl27t64:amd64 (3.8.3-1.1ubuntu3.4) ...
+Setting up nettle-dev:amd64 (3.9.1-2.2build1.1) ...
+Setting up libtasn1-doc (4.19.0-3ubuntu0.24.04.1) ...
+Setting up libevent-2.1-7t64:amd64 (2.1.12-stable-9ubuntu2) ...
+Setting up libunbound8:amd64 (1.19.2-1ubuntu3.6) ...
+Setting up libgnutls-dane0t64:amd64 (3.8.3-1.1ubuntu3.4) ...
+Setting up libidn2-dev:amd64 (2.3.7-2build1.1) ...
+Setting up libtasn1-6-dev:amd64 (4.19.0-3ubuntu0.24.04.1) ...
+Setting up libp11-kit-dev:amd64 (0.25.3-4ubuntu2.1) ...
+Setting up libgnutls28-dev:amd64 (3.8.3-1.1ubuntu3.4) ...
+Processing triggers for man-db (2.12.0-4build2) ...
+Not building database; man-db/auto-update is not 'true'.
+Processing triggers for install-info (7.1-3build2) ...
+Processing triggers for libc-bin (2.39-0ubuntu8.6) ...
+
+Running kernel seems to be up-to-date.
+
+Restarting services...
+
+Service restarts being deferred:
+ systemctl restart hosted-compute-agent.service
+
+No containers need to be restarted.
+
+No user sessions are running outdated binaries.
+
+No VM guests are running outdated hypervisor (qemu) binaries on this host.
+Note: Deploying unixodbc=2.3.12...
+The system package 'unixodbc-dev' is about to be installed.
+This action might require admin privileges and impact your system installation.
+Do you want Alire to install this system package?
+Using default: Yes
+Selecting previously unselected package libodbccr2:amd64.
+(Reading database ... 
+(Reading database ... 5%
+(Reading database ... 10%
+(Reading database ... 15%
+(Reading database ... 20%
+(Reading database ... 25%
+(Reading database ... 30%
+(Reading database ... 35%
+(Reading database ... 40%
+(Reading database ... 45%
+(Reading database ... 50%
+(Reading database ... 55%
+(Reading database ... 60%
+(Reading database ... 65%
+(Reading database ... 70%
+(Reading database ... 75%
+(Reading database ... 80%
+(Reading database ... 85%
+(Reading database ... 90%
+(Reading database ... 95%
+(Reading database ... 100%
+(Reading database ... 216518 files and directories currently installed.)
+Preparing to unpack .../libodbccr2_2.3.12-1ubuntu0.24.04.1_amd64.deb ...
+Unpacking libodbccr2:amd64 (2.3.12-1ubuntu0.24.04.1) ...
+Selecting previously unselected package unixodbc-common.
+Preparing to unpack .../unixodbc-common_2.3.12-1ubuntu0.24.04.1_all.deb ...
+Unpacking unixodbc-common (2.3.12-1ubuntu0.24.04.1) ...
+Selecting previously unselected package libodbcinst2:amd64.
+Preparing to unpack .../libodbcinst2_2.3.12-1ubuntu0.24.04.1_amd64.deb ...
+Unpacking libodbcinst2:amd64 (2.3.12-1ubuntu0.24.04.1) ...
+Selecting previously unselected package unixodbc-dev:amd64.
+Preparing to unpack .../unixodbc-dev_2.3.12-1ubuntu0.24.04.1_amd64.deb ...
+Unpacking unixodbc-dev:amd64 (2.3.12-1ubuntu0.24.04.1) ...
+Setting up unixodbc-common (2.3.12-1ubuntu0.24.04.1) ...
+Setting up libodbccr2:amd64 (2.3.12-1ubuntu0.24.04.1) ...
+Setting up libodbcinst2:amd64 (2.3.12-1ubuntu0.24.04.1) ...
+Setting up unixodbc-dev:amd64 (2.3.12-1ubuntu0.24.04.1) ...
+Processing triggers for man-db (2.12.0-4build2) ...
+Not building database; man-db/auto-update is not 'true'.
+Processing triggers for libc-bin (2.39-0ubuntu8.6) ...
+
+Running kernel seems to be up-to-date.
+
+Restarting services...
+
+Service restarts being deferred:
+ systemctl restart hosted-compute-agent.service
+
+No containers need to be restarted.
+
+No user sessions are running outdated binaries.
+
+No VM guests are running outdated hypervisor (qemu) binaries on this host.
+Note: Deploying pragmarc=20240323.0.0...
+Note: Deploying simple_components=4.68.0...
+Note: Deploying ada_gui=20240224.0.1...
+
+musicplayer=20210719.0.0 successfully retrieved.
+Dependencies were solved as follows:
+
+   +  ada_gui           20240224.0.1 (new)
+   +b gnat              14.2.1       (new,gnat_native,binary)
+   +b libgnutls         3.8.3        (new,indirect,system package)
+   +  pragmarc          20240323.0.0 (new)
+   +  simple_components 4.68.0       (new,indirect)
+   +b ssl               3.0.13       (new,system package)
+   +b unixodbc          2.3.12       (new,indirect,system package)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building musicplayer=20210719.0.0/musicplayer.gpr...
+Setup
+   [mkdir]        object directory for project Ada_Gui
+   [mkdir]        library directory for project Ada_Gui
+   [mkdir]        object directory for project PragmARC
+   [mkdir]        library directory for project PragmARC
+   [mkdir]        object directory for project Musicplayer
+   [mkdir]        exec directory for project Musicplayer
+Compile
+   [Ada]          mp.adb
+   [Ada]          pragmarc_config.ads
+   [Ada]          pragmarc-min_max.ads
+   [Ada]          pragmarc-rational_postfix_calculator.adb
+   [Ada]          pragmarc-sorting-quick.adb
+   [Ada]          pragmarc-encryption-threefish.adb
+   [Ada]          pragmarc-randomness-kiss.adb
+   [Ada]          pragmarc-data_structures-sets-discrete.adb
+   [Ada]          pragmarc-least_squares_fitting.adb
+   [Ada]          pragmarc.ads
+   [Ada]          pragmarc-encryption.ads
+   [Ada]          pragmarc-safety-suspension_objects.adb
+   [Ada]          pragmarc-randomness-combined.adb
+   [Ada]          pragmarc-images-image.ads
+   [Ada]          pragmarc-data_structures-queues-bounded.ads
+   [Ada]          pragmarc-data_structures-stacks-unbounded.ads
+   [Ada]          pragmarc-unbounded_numbers-integers.adb
+   [Ada]          pragmarc-binary_semaphore_handler.adb
+   [Ada]          pragmarc-unbounded_numbers-rationals.adb
+   [Ada]          pragmarc-data_structures-lists-unbounded-protection.adb
+   [Ada]          pragmarc-hash_fast_variable_length.adb
+   [Ada]          pragmarc-randomness-universal.adb
+   [Ada]          pragmarc-data_structures-skip_lists.ads
+   [Ada]          pragmarc-sorting-radix.adb
+   [Ada]          pragmarc-encryption-threefish-block_1024.adb
+   [Ada]          pragmarc-text_io.adb
+   [Ada]          pragmarc-encryption-simple_xor.adb
+   [Ada]          pragmarc-randomness.ads
+   [Ada]          pragmarc-data_structures.ads
+   [Ada]          pragmarc-sorting.ads
+   [Ada]          pragmarc-cards.ads
+   [Ada]          pragmarc-matching-regular_expression.adb
+   [Ada]          pragmarc-randomness-u32_ranges.adb
+   [Ada]          pragmarc-data_structures-queues-bounded-unprotected.adb
+   [Ada]          pragmarc-data_structures-lists-bounded.ads
+   [Ada]          pragmarc-conversions-vectors.adb
+   [Ada]          pragmarc-data_structures-lists-bounded-protection.adb
+   [Ada]          pragmarc-cards-decks.ads
+   [Ada]          pragmarc-b_strings.adb
+   [Ada]          pragmarc-wrapping.ads
+   [Ada]          pragmarc-data_structures-queues.ads
+   [Ada]          pragmarc-date_handler.adb
+   [Ada]          pragmarc-task_communication-monitors.adb
+   [Ada]          pragmarc-data_structures-skip_lists-unbounded.adb
+   [Ada]          pragmarc-sorting-insertion.adb
+   [Ada]          pragmarc-randomness-real_values.ads
+   [Ada]          pragmarc-safety.ads
+   [Ada]          pragmarc-menu_handler.adb
+   [Ada]          pragmarc-luhn_generation.adb
+   [Ada]          pragmarc-conversions.ads
+   [Ada]          pragmarc-randomness-threefry.adb
+   [Ada]          pragmarc-hash.adb
+   [Ada]          pragmarc-ansi_tty_control.adb
+   [Ada]          pragmarc-data_structures-queues-unbounded-protection-blocking.ads
+   [Ada]          pragmarc-matching-quick_string.adb
+   [Ada]          pragmarc-three_way.adb
+   [Ada]          pragmarc-data_structures-stacks-unbounded-protection.adb
+   [Ada]          pragmarc-protected_option.adb
+   [Ada]          pragmarc-matching.ads
+   [Ada]          pragmarc-safety-pointers.adb
+   [Ada]          pragmarc-data_structures-queues-unbounded-unprotected.adb
+   [Ada]          pragmarc-images.adb
+   [Ada]          pragmarc-data_structures-queues-bounded-protection-non_blocking.adb
+   [Ada]          pragmarc-randomness-real_ranges.adb
+   [Ada]          pragmarc-postfix_calculator.adb
+   [Ada]          pragmarc-comparisons.ads
+   [Ada]          pragmarc-cards-us.adb
+   [Ada]          pragmarc-data_structures-bags-unbounded-unprotected.adb
+   [Ada]          pragmarc-persistent_skip_list_unbounded.adb
+   [Ada]          pragmarc-mixed_case.adb
+   [Ada]          pragmarc-task_communication-transporters.adb
+   [Ada]          pragmarc-binary_searcher.adb
+   [Ada]          pragmarc-data_structures-bags-unbounded-protection.adb
+   [Ada]          pragmarc-data_structures-stacks.ads
+   [Ada]          pragmarc-concurrent_pipeline.adb
+   [Ada]          pragmarc-permutations.adb
+   [Ada]          pragmarc-data_structures-lists.ads
+   [Ada]          pragmarc-conversions-unbounded_strings.ads
+   [Ada]          pragmarc-encryption-threefish-block_512.adb
+   [Ada]          pragmarc-safety-semaphores.adb
+   [Ada]          pragmarc-data_structures-queues-unbounded-protection-non_blocking.adb
+   [Ada]          pragmarc-data_structures-bags-unbounded.ads
+   [Ada]          pragmarc-reflection.ads
+   [Ada]          pragmarc-unbounded_numbers.ads
+   [Ada]          pragmarc-line_fields.adb
+   [Ada]          pragmarc-data_structures-queues-bounded-protection.ads
+   [Ada]          pragmarc-randomness-isaac.adb
+   [Ada]          pragmarc-math.adb
+   [Ada]          pragmarc-data_structures-queues-bounded-protection-blocking.ads
+   [Ada]          pragmarc-job_pools.adb
+   [Ada]          pragmarc-data_structures-stacks-unbounded-unprotected.adb
+   [Ada]          pragmarc-data_structures-queues-unbounded-protection.ads
+   [Ada]          pragmarc-encryption-bifid.adb
+   [Ada]          pragmarc-encryption-threefish-block_256.adb
+   [Ada]          pragmarc-data_structures-bags.ads
+   [Ada]          pragmarc-cards-decks-general.adb
+   [Ada]          pragmarc-cards-decks-us.adb
+   [Ada]          pragmarc-title_comparisons.adb
+   [Ada]          pragmarc-genetic_algorithm.adb
+   [Ada]          pragmarc-sorting-heap.adb
+   [Ada]          pragmarc-task_communication.ads
+   [Ada]          compile_all.adb
+   [Ada]          pragmarc-rem_nn_wrapper.adb
+   [Ada]          pragmarc-data_structures-lists-unbounded.ads
+   [Ada]          pragmarc-word_input.adb
+   [Ada]          pragmarc-matching-character_regular_expression.adb
+   [Ada]          pragmarc-task_communication-forwarders.adb
+   [Ada]          pragmarc-data_structures-queues-unbounded.ads
+   [Ada]          pragmarc-data_structures-sets.ads
+   [C]            py_conversions.c
+   [C]            sqlite3.c
+   [C]            synchronization_linux.c
+   [Ada]          ada_gui_config.ads
+   [Ada]          ada_gui-gnoga-gui-element-common.adb
+   [Ada]          ada_gui-gnoga-gui-window.adb
+   [Ada]          ada_gui-gnoga-colors.adb
+   [Ada]          ada_gui-gnoga-server-database.adb
+   [Ada]          ada_gui-gnoga-server-connection-common.ads
+   [Ada]          ada_gui-gnoga-gui.adb
+pragmarc-matching-character_regular_expression.ads:31:04: warning: in instantiation at pragmarc-matching-regular_expression.adb:30 [-gnatwv]
+pragmarc-matching-character_regular_expression.ads:31:04: warning: aggregate not fully initialized [-gnatwv]
+   [Ada]          ada_gui-gnoga-gui-element-canvas-context_2d.adb
+   [Ada]          ada_gui-gnoga-server-template_parser.adb
+   [Ada]          ada_gui-gnoga-server-mime.adb
+   [Ada]          ada_gui-gnoga-gui-element.adb
+   [Ada]          parsers-multiline_source-xpm.ads
+   [Ada]          ada_gui.adb
+   [Ada]          ada_gui-gnoga-gui-element-canvas.adb
+   [Ada]          ada_gui-gnoga-gui-document.adb
+   [Ada]          parsers-generic_source-xpm.adb
+   [Ada]          ada_gui-gnoga.adb
+   [Ada]          ada_gui-gnoga-gui-view.adb
+   [Ada]          ada_gui-gnoga-gui-location.adb
+   [Ada]          ada_gui-gnoga-server-model.adb
+   [Ada]          ada_gui-gnoga-server-model-queries.adb
+/home/runner/.local/share/alire/builds/simple_components_4.68.0_da9b0f3a/2fbf9c8a5a774d2b1be09c3b314a5a0ae9633396dbf7c180895b5d5bb2b03480/sqlite-sources/sqlite3.c: In function 'sqlite3DefaultRowEst':
+/home/runner/.local/share/alire/builds/simple_components_4.68.0_da9b0f3a/2fbf9c8a5a774d2b1be09c3b314a5a0ae9633396dbf7c180895b5d5bb2b03480/sqlite-sources/sqlite3.c:109169:3: warning: this 'if' clause does not guard... [-Wmisleading-indentation]
+109169 |   if( pIdx->pPartIdxWhere!=0 ) a[0] -= 10;  assert( 10==sqlite3LogEst(2) );
+       |   ^~
+In file included from /home/runner/.local/share/alire/builds/simple_components_4.68.0_da9b0f3a/2fbf9c8a5a774d2b1be09c3b314a5a0ae9633396dbf7c180895b5d5bb2b03480/sqlite-sources/sqlite3.c:13475:
+/home/runner/.local/share/alire/builds/simple_components_4.68.0_da9b0f3a/2fbf9c8a5a774d2b1be09c3b314a5a0ae9633396dbf7c180895b5d5bb2b03480/sqlite-sources/sqlite3.c:109169:45: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'if'
+109169 |   if( pIdx->pPartIdxWhere!=0 ) a[0] -= 10;  assert( 10==sqlite3LogEst(2) );
+       |                                             ^~~~~~
+/home/runner/.local/share/alire/builds/simple_components_4.68.0_da9b0f3a/2fbf9c8a5a774d2b1be09c3b314a5a0ae9633396dbf7c180895b5d5bb2b03480/sqlite-sources/sqlite3.c:109170:3: warning: this 'if' clause does not guard... [-Wmisleading-indentation]
+109170 |   if( a[0]<33 ) a[0] = 33;                  assert( 33==sqlite3LogEst(10) );
+       |   ^~
+/home/runner/.local/share/alire/builds/simple_components_4.68.0_da9b0f3a/2fbf9c8a5a774d2b1be09c3b314a5a0ae9633396dbf7c180895b5d5bb2b03480/sqlite-sources/sqlite3.c:109170:45: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'if'
+109170 |   if( a[0]<33 ) a[0] = 33;                  assert( 33==sqlite3LogEst(10) );
+       |                                             ^~~~~~
+   [Ada]          ada_gui-gnoga-gui-view-console.adb
+   [Ada]          ada_gui-gnoga-gui-element-multimedia.adb
+   [Ada]          ada_gui-gnoga-server-connection.adb
+   [Ada]          ada_gui-gnoga-gui-element-form.adb
+   [Ada]          ada_gui-gnoga-gui-element-list.adb
+   [Ada]          ada_gui-gnoga-server-template_parser-simple.adb
+   [Ada]          ada_gui-gnoga-server.adb
+   [Ada]          ada_gui-gnoga-application.adb
+   [Ada]          ada_gui-gnoga-client_storage.adb
+   [Ada]          ada_gui-gnoga-gui-view-grid.adb
+   [Ada]          gnat-sockets-server.adb
+   [Ada]          parsers.ads
+   [Ada]          parsers-multiline_source.adb
+   [Ada]          parsers-multiline_source-text_io.adb
+   [Ada]          parsers-generic_source.ads
+parsers-generic_source.ads:144:18: warning: function "End_Of" is not referenced [-gnatwu]
+parsers-generic_source.ads:145:18: warning: function "Get_Line" is not referenced [-gnatwu]
+parsers-generic_source.ads:146:19: warning: procedure "Get_Line" is not referenced [-gnatwu]
+parsers-generic_source.ads:152:18: warning: function "Get_Pointer" is not referenced [-gnatwu]
+parsers-generic_source.ads:153:18: warning: function "Get_Backup_Pointer" is not referenced [-gnatwu]
+parsers-generic_source.ads:155:18: warning: function "Image" is not referenced [-gnatwu]
+parsers-generic_source.ads:156:18: warning: function "Link" is not referenced [-gnatwu]
+parsers-generic_source.ads:157:19: warning: procedure "Next_Line" is not referenced [-gnatwu]
+parsers-generic_source.ads:158:19: warning: procedure "Reset_Pointer" is not referenced [-gnatwu]
+parsers-generic_source.ads:159:19: warning: procedure "Set_Pointer" is not referenced [-gnatwu]
+parsers-generic_source.ads:163:18: warning: function "&" is not referenced [-gnatwu]
+   [Ada]          parsers-generic_source-get_cpp_blank.adb
+   [Ada]          parsers-generic_source-get_text.adb
+   [Ada]          parsers-generic_source-get_token.adb
+   [Ada]          parsers-generic_source-keywords.adb
+   [Ada]          strings_edit.adb
+   [Ada]          strings_edit-integers.ads
+   [Ada]          tables.adb
+   [Ada]          tables-names.adb
+   [Ada]          strings_edit-utf8.adb
+   [Ada]          strings_edit-utf8-handling.adb
+gnat-sockets-server.adb:302:13: warning: function "+" is not referenced [-gnatwu]
+gnat-sockets-server.adb:1800:19: warning: variable "Option" is not referenced [-gnatwu]
+gnat-sockets-server.ads:1633:04: warning: use clause for package "Connection_Handles" has no effect [-gnatwu]
+gnat-sockets-server.ads:1719:04: warning: pragma "INLINE" for "Available_To_Process" duplicates pragma at line 1426 [-gnatwr]
+gnat-sockets-server.ads:1720:04: warning: pragma "INLINE" for "Available_To_Send" duplicates pragma at line 1427 [-gnatwr]
+gnat-sockets-server.ads:1723:04: warning: pragma "INLINE" for "Queued_To_Send" duplicates pragma at line 1429 [-gnatwr]
+   [Ada]          strings_edit-integer_edit.adb
+   [Ada]          generic_unbounded_array.adb
+   [Ada]          object-handle.adb
+   [Ada]          object-handle-generic_unbounded_array.adb
+   [Ada]          object.adb
+object-handle.ads:153:04: warning: pragma "Inline" for "=" duplicates pragma at line 152 [-gnatwr]
+   [Ada]          gnat-sockets-connection_state_machine.adb
+   [Ada]          gnat-sockets-connection_state_machine-http_server.adb
+   [Ada]          strings_edit-quoted.adb
+   [Ada]          strings_edit-streams.adb
+   [Ada]          strings_edit-fields.adb
+gnat-sockets-connection_state_machine.adb:584:17: warning: formal parameter "Pointer" is not referenced [-gnatwf]
+gnat-sockets-connection_state_machine.adb:585:17: warning: formal parameter "Client" is not referenced [-gnatwf]
+gnat-sockets-connection_state_machine.adb:619:17: warning: formal parameter "Pointer" is not referenced [-gnatwf]
+gnat-sockets-connection_state_machine.adb:620:17: warning: formal parameter "Client" is not referenced [-gnatwf]
+gnat-sockets-connection_state_machine.adb:727:07: warning: variable "Length" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine.adb:841:17: warning: formal parameter "Item" is read but never assigned [-gnatwv]
+gnat-sockets-connection_state_machine.ads:203:60: warning: applying 'Class to an untagged incomplete type is an obsolescent feature (RM J.11) [-gnatwr]
+gnat-sockets-connection_state_machine.ads:413:40: warning: applying 'Class to an untagged incomplete type is an obsolescent feature (RM J.11) [-gnatwr]
+   [Ada]          generic_map.adb
+gnat-sockets-connection_state_machine-http_server.adb:887:16: warning: formal parameter "Client" is not referenced [-gnatwf]
+gnat-sockets-connection_state_machine-http_server.adb:889:16: warning: formal parameter "End_Of_Stream" is not referenced [-gnatwf]
+gnat-sockets-connection_state_machine-http_server.adb:914:16: warning: formal parameter "Client" is not referenced [-gnatwf]
+   [Ada]          gnat-sockets-connection_state_machine-big_endian.ads
+   [Ada]          gnat-sockets-connection_state_machine-big_endian-unsigneds.adb
+   [Ada]          strings_edit-base64.adb
+   [Ada]          strings_edit-floats.ads
+   [Ada]          strings_edit-time_conversions.adb
+   [Ada]          generic_discrete_set.adb
+   [Ada]          generic_set.adb
+   [Ada]          gnat-sockets-connection_state_machine-expected_sequence.adb
+gnat-sockets-connection_state_machine-big_endian-unsigneds.adb:38:17: warning: formal parameter "Client" is not referenced [-gnatwf]
+gnat-sockets-connection_state_machine-big_endian-unsigneds.adb:62:17: warning: formal parameter "Client" is not referenced [-gnatwf]
+gnat-sockets-connection_state_machine-big_endian-unsigneds.adb:91:17: warning: formal parameter "Client" is not referenced [-gnatwf]
+gnat-sockets-connection_state_machine-big_endian-unsigneds.adb:120:17: warning: formal parameter "Client" is not referenced [-gnatwf]
+   [Ada]          gnat-sockets-connection_state_machine-terminated_strings.adb
+   [Ada]          stack_storage.adb
+   [Ada]          strings_edit-float_edit.adb
+strings_edit-float_edit.adb:264:18: warning: Numeric_Error is an obsolescent feature (RM J.6(1)) [-gnatwj]
+strings_edit-float_edit.adb:264:18: warning: use Constraint_Error instead [-gnatwj]
+   [Ada]          generic_unbounded_ptr_array.adb
+gnat-sockets-connection_state_machine-expected_sequence.adb:37:17: warning: formal parameter "Client" is not referenced [-gnatwf]
+gnat-sockets-connection_state_machine-terminated_strings.adb:43:17: warning: formal parameter "Client" is not referenced [-gnatwf]
+gnat-sockets-connection_state_machine-terminated_strings.adb:77:17: warning: formal parameter "Client" is not referenced [-gnatwf]
+Build Libraries
+   [gprlib]       Ada_GUI.lexch
+   [gprlib]       PragmARC.lexch
+   [archive]      libAda_GUI.a
+   [archive]      libPragmARC.a
+   [index]        libPragmARC.a
+   [index]        libAda_GUI.a
+Bind
+   [gprbind]      mp.bexch
+   [Ada]          mp.ali
+Link
+   [archive]      libmusicplayer.a
+   [index]        libmusicplayer.a
+   [link]         mp.adb
+Success: Build finished successfully in 47.13 seconds.
+Found declared GPR file: musicplayer.gpr
+[alr test] Test completed SUCCESSFULLY

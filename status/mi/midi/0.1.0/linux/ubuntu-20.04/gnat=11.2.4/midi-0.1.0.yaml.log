@@ -1,1 +1,140 @@
-no log available
+Test ran at 2022-07-18 00:48:52.387318+00:00
+
+SOLUTION:
+midi=0.1.0: Library to encode and decode MIDI messages
+Origin: commit 14c7842aa16ad970ca0eb53f6cbf31cc2b648a72 from https://github.com/Fabien-Chouteau/MIDI.git
+Properties:
+   Author: Fabien Chouteau
+   Description: Library to encode and decode MIDI messages
+   License: MIT
+   Maintainer: Fabien Chouteau <fabien.chouteau@gmail.com>
+   Maintainers_Logins: Fabien-Chouteau
+   Name: midi
+   Tag: midi
+   Tag: embedded
+   Tag: nostd
+   Version: 0.1.0
+   Website: https://github.com/Fabien-Chouteau/MIDI
+Dependencies (direct):
+   bbqueue~0.3.0
+   hal~0.3.0
+Dependencies (solution):
+   atomic=0.4.1
+   bbqueue=0.3.0
+   gnat=10.3.2 (gnat_native) (installed)
+   hal=0.3.0
+Dependencies (graph):
+   bbqueue=0.3.0 --> atomic=0.4.1 (~0.4)             
+   bbqueue=0.3.0 --> gnat=10.3.2 (gnat_native) (>=10)
+   midi=0.1.0    --> bbqueue=0.3.0 (~0.3.0)          
+   midi=0.1.0    --> hal=0.3.0 (~0.3.0)              
+
+
+LOG:
+Note: Deploying midi=0.1.0...
+Note: Deploying atomic=0.4.1...
+Note: Deploying hal=0.3.0...
+Note: Deploying bbqueue=0.3.0...
+Note: Building midi/midi.gpr...
+Setup
+   [mkdir]        object directory for project Atomic
+   [mkdir]        library directory for project Atomic
+   [mkdir]        object directory for project BBqueue
+   [mkdir]        library directory for project BBqueue
+   [mkdir]        object directory for project HAL
+   [mkdir]        library directory for project HAL
+   [mkdir]        object directory for project MIDI
+   [mkdir]        library directory for project MIDI
+Compile
+   [Ada]          hal-audio.ads
+   [Ada]          hal-filesystem.ads
+   [Ada]          hal-i2c.ads
+   [Ada]          hal-framebuffer.ads
+   [Ada]          hal-dsi.ads
+   [Ada]          hal-real_time_clock.ads
+   [Ada]          hal-spi.ads
+   [Ada]          hal-bitmap.ads
+   [Ada]          hal-time.ads
+   [Ada]          hal-touch_panel.ads
+   [Ada]          hal-block_drivers.ads
+   [Ada]          hal-uart.ads
+   [Ada]          hal.ads
+   [Ada]          hal-gpio.ads
+   [Ada]          hal-sdmmc.adb
+   [Ada]          atomic-signed.adb
+   [Ada]          atomic.adb
+   [Ada]          atomic-unsigned.adb
+   [Ada]          atomic-signed_16.ads
+   [Ada]          atomic-unsigned_16.ads
+   [Ada]          atomic-unsigned_32.ads
+   [Ada]          atomic-unsigned_8.ads
+   [Ada]          atomic-signed_8.ads
+   [Ada]          atomic-signed_32.ads
+   [Ada]          bbqueue.adb
+   [Ada]          bbqueue-buffers.adb
+   [Ada]          bbqueue-buffers-framed.adb
+   [Ada]          midi_config.ads
+   [Ada]          midi-decoder-queue.adb
+midi-decoder.adb:78:18: choice given in case statement is not static
+midi-decoder.adb:78:38: choice given in case statement is not static
+midi-decoder.adb:79:18: choice given in case statement is not static
+midi-decoder.adb:79:40: choice given in case statement is not static
+midi-decoder.adb:83:18: choice given in case statement is not static
+midi-decoder.adb:83:42: choice given in case statement is not static
+midi-decoder.adb:84:18: choice given in case statement is not static
+midi-decoder.adb:88:18: choice given in case statement is not static
+midi-decoder.adb:90:24: choice given in case statement is not static
+midi-decoder.adb:90:45: choice given in case statement is not static
+midi-decoder.adb:95:24: choice given in case statement is not static
+midi-decoder.adb:99:24: choice given in case statement is not static
+midi-decoder.adb:99:47: choice given in case statement is not static
+midi-decoder.adb:103:24: choice given in case statement is not static
+midi-decoder.adb:103:48: choice given in case statement is not static
+midi-decoder.adb:104:24: choice given in case statement is not static
+midi-decoder.adb:104:46: choice given in case statement is not static
+midi-decoder.adb:105:30: choice given in case statement is not static
+midi-decoder.adb:105:51: choice given in case statement is not static
+midi-decoder.adb:106:24: choice given in case statement is not static
+
+   compilation of midi-decoder-queue.adb failed
+
+gprbuild: *** compilation phase failed
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/1fe1601b-91b0-474c-aca7-fe7d2b4b12bd/midi_0.1.0_14c7842a/midi.gpr"] exited with code 4
+ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/1fe1601b-91b0-474c-aca7-fe7d2b4b12bd/midi_0.1.0_14c7842a/midi.gpr"] exited with code 4
+stderr: ALIRE.CHECKED_ERROR
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/1fe1601b-91b0-474c-aca7-fe7d2b4b12bd/midi_0.1.0_14c7842a/midi.gpr"] exited with code 4
+stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
+[/home/runner/work/alire-crates-ci/alire-crates-ci/alire_install/bin/alr]
+0xd65c78 Alire.Raise_Checked_Error at alire.adb:251
+0xa2f08f Alire.Os_Lib.Subprocess.Checked_Spawn at alire-os_lib-subprocess.adb:110
+0xc49318 Alire.Spawn.Command at alire-spawn.adb:21
+0xc49a46 Alire.Spawn.Gprbuild at alire-spawn.adb:41
+0xbada9c Alire.Roots.Build.Build_Single_Release.Call_Gprbuild at alire-roots.adb:140
+0xbac0fb Alire.Roots.Build.Build_Single_Release at alire-roots.adb:171
+0xbc7eaa Alire.Roots.Traverse.Traverse_Wrap at alire-roots.adb:1364
+0xc11fbb Alire.Solutions.Traverse.Visit at alire-solutions.adb:1434
+0xc10bd2 Alire.Solutions.Traverse at alire-solutions.adb:1509
+0xbc7ff8 Alire.Roots.Traverse at alire-roots.adb:1368
+0xbac48c Alire.Roots.Build at alire-roots.adb:196
+0x48f1e4 Alr.Commands.Build.Execute at alr-commands-build.adb:58
+0x49f50a Alr.Commands.Get.Retrieve at alr-commands-get.adb:187
+0x4a3d27 Alr.Commands.Get.Execute at alr-commands-get.adb:348
+0x52aa2e Alr.Commands.Sub_Cmd.Execute at clic-subcommand-instance.adb:742
+0x53641f Alr.Commands.Execute at alr-commands.adb:492
+0x42b9ca Alr.Main at alr-main.adb:10
+0x42e297 Main at b__alr-main.adb:2132
+[/lib/x86_64-linux-gnu/libc.so.6]
+0x7f4451f31081
+[/home/runner/work/alire-crates-ci/alire-crates-ci/alire_install/bin/alr]
+0x42b8a8 _start at ???
+0xfffffffffffffffe
+
+
+Warning: midi=0.1.0 successfully retrieved but its build failed.
+Dependencies were solved as follows:
+
+   +  atomic  0.4.1  (new,indirect)                      
+   +  bbqueue 0.3.0  (new)                               
+   +i gnat    10.3.2 (new,installed,gnat_native,indirect)
+   +  hal     0.3.0  (new)                               
+ERROR: Build ended with errors
