@@ -1,0 +1,356 @@
+Test ran at 2025-02-05 00:40:02.247993+00:00
+
+SOLUTION:
+remoteio=2.22792.1: Remote I/O Protocol Client Library for GNAT Ada
+Origin: source archive remoteio-2.22792.1.tbz2 at https://raw.githubusercontent.com/pmunts/alire-crates/a15faffc09ca288cba0bb4f868e6ad1b2eefa1fa/remoteio/remoteio-2.22792.1.tbz2 with hashes sha256:6fb1921cc4d9ebe9361aa4959a4ddce0fc22ea3d6a6e37edd6d9ca78261f1a63, sha512:2c297ff2b836a6aae540c1d23c56bd76756744cabc570c63afc68e063d4db0f72734c0eaa72e321bd86e7e30e32c1906a585045bd0be441077843c69ec9ca640
+Available when: (case OS is Linux => True, Macos => True, Windows => True, others => False)
+Properties:
+   case OS is
+      when Linux => Post_Fetch run: sh -c ./postfetch.linux (from ${CRATE_ROOT}/.)
+      when Macos => Post_Fetch run: sh -c ./postfetch.macos (from ${CRATE_ROOT}/.)
+      when Windows => Post_Fetch run: sh -c ./postfetch.windows (from ${CRATE_ROOT}/.)
+   Author: Philip Munts
+   Description: Remote I/O Protocol Client Library for GNAT Ada
+   License: BSD-1-Clause
+   Long_Description: This crate contains a subset of the [**Linux Simple I/O
+Library**](https://github.com/pmunts/libsimpleio) Ada packages that are
+relevant for building [**Remote I/O
+Protocol**](http://git.munts.com/libsimpleio/doc/RemoteIOProtocol.pdf)
+client programs.
+
+This crate can be built for Linux, MacOS, or Windows targets.
+
+The **Remote I/O Protocol** is a lightweight message protocol for
+performing remote I/O operations. The protocol is implemented using a
+request/reply pattern, where the master device (*e.g.* a Linux computer)
+transmits an I/O request in a 64-byte message to the slave device
+(*e.g.* a single chip microcontroller). The slave device performs the
+requested I/O operation and returns an I/O response in a 64-byte message
+back to the master device.
+
+The protocol is kept as simple as possible (exactly one 64-byte request
+message and one 64- byte response message) to allow using low end single
+chip microcontrollers such as the
+[PIC16F1455](https://www.microchip.com/en-us/product/PIC16F1455) for the
+slave device. Although particularly suited for USB raw HID devices, this
+protocol can use any transport mechanism that can reliably transmit and
+receive 64-byte messages.
+
+   Maintainer: Philip Munts <phil@munts.net>
+   Maintainers_Logins: pmunts
+   Name: remoteio
+   Project_File: remoteio.gpr
+   Tag: embedded
+   Tag: linux
+   Tag: remoteio
+   Tag: adc
+   Tag: dac
+   Tag: gpio
+   Tag: i2c
+   Tag: motor
+   Tag: pwm
+   Tag: sensor
+   Tag: serial
+   Tag: servo
+   Tag: spi
+   Tag: stepper
+   Version: 2.22792.1
+   Website: https://github.com/pmunts/libsimpleio
+Dependencies (direct):
+   case Distribution is
+      when Homebrew => libhidapi*
+      when Macports => libhidapi*
+   case Distribution is
+      when Homebrew => libusb*
+      when Macports => libusb*
+   case OS is
+      when Linux => libhidapi*
+   case OS is
+      when Linux => libusb*
+Dependencies (solution):
+   libhidapi=0.14.0
+   libusb=1.0.27
+Dependencies (graph):
+   remoteio=2.22792.1 --> libhidapi=0.14.0 (*)
+   remoteio=2.22792.1 --> libusb=1.0.27 (*)
+
+
+LOG:
+Spawning: alr -d -n get --build remoteio=2.22792.1
+Note: Deploying remoteio=2.22792.1...
+#=#=#                                                                          
+
+##                                                                         3.5%
+######################################################################## 100.0%
+Note: Deploying libhidapi=0.14.0...
+The system package 'libhidapi-dev' is about to be installed.
+This action might require admin privileges and impact your system installation.
+Do you want Alire to install this system package?
+Using default: Yes
+Selecting previously unselected package libhidapi-libusb0:amd64.
+(Reading database ... 
+(Reading database ... 5%
+(Reading database ... 10%
+(Reading database ... 15%
+(Reading database ... 20%
+(Reading database ... 25%
+(Reading database ... 30%
+(Reading database ... 35%
+(Reading database ... 40%
+(Reading database ... 45%
+(Reading database ... 50%
+(Reading database ... 55%
+(Reading database ... 60%
+(Reading database ... 65%
+(Reading database ... 70%
+(Reading database ... 75%
+(Reading database ... 80%
+(Reading database ... 85%
+(Reading database ... 90%
+(Reading database ... 95%
+(Reading database ... 100%
+(Reading database ... 221123 files and directories currently installed.)
+Preparing to unpack .../libhidapi-libusb0_0.14.0-1build1_amd64.deb ...
+Unpacking libhidapi-libusb0:amd64 (0.14.0-1build1) ...
+Selecting previously unselected package libhidapi-hidraw0:amd64.
+Preparing to unpack .../libhidapi-hidraw0_0.14.0-1build1_amd64.deb ...
+Unpacking libhidapi-hidraw0:amd64 (0.14.0-1build1) ...
+Selecting previously unselected package libhidapi-dev:amd64.
+Preparing to unpack .../libhidapi-dev_0.14.0-1build1_amd64.deb ...
+Unpacking libhidapi-dev:amd64 (0.14.0-1build1) ...
+Setting up libhidapi-hidraw0:amd64 (0.14.0-1build1) ...
+Setting up libhidapi-libusb0:amd64 (0.14.0-1build1) ...
+Setting up libhidapi-dev:amd64 (0.14.0-1build1) ...
+Processing triggers for libc-bin (2.39-0ubuntu8.3) ...
+
+Running kernel seems to be up-to-date.
+
+Restarting services...
+
+Service restarts being deferred:
+ systemctl restart runner-provisioner.service
+
+No containers need to be restarted.
+
+No user sessions are running outdated binaries.
+
+No VM guests are running outdated hypervisor (qemu) binaries on this host.
+Note: Deploying libusb=1.0.27...
+The system package 'libusb-1.0-0-dev' is about to be installed.
+This action might require admin privileges and impact your system installation.
+Do you want Alire to install this system package?
+Using default: Yes
+Selecting previously unselected package libusb-1.0-0-dev:amd64.
+(Reading database ... 
+(Reading database ... 5%
+(Reading database ... 10%
+(Reading database ... 15%
+(Reading database ... 20%
+(Reading database ... 25%
+(Reading database ... 30%
+(Reading database ... 35%
+(Reading database ... 40%
+(Reading database ... 45%
+(Reading database ... 50%
+(Reading database ... 55%
+(Reading database ... 60%
+(Reading database ... 65%
+(Reading database ... 70%
+(Reading database ... 75%
+(Reading database ... 80%
+(Reading database ... 85%
+(Reading database ... 90%
+(Reading database ... 95%
+(Reading database ... 100%
+(Reading database ... 221147 files and directories currently installed.)
+Preparing to unpack .../libusb-1.0-0-dev_2%3a1.0.27-1_amd64.deb ...
+Unpacking libusb-1.0-0-dev:amd64 (2:1.0.27-1) ...
+Selecting previously unselected package libusb-1.0-doc.
+Preparing to unpack .../libusb-1.0-doc_2%3a1.0.27-1_all.deb ...
+Unpacking libusb-1.0-doc (2:1.0.27-1) ...
+Setting up libusb-1.0-doc (2:1.0.27-1) ...
+Setting up libusb-1.0-0-dev:amd64 (2:1.0.27-1) ...
+
+Running kernel seems to be up-to-date.
+
+Restarting services...
+
+Service restarts being deferred:
+ systemctl restart runner-provisioner.service
+
+No containers need to be restarted.
+
+No user sessions are running outdated binaries.
+
+No VM guests are running outdated hypervisor (qemu) binaries on this host.
+Note: Running post-fetch actions for remoteio=2.22792.1...
+Note: Building remoteio=2.22792.1/remoteio.gpr...
+Setup
+   [mkdir]        object directory for project RemoteIO
+   [mkdir]        library directory for project RemoteIO
+Compile
+   [Ada]          spi-remoteio.adb
+   [Ada]          adc-remoteio.adb
+   [Ada]          remoteio-lpc1114-adc.adb
+   [Ada]          remoteio-client-udp.ads
+   [Ada]          remoteio-lpc1114-legorc.adb
+   [Ada]          remoteio-client-hidapi.ads
+   [Ada]          remoteio-arduino.ads
+   [Ada]          remoteio-munts_0016.ads
+   [Ada]          remoteio-automation_phat.ads
+   [Ada]          remoteio-lpc1114-pwm.adb
+   [Ada]          remoteio-client.adb
+   [Ada]          remoteio-client-serial.adb
+   [Ada]          pwm-remoteio.adb
+   [Ada]          remoteio-lpc1114-timers.adb
+   [Ada]          remoteio-qwiic_hat.ads
+   [Ada]          remoteio-grove_base_hat_zero.ads
+   [Ada]          remoteio-munts_0009.ads
+   [Ada]          dac-remoteio.adb
+   [Ada]          remoteio-lpc1114-gpio.adb
+   [Ada]          remoteio-pocketbeagle.ads
+   [Ada]          remoteio-enviro_phat.ads
+   [Ada]          remoteio-munts_0015.ads
+   [Ada]          remoteio-munts_0008.ads
+   [Ada]          remoteio-lpc1114.adb
+   [Ada]          i2c-remoteio.adb
+   [Ada]          remoteio-abstract_device.adb
+   [Ada]          remoteio-beaglebone.ads
+   [Ada]          remoteio-raspberrypi.ads
+   [Ada]          remoteio-client-zeromq.ads
+   [Ada]          remoteio-client-stream.ads
+   [Ada]          remoteio-adc_dac_pi_zero.ads
+   [Ada]          gpio-remoteio.adb
+   [Ada]          remoteio-client-libusb.ads
+   [Ada]          remoteio-munts_0018.ads
+   [Ada]          remoteio.ads
+   [Ada]          clickboard-servers.adb
+   [Ada]          clickboard-thermo3-remoteio.adb
+   [Ada]          clickboard-sevensegment-remoteio.adb
+   [Ada]          clickboard-expand-remoteio.adb
+   [Ada]          clickboard-relay-remoteio.adb
+   [Ada]          clickboard-thermo-remoteio.adb
+   [Ada]          clickboard-expand2-remoteio.adb
+   [Ada]          clickboard-remoteio.adb
+   [Ada]          clickboard-adc-remoteio.adb
+   [Ada]          clickboard-leds_8x8-remoteio.adb
+   [Ada]          clickboard-pwm_click-remoteio.adb
+   [Ada]          clickboard-altitude-remoteio.adb
+   [Ada]          clickboard-htu21d-remoteio.adb
+   [Ada]          clickboard-sevensegment.adb
+   [Ada]          clickboard-htu21d.ads
+   [Ada]          clickboard-relay.ads
+   [Ada]          clickboard-thermo3.ads
+   [Ada]          clickboard-thermo.ads
+   [Ada]          clickboard-expand2.adb
+   [Ada]          clickboard-expand.adb
+   [Ada]          clickboard-altitude.ads
+   [Ada]          clickboard-pwm_click.ads
+   [Ada]          clickboard-template.ads
+   [Ada]          clickboard-leds_8x8.adb
+   [Ada]          clickboard.ads
+   [Ada]          clickboard-adc.adb
+   [Ada]          hid-libusb.adb
+   [Ada]          gpio-pwm.adb
+   [Ada]          zeromq-context.adb
+   [Ada]          thermistor.adb
+   [Ada]          motor-pwm.adb
+   [Ada]          hid-hidapi.adb
+   [Ada]          zeromq-sockets.adb
+   [Ada]          zeromq.ads
+   [Ada]          stream_framing_protocol.adb
+   [Ada]          motor-servo.adb
+   [Ada]          message64-zmq.ads
+   [Ada]          messaging-fixed-zeromq.adb
+   [Ada]          servo-pwm.ads
+   [Ada]          motor-legorc.adb
+   [Ada]          debug.adb
+   [Ada]          arduino.ads
+   [Ada]          messaging-fixed-ada_streams.adb
+   [Ada]          messaging-fixed-gnat_udp.adb
+   [Ada]          message64-stream.ads
+   [Ada]          message64-udp.ads
+   [Ada]          temperature.ads
+   [Ada]          joystick.ads
+   [Ada]          humidity.ads
+   [Ada]          io_interfaces.ads
+   [Ada]          accelerometer.ads
+   [Ada]          watchdog.ads
+   [Ada]          voltage.ads
+   [Ada]          magnetometer.ads
+   [Ada]          truecolor.ads
+   [Ada]          pressure.ads
+   [Ada]          messaging-text.ads
+   [Ada]          motor.ads
+   [Ada]          servo.ads
+   [Ada]          analog.ads
+   [Ada]          message64.ads
+   [Ada]          angle.ads
+   [Ada]          hid.adb
+   [Ada]          i2c.adb
+   [Ada]          adc.adb
+   [Ada]          messaging.adb
+   [Ada]          gpio.ads
+   [Ada]          servo-pwm_template.adb
+   [Ada]          pwm.ads
+   [Ada]          resistance.ads
+   [Ada]          spi.ads
+   [Ada]          dac.adb
+   [Ada]          gyroscope.ads
+   [Ada]          stepper.ads
+   [Ada]          messaging-fixed.ads
+   [Ada]          legorc.ads
+   [Ada]          grove_tb6612-stepper.adb
+   [Ada]          pca8574.adb
+   [Ada]          mcp3202.adb
+   [Ada]          tlc1543.adb
+   [Ada]          grove_tb6612-motor.adb
+   [Ada]          hid-munts.ads
+   [Ada]          max7219.adb
+   [Ada]          grove_adc.ads
+   [Ada]          mpl3115a2.adb
+   [Ada]          tcs3472.adb
+   [Ada]          pca9534-gpio.adb
+   [Ada]          mcp23x17.adb
+   [Ada]          lcd16397.adb
+   [Ada]          adc121c021.adb
+   [Ada]          max31855.adb
+   [Ada]          bmp280.adb
+   [Ada]          mcp23x17-word.adb
+   [Ada]          mcp23x17-byte.adb
+   [Ada]          pca9685-gpio.adb
+   [Ada]          hts221.adb
+   [Ada]          pca8574-gpio.adb
+   [Ada]          grove_temperature.adb
+   [Ada]          grove_temperature_humidity.ads
+   [Ada]          mcp3204.adb
+   [Ada]          ads1015.adb
+   [Ada]          th02.adb
+   [Ada]          pca9534.adb
+   [Ada]          cytron_md13s.adb
+   [Ada]          mcp3208.adb
+   [Ada]          a4988.adb
+   [Ada]          hdc1080.adb
+   [Ada]          htu21d.adb
+   [Ada]          grove_tb6612.adb
+   [Ada]          lps25h.adb
+   [Ada]          mcp23x17-gpio.adb
+   [Ada]          tmp102.adb
+   [Ada]          pca9685.adb
+   [Ada]          pca9685-pwm.adb
+   [Ada]          mcp4822.adb
+   [Ada]          lsm9ds1.adb
+   [Ada]          libzmq.ads
+   [Ada]          errno.ads
+   [Ada]          remoteio_config.ads
+Build Libraries
+   [gprlib]       remoteio.lexch
+   [archive]      libremoteio.a
+   [index]        libremoteio.a
+
+remoteio=2.22792.1 successfully retrieved and built.
+Dependencies were solved as follows:
+
+   +b libhidapi 0.14.0 (new,system package)
+   +b libusb    1.0.27 (new,system package)
+Found declared GPR file: remoteio.gpr

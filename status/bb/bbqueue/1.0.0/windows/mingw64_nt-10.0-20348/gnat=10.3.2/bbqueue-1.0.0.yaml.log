@@ -1,0 +1,78 @@
+Test ran at 2026-05-31 01:40:46.979948+00:00
+
+SOLUTION:
+bbqueue=1.0.0: DMA friendly lock-free BipBuffer
+Origin: commit f508818cae5c23e45864e19c618fe2b1dc7c6362 from https://github.com/Fabien-Chouteau/bbqueue-spark.git
+Properties:
+   Author: Fabien Chouteau
+   Build Switches: 
+   Description: DMA friendly lock-free BipBuffer
+   License: MIT
+   Long_Description: An Ada/SPARK proved implementation of James Munns'
+BBQueue (https://github.com/jamesmunns/bbqueue)
+   Maintainer: Fabien Chouteau <chouteau@adacore.com>
+   Maintainers_Logins: Fabien-Chouteau
+   Name: bbqueue
+   Tag: spark
+   Tag: nostd
+   Tag: embedded
+   Tag: lockfree
+   Tag: dma
+   Tag: bipbuffer
+   Version: 1.0.0
+   Website: https://github.com/Fabien-Chouteau/bbqueue-spark
+Dependencies (direct):
+   atomic^1.0.0
+   gnat>=10
+Dependencies (solution):
+   atomic=1.1.0
+   gnat=10.3.2 (gnat_native)
+Dependencies (graph):
+   bbqueue=1.0.0 --> atomic=1.1.0 (^1.0.0)
+   bbqueue=1.0.0 --> gnat=10.3.2 (gnat_native) (>=10)
+
+
+LOG:
+[alr test] Testing bbqueue=1.0.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get bbqueue=1.0.0
+Note: Deploying bbqueue=1.0.0...
+Note: Deploying atomic=1.1.0...
+
+bbqueue=1.0.0 successfully retrieved.
+Dependencies were solved as follows:
+
+   +  atomic 1.1.0  (new)
+   +b gnat   10.3.2 (new,gnat_native,binary)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building bbqueue=1.0.0/bbqueue.gpr...
+Setup
+   [mkdir]        object directory for project Atomic
+   [mkdir]        library directory for project Atomic
+   [mkdir]        object directory for project Bbqueue
+   [mkdir]        library directory for project Bbqueue
+Compile
+   [Ada]          atomic.adb
+   [Ada]          atomic-unsigned.adb
+   [Ada]          atomic-signed.adb
+   [Ada]          atomic-basic_operations.adb
+   [Ada]          atomic_config.ads
+   [Ada]          atomic-unsigned_8.ads
+   [Ada]          atomic-unsigned_32.ads
+   [Ada]          atomic-unsigned_16.ads
+   [Ada]          atomic-signed_8.ads
+   [Ada]          atomic-signed_32.ads
+   [Ada]          atomic-signed_16.ads
+   [Ada]          bbqueue_config.ads
+   [Ada]          bbqueue.adb
+   [Ada]          bbqueue-buffers.adb
+   [Ada]          bbqueue-buffers-framed.adb
+Build Libraries
+   [gprlib]       Atomic.lexch
+   [gprlib]       Bbqueue.lexch
+   [archive]      libAtomic.a
+   [index]        libAtomic.a
+   [archive]      libBbqueue.a
+   [index]        libBbqueue.a
+Success: Build finished successfully in 2.28 seconds.
+Found declared GPR file: bbqueue.gpr
+[alr test] Test completed SUCCESSFULLY

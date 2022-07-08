@@ -1,0 +1,147 @@
+Test ran at 2026-07-25 12:35:55.858034+00:00
+
+SOLUTION:
+vss_text=26.2.0: A high level Unicode text processing library
+Origin: commit c021ca339067e4a9c263a85559e6b2b2dd783199 from https://github.com/AdaCore/vss-text
+Properties:
+   Author: AdaCore
+   Build Switches: 
+   Config type: Max_Supported_Integer_Size : Enum (128, 64) default: '128'
+   Configuration: no modifiers
+   Description: A high level Unicode text processing library
+   case OS is
+      when Linux => Environment: LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:${CRATE_ROOT}/.libs/release/relocatable
+      when Macos => Environment: DYLD_LIBRARY_PATH=${DYLD_LIBRARY_PATH}:${CRATE_ROOT}/.libs/release/relocatable
+      when Windows => Environment: PATH=${PATH}:${CRATE_ROOT}/.libs/release/relocatable
+   GPR Scenario: VSS_LIBRARY_TYPE := relocatable | static | static-pic
+   case OS is
+      when Linux => GPR External: VSS_OS := unix
+      when Macos => GPR External: VSS_OS := osx
+      when Windows => GPR External: VSS_OS := Windows_NT
+   License: Apache-2.0
+   Long_Description: This crate is based on [`VSS`](https://github.com/AdaCore/VSS) (Virtual
+String System). VSS has been split into two crates:
+
+* [`vss_text`](https://alire.ada.dev/crates/vss_text) (this crate): a library
+  for Unicode text processing.
+* [`vss_extra`](https://alire.ada.dev/crates/vss_extra): libraries for handling
+  JSON, Regexp, XML and other features based on `vss_text`.
+
+Significant changes are planned in `vss_text` with the goal to make it a
+high-quality, high-performance library suitable for a wide range of
+applications.
+
+The changes include the following (non-exhaustive list):
+
+* API Changes
+  * Introduce an immutable string type.
+  * Repurpose the mutable `Virtual_String` type to a string builder type.
+  * Possibly rename the root package `VSS` to a new more appropriate name. Alire crate,
+    GPR project and repository names might change accordingly.
+* (done) Drop the support of multiple internal encodings in favor of a single internal
+  encoding (likely UTF-8) for improved performance.
+
+   Maintainer: Vadim Godunko <vgodunko@gmail.com>
+   Maintainer: Maxim Reznik <reznikmm@gmail.com>
+   Maintainer: sagaert@adacore.com
+   Maintainer: chouteau@adacore.com
+   Maintainers_Logins: godunko
+   Maintainers_Logins: reznikmm
+   Maintainers_Logins: AldanTanneo
+   Maintainers_Logins: Fabien-Chouteau
+   Name: vss_text
+   Project_File: gnat/vss_text.gpr
+   Tag: unicode
+   Tag: string
+   Tag: text
+   Version: 26.2.0
+   Website: https://github.com/AdaCore/vss-text
+
+
+LOG:
+[alr test] Testing vss_text=26.2.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get vss_text=26.2.0
+Note: Deploying vss_text=26.2.0...
+
+vss_text=26.2.0 successfully retrieved.
+There are no dependencies.
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building vss_text=26.2.0/gnat/vss_text.gpr...
+Setup
+   [mkdir]        object directory for project VSS_GNAT
+   [mkdir]        library directory for project VSS_GNAT
+Compile
+   [Ada]          a-szuvau.adb
+   [Ada]          vss-implementation-ucd_normalization_utf8.ads
+   [Ada]          vss-implementation-ucd_normalization_common.ads
+   [Ada]          vss-implementation-ucd_core.ads
+gnat1: invalid switch: -gnat2022
+gnat1: invalid switch: -gnat2022
+gnat1: invalid switch: -gnat2022
+
+   compilation of vss-implementation-ucd_normalization_common.ads failed
+   compilation of vss-implementation-ucd_core.ads failed
+   compilation of vss-implementation-ucd_normalization_utf8.ads failed
+
+gprbuild: *** compilation phase failed
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "D:\a\alire-crates-ci\alire-crates-ci\test\cb578488-be2d-4744-9597-e46de9665afb\vss_text_26.2.0_c021ca33\gnat/vss_text.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "D:\a\alire-crates-ci\alire-crates-ci\test\cb578488-be2d-4744-9597-e46de9665afb\vss_text_26.2.0_c021ca33\gnat/vss_text.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+stderr: ALIRE.CHECKED_ERROR
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "D:\a\alire-crates-ci\alire-crates-ci\test\cb578488-be2d-4744-9597-e46de9665afb\vss_text_26.2.0_c021ca33\gnat/vss_text.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
+[D:\a\alire-crates-ci\alire-crates-ci\alire_install\bin\alr.exe]
+0x7ff620afda2a Semantic_Versioning.Basic.Restrictions.First_Index at alire.adb:284
+0x7ff6206f595b Semantic_Versioning.Basic.Restrictions.First_Index at alire-os_lib-subprocess.adb:111
+0x7ff6209acba1 Semantic_Versioning.Basic.Restrictions.First_Index at alire-spawn.adb:22
+0x7ff6209add5d Semantic_Versioning.Basic.Restrictions.First_Index at alire-spawn.adb:68
+0x7ff6208d2d64 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:189
+0x7ff6208d11da Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:255
+0x7ff6208f912d Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2143
+0x7ff6209682f9 Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1472
+0x7ff620967424 Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1555
+0x7ff6208f922c Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2147
+0x7ff6208f92fa Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2127
+0x7ff6208d17a7 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:286
+0x7ff6208d1912 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:114
+0x7ff620043baa Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:145
+0x7ff62004341e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:113
+0x7ff6200435ba Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:54
+0x7ff6200f5dea Semantic_Versioning.Basic.Restrictions.First_Index at clic-subcommand-instance.adb:749
+0x7ff620102b0e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands.adb:632
+0x7ff61ffd16a0 Alr.Main at alr-main.adb:13
+0x7ff61ffd5270 Main at b__alr-main.adb:2454
+0x7ff61ffd133e __tmainCRTStartup at ???
+0x7ff61ffd1144 mainCRTStartup at ???
+[C:\Windows\System32\KERNEL32.DLL]
+0x7ffd11f5e8d5
+[C:\Windows\SYSTEM32\ntdll.dll]
+0x7ffd12fac53a
+
+stderr: ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED
+stderr: alire-roots.adb:202
+stderr: raised ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED : alire-roots.adb:202
+[D:\a\alire-crates-ci\alire-crates-ci\alire_install\bin\alr.exe]
+0x7ff6208d313c Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:202
+0x7ff6208d11da Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:255
+0x7ff6208f912d Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2143
+0x7ff6209682f9 Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1472
+0x7ff620967424 Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1555
+0x7ff6208f922c Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2147
+0x7ff6208f92fa Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2127
+0x7ff6208d17a7 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:286
+0x7ff6208d1912 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:114
+0x7ff620043baa Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:145
+0x7ff62004341e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:113
+0x7ff6200435ba Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:54
+0x7ff6200f5dea Semantic_Versioning.Basic.Restrictions.First_Index at clic-subcommand-instance.adb:749
+0x7ff620102b0e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands.adb:632
+0x7ff61ffd16a0 Alr.Main at alr-main.adb:13
+0x7ff61ffd5270 Main at b__alr-main.adb:2454
+0x7ff61ffd133e __tmainCRTStartup at ???
+0x7ff61ffd1144 mainCRTStartup at ???
+[C:\Windows\System32\KERNEL32.DLL]
+0x7ffd11f5e8d5
+[C:\Windows\SYSTEM32\ntdll.dll]
+0x7ffd12fac53a
+
+ERROR: Compilation failed.

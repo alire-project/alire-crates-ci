@@ -1,0 +1,215 @@
+Test ran at 2026-07-31 12:56:07.768445+00:00
+
+SOLUTION:
+alr2appimage=1.0.0: Tool to create an AppImage executable from an Alire crate
+Origin: commit 19b5459f5b5553d6b861746eacd19e434fb0e146 from https://github.com/mgrojo/alr2appimage
+Available when: (case OS is Linux => True, others => False)
+Properties:
+   Author: Manuel Gomez
+   Build Switches: 
+   Description: Tool to create an AppImage executable from an Alire crate
+   Executable: alr2appimage
+   License: GPL-3.0-only
+   Long_Description: There are two prerequisites for your project to work with this tool:
+- It has to be an Alire crate with an `executables` field. Its first value
+  has to be the main application program. Otherwise, the executable program
+  can be specified on the command line.
+- It must be installable using Alire, including all the needed resources.
+
+`alr2appimage` will use the following command for installing it (this requires Alire 2.0):
+```shell
+alr install
+```
+Or it will run `gprinstall` inside `alr exec`, if the former fails (Alire 1.x).
+
+If you simply run the tool inside an Alire crate, it will read the
+metadata from your `alire.toml` file and create a default AppImage
+from it.
+
+NOTE: `alr2appimage` is an independent project; it is not
+affiliated to, nor supported by, the Alire or AppImage projects.
+
+
+   Maintainer: Manuel Gomez <mgrojo@gmail.com>
+   Maintainers_Logins: mgrojo
+   Name: alr2appimage
+   Tag: utility
+   Tag: appimage
+   Tag: alire
+   Tag: linux
+   Tag: packaging
+   Version: 1.0.0
+   Website: https://github.com/mgrojo/alr2appimage
+Dependencies (direct):
+   ada_toml^0.3.0
+   parse_args~0.9.0
+   resources~0.1.0
+   spoon^1.0.1
+Dependencies (solution):
+   ada_toml=0.5.0
+   parse_args=0.9.0
+   resources=0.1.0
+   spoon=1.0.1
+Dependencies (graph):
+   alr2appimage=1.0.0 --> ada_toml=0.5.0 (^0.3.0)
+   alr2appimage=1.0.0 --> parse_args=0.9.0 (~0.9.0)
+   alr2appimage=1.0.0 --> resources=0.1.0 (~0.1.0)
+   alr2appimage=1.0.0 --> spoon=1.0.1 (^1.0.1)
+
+
+LOG:
+[alr test] Testing alr2appimage=1.0.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get alr2appimage=1.0.0
+Note: Deploying alr2appimage=1.0.0...
+Note: Deploying ada_toml=0.5.0...
+#=#=#                                                                          
+##O#-#                                                                         
+##O=#  #                                                                       
+#=#=-#  #                                                                      
+Note: Deploying parse_args=0.9.0...
+Note: Deploying resources=0.1.0...
+Note: Deploying spoon=1.0.1...
+Warning: Possible tilde intended instead of caret for a 0.x version.
+   Alire does not change the meaning of caret and tilde for pre/post-1.0 versions.
+   The suspicious dependency is: ada_toml^0.3.0
+   You can disable this warning by setting the option warning.caret to false.
+
+alr2appimage=1.0.0 successfully retrieved.
+Dependencies were solved as follows:
+
+   + ada_toml   0.5.0 (new)
+   + parse_args 0.9.0 (new)
+   + resources  0.1.0 (new)
+   + spoon      1.0.1 (new)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building alr2appimage=1.0.0/alr2appimage.gpr...
+Setup
+   [mkdir]        object directory for project Ada_TOML
+   [mkdir]        library directory for project Ada_TOML
+   [mkdir]        object directory for project Parse_Args
+   [mkdir]        library directory for project Parse_Args
+   [mkdir]        object directory for project Resources
+   [mkdir]        library directory for project Resources
+   [mkdir]        object directory for project Spoon
+   [mkdir]        library directory for project Spoon
+   [mkdir]        object directory for project Alr2AppImage
+   [mkdir]        exec directory for project Alr2AppImage
+Compile
+   [Ada]          alr2appimage.adb
+   [C]            knife.c
+   [Ada]          spoon-api.ads
+   [Ada]          spoon-output.adb
+   [Ada]          spoon.adb
+   [Ada]          spoon-pipes.adb
+   [C]            whereami.c
+   [Ada]          resources.adb
+   [Ada]          parse_args-split_csv.adb
+   [Ada]          parse_args-concrete.adb
+   [Ada]          parse_args-generic_discrete_options.ads
+   [Ada]          parse_args-generic_options.adb
+   [Ada]          parse_args-generic_discrete_array_options.adb
+   [Ada]          parse_args-integer_array_options.ads
+   [Ada]          parse_args.adb
+   [Ada]          parse_args-generic_indefinite_options.adb
+   [Ada]          toml-file_io.adb
+   [Ada]          toml-generic_parse.adb
+   [Ada]          toml-generic_dump.adb
+   [Ada]          toml.adb
+   [Ada]          alire_toml.adb
+   [Ada]          alr2appimage_config.ads
+   [Ada]          desktop_file.adb
+   [Ada]          file_manager.adb
+   [Ada]          runner.adb
+   [Ada]          string_vectors.ads
+Build Libraries
+   [gprlib]       ada_toml.lexch
+   [gprlib]       parse_args.lexch
+   [gprlib]       Resources.lexch
+   [gprlib]       Spoon.lexch
+   [archive]      libada_toml.a
+   [archive]      libResources.a
+   [archive]      libparse_args.a
+   [archive]      libSpoon.a
+   [index]        libResources.a
+   [index]        libSpoon.a
+   [index]        libada_toml.a
+   [index]        libparse_args.a
+Bind
+   [gprbind]      alr2appimage.bexch
+   [Ada]          alr2appimage.ali
+Link
+   [link]         alr2appimage.adb
+/home/runner/.local/share/alire/toolchains/gnat_native_11.2.4_2f37a10b/bin/../lib/gcc/x86_64-pc-linux-gnu/11.2.0/../../../../x86_64-pc-linux-gnu/bin/ld: /lib/x86_64-linux-gnu/libc.so.6: unknown type [0x13] section `.relr.dyn'
+/home/runner/.local/share/alire/toolchains/gnat_native_11.2.4_2f37a10b/bin/../lib/gcc/x86_64-pc-linux-gnu/11.2.0/../../../../x86_64-pc-linux-gnu/bin/ld: skipping incompatible /lib/x86_64-linux-gnu/libc.so.6 when searching for /lib/x86_64-linux-gnu/libc.so.6
+/home/runner/.local/share/alire/toolchains/gnat_native_11.2.4_2f37a10b/bin/../lib/gcc/x86_64-pc-linux-gnu/11.2.0/../../../../x86_64-pc-linux-gnu/bin/ld: cannot find /lib/x86_64-linux-gnu/libc.so.6
+/home/runner/.local/share/alire/toolchains/gnat_native_11.2.4_2f37a10b/bin/../lib/gcc/x86_64-pc-linux-gnu/11.2.0/../../../../x86_64-pc-linux-gnu/bin/ld: /lib/x86_64-linux-gnu/libc.so.6: unknown type [0x13] section `.relr.dyn'
+/home/runner/.local/share/alire/toolchains/gnat_native_11.2.4_2f37a10b/bin/../lib/gcc/x86_64-pc-linux-gnu/11.2.0/../../../../x86_64-pc-linux-gnu/bin/ld: skipping incompatible /lib/x86_64-linux-gnu/libc.so.6 when searching for /lib/x86_64-linux-gnu/libc.so.6
+/home/runner/.local/share/alire/toolchains/gnat_native_11.2.4_2f37a10b/bin/../lib/gcc/x86_64-pc-linux-gnu/11.2.0/../../../../x86_64-pc-linux-gnu/bin/ld: /lib64/ld-linux-x86-64.so.2: unknown type [0x13] section `.relr.dyn'
+/home/runner/.local/share/alire/toolchains/gnat_native_11.2.4_2f37a10b/bin/../lib/gcc/x86_64-pc-linux-gnu/11.2.0/../../../../x86_64-pc-linux-gnu/bin/ld: skipping incompatible /lib64/ld-linux-x86-64.so.2 when searching for /lib64/ld-linux-x86-64.so.2
+/home/runner/.local/share/alire/toolchains/gnat_native_11.2.4_2f37a10b/bin/../lib/gcc/x86_64-pc-linux-gnu/11.2.0/../../../../x86_64-pc-linux-gnu/bin/ld: cannot find /lib64/ld-linux-x86-64.so.2
+/home/runner/.local/share/alire/toolchains/gnat_native_11.2.4_2f37a10b/bin/../lib/gcc/x86_64-pc-linux-gnu/11.2.0/../../../../x86_64-pc-linux-gnu/bin/ld: /lib64/ld-linux-x86-64.so.2: unknown type [0x13] section `.relr.dyn'
+/home/runner/.local/share/alire/toolchains/gnat_native_11.2.4_2f37a10b/bin/../lib/gcc/x86_64-pc-linux-gnu/11.2.0/../../../../x86_64-pc-linux-gnu/bin/ld: skipping incompatible /lib64/ld-linux-x86-64.so.2 when searching for /lib64/ld-linux-x86-64.so.2
+collect2: error: ld returned 1 exit status
+gprbuild: link of alr2appimage.adb failed
+gprbuild: failed command was: /home/runner/.local/share/alire/toolchains/gnat_native_11.2.4_2f37a10b/bin/gcc alr2appimage.o b__alr2appimage.o /home/runner/work/alire-crates-ci/alire-crates-ci/test/ad6b2a46-4d02-494b-bafc-24652c8defa4/alr2appimage_1.0.0_19b5459f/obj/release/alr2appimage_config.o /home/runner/work/alire-crates-ci/alire-crates-ci/test/ad6b2a46-4d02-494b-bafc-24652c8defa4/alr2appimage_1.0.0_19b5459f/obj/release/file_manager.o /home/runner/work/alire-crates-ci/alire-crates-ci/test/ad6b2a46-4d02-494b-bafc-24652c8defa4/alr2appimage_1.0.0_19b5459f/obj/release/runner.o /home/runner/work/alire-crates-ci/alire-crates-ci/test/ad6b2a46-4d02-494b-bafc-24652c8defa4/alr2appimage_1.0.0_19b5459f/obj/release/string_vectors.o /home/runner/work/alire-crates-ci/alire-crates-ci/test/ad6b2a46-4d02-494b-bafc-24652c8defa4/alr2appimage_1.0.0_19b5459f/obj/release/desktop_file.o /home/runner/work/alire-crates-ci/alire-crates-ci/test/ad6b2a46-4d02-494b-bafc-24652c8defa4/alr2appimage_1.0.0_19b5459f/obj/release/alire_toml.o /home/runner/.local/share/alire/builds/spoon_1.0.1_c07167a5/44a214ad93ee3a50de94977a421b39d5f5598702068cb2382dd8e86250785a0f/build/lib/libSpoon.a /home/runner/.local/share/alire/builds/resources_0.1.0_a418da62/96c29b6ac9aac430cfb15e8bce837e1e956267ff9c919a649910761f4522eef9/lib/libResources.a /home/runner/.local/share/alire/builds/parse_args_0.9.0_635f9e4f/05a9827bb2bd0d2aa4174e6b9cd0f2a17f7a98e8241391a5bcef75b72c60a9b2/lib/libparse_args.a /home/runner/.local/share/alire/builds/ada_toml_0.5.0_33dcb0dd/51a717230181751a5d5a43fd110e54a4d341798e46c214807fc781beca812cd7/lib/static/dev/libada_toml.a -L/home/runner/work/alire-crates-ci/alire-crates-ci/test/ad6b2a46-4d02-494b-bafc-24652c8defa4/alr2appimage_1.0.0_19b5459f/obj/release/ -L/home/runner/work/alire-crates-ci/alire-crates-ci/test/ad6b2a46-4d02-494b-bafc-24652c8defa4/alr2appimage_1.0.0_19b5459f/obj/release/ -L/home/runner/.local/share/alire/builds/ada_toml_0.5.0_33dcb0dd/51a717230181751a5d5a43fd110e54a4d341798e46c214807fc781beca812cd7/lib/static/dev/ -L/home/runner/.local/share/alire/builds/parse_args_0.9.0_635f9e4f/05a9827bb2bd0d2aa4174e6b9cd0f2a17f7a98e8241391a5bcef75b72c60a9b2/lib/ -L/home/runner/.local/share/alire/builds/resources_0.1.0_a418da62/96c29b6ac9aac430cfb15e8bce837e1e956267ff9c919a649910761f4522eef9/lib/ -L/home/runner/.local/share/alire/builds/spoon_1.0.1_c07167a5/44a214ad93ee3a50de94977a421b39d5f5598702068cb2382dd8e86250785a0f/build/lib/ -L/home/runner/.local/share/alire/toolchains/gnat_native_11.2.4_2f37a10b/lib/gcc/x86_64-pc-linux-gnu/11.2.0/adalib/ -static-libgcc /home/runner/.local/share/alire/toolchains/gnat_native_11.2.4_2f37a10b/lib/gcc/x86_64-pc-linux-gnu/11.2.0/adalib/libgnarl.a /home/runner/.local/share/alire/toolchains/gnat_native_11.2.4_2f37a10b/lib/gcc/x86_64-pc-linux-gnu/11.2.0/adalib/libgnat.a -lrt -lpthread -ldl -Wl,-rpath-link,/home/runner/.local/share/alire/toolchains/gnat_native_11.2.4_2f37a10b/lib/gcc/x86_64-pc-linux-gnu/11.2.0//adalib -Wl,-z,origin,-rpath,$ORIGIN/..//obj/release:$ORIGIN/../../../../../../..//.local/share/alire/builds/ada_toml_0.5.0_33dcb0dd/51a717230181751a5d5a43fd110e54a4d341798e46c214807fc781beca812cd7/lib/static/dev:$ORIGIN/../../../../../../..//.local/share/alire/builds/parse_args_0.9.0_635f9e4f/05a9827bb2bd0d2aa4174e6b9cd0f2a17f7a98e8241391a5bcef75b72c60a9b2/lib:$ORIGIN/../../../../../../..//.local/share/alire/builds/resources_0.1.0_a418da62/96c29b6ac9aac430cfb15e8bce837e1e956267ff9c919a649910761f4522eef9/lib:$ORIGIN/../../../../../../..//.local/share/alire/builds/spoon_1.0.1_c07167a5/44a214ad93ee3a50de94977a421b39d5f5598702068cb2382dd8e86250785a0f/build/lib:$ORIGIN/../../../../../../..//.local/share/alire/toolchains/gnat_native_11.2.4_2f37a10b/lib/gcc/x86_64-pc-linux-gnu/11.2.0/adalib -o /home/runner/work/alire-crates-ci/alire-crates-ci/test/ad6b2a46-4d02-494b-bafc-24652c8defa4/alr2appimage_1.0.0_19b5459f/bin//alr2appimage
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/ad6b2a46-4d02-494b-bafc-24652c8defa4/alr2appimage_1.0.0_19b5459f/alr2appimage.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/ad6b2a46-4d02-494b-bafc-24652c8defa4/alr2appimage_1.0.0_19b5459f/alr2appimage.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+stderr: ALIRE.CHECKED_ERROR
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/ad6b2a46-4d02-494b-bafc-24652c8defa4/alr2appimage_1.0.0_19b5459f/alr2appimage.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
+[/home/runner/work/alire-crates-ci/alire-crates-ci/alire_install/bin/alr]
+0xe75bc6 Alire.Raise_Checked_Error at alire.adb:284
+0xac1a54 Alire.Os_Lib.Subprocess.Checked_Spawn at alire-os_lib-subprocess.adb:111
+0xd40276 Alire.Spawn.Command at alire-spawn.adb:22
+0xd412ee Alire.Spawn.Gprbuild at alire-spawn.adb:68
+0xc748cb Alire.Roots.Build at alire-roots.adb:189
+0xc7301a Alire.Roots.Build at alire-roots.adb:255
+0xc9832b Alire.Roots.Traverse at alire-roots.adb:2143
+0xcfee85 Alire.Solutions.Traverse.Visit at alire-solutions.adb:1472
+0xcfdfcc Alire.Solutions.Traverse at alire-solutions.adb:1555
+0xc9841e Alire.Roots.Traverse at alire-roots.adb:2147
+0xc984dd Alire.Roots.Traverse at alire-roots.adb:2127
+0xc7359b Alire.Roots.Build at alire-roots.adb:286
+0xc736d7 Alire.Roots.Build at alire-roots.adb:114
+0x49aa0d Alr.Commands.Build.Execute at alr-commands-build.adb:145
+0x49a36d Alr.Commands.Build.Execute at alr-commands-build.adb:113
+0x49a51f Alr.Commands.Build.Execute at alr-commands-build.adb:54
+0x53bbcc Alr.Commands.Sub_Cmd.Execute at clic-subcommand-instance.adb:749
+0x5472be Alr.Commands.Execute at alr-commands.adb:632
+0x43d48a Alr.Main at alr-main.adb:13
+0x4403a3 Main at b__alr-main.adb:2445
+[/lib/x86_64-linux-gnu/libc.so.6]
+0x7f6ddc62a1c8
+0x7f6ddc62a289
+[/home/runner/work/alire-crates-ci/alire-crates-ci/alire_install/bin/alr]
+0x43d323 _start at ???
+0xfffffffffffffffe
+
+stderr: ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED
+stderr: alire-roots.adb:202
+stderr: raised ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED : alire-roots.adb:202
+[/home/runner/work/alire-crates-ci/alire-crates-ci/alire_install/bin/alr]
+0xc74cc7 Alire.Roots.Build at alire-roots.adb:202
+0xc7301a Alire.Roots.Build at alire-roots.adb:255
+0xc9832b Alire.Roots.Traverse at alire-roots.adb:2143
+0xcfee85 Alire.Solutions.Traverse.Visit at alire-solutions.adb:1472
+0xcfdfcc Alire.Solutions.Traverse at alire-solutions.adb:1555
+0xc9841e Alire.Roots.Traverse at alire-roots.adb:2147
+0xc984dd Alire.Roots.Traverse at alire-roots.adb:2127
+0xc7359b Alire.Roots.Build at alire-roots.adb:286
+0xc736d7 Alire.Roots.Build at alire-roots.adb:114
+0x49aa0d Alr.Commands.Build.Execute at alr-commands-build.adb:145
+0x49a36d Alr.Commands.Build.Execute at alr-commands-build.adb:113
+0x49a51f Alr.Commands.Build.Execute at alr-commands-build.adb:54
+0x53bbcc Alr.Commands.Sub_Cmd.Execute at clic-subcommand-instance.adb:749
+0x5472be Alr.Commands.Execute at alr-commands.adb:632
+0x43d48a Alr.Main at alr-main.adb:13
+0x4403a3 Main at b__alr-main.adb:2445
+[/lib/x86_64-linux-gnu/libc.so.6]
+0x7f6ddc62a1c8
+0x7f6ddc62a289
+[/home/runner/work/alire-crates-ci/alire-crates-ci/alire_install/bin/alr]
+0x43d323 _start at ???
+0xfffffffffffffffe
+
+ERROR: Compilation failed.

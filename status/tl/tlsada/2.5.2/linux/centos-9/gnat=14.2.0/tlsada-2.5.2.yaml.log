@@ -1,0 +1,146 @@
+Test ran at 2025-08-25 13:15:02.963061+00:00
+
+SOLUTION:
+tlsada=2.5.2: Bindings for libtls
+Origin: source archive v2.5.2.tar.gz at https://git.sr.ht/~nytpu/tlsada/archive/v2.5.2.tar.gz with hashes sha256:7e2dcb928abab9a516f531a5f5f9edc76b4bb8226bc9a73d0819ff2f393d0bb1, sha512:292e2a9851ec22a5c606c486de39cde69fe7a764c6ec87adde8ab41d00df5f94263ff874fc8ff31b5bf8fcc8721de0e7ea9a907c6b425eb74d57803d04ad9224
+Properties:
+   Author: nytpu
+   Description: Bindings for libtls
+   GPR Scenario: TLSADA_BUILD_MODE := debug | optimize
+   GPR Scenario: TLSADA_COMPILE_CHECKS := enabled | disabled
+   GPR Scenario: TLSADA_CONTRACTS := enabled | disabled
+   GPR Scenario: TLSADA_LIBRARY_TYPE := dynamic | relocatable | static | static-pic
+   GPR Scenario: TLSADA_RUNTIME_CHECKS := enabled | disabled
+   GPR Scenario: TLSADA_STYLE_CHECKS := enabled | disabled
+   License: MPL-2.0
+   Maintainer: nytpu <alex@nytpu.com>
+   Maintainers_Logins: nytpu
+   Name: tlsada
+   Tag: tls
+   Tag: ssl
+   Version: 2.5.2
+   Website: https://git.sr.ht/~nytpu/tlsada
+Dependencies (direct):
+   libtls^3.5
+Dependencies (solution):
+   libtls=3.8.1
+Dependencies (graph):
+   tlsada=2.5.2 --> libtls=3.8.1 (^3.5)
+
+
+LOG:
+[alr test] Testing tlsada=2.5.2
+[alr test] Spawning retrieval for remote crate: alr -d -n get tlsada=2.5.2
+Note: Deploying tlsada=2.5.2...
+#=#=#                                                                         
+##O#-#                                                                        
+##O=#  #                                                                      
+#=#=-#  #                                                                     
+-#O#- #   #                                                                   
+-=#=#   #   #                                                                 
+Note: Deploying libtls=3.8.1...
+The system package 'libretls' is about to be installed.
+This action might require admin privileges and impact your system installation.
+Do you want Alire to install this system package?
+Using default: Yes
+Last metadata expiration check: 0:14:44 ago on Mon Aug 25 13:00:17 2025.
+Dependencies resolved.
+================================================================================
+ Package            Architecture     Version               Repository      Size
+================================================================================
+Installing:
+ libretls           x86_64           3.8.1-1.el9           epel            41 k
+
+Transaction Summary
+================================================================================
+Install  1 Package
+
+Total download size: 41 k
+Installed size: 92 k
+Downloading Packages:
+libretls-3.8.1-1.el9.x86_64.rpm                 465 kB/s |  41 kB     00:00    
+--------------------------------------------------------------------------------
+Total                                           104 kB/s |  41 kB     00:00     
+Running transaction check
+Transaction check succeeded.
+Running transaction test
+Transaction test succeeded.
+Running transaction
+  Preparing        :                                                        1/1 
+  Installing       : libretls-3.8.1-1.el9.x86_64                            1/1 
+  Running scriptlet: libretls-3.8.1-1.el9.x86_64                            1/1 
+  Verifying        : libretls-3.8.1-1.el9.x86_64                            1/1 
+
+Installed:
+  libretls-3.8.1-1.el9.x86_64                                                   
+
+Complete!
+
+tlsada=2.5.2 successfully retrieved.
+Dependencies were solved as follows:
+
+   +b libtls 3.8.1 (new,system package)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building tlsada=2.5.2/tlsada.gpr...
+/root/.local/share/alire/toolchains/gprbuild_25.0.1_9a2e6cfb/bin/gprbuild: /lib64/libc.so.6: version `GLIBC_2.35' not found (required by /root/.local/share/alire/toolchains/gprbuild_25.0.1_9a2e6cfb/bin/gprbuild)
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/1f4468d5-460d-4107-9959-6f5a246dd6d3/tlsada_2.5.2_7e2dcb92/tlsada.gpr", "-cargs:Ada", "-gnatwn"] exited with code 1
+ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/1f4468d5-460d-4107-9959-6f5a246dd6d3/tlsada_2.5.2_7e2dcb92/tlsada.gpr", "-cargs:Ada", "-gnatwn"] exited with code 1
+stderr: ALIRE.CHECKED_ERROR
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/1f4468d5-460d-4107-9959-6f5a246dd6d3/tlsada_2.5.2_7e2dcb92/tlsada.gpr", "-cargs:Ada", "-gnatwn"] exited with code 1
+stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
+[/usr/bin/alr]
+0xe75bc6 Alire.Raise_Checked_Error at alire.adb:284
+0xac1a54 Alire.Os_Lib.Subprocess.Checked_Spawn at alire-os_lib-subprocess.adb:111
+0xd40276 Alire.Spawn.Command at alire-spawn.adb:22
+0xd412ee Alire.Spawn.Gprbuild at alire-spawn.adb:68
+0xc748cb Alire.Roots.Build at alire-roots.adb:189
+0xc7301a Alire.Roots.Build at alire-roots.adb:255
+0xc9832b Alire.Roots.Traverse at alire-roots.adb:2143
+0xcfee85 Alire.Solutions.Traverse.Visit at alire-solutions.adb:1472
+0xcfdfcc Alire.Solutions.Traverse at alire-solutions.adb:1555
+0xc9841e Alire.Roots.Traverse at alire-roots.adb:2147
+0xc984dd Alire.Roots.Traverse at alire-roots.adb:2127
+0xc7359b Alire.Roots.Build at alire-roots.adb:286
+0xc736d7 Alire.Roots.Build at alire-roots.adb:114
+0x49aa0d Alr.Commands.Build.Execute at alr-commands-build.adb:145
+0x49a36d Alr.Commands.Build.Execute at alr-commands-build.adb:113
+0x49a51f Alr.Commands.Build.Execute at alr-commands-build.adb:54
+0x53bbcc Alr.Commands.Sub_Cmd.Execute at clic-subcommand-instance.adb:749
+0x5472be Alr.Commands.Execute at alr-commands.adb:632
+0x43d48a Alr.Main at alr-main.adb:13
+0x4403a3 Main at b__alr-main.adb:2445
+[/lib64/libc.so.6]
+0x7fc18d44b5ce
+0x7fc18d44b67e
+[/usr/bin/alr]
+0x43d323 _start at ???
+0xfffffffffffffffe
+
+stderr: ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED
+stderr: alire-roots.adb:202
+stderr: raised ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED : alire-roots.adb:202
+[/usr/bin/alr]
+0xc74cc7 Alire.Roots.Build at alire-roots.adb:202
+0xc7301a Alire.Roots.Build at alire-roots.adb:255
+0xc9832b Alire.Roots.Traverse at alire-roots.adb:2143
+0xcfee85 Alire.Solutions.Traverse.Visit at alire-solutions.adb:1472
+0xcfdfcc Alire.Solutions.Traverse at alire-solutions.adb:1555
+0xc9841e Alire.Roots.Traverse at alire-roots.adb:2147
+0xc984dd Alire.Roots.Traverse at alire-roots.adb:2127
+0xc7359b Alire.Roots.Build at alire-roots.adb:286
+0xc736d7 Alire.Roots.Build at alire-roots.adb:114
+0x49aa0d Alr.Commands.Build.Execute at alr-commands-build.adb:145
+0x49a36d Alr.Commands.Build.Execute at alr-commands-build.adb:113
+0x49a51f Alr.Commands.Build.Execute at alr-commands-build.adb:54
+0x53bbcc Alr.Commands.Sub_Cmd.Execute at clic-subcommand-instance.adb:749
+0x5472be Alr.Commands.Execute at alr-commands.adb:632
+0x43d48a Alr.Main at alr-main.adb:13
+0x4403a3 Main at b__alr-main.adb:2445
+[/lib64/libc.so.6]
+0x7fc18d44b5ce
+0x7fc18d44b67e
+[/usr/bin/alr]
+0x43d323 _start at ???
+0xfffffffffffffffe
+
+ERROR: Compilation failed.

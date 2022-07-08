@@ -1,0 +1,92 @@
+Test ran at 2025-12-29 01:05:02.757905+00:00
+
+SOLUTION:
+protobuf=1.0.0: Google Protocol Buffers implementation in Ada
+Origin: source archive 1.0.0.tar.gz at https://github.com/reznikmm/protobuf/archive/1.0.0.tar.gz with hash sha512:439627662874582db8787e6a6311f99c61bac6be95d2e66cf6c891ecf5a1f109dc483c3ce1f183727b696ddc9ce38c5b11d0cfa85d3cec36251c62159c35fe93
+Properties:
+   Author: Maxim Reznik
+   Description: Google Protocol Buffers implementation in Ada
+   Environment: PATH=${CRATE_ROOT}/.objs/compiler:${PATH}
+   Executable: protoc-gen-ada
+   License: MIT
+   Maintainer: Maxim Reznik <reznikmm@gmail.com>
+   Maintainers_Logins: reznikmm
+   Name: protobuf
+   Project_File: gnat/protoc_gen_ada.gpr
+   Tag: protocol
+   Tag: rpc
+   Tag: generator
+   Version: 1.0.0
+   Website: https://github.com/reznikmm/protobuf
+Dependencies (direct):
+   ada_pretty*
+   matreshka_league*
+Dependencies (solution):
+   ada_pretty=1.0.0
+   make=4.4.1
+   matreshka_league=21.0.0
+Dependencies (graph):
+   ada_pretty=1.0.0        --> matreshka_league=21.0.0 (*)
+   matreshka_league=21.0.0 --> make=4.4.1 (*)
+   protobuf=1.0.0          --> ada_pretty=1.0.0 (*)
+   protobuf=1.0.0          --> matreshka_league=21.0.0 (*)
+
+
+LOG:
+[alr test] Testing protobuf=1.0.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get protobuf=1.0.0
+Note: Deploying protobuf=1.0.0...
+
+#=#=#                                                                          
+##O#-#                                                                         
+Note: Deploying ada_pretty=1.0.0...
+
+#=#=#                                                                          
+##O#-#                                                                         
+
+protobuf=1.0.0 successfully retrieved.
+Dependencies were solved as follows:
+
+   +  ada_pretty       1.0.0  (new)
+   +b make             4.4.1  (new,indirect,system package)
+   +  matreshka_league 21.0.0 (new)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Running post-fetch actions for matreshka_league=21.0.0...
+gnatmake -p -j0  -Pgnat/tools_configure.gpr
+Setup
+   [mkdir]        object directory for project Tools_Configure
+tools_configure.gpr:50:25: "../tools/configure" is not a valid directory
+gprbuild: "gnat/tools_configure.gpr" processing failed
+make: *** [Makefile:115: config] Error 5
+Warning: Execution failed for action: Post_Fetch run: make reconfig (from ${CRATE_ROOT}/.)
+Warning: Exit code: 2
+Warning: Action output not captured, check it above.
+stderr: ALIRE.PROPERTIES.ACTIONS.ACTION_FAILED
+stderr: Action failed with exit code 2
+stderr: raised ALIRE.PROPERTIES.ACTIONS.ACTION_FAILED : Action failed with exit code 2
+[D:\a\alire-crates-ci\alire-crates-ci\alire_install\bin\alr.exe]
+0x7ff7850e4e19 Semantic_Versioning.Basic.Restrictions.First_Index at alire-properties-actions-executor.adb:130
+0x7ff7850e306d Semantic_Versioning.Basic.Restrictions.First_Index at alire-properties-actions-executor.adb:36
+0x7ff7852b105c Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:232
+0x7ff7852d912d Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2143
+0x7ff7853482f9 Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1472
+0x7ff7853470ef Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1539
+0x7ff7852d922c Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2147
+0x7ff7852d92fa Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2127
+0x7ff7852b17a7 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:286
+0x7ff7852b1912 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:114
+0x7ff784a23baa Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:145
+0x7ff784a2341e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:113
+0x7ff784a235ba Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:54
+0x7ff784ad5dea Semantic_Versioning.Basic.Restrictions.First_Index at clic-subcommand-instance.adb:749
+0x7ff784ae2b0e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands.adb:632
+0x7ff7849b16a0 Alr.Main at alr-main.adb:13
+0x7ff7849b5270 Main at b__alr-main.adb:2454
+0x7ff7849b133e __tmainCRTStartup at ???
+0x7ff7849b1144 mainCRTStartup at ???
+[C:\Windows\System32\KERNEL32.DLL]
+0x7ffc1d88e8d5
+[C:\Windows\SYSTEM32\ntdll.dll]
+0x7ffc1ef0c53a
+
+ERROR: Compilation failed.

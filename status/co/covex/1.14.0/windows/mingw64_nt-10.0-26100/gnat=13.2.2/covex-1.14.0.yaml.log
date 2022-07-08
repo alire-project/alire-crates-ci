@@ -1,0 +1,272 @@
+Test ran at 2026-08-22 00:49:31.834304+00:00
+
+SOLUTION:
+covex=1.14.0: Ada/SPARK coverage, proof, multi-standard compliance tool
+Origin: commit 6816c1e867c0a07fbb6f1011d149e505c4410960 from https://github.com/bladeacer/adacovex
+Properties:
+   Author: bladeacer
+   Auto_Gpr_With: auto-gpr-with=true
+   Description: Ada/SPARK coverage, proof, multi-standard compliance tool
+   Environment: PATH=${CRATE_ROOT}/bin:${PATH}
+   Executable: adacovex
+   License: Apache-2.0
+   Long_Description: Zero-dependency Ada/SPARK CLI tool for coverage analysis, proof verification,
+test-result parsing, multi-standard safety-compliance assessment (DO-178C /
+ISO 26262 / IEC 62304), and interactive dashboards.
+
+- Source scanning: walks .ads files, extracts subprogram declarations, docstring
+  annotations (@param, @return, @field, @formal), and HLR traceability tags
+- Proof analysis: parses GNATprove gnatprove.out summaries; assesses SPARK
+  assurance levels (Stone through Platinum)
+- Test parsing: reads markdown test results for pass/fail counts (native Ada or
+  AUnit format)
+- DAL compliance: assesses DO-178C DAL A-E criteria (HLR coverage, orphan tags,
+  test status, minimum SPARK proof level), re-labelled for ISO 26262
+  (ASIL A-D/QM) and IEC 62304 (safety classes A-C) via --dal / --asil / --class
+- Differential assessment: --compare-base / --coverage-delta snapshot a base
+  revision on git, Mercurial, Subversion, Fossil, or jj without touching the
+  working tree
+- Multiple outputs: ANSI terminal report, SVG badges, Markdown reports,
+  HTML dashboard, JSON API via a built-in HTTP/1.1 server, and a proof-aware
+  SBOM (CycloneDX / SPDX / Markdown)
+- Result caching: a content-addressed on-disk cache serves unchanged scan,
+  proof, test, and manifest results without re-running the work
+- Tooling: `status` reports the toolchain + VCS state, `man` installs a local
+  man page, and the `prove` subcommand resolves gnatprove at run time
+- Scalable: package/subprogram collections use Ada.Containers.Vectors
+  (heap-allocated, no compile-time limits)
+- Zero library dependencies: uses only the GNAT runtime library. gnatprove is
+  NOT a declared dependency -- the prove subcommand resolves it at run time
+  (per-project manifest, PATH, cached toolchain, or download), so the covex
+  crate installs and builds with no toolchain beyond the GNAT compiler
+-  Self-assessment: 100% docstring coverage, Platinum SPARK (408/408 VCs proved),
+  DAL-C / ASIL B / Class A Achieved, 666/666 native tests passing
+
+   Maintainer: bladeacer <wg.nick.exe@gmail.com>
+   Maintainers_Logins: bladeacer
+   Name: covex
+   Project_File: adacovex.gpr
+   Tag: ada
+   Tag: spark
+   Tag: formal-verify
+   Tag: cli
+   Tag: gnatprove
+   Tag: sbom
+   Tag: tests
+   Tag: code-coverage
+   Tag: do-178c
+   Tag: iso-26262
+   Tag: iec-62304
+   Tag: asil
+   Tag: compliance
+   Tag: developer-tools
+   Version: 1.14.0
+   Website: https://github.com/bladeacer/adacovex
+
+
+LOG:
+[alr test] Testing covex=1.14.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get covex=1.14.0
+Note: Deploying covex=1.14.0...
+
+covex=1.14.0 successfully retrieved.
+There are no dependencies.
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building covex=1.14.0/adacovex.gpr...
+"obj" created
+"bin" created
+[Ada Compile]     adacovex-cache.adb
+[Ada Compile]     adacovex-compliance-dal.adb
+[Ada Compile]     adacovex-compliance.ads
+[Ada Compile]     adacovex-config.adb
+[Ada Compile]     adacovex-cpus.adb
+adacovex-cache.adb:10:04: warning: visible declaration of "Exists" at adacovex-cache.ads:84 hides homonym from use clause [-gnatwh]
+adacovex-cache.adb:153:07: warning: declaration hides "Size" at a-ststio.ads:125 [-gnatwh]
+adacovex-cache.adb:230:07: warning: declaration hides "Search" at a-direct.ads:410 [-gnatwh]
+adacovex-cache.adb:298:07: warning: declaration hides "Search" at a-direct.ads:410 [-gnatwh]
+adacovex-cache.adb:333:07: warning: declaration hides "Count" at a-ststio.ads:58 [-gnatwh]
+[Ada Compile]     adacovex-dashboard_template.ads
+[Ada Compile]     adacovex-diff.adb
+adacovex-cpus.adb:96:07: warning: declaration hides "Count" at a-textio.ads:79 [-gnatwh]
+adacovex-cpus.adb:97:07: warning: declaration hides "Line" at a-textio.ads:403 [-gnatwh]
+[Ada Compile]     adacovex-ir_bounds.adb
+adacovex-compliance-dal.ads:2:22: warning: unit "Adacovex.Parsers.DO178C" is not referenced in spec [-gnatwu]
+adacovex-compliance-dal.ads:2:22: warning: with clause might be moved to body [-gnatwu]
+adacovex-compliance-dal.ads:3:22: warning: unit "Adacovex.Parsers.Source" is not referenced [-gnatwu]
+[Ada Compile]     adacovex-ir_synthesiser.adb
+[Ada Compile]     adacovex-parsers-do178c.adb
+adacovex-ir_synthesiser.adb:93:41: warning: condition is always True [-gnatwc]
+adacovex-ir_synthesiser.adb:93:41: warning: (see assignment at line 80) [-gnatwc]
+[Ada Compile]     adacovex-parsers-gnatprove.adb
+adacovex-diff.adb:7:06: warning: redundant with clause in body [-gnatwr]
+[Ada Compile]     adacovex-parsers-manifest.adb
+adacovex-parsers-gnatprove.adb:109:07: warning: declaration hides "Line" at a-textio.ads:403 [-gnatwh]
+adacovex-parsers-gnatprove.adb:342:07: warning: declaration hides "Line" at a-textio.ads:403 [-gnatwh]
+[Ada Compile]     adacovex-parsers-source.adb
+adacovex-config.adb:836:25: warning: writable actual for "Cfg" overlaps with actual for "Field" [-gnatw.i]
+adacovex-config.adb:842:22: warning: writable actual for "Cfg" overlaps with actual for "Field" [-gnatw.i]
+adacovex-config.adb:851:22: warning: writable actual for "Cfg" overlaps with actual for "Field" [-gnatw.i]
+adacovex-config.adb:861:25: warning: writable actual for "Cfg" overlaps with actual for "Field" [-gnatw.i]
+adacovex-config.adb:867:22: warning: writable actual for "Cfg" overlaps with actual for "Field" [-gnatw.i]
+adacovex-config.adb:877:25: warning: writable actual for "Cfg" overlaps with actual for "Field" [-gnatw.i]
+adacovex-config.adb:888:22: warning: writable actual for "Cfg" overlaps with actual for "Field" [-gnatw.i]
+adacovex-config.adb:898:25: warning: writable actual for "Cfg" overlaps with actual for "Field" [-gnatw.i]
+adacovex-config.adb:909:22: warning: writable actual for "Cfg" overlaps with actual for "Field" [-gnatw.i]
+adacovex-config.adb:919:25: warning: writable actual for "Cfg" overlaps with actual for "Field" [-gnatw.i]
+adacovex-config.adb:931:22: warning: writable actual for "Cfg" overlaps with actual for "Field" [-gnatw.i]
+adacovex-config.adb:994:25: warning: writable actual for "Cfg" overlaps with actual for "Field" [-gnatw.i]
+adacovex-config.adb:1010:22: warning: writable actual for "Cfg" overlaps with actual for "Field" [-gnatw.i]
+adacovex-config.adb:1023:25: warning: writable actual for "Cfg" overlaps with actual for "Field" [-gnatw.i]
+adacovex-config.adb:1038:22: warning: writable actual for "Cfg" overlaps with actual for "Field" [-gnatw.i]
+adacovex-config.adb:1051:25: warning: writable actual for "Cfg" overlaps with actual for "Field" [-gnatw.i]
+adacovex-config.adb:1066:22: warning: writable actual for "Cfg" overlaps with actual for "Field" [-gnatw.i]
+adacovex-config.adb:1527:07: warning: "Last" is not modified, could be declared constant [-gnatwk]
+[Ada Compile]     adacovex-parsers-tests.adb
+adacovex-parsers-do178c.adb:45:07: warning: declaration hides "Line" at a-textio.ads:403 [-gnatwh]
+adacovex-parsers-do178c.adb:130:47: warning: aggregate not fully initialized [-gnatwv]
+adacovex-parsers-do178c.adb:204:07: warning: declaration hides "Line" at a-textio.ads:403 [-gnatwh]
+adacovex-parsers-do178c.adb:326:47: warning: aggregate not fully initialized [-gnatwv]
+[Ada Compile]     adacovex-parsers.adb
+adacovex-parsers.adb:1:06: warning: redundant with clause in body [-gnatwr]
+adacovex-parsers.adb:19:07: warning: visible declaration of "Line" at adacovex-parsers.ads:27 hides homonym from use clause [-gnatwh]
+[Ada Compile]     adacovex-prove.adb
+adacovex-parsers-tests.adb:218:07: warning: declaration hides "Line" at a-textio.ads:403 [-gnatwh]
+adacovex-parsers-tests.adb:274:22: warning: variable "PIdx" is assigned but never read [-gnatwm]
+adacovex-parsers-tests.adb:419:16: warning: "Tests_Run" is not modified, could be declared constant [-gnatwk]
+adacovex-parsers-tests.adb:421:16: warning: "Failures" is not modified, could be declared constant [-gnatwk]
+adacovex-parsers-tests.adb:423:16: warning: "Errors" is not modified, could be declared constant [-gnatwk]
+[Ada Compile]     adacovex-renderers-ansi.adb
+adacovex-renderers-ansi.adb:5:04: warning: use clause for type "Test_Status" defined at adacovex-types.ads:64 has no effect [-gnatwu]
+[Ada Compile]     adacovex-renderers-html.adb
+adacovex-parsers-source.adb:328:07: warning: declaration hides "Line" at a-textio.ads:403 [-gnatwh]
+adacovex-parsers-source.adb:372:14: warning: aggregate not fully initialized [-gnatwv]
+adacovex-parsers-source.adb:435:53: warning: aggregate not fully initialized [-gnatwv]
+adacovex-parsers-source.adb:632:07: warning: declaration hides "Search" at a-direct.ads:410 [-gnatwh]
+adacovex-parsers-source.adb:664:13: warning: "Current" is not modified, could be declared constant [-gnatwk]
+adacovex-parsers-source.adb:878:07: warning: declaration hides "Search" at a-direct.ads:410 [-gnatwh]
+adacovex-parsers-source.adb:917:13: warning: "Current" is not modified, could be declared constant [-gnatwk]
+[Ada Compile]     adacovex-renderers-man.adb
+adacovex-prove.adb:6:06: warning: unnecessary with of ancestor [-gnatwr]
+adacovex-prove.adb:264:13: warning: declaration hides "Line" at a-textio.ads:403 [-gnatwh]
+adacovex-prove.adb:459:07: warning: declaration hides "Version" at adacovex.ads:15 [-gnatwh]
+adacovex-prove.adb:490:47: warning: "Best_Name" may be referenced before it has a value [enabled by default]
+adacovex-prove.adb:685:44: warning: index for "Exe_Path" may assume lower bound of 1 [-gnatww]
+adacovex-prove.adb:685:44: warning: suggested replacement: "Exe_Path'First" [-gnatww]
+adacovex-prove.adb:707:53: warning: index for "Toolchain_Dir" may assume lower bound of 1 [-gnatww]
+adacovex-prove.adb:707:53: warning: suggested replacement: "Toolchain_Dir'First" [-gnatww]
+adacovex-prove.adb:756:07: warning: variable "Found" is not referenced [-gnatwu]
+adacovex-prove.adb:838:16: warning: declaration hides "Line" at a-textio.ads:403 [-gnatwh]
+adacovex-prove.adb:990:13: warning: "Hit" is not modified, could be declared constant [-gnatwk]
+adacovex-prove.ads:1:14: warning: unit "Adacovex.Types" is not referenced in spec [-gnatwu]
+adacovex-prove.ads:1:14: warning: with clause might be moved to body [-gnatwu]
+[Ada Compile]     adacovex-renderers-markdown.adb
+adacovex-renderers-man.adb:3:17: warning: no entities of "Ada.Strings.Fixed" are referenced [-gnatwu]
+adacovex-renderers-man.adb:9:04: warning: use clause for package "Fixed" has no effect [-gnatwu]
+adacovex-renderers-man.adb:54:26: warning: declaration hides "Version" at adacovex.ads:15 [-gnatwh]
+adacovex-renderers-man.adb:363:26: warning: declaration hides "Version" at adacovex.ads:15 [-gnatwh]
+adacovex-renderers-man.adb:462:13: warning: declaration hides "Line" at a-textio.ads:403 [-gnatwh]
+adacovex-renderers-man.ads:18:26: warning: declaration hides "Version" at adacovex.ads:15 [-gnatwh]
+adacovex-renderers-man.ads:35:26: warning: declaration hides "Version" at adacovex.ads:15 [-gnatwh]
+[Ada Compile]     adacovex-renderers-sbom.adb
+[Ada Compile]     adacovex-renderers-svg.adb
+[Ada Compile]     adacovex-renderers.ads
+[Ada Compile]     adacovex-server-http.adb
+adacovex-renderers-sbom.adb:4:06: warning: redundant with clause in body [-gnatwr]
+adacovex-renderers-sbom.adb:5:06: warning: unnecessary with of ancestor [-gnatwr]
+adacovex-renderers-sbom.adb:9:04: warning: use clause for type "SPARK_Level" defined at adacovex-types.ads:51 has no effect [-gnatwu]
+adacovex-renderers-sbom.adb:334:07: warning: "Sec" is not modified, could be declared constant [-gnatwk]
+adacovex-renderers-sbom.adb:346:16: warning: declaration hides "DY" at line 337 [-gnatwh]
+adacovex-renderers-sbom.adb:614:07: warning: if statement has no effect [-gnatwr]
+adacovex-renderers-sbom.adb:689:13: warning: "C" is not modified, could be declared constant [-gnatwk]
+adacovex-renderers-sbom.adb:871:13: warning: "C" is not modified, could be declared constant [-gnatwk]
+adacovex-renderers-sbom.adb:1017:16: warning: "C" is not modified, could be declared constant [-gnatwk]
+[Ada Compile]     adacovex-server.ads
+adacovex-renderers-svg.adb:171:07: warning: "Num" is not modified, could be declared constant [-gnatwk]
+adacovex-renderers-svg.adb:241:07: warning: "Num" is not modified, could be declared constant [-gnatwk]
+[Ada Compile]     adacovex-target_profiles.adb
+[Ada Compile]     adacovex-test_support.adb
+[Ada Compile]     adacovex-types.adb
+[Ada Compile]     adacovex-vcs.adb
+adacovex-server-http.adb:20:07: warning: declaration hides "Keep_Alive" at g-socket.ads:811 [-gnatwh]
+adacovex-server-http.adb:31:52: warning: declaration hides "Keep_Alive" at g-socket.ads:811 [-gnatwh]
+adacovex-server-http.adb:59:07: warning: "Family" is not modified, could be declared constant [-gnatwk]
+adacovex-server-http.adb:61:07: warning: "Svr_State" is not modified, could be declared constant [-gnatwk]
+adacovex-server-http.adb:142:07: warning: declaration hides "Keep_Alive" at g-socket.ads:811 [-gnatwh]
+adacovex-server-http.adb:202:07: warning: declaration hides "Start" at adacovex-server-http.ads:27 [-gnatwh]
+adacovex-server-http.adb:222:52: warning: declaration hides "Keep_Alive" at g-socket.ads:811 [-gnatwh]
+[Ada Compile]     adacovex.ads
+[Ada Compile]     adacovex_config_tests.adb
+adacovex-vcs.adb:91:07: warning: "Stop" is not modified, could be declared constant [-gnatwk]
+[Ada Compile]     adacovex_dal_tests.adb
+adacovex_config_tests.adb:82:39: warning: aggregate not fully initialized [-gnatwv]
+adacovex_config_tests.adb:101:39: warning: aggregate not fully initialized [-gnatwv]
+adacovex_config_tests.adb:432:10: warning: "Cfg" is not modified, could be declared constant [-gnatwk]
+adacovex_config_tests.adb:432:30: warning: aggregate not fully initialized [-gnatwv]
+[Ada Compile]     adacovex_ir_tests.adb
+[Ada Compile]     adacovex_main.adb
+adacovex_ir_tests.adb:148:28: warning: condition is always False [-gnatwc]
+adacovex_ir_tests.adb:153:36: warning: condition is always True [-gnatwc]
+[Ada Compile]     adacovex_man_tests.adb
+adacovex-parsers-manifest.adb:188:07: warning: declaration hides "Line" at a-textio.ads:403 [-gnatwh]
+adacovex-parsers-manifest.adb:282:07: warning: declaration hides "Line" at a-textio.ads:403 [-gnatwh]
+adacovex-parsers-manifest.adb:423:13: warning: "Current" is not modified, could be declared constant [-gnatwk]
+adacovex-parsers-manifest.adb:559:07: warning: declaration hides "Line" at a-textio.ads:403 [-gnatwh]
+adacovex-parsers-manifest.adb:652:07: warning: declaration hides "Version" at adacovex.ads:15 [-gnatwh]
+adacovex-parsers-manifest.adb:686:07: warning: declaration hides "Base_Names" at line 32 [-gnatwh]
+adacovex-parsers-manifest.adb:687:07: warning: declaration hides "Dev_Names" at line 33 [-gnatwh]
+adacovex-parsers-manifest.adb:720:07: warning: declaration hides "Line" at a-textio.ads:403 [-gnatwh]
+adacovex-parsers-manifest.adb:903:28: warning: "C_Index" is not modified, could be declared constant [-gnatwk]
+adacovex-parsers-manifest.adb:990:13: warning: "Current" is not modified, could be declared constant [-gnatwk]
+adacovex-parsers-manifest.adb:1371:10: warning: declaration hides "Line" at a-textio.ads:403 [-gnatwh]
+adacovex-parsers-manifest.adb:1433:13: warning: "Current" is not modified, could be declared constant [-gnatwk]
+adacovex-parsers-manifest.adb:1572:13: warning: "Current" is not modified, could be declared constant [-gnatwk]
+[Ada Compile]     adacovex_prove_tests.adb
+adacovex_man_tests.adb:4:06: warning: redundant with clause in body [-gnatwr]
+[Ada Compile]     adacovex_renderer_svg_tests.adb
+adacovex_prove_tests.adb:80:10: warning: "S" is not modified, could be declared constant [-gnatwk]
+[Ada Compile]     adacovex_renderer_tests.adb
+[Ada Compile]     adacovex_sbom_tests.adb
+adacovex_main.adb:6:10: warning: unit "GNAT.Sockets" is not referenced [-gnatwu]
+adacovex_main.adb:14:22: warning: unit "Adacovex.Parsers.DO178C" is not referenced [-gnatwu]
+[Ada Compile]     adacovex_scanner_tests.adb
+[Ada Compile]     adacovex_testparser_tests.adb
+[Ada Compile]     adacovex_types_tests.adb
+[Ada Compile]     adacovex_vcs_tests.adb
+adacovex_scanner_tests.adb:118:29: warning: condition can only be False if invalid values present [-gnatwc]
+adacovex_scanner_tests.adb:119:23: warning: condition can only be False if invalid values present [-gnatwc]
+adacovex_scanner_tests.adb:155:36: warning: aggregate not fully initialized [-gnatwv]
+adacovex_scanner_tests.adb:156:36: warning: aggregate not fully initialized [-gnatwv]
+adacovex_scanner_tests.adb:157:36: warning: aggregate not fully initialized [-gnatwv]
+adacovex_scanner_tests.adb:158:36: warning: aggregate not fully initialized [-gnatwv]
+adacovex_scanner_tests.adb:159:36: warning: aggregate not fully initialized [-gnatwv]
+adacovex_scanner_tests.adb:160:33: warning: aggregate not fully initialized [-gnatwv]
+adacovex_scanner_tests.adb:161:33: warning: aggregate not fully initialized [-gnatwv]
+adacovex_scanner_tests.adb:225:27: warning: condition can only be False if invalid values present [-gnatwc]
+adacovex_scanner_tests.adb:226:21: warning: condition can only be False if invalid values present [-gnatwc]
+[Ada Compile]     adacovex_version_info.ads
+[Ada Compile]     test_runner.adb
+adacovex_types_tests.adb:119:25: warning: condition is always True [-gnatwc]
+adacovex_types_tests.adb:125:19: warning: condition is always True [-gnatwc]
+adacovex_types_tests.adb:128:19: warning: condition is always True [-gnatwc]
+adacovex_types_tests.adb:131:23: warning: condition is always True [-gnatwc]
+adacovex_types_tests.adb:131:46: warning: condition is always True [-gnatwc]
+adacovex_types_tests.adb:131:67: warning: condition is always True [-gnatwc]
+adacovex_vcs_tests.adb:5:06: warning: redundant with clause in body [-gnatwr]
+test_runner.adb:34:28: warning: declaration hides "Out_File" at a-textio.ads:68 [-gnatwh]
+test_runner.adb:44:25: warning: declaration hides "Name" at a-textio.ads:165 [-gnatwh]
+test_runner.adb:117:25: warning: declaration hides "Name" at a-textio.ads:165 [-gnatwh]
+adacovex-types.adb:53:17: warning: condition is always True [-gnatwc]
+adacovex-types.adb:54:28: warning: condition is always True [-gnatwc]
+adacovex-types.adb:101:17: warning: condition is always True [-gnatwc]
+adacovex-types.adb:102:28: warning: condition is always True [-gnatwc]
+adacovex-types.adb:134:17: warning: condition is always True [-gnatwc]
+adacovex-types.adb:135:28: warning: condition is always True [-gnatwc]
+[Ada Bind]        adacovex_main
+[Ada Bind]        test_runner
+[Ada Post-Bind]   b__adacovex_main.adb
+[Ada Post-Bind]   b__test_runner.adb
+[Link]            test_runner.exe
+[Link]            adacovex.exe
+Success: Build finished successfully in 11.13 seconds.
+Found declared GPR file: adacovex.gpr
+[alr test] Test completed SUCCESSFULLY

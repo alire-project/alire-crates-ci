@@ -1,0 +1,101 @@
+Test ran at 2026-09-04 01:12:48.741593+00:00
+
+SOLUTION:
+ml_dsa=1.0.0: SPARK-proved ML-DSA (FIPS 204) lattice-based digital signatures
+Origin: commit 259116004ff3cff337950d5cf87e905eda3695f7 from https://github.com/b-erdem/ml_dsa_ada.git
+Properties:
+   Author: Baris Erdem
+   Config type: parameter_set : Enum (ML_DSA_44, ML_DSA_65, ML_DSA_87) default: 'ML_DSA_65'
+   Configuration: no modifiers
+   Description: SPARK-proved ML-DSA (FIPS 204) lattice-based digital signatures
+   License: GPL-3.0-only
+   Long_Description: SPARK-proved ML-DSA (Module-Lattice-Based Digital Signature Algorithm)
+implementing NIST FIPS 204. Verifies signing and verification under
+the Module Learning With Errors (M-LWE) assumption.
+
+All three FIPS 204 parameter sets -- ML-DSA-44, ML-DSA-65, ML-DSA-87
+-- are supported and selected at build time via the `parameter_set`
+crate configuration variable; default is ML-DSA-65 (NIST Category III).
+
+The 8-layer Cooley-Tukey NTT, Montgomery reduction, Power2Round /
+Decompose / MakeHint / UseHint rounding primitives, and bounded
+rejection-sampling loops for signing are all SPARK-checked. The
+signing rejection loop is bounded (Max_Retries = 1000) for proof
+termination; rejection probability per attempt is empirically ~2-4%,
+so the bound is reached only with negligible probability.
+
+Built on sha3_ada for SHA-3/SHAKE. No heap allocation, pragma Pure,
+suitable for embedded and safety-critical systems. FIPS 140-3
+validation is out of scope.
+
+   Maintainer: Baris Erdem <baris@erdem.dev>
+   Maintainers_Logins: b-erdem
+   Name: ml_dsa
+   Project_File: ml_dsa_ada.gpr
+   Tag: ml-dsa
+   Tag: dilithium
+   Tag: post-quantum
+   Tag: cryptography
+   Tag: spark
+   Tag: embedded
+   Tag: security
+   Tag: verified
+   Version: 1.0.0
+   Website: https://github.com/b-erdem/ml_dsa_ada
+Dependencies (direct):
+   gnat>=14.2.1
+   sha3~1.0
+Dependencies (solution):
+   gnat=16.1.0 (gnat_native)
+   sha3=1.0.0
+Dependencies (graph):
+   ml_dsa=1.0.0 --> gnat=16.1.0 (gnat_native) (>=14.2.1)
+   ml_dsa=1.0.0 --> sha3=1.0.0 (~1.0)
+   sha3=1.0.0   --> gnat=16.1.0 (gnat_native) (>=14.2.1)
+
+
+LOG:
+[alr test] Testing ml_dsa=1.0.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get ml_dsa=1.0.0
+Note: Deploying ml_dsa=1.0.0...
+Note: Deploying sha3=1.0.0...
+
+ml_dsa=1.0.0 successfully retrieved.
+Dependencies were solved as follows:
+
+   +b gnat 16.1.0 (new,gnat_native,binary)
+   +  sha3 1.0.0  (new)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building ml_dsa=1.0.0/ml_dsa_ada.gpr...
+Setup
+   [mkdir]        object directory for project SHA3_Ada
+   [mkdir]        library directory for project SHA3_Ada
+   [mkdir]        object directory for project ML_DSA_Ada
+   [mkdir]        library directory for project ML_DSA_Ada
+Compile
+   [Ada]          sha3-keccak.adb
+   [Ada]          sha3-wipe.adb
+   [Ada]          sha3.adb
+   [Ada]          ml_dsa_config.ads
+   [Ada]          ml_dsa-polyvec.adb
+   [Ada]          ml_dsa-ntt.adb
+   [Ada]          ml_dsa-reduce.adb
+   [Ada]          ml_dsa-symmetric.adb
+   [Ada]          ml_dsa-poly.adb
+   [Ada]          ml_dsa-packing.adb
+   [Ada]          ml_dsa-sign.adb
+   [Ada]          ml_dsa-rounding.adb
+   [Ada]          ml_dsa.ads
+   [Ada]          ml_dsa-wipe.adb
+   [Ada]          ml_dsa-ntt_zetas.ads
+   [Ada]          ml_dsa-sampling.adb
+Build Libraries
+   [gprlib]       sha3_ada.lexch
+   [gprlib]       ml_dsa_ada.lexch
+   [archive]      libsha3_ada.a
+   [index]        libsha3_ada.a
+   [archive]      libml_dsa_ada.a
+   [index]        libml_dsa_ada.a
+Success: Build finished successfully in 1.20 seconds.
+Found declared GPR file: ml_dsa_ada.gpr
+[alr test] Test completed SUCCESSFULLY

@@ -1,0 +1,93 @@
+Test ran at 2022-09-08 01:11:28.059025+00:00
+
+SOLUTION:
+zipdcf=2.0.2: Tools that can (un)zip document container files, a Zip-based format
+Origin: source archive zipdcf-2.0.2.tgz at https://github.com/onox/dcf-ada/releases/download/v2.0.2/zipdcf-2.0.2.tgz with hash sha512:879a41168e294f6cbeff7fafcef23e08cbcf091011d77808901aa966af43b9d4212eeae414f43092d0f014c59a40ab44f9619b35afd03ab2233880f833a378af
+Properties:
+   Author: onox
+   Author: Gautier de Montmollin
+   Description: Tools that can (un)zip document container files, a Zip-based format
+   Executable: zipdcf
+   Executable: unzipdcf
+   License: MIT
+   Maintainer: onox <denkpadje@gmail.com>
+   Maintainers_Logins: onox
+   Name: zipdcf
+   Tag: zip
+   Tag: document
+   Tag: container
+   Version: 2.0.2
+   Website: https://github.com/onox/dcf-ada
+Dependencies (direct):
+   dcf^2.0
+Dependencies (solution):
+   dcf=2.0.2
+Dependencies (graph):
+   zipdcf=2.0.2 --> dcf=2.0.2 (^2.0)
+
+
+LOG:
+Note: Deploying zipdcf=2.0.2...
+#=#=#                                                                         
+
+######################################################################## 100.0%
+Note: Migrating lockfile from /home/runner/work/alire-crates-ci/alire-crates-ci/test/28b914ec-8294-4ed8-8173-517e9c6bbc2c/zipdcf_2.0.2_879a4116/alire.lock to /home/runner/work/alire-crates-ci/alire-crates-ci/test/28b914ec-8294-4ed8-8173-517e9c6bbc2c/zipdcf_2.0.2_879a4116/alire/alire.lock
+Note: Deploying dcf=2.0.2...
+#=#=#                                                                         
+
+##############                                                            20.2%
+######################################################################## 100.0%
+Note: Building zipdcf/zipdcf.gpr...
+zipdcf.gpr:94:07: warning: the following values are not used as labels:
+zipdcf.gpr:94:07: warning: "debug"
+zipdcf.gpr:94:07: warning: "release"
+Setup
+   [mkdir]        object directory for project Dcf
+   [mkdir]        library directory for project Dcf
+   [mkdir]        object directory for project Zipdcf
+   [mkdir]        exec directory for project Zipdcf
+Compile
+   [Ada]          zipdcf.adb
+   [Ada]          unzipdcf.adb
+unzipdcf.adb:29:09: warning: unit "Ada.Streams" is not referenced [-gnatwu]
+
+   compilation of unzipdcf.adb failed
+
+gprbuild: *** compilation phase failed
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/28b914ec-8294-4ed8-8173-517e9c6bbc2c/zipdcf_2.0.2_879a4116/zipdcf.gpr"] exited with code 4
+ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/28b914ec-8294-4ed8-8173-517e9c6bbc2c/zipdcf_2.0.2_879a4116/zipdcf.gpr"] exited with code 4
+stderr: ALIRE.CHECKED_ERROR
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/28b914ec-8294-4ed8-8173-517e9c6bbc2c/zipdcf_2.0.2_879a4116/zipdcf.gpr"] exited with code 4
+stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
+[/usr/sbin/alr]
+0xd65c78 Alire.Raise_Checked_Error at alire.adb:251
+0xa2f08f Alire.Os_Lib.Subprocess.Checked_Spawn at alire-os_lib-subprocess.adb:110
+0xc49318 Alire.Spawn.Command at alire-spawn.adb:21
+0xc49a46 Alire.Spawn.Gprbuild at alire-spawn.adb:41
+0xbada9c Alire.Roots.Build.Build_Single_Release.Call_Gprbuild at alire-roots.adb:140
+0xbac0fb Alire.Roots.Build.Build_Single_Release at alire-roots.adb:171
+0xbc7eaa Alire.Roots.Traverse.Traverse_Wrap at alire-roots.adb:1364
+0xc11fbb Alire.Solutions.Traverse.Visit at alire-solutions.adb:1434
+0xc10bd2 Alire.Solutions.Traverse at alire-solutions.adb:1509
+0xbc7ff8 Alire.Roots.Traverse at alire-roots.adb:1368
+0xbac48c Alire.Roots.Build at alire-roots.adb:196
+0x48f1e4 Alr.Commands.Build.Execute at alr-commands-build.adb:58
+0x49f50a Alr.Commands.Get.Retrieve at alr-commands-get.adb:187
+0x4a3d27 Alr.Commands.Get.Execute at alr-commands-get.adb:348
+0x52aa2e Alr.Commands.Sub_Cmd.Execute at clic-subcommand-instance.adb:742
+0x53641f Alr.Commands.Execute at alr-commands.adb:492
+0x42b9ca Alr.Main at alr-main.adb:10
+0x42e297 Main at b__alr-main.adb:2132
+[/usr/bin/..//lib/libc.so.6]
+0x7f60ff05428e
+0x7f60ff054348
+[/usr/sbin/alr]
+0x42b8a8 _start at ???
+0xfffffffffffffffe
+
+
+Warning: zipdcf=2.0.2 successfully retrieved but its build failed.
+Dependencies were solved as follows:
+
+   + dcf 2.0.2 (new)
+ERROR: Build ended with errors

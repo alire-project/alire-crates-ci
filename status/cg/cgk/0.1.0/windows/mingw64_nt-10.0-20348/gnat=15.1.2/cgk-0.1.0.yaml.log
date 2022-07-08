@@ -1,0 +1,106 @@
+Test ran at 2026-04-12 01:10:07.148312+00:00
+
+SOLUTION:
+cgk=0.1.0: Computational Geometry Kernel
+Origin: commit 0b19efcd983adfdc704a9ed870f36f2efb5f40d3 from https://github.com/godunko/cgk.git
+Properties:
+   Author: Vadim Godunko
+   Config type: Float_Size : Enum (32, 64) default: '64'
+   Config type: SIMD : Enum (nosimd, gcc) default: 'gcc'
+   Configuration: no modifiers
+   Description: Computational Geometry Kernel
+   License: Apache-2.0 WITH LLVM-exception
+   Maintainer: Vadim Godunko <vgodunko@gmail.com>
+   Maintainers_Logins: godunko
+   Name: cgk
+   Project_File: gnat/cgk_primitives.gpr
+   Tag: computational
+   Tag: geometry
+   Version: 0.1.0
+   Website: https://github.com/godunko/cgk
+
+
+LOG:
+[alr test] Testing cgk=0.1.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get cgk=0.1.0
+Note: Deploying cgk=0.1.0...
+
+cgk=0.1.0 successfully retrieved.
+There are no dependencies.
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building cgk=0.1.0/gnat/cgk_primitives.gpr...
+Setup
+   [mkdir]        object directory for project CGK_Primitives
+Compile
+   [Ada]          cgk-primitives-vectors_3d.adb
+   [Ada]          cgk-primitives-triangulators_3d.adb
+   [Ada]          cgk-primitives-points_3d.adb
+   [Ada]          cgk-primitives-points_3d-containers.ads
+cgk-internals-generic_sequences.ads:24:40: error: improper aggregate operation for "Sequence"
+cgk-internals-generic_sequences.ads:24:40: error: improper aggregate operation for "Sequence"
+
+   compilation of cgk-primitives-points_3d-containers.ads failed
+   compilation of cgk-primitives-triangulators_3d.adb failed
+
+gprbuild: *** compilation phase failed
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "D:\a\alire-crates-ci\alire-crates-ci\test\18716d75-7401-4108-994c-180ee6c434e1\cgk_0.1.0_0b19efcd\gnat/cgk_primitives.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "D:\a\alire-crates-ci\alire-crates-ci\test\18716d75-7401-4108-994c-180ee6c434e1\cgk_0.1.0_0b19efcd\gnat/cgk_primitives.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+stderr: ALIRE.CHECKED_ERROR
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "D:\a\alire-crates-ci\alire-crates-ci\test\18716d75-7401-4108-994c-180ee6c434e1\cgk_0.1.0_0b19efcd\gnat/cgk_primitives.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
+[D:\a\alire-crates-ci\alire-crates-ci\alire_install\bin\alr.exe]
+0x7ff798e4da2a Semantic_Versioning.Basic.Restrictions.First_Index at alire.adb:284
+0x7ff798a4595b Semantic_Versioning.Basic.Restrictions.First_Index at alire-os_lib-subprocess.adb:111
+0x7ff798cfcba1 Semantic_Versioning.Basic.Restrictions.First_Index at alire-spawn.adb:22
+0x7ff798cfdd5d Semantic_Versioning.Basic.Restrictions.First_Index at alire-spawn.adb:68
+0x7ff798c22d64 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:189
+0x7ff798c211da Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:255
+0x7ff798c4912d Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2143
+0x7ff798cb82f9 Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1472
+0x7ff798cb7424 Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1555
+0x7ff798c4922c Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2147
+0x7ff798c492fa Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2127
+0x7ff798c217a7 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:286
+0x7ff798c21912 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:114
+0x7ff798393baa Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:145
+0x7ff79839341e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:113
+0x7ff7983935ba Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:54
+0x7ff798445dea Semantic_Versioning.Basic.Restrictions.First_Index at clic-subcommand-instance.adb:749
+0x7ff798452b0e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands.adb:632
+0x7ff7983216a0 Alr.Main at alr-main.adb:13
+0x7ff798325270 Main at b__alr-main.adb:2454
+0x7ff79832133e __tmainCRTStartup at ???
+0x7ff798321144 mainCRTStartup at ???
+[C:\Windows\System32\KERNEL32.DLL]
+0x7ffe09aae8d5
+[C:\Windows\SYSTEM32\ntdll.dll]
+0x7ffe0bcec53a
+
+stderr: ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED
+stderr: alire-roots.adb:202
+stderr: raised ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED : alire-roots.adb:202
+[D:\a\alire-crates-ci\alire-crates-ci\alire_install\bin\alr.exe]
+0x7ff798c2313c Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:202
+0x7ff798c211da Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:255
+0x7ff798c4912d Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2143
+0x7ff798cb82f9 Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1472
+0x7ff798cb7424 Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1555
+0x7ff798c4922c Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2147
+0x7ff798c492fa Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2127
+0x7ff798c217a7 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:286
+0x7ff798c21912 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:114
+0x7ff798393baa Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:145
+0x7ff79839341e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:113
+0x7ff7983935ba Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:54
+0x7ff798445dea Semantic_Versioning.Basic.Restrictions.First_Index at clic-subcommand-instance.adb:749
+0x7ff798452b0e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands.adb:632
+0x7ff7983216a0 Alr.Main at alr-main.adb:13
+0x7ff798325270 Main at b__alr-main.adb:2454
+0x7ff79832133e __tmainCRTStartup at ???
+0x7ff798321144 mainCRTStartup at ???
+[C:\Windows\System32\KERNEL32.DLL]
+0x7ffe09aae8d5
+[C:\Windows\SYSTEM32\ntdll.dll]
+0x7ffe0bcec53a
+
+ERROR: Compilation failed.

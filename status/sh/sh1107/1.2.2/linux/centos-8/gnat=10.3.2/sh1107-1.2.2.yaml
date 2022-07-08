@@ -2,11 +2,11 @@ badge: false
 crate: sh1107
 creation_timestamp: 1648585179.0145915
 distro: centos-8
-duration: 10.047465544000033
+duration: 7.602007118999836
 gnat: 10.3.2
-last_attempt: 2022-06-30 00:46:35.745154+00:00
+last_attempt: 2026-08-31 12:54:13.388342+00:00
 log:
-- 'Test ran at 2022-06-30 00:46:35.744926+00:00
+- 'Test ran at 2026-08-31 12:54:13.388304+00:00
 
 
   '
@@ -61,21 +61,27 @@ log:
 - 'Dependencies (solution):
 
   '
-- '   adl_middleware=0.1.1
+- '   adl_middleware=0.2.0
 
   '
 - '   embedded_components=0.1.0
 
   '
-- '   hal=0.3.0
+- '   hal=0.3.1
 
   '
 - 'Dependencies (graph):
 
   '
-- "   adl_middleware=0.1.1      --> hal=0.3.0 (^0.1.0)                \n"
-- "   embedded_components=0.1.0 --> adl_middleware=0.1.1 (^0.1.0)     \n"
-- "   embedded_components=0.1.0 --> hal=0.3.0 (^0.1.0)                \n"
+- '   adl_middleware=0.2.0      --> hal=0.3.1 (~0.3.0)
+
+  '
+- '   embedded_components=0.1.0 --> adl_middleware=0.2.0 (^0.1.0)
+
+  '
+- '   embedded_components=0.1.0 --> hal=0.3.1 (^0.1.0)
+
+  '
 - '   sh1107=1.2.2              --> embedded_components=0.1.0 (~0.1.0)
 
   '
@@ -87,19 +93,50 @@ log:
   LOG:
 
   '
+- '[alr test] Testing sh1107=1.2.2
+
+  '
+- '[alr test] Spawning retrieval for remote crate: alr -d -n get sh1107=1.2.2
+
+  '
 - 'Note: Deploying sh1107=1.2.2...
 
   '
-- 'Note: Deploying hal=0.3.0...
+- 'Note: Deploying hal=0.3.1...
 
   '
-- 'Note: Deploying adl_middleware=0.1.1...
+- 'Note: Deploying adl_middleware=0.2.0...
 
   '
 - 'Note: Deploying embedded_components=0.1.0...
 
   '
-- 'Note: Building sh1107/sh1107.gpr...
+- '
+
+  '
+- 'sh1107=1.2.2 successfully retrieved.
+
+  '
+- 'Dependencies were solved as follows:
+
+  '
+- '
+
+  '
+- '   + adl_middleware      0.2.0 (new,indirect)
+
+  '
+- '   + embedded_components 0.1.0 (new)
+
+  '
+- '   + hal                 0.3.1 (new,indirect)
+
+  '
+- '[alr test] Spawning default test for remote crate: alr -d -n build --release --
+  -cargs:Ada -gnatwn
+
+  '
+- 'Note: Building sh1107=1.2.2/sh1107.gpr...
 
   '
 - 'Setup
@@ -132,58 +169,22 @@ log:
 - 'Compile
 
   '
-- '   [Ada]          bluetooth_low_energy-beacon.adb
-
-  '
-- '   [Ada]          bluetooth_low_energy-packets.adb
-
-  '
-- '   [Ada]          bluetooth_low_energy.adb
-
-  '
-- '   [Ada]          sdmmc_init.adb
-
-  '
-- '   [Ada]          soft_drawing_bitmap.adb
-
-  '
-- '   [Ada]          bitmap_file_output.adb
-
-  '
-- '   [Ada]          bitmap_color_conversion.adb
-
-  '
-- '   [Ada]          memory_mapped_bitmap.adb
-
-  '
-- '   [Ada]          neopixel.adb
-
-  '
-- '   [Ada]          monitor.ads
+- '   [Ada]          adl_middleware_config.ads
 
   '
 - '   [Ada]          monitor-block_drivers.adb
 
   '
-- '   [Ada]          hex_dump.adb
+- '   [Ada]          monitor.ads
 
   '
-- '   [Ada]          file_block_drivers.adb
+- '   [Ada]          command_line-filesystem.adb
 
   '
-- '   [Ada]          logging_with_priority.adb
+- '   [Ada]          command_line-filesystem-touch.adb
 
   '
-- '   [Ada]          logging.adb
-
-  '
-- '   [Ada]          logging_with_categories.adb
-
-  '
-- '   [Ada]          simple_synthesizer.adb
-
-  '
-- '   [Ada]          command_line.adb
+- '   [Ada]          command_line-filesystem-cat.adb
 
   '
 - '   [Ada]          command_line-filesystem-remove_directory.adb
@@ -192,94 +193,136 @@ log:
 - '   [Ada]          command_line-filesystem-list_directory.adb
 
   '
-- '   [Ada]          command_line-filesystem-touch.adb
+- '   [Ada]          command_line.adb
 
   '
-- '   [Ada]          command_line-filesystem.adb
+- '   [Ada]          sdmmc_init.adb
 
   '
-- '   [Ada]          command_line-filesystem-cat.adb
+- '   [Ada]          logging.adb
+
+  '
+- '   [Ada]          logging_with_priority.adb
+
+  '
+- '   [Ada]          file_block_drivers.adb
+
+  '
+- '   [Ada]          hex_dump.adb
+
+  '
+- '   [Ada]          logging_with_categories.adb
+
+  '
+- '   [Ada]          memory_mapped_bitmap.adb
+
+  '
+- '   [Ada]          bitmap_color_conversion.adb
+
+  '
+- '   [Ada]          bitmap_file_output.adb
+
+  '
+- '   [Ada]          soft_drawing_bitmap.adb
+
+  '
+- '   [Ada]          bluetooth_low_energy-packets.adb
+
+  '
+- '   [Ada]          bluetooth_low_energy-beacon.adb
+
+  '
+- '   [Ada]          bluetooth_low_energy.adb
 
   '
 - '   [Ada]          filesystem.ads
 
   '
-- '   [Ada]          partitions.adb
-
-  '
-- '   [Ada]          filesystem-mbr.adb
-
-  '
-- '   [Ada]          filesystem-fat-directories.adb
-
-  '
 - '   [Ada]          filesystem-fat-files.adb
-
-  '
-- '   [Ada]          pathname_manipulation.adb
-
-  '
-- '   [Ada]          file_io.adb
 
   '
 - '   [Ada]          filesystem-fat.adb
 
   '
+- '   [Ada]          pathname_manipulation.adb
+
+  '
+- '   [Ada]          filesystem-fat-directories.adb
+
+  '
+- '   [Ada]          file_io.adb
+
+  '
+- '   [Ada]          filesystem-mbr.adb
+
+  '
+- '   [Ada]          partitions.adb
+
+  '
+- '   [Ada]          simple_synthesizer.adb
+
+  '
+- '   [Ada]          neopixel.adb
+
+  '
 - '   [Ada]          adl_config.ads
-
-  '
-- '   [Ada]          hal-bitmap.ads
-
-  '
-- '   [Ada]          hal-touch_panel.ads
-
-  '
-- '   [Ada]          hal-block_drivers.ads
-
-  '
-- '   [Ada]          hal-dsi.ads
-
-  '
-- '   [Ada]          hal-real_time_clock.ads
-
-  '
-- '   [Ada]          hal-i2c.ads
-
-  '
-- '   [Ada]          hal-gpio.ads
 
   '
 - '   [Ada]          hal-filesystem.ads
 
   '
-- '   [Ada]          hal-framebuffer.ads
-
-  '
 - '   [Ada]          hal-uart.ads
 
   '
-- '   [Ada]          hal-audio.ads
-
-  '
-- '   [Ada]          hal-sdmmc.adb
+- '   [Ada]          hal-touch_panel.ads
 
   '
 - '   [Ada]          hal-spi.ads
 
   '
+- '   [Ada]          hal-i2c.ads
+
+  '
+- '   [Ada]          hal-block_drivers.ads
+
+  '
 - '   [Ada]          hal.ads
 
   '
+- '   [Ada]          hal-framebuffer.ads
+
+  '
+- '   [Ada]          hal-real_time_clock.ads
+
+  '
+- '   [Ada]          hal-bitmap.ads
+
+  '
+- '   [Ada]          hal-flash.ads
+
+  '
+- '   [Ada]          hal-gpio.ads
+
+  '
+- '   [Ada]          hal-sdmmc.adb
+
+  '
+- '   [Ada]          hal-dsi.ads
+
+  '
+- '   [Ada]          hal-audio.ads
+
+  '
 - '   [Ada]          hal-time.ads
+
+  '
+- '   [Ada]          vl53l0x.adb
 
   '
 - '   [Ada]          bbq10kbd.adb
 
   '
 - '   [Ada]          mpu9250.adb
-
-  '
-- '   [Ada]          l3gd20.adb
 
   '
 - '   [Ada]          bno055_i2c_io.adb
@@ -291,31 +334,67 @@ log:
 - '   [Ada]          mma8653.adb
 
   '
-- '   [Ada]          lis3dsh-spi.adb
+- '   [Ada]          pmw3901.adb
 
   '
 - '   [Ada]          lis3dsh.adb
 
   '
-- '   [Ada]          pmw3901.adb
+- '   [Ada]          lis3dsh-spi.adb
 
   '
 - '   [Ada]          ak8963.adb
 
   '
-- '   [Ada]          st7735r-ram_framebuffer.adb
+- '   [Ada]          l3gd20.adb
 
   '
-- '   [Ada]          st7735r.adb
+- '   [Ada]          adafruit-trellis.adb
 
   '
-- '   [Ada]          otm8009a.adb
+- '   [Ada]          mcp23x08.adb
 
   '
-- '   [Ada]          pcd8544.adb
+- '   [Ada]          mcp23008.ads
 
   '
-- '   [Ada]          pcd8544_reg.ads
+- '   [Ada]          mcp23x08-i2c.adb
+
+  '
+- '   [Ada]          stmpe1600.adb
+
+  '
+- '   [Ada]          ht16k33.adb
+
+  '
+- '   [Ada]          ov7725.adb
+
+  '
+- '   [Ada]          ov2640.adb
+
+  '
+- '   [Ada]          bit_fields.adb
+
+  '
+- '   [Ada]          adafruit-thermal_printer.adb
+
+  '
+- '   [Ada]          cs43l22.adb
+
+  '
+- '   [Ada]          sgtl5000.adb
+
+  '
+- '   [Ada]          wm8994.adb
+
+  '
+- '   [Ada]          ft6x06.adb
+
+  '
+- '   [Ada]          ft5336.adb
+
+  '
+- '   [Ada]          stmpe811.adb
 
   '
 - '   [Ada]          ili9341.adb
@@ -330,76 +409,40 @@ log:
 - '   [Ada]          ssd1306-standard_resolutions.ads
 
   '
-- '   [Ada]          adafruit-charliewing.adb
+- '   [Ada]          pcd8544_reg.ads
+
+  '
+- '   [Ada]          pcd8544.adb
+
+  '
+- '   [Ada]          otm8009a.adb
+
+  '
+- '   [Ada]          st7735r-ram_framebuffer.adb
+
+  '
+- '   [Ada]          st7735r.adb
 
   '
 - '   [Ada]          is31fl3731.adb
 
   '
-- '   [Ada]          ov7725.adb
-
-  '
-- '   [Ada]          bit_fields.adb
-
-  '
-- '   [Ada]          ov2640.adb
-
-  '
-- '   [Ada]          vl53l0x.adb
-
-  '
-- '   [Ada]          mcp23x08-i2c.adb
-
-  '
-- '   [Ada]          mcp23x08.adb
-
-  '
-- '   [Ada]          mcp23008.ads
-
-  '
-- '   [Ada]          stmpe1600.adb
-
-  '
-- '   [Ada]          adafruit-trellis.adb
-
-  '
-- '   [Ada]          ht16k33.adb
-
-  '
-- '   [Ada]          ft6x06.adb
-
-  '
-- '   [Ada]          stmpe811.adb
-
-  '
-- '   [Ada]          ft5336.adb
-
-  '
-- '   [Ada]          sgtl5000.adb
-
-  '
-- '   [Ada]          cs43l22.adb
-
-  '
-- '   [Ada]          wm8994.adb
-
-  '
-- '   [Ada]          adafruit-thermal_printer.adb
+- '   [Ada]          adafruit-charliewing.adb
 
   '
 - '   [Ada]          adafruit.ads
 
   '
-- '   [Ada]          sh1107-transformer.adb
-
-  '
 - '   [Ada]          sh1107-i2c.adb
 
   '
-- '   [Ada]          sh1107.adb
+- '   [Ada]          sh1107-spi.adb
 
   '
-- '   [Ada]          sh1107-spi.adb
+- '   [Ada]          sh1107-transformer.adb
+
+  '
+- '   [Ada]          sh1107.adb
 
   '
 - 'Build Libraries
@@ -441,26 +484,13 @@ log:
 - '   [index]        libSh1107.a
 
   '
-- 'Build finished successfully in 6.45 seconds.
+- 'Success: Build finished successfully in 4.99 seconds.
 
   '
-- '
+- 'Found declared GPR file: sh1107.gpr
 
   '
-- 'sh1107=1.2.2 successfully retrieved and built.
-
-  '
-- 'Dependencies were solved as follows:
-
-  '
-- '
-
-  '
-- '   + adl_middleware      0.1.1 (new,indirect)
-
-  '
-- "   + embedded_components 0.1.0 (new)         \n"
-- '   + hal                 0.3.0 (new,indirect)
+- '[alr test] Test completed SUCCESSFULLY
 
   '
 platform: linux

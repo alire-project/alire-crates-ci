@@ -1,0 +1,306 @@
+Test ran at 2026-05-30 13:26:05.468461+00:00
+
+SOLUTION:
+pico_ada_c04_pwm=1.7.0: Chapter 4: Analog LED with PWM
+Origin: source archive pico_ada_c04_pwm-1.7.0.tgz at https://sourceforge.net/projects/pi-ada-tutorial/files/Alire/pico_ada_c04_pwm-1.7.0.tgz with hashes sha256:4182587d55e37a120ec6409b8938672f30fa20771374054b7f8da3cc463e4194, sha512:62f2aaca3994888a5e7af969f53a5a4d65720332e30c9dc5d30ce1ef76f2afffadaccb5da3cd18025614d7f1c3914eba6a0052a561147c1a7aa321de71be0b98
+Properties:
+   Author: Martin Krischik <krischik@users.sourceforge.net>
+   Build Switches: 
+   Config set: light_tasking_rp2040 {Board := rpi_pico, Max_CPUs := 2}
+   Config set: rp2040_hal {Interrupts := bb_runtimes, Use_Startup := false}
+   Configuration: no modifiers
+   Description: Chapter 4: Analog LED with PWM
+   Executable: pwm
+   Executable: sketch_04_1_breathing_light
+   Executable: sketch_04_2_flowing_light_2
+   License: GPL-3.0-or-later
+   Long_Description: Building smooth breathing LEDs and flowing light bars with hardware PWM on the
+Raspberry Pi Pico using Ada. From jittery duty cycles to perfect linear dimming - guided by the Voltcraft MSO-5102B
+oscilloscope and a deep dive into PWM slice mapping on both Pico 1 and Pico 2.
+
+In this chapter we create a reusable Pico.Analog package for PWM-based analogue output. We start with a classic
+breathing light, then move on to a flowing light bar. Along the way the MSO-5102B reveals the real behaviour of our
+code, and we discover (and fix) a subtle bug in the experimental RP2350 HAL.
+
+Contained in Chapter 04 are:
+
+1. Pwm			       - Original PWM sample from Jeremy Grosser
+2. sketch_04_1_breathing_light - Chapter 4.1 Blink internal LED
+3. sketch_04_2_flowing_light_2 - Chapter 4.1 Project Meteor Flowing Light
+
+Read the full tutorial at [Chapter 4: Analog & PWM](https://pi-ada-tutorial.sourceforge.io/pico_ada_c04_pwm), [GNATdoc
+documentation](https://pi-ada-tutorial.sourceforge.io/gnatdoc/pico_ada_c04_pwm/), [SourceForge
+repository](https://sourceforge.net/p/pi-ada-tutorial/code/ci/master/tree/pico_ada_c04_pwm/)
+
+   Maintainer: Martin Krischik <krischik@users.sourceforge.net>
+   Maintainers_Logins: krischik
+   Name: pico_ada_c04_pwm
+   Tag: raspberry
+   Tag: pi
+   Tag: pico
+   Tag: rp2040
+   Tag: tasking
+   Tag: light-tasking
+   Tag: ada2022
+   Tag: embedded
+   Version: 1.7.0
+   Website: https://pi-ada-tutorial.sourceforge.io/pico_ada_c04_pwm
+Dependencies (direct):
+   light_tasking_rp2040^15.4
+   pico_bsp^2.2
+   pico_xbsp^1.7
+   rp2040_hal^2.7.1
+Dependencies (solution):
+   atomic=1.1.0
+   bbqueue=1.0.0
+   cortex_m=1.1.0
+   gnat=15.2.1 (gnat_arm_elf)
+   gnat_arm_elf=15.2.1
+   hal=1.0.0
+   light_tasking_rp2040=15.4.0
+   pico_bsp=2.2.0
+   pico_xbsp=1.7.0
+   rp2040_hal=2.7.1
+   usb_embedded=1.0.1
+Dependencies (graph):
+   bbqueue=1.0.0               --> atomic=1.1.0 (^1.0.0)
+   bbqueue=1.0.0               --> gnat=15.2.1 (gnat_arm_elf) (>=10)
+   cortex_m=1.1.0              --> gnat_arm_elf=15.2.1 (>=12)
+   cortex_m=1.1.0              --> hal=1.0.0 (~0.3 | ^1.0.0)
+   light_tasking_rp2040=15.4.0 --> gnat_arm_elf=15.2.1 (^15)
+   pico_ada_c04_pwm=1.7.0      --> light_tasking_rp2040=15.4.0 (^15.4)
+   pico_ada_c04_pwm=1.7.0      --> pico_bsp=2.2.0 (^2.2)
+   pico_ada_c04_pwm=1.7.0      --> pico_xbsp=1.7.0 (^1.7)
+   pico_ada_c04_pwm=1.7.0      --> rp2040_hal=2.7.1 (^2.7.1)
+   pico_bsp=2.2.0              --> rp2040_hal=2.7.1 (^2)
+   pico_xbsp=1.7.0             --> pico_bsp=2.2.0 (^2.2)
+   rp2040_hal=2.7.1            --> atomic=1.1.0 (^1)
+   rp2040_hal=2.7.1            --> cortex_m=1.1.0 (^1)
+   rp2040_hal=2.7.1            --> gnat_arm_elf=15.2.1 (>=14 & /=15.1.2)
+   rp2040_hal=2.7.1            --> hal=1.0.0 (^1)
+   rp2040_hal=2.7.1            --> usb_embedded=1.0.1 (^1)
+   usb_embedded=1.0.1          --> bbqueue=1.0.0 (^1.0.0)
+   usb_embedded=1.0.1          --> hal=1.0.0 (^1.0.0)
+
+
+LOG:
+[alr test] Testing pico_ada_c04_pwm=1.7.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get pico_ada_c04_pwm=1.7.0
+Note: Deploying pico_ada_c04_pwm=1.7.0...
+
+######################################################################## 100.0%
+######################################################################## 100.0%
+######################################################################## 100.0%
+######################################################################## 100.0%
+#=#=#                                                                          
+######################################################################## 100.0%
+
+pico_ada_c04_pwm=1.7.0 successfully retrieved.
+Dependencies were solved as follows:
+
+   +  atomic               1.1.0  (new,indirect)
+   +  bbqueue              1.0.0  (new,indirect)
+   +  cortex_m             1.1.0  (new,indirect)
+   +b gnat                 15.2.1 (new,gnat_arm_elf,indirect,binary)
+   +b gnat_arm_elf         15.2.1 (new,indirect,binary)
+   +  hal                  1.0.0  (new,indirect)
+   +  light_tasking_rp2040 15.4.0 (new)
+   +  pico_bsp             2.2.0  (new)
+   +  pico_xbsp            1.7.0  (new)
+   +  rp2040_hal           2.7.1  (new)
+   +  usb_embedded         1.0.1  (new,indirect)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building pico_ada_c04_pwm=1.7.0/pico_ada_c04_pwm.gpr...
+Setup
+   [mkdir]        object directory for project Pico_Ada_C04_PWM
+   [mkdir]        exec directory for project Pico_Ada_C04_PWM
+Compile
+   [Ada]          pwm.adb
+   [Ada]          sketch_04_1_breathing_light.adb
+   [Ada]          sketch_04_2_flowing_light_2.adb
+   [Ada]          pico_xbsp_config.ads
+   [Ada]          pico-uart_io.adb
+   [Ada]          pico-analog.adb
+   [Ada]          pico-utils.adb
+   [Ada]          pico-analog-rgb_led.adb
+   [Ada]          pico-tone.adb
+   [Ada]          bbqueue_config.ads
+   [Ada]          bbqueue-buffers.adb
+   [Ada]          bbqueue-buffers-framed.adb
+   [Ada]          bbqueue.adb
+   [Ada]          usb_embedded_config.ads
+   [Ada]          usb-device-hid-keyboard.adb
+   [Ada]          usb-hal.ads
+   [Ada]          usb-device-control.adb
+   [Ada]          usb-lang.ads
+   [Ada]          usb-device-hid-mouse.adb
+   [Ada]          usb-utils.adb
+   [Ada]          usb-hal-device.ads
+   [Ada]          usb-device-serial.adb
+   [Ada]          usb-device-midi.adb
+   [Ada]          usb-device-hid.adb
+   [Ada]          usb-logging.ads
+   [Ada]          usb-device.adb
+   [Ada]          usb-device-hid-joystick.adb
+   [Ada]          usb.adb
+   [Ada]          usb-device-hid-gamepad.adb
+   [Ada]          usb-logging-device__null.adb
+   [Ada]          hal-real_time_clock.ads
+   [Ada]          hal-i2c.ads
+   [Ada]          hal-flash.ads
+   [Ada]          hal-audio.ads
+   [Ada]          hal-sdmmc.adb
+   [Ada]          hal-block_drivers.ads
+   [Ada]          hal-dsi.ads
+   [Ada]          hal-filesystem.ads
+   [Ada]          hal-framebuffer.ads
+   [Ada]          hal-gpio.ads
+   [Ada]          hal-spi.ads
+   [Ada]          hal-uart.ads
+   [Ada]          hal-bitmap.ads
+   [Ada]          hal-time.ads
+   [Ada]          hal.ads
+   [Ada]          hal-touch_panel.ads
+   [Ada]          cortex_m-nvic.adb
+   [Ada]          cortex_m-cache.adb
+   [Ada]          cortex_m_svd-debug.ads
+   [Ada]          cortex_m_svd-systick.ads
+   [Ada]          cortex_m_svd.ads
+   [Ada]          cortex_m_svd-scb.ads
+   [Ada]          cortex_m_svd-nvic.ads
+   [Ada]          cortex_m_svd-dwt.ads
+   [Ada]          cortex_m_config.ads
+   [Ada]          cortex_m-dwt.adb
+   [Ada]          semihosting.adb
+   [Ada]          memory_barriers.adb
+   [Ada]          cortex_m-systick.adb
+   [Ada]          cortex_m.ads
+   [Ada]          cortex_m-debug.adb
+   [Ada]          cortex_m-hints.adb
+   [Ada]          cortex_m-reset.adb
+   [Ada]          semihosting-filesystem.adb
+   [Ada]          atomic-critical_section.adb
+   [Ada]          atomic-unsigned.adb
+   [Ada]          atomic.adb
+   [Ada]          atomic-signed.adb
+   [Ada]          atomic-basic_operations.adb
+   [Ada]          atomic_config.ads
+   [Ada]          atomic-signed_16.ads
+   [Ada]          atomic-signed_32.ads
+   [Ada]          atomic-unsigned_8.ads
+   [Ada]          atomic-unsigned_32.ads
+   [Ada]          atomic-signed_8.ads
+   [Ada]          atomic-unsigned_16.ads
+   [Ada]          rp2040_hal_config.ads
+   [Ada]          rp-timer-interrupts.adb
+   [Ada]          rp-device.ads
+   [Ada]          rp2040_svd-usbctrl_regs.ads
+   [Ada]          rp2040_svd-sio.ads
+   [Ada]          rp2040_svd-adc.ads
+   [Ada]          rp2040_svd-clocks.ads
+   [Ada]          rp2040_svd-tbman.ads
+   [Ada]          rp2040_svd-i2c.ads
+   [Ada]          rp2040_svd-sysinfo.ads
+   [Ada]          rp2040_svd-io_bank0.ads
+   [Ada]          rp2040_svd-resets.ads
+   [Ada]          rp2040_svd-dma.ads
+   [Ada]          rp2040_svd-busctrl.ads
+   [Ada]          rp2040_svd-rosc.ads
+   [Ada]          rp2040_svd-xip_ctrl.ads
+   [Ada]          rp2040_svd-ppb.ads
+   [Ada]          rp2040_svd-vreg_and_chip_reset.ads
+   [Ada]          rp2040_svd-uart.ads
+   [Ada]          rp2040_svd-pio.ads
+   [Ada]          rp2040_svd-interrupts.ads
+   [Ada]          rp2040_svd-rtc.ads
+   [Ada]          rp2040_svd-spi.ads
+   [Ada]          rp2040_svd-pads_bank0.ads
+   [Ada]          rp2040_svd-pwm.ads
+   [Ada]          rp2040_svd.ads
+   [Ada]          rp2040_svd-timer.ads
+   [Ada]          rp2040_svd-pads_qspi.ads
+   [Ada]          rp2040_svd-usbctrl_dpram.ads
+   [Ada]          rp2040_svd-xip_ssi.ads
+   [Ada]          rp2040_svd-pll.ads
+   [Ada]          rp2040_svd-psm.ads
+   [Ada]          rp2040_svd-watchdog.ads
+   [Ada]          rp2040_svd-syscfg.ads
+   [Ada]          rp2040_svd-io_qspi.ads
+   [Ada]          rp2040_svd-xosc.ads
+   [Ada]          rp-pio-encoding.ads
+   [Ada]          rp-pio-touch_sense.adb
+   [Ada]          rp-spi.adb
+   [Ada]          rp-dma.adb
+   [Ada]          rp-timer.adb
+   [Ada]          rp-pio.adb
+   [Ada]          rp-pio-audio_i2s.adb
+   [Ada]          rp-clock.adb
+   [Ada]          rp-multicore.adb
+   [Ada]          rp-pio-ws2812_pio.ads
+   [Ada]          rp-watchdog.adb
+   [Ada]          rp-flash.adb
+   [Ada]          rp-uart.adb
+   [Ada]          rp-rtc.adb
+   [Ada]          rp-pio-touch_sense_discharge_pio.ads
+   [Ada]          rp-flash-cache.adb
+   [Ada]          rp-pio-ws2812.adb
+   [Ada]          rp-multicore-fifo.adb
+   [Ada]          rp-rom-floating_point.adb
+   [Ada]          rp-pwm.adb
+   [Ada]          rp-usb_device.adb
+   [Ada]          rp-i2c_master.adb
+   [Ada]          rp-pio-audio_i2s_pio.ads
+   [Ada]          rp-rom.adb
+   [Ada]          rp-adc.adb
+   [Ada]          rp-gpio.adb
+   [Ada]          rp-multicore-spinlocks.adb
+   [Ada]          rp-reset.adb
+   [Ada]          rp-pio-touch_sense_charge_pio.ads
+   [Ada]          rp-i2c.adb
+   [Ada]          rp-interpolator.ads
+   [Ada]          rp.ads
+   [Ada]          pico_bsp_config.ads
+   [Ada]          pico.ads
+   [Ada]          pico-pimoroni-audio_pack.ads
+   [Ada]          pico-pimoroni.ads
+   [Ada]          pico-pimoroni-rgb_keypad.adb
+   [Ada]          pico-audio_i2s.ads
+Build Libraries
+   [gprlib]       Atomic.lexch
+   [gprlib]       hal.lexch
+   [gprlib]       Cortex_M.lexch
+   [archive]      libAtomic.a
+   [archive]      libhal.a
+   [index]        libAtomic.a
+   [index]        libhal.a
+   [gprlib]       Bbqueue.lexch
+   [gprlib]       Usb_Embedded.lexch
+   [archive]      libCortex_M.a
+   [archive]      libBbqueue.a
+   [index]        libBbqueue.a
+   [index]        libCortex_M.a
+   [gprlib]       Rp2040_Hal.lexch
+   [archive]      libUsb_Embedded.a
+   [index]        libUsb_Embedded.a
+   [gprlib]       Pico_Bsp.lexch
+   [archive]      libRp2040_Hal.a
+   [index]        libRp2040_Hal.a
+   [gprlib]       Pico_XBSP.lexch
+   [archive]      libPico_Bsp.a
+   [index]        libPico_Bsp.a
+   [archive]      libPico_XBSP.a
+   [index]        libPico_XBSP.a
+Bind
+   [gprbind]      pwm.bexch
+   [Ada]          pwm.ali
+   [gprbind]      sketch_04_1_breathing_light.bexch
+   [Ada]          sketch_04_1_breathing_light.ali
+   [gprbind]      sketch_04_2_flowing_light_2.bexch
+   [Ada]          sketch_04_2_flowing_light_2.ali
+Link
+   [link]         pwm.adb
+   [link]         sketch_04_1_breathing_light.adb
+   [link]         sketch_04_2_flowing_light_2.adb
+Success: Build finished successfully in 9.31 seconds.
+Found declared GPR file: pico_ada_c04_pwm.gpr
+[alr test] Test completed SUCCESSFULLY

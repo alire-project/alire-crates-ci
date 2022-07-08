@@ -1,0 +1,109 @@
+Test ran at 2024-09-28 01:26:16.292886+00:00
+
+SOLUTION:
+midi=0.2.0: Library to encode and decode MIDI messages
+Origin: commit 6a6306df92ca026119ef193d8837ba9ef9eebfd1 from https://github.com/Fabien-Chouteau/MIDI.git
+Properties:
+   Author: Fabien Chouteau
+   Description: Library to encode and decode MIDI messages
+   License: MIT
+   Maintainer: Fabien Chouteau <fabien.chouteau@gmail.com>
+   Maintainers_Logins: Fabien-Chouteau
+   Name: midi
+   Tag: midi
+   Tag: embedded
+   Tag: nostd
+   Version: 0.2.0
+   Website: https://github.com/Fabien-Chouteau/MIDI
+Dependencies (direct):
+   bbqueue~0.3.0
+   gnat>=11
+   hal~0.3.0
+Dependencies (solution):
+   atomic=0.5.0
+   bbqueue=0.3.2
+   gnat=14.1.1 (gnat_external) (installed)
+   hal=0.3.0
+Dependencies (graph):
+   bbqueue=0.3.2 --> atomic=0.5.0 (~0.5)               
+   bbqueue=0.3.2 --> gnat=14.1.1 (gnat_external) (>=10)
+   midi=0.2.0    --> bbqueue=0.3.2 (~0.3.0)            
+   midi=0.2.0    --> gnat=14.1.1 (gnat_external) (>=11)
+   midi=0.2.0    --> hal=0.3.0 (~0.3.0)                
+
+
+LOG:
+Note: Deploying midi=0.2.0...
+Note: Deploying atomic=0.5.0...
+Note: Deploying hal=0.3.0...
+Note: Deploying bbqueue=0.3.2...
+Note: Building midi/midi.gpr...
+Setup
+   [mkdir]        object directory for project Atomic
+   [mkdir]        library directory for project Atomic
+   [mkdir]        object directory for project Bbqueue
+   [mkdir]        library directory for project Bbqueue
+   [mkdir]        object directory for project HAL
+   [mkdir]        library directory for project HAL
+   [mkdir]        object directory for project MIDI
+   [mkdir]        library directory for project MIDI
+Compile
+   [Ada]          hal-spi.ads
+   [Ada]          hal-bitmap.ads
+   [Ada]          hal-time.ads
+   [Ada]          hal-filesystem.ads
+   [Ada]          hal-audio.ads
+   [Ada]          hal-real_time_clock.ads
+   [Ada]          hal-i2c.ads
+   [Ada]          hal-dsi.ads
+   [Ada]          hal-gpio.ads
+   [Ada]          hal-framebuffer.ads
+   [Ada]          hal-sdmmc.adb
+   [Ada]          hal.ads
+   [Ada]          hal-block_drivers.ads
+   [Ada]          hal-touch_panel.ads
+   [Ada]          hal-uart.ads
+   [Ada]          atomic-unsigned.adb
+   [Ada]          atomic.adb
+   [Ada]          atomic-signed.adb
+   [Ada]          atomic_config.ads
+   [Ada]          atomic-unsigned_32.ads
+   [Ada]          atomic-signed_16.ads
+   [Ada]          atomic-unsigned_8.ads
+   [Ada]          atomic-unsigned_16.ads
+   [Ada]          atomic-signed_32.ads
+   [Ada]          atomic-signed_8.ads
+   [Ada]          bbqueue_config.ads
+   [Ada]          bbqueue.adb
+   [Ada]          bbqueue-buffers-framed.adb
+   [Ada]          bbqueue-buffers.adb
+   [Ada]          midi_config.ads
+   [Ada]          midi-decoder-queue.adb
+   [Ada]          midi.adb
+   [Ada]          midi-encoder-queue.adb
+   [Ada]          midi-decoder.adb
+   [Ada]          midi-encoder.adb
+midi-decoder.adb:12:07: warning: use clause for type "UInt8" defined at hal.ads:53 has no effect [-gnatwu]
+Build Libraries
+   [gprlib]       Atomic.lexch
+   [gprlib]       Bbqueue.lexch
+   [archive]      libAtomic.a
+   [index]        libAtomic.a
+   [gprlib]       hal.lexch
+   [gprlib]       midi.lexch
+   [archive]      libBbqueue.a
+   [archive]      libhal.a
+   [index]        libBbqueue.a
+   [index]        libhal.a
+   [archive]      libmidi.a
+   [index]        libmidi.a
+Build finished successfully in 0.95 seconds.
+
+midi=0.2.0 successfully retrieved and built.
+Dependencies were solved as follows:
+
+   +  atomic  0.5.0  (new,indirect)               
+   +  bbqueue 0.3.2  (new)                        
+   +i gnat    14.1.1 (new,installed,gnat_external)
+   +  hal     0.3.0  (new)                        
+Found declared GPR file: midi.gpr

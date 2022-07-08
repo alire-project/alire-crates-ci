@@ -1,0 +1,2007 @@
+Test ran at 2025-01-26 00:47:33.333058+00:00
+
+SOLUTION:
+awa=2.4.0: Ada Web Application
+Origin: commit 59135a52aff7027f9295888775b9e1cc6cecdc22 from https://github.com/stcarrez/ada-awa.git
+Properties:
+   Post_Fetch run: ${CRATE_DIR}/./sh ./alire-setup.sh
+   Author: Stephane.Carrez@gmail.com
+   Description: Ada Web Application
+   Environment: DYNAMO_SEARCH_PATH=${CRATE_ROOT}/awa/plugins:${DYNAMO_SEARCH_PATH}
+   Environment: DYNAMO_UML_PATH=${CRATE_ROOT}/awa/uml:${DYNAMO_UML_PATH}
+   GPR Scenario: AWA_BUILD := distrib | debug | optimize | profile | coverage
+   GPR Scenario: AWA_LIBRARY_TYPE := relocatable | static | static-pic
+   License: Apache-2.0
+   Long_Description: [![Build Status](https://img.shields.io/jenkins/s/https/jenkins.vacs.fr/Bionic-AWA.svg)](https://jenkins.vacs.fr/job/Bionic-AWA/)
+[![Test Status](https://img.shields.io/jenkins/t/https/jenkins.vacs.fr/Bionic-AWA.svg)](https://jenkins.vacs.fr/job/Bionic-AWA/)
+[![codecov](https://codecov.io/gh/stcarrez/ada-awa/branch/master/graph/badge.svg)](https://codecov.io/gh/stcarrez/ada-awa)
+[![Documentation Status](https://readthedocs.org/projects/ada-awa/badge/?version=latest)](https://ada-awa.readthedocs.io/en/latest/?badge=latest)
+
+Ada Web Application is a framework to build a Web Application in Ada 2012.
+The framework provides several ready to use and extendable modules that are common
+to many web application.  This includes the login, authentication, users, permissions,
+managing comments, tags, votes, documents, images.  It provides a complete blog,
+question and answers and a wiki module.
+
+AWA simplifies the Web Application development by taking care of user management with
+Google+, Facebook authentication and by providing the foundations on top of which you
+can construct your own application.  AWA provides a powerful permission management
+that gives flexibility to applications to grant access and protect your user's resources.
+
+![AWA Features](https://github.com/stcarrez/ada-awa/wiki/images/awa-features.png)
+
+# Documentation
+
+The Ada Web Application programmer's guide describes how to setup the framework,
+how you can setup and design your first web application with it,
+and it provides detailed description of AWA components:
+
+  * [Ada Web Application programmer's guide](https://ada-awa.readthedocs.io/en/latest/) [PDF](https://github.com/stcarrez/ada-awa/blob/master/awa/docs/awa-book.pdf)
+  * [Ada Database Objects Programmer's Guide](https://ada-ado.readthedocs.io/en/latest/)
+  * [Ada Security Programmer's Guide](https://ada-security.readthedocs.io/en/latest/)
+  * [Ada Utility Library Programmer's Guide](https://ada-util.readthedocs.io/en/latest/)
+
+
+   Maintainer: Stephane.Carrez@gmail.com
+   Maintainers_Logins: stcarrez
+   Name: awa
+   Project_File: .alire/awa_blogs.gpr
+   Project_File: .alire/awa.gpr
+   Project_File: .alire/awa_settings.gpr
+   Project_File: .alire/awa_wikis.gpr
+   Project_File: .alire/awa_changelogs.gpr
+   Project_File: .alire/awa_images.gpr
+   Project_File: .alire/awa_setup.gpr
+   Project_File: .alire/awa_workspaces.gpr
+   Project_File: .alire/awa_comments.gpr
+   Project_File: .alire/awa_jobs.gpr
+   Project_File: .alire/awa_storages.gpr
+   Project_File: .alire/awa_counters.gpr
+   Project_File: .alire/awa_mail.gpr
+   Project_File: .alire/awa_tags.gpr
+   Project_File: .alire/awa_countries.gpr
+   Project_File: .alire/awa_questions.gpr
+   Project_File: .alire/awa_votes.gpr
+   Tag: web
+   Tag: users
+   Tag: jobs
+   Tag: wiki
+   Tag: framework
+   Tag: storage
+   Tag: blog
+   Version: 2.4.0
+   Website: https://gitlab.com/stcarrez/ada-awa
+Dependencies (direct):
+   ado^2.3.0
+   elada^1.8.5
+   keystoreada^1.3.3
+   security^1.4.1
+   serverfaces^1.5.0
+   servletada^1.6.0
+   servletada_aws^1.6.0
+   utilada^2.5.0
+   utilada_aws^2.5.0
+   utilada_xml^2.5.0
+   wikiada^1.4.0
+Dependencies (solution):
+   ado=2.3.0
+   aws=21.0.0
+   elada=1.8.5
+   gnat=11.2.4 (gnat_native) (installed)
+   keystoreada=1.3.3
+   make=4.4.1
+   openssl=3.1.0
+   security=1.4.1
+   serverfaces=1.5.0
+   servletada=1.6.0
+   servletada_aws=1.6.0
+   utilada=2.5.0
+   utilada_aws=2.5.0
+   utilada_xml=2.5.0
+   wikiada=1.4.0
+   xmlada=21.0.0
+Dependencies (graph):
+   ado=2.3.0            --> utilada=2.5.0 (^2.5.0)         
+   ado=2.3.0            --> utilada_xml=2.5.0 (^2.5.0)     
+   awa=2.4.0            --> ado=2.3.0 (^2.3.0)             
+   awa=2.4.0            --> elada=1.8.5 (^1.8.5)           
+   awa=2.4.0            --> keystoreada=1.3.3 (^1.3.3)     
+   awa=2.4.0            --> security=1.4.1 (^1.4.1)        
+   awa=2.4.0            --> serverfaces=1.5.0 (^1.5.0)     
+   awa=2.4.0            --> servletada=1.6.0 (^1.6.0)      
+   awa=2.4.0            --> servletada_aws=1.6.0 (^1.6.0)  
+   awa=2.4.0            --> utilada=2.5.0 (^2.5.0)         
+   awa=2.4.0            --> utilada_aws=2.5.0 (^2.5.0)     
+   awa=2.4.0            --> utilada_xml=2.5.0 (^2.5.0)     
+   awa=2.4.0            --> wikiada=1.4.0 (^1.4.0)         
+   aws=21.0.0           --> gnat=11.2.4 (gnat_native) (>=9)
+   aws=21.0.0           --> make=4.4.1 (*)                 
+   aws=21.0.0           --> openssl=3.1.0 (*)              
+   aws=21.0.0           --> xmlada=21.0.0 (~21.0.0)        
+   elada=1.8.5          --> utilada=2.5.0 (^2.5.0)         
+   keystoreada=1.3.3    --> utilada=2.5.0 (^2.5.0)         
+   security=1.4.1       --> utilada=2.5.0 (^2.5.0)         
+   security=1.4.1       --> utilada_xml=2.5.0 (^2.5.0)     
+   serverfaces=1.5.0    --> security=1.4.1 (^1.4.1)        
+   serverfaces=1.5.0    --> servletada=1.6.0 (^1.6.0)      
+   serverfaces=1.5.0    --> utilada=2.5.0 (^2.5.0)         
+   servletada=1.6.0     --> elada=1.8.5 (^1.8.5)           
+   servletada=1.6.0     --> security=1.4.1 (^1.4.1)        
+   servletada=1.6.0     --> utilada=2.5.0 (^2.5.0)         
+   servletada_aws=1.6.0 --> servletada=1.6.0 (^1.6.0)      
+   servletada_aws=1.6.0 --> utilada_aws=2.5.0 (^2.5.0)     
+   utilada_aws=2.5.0    --> aws=21.0.0 (~21.0)             
+   utilada_aws=2.5.0    --> utilada=2.5.0 (^2.5.0)         
+   utilada_xml=2.5.0    --> utilada=2.5.0 (^2.5.0)         
+   utilada_xml=2.5.0    --> xmlada=21.0.0 (*)              
+   wikiada=1.4.0        --> utilada=2.5.0 (^2.5.0)         
+
+
+LOG:
+Note: Deploying awa=2.4.0...
+Note: Deploying make=4.4.1...
+The system package 'make' is about to be installed.
+This action might require admin privileges and impact your system installation.
+Do you want Alire to install this system package?
+Using default: Yes
+resolving dependencies...
+looking for conflicting packages...
+
+Packages (1) make-4.4.1-1
+
+Total Download Size:   0.49 MiB
+Total Installed Size:  1.61 MiB
+
+:: Proceed with installation? [Y/n] 
+:: Retrieving packages...
+ make-4.4.1-1-x86_64 downloading...
+checking keyring...
+checking package integrity...
+loading package files...
+checking for file conflicts...
+checking available disk space...
+:: Processing package changes...
+installing make...
+:: Running post-transaction hooks...
+(1/1) Updating the info directory file...
+Note: Deploying openssl=3.1.0...
+The system package 'mingw-w64-x86_64-openssl' is about to be installed.
+This action might require admin privileges and impact your system installation.
+Do you want Alire to install this system package?
+Using default: Yes
+resolving dependencies...
+looking for conflicting packages...
+
+Packages (1) mingw-w64-x86_64-openssl-3.1.0-1
+
+Total Download Size:    7.25 MiB
+Total Installed Size:  52.93 MiB
+
+:: Proceed with installation? [Y/n] 
+:: Retrieving packages...
+ mingw-w64-x86_64-openssl-3.1.0-1-any downloading...
+checking keyring...
+checking package integrity...
+loading package files...
+checking for file conflicts...
+checking available disk space...
+:: Processing package changes...
+installing mingw-w64-x86_64-openssl...
+Optional dependencies for mingw-w64-x86_64-openssl
+    mingw-w64-x86_64-ca-certificates
+Note: Deploying utilada=2.5.0...
+Note: Deploying xmlada=21.0.0...
+#=#=#                                                                         
+##O#-#                                                                        
+##O=#  #                                                                      
+#-#O=#  #                                                                     
+Note: Running post_fetch actions for xmlada=21.0.0...
+configure: loading site script /usr/local/etc/config.site
+checking build system type... x86_64-w64-mingw32
+checking host system type... x86_64-w64-mingw32
+checking target system type... x86_64-w64-mingw32
+checking whether gnat can build shared libs... yes
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether ln -s works... no, using cp -pR
+configure: creating ./config.status
+config.status: creating xmlada_shared.gpr
+config.status: creating Makefile
+config.status: creating tests/dom/default.gpr
+Note: Deploying aws=21.0.0...
+#=#=#                                                                         
+##O#-#                                                                        
+
+                                                                           0.2%
+######################################################################## 100.0%
+Note: Running post_fetch actions for aws=21.0.0...
+make[1]: Entering directory '/d/a/alire-crates-ci/alire-crates-ci/test/04077a2b-d261-4c64-abb0-54473fa947b7/awa_2.4.0_59135a52/alire/cache/dependencies/aws_21.0.0_57fddf8f/config'
+Bind
+   [gprbind]      xoscons.bexch
+   [Ada]          xoscons.ali
+Link
+   [link]         xoscons.adb
+Setup OS specific definitions
+aws-os_lib-tmplt.c:128: warning: "EADDRNOTAVAIL" redefined
+  128 | #define EADDRNOTAVAIL   WSAEADDRNOTAVAIL
+      | 
+In file included from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_11.2.4_2f9c5d6d\lib\gcc\x86_64-w64-mingw32\11.2.0\include\mm_malloc.h:29,
+                 from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_11.2.4_2f9c5d6d\x86_64-w64-mingw32\include\malloc.h:80,
+                 from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_11.2.4_2f9c5d6d\x86_64-w64-mingw32\include\stdlib.h:766,
+                 from aws-os_lib-tmplt.c:77:
+c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_11.2.4_2f9c5d6d\x86_64-w64-mingw32\include\errno.h:90: note: this is the location of the previous definition
+   90 | #define EADDRNOTAVAIL 101
+      | 
+aws-os_lib-tmplt.c:129: warning: "ETIMEDOUT" redefined
+  129 | #define ETIMEDOUT       WSAETIMEDOUT
+      | 
+In file included from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_11.2.4_2f9c5d6d\lib\gcc\x86_64-w64-mingw32\11.2.0\include\mm_malloc.h:29,
+                 from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_11.2.4_2f9c5d6d\x86_64-w64-mingw32\include\malloc.h:80,
+                 from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_11.2.4_2f9c5d6d\x86_64-w64-mingw32\include\stdlib.h:766,
+                 from aws-os_lib-tmplt.c:77:
+c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_11.2.4_2f9c5d6d\x86_64-w64-mingw32\include\errno.h:223: note: this is the location of the previous definition
+  223 | #define ETIMEDOUT 138
+      | 
+aws-os_lib-tmplt.c:130: warning: "ENOTCONN" redefined
+  130 | #define ENOTCONN        WSAENOTCONN
+      | 
+In file included from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_11.2.4_2f9c5d6d\lib\gcc\x86_64-w64-mingw32\11.2.0\include\mm_malloc.h:29,
+                 from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_11.2.4_2f9c5d6d\x86_64-w64-mingw32\include\malloc.h:80,
+                 from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_11.2.4_2f9c5d6d\x86_64-w64-mingw32\include\stdlib.h:766,
+                 from aws-os_lib-tmplt.c:77:
+c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_11.2.4_2f9c5d6d\x86_64-w64-mingw32\include\errno.h:150: note: this is the location of the previous definition
+  150 | #define ENOTCONN 126
+      | 
+aws-os_lib-tmplt.c:131: warning: "EWOULDBLOCK" redefined
+  131 | #define EWOULDBLOCK     WSAEWOULDBLOCK
+      | 
+In file included from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_11.2.4_2f9c5d6d\lib\gcc\x86_64-w64-mingw32\11.2.0\include\mm_malloc.h:29,
+                 from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_11.2.4_2f9c5d6d\x86_64-w64-mingw32\include\malloc.h:80,
+                 from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_11.2.4_2f9c5d6d\x86_64-w64-mingw32\include\stdlib.h:766,
+                 from aws-os_lib-tmplt.c:77:
+c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_11.2.4_2f9c5d6d\x86_64-w64-mingw32\include\errno.h:166: note: this is the location of the previous definition
+  166 | #define EWOULDBLOCK 140
+      | 
+aws-os_lib-tmplt.c:132: warning: "EINPROGRESS" redefined
+  132 | #define EINPROGRESS     WSAEINPROGRESS
+      | 
+In file included from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_11.2.4_2f9c5d6d\lib\gcc\x86_64-w64-mingw32\11.2.0\include\mm_malloc.h:29,
+                 from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_11.2.4_2f9c5d6d\x86_64-w64-mingw32\include\malloc.h:80,
+                 from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_11.2.4_2f9c5d6d\x86_64-w64-mingw32\include\stdlib.h:766,
+                 from aws-os_lib-tmplt.c:77:
+c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_11.2.4_2f9c5d6d\x86_64-w64-mingw32\include\errno.h:158: note: this is the location of the previous definition
+  158 | #define EINPROGRESS 112
+      | 
+aws-os_lib-tmplt.c:133: warning: "ENOBUFS" redefined
+  133 | #define ENOBUFS         WSAENOBUFS
+      | 
+In file included from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_11.2.4_2f9c5d6d\lib\gcc\x86_64-w64-mingw32\11.2.0\include\mm_malloc.h:29,
+                 from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_11.2.4_2f9c5d6d\x86_64-w64-mingw32\include\malloc.h:80,
+                 from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_11.2.4_2f9c5d6d\x86_64-w64-mingw32\include\stdlib.h:766,
+                 from aws-os_lib-tmplt.c:77:
+c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_11.2.4_2f9c5d6d\x86_64-w64-mingw32\include\errno.h:98: note: this is the location of the previous definition
+   98 | #define ENOBUFS 119
+      | 
+aws-os_lib-tmplt.c:137: warning: "ECONNRESET" redefined
+  137 | #define ECONNRESET      WSAECONNRESET
+      | 
+In file included from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_11.2.4_2f9c5d6d\lib\gcc\x86_64-w64-mingw32\11.2.0\include\mm_malloc.h:29,
+                 from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_11.2.4_2f9c5d6d\x86_64-w64-mingw32\include\malloc.h:80,
+                 from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_11.2.4_2f9c5d6d\x86_64-w64-mingw32\include\stdlib.h:766,
+                 from aws-os_lib-tmplt.c:77:
+c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_11.2.4_2f9c5d6d\x86_64-w64-mingw32\include\errno.h:114: note: this is the location of the previous definition
+  114 | #define ECONNRESET 108
+      | 
+aws-os_lib-tmplt.c:138: warning: "EADDRINUSE" redefined
+  138 | #define EADDRINUSE      WSAEADDRINUSE
+      | 
+In file included from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_11.2.4_2f9c5d6d\lib\gcc\x86_64-w64-mingw32\11.2.0\include\mm_malloc.h:29,
+                 from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_11.2.4_2f9c5d6d\x86_64-w64-mingw32\include\malloc.h:80,
+                 from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_11.2.4_2f9c5d6d\x86_64-w64-mingw32\include\stdlib.h:766,
+                 from aws-os_lib-tmplt.c:77:
+c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_11.2.4_2f9c5d6d\x86_64-w64-mingw32\include\errno.h:86: note: this is the location of the previous definition
+   86 | #define EADDRINUSE 100
+      | 
+aws-os_lib-tmplt.c:139: warning: "EAFNOSUPPORT" redefined
+  139 | #define EAFNOSUPPORT    WSAEAFNOSUPPORT
+      | 
+In file included from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_11.2.4_2f9c5d6d\lib\gcc\x86_64-w64-mingw32\11.2.0\include\mm_malloc.h:29,
+                 from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_11.2.4_2f9c5d6d\x86_64-w64-mingw32\include\malloc.h:80,
+                 from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_11.2.4_2f9c5d6d\x86_64-w64-mingw32\include\stdlib.h:766,
+                 from aws-os_lib-tmplt.c:77:
+c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_11.2.4_2f9c5d6d\x86_64-w64-mingw32\include\errno.h:82: note: this is the location of the previous definition
+   82 | #define EAFNOSUPPORT 102
+      | 
+aws-os_lib-tmplt.c:140: warning: "EALREADY" redefined
+  140 | #define EALREADY        WSAEALREADY
+      | 
+In file included from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_11.2.4_2f9c5d6d\lib\gcc\x86_64-w64-mingw32\11.2.0\include\mm_malloc.h:29,
+                 from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_11.2.4_2f9c5d6d\x86_64-w64-mingw32\include\malloc.h:80,
+                 from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_11.2.4_2f9c5d6d\x86_64-w64-mingw32\include\stdlib.h:766,
+                 from aws-os_lib-tmplt.c:77:
+c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_11.2.4_2f9c5d6d\x86_64-w64-mingw32\include\errno.h:106: note: this is the location of the previous definition
+  106 | #define EALREADY 103
+      | 
+aws-os_lib-tmplt.c:141: warning: "ECONNABORTED" redefined
+  141 | #define ECONNABORTED    WSAECONNABORTED
+      | 
+In file included from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_11.2.4_2f9c5d6d\lib\gcc\x86_64-w64-mingw32\11.2.0\include\mm_malloc.h:29,
+                 from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_11.2.4_2f9c5d6d\x86_64-w64-mingw32\include\malloc.h:80,
+                 from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_11.2.4_2f9c5d6d\x86_64-w64-mingw32\include\stdlib.h:766,
+                 from aws-os_lib-tmplt.c:77:
+c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_11.2.4_2f9c5d6d\x86_64-w64-mingw32\include\errno.h:102: note: this is the location of the previous definition
+  102 | #define ECONNABORTED 106
+      | 
+aws-os_lib-tmplt.c:142: warning: "ECONNREFUSED" redefined
+  142 | #define ECONNREFUSED    WSAECONNREFUSED
+      | 
+In file included from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_11.2.4_2f9c5d6d\lib\gcc\x86_64-w64-mingw32\11.2.0\include\mm_malloc.h:29,
+                 from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_11.2.4_2f9c5d6d\x86_64-w64-mingw32\include\malloc.h:80,
+                 from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_11.2.4_2f9c5d6d\x86_64-w64-mingw32\include\stdlib.h:766,
+                 from aws-os_lib-tmplt.c:77:
+c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_11.2.4_2f9c5d6d\x86_64-w64-mingw32\include\errno.h:110: note: this is the location of the previous definition
+  110 | #define ECONNREFUSED 107
+      | 
+aws-os_lib-tmplt.c:143: warning: "EDESTADDRREQ" redefined
+  143 | #define EDESTADDRREQ    WSAEDESTADDRREQ
+      | 
+In file included from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_11.2.4_2f9c5d6d\lib\gcc\x86_64-w64-mingw32\11.2.0\include\mm_malloc.h:29,
+                 from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_11.2.4_2f9c5d6d\x86_64-w64-mingw32\include\malloc.h:80,
+                 from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_11.2.4_2f9c5d6d\x86_64-w64-mingw32\include\stdlib.h:766,
+                 from aws-os_lib-tmplt.c:77:
+c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_11.2.4_2f9c5d6d\x86_64-w64-mingw32\include\errno.h:118: note: this is the location of the previous definition
+  118 | #define EDESTADDRREQ 109
+      | 
+aws-os_lib-tmplt.c:145: warning: "EHOSTUNREACH" redefined
+  145 | #define EHOSTUNREACH    WSAEHOSTUNREACH
+      | 
+In file included from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_11.2.4_2f9c5d6d\lib\gcc\x86_64-w64-mingw32\11.2.0\include\mm_malloc.h:29,
+                 from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_11.2.4_2f9c5d6d\x86_64-w64-mingw32\include\malloc.h:80,
+                 from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_11.2.4_2f9c5d6d\x86_64-w64-mingw32\include\stdlib.h:766,
+                 from aws-os_lib-tmplt.c:77:
+c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_11.2.4_2f9c5d6d\x86_64-w64-mingw32\include\errno.h:122: note: this is the location of the previous definition
+  122 | #define EHOSTUNREACH 110
+      | 
+aws-os_lib-tmplt.c:146: warning: "EISCONN" redefined
+  146 | #define EISCONN         WSAEISCONN
+      | 
+In file included from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_11.2.4_2f9c5d6d\lib\gcc\x86_64-w64-mingw32\11.2.0\include\mm_malloc.h:29,
+                 from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_11.2.4_2f9c5d6d\x86_64-w64-mingw32\include\malloc.h:80,
+                 from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_11.2.4_2f9c5d6d\x86_64-w64-mingw32\include\stdlib.h:766,
+                 from aws-os_lib-tmplt.c:77:
+c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_11.2.4_2f9c5d6d\x86_64-w64-mingw32\include\errno.h:94: note: this is the location of the previous definition
+   94 | #define EISCONN 113
+      | 
+aws-os_lib-tmplt.c:147: warning: "ELOOP" redefined
+  147 | #define ELOOP           WSAELOOP
+      | 
+In file included from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_11.2.4_2f9c5d6d\lib\gcc\x86_64-w64-mingw32\11.2.0\include\mm_malloc.h:29,
+                 from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_11.2.4_2f9c5d6d\x86_64-w64-mingw32\include\malloc.h:80,
+                 from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_11.2.4_2f9c5d6d\x86_64-w64-mingw32\include\stdlib.h:766,
+                 from aws-os_lib-tmplt.c:77:
+c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_11.2.4_2f9c5d6d\x86_64-w64-mingw32\include\errno.h:227: note: this is the location of the previous definition
+  227 | #define ELOOP 114
+      | 
+aws-os_lib-tmplt.c:148: warning: "EMSGSIZE" redefined
+  148 | #define EMSGSIZE        WSAEMSGSIZE
+      | 
+In file included from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_11.2.4_2f9c5d6d\lib\gcc\x86_64-w64-mingw32\11.2.0\include\mm_malloc.h:29,
+                 from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_11.2.4_2f9c5d6d\x86_64-w64-mingw32\include\malloc.h:80,
+                 from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_11.2.4_2f9c5d6d\x86_64-w64-mingw32\include\stdlib.h:766,
+                 from aws-os_lib-tmplt.c:77:
+c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_11.2.4_2f9c5d6d\x86_64-w64-mingw32\include\errno.h:126: note: this is the location of the previous definition
+  126 | #define EMSGSIZE 115
+      | 
+aws-os_lib-tmplt.c:150: warning: "EPROTONOSUPPORT" redefined
+  150 | #define EPROTONOSUPPORT WSAEPROTONOSUPPORT
+      | 
+In file included from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_11.2.4_2f9c5d6d\lib\gcc\x86_64-w64-mingw32\11.2.0\include\mm_malloc.h:29,
+                 from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_11.2.4_2f9c5d6d\x86_64-w64-mingw32\include\malloc.h:80,
+                 from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_11.2.4_2f9c5d6d\x86_64-w64-mingw32\include\stdlib.h:766,
+                 from aws-os_lib-tmplt.c:77:
+c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_11.2.4_2f9c5d6d\x86_64-w64-mingw32\include\errno.h:178: note: this is the location of the previous definition
+  178 | #define EPROTONOSUPPORT 135
+      | 
+aws-os_lib-tmplt.c:151: warning: "EPROTOTYPE" redefined
+  151 | #define EPROTOTYPE      WSAEPROTOTYPE
+      | 
+In file included from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_11.2.4_2f9c5d6d\lib\gcc\x86_64-w64-mingw32\11.2.0\include\mm_malloc.h:29,
+                 from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_11.2.4_2f9c5d6d\x86_64-w64-mingw32\include\malloc.h:80,
+                 from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_11.2.4_2f9c5d6d\x86_64-w64-mingw32\include\stdlib.h:766,
+                 from aws-os_lib-tmplt.c:77:
+c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_11.2.4_2f9c5d6d\x86_64-w64-mingw32\include\errno.h:231: note: this is the location of the previous definition
+  231 | #define EPROTOTYPE 136
+      | 
+aws-os_lib-tmplt.c:152: warning: "ENETDOWN" redefined
+  152 | #define ENETDOWN        WSAENETDOWN
+      | 
+In file included from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_11.2.4_2f9c5d6d\lib\gcc\x86_64-w64-mingw32\11.2.0\include\mm_malloc.h:29,
+                 from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_11.2.4_2f9c5d6d\x86_64-w64-mingw32\include\malloc.h:80,
+                 from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_11.2.4_2f9c5d6d\x86_64-w64-mingw32\include\stdlib.h:766,
+                 from aws-os_lib-tmplt.c:77:
+c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_11.2.4_2f9c5d6d\x86_64-w64-mingw32\include\errno.h:130: note: this is the location of the previous definition
+  130 | #define ENETDOWN 116
+      | 
+aws-os_lib-tmplt.c:153: warning: "ENETRESET" redefined
+  153 | #define ENETRESET       WSAENETRESET
+      | 
+In file included from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_11.2.4_2f9c5d6d\lib\gcc\x86_64-w64-mingw32\11.2.0\include\mm_malloc.h:29,
+                 from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_11.2.4_2f9c5d6d\x86_64-w64-mingw32\include\malloc.h:80,
+                 from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_11.2.4_2f9c5d6d\x86_64-w64-mingw32\include\stdlib.h:766,
+                 from aws-os_lib-tmplt.c:77:
+c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_11.2.4_2f9c5d6d\x86_64-w64-mingw32\include\errno.h:134: note: this is the location of the previous definition
+  134 | #define ENETRESET 117
+      | 
+aws-os_lib-tmplt.c:154: warning: "ENETUNREACH" redefined
+  154 | #define ENETUNREACH     WSAENETUNREACH
+      | 
+In file included from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_11.2.4_2f9c5d6d\lib\gcc\x86_64-w64-mingw32\11.2.0\include\mm_malloc.h:29,
+                 from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_11.2.4_2f9c5d6d\x86_64-w64-mingw32\include\malloc.h:80,
+                 from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_11.2.4_2f9c5d6d\x86_64-w64-mingw32\include\stdlib.h:766,
+                 from aws-os_lib-tmplt.c:77:
+c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_11.2.4_2f9c5d6d\x86_64-w64-mingw32\include\errno.h:138: note: this is the location of the previous definition
+  138 | #define ENETUNREACH 118
+      | 
+aws-os_lib-tmplt.c:155: warning: "ENOPROTOOPT" redefined
+  155 | #define ENOPROTOOPT     WSAENOPROTOOPT
+      | 
+In file included from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_11.2.4_2f9c5d6d\lib\gcc\x86_64-w64-mingw32\11.2.0\include\mm_malloc.h:29,
+                 from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_11.2.4_2f9c5d6d\x86_64-w64-mingw32\include\malloc.h:80,
+                 from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_11.2.4_2f9c5d6d\x86_64-w64-mingw32\include\stdlib.h:766,
+                 from aws-os_lib-tmplt.c:77:
+c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_11.2.4_2f9c5d6d\x86_64-w64-mingw32\include\errno.h:142: note: this is the location of the previous definition
+  142 | #define ENOPROTOOPT 123
+      | 
+aws-os_lib-tmplt.c:156: warning: "ENOTSOCK" redefined
+  156 | #define ENOTSOCK        WSAENOTSOCK
+      | 
+In file included from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_11.2.4_2f9c5d6d\lib\gcc\x86_64-w64-mingw32\11.2.0\include\mm_malloc.h:29,
+                 from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_11.2.4_2f9c5d6d\x86_64-w64-mingw32\include\malloc.h:80,
+                 from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_11.2.4_2f9c5d6d\x86_64-w64-mingw32\include\stdlib.h:766,
+                 from aws-os_lib-tmplt.c:77:
+c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_11.2.4_2f9c5d6d\x86_64-w64-mingw32\include\errno.h:146: note: this is the location of the previous definition
+  146 | #define ENOTSOCK 128
+      | 
+aws-os_lib-tmplt.c:157: warning: "EOPNOTSUPP" redefined
+  157 | #define EOPNOTSUPP      WSAEOPNOTSUPP
+      | 
+In file included from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_11.2.4_2f9c5d6d\lib\gcc\x86_64-w64-mingw32\11.2.0\include\mm_malloc.h:29,
+                 from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_11.2.4_2f9c5d6d\x86_64-w64-mingw32\include\malloc.h:80,
+                 from c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_11.2.4_2f9c5d6d\x86_64-w64-mingw32\include\stdlib.h:766,
+                 from aws-os_lib-tmplt.c:77:
+c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_11.2.4_2f9c5d6d\x86_64-w64-mingw32\include\errno.h:162: note: this is the location of the previous definition
+  162 | #define EOPNOTSUPP 130
+      | 
+make[1]: Leaving directory '/d/a/alire-crates-ci/alire-crates-ci/test/04077a2b-d261-4c64-abb0-54473fa947b7/awa_2.4.0_59135a52/alire/cache/dependencies/aws_21.0.0_57fddf8f/config'
+make[1]: Entering directory '/d/a/alire-crates-ci/alire-crates-ci/test/04077a2b-d261-4c64-abb0-54473fa947b7/awa_2.4.0_59135a52/alire/cache/dependencies/aws_21.0.0_57fddf8f/regtests'
+Can not generate system tags. The test are disabled
+make[1]: Leaving directory '/d/a/alire-crates-ci/alire-crates-ci/test/04077a2b-d261-4c64-abb0-54473fa947b7/awa_2.4.0_59135a52/alire/cache/dependencies/aws_21.0.0_57fddf8f/regtests'
+make[1]: Entering directory '/d/a/alire-crates-ci/alire-crates-ci/test/04077a2b-d261-4c64-abb0-54473fa947b7/awa_2.4.0_59135a52/alire/cache/dependencies/aws_21.0.0_57fddf8f/demos'
+make[1]: Nothing to be done for 'setup'.
+make[1]: Leaving directory '/d/a/alire-crates-ci/alire-crates-ci/test/04077a2b-d261-4c64-abb0-54473fa947b7/awa_2.4.0_59135a52/alire/cache/dependencies/aws_21.0.0_57fddf8f/demos'
+make[1]: Entering directory '/d/a/alire-crates-ci/alire-crates-ci/test/04077a2b-d261-4c64-abb0-54473fa947b7/awa_2.4.0_59135a52/alire/cache/dependencies/aws_21.0.0_57fddf8f/templates_parser'
+make[1]: Leaving directory '/d/a/alire-crates-ci/alire-crates-ci/test/04077a2b-d261-4c64-abb0-54473fa947b7/awa_2.4.0_59135a52/alire/cache/dependencies/aws_21.0.0_57fddf8f/templates_parser'
+make[1]: Entering directory '/d/a/alire-crates-ci/alire-crates-ci/test/04077a2b-d261-4c64-abb0-54473fa947b7/awa_2.4.0_59135a52/alire/cache/dependencies/aws_21.0.0_57fddf8f/templates_parser'
+make[1]: Leaving directory '/d/a/alire-crates-ci/alire-crates-ci/test/04077a2b-d261-4c64-abb0-54473fa947b7/awa_2.4.0_59135a52/alire/cache/dependencies/aws_21.0.0_57fddf8f/templates_parser'
+Setup
+   [mkdir]        object directory for project Zlib
+   [mkdir]        library directory for project Zlib
+   [mkdir]        object directory for project Include
+   [mkdir]        library directory for project Include
+   [mkdir]        object directory for project SSL
+   [mkdir]        library directory for project SSL
+   [mkdir]        object directory for project Src
+   [mkdir]        library directory for project Src
+   [mkdir]        library directory for project AWS
+   [mkdir]        object directory for project Win32
+   [mkdir]        object directory for project Tools
+   [mkdir]        exec directory for project Tools
+Compile
+   [Ada]          awsres.adb
+   [Ada]          aws_password.adb
+   [Ada]          templates2ada.adb
+   [Ada]          webxref.adb
+   [Ada]          templatespp.adb
+   [WinRes]       aws.rc
+   [Ada]          zlib.adb
+   [Ada]          zlib-thin.adb
+   [Ada]          zlib-streams.adb
+   [Ada]          memory_streams.adb
+   [C]            gai_strerror.c
+   [Ada]          aws-os_lib.ads
+   [Ada]          templates_parser.adb
+   [Ada]          templates_parser-utils.adb
+   [Ada]          templates_parser-query.adb
+   [Ada]          templates_parser-debug.adb
+   [Ada]          aws-status-translate_table.adb
+   [Ada]          aws-smtp.adb
+   [Ada]          aws-smtp-server.adb
+   [Ada]          aws-smtp-messages.adb
+   [Ada]          aws-smtp-messages-set.adb
+   [Ada]          aws-smtp-client.adb
+   [Ada]          aws-smtp-authentication.ads
+   [Ada]          aws-smtp-authentication-plain.adb
+   [Ada]          aws-services-web_mail.adb
+   [Ada]          aws-services-web_block.ads
+   [Ada]          aws-services-web_block-registry.adb
+   [Ada]          aws-services-web_block-context.adb
+   [Ada]          aws-services-split_pages.adb
+   [Ada]          aws-services-split_pages-uniform.adb
+   [Ada]          aws-services-split_pages-uniform-overlapping.adb
+   [Ada]          aws-services-split_pages-uniform-alpha.adb
+   [Ada]          aws-services-split_pages-shared.adb
+   [Ada]          aws-services-split_pages-alpha.adb
+   [Ada]          aws-services-split_pages-alpha-bounded.adb
+   [Ada]          aws-services-page_server.adb
+   [Ada]          aws-services-download.adb
+   [Ada]          aws-services-dispatchers.ads
+   [Ada]          aws-services-dispatchers-virtual_host.adb
+   [Ada]          aws-services-dispatchers-uri.adb
+   [Ada]          aws-services-dispatchers-transient_pages.adb
+   [Ada]          aws-services-dispatchers-timer.adb
+   [Ada]          aws-services-dispatchers-method.adb
+   [Ada]          aws-services-dispatchers-linker.adb
+   [Ada]          aws-services-directory.adb
+   [Ada]          aws-services-callbacks.adb
+   [Ada]          aws-server-push.adb
+   [Ada]          aws-server-hotplug.adb
+   [Ada]          aws-resources-streams-pipe.adb
+   [Ada]          aws-pop.adb
+   [Ada]          aws-net-stream_io.adb
+   [Ada]          aws-net-sets.ads
+   [Ada]          aws-net-log-callbacks.adb
+   [Ada]          aws-cookie.adb
+   [Ada]          aws-communication.adb
+   [Ada]          aws-communication-server.adb
+   [Ada]          aws-communication-client.adb
+   [Ada]          aws-client-hotplug.adb
+   [Ada]          aws.ads
+   [Ada]          aws-utils.adb
+   [Ada]          aws-utils-streams.adb
+   [Ada]          aws-url.adb
+   [Ada]          aws-url-set.adb
+   [Ada]          aws-url-raise_url_error.adb
+   [Ada]          aws-translator.adb
+   [Ada]          aws-templates.ads
+   [Ada]          aws-status.adb
+   [Ada]          aws-status-translate_set.adb
+   [Ada]          aws-status-set.adb
+   [Ada]          aws-session.adb
+   [Ada]          aws-session-control.adb
+   [Ada]          aws-services.ads
+   [Ada]          aws-services-transient_pages.adb
+   [Ada]          aws-services-transient_pages-control.adb
+   [Ada]          aws-server.adb
+   [Ada]          aws-server-status.adb
+   [Ada]          aws-server-log.adb
+   [Ada]          aws-server-http_utils.adb
+   [Ada]          aws-server-get_status.adb
+   [Ada]          aws-response.adb
+   [Ada]          aws-response-set.adb
+   [Ada]          aws-resources.adb
+   [Ada]          aws-resources-streams.adb
+   [Ada]          aws-resources-streams-zlib.adb
+   [Ada]          aws-resources-streams-memory.adb
+   [Ada]          aws-resources-streams-memory-zlib.adb
+   [Ada]          aws-resources-streams-disk.adb
+   [Ada]          aws-resources-streams-disk-once.adb
+   [Ada]          aws-resources-files.adb
+   [Ada]          aws-resources-embedded.adb
+   [Ada]          aws-parameters.adb
+   [Ada]          aws-parameters-set.adb
+   [Ada]          aws-net.adb
+   [Ada]          aws-net-websocket.adb
+   [Ada]          aws-net-websocket-registry.adb
+   [Ada]          aws-net-websocket-registry-utils.adb
+   [Ada]          aws-net-websocket-registry-control.adb
+   [Ada]          aws-net-websocket-protocol.ads
+   [Ada]          aws-net-websocket-protocol-rfc6455.adb
+   [Ada]          aws-net-websocket-protocol-draft76.adb
+   [Ada]          aws-net-websocket-handshake_error.adb
+   [Ada]          aws-net-ssl-rsa_dh_generators.adb
+   [Ada]          aws-net-ssl-certificate.adb
+   [Ada]          aws-net-poll_events.adb
+   [Ada]          aws-net-poll_events-g_poll.adb
+   [Ada]          aws-net-memory.adb
+   [Ada]          aws-net-log.adb
+   [Ada]          aws-net-generic_sets.adb
+   [Ada]          aws-net-buffered.adb
+   [Ada]          aws-net-acceptors.adb
+   [Ada]          aws-mime.adb
+   [Ada]          aws-messages.adb
+   [Ada]          aws-log.adb
+   [Ada]          aws-hotplug.adb
+   [Ada]          aws-hotplug-get_status.adb
+   [Ada]          aws-headers.adb
+   [Ada]          aws-headers-values.adb
+   [Ada]          aws-headers-set.adb
+   [Ada]          aws-exceptions.ads
+   [Ada]          aws-dispatchers.adb
+   [Ada]          aws-dispatchers-callback.adb
+   [Ada]          aws-digest.adb
+   [Ada]          aws-default.ads
+   [Ada]          aws-containers.ads
+   [Ada]          aws-containers-tables.adb
+   [Ada]          aws-containers-tables-set.ads
+   [Ada]          aws-containers-string_vectors.ads
+   [Ada]          aws-containers-memory_streams.ads
+   [Ada]          aws-containers-key_value.ads
+   [Ada]          aws-config.adb
+   [Ada]          aws-config-utils.adb
+   [Ada]          aws-config-set.adb
+   [Ada]          aws-config-ini.adb
+   [Ada]          aws-client.adb
+   [Ada]          aws-client-http_utils.adb
+   [Ada]          aws-attachments.adb
+   [Ada]          templates_parser-input__aws.adb
+   [Ada]          templates_parser_tasking__standard_tasking.adb
+   [Ada]          aws-net-std__gnat.adb
+   [Ada]          aws-net-ssl__dummy.adb
+   [Ada]          aws-net-ssl-certificate-impl__dummy.adb
+   [Ada]          templates_parser-configuration__aws.ads
+   [Ada]          ssl.ads
+   [Ada]          ssl-thin__dummy.ads
+   [C]            zutil.c
+   [C]            uncompr.c
+   [C]            trees.c
+   [C]            inftrees.c
+   [C]            inflate.c
+   [C]            inffast.c
+   [C]            infback.c
+   [C]            gzwrite.c
+   [C]            gzread.c
+   [C]            gzlib.c
+   [C]            gzclose.c
+   [C]            deflate.c
+   [C]            crc32.c
+   [C]            compress.c
+   [C]            adler32.c
+Build Libraries
+   [gprlib]       z.lexch
+   [gprlib]       aws_ssl.lexch
+   [gprlib]       aws.lexch
+   [archive]      libaws_ssl.a
+   [index]        libaws_ssl.a
+   [archive]      libz.a
+   [index]        libz.a
+   [archive]      libaws.a
+   [index]        libaws.a
+Bind
+   [gprbind]      awsres.bexch
+   [gprbind]      aws_password.bexch
+   [gprbind]      templates2ada.bexch
+   [gprbind]      webxref.bexch
+   [Ada]          templates2ada.ali
+   [Ada]          aws_password.ali
+   [Ada]          webxref.ali
+   [Ada]          awsres.ali
+   [gprbind]      templatespp.bexch
+   [Ada]          templatespp.ali
+Link
+   [archive]      libtools.a
+   [index]        libtools.a
+   [link]         awsres.adb
+   [link]         aws_password.adb
+   [link]         templates2ada.adb
+   [link]         webxref.adb
+   [link]         templatespp.adb
+Setup
+   [mkdir]        object directory for project Zlib
+   [mkdir]        library directory for project Zlib
+   [mkdir]        object directory for project Include
+   [mkdir]        library directory for project Include
+   [mkdir]        object directory for project SSL
+   [mkdir]        library directory for project SSL
+   [mkdir]        object directory for project Src
+   [mkdir]        library directory for project Src
+   [mkdir]        library directory for project AWS
+Compile
+   [Ada]          zlib.adb
+   [Ada]          zlib-thin.adb
+   [Ada]          zlib-streams.adb
+   [Ada]          memory_streams.adb
+   [C]            gai_strerror.c
+   [Ada]          aws-os_lib.ads
+   [Ada]          templates_parser.adb
+   [Ada]          templates_parser-utils.adb
+   [Ada]          templates_parser-query.adb
+   [Ada]          templates_parser-debug.adb
+   [Ada]          aws-status-translate_table.adb
+   [Ada]          aws-smtp.adb
+   [Ada]          aws-smtp-server.adb
+   [Ada]          aws-smtp-messages.adb
+   [Ada]          aws-smtp-messages-set.adb
+   [Ada]          aws-smtp-client.adb
+   [Ada]          aws-smtp-authentication.ads
+   [Ada]          aws-smtp-authentication-plain.adb
+   [Ada]          aws-services-web_mail.adb
+   [Ada]          aws-services-web_block.ads
+   [Ada]          aws-services-web_block-registry.adb
+   [Ada]          aws-services-web_block-context.adb
+   [Ada]          aws-services-split_pages.adb
+   [Ada]          aws-services-split_pages-uniform.adb
+   [Ada]          aws-services-split_pages-uniform-overlapping.adb
+   [Ada]          aws-services-split_pages-uniform-alpha.adb
+   [Ada]          aws-services-split_pages-shared.adb
+   [Ada]          aws-services-split_pages-alpha.adb
+   [Ada]          aws-services-split_pages-alpha-bounded.adb
+   [Ada]          aws-services-page_server.adb
+   [Ada]          aws-services-download.adb
+   [Ada]          aws-services-dispatchers.ads
+   [Ada]          aws-services-dispatchers-virtual_host.adb
+   [Ada]          aws-services-dispatchers-uri.adb
+   [Ada]          aws-services-dispatchers-transient_pages.adb
+   [Ada]          aws-services-dispatchers-timer.adb
+   [Ada]          aws-services-dispatchers-method.adb
+   [Ada]          aws-services-dispatchers-linker.adb
+   [Ada]          aws-services-directory.adb
+   [Ada]          aws-services-callbacks.adb
+   [Ada]          aws-server-push.adb
+   [Ada]          aws-server-hotplug.adb
+   [Ada]          aws-resources-streams-pipe.adb
+   [Ada]          aws-pop.adb
+   [Ada]          aws-net-stream_io.adb
+   [Ada]          aws-net-sets.ads
+   [Ada]          aws-net-log-callbacks.adb
+   [Ada]          aws-cookie.adb
+   [Ada]          aws-communication.adb
+   [Ada]          aws-communication-server.adb
+   [Ada]          aws-communication-client.adb
+   [Ada]          aws-client-hotplug.adb
+   [Ada]          aws.ads
+   [Ada]          aws-utils.adb
+   [Ada]          aws-utils-streams.adb
+   [Ada]          aws-url.adb
+   [Ada]          aws-url-set.adb
+   [Ada]          aws-url-raise_url_error.adb
+   [Ada]          aws-translator.adb
+   [Ada]          aws-templates.ads
+   [Ada]          aws-status.adb
+   [Ada]          aws-status-translate_set.adb
+   [Ada]          aws-status-set.adb
+   [Ada]          aws-session.adb
+   [Ada]          aws-session-control.adb
+   [Ada]          aws-services.ads
+   [Ada]          aws-services-transient_pages.adb
+   [Ada]          aws-services-transient_pages-control.adb
+   [Ada]          aws-server.adb
+   [Ada]          aws-server-status.adb
+   [Ada]          aws-server-log.adb
+   [Ada]          aws-server-http_utils.adb
+   [Ada]          aws-server-get_status.adb
+   [Ada]          aws-response.adb
+   [Ada]          aws-response-set.adb
+   [Ada]          aws-resources.adb
+   [Ada]          aws-resources-streams.adb
+   [Ada]          aws-resources-streams-zlib.adb
+   [Ada]          aws-resources-streams-memory.adb
+   [Ada]          aws-resources-streams-memory-zlib.adb
+   [Ada]          aws-resources-streams-disk.adb
+   [Ada]          aws-resources-streams-disk-once.adb
+   [Ada]          aws-resources-files.adb
+   [Ada]          aws-resources-embedded.adb
+   [Ada]          aws-parameters.adb
+   [Ada]          aws-parameters-set.adb
+   [Ada]          aws-net.adb
+   [Ada]          aws-net-websocket.adb
+   [Ada]          aws-net-websocket-registry.adb
+   [Ada]          aws-net-websocket-registry-utils.adb
+   [Ada]          aws-net-websocket-registry-control.adb
+   [Ada]          aws-net-websocket-protocol.ads
+   [Ada]          aws-net-websocket-protocol-rfc6455.adb
+   [Ada]          aws-net-websocket-protocol-draft76.adb
+   [Ada]          aws-net-websocket-handshake_error.adb
+   [Ada]          aws-net-ssl-rsa_dh_generators.adb
+   [Ada]          aws-net-ssl-certificate.adb
+   [Ada]          aws-net-poll_events.adb
+   [Ada]          aws-net-poll_events-g_poll.adb
+   [Ada]          aws-net-memory.adb
+   [Ada]          aws-net-log.adb
+   [Ada]          aws-net-generic_sets.adb
+   [Ada]          aws-net-buffered.adb
+   [Ada]          aws-net-acceptors.adb
+   [Ada]          aws-mime.adb
+   [Ada]          aws-messages.adb
+   [Ada]          aws-log.adb
+   [Ada]          aws-hotplug.adb
+   [Ada]          aws-hotplug-get_status.adb
+   [Ada]          aws-headers.adb
+   [Ada]          aws-headers-values.adb
+   [Ada]          aws-headers-set.adb
+   [Ada]          aws-exceptions.ads
+   [Ada]          aws-dispatchers.adb
+   [Ada]          aws-dispatchers-callback.adb
+   [Ada]          aws-digest.adb
+   [Ada]          aws-default.ads
+   [Ada]          aws-containers.ads
+   [Ada]          aws-containers-tables.adb
+   [Ada]          aws-containers-tables-set.ads
+   [Ada]          aws-containers-string_vectors.ads
+   [Ada]          aws-containers-memory_streams.ads
+   [Ada]          aws-containers-key_value.ads
+   [Ada]          aws-config.adb
+   [Ada]          aws-config-utils.adb
+   [Ada]          aws-config-set.adb
+   [Ada]          aws-config-ini.adb
+   [Ada]          aws-client.adb
+   [Ada]          aws-client-http_utils.adb
+   [Ada]          aws-attachments.adb
+   [Ada]          templates_parser-input__aws.adb
+   [Ada]          templates_parser_tasking__standard_tasking.adb
+   [Ada]          aws-net-std__gnat.adb
+   [Ada]          aws-net-ssl__dummy.adb
+   [Ada]          aws-net-ssl-certificate-impl__dummy.adb
+   [Ada]          templates_parser-configuration__aws.ads
+   [Ada]          ssl.ads
+   [Ada]          ssl-thin__dummy.ads
+   [C]            zutil.c
+   [C]            uncompr.c
+   [C]            trees.c
+   [C]            inftrees.c
+   [C]            inflate.c
+   [C]            inffast.c
+   [C]            infback.c
+   [C]            gzwrite.c
+   [C]            gzread.c
+   [C]            gzlib.c
+   [C]            gzclose.c
+   [C]            deflate.c
+   [C]            crc32.c
+   [C]            compress.c
+   [C]            adler32.c
+Build Libraries
+   [gprlib]       z.lexch
+   [gprlib]       aws_ssl.lexch
+   [gprlib]       aws.lexch
+   [link library] libz.dll
+   [link library] libaws_ssl.dll
+   [link library] libaws.dll
+Setup
+   [mkdir]        object directory for project GPS_Support
+   [mkdir]        exec directory for project GPS_Support
+Compile
+   [Ada]          gen_gps_ref.adb
+Bind
+   [gprbind]      gen_gps_ref.bexch
+   [Ada]          gen_gps_ref.ali
+Link
+   [link]         gen_gps_ref.adb
+make[1]: Entering directory '/d/a/alire-crates-ci/alire-crates-ci/test/04077a2b-d261-4c64-abb0-54473fa947b7/awa_2.4.0_59135a52/alire/cache/dependencies/aws_21.0.0_57fddf8f/gps'
+make[1]: Leaving directory '/d/a/alire-crates-ci/alire-crates-ci/test/04077a2b-d261-4c64-abb0-54473fa947b7/awa_2.4.0_59135a52/alire/cache/dependencies/aws_21.0.0_57fddf8f/gps'
+Install project AWS - static
+warning: file does not exist 'd:\a\alire-crates-ci\alire-crates-ci\test\04077a2b-d261-4c64-abb0-54473fa947b7\awa_2.4.0_59135a52\alire\cache\dependencies\aws_21.0.0_57fddf8f\templates_parser/docs/build/latex/*.pdf'
+warning: file does not exist 'd:\a\alire-crates-ci\alire-crates-ci\test\04077a2b-d261-4c64-abb0-54473fa947b7\awa_2.4.0_59135a52\alire\cache\dependencies\aws_21.0.0_57fddf8f\templates_parser/docs/build/html'
+warning: file does not exist 'd:\a\alire-crates-ci\alire-crates-ci\test\04077a2b-d261-4c64-abb0-54473fa947b7\awa_2.4.0_59135a52\alire\cache\dependencies\aws_21.0.0_57fddf8f\docs/build/latex/*.pdf'
+warning: file does not exist 'd:\a\alire-crates-ci\alire-crates-ci\test\04077a2b-d261-4c64-abb0-54473fa947b7\awa_2.4.0_59135a52\alire\cache\dependencies\aws_21.0.0_57fddf8f\docs/build/html'
+Install project Tools - static
+Install project AWS - relocatable
+warning: file does not exist 'd:\a\alire-crates-ci\alire-crates-ci\test\04077a2b-d261-4c64-abb0-54473fa947b7\awa_2.4.0_59135a52\alire\cache\dependencies\aws_21.0.0_57fddf8f\templates_parser/docs/build/latex/*.pdf'
+warning: file does not exist 'd:\a\alire-crates-ci\alire-crates-ci\test\04077a2b-d261-4c64-abb0-54473fa947b7\awa_2.4.0_59135a52\alire\cache\dependencies\aws_21.0.0_57fddf8f\templates_parser/docs/build/html'
+warning: file does not exist 'd:\a\alire-crates-ci\alire-crates-ci\test\04077a2b-d261-4c64-abb0-54473fa947b7\awa_2.4.0_59135a52\alire\cache\dependencies\aws_21.0.0_57fddf8f\docs/build/latex/*.pdf'
+warning: file does not exist 'd:\a\alire-crates-ci\alire-crates-ci\test\04077a2b-d261-4c64-abb0-54473fa947b7\awa_2.4.0_59135a52\alire\cache\dependencies\aws_21.0.0_57fddf8f\docs/build/html'
+Note: Deploying elada=1.8.5...
+Note: Deploying keystoreada=1.3.3...
+Note: Deploying utilada_xml=2.5.0...
+Note: Deploying wikiada=1.4.0...
+Note: Deploying ado=2.3.0...
+Note: Deploying security=1.4.1...
+Note: Deploying utilada_aws=2.5.0...
+Note: Deploying servletada=1.6.0...
+Note: Deploying serverfaces=1.5.0...
+Note: Deploying servletada_aws=1.6.0...
+Note: Running post_fetch actions for awa=2.4.0...
+Note: Building awa/.alire/awa_blogs.gpr (1/17)...
+Setup
+   [mkdir]        object directory for project UtilAda_Core
+   [mkdir]        library directory for project UtilAda_Core
+   [mkdir]        object directory for project UtilAda_Sys
+   [mkdir]        library directory for project UtilAda_Sys
+   [mkdir]        object directory for project ElAda
+   [mkdir]        library directory for project ElAda
+   [mkdir]        object directory for project WikiAda
+   [mkdir]        library directory for project WikiAda
+   [mkdir]        object directory for project XmlAda_Sax
+   [mkdir]        library directory for project XmlAda_Sax
+   [mkdir]        object directory for project UtilAda_Xml
+   [mkdir]        library directory for project UtilAda_Xml
+   [mkdir]        object directory for project Ado
+   [mkdir]        library directory for project Ado
+   [mkdir]        object directory for project Security
+   [mkdir]        library directory for project Security
+   [mkdir]        object directory for project ServletAda
+   [mkdir]        library directory for project ServletAda
+   [mkdir]        object directory for project Asf
+   [mkdir]        library directory for project Asf
+   [mkdir]        object directory for project KeystoreAda
+   [mkdir]        library directory for project KeystoreAda
+   [mkdir]        object directory for project Awa
+   [mkdir]        library directory for project Awa
+   [mkdir]        object directory for project Awa_Workspaces
+   [mkdir]        exec directory for project Awa_Workspaces
+   [mkdir]        library directory for project Awa_Workspaces
+   [mkdir]        object directory for project Awa_Tags
+   [mkdir]        library directory for project Awa_Tags
+   [mkdir]        object directory for project Awa_Comments
+   [mkdir]        library directory for project Awa_Comments
+   [mkdir]        object directory for project Awa_Storages
+   [mkdir]        library directory for project Awa_Storages
+   [mkdir]        object directory for project Awa_Jobs
+   [mkdir]        library directory for project Awa_Jobs
+   [mkdir]        object directory for project Awa_Images
+   [mkdir]        library directory for project Awa_Images
+   [mkdir]        object directory for project Awa_Counters
+   [mkdir]        library directory for project Awa_Counters
+   [mkdir]        object directory for project Awa_Blogs
+   [mkdir]        library directory for project Awa_Blogs
+Compile
+   [Ada]          awa-counters-models.adb
+   [Ada]          awa-counters.adb
+   [Ada]          awa-counters-modules.adb
+   [Ada]          awa-counters-definition.ads
+   [Ada]          awa-counters-components.adb
+   [Ada]          awa-counters-beans.adb
+   [Ada]          awa-jobs-models.adb
+   [Ada]          awa-jobs.ads
+   [Ada]          awa-jobs-services.adb
+   [Ada]          awa-jobs-modules.adb
+   [Ada]          awa-jobs-beans.adb
+   [Ada]          awa-storages-models.adb
+   [Ada]          awa-storages.adb
+   [Ada]          awa-storages-stores.ads
+   [Ada]          awa-storages-stores-files.adb
+   [Ada]          awa-storages-stores-databases.adb
+   [Ada]          awa-storages-servlets.adb
+   [Ada]          awa-storages-services.adb
+   [Ada]          awa-storages-modules.adb
+   [Ada]          awa-storages-beans.adb
+   [Ada]          awa-images-models.adb
+   [Ada]          awa-images.ads
+   [Ada]          awa-images-servlets.adb
+   [Ada]          awa-images-modules.adb
+   [Ada]          awa-images-beans.adb
+   [Ada]          awa-comments-models.adb
+   [Ada]          awa-comments.ads
+   [Ada]          awa-comments-modules.adb
+   [Ada]          awa-comments-beans.adb
+   [Ada]          awa-tags-models.adb
+   [Ada]          awa-tags.ads
+   [Ada]          awa-tags-modules.adb
+   [Ada]          awa-tags-components.adb
+   [Ada]          awa-tags-beans.adb
+   [Ada]          awa-workspaces-models.adb
+   [Ada]          awa-workspaces.ads
+   [Ada]          awa-workspaces-modules.adb
+   [Ada]          awa-workspaces-beans.adb
+   [Ada]          keystore.adb
+   [Ada]          keystore-tools.adb
+   [Ada]          keystore-repository.adb
+   [Ada]          keystore-repository-workers.adb
+   [Ada]          keystore-repository-keys.adb
+   [Ada]          keystore-repository-entries.adb
+   [Ada]          keystore-repository-data.adb
+   [Ada]          keystore-random.adb
+   [Ada]          keystore-properties.adb
+   [Ada]          keystore-passwords.adb
+   [Ada]          keystore-passwords-unsafe.adb
+   [Ada]          keystore-passwords-keys.adb
+   [Ada]          keystore-passwords-input.adb
+   [Ada]          keystore-passwords-gpg.adb
+   [Ada]          keystore-passwords-files.adb
+   [Ada]          keystore-passwords-cmds.adb
+   [Ada]          keystore-marshallers.adb
+   [Ada]          keystore-logs.adb
+   [Ada]          keystore-keys.adb
+   [Ada]          keystore-io.adb
+   [Ada]          keystore-io-refs.adb
+   [Ada]          keystore-io-headers.adb
+   [Ada]          keystore-io-files.adb
+   [Ada]          keystore-gpg.adb
+   [Ada]          keystore-files.adb
+   [Ada]          keystore-containers.adb
+   [Ada]          keystore-buffers.adb
+   [Ada]          servlet.ads
+   [Ada]          servlet-streams.adb
+   [Ada]          servlet-streams-xml.adb
+   [Ada]          servlet-streams-raw.adb
+   [Ada]          servlet-streams-json.adb
+   [Ada]          servlet-sessions.adb
+   [Ada]          servlet-sessions-factory.adb
+   [Ada]          servlet-server.adb
+   [Ada]          servlet-security.ads
+   [Ada]          servlet-security-servlets.adb
+   [Ada]          servlet-security-oauth.adb
+   [Ada]          servlet-security-filters.adb
+   [Ada]          servlet-security-filters-oauth.adb
+   [Ada]          servlet-routes.adb
+   [Ada]          servlet-routes-servlets.adb
+   [Ada]          servlet-routes-servlets-rest.ads
+   [Ada]          servlet-rest.adb
+   [Ada]          servlet-rest-operation.adb
+   [Ada]          servlet-rest-definition.adb
+   [Ada]          servlet-responses.adb
+   [Ada]          servlet-responses-tools.adb
+   [Ada]          servlet-responses-mockup.adb
+   [Ada]          servlet-resolvers.adb
+   [Ada]          servlet-requests.adb
+   [Ada]          servlet-requests-tools.adb
+   [Ada]          servlet-requests-mockup.adb
+   [Ada]          servlet-principals.ads
+   [Ada]          servlet-parts.adb
+   [Ada]          servlet-parts-mockup.adb
+   [Ada]          servlet-filters.ads
+   [Ada]          servlet-filters-dump.adb
+   [Ada]          servlet-filters-cache_control.adb
+   [Ada]          servlet-core.adb
+   [Ada]          servlet-core-rest.adb
+   [Ada]          servlet-core-measures.adb
+   [Ada]          servlet-core-mappers.adb
+   [Ada]          servlet-core-files.adb
+   [Ada]          servlet-core-configs.adb
+   [Ada]          servlet-cookies.ads
+   [Ada]          security.ads
+   [Ada]          security-random.adb
+   [Ada]          security-policies.adb
+   [Ada]          security-policies-urls.adb
+   [Ada]          security-policies-roles.adb
+   [Ada]          security-permissions.adb
+   [Ada]          security-oauth.adb
+   [Ada]          security-oauth-servers.adb
+   [Ada]          security-oauth-jwt.adb
+   [Ada]          security-oauth-file_registry.adb
+   [Ada]          security-oauth-clients.adb
+   [Ada]          security-controllers.ads
+   [Ada]          security-controllers-urls.adb
+   [Ada]          security-controllers-roles.adb
+   [Ada]          security-contexts.adb
+   [Ada]          security-auth.adb
+   [Ada]          security-auth-openid.adb
+   [Ada]          security-auth-oauth.adb
+   [Ada]          security-auth-oauth-yahoo.adb
+   [Ada]          security-auth-oauth-googleplus.adb
+   [Ada]          security-auth-oauth-github.adb
+   [Ada]          security-auth-oauth-facebook.adb
+   [Ada]          asf.ads
+   [Ada]          asf-views.adb
+   [Ada]          asf-views-nodes.adb
+   [Ada]          asf-views-nodes-reader.adb
+   [Ada]          asf-views-nodes-jsf.adb
+   [Ada]          asf-views-nodes-factory.adb
+   [Ada]          asf-views-nodes-facelets.adb
+   [Ada]          asf-views-nodes-core.adb
+   [Ada]          asf-views-facelets.adb
+   [Ada]          asf-validators.ads
+   [Ada]          asf-validators-texts.adb
+   [Ada]          asf-validators-numbers.adb
+   [Ada]          asf-utils.adb
+   [Ada]          asf-streams.ads
+   [Ada]          asf-sessions.ads
+   [Ada]          asf-servlets.ads
+   [Ada]          asf-servlets-measures.ads
+   [Ada]          asf-servlets-files.ads
+   [Ada]          asf-servlets-faces.adb
+   [Ada]          asf-servlets-faces-mappers.adb
+   [Ada]          asf-servlets-ajax.adb
+   [Ada]          asf-server.ads
+   [Ada]          asf-security.adb
+   [Ada]          asf-security-servlets.ads
+   [Ada]          asf-security-filters.ads
+   [Ada]          asf-security-filters-oauth.ads
+   [Ada]          asf-routes.ads
+   [Ada]          asf-routes-servlets.adb
+   [Ada]          asf-routes-servlets-faces.ads
+   [Ada]          asf-responses.ads
+   [Ada]          asf-requests.ads
+   [Ada]          asf-principals.ads
+   [Ada]          asf-parts.ads
+   [Ada]          asf-parts-upload_method.ads
+   [Ada]          asf-navigations.adb
+   [Ada]          asf-navigations-render.adb
+   [Ada]          asf-navigations-redirect.adb
+   [Ada]          asf-navigations-mappers.adb
+   [Ada]          asf-models.ads
+   [Ada]          asf-models-selects.adb
+   [Ada]          asf-locales.adb
+   [Ada]          asf-lifecycles.adb
+   [Ada]          asf-lifecycles-validation.adb
+   [Ada]          asf-lifecycles-update.adb
+   [Ada]          asf-lifecycles-restore.adb
+   [Ada]          asf-lifecycles-response.adb
+   [Ada]          asf-lifecycles-invoke.adb
+   [Ada]          asf-lifecycles-default.adb
+   [Ada]          asf-lifecycles-apply.adb
+   [Ada]          asf-helpers.ads
+   [Ada]          asf-helpers-beans.adb
+   [Ada]          asf-filters.ads
+   [Ada]          asf-factory.adb
+   [Ada]          asf-events.ads
+   [Ada]          asf-events-phases.ads
+   [Ada]          asf-events-modules.adb
+   [Ada]          asf-events-faces.adb
+   [Ada]          asf-events-faces-actions.adb
+   [Ada]          asf-events-exceptions.adb
+   [Ada]          asf-cookies.ads
+   [Ada]          asf-converters.ads
+   [Ada]          asf-converters-sizes.adb
+   [Ada]          asf-converters-numbers.adb
+   [Ada]          asf-converters-dates.adb
+   [Ada]          asf-contexts.ads
+   [Ada]          asf-contexts-writer.adb
+   [Ada]          asf-contexts-writer-string.adb
+   [Ada]          asf-contexts-flash.adb
+   [Ada]          asf-contexts-faces.adb
+   [Ada]          asf-contexts-facelets.adb
+   [Ada]          asf-contexts-exceptions.adb
+   [Ada]          asf-contexts-exceptions-iterator.adb
+   [Ada]          asf-components.ads
+   [Ada]          asf-components-widgets.ads
+   [Ada]          asf-components-widgets-tabs.adb
+   [Ada]          asf-components-widgets-selects.adb
+   [Ada]          asf-components-widgets-progress.adb
+   [Ada]          asf-components-widgets-panels.adb
+   [Ada]          asf-components-widgets-likes.adb
+   [Ada]          asf-components-widgets-inputs.adb
+   [Ada]          asf-components-widgets-gravatars.adb
+   [Ada]          asf-components-widgets-factory.adb
+   [Ada]          asf-components-utils.adb
+   [Ada]          asf-components-utils-scrollers.adb
+   [Ada]          asf-components-utils-scripts.adb
+   [Ada]          asf-components-utils-flush.adb
+   [Ada]          asf-components-utils-files.adb
+   [Ada]          asf-components-utils-factory.adb
+   [Ada]          asf-components-utils-escapes.adb
+   [Ada]          asf-components-utils-beans.adb
+   [Ada]          asf-components-root.adb
+   [Ada]          asf-components-html.adb
+   [Ada]          asf-components-html-text.adb
+   [Ada]          asf-components-html-selects.adb
+   [Ada]          asf-components-html-panels.adb
+   [Ada]          asf-components-html-pages.adb
+   [Ada]          asf-components-html-messages.adb
+   [Ada]          asf-components-html-lists.adb
+   [Ada]          asf-components-html-links.adb
+   [Ada]          asf-components-html-forms.adb
+   [Ada]          asf-components-html-factory.adb
+   [Ada]          asf-components-holders.ads
+   [Ada]          asf-components-core.adb
+   [Ada]          asf-components-core-views.adb
+   [Ada]          asf-components-core-factory.adb
+   [Ada]          asf-components-base.adb
+   [Ada]          asf-components-ajax.ads
+   [Ada]          asf-components-ajax-includes.adb
+   [Ada]          asf-components-ajax-factory.adb
+   [Ada]          asf-clients.ads
+   [Ada]          asf-beans.adb
+   [Ada]          asf-beans-resolvers.adb
+   [Ada]          asf-beans-requests.adb
+   [Ada]          asf-beans-params.adb
+   [Ada]          asf-beans-mappers.adb
+   [Ada]          asf-beans-injections.adb
+   [Ada]          asf-beans-headers.adb
+   [Ada]          asf-beans-globals.adb
+   [Ada]          asf-beans-flash.adb
+   [Ada]          asf-applications.adb
+   [Ada]          asf-applications-views.adb
+   [Ada]          asf-applications-messages.adb
+   [Ada]          asf-applications-messages-vectors.ads
+   [Ada]          asf-applications-messages-utils.adb
+   [Ada]          asf-applications-messages-factory.adb
+   [Ada]          asf-applications-main.adb
+   [Ada]          asf-applications-main-configs.adb
+   [Ada]          input_sources.adb
+   [Ada]          input_sources-strings.adb
+   [Ada]          input_sources-socket.adb
+   [Ada]          input_sources-http.adb
+   [Ada]          input_sources-file.adb
+   [Ada]          unicode.adb
+   [Ada]          unicode-names.ads
+   [Ada]          unicode-names-yi_syllables.ads
+   [Ada]          unicode-names-yi_radicals.ads
+   [Ada]          unicode-names-yijing_hexagram_symbols.ads
+   [Ada]          unicode-names-warang_citi.ads
+   [Ada]          unicode-names-vertical_forms.ads
+   [Ada]          unicode-names-vedic_extensions.ads
+   [Ada]          unicode-names-variation_selectors_sup.ads
+   [Ada]          unicode-names-variation_selectors.ads
+   [Ada]          unicode-names-vai.ads
+   [Ada]          unicode-names-ugaritic.ads
+   [Ada]          unicode-names-transport_and_map_symbols.ads
+   [Ada]          unicode-names-tirhuta.ads
+   [Ada]          unicode-names-tifinagh.ads
+   [Ada]          unicode-names-tibetan.ads
+   [Ada]          unicode-names-thai.ads
+   [Ada]          unicode-names-thaana.ads
+   [Ada]          unicode-names-telugu.ads
+   [Ada]          unicode-names-tamil.ads
+   [Ada]          unicode-names-takri.ads
+   [Ada]          unicode-names-tai_xuan_jing_symbols.ads
+   [Ada]          unicode-names-tai_viet.ads
+   [Ada]          unicode-names-tai_tham.ads
+   [Ada]          unicode-names-tai_le.ads
+   [Ada]          unicode-names-tags.ads
+   [Ada]          unicode-names-tagbanwa.ads
+   [Ada]          unicode-names-tagalog.ads
+   [Ada]          unicode-names-syriac.ads
+   [Ada]          unicode-names-syloti_nagri.ads
+   [Ada]          unicode-names-sutton_signwriting.ads
+   [Ada]          unicode-names-sup_symbols_pictographs.ads
+   [Ada]          unicode-names-sup_math_operators.ads
+   [Ada]          unicode-names-supplemental_punctuation.ads
+   [Ada]          unicode-names-supplemental_arrows_c.ads
+   [Ada]          unicode-names-supplemental_arrows_b.ads
+   [Ada]          unicode-names-supplemental_arrows_a.ads
+   [Ada]          unicode-names-super_and_sub_scripts.ads
+   [Ada]          unicode-names-sundanese_supplement.ads
+   [Ada]          unicode-names-sundanese.ads
+   [Ada]          unicode-names-specials.ads
+   [Ada]          unicode-names-spacing_modifier_letters.ads
+   [Ada]          unicode-names-sora_sompeng.ads
+   [Ada]          unicode-names-small_form_variants.ads
+   [Ada]          unicode-names-sinhala_archaic_numbers.ads
+   [Ada]          unicode-names-sinhala.ads
+   [Ada]          unicode-names-siddham.ads
+   [Ada]          unicode-names-shorthand_format_controls.ads
+   [Ada]          unicode-names-shavian.ads
+   [Ada]          unicode-names-sharada.ads
+   [Ada]          unicode-names-saurashtra.ads
+   [Ada]          unicode-names-samaritan.ads
+   [Ada]          unicode-names-runic.ads
+   [Ada]          unicode-names-rumi_numeral_symbols.ads
+   [Ada]          unicode-names-rejang.ads
+   [Ada]          unicode-names-psalter_pahlavi.ads
+   [Ada]          unicode-names-playing_cards.ads
+   [Ada]          unicode-names-phonetic_ext_sup.ads
+   [Ada]          unicode-names-phonetic_extensions.ads
+   [Ada]          unicode-names-phoenician.ads
+   [Ada]          unicode-names-phaistos_disc.ads
+   [Ada]          unicode-names-phags_pa.ads
+   [Ada]          unicode-names-pau_cin_hau.ads
+   [Ada]          unicode-names-palmyrene.ads
+   [Ada]          unicode-names-pahawh_hmong.ads
+   [Ada]          unicode-names-osmanya.ads
+   [Ada]          unicode-names-ornamental_dingbats.ads
+   [Ada]          unicode-names-oriya.ads
+   [Ada]          unicode-names-optical_chars_recognition.ads
+   [Ada]          unicode-names-ol_chiki.ads
+   [Ada]          unicode-names-old_turkic.ads
+   [Ada]          unicode-names-old_south_arabian.ads
+   [Ada]          unicode-names-old_persian.ads
+   [Ada]          unicode-names-old_permic.ads
+   [Ada]          unicode-names-old_north_arabian.ads
+   [Ada]          unicode-names-old_italic.ads
+   [Ada]          unicode-names-old_hungarian.ads
+   [Ada]          unicode-names-ogham.ads
+   [Ada]          unicode-names-number_forms.ads
+   [Ada]          unicode-names-nko.ads
+   [Ada]          unicode-names-new_tai_lue.ads
+   [Ada]          unicode-names-nabataean.ads
+   [Ada]          unicode-names-myanmar_extended_b.ads
+   [Ada]          unicode-names-myanmar_extended_a.ads
+   [Ada]          unicode-names-myanmar.ads
+   [Ada]          unicode-names-musical_symbols.ads
+   [Ada]          unicode-names-multani.ads
+   [Ada]          unicode-names-mro.ads
+   [Ada]          unicode-names-mongolian.ads
+   [Ada]          unicode-names-modifier_tone_letters.ads
+   [Ada]          unicode-names-modi.ads
+   [Ada]          unicode-names-misc_symbols_pictographs.ads
+   [Ada]          unicode-names-misc_symbols_and_arrows.ads
+   [Ada]          unicode-names-misc_math_symbols_b.ads
+   [Ada]          unicode-names-misc_math_symbols_a.ads
+   [Ada]          unicode-names-miscellaneous_technical.ads
+   [Ada]          unicode-names-miscellaneous_symbols.ads
+   [Ada]          unicode-names-miao.ads
+   [Ada]          unicode-names-meroitic_hieroglyphs.ads
+   [Ada]          unicode-names-meroitic_cursive.ads
+   [Ada]          unicode-names-mende_kikakui.ads
+   [Ada]          unicode-names-meetei_mayek_extensions.ads
+   [Ada]          unicode-names-meetei_mayek.ads
+   [Ada]          unicode-names-math_alphanumeric_symb.ads
+   [Ada]          unicode-names-mathematical_operators.ads
+   [Ada]          unicode-names-manichaean.ads
+   [Ada]          unicode-names-mandaic.ads
+   [Ada]          unicode-names-malayalam.ads
+   [Ada]          unicode-names-mahjong_tiles.ads
+   [Ada]          unicode-names-mahajani.ads
+   [Ada]          unicode-names-lydian.ads
+   [Ada]          unicode-names-lycian.ads
+   [Ada]          unicode-names-lisu.ads
+   [Ada]          unicode-names-linear_b_syllabary.ads
+   [Ada]          unicode-names-linear_b_ideograms.ads
+   [Ada]          unicode-names-linear_a.ads
+   [Ada]          unicode-names-limbu.ads
+   [Ada]          unicode-names-letterlike_symbols.ads
+   [Ada]          unicode-names-lepcha.ads
+   [Ada]          unicode-names-latin_extended_e.ads
+   [Ada]          unicode-names-latin_extended_d.ads
+   [Ada]          unicode-names-latin_extended_c.ads
+   [Ada]          unicode-names-latin_extended_b.ads
+   [Ada]          unicode-names-latin_extended_additional.ads
+   [Ada]          unicode-names-latin_extended_a.ads
+   [Ada]          unicode-names-latin_1_supplement.ads
+   [Ada]          unicode-names-lao.ads
+   [Ada]          unicode-names-khudawadi.ads
+   [Ada]          unicode-names-khojki.ads
+   [Ada]          unicode-names-khmer_symbols.ads
+   [Ada]          unicode-names-khmer.ads
+   [Ada]          unicode-names-kharoshthi.ads
+   [Ada]          unicode-names-kayah_li.ads
+   [Ada]          unicode-names-katakana_phonetic_ext.ads
+   [Ada]          unicode-names-katakana.ads
+   [Ada]          unicode-names-kannada.ads
+   [Ada]          unicode-names-kangxi_radicals.ads
+   [Ada]          unicode-names-kanbun.ads
+   [Ada]          unicode-names-kana_supplement.ads
+   [Ada]          unicode-names-kaithi.ads
+   [Ada]          unicode-names-javanese.ads
+   [Ada]          unicode-names-ipa_extensions.ads
+   [Ada]          unicode-names-inscriptional_parthian.ads
+   [Ada]          unicode-names-inscriptional_pahlavi.ads
+   [Ada]          unicode-names-imperial_aramaic.ads
+   [Ada]          unicode-names-ideograph_descr_chars.ads
+   [Ada]          unicode-names-hiragana.ads
+   [Ada]          unicode-names-hebrew.ads
+   [Ada]          unicode-names-hatran.ads
+   [Ada]          unicode-names-hanunoo.ads
+   [Ada]          unicode-names-hangul_jamo_extended_b.ads
+   [Ada]          unicode-names-hangul_jamo_extended_a.ads
+   [Ada]          unicode-names-hangul_jamo.ads
+   [Ada]          unicode-names-hangul_compatibility_jamo.ads
+   [Ada]          unicode-names-half_full_width_forms.ads
+   [Ada]          unicode-names-gurmukhi.ads
+   [Ada]          unicode-names-gujarati.ads
+   [Ada]          unicode-names-greek_extended.ads
+   [Ada]          unicode-names-greek_and_coptic.ads
+   [Ada]          unicode-names-grantha.ads
+   [Ada]          unicode-names-gothic.ads
+   [Ada]          unicode-names-glagolitic.ads
+   [Ada]          unicode-names-georgian_supplement.ads
+   [Ada]          unicode-names-georgian.ads
+   [Ada]          unicode-names-geometric_shapes_extended.ads
+   [Ada]          unicode-names-geometric_shapes.ads
+   [Ada]          unicode-names-general_punctuation.ads
+   [Ada]          unicode-names-ethiopic_supplement.ads
+   [Ada]          unicode-names-ethiopic_extended_a.ads
+   [Ada]          unicode-names-ethiopic_extended.ads
+   [Ada]          unicode-names-ethiopic.ads
+   [Ada]          unicode-names-enclosed_ideographic_sup.ads
+   [Ada]          unicode-names-enclosed_alphanum_sup.ads
+   [Ada]          unicode-names-enclosed_alphanumerics.ads
+   [Ada]          unicode-names-emoticons.ads
+   [Ada]          unicode-names-elbasan.ads
+   [Ada]          unicode-names-egyptian_hieroglyphs.ads
+   [Ada]          unicode-names-early_dynastic_cuneiform.ads
+   [Ada]          unicode-names-duployan.ads
+   [Ada]          unicode-names-domino_tiles.ads
+   [Ada]          unicode-names-dingbats.ads
+   [Ada]          unicode-names-devanagari_extended.ads
+   [Ada]          unicode-names-devanagari.ads
+   [Ada]          unicode-names-deseret.ads
+   [Ada]          unicode-names-cyrillic_supplement.ads
+   [Ada]          unicode-names-cyrillic_extended_b.ads
+   [Ada]          unicode-names-cyrillic_extended_a.ads
+   [Ada]          unicode-names-cyrillic.ads
+   [Ada]          unicode-names-cypriot_syllabary.ads
+   [Ada]          unicode-names-currency_symbols.ads
+   [Ada]          unicode-names-cuneiform_num_punctuation.ads
+   [Ada]          unicode-names-cuneiform.ads
+   [Ada]          unicode-names-counting_rod_numerals.ads
+   [Ada]          unicode-names-coptic_epact_numbers.ads
+   [Ada]          unicode-names-coptic.ads
+   [Ada]          unicode-names-control_pictures.ads
+   [Ada]          unicode-names-common_indic_number_forms.ads
+   [Ada]          unicode-names-combining_half_marks.ads
+   [Ada]          unicode-names-combining_diacritical_sym.ads
+   [Ada]          unicode-names-combining_diacritical_sup.ads
+   [Ada]          unicode-names-combining_diacritical_ext.ads
+   [Ada]          unicode-names-combining_diacritical.ads
+   [Ada]          unicode-names-cjk_symbols_and_punct.ads
+   [Ada]          unicode-names-cjk_strokes.ads
+   [Ada]          unicode-names-cjk_radicals_supplement.ads
+   [Ada]          unicode-names-cjk_letters_months.ads
+   [Ada]          unicode-names-cjk_compat_ideo_sup.ads
+   [Ada]          unicode-names-cjk_compat_ideographs.ads
+   [Ada]          unicode-names-cjk_compatibility_forms.ads
+   [Ada]          unicode-names-cjk_compatibility.ads
+   [Ada]          unicode-names-cherokee_supplement.ads
+   [Ada]          unicode-names-cherokee.ads
+   [Ada]          unicode-names-cham.ads
+   [Ada]          unicode-names-chakma.ads
+   [Ada]          unicode-names-caucasian_albanian.ads
+   [Ada]          unicode-names-carian.ads
+   [Ada]          unicode-names-canadian_aboriginal_ext.ads
+   [Ada]          unicode-names-canadian_aboriginal.ads
+   [Ada]          unicode-names-byzantine_musical_symbols.ads
+   [Ada]          unicode-names-buhid.ads
+   [Ada]          unicode-names-buginese.ads
+   [Ada]          unicode-names-braille_patterns.ads
+   [Ada]          unicode-names-brahmi.ads
+   [Ada]          unicode-names-box_drawing.ads
+   [Ada]          unicode-names-bopomofo_extended.ads
+   [Ada]          unicode-names-bopomofo.ads
+   [Ada]          unicode-names-block_elements.ads
+   [Ada]          unicode-names-bengali.ads
+   [Ada]          unicode-names-batak.ads
+   [Ada]          unicode-names-bassa_vah.ads
+   [Ada]          unicode-names-basic_latin.ads
+   [Ada]          unicode-names-bamum_supplement.ads
+   [Ada]          unicode-names-bamum.ads
+   [Ada]          unicode-names-balinese.ads
+   [Ada]          unicode-names-avestan.ads
+   [Ada]          unicode-names-arrows.ads
+   [Ada]          unicode-names-armenian.ads
+   [Ada]          unicode-names-arabic_supplement.ads
+   [Ada]          unicode-names-arabic_present_formsb.ads
+   [Ada]          unicode-names-arabic_present_formsa.ads
+   [Ada]          unicode-names-arabic_math_alpha_symb.ads
+   [Ada]          unicode-names-arabic_extended_a.ads
+   [Ada]          unicode-names-arabic.ads
+   [Ada]          unicode-names-ancient_symbols.ads
+   [Ada]          unicode-names-ancient_greek_numbers.ads
+   [Ada]          unicode-names-ancient_greek_music.ads
+   [Ada]          unicode-names-anatolian_hieroglyphs.ads
+   [Ada]          unicode-names-alpha_presentation_forms.ads
+   [Ada]          unicode-names-alchemical_symbols.ads
+   [Ada]          unicode-names-ahom.ads
+   [Ada]          unicode-names-aegean_numbers.ads
+   [Ada]          unicode-encodings.adb
+   [Ada]          unicode-ces.adb
+   [Ada]          unicode-ces-utf8.adb
+   [Ada]          unicode-ces-utf32.adb
+   [Ada]          unicode-ces-utf16.adb
+   [Ada]          unicode-ces-basic_8bit.adb
+   [Ada]          unicode-ccs.adb
+   [Ada]          unicode-ccs-windows_1252.adb
+   [Ada]          unicode-ccs-windows_1251.adb
+   [Ada]          unicode-ccs-iso_8859_4.adb
+   [Ada]          unicode-ccs-iso_8859_3.adb
+   [Ada]          unicode-ccs-iso_8859_2.adb
+   [Ada]          unicode-ccs-iso_8859_15.adb
+   [Ada]          unicode-ccs-iso_8859_1.adb
+   [Ada]          sax.ads
+   [Ada]          sax-utils.adb
+   [Ada]          sax-symbols.adb
+   [Ada]          sax-state_machines.adb
+   [Ada]          sax-readers.adb
+   [Ada]          sax-pointers.adb
+   [Ada]          sax-models.adb
+   [Ada]          sax-locators.adb
+   [Ada]          sax-htable.adb
+   [Ada]          sax-exceptions.adb
+   [Ada]          sax-encodings.ads
+   [Ada]          sax-attributes.adb
+   [Ada]          util-serialize-io-xml.adb
+   [Ada]          ado-model.adb
+   [Ada]          ado.adb
+   [Ada]          ado-utils.adb
+   [Ada]          ado-utils-streams.adb
+   [Ada]          ado-utils-serialize.adb
+   [Ada]          ado-statements.adb
+   [Ada]          ado-statements-create.adb
+   [Ada]          ado-sql.adb
+   [Ada]          ado-sessions.adb
+   [Ada]          ado-sessions-sources.adb
+   [Ada]          ado-sessions-factory.adb
+   [Ada]          ado-sessions-entities.adb
+   [Ada]          ado-sequences.adb
+   [Ada]          ado-sequences-hilo.adb
+   [Ada]          ado-schemas.adb
+   [Ada]          ado-schemas-entities.adb
+   [Ada]          ado-schemas-databases.adb
+   [Ada]          ado-queries.adb
+   [Ada]          ado-queries-loaders.adb
+   [Ada]          ado-parameters.adb
+   [Ada]          ado-objects.adb
+   [Ada]          ado-objects-cache.adb
+   [Ada]          ado-dialects.adb
+   [Ada]          ado-datasets.adb
+   [Ada]          ado-connections.adb
+   [Ada]          ado-configs.adb
+   [Ada]          ado-caches.adb
+   [Ada]          ado-caches-discrete.adb
+   [Ada]          ado-c.adb
+   [Ada]          ado-audits.adb
+   [Ada]          wiki.adb
+   [Ada]          wiki-utils.adb
+   [Ada]          wiki-strings.adb
+   [Ada]          wiki-streams.ads
+   [Ada]          wiki-streams-text_io.adb
+   [Ada]          wiki-streams-html.adb
+   [Ada]          wiki-streams-html-text_io.ads
+   [Ada]          wiki-streams-html-stream.adb
+   [Ada]          wiki-streams-html-builders.ads
+   [Ada]          wiki-streams-builders.adb
+   [Ada]          wiki-render.adb
+   [Ada]          wiki-render-wiki.adb
+   [Ada]          wiki-render-text.adb
+   [Ada]          wiki-render-links.adb
+   [Ada]          wiki-render-html.adb
+   [Ada]          wiki-plugins.ads
+   [Ada]          wiki-plugins-variables.adb
+   [Ada]          wiki-plugins-templates.adb
+   [Ada]          wiki-plugins-conditions.adb
+   [Ada]          wiki-parsers.adb
+   [Ada]          wiki-parsers-textile.adb
+   [Ada]          wiki-parsers-mediawiki.adb
+   [Ada]          wiki-parsers-markdown.adb
+   [Ada]          wiki-parsers-html.adb
+   [Ada]          wiki-parsers-google.adb
+   [Ada]          wiki-parsers-dotclear.adb
+   [Ada]          wiki-parsers-creole.adb
+   [Ada]          wiki-parsers-common.adb
+   [Ada]          wiki-nodes.adb
+   [Ada]          wiki-nodes-lists.adb
+   [Ada]          wiki-nodes-dump.adb
+   [Ada]          wiki-html_parser.adb
+   [Ada]          wiki-html_parser-entities.ads
+   [Ada]          wiki-helpers.adb
+   [Ada]          wiki-helpers-parser.adb
+   [Ada]          wiki-filters.adb
+   [Ada]          wiki-filters-variables.adb
+   [Ada]          wiki-filters-toc.adb
+   [Ada]          wiki-filters-html.adb
+   [Ada]          wiki-filters-collectors.adb
+   [Ada]          wiki-filters-autolink.adb
+   [Ada]          wiki-documents.adb
+   [Ada]          wiki-buffers.adb
+   [Ada]          wiki-attributes.adb
+   [Ada]          el.ads
+   [Ada]          el-variables.adb
+   [Ada]          el-variables-default.adb
+   [Ada]          el-utils.adb
+   [Ada]          el-objects.ads
+   [Ada]          el-methods.ads
+   [Ada]          el-methods-proc_in.adb
+   [Ada]          el-methods-proc_2.adb
+   [Ada]          el-methods-proc_1.adb
+   [Ada]          el-methods-func_unbounded.ads
+   [Ada]          el-methods-func_string.ads
+   [Ada]          el-methods-func_1.adb
+   [Ada]          el-functions.adb
+   [Ada]          el-functions-namespaces.adb
+   [Ada]          el-functions-default.adb
+   [Ada]          el-expressions.adb
+   [Ada]          el-expressions-parser.adb
+   [Ada]          el-expressions-nodes.adb
+   [Ada]          el-contexts.ads
+   [Ada]          el-contexts-tls.adb
+   [Ada]          el-contexts-properties.adb
+   [Ada]          el-contexts-default.adb
+   [Ada]          el-beans.adb
+   [Ada]          util-systems-types.ads
+   [Ada]          util-systems-constants.ads
+   [Ada]          util-systems-os.adb
+   [Ada]          util-properties.adb
+   [Ada]          util-properties-discrete.adb
+   [Ada]          util-properties-bundles.adb
+   [Ada]          util-properties-basic.adb
+   [Ada]          util-log.adb
+   [Ada]          util-log-loggers.adb
+   [Ada]          util-log-locations.adb
+   [Ada]          util-log-appenders.adb
+   [Ada]          util-log-appenders-rolling_files.adb
+   [Ada]          util-log-appenders-formatter.adb
+   [Ada]          util-log-appenders-files.adb
+   [Ada]          util-log-appenders-factories.adb
+   [Ada]          util-log-appenders-consoles.adb
+   [Ada]          util-files.adb
+   [Ada]          util-files-rolling.adb
+   [Ada]          util-events.adb
+   [Ada]          util-events-timers.adb
+   [Ada]          util-events-channels.adb
+   [Ada]          util-dates.adb
+   [Ada]          util-dates-simple_format.adb
+   [Ada]          util-dates-rfc7231.adb
+   [Ada]          util-dates-iso8601.adb
+   [Ada]          util-dates-formats.adb
+   [Ada]          util-commands.adb
+   [Ada]          util-commands-parsers.adb
+   [Ada]          util-commands-parsers-gnat_parser.adb
+   [Ada]          util-commands-drivers.adb
+   [Ada]          util-commands-consoles.adb
+   [Ada]          util-commands-consoles-text.adb
+   [Ada]          util-beans.ads
+   [Ada]          util-beans-ranges.ads
+   [Ada]          util-beans-objects.adb
+   [Ada]          util-beans-objects-vectors.adb
+   [Ada]          util-beans-objects-to_access.adb
+   [Ada]          util-beans-objects-time.adb
+   [Ada]          util-beans-objects-records.adb
+   [Ada]          util-beans-objects-pairs.adb
+   [Ada]          util-beans-objects-maps.adb
+   [Ada]          util-beans-objects-lists.adb
+   [Ada]          util-beans-objects-iterators.adb
+   [Ada]          util-beans-objects-hash.adb
+   [Ada]          util-beans-objects-enums.adb
+   [Ada]          util-beans-objects-datasets.adb
+   [Ada]          util-beans-methods.ads
+   [Ada]          util-beans-lists.ads
+   [Ada]          util-beans-lists-strings.adb
+   [Ada]          util-beans-factory.adb
+   [Ada]          util-beans-basic.ads
+   [Ada]          util-beans-basic-ranges.adb
+   [Ada]          util-beans-basic-lists.adb
+   [Ada]          util-systems.ads
+   [Ada]          util-texts.ads
+   [Ada]          util-texts-transforms.adb
+   [Ada]          util-texts-tokenizers.adb
+   [Ada]          util-texts-formats.adb
+   [Ada]          util-texts-builders.adb
+   [Ada]          util-strings.adb
+   [Ada]          util-strings-vectors.ads
+   [Ada]          util-strings-transforms.adb
+   [Ada]          util-strings-tokenizers.ads
+   [Ada]          util-strings-sets.ads
+   [Ada]          util-strings-maps.ads
+   [Ada]          util-strings-formats.adb
+   [Ada]          util-strings-builders.ads
+   [Ada]          util-strings-builders-transforms.ads
+   [Ada]          util-listeners.ads
+   [Ada]          util-listeners-observers.adb
+   [Ada]          util-listeners-lifecycles.adb
+   [Ada]          util-concurrent-counters.adb
+   [Ada]          util-concurrent.ads
+   [Ada]          util-concurrent-sequence_queues.adb
+   [Ada]          util-concurrent-pools.adb
+   [Ada]          util-concurrent-locks.adb
+   [Ada]          util-concurrent-fifos.adb
+   [Ada]          util-concurrent-copies.adb
+   [Ada]          util-concurrent-arrays.adb
+   [Ada]          util.ads
+   [Ada]          util-stacks.adb
+   [Ada]          util-refs.adb
+   [Ada]          util-nullables.ads
+   [Ada]          util-locales.adb
+   [Ada]          util-executors.adb
+   [Ada]          util-blobs.adb
+   [Ada]          util-algorithms.ads
+   [Ada]          util-systems-dlls.adb
+   [Ada]          util-streams-raw.adb
+   [Ada]          util-processes-os.adb
+   [Ada]          util-processes.adb
+   [Ada]          util-processes-tools.adb
+   [Ada]          util-mail.adb
+   [Ada]          util-http.adb
+   [Ada]          util-http-tools.adb
+   [Ada]          util-http-rest.adb
+   [Ada]          util-http-rest-rest_get_vector.adb
+   [Ada]          util-http-parts.adb
+   [Ada]          util-http-mockups.adb
+   [Ada]          util-http-mimes.adb
+util-http-mockups.adb:123:07: (style) subprogram body has no previous spec
+   [Ada]          util-http-headers.adb
+   [Ada]          util-http-cookies.adb
+   [Ada]          util-http-clients.adb
+   [Ada]          util-http-clients-mockups.adb
+   [Ada]          util-encoders.adb
+   [Ada]          util-encoders-uri.adb
+   [Ada]          util-encoders-sha256.adb
+   [Ada]          util-encoders-sha1.adb
+   [Ada]          util-encoders-quoted_printable.adb
+   [Ada]          util-encoders-kdf.ads
+   [Ada]          util-encoders-kdf-pbkdf2_hmac_sha256.ads
+   [Ada]          util-encoders-kdf-pbkdf2.adb
+   [Ada]          util-encoders-hmac.ads
+   [Ada]          util-encoders-hmac-sha256.adb
+   [Ada]          util-encoders-hmac-sha1.adb
+   [Ada]          util-encoders-ecc.adb
+   [Ada]          util-encoders-base64.adb
+   [Ada]          util-encoders-base16.adb
+   [Ada]          util-encoders-aes.adb
+   [Ada]          util-measures.adb
+   [Ada]          util-streams.adb
+   [Ada]          util-streams-texts.adb
+   [Ada]          util-streams-texts-wtr.ads
+   [Ada]          util-streams-texts-tr.ads
+   [Ada]          util-streams-sockets.adb
+   [Ada]          util-streams-pipes.adb
+   [Ada]          util-streams-files.adb
+   [Ada]          util-streams-buffered.adb
+   [Ada]          util-streams-buffered-encoders.adb
+   [Ada]          util-streams-base64.ads
+   [Ada]          util-streams-base16.ads
+   [Ada]          util-streams-aes.adb
+   [Ada]          util-serialize.ads
+   [Ada]          util-serialize-tools.adb
+   [Ada]          util-serialize-mappers.adb
+   [Ada]          util-serialize-mappers-vector_mapper.adb
+   [Ada]          util-serialize-mappers-record_mapper.adb
+   [Ada]          util-serialize-io.adb
+   [Ada]          util-serialize-io-json.adb
+   [Ada]          util-serialize-io-form.adb
+   [Ada]          util-serialize-io-csv.adb
+   [Ada]          util-serialize-contexts.adb
+   [Ada]          util-properties-json.adb
+   [Ada]          util-properties-form.adb
+   [Ada]          util-beans-objects-readers.adb
+   [Ada]          awa-users-models.adb
+   [Ada]          awa-permissions-models.adb
+   [Ada]          awa-oauth-models.adb
+   [Ada]          awa-events-models.adb
+   [Ada]          awa-commands-models.ads
+   [Ada]          awa-audits-models.adb
+   [Ada]          awa.ads
+   [Ada]          awa-users.ads
+   [Ada]          awa-users-servlets.adb
+   [Ada]          awa-users-services.adb
+   [Ada]          awa-users-principals.adb
+   [Ada]          awa-users-modules.adb
+   [Ada]          awa-users-filters.adb
+   [Ada]          awa-users-beans.adb
+   [Ada]          awa-services.ads
+   [Ada]          awa-services-filters.adb
+   [Ada]          awa-services-contexts.adb
+   [Ada]          awa-permissions.adb
+   [Ada]          awa-permissions-services.adb
+   [Ada]          awa-permissions-controllers.adb
+   [Ada]          awa-permissions-beans.adb
+   [Ada]          awa-oauth.ads
+   [Ada]          awa-oauth-services.ads
+   [Ada]          awa-oauth-filters.adb
+   [Ada]          awa-modules.adb
+   [Ada]          awa-modules-reader.adb
+   [Ada]          awa-modules-lifecycles.adb
+   [Ada]          awa-modules-get.adb
+   [Ada]          awa-modules-beans.adb
+   [Ada]          awa-index_arrays.adb
+   [Ada]          awa-helpers.adb
+   [Ada]          awa-helpers-selectors.adb
+   [Ada]          awa-helpers-requests.adb
+   [Ada]          awa-events.adb
+   [Ada]          awa-events-services.adb
+   [Ada]          awa-events-queues.adb
+   [Ada]          awa-events-queues-persistents.adb
+   [Ada]          awa-events-queues-observers.ads
+   [Ada]          awa-events-queues-maps.ads
+   [Ada]          awa-events-queues-fifos.adb
+   [Ada]          awa-events-dispatchers.adb
+   [Ada]          awa-events-dispatchers-tasks.adb
+   [Ada]          awa-events-dispatchers-actions.adb
+   [Ada]          awa-events-configs.adb
+   [Ada]          awa-events-configs-reader_config.adb
+   [Ada]          awa-events-action_method.ads
+   [Ada]          awa-converters.ads
+   [Ada]          awa-converters-dates.adb
+   [Ada]          awa-components.ads
+   [Ada]          awa-components-wikis.adb
+   [Ada]          awa-components-redirect.adb
+   [Ada]          awa-components-inputs.adb
+   [Ada]          awa-components-factory.adb
+   [Ada]          awa-commands.adb
+   [Ada]          awa-commands-stop.adb
+   [Ada]          awa-commands-start.adb
+   [Ada]          awa-commands-list.adb
+   [Ada]          awa-commands-info.adb
+   [Ada]          awa-commands-drivers.adb
+   [Ada]          awa-audits.ads
+   [Ada]          awa-audits-services.adb
+   [Ada]          awa-applications.adb
+   [Ada]          awa-applications-factory.adb
+   [Ada]          awa-applications-configs.adb
+   [Ada]          awa-blogs-models.adb
+   [Ada]          awa-blogs.ads
+   [Ada]          awa-blogs-servlets.adb
+   [Ada]          awa-blogs-modules.adb
+   [Ada]          awa-blogs-beans.adb
+Build Libraries
+   [gprlib]       utilada_core.lexch
+   [gprlib]       utilada_base.lexch
+   [archive]      libutilada_core.a
+   [index]        libutilada_core.a
+   [gprlib]       utilada_sys.lexch
+   [archive]      libutilada_base.a
+   [index]        libutilada_base.a
+   [gprlib]       elada.lexch
+   [gprlib]       wikiada.lexch
+   [gprlib]       xmlada_unicode.lexch
+   [gprlib]       xmlada_input_sources.lexch
+   [archive]      libelada.a
+   [archive]      libwikiada.a
+   [archive]      libutilada_sys.a
+   [archive]      libxmlada_unicode.a
+   [index]        libelada.a
+   [index]        libwikiada.a
+   [index]        libutilada_sys.a
+   [index]        libxmlada_unicode.a
+   [gprlib]       xmlada_sax.lexch
+   [archive]      libxmlada_input_sources.a
+   [index]        libxmlada_input_sources.a
+   [gprlib]       utilada_xml.lexch
+   [archive]      libxmlada_sax.a
+   [index]        libxmlada_sax.a
+   [gprlib]       ado.lexch
+   [archive]      libutilada_xml.a
+   [index]        libutilada_xml.a
+   [gprlib]       security.lexch
+   [gprlib]       servletada.lexch
+   [archive]      libado.a
+   [index]        libado.a
+   [archive]      libsecurity.a
+   [index]        libsecurity.a
+   [gprlib]       asf.lexch
+   [archive]      libservletada.a
+   [index]        libservletada.a
+   [gprlib]       keystoreada.lexch
+   [gprlib]       awa.lexch
+   [archive]      libkeystoreada.a
+   [index]        libkeystoreada.a
+   [archive]      libasf.a
+   [index]        libasf.a
+   [gprlib]       awa_workspaces.lexch
+   [archive]      libawa.a
+   [index]        libawa.a
+   [gprlib]       awa_tags.lexch
+   [gprlib]       awa_comments.lexch
+   [gprlib]       awa_storages.lexch
+   [archive]      libawa_comments.a
+   [archive]      libawa_workspaces.a
+   [archive]      libawa_tags.a
+   [index]        libawa_comments.a
+   [index]        libawa_tags.a
+   [index]        libawa_workspaces.a
+   [gprlib]       awa_jobs.lexch
+   [gprlib]       awa_images.lexch
+   [archive]      libawa_storages.a
+   [index]        libawa_storages.a
+   [archive]      libawa_jobs.a
+   [index]        libawa_jobs.a
+   [gprlib]       awa_counters.lexch
+   [gprlib]       awa_blogs.lexch
+   [archive]      libawa_counters.a
+   [archive]      libawa_images.a
+   [index]        libawa_images.a
+   [index]        libawa_counters.a
+   [archive]      libawa_blogs.a
+   [index]        libawa_blogs.a
+Note: Building awa/.alire/awa.gpr (2/17)...
+Note: Building awa/.alire/awa_settings.gpr (3/17)...
+Setup
+   [mkdir]        object directory for project Awa_Settings
+   [mkdir]        library directory for project Awa_Settings
+Compile
+   [Ada]          awa-settings-models.adb
+   [Ada]          awa-settings.adb
+   [Ada]          awa-settings-modules.adb
+Build Libraries
+   [gprlib]       awa_settings.lexch
+   [archive]      libawa_settings.a
+   [index]        libawa_settings.a
+Note: Building awa/.alire/awa_wikis.gpr (4/17)...
+Setup
+   [mkdir]        object directory for project Awa_Wikis
+   [mkdir]        library directory for project Awa_Wikis
+Compile
+   [Ada]          awa-wikis-models.adb
+   [Ada]          awa-wikis.ads
+   [Ada]          awa-wikis-servlets.adb
+   [Ada]          awa-wikis-previews.adb
+   [Ada]          awa-wikis-modules.adb
+   [Ada]          awa-wikis-beans.adb
+Build Libraries
+   [gprlib]       awa_wikis.lexch
+   [archive]      libawa_wikis.a
+   [index]        libawa_wikis.a
+Note: Building awa/.alire/awa_changelogs.gpr (5/17)...
+Setup
+   [mkdir]        object directory for project Awa_Changelogs
+   [mkdir]        library directory for project Awa_Changelogs
+Compile
+   [Ada]          awa-changelogs-models.adb
+   [Ada]          awa-changelogs.ads
+   [Ada]          awa-changelogs-modules.adb
+Build Libraries
+   [gprlib]       awa_changelogs.lexch
+   [archive]      libawa_changelogs.a
+   [index]        libawa_changelogs.a
+Note: Building awa/.alire/awa_images.gpr (6/17)...
+Note: Building awa/.alire/awa_setup.gpr (7/17)...
+Setup
+   [mkdir]        object directory for project Awa_Setup
+   [mkdir]        library directory for project Awa_Setup
+Compile
+   [Ada]          awa-setup.ads
+   [Ada]          awa-setup-applications.adb
+   [Ada]          awa-commands-setup.adb
+Build Libraries
+   [gprlib]       awa_setup.lexch
+   [archive]      libawa_setup.a
+   [index]        libawa_setup.a
+Note: Building awa/.alire/awa_workspaces.gpr (8/17)...
+Note: Building awa/.alire/awa_comments.gpr (9/17)...
+Note: Building awa/.alire/awa_jobs.gpr (10/17)...
+Note: Building awa/.alire/awa_storages.gpr (11/17)...
+Note: Building awa/.alire/awa_counters.gpr (12/17)...
+Note: Building awa/.alire/awa_mail.gpr (13/17)...
+Setup
+   [mkdir]        object directory for project Awa_Mail
+   [mkdir]        library directory for project Awa_Mail
+Compile
+   [Ada]          awa-mail-clients-aws_smtp.adb
+   [Ada]          awa-mail.ads
+   [Ada]          awa-mail-modules.adb
+   [Ada]          awa-mail-components.adb
+   [Ada]          awa-mail-components-recipients.adb
+   [Ada]          awa-mail-components-messages.adb
+   [Ada]          awa-mail-components-factory.adb
+   [Ada]          awa-mail-components-attachments.adb
+   [Ada]          awa-mail-clients.adb
+   [Ada]          awa-mail-clients-files.adb
+   [Ada]          awa-mail-beans.adb
+Build Libraries
+   [gprlib]       awa_mail.lexch
+   [archive]      libawa_mail.a
+   [index]        libawa_mail.a
+Note: Building awa/.alire/awa_tags.gpr (14/17)...
+Note: Building awa/.alire/awa_countries.gpr (15/17)...
+Setup
+   [mkdir]        object directory for project Awa_Countries
+   [mkdir]        library directory for project Awa_Countries
+Compile
+   [Ada]          awa-countries-models.adb
+   [Ada]          awa-countries.ads
+Build Libraries
+   [gprlib]       awa_countries.lexch
+   [archive]      libawa_countries.a
+   [index]        libawa_countries.a
+Note: Building awa/.alire/awa_questions.gpr (16/17)...
+Setup
+   [mkdir]        object directory for project Awa_Questions
+   [mkdir]        library directory for project Awa_Questions
+Compile
+   [Ada]          awa-questions-models.adb
+   [Ada]          awa-questions.ads
+   [Ada]          awa-questions-modules.adb
+   [Ada]          awa-questions-beans.adb
+Build Libraries
+   [gprlib]       awa_questions.lexch
+   [archive]      libawa_questions.a
+   [index]        libawa_questions.a
+Note: Building awa/.alire/awa_votes.gpr (17/17)...
+Setup
+   [mkdir]        object directory for project Awa_Votes
+   [mkdir]        library directory for project Awa_Votes
+Compile
+   [Ada]          awa-votes-models.adb
+   [Ada]          awa-votes.ads
+   [Ada]          awa-votes-modules.adb
+   [Ada]          awa-votes-beans.adb
+Build Libraries
+   [gprlib]       awa_votes.lexch
+   [archive]      libawa_votes.a
+   [index]        libawa_votes.a
+Build finished successfully in 183.57 seconds.
+
+awa=2.4.0 successfully retrieved and built.
+Dependencies were solved as follows:
+
+   +  ado            2.3.0  (new)                               
+   +  aws            21.0.0 (new,indirect)                      
+   +  elada          1.8.5  (new)                               
+   +i gnat           11.2.4 (new,installed,gnat_native,indirect)
+   +  keystoreada    1.3.3  (new)                               
+   +  make           4.4.1  (new,indirect)                      
+   +  openssl        3.1.0  (new,indirect)                      
+   +  security       1.4.1  (new)                               
+   +  serverfaces    1.5.0  (new)                               
+   +  servletada     1.6.0  (new)                               
+   +  servletada_aws 1.6.0  (new)                               
+   +  utilada        2.5.0  (new)                               
+   +  utilada_aws    2.5.0  (new)                               
+   +  utilada_xml    2.5.0  (new)                               
+   +  wikiada        1.4.0  (new)                               
+   +  xmlada         21.0.0 (new,indirect)                      
+Found declared GPR file: .alire/awa_blogs.gpr
+Found declared GPR file: .alire/awa.gpr
+Found declared GPR file: .alire/awa_settings.gpr
+Found declared GPR file: .alire/awa_wikis.gpr
+Found declared GPR file: .alire/awa_changelogs.gpr
+Found declared GPR file: .alire/awa_images.gpr
+Found declared GPR file: .alire/awa_setup.gpr
+Found declared GPR file: .alire/awa_workspaces.gpr
+Found declared GPR file: .alire/awa_comments.gpr
+Found declared GPR file: .alire/awa_jobs.gpr
+Found declared GPR file: .alire/awa_storages.gpr
+Found declared GPR file: .alire/awa_counters.gpr
+Found declared GPR file: .alire/awa_mail.gpr
+Found declared GPR file: .alire/awa_tags.gpr
+Found declared GPR file: .alire/awa_countries.gpr
+Found declared GPR file: .alire/awa_questions.gpr
+Found declared GPR file: .alire/awa_votes.gpr

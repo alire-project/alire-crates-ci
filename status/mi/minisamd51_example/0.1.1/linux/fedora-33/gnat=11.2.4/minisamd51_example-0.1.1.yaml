@@ -1,12 +1,13 @@
 badge: false
+badge_color: red
 crate: minisamd51_example
-creation_timestamp: 1654779879.9631124
+creation_timestamp: 1648955033.1481993
 distro: fedora-33
-duration: 5.3302457879999565
+duration: 2.8315432800000053
 gnat: 11.2.4
-last_attempt: 2022-06-11 00:44:22.369856+00:00
+last_attempt: 2026-02-20 01:01:59.203497+00:00
 log:
-- 'Test ran at 2022-06-11 00:44:22.369801+00:00
+- 'Test ran at 2026-02-20 01:01:59.203465+00:00
 
 
   '
@@ -67,33 +68,72 @@ log:
 - 'Dependencies (solution):
 
   '
-- '   cortex_m=0.4.0
+- '   atomic=0.5.0
 
   '
-- '   gnat_arm_elf=11.2.4 (installed)
+- '   bbqueue=0.3.2
 
   '
-- '   hal=0.3.0
+- '   cortex_m=0.1.0
+
+  '
+- '   gnat=11.2.4 (gnat_arm_elf)
+
+  '
+- '   gnat_arm_elf=11.2.4
+
+  '
+- '   hal=0.1.0
 
   '
 - '   minisamd51_bsp=0.1.0
 
   '
-- '   samd51_hal=0.2.0
+- '   samd51_hal=0.3.0
+
+  '
+- '   usb_embedded=0.2.0
 
   '
 - 'Dependencies (graph):
 
   '
-- "   cortex_m=0.4.0           --> gnat_arm_elf=11.2.4 (>=11)   \n"
-- "   cortex_m=0.4.0           --> hal=0.3.0 (~0.3)             \n"
-- "   minisamd51_bsp=0.1.0     --> hal=0.3.0 (^0.1.0)           \n"
-- "   minisamd51_bsp=0.1.0     --> samd51_hal=0.2.0 (^0.2.0)    \n"
+- '   bbqueue=0.3.2            --> atomic=0.5.0 (~0.5)
+
+  '
+- '   bbqueue=0.3.2            --> gnat=11.2.4 (gnat_arm_elf) (>=10)
+
+  '
+- '   cortex_m=0.1.0           --> hal=0.1.0 (^0.1.0)
+
+  '
+- '   minisamd51_bsp=0.1.0     --> hal=0.1.0 (^0.1.0)
+
+  '
+- '   minisamd51_bsp=0.1.0     --> samd51_hal=0.3.0 (^0.2.0)
+
+  '
 - '   minisamd51_example=0.1.1 --> minisamd51_bsp=0.1.0 (^0.1.0)
 
   '
-- "   samd51_hal=0.2.0         --> cortex_m=0.4.0 (^0.1.0)      \n"
-- "   samd51_hal=0.2.0         --> hal=0.3.0 (^0.1.0)           \n"
+- '   samd51_hal=0.3.0         --> cortex_m=0.1.0 (~0.1)
+
+  '
+- '   samd51_hal=0.3.0         --> gnat_arm_elf=11.2.4 (^11.2.2)
+
+  '
+- '   samd51_hal=0.3.0         --> hal=0.1.0 (~0.1)
+
+  '
+- '   samd51_hal=0.3.0         --> usb_embedded=0.2.0 (~0.2)
+
+  '
+- '   usb_embedded=0.2.0       --> bbqueue=0.3.2 (~0.3.0)
+
+  '
+- '   usb_embedded=0.2.0       --> hal=0.1.0 (~0.1.0)
+
+  '
 - '
 
   '
@@ -102,27 +142,229 @@ log:
   LOG:
 
   '
+- '[alr test] Testing minisamd51_example=0.1.1
+
+  '
+- '[alr test] Spawning retrieval for remote crate: alr -d -n get minisamd51_example=0.1.1
+
+  '
 - 'Note: Deploying minisamd51_example=0.1.1...
 
   '
-- 'Note: Deploying hal=0.3.0...
-
-  '
-- 'Note: Deploying cortex_m=0.4.0...
-
-  '
-- 'Note: Deploying samd51_hal=0.2.0...
+- 'Note: Deploying samd51_hal=0.3.0...
 
   '
 - 'Note: Deploying minisamd51_bsp=0.1.0...
 
   '
-- 'stderr: Configuration variable ''cortex_m.core not set and has no default value.
+- 'Warning: Possible tilde intended instead of caret for a 0.x version.
 
   '
-- 'ERROR: Configuration variable ''cortex_m.core not set and has no default value.
+- '   Alire does not change the meaning of caret and tilde for pre/post-1.0 versions.
+
+  '
+- '   The suspicious dependency is: minisamd51_bsp^0.1.0
+
+  '
+- '   You can disable this warning by setting the option warning.caret to false.
+
+  '
+- '
+
+  '
+- 'minisamd51_example=0.1.1 successfully retrieved.
+
+  '
+- 'Dependencies were solved as follows:
+
+  '
+- '
+
+  '
+- '   +  atomic         0.5.0  (new,indirect)
+
+  '
+- '   +  bbqueue        0.3.2  (new,indirect)
+
+  '
+- '   +  cortex_m       0.1.0  (new,indirect)
+
+  '
+- '   +b gnat           11.2.4 (new,gnat_arm_elf,indirect,binary)
+
+  '
+- '   +b gnat_arm_elf   11.2.4 (new,indirect,binary)
+
+  '
+- '   +  hal            0.1.0  (new,indirect)
+
+  '
+- '   +  minisamd51_bsp 0.1.0  (new)
+
+  '
+- '   +  samd51_hal     0.3.0  (new,indirect)
+
+  '
+- '   +  usb_embedded   0.2.0  (new,indirect)
+
+  '
+- '[alr test] Spawning default test for remote crate: alr -d -n build --release --
+  -cargs:Ada -gnatwn
+
+  '
+- 'Note: Building minisamd51_example=0.1.1/minisamd51_example.gpr...
+
+  '
+- 'Setup
+
+  '
+- '   [mkdir]        object directory for project ATSAMD51J19A
+
+  '
+- '   [mkdir]        object directory for project Minisamd51_Bsp
+
+  '
+- '   [mkdir]        library directory for project Minisamd51_Bsp
+
+  '
+- '   [mkdir]        object directory for project Minisamd51_Example
+
+  '
+- 'Compile
+
+  '
+- '   [Ada]          main.adb
+
+  '
+- '   [Ada]          minisamd51.adb
+
+  '
+- '   [ASM_CPP]      crt0.S
+
+  '
+- '   [Ada]          sam.ads
+
+  '
+- '   [Ada]          sam-clock_generator.adb
+
+  '
+- '   [Ada]          sam-clock_generator-ids.ads
+
+  '
+- '   [Ada]          sam-clock_setup_120mhz.adb
+
+  '
+- '   [Ada]          sam-functions.ads
+
+  '
+- '   [Ada]          sam-main_clock.adb
+
+  '
+- '   [Ada]          sam-port.adb
+
+  '
+- '   [Ada]          sam-sercom.adb
+
+  '
+- '   [Ada]          sam-sercom-i2c.adb
+
+  '
+- '   [Ada]          sam-sercom-spi.adb
+
+  '
+- '   [Ada]          sam-device.ads
+
+  '
+- '   [Ada]          sam-oscillators_controller.adb
+
+  '
+- '   [Ada]          sam_svd.ads
+
+  '
+- '   [Ada]          sam_svd-gclk.ads
+
+  '
+- '   [Ada]          sam_svd-oscctrl.ads
+
+  '
+- '   [Ada]          sam-adc.adb
+
+  '
+- '   [Ada]          sam-sercom-usart.adb
+
+  '
+- '   [Ada]          sam-tc.adb
+
+  '
+- '   [Ada]          sam_svd-adc.ads
+
+  '
+- '   [Ada]          sam_svd-tc.ads
+
+  '
+- 'Build Libraries
+
+  '
+- '   [gprlib]       Usb_Embedded.lexch
+
+  '
+- '   [gprlib]       Minisamd51_Bsp.lexch
+
+  '
+- '   [archive]      libUsb_Embedded.a
+
+  '
+- '   [index]        libUsb_Embedded.a
+
+  '
+- '   [archive]      libMinisamd51_Bsp.a
+
+  '
+- '   [index]        libMinisamd51_Bsp.a
+
+  '
+- 'Bind
+
+  '
+- '   [gprbind]      main.bexch
+
+  '
+- '   [Ada]          main.ali
+
+  '
+- 'Link
+
+  '
+- '   [archive]      libminisamd51_example.a
+
+  '
+- '   [index]        libminisamd51_example.a
+
+  '
+- '   [link]         main.adb
+
+  '
+- 'Memory region         Used Size  Region Size  %age Used
+
+  '
+- '           FLASH:       24544 B       496 KB      4.83%
+
+  '
+- '           HSRAM:        6080 B       192 KB      3.09%
+
+  '
+- '         BKUPRAM:          0 GB         8 KB      0.00%
+
+  '
+- 'Success: Build finished successfully in 1.57 seconds.
+
+  '
+- 'Found declared GPR file: minisamd51_example.gpr
+
+  '
+- '[alr test] Test completed SUCCESSFULLY
 
   '
 platform: linux
-status: failing
+status: success
 version: 0.1.1

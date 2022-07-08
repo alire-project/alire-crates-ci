@@ -1,4 +1,4 @@
-Test ran at 2022-06-28 12:42:35.111080+00:00
+Test ran at 2026-04-03 12:47:37.269441+00:00
 
 SOLUTION:
 pbkdf2=3.0.0: PBKDF2 implemented in Ada
@@ -32,11 +32,21 @@ Dependencies (graph):
 
 
 LOG:
+[alr test] Testing pbkdf2=3.0.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get pbkdf2=3.0.0
 Note: Deploying pbkdf2=3.0.0...
 Note: Deploying sha1=2.0.0...
 Note: Deploying sha2=2.0.0...
 Note: Deploying hmac=2.0.0...
-Note: Building pbkdf2/pbkdf2.gpr...
+
+pbkdf2=3.0.0 successfully retrieved.
+Dependencies were solved as follows:
+
+   + hmac 2.0.0 (new)
+   + sha1 2.0.0 (new)
+   + sha2 2.0.0 (new)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building pbkdf2=3.0.0/pbkdf2.gpr...
 Setup
    [mkdir]        object directory for project SHA1
    [mkdir]        library directory for project SHA1
@@ -47,10 +57,10 @@ Setup
    [mkdir]        object directory for project Pbkdf2
    [mkdir]        library directory for project Pbkdf2
 Compile
-   [Ada]          sha2.ads
    [Ada]          sha2_generic.ads
    [Ada]          sha2_generic_64.adb
    [Ada]          sha2_generic_32.adb
+   [Ada]          sha2.ads
    [Ada]          sha1_generic.adb
    [Ada]          sha1.ads
    [Ada]          hmac.ads
@@ -70,11 +80,6 @@ Build Libraries
    [index]        libhmac.a
    [archive]      libpbkdf2.a
    [index]        libpbkdf2.a
-Build finished successfully in 1.70 seconds.
-
-pbkdf2=3.0.0 successfully retrieved and built.
-Dependencies were solved as follows:
-
-   + hmac 2.0.0 (new)
-   + sha1 2.0.0 (new)
-   + sha2 2.0.0 (new)
+Success: Build finished successfully in 1.48 seconds.
+Found declared GPR file: pbkdf2.gpr
+[alr test] Test completed SUCCESSFULLY

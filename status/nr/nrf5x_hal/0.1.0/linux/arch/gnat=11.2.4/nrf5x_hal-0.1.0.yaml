@@ -1,13 +1,13 @@
-badge: true
+badge: false
 badge_color: red
 crate: nrf5x_hal
-creation_timestamp: 1648865627.7418847
+creation_timestamp: 1648569102.3583183
 distro: arch
-duration: 22.6169172540001
+duration: 3.2896304099999725
 gnat: 11.2.4
-last_attempt: 2022-06-15 01:16:21.209704+00:00
+last_attempt: 2026-06-13 13:00:59.947346+00:00
 log:
-- 'Test ran at 2022-06-15 01:16:21.209652+00:00
+- 'Test ran at 2026-06-13 13:00:59.947313+00:00
 
 
   '
@@ -77,33 +77,42 @@ log:
 - 'Dependencies (direct):
 
   '
-- '   cortex_m^0.2.0
+- '   cortex_m~0.2.0
 
   '
-- '   hal^0.1.0
+- '   gnat_arm_elf^11.2
+
+  '
+- '   hal~0.1.0
 
   '
 - 'Dependencies (solution):
 
   '
-- '   cortex_m=0.4.0
+- '   cortex_m=0.2.0
 
   '
-- '   gnat_arm_elf=11.2.4 (installed)
+- '   gnat_arm_elf=11.2.4
 
   '
-- '   hal=0.3.0
+- '   hal=0.1.0
 
   '
 - 'Dependencies (graph):
 
   '
-- '   cortex_m=0.4.0  --> gnat_arm_elf=11.2.4 (>=11)
+- '   cortex_m=0.2.0  --> hal=0.1.0 (^0.1.0)
 
   '
-- "   cortex_m=0.4.0  --> hal=0.3.0 (~0.3)          \n"
-- "   nrf5x_hal=0.1.0 --> cortex_m=0.4.0 (^0.2.0)   \n"
-- "   nrf5x_hal=0.1.0 --> hal=0.3.0 (^0.1.0)        \n"
+- '   nrf5x_hal=0.1.0 --> cortex_m=0.2.0 (~0.2.0)
+
+  '
+- '   nrf5x_hal=0.1.0 --> gnat_arm_elf=11.2.4 (^11.2)
+
+  '
+- '   nrf5x_hal=0.1.0 --> hal=0.1.0 (~0.1.0)
+
+  '
 - '
 
   '
@@ -112,121 +121,538 @@ log:
   LOG:
 
   '
+- '[alr test] Testing nrf5x_hal=0.1.0
+
+  '
+- '[alr test] Spawning retrieval for remote crate: alr -d -n get nrf5x_hal=0.1.0
+
+  '
 - 'Note: Deploying nrf5x_hal=0.1.0...
 
   '
-- 'Note: Deploying gnat_arm_elf=11.2.4...
-
-  '
-- "#=#=#                                                                         \n"
 - '
 
   '
-- '                                                                           0.1%
+- 'nrf5x_hal=0.1.0 successfully retrieved.
 
   '
-- '##                                                                         3.0%
+- 'Dependencies were solved as follows:
 
   '
-- '#####                                                                      8.3%
+- '
 
   '
-- '#########                                                                 13.6%
+- '   +  cortex_m     0.2.0  (new)
 
   '
-- '###########                                                               15.4%
+- '   +b gnat_arm_elf 11.2.4 (new,binary)
 
   '
-- '#############                                                             19.4%
+- '   +  hal          0.1.0  (new)
 
   '
-- '#################                                                         24.6%
+- '[alr test] Spawning default test for remote crate: alr -d -n build --release --
+  -cargs:Ada -gnatwn
 
   '
-- '#####################                                                     30.2%
+- 'Note: Building nrf5x_hal=0.1.0/nrf51.gpr (1/2)...
 
   '
-- '######################                                                    31.4%
+- 'Setup
 
   '
-- '########################                                                  33.9%
+- '   [mkdir]        object directory for project NRF51
 
   '
-- '#########################                                                 35.5%
+- '   [mkdir]        library directory for project NRF51
 
   '
-- '############################                                              39.2%
+- 'Compile
 
   '
-- '#############################                                             41.2%
+- '   [Ada]          hal-sdmmc.adb
 
   '
-- '#################################                                         46.0%
+- '   [Ada]          hal-uart.ads
 
   '
-- '###################################                                       49.7%
+- '   [Ada]          hal-dsi.ads
 
   '
-- '######################################                                    53.1%
+- '   [Ada]          hal-filesystem.ads
 
   '
-- '########################################                                  56.9%
+- '   [Ada]          hal-bitmap.ads
 
   '
-- '############################################                              61.8%
+- '   [Ada]          hal-gpio.ads
 
   '
-- '###############################################                           66.3%
+- '   [Ada]          hal-real_time_clock.ads
 
   '
-- '#################################################                         69.1%
+- '   [Ada]          hal-spi.ads
 
   '
-- '######################################################                    75.1%
+- '   [Ada]          hal-i2c.ads
 
   '
-- '#########################################################                 79.9%
+- '   [Ada]          hal-block_drivers.ads
 
   '
-- '#############################################################             84.8%
+- '   [Ada]          hal-touch_panel.ads
 
   '
-- '##############################################################            87.2%
+- '   [Ada]          hal.ads
 
   '
-- '#################################################################         90.6%
+- '   [Ada]          hal-audio.ads
 
   '
-- '##################################################################        92.1%
+- '   [Ada]          hal-time.ads
 
   '
-- '###################################################################       93.3%
+- '   [Ada]          hal-framebuffer.ads
 
   '
-- '#####################################################################     96.6%
+- '   [Ada]          nrf_svd-lpcomp.ads
 
   '
-- '######################################################################    98.1%
+- '   [Ada]          nrf_svd-timer.ads
 
   '
-- '######################################################################## 100.0%
+- '   [Ada]          nrf_svd-rtc.ads
 
   '
-- 'Note: gnat_arm_elf=11.2.4 installed successfully.
+- '   [Ada]          nrf_svd-adc.ads
 
   '
-- 'Note: Deploying hal=0.3.0...
+- '   [Ada]          nrf_svd-qdec.ads
 
   '
-- 'Note: Deploying cortex_m=0.4.0...
+- '   [Ada]          nrf_svd-mpu.ads
 
   '
-- 'stderr: Configuration variable ''cortex_m.core not set and has no default value.
+- '   [Ada]          nrf_svd-uart.ads
 
   '
-- 'ERROR: Configuration variable ''cortex_m.core not set and has no default value.
+- '   [Ada]          nrf_svd-ccm.ads
+
+  '
+- '   [Ada]          nrf_svd-uicr.ads
+
+  '
+- '   [Ada]          nrf_svd-nvmc.ads
+
+  '
+- '   [Ada]          nrf_svd-twi.ads
+
+  '
+- '   [Ada]          nrf_svd-power.ads
+
+  '
+- '   [Ada]          nrf_svd-radio.ads
+
+  '
+- '   [Ada]          nrf_svd-wdt.ads
+
+  '
+- '   [Ada]          nrf_svd-aar.ads
+
+  '
+- '   [Ada]          nrf_svd-ficr.ads
+
+  '
+- '   [Ada]          nrf_svd-rng.ads
+
+  '
+- '   [Ada]          nrf_svd-spis.ads
+
+  '
+- '   [Ada]          nrf_svd-temp.ads
+
+  '
+- '   [Ada]          nrf_svd-ppi.ads
+
+  '
+- '   [Ada]          nrf_svd-gpio.ads
+
+  '
+- '   [Ada]          nrf_svd.ads
+
+  '
+- '   [Ada]          nrf_svd-clock.ads
+
+  '
+- '   [Ada]          nrf_svd-ecb.ads
+
+  '
+- '   [Ada]          nrf_svd-amli.ads
+
+  '
+- '   [Ada]          nrf_svd-gpiote.ads
+
+  '
+- '   [Ada]          nrf_svd-spim.ads
+
+  '
+- '   [Ada]          nrf_svd-spi.ads
+
+  '
+- '   [Ada]          nrf-adc.adb
+
+  '
+- '   [Ada]          nrf-ppi.adb
+
+  '
+- '   [Ada]          nrf-twi.adb
+
+  '
+- '   [Ada]          nrf-rtc.adb
+
+  '
+- '   [Ada]          nrf-clock.adb
+
+  '
+- '   [Ada]          nrf-timers.adb
+
+  '
+- '   [Ada]          nrf-tasks.adb
+
+  '
+- '   [Ada]          nrf.ads
+
+  '
+- '   [Ada]          nrf-gpio-tasks_and_events.adb
+
+  '
+- '   [Ada]          nrf-events.adb
+
+  '
+- '   [Ada]          nrf-spi_master.adb
+
+  '
+- '   [Ada]          nrf-interrupts.adb
+
+  '
+- '   [Ada]          nrf-uart.adb
+
+  '
+- '   [Ada]          nrf-radio.adb
+
+  '
+- '   [Ada]          nrf-gpio.adb
+
+  '
+- '   [Ada]          nrf-rng.adb
+
+  '
+- '   [Ada]          nrf-temperature.adb
+
+  '
+- '   [Ada]          nrf-device.ads
+
+  '
+- 'Build Libraries
+
+  '
+- '   [gprlib]       hal.lexch
+
+  '
+- '   [archive]      libhal.a
+
+  '
+- '   [index]        libhal.a
+
+  '
+- '   [gprlib]       cortex_m0.lexch
+
+  '
+- '   [gprlib]       nrf51.lexch
+
+  '
+- '   [archive]      libcortex_m0.a
+
+  '
+- '   [index]        libcortex_m0.a
+
+  '
+- '   [archive]      libnrf51.a
+
+  '
+- '   [index]        libnrf51.a
+
+  '
+- 'Note: Building nrf5x_hal=0.1.0/nrf52.gpr (2/2)...
+
+  '
+- 'Setup
+
+  '
+- '   [mkdir]        object directory for project NRF52
+
+  '
+- '   [mkdir]        library directory for project NRF52
+
+  '
+- 'Compile
+
+  '
+- '   [Ada]          hal-sdmmc.adb
+
+  '
+- '   [Ada]          hal-uart.ads
+
+  '
+- '   [Ada]          hal-dsi.ads
+
+  '
+- '   [Ada]          hal-filesystem.ads
+
+  '
+- '   [Ada]          hal-bitmap.ads
+
+  '
+- '   [Ada]          hal-gpio.ads
+
+  '
+- '   [Ada]          hal-real_time_clock.ads
+
+  '
+- '   [Ada]          hal-spi.ads
+
+  '
+- '   [Ada]          hal-i2c.ads
+
+  '
+- '   [Ada]          hal-block_drivers.ads
+
+  '
+- '   [Ada]          hal-touch_panel.ads
+
+  '
+- '   [Ada]          hal.ads
+
+  '
+- '   [Ada]          hal-audio.ads
+
+  '
+- '   [Ada]          hal-time.ads
+
+  '
+- '   [Ada]          hal-framebuffer.ads
+
+  '
+- '   [Ada]          nrf_svd-lpcomp.ads
+
+  '
+- '   [Ada]          nrf_svd-timer.ads
+
+  '
+- '   [Ada]          nrf_svd-rtc.ads
+
+  '
+- '   [Ada]          nrf_svd-egu.ads
+
+  '
+- '   [Ada]          nrf_svd-qdec.ads
+
+  '
+- '   [Ada]          nrf_svd-pwm.ads
+
+  '
+- '   [Ada]          nrf_svd-uart.ads
+
+  '
+- '   [Ada]          nrf_svd-ccm.ads
+
+  '
+- '   [Ada]          nrf_svd-fpu.ads
+
+  '
+- '   [Ada]          nrf_svd-twim.ads
+
+  '
+- '   [Ada]          nrf_svd-uicr.ads
+
+  '
+- '   [Ada]          nrf_svd-nvmc.ads
+
+  '
+- '   [Ada]          nrf_svd-twi.ads
+
+  '
+- '   [Ada]          nrf_svd-power.ads
+
+  '
+- '   [Ada]          nrf_svd-i2s.ads
+
+  '
+- '   [Ada]          nrf_svd-radio.ads
+
+  '
+- '   [Ada]          nrf_svd-nfct.ads
+
+  '
+- '   [Ada]          nrf_svd-wdt.ads
+
+  '
+- '   [Ada]          nrf_svd-aar.ads
+
+  '
+- '   [Ada]          nrf_svd-twis.ads
+
+  '
+- '   [Ada]          nrf_svd-ficr.ads
+
+  '
+- '   [Ada]          nrf_svd-mwu.ads
+
+  '
+- '   [Ada]          nrf_svd-rng.ads
+
+  '
+- '   [Ada]          nrf_svd-spis.ads
+
+  '
+- '   [Ada]          nrf_svd-temp.ads
+
+  '
+- '   [Ada]          nrf_svd-ppi.ads
+
+  '
+- '   [Ada]          nrf_svd-gpio.ads
+
+  '
+- '   [Ada]          nrf_svd-saadc.ads
+
+  '
+- '   [Ada]          nrf_svd.ads
+
+  '
+- '   [Ada]          nrf_svd-pdm.ads
+
+  '
+- '   [Ada]          nrf_svd-uarte.ads
+
+  '
+- '   [Ada]          nrf_svd-clock.ads
+
+  '
+- '   [Ada]          nrf_svd-ecb.ads
+
+  '
+- '   [Ada]          nrf_svd-comp.ads
+
+  '
+- '   [Ada]          nrf_svd-bprot.ads
+
+  '
+- '   [Ada]          nrf_svd-gpiote.ads
+
+  '
+- '   [Ada]          nrf_svd-spim.ads
+
+  '
+- '   [Ada]          nrf_svd-spi.ads
+
+  '
+- '   [Ada]          nrf-adc.adb
+
+  '
+- '   [Ada]          nrf-ppi.adb
+
+  '
+- '   [Ada]          nrf-twi.adb
+
+  '
+- '   [Ada]          nrf-rtc.adb
+
+  '
+- '   [Ada]          nrf-clock.adb
+
+  '
+- '   [Ada]          nrf-timers.adb
+
+  '
+- '   [Ada]          nrf-tasks.adb
+
+  '
+- '   [Ada]          nrf.ads
+
+  '
+- '   [Ada]          nrf-gpio-tasks_and_events.adb
+
+  '
+- '   [Ada]          nrf-events.adb
+
+  '
+- '   [Ada]          nrf-spi_master.adb
+
+  '
+- '   [Ada]          nrf-interrupts.adb
+
+  '
+- '   [Ada]          nrf-uart.adb
+
+  '
+- '   [Ada]          nrf-radio.adb
+
+  '
+- '   [Ada]          nrf-gpio.adb
+
+  '
+- '   [Ada]          nrf-rng.adb
+
+  '
+- '   [Ada]          nrf-temperature.adb
+
+  '
+- '   [Ada]          nrf-device.adb
+
+  '
+- 'Build Libraries
+
+  '
+- '   [gprlib]       hal.lexch
+
+  '
+- '   [archive]      libhal.a
+
+  '
+- '   [index]        libhal.a
+
+  '
+- '   [gprlib]       cortex_m4f.lexch
+
+  '
+- '   [gprlib]       nrf52.lexch
+
+  '
+- '   [archive]      libcortex_m4f.a
+
+  '
+- '   [index]        libcortex_m4f.a
+
+  '
+- '   [archive]      libnrf52.a
+
+  '
+- '   [index]        libnrf52.a
+
+  '
+- 'Success: Build finished successfully in 2.51 seconds.
+
+  '
+- 'Found declared GPR file: nrf51.gpr
+
+  '
+- 'Found declared GPR file: nrf52.gpr
+
+  '
+- '[alr test] Test completed SUCCESSFULLY
 
   '
 platform: linux
-status: failing
+status: success
 version: 0.1.0

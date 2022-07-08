@@ -1,0 +1,917 @@
+badge: false
+crate: image_io
+creation_timestamp: 1757897023.6088886
+distro: mingw64_nt-10.0-26100
+duration: 108.125
+gnat: 12.2.1
+last_attempt: 2026-08-21 13:02:29.605332+00:00
+log:
+- 'Test ran at 2026-08-21 13:02:29.605332+00:00
+
+
+  '
+- 'SOLUTION:
+
+  '
+- 'image_io=20240725.0.0: Output in BMP,PPM,QOI;input in BMP,GIF,JPG,PNG,PNM,QOI,TGA
+
+  '
+- 'Origin: commit e3fcdc57ed2f868e3ad21aeb3330d23c5ec3dbe5 from https://github.com/bracke/Image_IO.git
+
+  '
+- 'Properties:
+
+  '
+- '   Author: Jeff Carter
+
+  '
+- "   Build Switches: \n"
+- '   Description: Output in BMP,PPM,QOI;input in BMP,GIF,JPG,PNG,PNM,QOI,TGA
+
+  '
+- '   License: BSD-3-Clause
+
+  '
+- '   Long_Description: # Image_IO
+
+  '
+- 'Output in BMP, PNG, PPM, and QOI formats; input in BMP, GIF, JPG, PNG, PNM, QOI,
+  and TGA formats
+
+  '
+- '
+
+  '
+- 'Package Image_IO.Operations provides the ability to input and output images.
+
+  '
+- '
+
+  '
+- 'PNG is a lossless compressed format that is widely supported. Uncompressed BMP
+  is a universal format that is very large. PPM is intended to be a set of portable
+  formats, but lacks support by default on some platforms. QOI is a lossless compressed
+  format, but not widely supported.
+
+  '
+- '
+
+  '
+- 'Write_P3 uses [PragmARC.Text_IO](https://github.com/jrcarter/PragmARC/blob/Ada-12/pragmarc-text_io.ads)
+  to obtain uniform line terminators across platforms. This can be easily changed
+  to Ada.Text_IO if the line terminators are not a concern.
+
+  '
+- '
+
+  '
+- 'Write_PNG uses [Z_Compression](https://github.com/jrcarter/Z_Compression) and [CRC-32](https://github.com/jrcarter/CRC-32).
+
+  '
+- '
+
+  '
+- 'Read is a wrapper around [Generic Image Decoder (GID)](https://github.com/zertovitch/gid)
+  for the most common use: reading an image from a file. GID may be used to decode
+  images from other sources, but that generality makes it complex to use. Read ignores
+  transparency (Alpha channel) and only reads the first frame of an animation.
+
+  '
+- '
+
+  '
+- 'Pure_RGB is a demo program that reads an image using Read, modifies it to change
+  all color components to the closest of 0 or 255, and outputs the result using Write_PNG.
+  It is invoked with
+
+  '
+- '
+
+  '
+- '     pure_rgb <name>
+
+  '
+- '
+
+  '
+- 'The output name is the input name with ".png" appended. Pure_RGB does no error
+  handling; if the input file name is omitted, doesn''t exist, or is not a supported
+  image format, the program will terminate with an unhandled exception.
+
+  '
+- '
+
+  '
+- 'Image_IO and Pure_RGB have been compiled and tested with GNAT 12.3.0 on Linux and
+  ObjectAda 10.5U7 on Windows.
+
+  '
+- '
+
+  '
+- '   Maintainer: Bent Bracke <bent@bracke.dk>
+
+  '
+- '   Maintainers_Logins: bracke
+
+  '
+- '   Name: image_io
+
+  '
+- '   Tag: image
+
+  '
+- '   Tag: io
+
+  '
+- '   Tag: bmp
+
+  '
+- '   Tag: ppm
+
+  '
+- '   Tag: qoi
+
+  '
+- '   Tag: gif
+
+  '
+- '   Tag: jpg
+
+  '
+- '   Tag: png
+
+  '
+- '   Tag: pnm
+
+  '
+- '   Tag: tga
+
+  '
+- '   Version: 20240725.0.0
+
+  '
+- '   Website: https://github.com/bracke/Image_IO
+
+  '
+- 'Dependencies (direct):
+
+  '
+- '   crc_32^20240725.0.0
+
+  '
+- '   gid^13.0.0
+
+  '
+- '   gnat<13.0 | >=13.3
+
+  '
+- '   pragmarc^20240323.0.0
+
+  '
+- '   z_compression^20240724.0.0
+
+  '
+- 'Dependencies (solution):
+
+  '
+- '   crc_32=20240725.0.0
+
+  '
+- '   gid=13.0.1
+
+  '
+- '   gnat=12.2.1 (gnat_native)
+
+  '
+- '   pragmarc=20240323.0.0
+
+  '
+- '   z_compression=20240724.0.0
+
+  '
+- 'Dependencies (graph):
+
+  '
+- '   crc_32=20240725.0.0        --> gnat=12.2.1 (gnat_native) (<13.0 | >=13.3)
+
+  '
+- '   image_io=20240725.0.0      --> crc_32=20240725.0.0 (^20240725.0.0)
+
+  '
+- '   image_io=20240725.0.0      --> gid=13.0.1 (^13.0.0)
+
+  '
+- '   image_io=20240725.0.0      --> gnat=12.2.1 (gnat_native) (<13.0 | >=13.3)
+
+  '
+- '   image_io=20240725.0.0      --> pragmarc=20240323.0.0 (^20240323.0.0)
+
+  '
+- '   image_io=20240725.0.0      --> z_compression=20240724.0.0 (^20240724.0.0)
+
+  '
+- '   pragmarc=20240323.0.0      --> gnat=12.2.1 (gnat_native) (<13.0 | >=13.3)
+
+  '
+- '   z_compression=20240724.0.0 --> gnat=12.2.1 (gnat_native) (<13.0 | >=13.3)
+
+  '
+- '
+
+  '
+- '
+
+  LOG:
+
+  '
+- '[alr test] Testing image_io=20240725.0.0
+
+  '
+- '[alr test] Spawning retrieval for remote crate: alr -d -n get image_io=20240725.0.0
+
+  '
+- 'Note: Deploying image_io=20240725.0.0...
+
+  '
+- 'Note: Deploying gid=13.0.1...
+
+  '
+- '
+
+  '
+- '######################################################################## 100.0%
+
+  '
+- '######################################################################## 100.0%
+
+  '
+- '######################################################################## 100.0%
+
+  '
+- '######################################################################## 100.0%
+
+  '
+- "#=#=#                                                                         \
+  \ \n"
+- "##=#=#                                                                        \
+  \ \n"
+- "##=O#- #                                                                      \
+  \ \n"
+- '############                                                              16.9%
+
+  '
+- '##################                                                        25.4%
+
+  '
+- '####################################                                      50.8%
+
+  '
+- '######################################################################## 100.0%
+
+  '
+- 'Note: Deploying crc_32=20240725.0.0...
+
+  '
+- 'Note: Deploying pragmarc=20240323.0.0...
+
+  '
+- 'Note: Deploying z_compression=20240724.0.0...
+
+  '
+- '
+
+  '
+- 'image_io=20240725.0.0 successfully retrieved.
+
+  '
+- 'Dependencies were solved as follows:
+
+  '
+- '
+
+  '
+- '   +  crc_32        20240725.0.0 (new)
+
+  '
+- '   +  gid           13.0.1       (new)
+
+  '
+- '   +b gnat          12.2.1       (new,gnat_native,binary)
+
+  '
+- '   +  pragmarc      20240323.0.0 (new)
+
+  '
+- '   +  z_compression 20240724.0.0 (new)
+
+  '
+- '[alr test] Spawning default test for remote crate: alr -d -n build --release --
+  -cargs:Ada -gnatwn
+
+  '
+- 'Note: Building gid=13.0.1/gid.gpr...
+
+  '
+- '"obj\debug" created
+
+  '
+- '[Ada Compile]     all_rgb.adb
+
+  '
+- '[Ada Compile]     benchmark.adb
+
+  '
+- '[Ada Compile]     color_avg.adb
+
+  '
+- '[Ada Compile]     color_distances.adb
+
+  '
+- '[Ada Compile]     color_statistics.adb
+
+  '
+- '[Ada Compile]     comp_img.adb
+
+  '
+- '[Ada Compile]     comp_img_fct.adb
+
+  '
+- '[Ada Compile]     dumb_png.adb
+
+  '
+- '[Ada Compile]     fast_io.adb
+
+  '
+- 'fast_io.ads:11:64: (style) trailing spaces not permitted
+
+  '
+- '[Ada Compile]     gid-buffering.adb
+
+  '
+- '[Ada Compile]     gid-color_tables.adb
+
+  '
+- '[Ada Compile]     gid-decoding_bmp.adb
+
+  '
+- '[Ada Compile]     gid-decoding_gif.adb
+
+  '
+- '[Ada Compile]     gid-decoding_jpg.adb
+
+  '
+- '[Ada Compile]     gid-decoding_png-huffman.adb
+
+  '
+- '[Ada Compile]     gid-decoding_png.adb
+
+  '
+- '[Ada Compile]     gid-decoding_pnm.adb
+
+  '
+- '[Ada Compile]     gid-decoding_qoi.adb
+
+  '
+- '[Ada Compile]     gid-decoding_tga.adb
+
+  '
+- '[Ada Compile]     gid-headers.adb
+
+  '
+- '[Ada Compile]     gid.adb
+
+  '
+- '[Ada Compile]     is_opaque.adb
+
+  '
+- '[Ada Compile]     mini.adb
+
+  '
+- '[Ada Compile]     recurve.adb
+
+  '
+- '[Ada Bind]        all_rgb
+
+  '
+- '[Ada Bind]        benchmark
+
+  '
+- '[Ada Bind]        color_avg
+
+  '
+- '[Ada Bind]        comp_img
+
+  '
+- '[Ada Compile]     steg.adb
+
+  '
+- '[Ada Bind]        is_opaque
+
+  '
+- '[Ada Bind]        mini
+
+  '
+- '[Ada Compile]     to_bmp.adb
+
+  '
+- '[Ada Compile]     to_png.adb
+
+  '
+- '[Ada Bind]        recurve
+
+  '
+- '[Ada Post-Bind]   b__all_rgb.adb
+
+  '
+- '[Link]            all_rgb.exe
+
+  '
+- '[Ada Bind]        steg
+
+  '
+- '[Ada Post-Bind]   b__benchmark.adb
+
+  '
+- '[Ada Post-Bind]   b__color_avg.adb
+
+  '
+- '[Link]            benchmark.exe
+
+  '
+- '[Link]            color_avg.exe
+
+  '
+- '[Ada Post-Bind]   b__comp_img.adb
+
+  '
+- '[Ada Post-Bind]   b__is_opaque.adb
+
+  '
+- '[Link]            comp_img.exe
+
+  '
+- '[Link]            is_opaque.exe
+
+  '
+- '[Ada Post-Bind]   b__mini.adb
+
+  '
+- '[Ada Post-Bind]   b__recurve.adb
+
+  '
+- '[Link]            recurve.exe
+
+  '
+- '[Link]            mini.exe
+
+  '
+- '[Ada Post-Bind]   b__steg.adb
+
+  '
+- '[Link]            steg.exe
+
+  '
+- '[Ada Bind]        to_bmp
+
+  '
+- '[Ada Bind]        to_png
+
+  '
+- '[Ada Post-Bind]   b__to_bmp.adb
+
+  '
+- '[Ada Post-Bind]   b__to_png.adb
+
+  '
+- '[Link]            to_bmp.exe
+
+  '
+- '[Link]            to_png.exe
+
+  '
+- 'Note: Building image_io=20240725.0.0/image_io.gpr...
+
+  '
+- '"C:\Users\runneradmin\AppData\Local\alire\cache\builds\crc_32_20240725.0.0_6197de2c\3010c22c7a3116c532380cb221f1352901e5ccbfb47ae971f7ff717271fc1789\obj\release"
+  created
+
+  '
+- '"C:\Users\runneradmin\AppData\Local\alire\cache\builds\crc_32_20240725.0.0_6197de2c\3010c22c7a3116c532380cb221f1352901e5ccbfb47ae971f7ff717271fc1789\lib"
+  created
+
+  '
+- '"C:\Users\runneradmin\AppData\Local\alire\cache\builds\pragmarc_20240323.0.0_31d8919a\2317e3c79023e6618fd1e3ef1a9f90405206882014eafebade5adbc79f6c282c\obj\release"
+  created
+
+  '
+- '"C:\Users\runneradmin\AppData\Local\alire\cache\builds\pragmarc_20240323.0.0_31d8919a\2317e3c79023e6618fd1e3ef1a9f90405206882014eafebade5adbc79f6c282c\lib"
+  created
+
+  '
+- '"C:\Users\runneradmin\AppData\Local\alire\cache\builds\z_compression_20240724.0.0_f116f336\c0be58ecb6e664e42c607de81823caf82b5b909ecdc17faa58e7e29818cb4248\obj\release"
+  created
+
+  '
+- '"C:\Users\runneradmin\AppData\Local\alire\cache\builds\z_compression_20240724.0.0_f116f336\c0be58ecb6e664e42c607de81823caf82b5b909ecdc17faa58e7e29818cb4248\lib"
+  created
+
+  '
+- '"obj\release" created
+
+  '
+- '"lib" created
+
+  '
+- '[Ada Compile]     crc_32.adb
+
+  '
+- '[Ada Compile]     crc_32_config.ads
+
+  '
+- '[Ada Compile]     compile_all.adb
+
+  '
+- '[Ada Compile]     pragmarc-ansi_tty_control.adb
+
+  '
+- '[Ada Compile]     pragmarc-b_strings.adb
+
+  '
+- '[Archive]         libCrc_32.a
+
+  '
+- '[Ada Compile]     pragmarc-binary_searcher.adb
+
+  '
+- '[Ada Compile]     pragmarc-binary_semaphore_handler.adb
+
+  '
+- '[Ada Compile]     pragmarc-cards-decks-general.adb
+
+  '
+- '[Ada Compile]     pragmarc-cards-decks-us.adb
+
+  '
+- '[Ada Compile]     pragmarc-cards-decks.ads
+
+  '
+- '[Ada Compile]     pragmarc-cards-us.adb
+
+  '
+- '[Ada Compile]     pragmarc-cards.ads
+
+  '
+- '[Ada Compile]     pragmarc-comparisons.ads
+
+  '
+- '[Ada Compile]     pragmarc-concurrent_pipeline.adb
+
+  '
+- '[Ada Compile]     pragmarc-conversions-unbounded_strings.ads
+
+  '
+- '[Ada Compile]     pragmarc-conversions-vectors.adb
+
+  '
+- '[Ada Compile]     pragmarc-conversions.ads
+
+  '
+- '[Ada Compile]     pragmarc-data_structures-bags-unbounded-protection.adb
+
+  '
+- '[Ada Compile]     pragmarc-data_structures-bags-unbounded-unprotected.adb
+
+  '
+- '[Ada Compile]     pragmarc-data_structures-bags-unbounded.ads
+
+  '
+- '[Ada Compile]     pragmarc-data_structures-bags.ads
+
+  '
+- '[Ada Compile]     pragmarc-data_structures-lists-bounded-protection.adb
+
+  '
+- '[Ada Compile]     pragmarc-data_structures-lists-bounded.ads
+
+  '
+- '[Ada Compile]     pragmarc-data_structures-lists-unbounded-protection.adb
+
+  '
+- '[Ada Compile]     pragmarc-data_structures-lists-unbounded.ads
+
+  '
+- '[Ada Compile]     pragmarc-data_structures-lists.ads
+
+  '
+- '[Ada Compile]     pragmarc-data_structures-queues-bounded-protection-blocking.ads
+
+  '
+- '[Ada Compile]     pragmarc-data_structures-queues-bounded-protection-non_blocking.adb
+
+  '
+- '[Ada Compile]     pragmarc-data_structures-queues-bounded-protection.ads
+
+  '
+- '[Ada Compile]     pragmarc-data_structures-queues-bounded-unprotected.adb
+
+  '
+- '[Ada Compile]     pragmarc-data_structures-queues-bounded.ads
+
+  '
+- '[Ada Compile]     pragmarc-data_structures-queues-unbounded-protection-blocking.ads
+
+  '
+- '[Ada Compile]     pragmarc-data_structures-queues-unbounded-protection-non_blocking.adb
+
+  '
+- '[Ada Compile]     pragmarc-data_structures-queues-unbounded-protection.ads
+
+  '
+- '[Ada Compile]     pragmarc-data_structures-queues-unbounded-unprotected.adb
+
+  '
+- '[Ada Compile]     pragmarc-data_structures-queues-unbounded.ads
+
+  '
+- '[Ada Compile]     pragmarc-data_structures-queues.ads
+
+  '
+- '[Ada Compile]     pragmarc-data_structures-sets-discrete.adb
+
+  '
+- '[Ada Compile]     pragmarc-data_structures-sets.ads
+
+  '
+- '[Ada Compile]     pragmarc-data_structures-skip_lists-unbounded.adb
+
+  '
+- '[Ada Compile]     pragmarc-data_structures-skip_lists.ads
+
+  '
+- '[Ada Compile]     pragmarc-data_structures-stacks-unbounded-protection.adb
+
+  '
+- '[Ada Compile]     pragmarc-data_structures-stacks-unbounded-unprotected.adb
+
+  '
+- '[Ada Compile]     pragmarc-data_structures-stacks-unbounded.ads
+
+  '
+- '[Ada Compile]     pragmarc-data_structures-stacks.ads
+
+  '
+- '[Ada Compile]     pragmarc-data_structures.ads
+
+  '
+- '[Ada Compile]     pragmarc-date_handler.adb
+
+  '
+- '[Ada Compile]     pragmarc-encryption-bifid.adb
+
+  '
+- '[Ada Compile]     pragmarc-encryption-simple_xor.adb
+
+  '
+- '[Ada Compile]     pragmarc-encryption-threefish-block_1024.adb
+
+  '
+- '[Ada Compile]     pragmarc-encryption-threefish-block_256.adb
+
+  '
+- '[Ada Compile]     pragmarc-encryption-threefish-block_512.adb
+
+  '
+- '[Ada Compile]     pragmarc-encryption-threefish.adb
+
+  '
+- '[Ada Compile]     pragmarc-encryption.ads
+
+  '
+- '[Ada Compile]     pragmarc-genetic_algorithm.adb
+
+  '
+- '[Ada Compile]     pragmarc-hash.adb
+
+  '
+- '[Ada Compile]     pragmarc-hash_fast_variable_length.adb
+
+  '
+- '[Ada Compile]     pragmarc-images-image.ads
+
+  '
+- '[Ada Compile]     pragmarc-images.adb
+
+  '
+- '[Ada Compile]     pragmarc-job_pools.adb
+
+  '
+- '[Ada Compile]     pragmarc-least_squares_fitting.adb
+
+  '
+- '[Ada Compile]     pragmarc-line_fields.adb
+
+  '
+- '[Ada Compile]     pragmarc-luhn_generation.adb
+
+  '
+- '[Ada Compile]     pragmarc-matching-character_regular_expression.adb
+
+  '
+- '[Ada Compile]     pragmarc-matching-quick_string.adb
+
+  '
+- '[Ada Compile]     pragmarc-matching-regular_expression.adb
+
+  '
+- '[Ada Compile]     pragmarc-matching.ads
+
+  '
+- '[Ada Compile]     pragmarc-math.adb
+
+  '
+- '[Ada Compile]     pragmarc-menu_handler.adb
+
+  '
+- '[Ada Compile]     pragmarc-min_max.ads
+
+  '
+- '[Ada Compile]     pragmarc-mixed_case.adb
+
+  '
+- '[Ada Compile]     pragmarc-permutations.adb
+
+  '
+- '[Ada Compile]     pragmarc-persistent_skip_list_unbounded.adb
+
+  '
+- '[Ada Compile]     pragmarc-postfix_calculator.adb
+
+  '
+- '[Ada Compile]     pragmarc-protected_option.adb
+
+  '
+- '[Ada Compile]     pragmarc-randomness-combined.adb
+
+  '
+- '[Ada Compile]     pragmarc-randomness-isaac.adb
+
+  '
+- '[Ada Compile]     pragmarc-randomness-kiss.adb
+
+  '
+- '[Ada Compile]     pragmarc-randomness-real_ranges.adb
+
+  '
+- '[Ada Compile]     pragmarc-randomness-real_values.ads
+
+  '
+- '[Ada Compile]     pragmarc-randomness-threefry.adb
+
+  '
+- '[Ada Compile]     pragmarc-randomness-u32_ranges.adb
+
+  '
+- '[Ada Compile]     pragmarc-randomness-universal.adb
+
+  '
+- '[Ada Compile]     pragmarc-randomness.ads
+
+  '
+- '[Ada Compile]     pragmarc-rational_postfix_calculator.adb
+
+  '
+- '[Ada Compile]     pragmarc-reflection.ads
+
+  '
+- '[Ada Compile]     pragmarc-rem_nn_wrapper.adb
+
+  '
+- '[Ada Compile]     pragmarc-safety-pointers.adb
+
+  '
+- '[Ada Compile]     pragmarc-safety-semaphores.adb
+
+  '
+- '[Ada Compile]     pragmarc-safety-suspension_objects.adb
+
+  '
+- '[Ada Compile]     pragmarc-safety.ads
+
+  '
+- '[Ada Compile]     pragmarc-sorting-heap.adb
+
+  '
+- '[Ada Compile]     pragmarc-sorting-insertion.adb
+
+  '
+- '[Ada Compile]     pragmarc-sorting-quick.adb
+
+  '
+- '[Ada Compile]     pragmarc-sorting-radix.adb
+
+  '
+- '[Ada Compile]     pragmarc-sorting.ads
+
+  '
+- '[Ada Compile]     pragmarc-task_communication-forwarders.adb
+
+  '
+- '[Ada Compile]     pragmarc-task_communication-monitors.adb
+
+  '
+- '[Ada Compile]     pragmarc-task_communication-transporters.adb
+
+  '
+- '[Ada Compile]     pragmarc-task_communication.ads
+
+  '
+- '[Ada Compile]     pragmarc-text_io.adb
+
+  '
+- '[Ada Compile]     pragmarc-three_way.adb
+
+  '
+- '[Ada Compile]     pragmarc-title_comparisons.adb
+
+  '
+- '[Ada Compile]     pragmarc-unbounded_numbers-integers.adb
+
+  '
+- '[Ada Compile]     pragmarc-unbounded_numbers-rationals.adb
+
+  '
+- 'pragmarc-matching-character_regular_expression.ads:31:04: warning: in instantiation
+  at pragmarc-matching-regular_expression.adb:30 [-gnatwv]
+
+  '
+- 'pragmarc-matching-character_regular_expression.ads:31:04: warning: aggregate not
+  fully initialized [-gnatwv]
+
+  '
+- '[Ada Compile]     pragmarc-unbounded_numbers.ads
+
+  '
+- '[Ada Compile]     pragmarc-word_input.adb
+
+  '
+- '[Ada Compile]     pragmarc-wrapping.ads
+
+  '
+- '[Ada Compile]     pragmarc.ads
+
+  '
+- '[Ada Compile]     pragmarc_config.ads
+
+  '
+- '[Ada Compile]     z_compression-length_limited_huffman_code_lengths.adb
+
+  '
+- '[Ada Compile]     z_compression-lz77.adb
+
+  '
+- '[Ada Compile]     z_compression.adb
+
+  '
+- '[Ada Compile]     z_compression_config.ads
+
+  '
+- '[Archive]         libZ_Compression.a
+
+  '
+- '[Ada Compile]     image_io-holders.adb
+
+  '
+- '[Ada Compile]     image_io-operations.adb
+
+  '
+- '[Ada Compile]     image_io-qoi.adb
+
+  '
+- '[Ada Compile]     image_io-qoi_holders.adb
+
+  '
+- '[Ada Compile]     image_io.ads
+
+  '
+- '[Ada Compile]     image_io_config.ads
+
+  '
+- '[Archive]         libPragmARC.a
+
+  '
+- '[Archive]         libImage_IO.a
+
+  '
+- 'Success: Build finished successfully in 89.29 seconds.
+
+  '
+- 'Found declared GPR file: image_io.gpr
+
+  '
+- '[alr test] Test completed SUCCESSFULLY
+
+  '
+platform: windows
+status: success
+version: 20240725.0.0

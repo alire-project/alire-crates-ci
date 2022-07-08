@@ -1,0 +1,134 @@
+Test ran at 2026-08-23 00:30:14.501005+00:00
+
+SOLUTION:
+sparklib=16.1.0: Companion libraries for SPARK programming
+Origin: commit 6d13c7145fa5e4cac6eb6d1ffe78f9a2bccbed7f from https://github.com/AdaCore/SPARKlib
+Properties:
+   Post_Fetch run: sed -i -e s/type SPARKlib_Library_Kind is ("static");/type SPARKlib_Library_Kind is ("static", "static-pic", "relocatable");/ sparklib.gpr (from ${CRATE_ROOT}/.)
+   Post_Fetch run: sed -i -e s/"-gnatygo-u"/"-gnatygo-ud"/ sparklib_common.gpr (from ${CRATE_ROOT}/.)
+   Author: AdaCore
+   Configuration: no modifiers
+   Description: Companion libraries for SPARK programming
+   GPR Scenario: SPARKLIB_BUILD := Production | Assertions | Debug
+   GPR Scenario: SPARKLIB_MODE := light | full
+   GPR External: SPARKLIB_INSTALLED := False
+   License: Apache-2.0 WITH LLVM-exception
+   Long_Description: SPARKlib is meant to provide users of SPARK libraries to use in SPARK code. SPARKlib contains various libraries, such as a wide range of containers, as well as lemmas to use directly in user code.
+
+This version of SPARKlib is made for use with [GNATprove FSF 16](https://github.com/alire-project/GNAT-FSF-builds/releases/tag/gnatprove-16.1.0-1). Unlike what is specified in the AdaCore SPARK User's guide, you do not need to copy the sources to your project to use it - and in fact, it's not recommended when developing with Alire. This crate is usable as-is without special manipulations.
+
+The SPARKlib is configurable through GPR external definitions:
+- `SPARKLIB_MODE` can be configured to `light` or `full`, defaults to `full`.
+- `SPARKLIB_BUILD` can be configured to `Production`, `Assertions` or `Debug`, defaults to `Production`.
+
+You can set these with the `[gpr-set-externals]` section in your Alire manifest. Only set them as an end user of the crate (that is, when testing locally, or when developing a binary).
+
+   Maintainer: chouteau@adacore.com
+   Maintainer: sagaert@adacore.com
+   Maintainers_Logins: Fabien-Chouteau
+   Maintainers_Logins: AldanTanneo
+   Name: sparklib
+   Project_File: sparklib.gpr
+   Version: 16.1.0
+   Website: https://github.com/AdaCore/SPARKlib
+Dependencies (direct):
+   gnat>=16
+Dependencies (solution):
+   gnat=16.1.0 (gnat_native)
+Dependencies (graph):
+   sparklib=16.1.0 --> gnat=16.1.0 (gnat_native) (>=16)
+
+
+LOG:
+[alr test] Testing sparklib=16.1.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get sparklib=16.1.0
+Note: Deploying sparklib=16.1.0...
+
+sparklib=16.1.0 successfully retrieved.
+Dependencies were solved as follows:
+
+   +b gnat 16.1.0 (new,gnat_native,binary)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Running post-fetch actions for sparklib=16.1.0...
+Note: Building sparklib=16.1.0/sparklib.gpr...
+Setup
+   [mkdir]        object directory for project SPARKlib
+   [mkdir]        library directory for project SPARKlib
+Compile
+   [Ada]          spark-containers-formal-ordered_maps.adb
+   [Ada]          spark-big_reals.ads
+   [Ada]          spark-big_integers.ads
+   [Ada]          spark.ads
+   [Ada]          spark-containers-formal-ordered_sets.adb
+   [Ada]          spark-containers-formal-unbounded_hashed_sets.adb
+   [Ada]          spark-containers-formal-unbounded_ordered_sets.adb
+   [Ada]          spark-containers-formal-unbounded_ordered_maps.adb
+   [Ada]          spark-containers-formal-holders.adb
+   [Ada]          spark-containers-formal-unbounded_hashed_maps.adb
+   [Ada]          spark-containers-hash.adb
+   [Ada]          spark-containers-formal-unbounded_vectors.adb
+   [Ada]          spark-containers-types.ads
+   [Ada]          spark-containers-formal-unbounded_doubly_linked_lists.adb
+   [Ada]          spark-big_intervals.ads
+   [Ada]          spark-containers-formal-vectors.adb
+   [Ada]          spark-pointers-pointers_with_aliasing.adb
+   [Ada]          spark-containers-functional-infinite_sequences-higher_order.adb
+   [Ada]          spark-containers-stable_sorting.adb
+   [Ada]          spark-containers-formal-doubly_linked_lists.adb
+   [Ada]          spark-lemmas-mod_arithmetic.adb
+   [Ada]          spark-lemmas-floating_point_arithmetic.adb
+   [Ada]          spark-pointers-pointers_with_aliasing_separate_memory.adb
+   [Ada]          spark-conversions-long_float_conversions.ads
+   [Ada]          spark-lemmas-constrained_array.adb
+   [Ada]          spark-containers.ads
+   [Ada]          spark-higher_order-fold.adb
+   [Ada]          spark-lemmas-float_arithmetic.ads
+   [Ada]          spark-containers-functional.ads
+   [Ada]          spark-containers-formal.ads
+   [Ada]          spark-conversions.ads
+   [Ada]          spark-containers-formal-hash_tables-generic_operations.adb
+   [Ada]          spark-containers-parameter_checks.adb
+   [Ada]          spark-lemmas-fixed_point_arithmetic.adb
+   [Ada]          spark-pointers.ads
+   [Ada]          spark-lemmas-long_integer_arithmetic.ads
+   [Ada]          spark-lemmas-mod32_arithmetic.ads
+   [Ada]          spark-lemmas-unconstrained_array.adb
+   [Ada]          spark-c.ads
+   [Ada]          spark-c-strings.adb
+   [Ada]          spark-containers-functional-vectors.adb
+   [Ada]          spark-lemmas-integer_arithmetic.ads
+   [Ada]          spark-containers-functional-maps.adb
+   [Ada]          spark-containers-functional-sets-higher_order.adb
+   [Ada]          spark-tests-array_lemmas.adb
+   [Ada]          spark-lemmas-long_float_arithmetic.ads
+   [Ada]          spark-containers-functional-holder.adb
+   [Ada]          spark-containers-functional-sets.adb
+   [Ada]          spark-containers-functional-base.adb
+   [Ada]          spark-lemmas-mod64_arithmetic.ads
+   [Ada]          spark-lemmas-arithmetic.adb
+   [Ada]          spark-containers-functional-vectors-higher_order.adb
+   [Ada]          spark-cut_operations.adb
+   [Ada]          spark-containers-functional-trees.adb
+   [Ada]          spark-containers-functional-maps-higher_order.adb
+   [Ada]          spark-tests.ads
+   [Ada]          spark-higher_order.adb
+   [Ada]          spark-containers-formal-hash_tables-generic_keys.adb
+   [Ada]          spark-containers-formal-hashed_maps.adb
+   [Ada]          spark-conversions-long_integer_conversions.ads
+   [Ada]          spark-c-constant_strings.adb
+   [Ada]          spark-containers-functional-infinite_sequences.adb
+   [Ada]          spark-conversions-float_conversions.ads
+   [Ada]          spark-lemmas.ads
+   [Ada]          spark-containers-formal-hashed_sets.adb
+   [Ada]          spark-pointers-abstract_maps.ads
+   [Ada]          spark-pointers-abstract_sets.adb
+   [Ada]          spark-containers-formal-hash_tables-prime_numbers.adb
+   [Ada]          spark-containers-functional-multisets.adb
+   [Ada]          spark-containers-formal-hash_tables.ads
+Build Libraries
+   [gprlib]       sparklib.lexch
+   [archive]      libsparklib.a
+   [index]        libsparklib.a
+Success: Build finished successfully in 2.27 seconds.
+Found declared GPR file: sparklib.gpr
+[alr test] Test completed SUCCESSFULLY

@@ -1,0 +1,119 @@
+Test ran at 2026-09-05 12:56:35.362938+00:00
+
+SOLUTION:
+usb_embedded=1.0.1: An Ada USB stack for embedded devices
+Origin: commit dc00efac0269cfc8970abde37b58f0167de6cbe4 from https://github.com/Fabien-Chouteau/usb_embedded.git
+Properties:
+   Author: Fabien Chouteau
+   Config type: Control_Buffer_Size : Integer range 256 .. 9223372036854775807 default: '256'
+   Config type: Event_Log_Buffer_Size : Integer range 0 .. 9223372036854775807 default: '0'
+   Config type: Max_Strings : Integer range 0 .. 9223372036854775807 default: '10'
+   Config type: String_Buffer_Size : Integer range 0 .. 9223372036854775807 default: '256'
+   Configuration: no modifiers
+   Description: An Ada USB stack for embedded devices
+   License: BSD-3-Clause
+   Maintainer: Fabien Chouteau <chouteau@adacore.com>
+   Maintainers_Logins: Fabien-Chouteau
+   Name: usb_embedded
+   Tag: embedded
+   Tag: usb
+   Tag: hid
+   Tag: midi
+   Tag: nostd
+   Version: 1.0.1
+   Website: https://github.com/Fabien-Chouteau/usb_embedded
+Dependencies (direct):
+   bbqueue^1.0.0
+   hal^1.0.0
+Dependencies (solution):
+   atomic=1.1.0
+   bbqueue=1.0.0
+   gnat=15.3.1 (gnat_native)
+   hal=1.0.0
+Dependencies (graph):
+   bbqueue=1.0.0      --> atomic=1.1.0 (^1.0.0)
+   bbqueue=1.0.0      --> gnat=15.3.1 (gnat_native) (>=10)
+   usb_embedded=1.0.1 --> bbqueue=1.0.0 (^1.0.0)
+   usb_embedded=1.0.1 --> hal=1.0.0 (^1.0.0)
+
+
+LOG:
+[alr test] Testing usb_embedded=1.0.1
+[alr test] Spawning retrieval for remote crate: alr -d -n get usb_embedded=1.0.1
+Note: Deploying usb_embedded=1.0.1...
+Note: Deploying atomic=1.1.0...
+Note: Deploying hal=1.0.0...
+Note: Deploying bbqueue=1.0.0...
+
+usb_embedded=1.0.1 successfully retrieved.
+Dependencies were solved as follows:
+
+   +  atomic  1.1.0  (new,indirect)
+   +  bbqueue 1.0.0  (new)
+   +b gnat    15.3.1 (new,gnat_native,indirect,binary)
+   +  hal     1.0.0  (new)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building usb_embedded=1.0.1/usb_embedded.gpr...
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\hal_1.0.0_084c6412\80c667a14c0bbb0e2f7f185d159ae83222559bacb1087172cc6e81c0134d5570\obj" created
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\hal_1.0.0_084c6412\80c667a14c0bbb0e2f7f185d159ae83222559bacb1087172cc6e81c0134d5570\lib" created
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\atomic_1.1.0_5e6250a0\63d3d96ef63eefed2345a54971edd7be389c82b7f83075d8f5771d779c9af854\obj\release" created
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\atomic_1.1.0_5e6250a0\63d3d96ef63eefed2345a54971edd7be389c82b7f83075d8f5771d779c9af854\lib" created
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\bbqueue_1.0.0_f508818c\fab8d4f246a6e74db85304e61ca102cf73184fdfac6c399967d5b4dd13d02783\obj\release" created
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\bbqueue_1.0.0_f508818c\fab8d4f246a6e74db85304e61ca102cf73184fdfac6c399967d5b4dd13d02783\lib" created
+"obj\release" created
+"lib" created
+[Ada Compile]     atomic-basic_operations.adb
+[Ada Compile]     atomic-signed.adb
+[Ada Compile]     atomic-signed_16.ads
+[Ada Compile]     atomic-signed_32.ads
+[Ada Compile]     atomic-signed_8.ads
+[Ada Compile]     atomic-unsigned.adb
+[Ada Compile]     atomic-unsigned_16.ads
+[Ada Compile]     atomic-unsigned_32.ads
+[Ada Compile]     atomic-unsigned_8.ads
+[Ada Compile]     atomic.adb
+[Ada Compile]     atomic_config.ads
+[Ada Compile]     bbqueue-buffers-framed.adb
+[Ada Compile]     bbqueue-buffers.adb
+[Ada Compile]     bbqueue.adb
+[Ada Compile]     bbqueue_config.ads
+[Archive]         libAtomic.a
+[Ada Compile]     hal-audio.ads
+[Ada Compile]     hal-bitmap.ads
+[Ada Compile]     hal-block_drivers.ads
+[Ada Compile]     hal-dsi.ads
+[Archive]         libBbqueue.a
+[Ada Compile]     hal-filesystem.ads
+[Ada Compile]     hal-flash.ads
+[Ada Compile]     hal-framebuffer.ads
+[Ada Compile]     hal-gpio.ads
+[Ada Compile]     hal-i2c.ads
+[Ada Compile]     hal-real_time_clock.ads
+[Ada Compile]     hal-sdmmc.adb
+[Ada Compile]     hal-spi.ads
+[Ada Compile]     hal-time.ads
+[Ada Compile]     hal-touch_panel.ads
+[Ada Compile]     hal-uart.ads
+[Ada Compile]     hal.ads
+[Ada Compile]     usb-device-control.adb
+[Ada Compile]     usb-device-hid-gamepad.adb
+[Ada Compile]     usb-device-hid-joystick.adb
+[Archive]         libhal.a
+[Ada Compile]     usb-device-hid-keyboard.adb
+[Ada Compile]     usb-device-hid-mouse.adb
+[Ada Compile]     usb-device-hid.adb
+[Ada Compile]     usb-device-midi.adb
+[Ada Compile]     usb-device-serial.adb
+[Ada Compile]     usb-device.adb
+[Ada Compile]     usb-hal-device.ads
+[Ada Compile]     usb-hal.ads
+[Ada Compile]     usb-lang.ads
+[Ada Compile]     usb-logging-device__null.adb
+[Ada Compile]     usb-logging.ads
+[Ada Compile]     usb-utils.adb
+[Ada Compile]     usb.adb
+[Ada Compile]     usb_embedded_config.ads
+[Archive]         libUsb_Embedded.a
+Success: Build finished successfully in 5.45 seconds.
+Found declared GPR file: usb_embedded.gpr
+[alr test] Test completed SUCCESSFULLY

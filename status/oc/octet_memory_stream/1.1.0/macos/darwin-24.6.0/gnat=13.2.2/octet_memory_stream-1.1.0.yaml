@@ -1,0 +1,356 @@
+badge: false
+crate: octet_memory_stream
+creation_timestamp: 1763253942.9338481
+distro: darwin-24.6.0
+duration: 2.313257374999921
+gnat: 13.2.2
+last_attempt: 2026-06-08 01:44:54.513895+00:00
+log:
+- 'Test ran at 2026-06-08 01:44:54.513630+00:00
+
+
+  '
+- 'SOLUTION:
+
+  '
+- 'octet_memory_stream=1.1.0: Provides a Root_Stream_Type wrapper over an array of
+  octets in memory.
+
+  '
+- 'Origin: commit 54ecee472e8f78ab6d09df59f48bcca548364ee3 from https://github.com/Bread-Experts-Group/octet_memory_stream.git
+
+  '
+- 'Properties:
+
+  '
+- '   Author: Miko Elbrecht
+
+  '
+- '   Description: Provides a Root_Stream_Type wrapper over an array of octets in
+  memory.
+
+  '
+- '   License: Apache-2.0 WITH LLVM-exception
+
+  '
+- '   Long_Description: `octet_memory_stream` provides a standalone `Ada.Streams.Root_Stream_Type`
+
+  '
+- 'wrapper around an `Octet_Array` (array of 8-bit bytes,) primarily for the
+
+  '
+- 'purpose of protecting an over-arching stream from misalignment while reading
+
+  '
+- 'from, or writing to, e.g., a file format.
+
+  '
+- '
+
+  '
+- 'If the `Memory_Stream` detects an out-of-bounds error as the result of a read
+
+  '
+- 'or write operation, an `Out_Of_Bounds_Error` exception will be raised.
+
+  '
+- '
+
+  '
+- 'Example Use
+
+  '
+- '-----------
+
+  '
+- "All pertinent types and subprograms are available within the package \n"
+- '`Octet_Memory_Stream`. Wrapping an `Octet_Array` is done through the
+
+  '
+- '`To_Stream` function.
+
+  '
+- '```ada
+
+  '
+- 'pragma Ada_2022;
+
+  '
+- '
+
+  '
+- 'with Ada.Text_IO;
+
+  '
+- 'with Ada.Streams.Stream_IO;
+
+  '
+- 'use  Ada.Streams.Stream_IO;
+
+  '
+- 'with Octet_Memory_Stream;
+
+  '
+- '
+
+  '
+- 'procedure TestDemo is
+
+  '
+- '   F                : File_Type;
+
+  '
+- '   Protected_Stream : Stream_Access;
+
+  '
+- '   Memory_Stream    : Octet_Memory_Stream.Stream_Access;
+
+  '
+- 'begin
+
+  '
+- '   Open (F, In_File, "example");
+
+  '
+- '   Protected_Stream := Stream (F);
+
+  '
+- '   declare
+
+  '
+- '      Data : Octet_Memory_Stream.Octet_Array (1 .. 50);
+
+  '
+- '   begin
+
+  '
+- '      Octet_Memory_Stream.Octet_Array''Read (Protected_Stream, Data);
+
+  '
+- '      Memory_Stream := Octet_Memory_Stream.To_Stream (Data);
+
+  '
+- '   end;
+
+  '
+- '   declare
+
+  '
+- '      OK_Data  : Octet_Memory_Stream.Octet_Array (1 .. 25);
+
+  '
+- '      OOB_Data : Octet_Memory_Stream.Octet_Array (1 .. 26);
+
+  '
+- '   begin
+
+  '
+- '      Octet_Memory_Stream.Octet_Array''Read (Memory_Stream, OK_Data);
+
+  '
+- '      Ada.Text_IO.Put_Line (OK_Data''Image);
+
+  '
+- '
+
+  '
+- '      Octet_Memory_Stream.Octet_Array''Read (Memory_Stream, OOB_Data);
+
+  '
+- '      --  exception raised above
+
+  '
+- '      Ada.Text_IO.Put_Line (OOB_Data''Image);
+
+  '
+- '   end;
+
+  '
+- '   Close (F);
+
+  '
+- 'end TestDemo;
+
+  '
+- '```
+
+  '
+- '
+
+  '
+- '   Maintainer: Miko Elbrecht <pmt.mailservice@gmail.com>
+
+  '
+- '   Maintainers_Logins: ATPStorages
+
+  '
+- '   Name: octet_memory_stream
+
+  '
+- '   Tag: octet
+
+  '
+- '   Tag: byte
+
+  '
+- '   Tag: buffer
+
+  '
+- '   Tag: stream
+
+  '
+- '   Tag: ada
+
+  '
+- '   Tag: streams
+
+  '
+- '   Tag: memory
+
+  '
+- '   Version: 1.1.0
+
+  '
+- '   Website: https://github.com/Bread-Experts-Group/octet_memory_stream
+
+  '
+- '
+
+  '
+- '
+
+  LOG:
+
+  '
+- '[alr test] Testing octet_memory_stream=1.1.0
+
+  '
+- '[alr test] Spawning retrieval for remote crate: alr -d -n get octet_memory_stream=1.1.0
+
+  '
+- 'Note: Deploying octet_memory_stream=1.1.0...
+
+  '
+- '
+
+  '
+- 'octet_memory_stream=1.1.0 successfully retrieved.
+
+  '
+- 'There are no dependencies.
+
+  '
+- '[alr test] Spawning default test for remote crate: alr -d -n build --release --
+  -cargs:Ada -gnatwn
+
+  '
+- 'Note: Building octet_memory_stream=1.1.0/octet_memory_stream.gpr...
+
+  '
+- 'Setup
+
+  '
+- '   [mkdir]        object directory for project Octet_Memory_Stream
+
+  '
+- '   [mkdir]        library directory for project Octet_Memory_Stream
+
+  '
+- 'Compile
+
+  '
+- '   [Ada]          octet_memory_stream_config.ads
+
+  '
+- 'completed 1 out of 2 (50%)...
+
+  '
+- '   [Ada]          octet_memory_stream.adb
+
+  '
+- 'gnat1: invalid switch: -gnatw_s
+
+  '
+- 'completed 2 out of 2 (100%)...
+
+  '
+- 'gnat1: invalid switch: -gnatw_s
+
+  '
+- '
+
+  '
+- '   compilation of octet_memory_stream.adb failed
+
+  '
+- '   compilation of octet_memory_stream_config.ads failed
+
+  '
+- '
+
+  '
+- 'gprbuild: *** compilation phase failed
+
+  '
+- 'stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/Users/runner/work/alire-crates-ci/alire-crates-ci/test/123ee313-32d2-437e-9375-bfe04e90d52e/octet_memory_stream_1.1.0_54ecee47/octet_memory_stream.gpr",
+  "-cargs:Ada", "-gnatwn"] exited with code 4
+
+  '
+- 'ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/Users/runner/work/alire-crates-ci/alire-crates-ci/test/123ee313-32d2-437e-9375-bfe04e90d52e/octet_memory_stream_1.1.0_54ecee47/octet_memory_stream.gpr",
+  "-cargs:Ada", "-gnatwn"] exited with code 4
+
+  '
+- 'stderr: ALIRE.CHECKED_ERROR
+
+  '
+- 'stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/Users/runner/work/alire-crates-ci/alire-crates-ci/test/123ee313-32d2-437e-9375-bfe04e90d52e/octet_memory_stream_1.1.0_54ecee47/octet_memory_stream.gpr",
+  "-cargs:Ada", "-gnatwn"] exited with code 4
+
+  '
+- 'stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
+
+  '
+- 'Load address: 0x10402c000
+
+  '
+- 'Call stack traceback locations:
+
+  '
+- '0x104d380cc 0x104d3812c 0x104a8c66c 0x1046d1568 0x104956594 0x1049574f4 0x10489533c
+  0x104893b08 0x1048b778c 0x10491756c 0x10491699c 0x1048b7868 0x1048b7950 0x10489400c
+  0x104894174 0x10409d730 0x10409d070 0x10409d1e4 0x10413ab38 0x104145c78 0x10402e9f8
+  0x104033a2c
+
+  '
+- '
+
+  '
+- 'stderr: ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED
+
+  '
+- 'stderr: alire-roots.adb:202
+
+  '
+- 'stderr: raised ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED : alire-roots.adb:202
+
+  '
+- 'Load address: 0x10402c000
+
+  '
+- 'Call stack traceback locations:
+
+  '
+- '0x104d380cc 0x104d3812c 0x104895640 0x104893b08 0x1048b778c 0x10491756c 0x10491699c
+  0x1048b7868 0x1048b7950 0x10489400c 0x104894174 0x10409d730 0x10409d070 0x10409d1e4
+  0x10413ab38 0x104145c78 0x10402e9f8 0x104033a2c
+
+  '
+- '
+
+  '
+- 'ERROR: Compilation failed.
+
+  '
+platform: macos
+status: failing
+version: 1.1.0

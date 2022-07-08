@@ -1,0 +1,125 @@
+Test ran at 2026-07-05 01:33:48.445434+00:00
+
+SOLUTION:
+espidf=0.1.0: Ada/ESP-IDF
+Origin: commit e0a4e19a68386d62046d3a44e2a7dbf86fc16faa from https://github.com/godunko/espidf.git
+Properties:
+   Author: Vadim Godunko
+   Configuration: no modifiers
+   Description: Ada/ESP-IDF
+   License: Apache-2.0 WITH LLVM-exception
+   Long_Description: This is the base crate for Ada bindings to the ESP-IDF (Espressif IoT Development Framework).
+It provides the foundational type definitions and root package hierarchy required to build Ada applications for Espressif SoC platforms.
+
+   Maintainer: Vadim Godunko <vgodunko@gmail.com>
+   Maintainers_Logins: godunko
+   Name: espidf
+   Tag: embedded
+   Tag: espidf
+   Version: 0.1.0
+   Website: https://github.com/godunko/espidf
+Dependencies (direct):
+   a0b_base*
+Dependencies (solution):
+   a0b_base=0.5.0
+Dependencies (graph):
+   espidf=0.1.0 --> a0b_base=0.5.0 (*)
+
+
+LOG:
+[alr test] Testing espidf=0.1.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get espidf=0.1.0
+Note: Deploying espidf=0.1.0...
+Note: Deploying a0b_base=0.5.0...
+
+espidf=0.1.0 successfully retrieved.
+Dependencies were solved as follows:
+
+   + a0b_base 0.5.0 (new)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building espidf=0.1.0/espidf.gpr...
+Setup
+   [mkdir]        object directory for project A0B_Base
+   [mkdir]        library directory for project A0B_Base
+   [mkdir]        object directory for project ESPIDF
+   [mkdir]        library directory for project ESPIDF
+Compile
+   [Ada]          a0b.ads
+   [Ada]          a0b-types.ads
+   [Ada]          a0b-types-svd.ads
+   [Ada]          a0b-types-gcc_builtins.ads
+   [Ada]          a0b-types-enumerable.ads
+   [Ada]          a0b-types-big_endian.adb
+   [Ada]          a0b-types-arrays.ads
+   [Ada]          a0b-peripherals.ads
+   [Ada]          espidf.ads
+a0b-types-big_endian.adb:10:22: warning: "Unsigned_64" is already use-visible through previous use_type_clause
+   [Ada]          espidf-driver.ads
+espidf.ads:11:36: "C_bool" not declared in "C"
+espidf.ads:11:36: "C_bool" not declared in "C"
+
+   compilation of espidf-driver.ads failed
+   compilation of espidf.ads failed
+
+gprbuild: *** compilation phase failed
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "D:\a\alire-crates-ci\alire-crates-ci\test\6f231b48-ecb9-41f9-b303-721e164abd91\espidf_0.1.0_e0a4e19a\espidf.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "D:\a\alire-crates-ci\alire-crates-ci\test\6f231b48-ecb9-41f9-b303-721e164abd91\espidf_0.1.0_e0a4e19a\espidf.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+stderr: ALIRE.CHECKED_ERROR
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "D:\a\alire-crates-ci\alire-crates-ci\test\6f231b48-ecb9-41f9-b303-721e164abd91\espidf_0.1.0_e0a4e19a\espidf.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
+[D:\a\alire-crates-ci\alire-crates-ci\alire_install\bin\alr.exe]
+0x7ff71c93da2a Semantic_Versioning.Basic.Restrictions.First_Index at alire.adb:284
+0x7ff71c53595b Semantic_Versioning.Basic.Restrictions.First_Index at alire-os_lib-subprocess.adb:111
+0x7ff71c7ecba1 Semantic_Versioning.Basic.Restrictions.First_Index at alire-spawn.adb:22
+0x7ff71c7edd5d Semantic_Versioning.Basic.Restrictions.First_Index at alire-spawn.adb:68
+0x7ff71c712d64 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:189
+0x7ff71c7111da Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:255
+0x7ff71c73912d Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2143
+0x7ff71c7a82f9 Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1472
+0x7ff71c7a7424 Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1555
+0x7ff71c73922c Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2147
+0x7ff71c7392fa Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2127
+0x7ff71c7117a7 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:286
+0x7ff71c711912 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:114
+0x7ff71be83baa Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:145
+0x7ff71be8341e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:113
+0x7ff71be835ba Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:54
+0x7ff71bf35dea Semantic_Versioning.Basic.Restrictions.First_Index at clic-subcommand-instance.adb:749
+0x7ff71bf42b0e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands.adb:632
+0x7ff71be116a0 Alr.Main at alr-main.adb:13
+0x7ff71be15270 Main at b__alr-main.adb:2454
+0x7ff71be1133e __tmainCRTStartup at ???
+0x7ff71be11144 mainCRTStartup at ???
+[C:\Windows\System32\KERNEL32.DLL]
+0x7ffaeccde8d5
+[C:\Windows\SYSTEM32\ntdll.dll]
+0x7ffaede4c53a
+
+stderr: ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED
+stderr: alire-roots.adb:202
+stderr: raised ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED : alire-roots.adb:202
+[D:\a\alire-crates-ci\alire-crates-ci\alire_install\bin\alr.exe]
+0x7ff71c71313c Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:202
+0x7ff71c7111da Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:255
+0x7ff71c73912d Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2143
+0x7ff71c7a82f9 Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1472
+0x7ff71c7a7424 Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1555
+0x7ff71c73922c Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2147
+0x7ff71c7392fa Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2127
+0x7ff71c7117a7 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:286
+0x7ff71c711912 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:114
+0x7ff71be83baa Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:145
+0x7ff71be8341e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:113
+0x7ff71be835ba Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:54
+0x7ff71bf35dea Semantic_Versioning.Basic.Restrictions.First_Index at clic-subcommand-instance.adb:749
+0x7ff71bf42b0e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands.adb:632
+0x7ff71be116a0 Alr.Main at alr-main.adb:13
+0x7ff71be15270 Main at b__alr-main.adb:2454
+0x7ff71be1133e __tmainCRTStartup at ???
+0x7ff71be11144 mainCRTStartup at ???
+[C:\Windows\System32\KERNEL32.DLL]
+0x7ffaeccde8d5
+[C:\Windows\SYSTEM32\ntdll.dll]
+0x7ffaede4c53a
+
+ERROR: Compilation failed.

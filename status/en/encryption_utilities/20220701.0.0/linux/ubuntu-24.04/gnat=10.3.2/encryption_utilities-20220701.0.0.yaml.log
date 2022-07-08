@@ -1,0 +1,319 @@
+Test ran at 2026-07-30 00:57:28.765033+00:00
+
+SOLUTION:
+encryption_utilities=20220701.0.0: Utility programs for the encryption algorithms included in the PragmARC
+Origin: commit 1b883b9449a588f164e060cbc9ccd09c9595fa1c from https://github.com/bracke/Encryption-utilities.git
+Properties:
+   Author: Jeff Carter
+   Build Switches: 
+   Description: Utility programs for the encryption algorithms included in the PragmARC
+   Executable: tf_crypt
+   Executable: tf_test
+   Executable: tf_test_512
+   Executable: tf_test_1024
+   Executable: xcrypt
+   License: GPL-3.0-or-later
+   Long_Description: # Encryption utilities
+
+The PragmAda Reusable Components (https://github.com/jrcarter/PragmARC) contain implementations of the Threefish-256 (implemented directly from the specification in Section 3.3 of the Skein paper V1.3 [https://www.schneier.com/skein.pdf]), Threefish-512, Threefish-1024, and XOR encryption algorithms. Threefish-512 and Threefish-1024 are provided by Daniel Norte de Moraes (https://github.com/danieagle).
+
+Test cases specifically for Threefish are at https://sites.google.com/site/bartoszmalkowski/threefish and https://github.com/bmalkow/java-bc-threefish.
+
+Tf_Test runs the test cases for Threefish-256 successfully (on a little-endian machine). It also encrypts certain blocks and presents the encrypted blocks, and shows that they decrypt correctly. Tf_Test uses PragmARC.Images from https://github.com/jrcarter/PragmARC. Tf_Test_512 and Tf_Test_1024, provided by Daniel Norte de Moraes (https://github.com/danieagle), do the same for Threefish-512 and Threefish-1024.
+
+TF_Crypt is a command-line program for encrypting and decrypting files with Threefish-256. TF_Crypt uses Password_Line. Files encrypted with TF_Crypt built with GNAT and running on Linux are correctly decrypted by TF_Crypt build with ObjectAda and running on Windows, and vice versa.
+
+Xcrypt is a command-line program for encrypting and decrypting files with XOR. It uses Password_Line. Since XOR is symmetrical, the same algorithm is used for encrypting and decrypting. One can encrypt twice with multiple keys, and decrypt with the keys in any order. This gives results equivalent to encrypting with a key length of the least common multiple of the lengths of the keys.
+
+Password_Line is a function for obtaining secret input from a user without echoing it to the screen. It has been tested and works with GNAT on Linux and Windows and ObjectAda 10.3 on Windows.
+
+Tf_Test*, TF_Crypt, and Xcrypt are GPL-3; Password_Line is GMGPL.
+
+   Maintainer: Bent Bracke <bent@bracke.dk>
+   Maintainers_Logins: bracke
+   Name: encryption_utilities
+   Tag: threefish256
+   Tag: threefish512
+   Tag: threefish1024
+   Tag: xor
+   Version: 20220701
+   Website: https://github.com/bracke/Encryption-utilities
+Dependencies (direct):
+   gnat<13.0 | >=13.3
+   pragmarc^20240323.0.0
+Dependencies (solution):
+   gnat=10.3.2 (gnat_native)
+   pragmarc=20240323.0.0
+Dependencies (graph):
+   encryption_utilities=20220701.0.0 --> gnat=10.3.2 (gnat_native) (<13.0 | >=13.3)
+   encryption_utilities=20220701.0.0 --> pragmarc=20240323.0.0 (^20240323.0.0)
+   pragmarc=20240323.0.0             --> gnat=10.3.2 (gnat_native) (<13.0 | >=13.3)
+
+
+LOG:
+[alr test] Testing encryption_utilities=20220701.0.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get encryption_utilities=20220701.0.0
+Note: Deploying encryption_utilities=20220701.0.0...
+Note: Deploying pragmarc=20240323.0.0...
+
+encryption_utilities=20220701.0.0 successfully retrieved.
+Dependencies were solved as follows:
+
+   +b gnat     10.3.2       (new,gnat_native,binary)
+   +  pragmarc 20240323.0.0 (new)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building encryption_utilities=20220701.0.0/encryption_utilities.gpr...
+Setup
+   [mkdir]        object directory for project PragmARC
+   [mkdir]        library directory for project PragmARC
+   [mkdir]        object directory for project Encryption_Utilities
+   [mkdir]        exec directory for project Encryption_Utilities
+Compile
+   [Ada]          xcrypt.adb
+   [Ada]          tf_test.adb
+   [Ada]          tf_crypt.adb
+   [Ada]          tf_test_512.adb
+   [Ada]          tf_test_1024.adb
+   [Ada]          pragmarc_config.ads
+   [Ada]          pragmarc-ansi_tty_control.adb
+   [Ada]          pragmarc-data_structures-lists-bounded-protection.adb
+   [Ada]          pragmarc-data_structures-stacks.ads
+   [Ada]          pragmarc-protected_option.adb
+   [Ada]          pragmarc-comparisons.ads
+   [Ada]          pragmarc-luhn_generation.adb
+   [Ada]          pragmarc-task_communication.ads
+   [Ada]          pragmarc-concurrent_pipeline.adb
+   [Ada]          pragmarc-data_structures.ads
+   [Ada]          pragmarc-word_input.adb
+   [Ada]          pragmarc-encryption-threefish-block_256.adb
+   [Ada]          pragmarc-data_structures-queues-unbounded-unprotected.adb
+   [Ada]          pragmarc-hash.adb
+   [Ada]          pragmarc-encryption-threefish.adb
+   [Ada]          pragmarc-mixed_case.adb
+   [Ada]          pragmarc-binary_semaphore_handler.adb
+   [Ada]          pragmarc-rational_postfix_calculator.adb
+   [Ada]          pragmarc-cards-decks-general.adb
+   [Ada]          pragmarc-data_structures-queues-bounded-protection-blocking.ads
+   [Ada]          pragmarc-binary_searcher.adb
+   [Ada]          pragmarc-cards-decks.ads
+   [Ada]          pragmarc-randomness-real_values.ads
+   [Ada]          pragmarc-task_communication-forwarders.adb
+   [Ada]          pragmarc-three_way.adb
+   [Ada]          pragmarc-text_io.adb
+   [Ada]          pragmarc-data_structures-queues.ads
+   [Ada]          pragmarc-randomness-kiss.adb
+   [Ada]          pragmarc-data_structures-lists-unbounded-protection.adb
+   [Ada]          pragmarc-safety-semaphores.adb
+   [Ada]          pragmarc-randomness-combined.adb
+   [Ada]          pragmarc-permutations.adb
+   [Ada]          pragmarc-randomness-threefry.adb
+   [Ada]          pragmarc-min_max.ads
+   [Ada]          pragmarc-encryption-simple_xor.adb
+   [Ada]          pragmarc-wrapping.ads
+   [Ada]          pragmarc-safety.ads
+   [Ada]          pragmarc-job_pools.adb
+   [Ada]          pragmarc-line_fields.adb
+   [Ada]          pragmarc-sorting-insertion.adb
+   [Ada]          pragmarc.ads
+   [Ada]          pragmarc-data_structures-queues-unbounded-protection.ads
+   [Ada]          pragmarc-genetic_algorithm.adb
+   [Ada]          pragmarc-task_communication-monitors.adb
+   [Ada]          pragmarc-encryption-threefish-block_512.adb
+   [Ada]          pragmarc-data_structures-bags.ads
+   [Ada]          pragmarc-data_structures-stacks-unbounded-unprotected.adb
+   [Ada]          pragmarc-randomness-isaac.adb
+   [Ada]          pragmarc-data_structures-queues-bounded-unprotected.adb
+   [Ada]          pragmarc-postfix_calculator.adb
+   [Ada]          pragmarc-data_structures-queues-unbounded-protection-blocking.ads
+   [Ada]          pragmarc-unbounded_numbers-rationals.adb
+   [Ada]          pragmarc-safety-pointers.adb
+   [Ada]          pragmarc-data_structures-lists-unbounded.ads
+   [Ada]          pragmarc-data_structures-bags-unbounded-unprotected.adb
+   [Ada]          pragmarc-randomness-u32_ranges.adb
+   [Ada]          pragmarc-least_squares_fitting.adb
+   [Ada]          pragmarc-data_structures-queues-bounded.ads
+   [Ada]          pragmarc-sorting-radix.adb
+   [Ada]          pragmarc-date_handler.adb
+   [Ada]          pragmarc-data_structures-lists-bounded.ads
+   [Ada]          pragmarc-title_comparisons.adb
+   [Ada]          pragmarc-sorting-quick.adb
+   [Ada]          pragmarc-hash_fast_variable_length.adb
+   [Ada]          pragmarc-rem_nn_wrapper.adb
+   [Ada]          pragmarc-data_structures-skip_lists.ads
+   [Ada]          pragmarc-reflection.ads
+   [Ada]          pragmarc-encryption-threefish-block_1024.adb
+   [Ada]          pragmarc-matching-quick_string.adb
+   [Ada]          pragmarc-sorting-heap.adb
+   [Ada]          pragmarc-conversions-vectors.adb
+   [Ada]          compile_all.adb
+   [Ada]          pragmarc-matching-regular_expression.adb
+   [Ada]          pragmarc-data_structures-queues-bounded-protection.ads
+   [Ada]          pragmarc-data_structures-stacks-unbounded-protection.adb
+   [Ada]          pragmarc-data_structures-queues-bounded-protection-non_blocking.adb
+   [Ada]          pragmarc-safety-suspension_objects.adb
+   [Ada]          pragmarc-data_structures-queues-unbounded.ads
+   [Ada]          pragmarc-encryption-bifid.adb
+   [Ada]          pragmarc-unbounded_numbers-integers.adb
+   [Ada]          pragmarc-cards-decks-us.adb
+   [Ada]          pragmarc-randomness.ads
+   [Ada]          pragmarc-data_structures-stacks-unbounded.ads
+   [Ada]          pragmarc-encryption.ads
+   [Ada]          pragmarc-cards.ads
+   [Ada]          pragmarc-randomness-real_ranges.adb
+   [Ada]          pragmarc-conversions.ads
+   [Ada]          pragmarc-data_structures-queues-unbounded-protection-non_blocking.adb
+   [Ada]          pragmarc-sorting.ads
+   [Ada]          pragmarc-images-image.ads
+   [Ada]          pragmarc-images.adb
+   [Ada]          pragmarc-cards-us.adb
+   [Ada]          pragmarc-math.adb
+   [Ada]          pragmarc-data_structures-sets-discrete.adb
+   [Ada]          pragmarc-task_communication-transporters.adb
+   [Ada]          pragmarc-matching-character_regular_expression.adb
+   [Ada]          pragmarc-conversions-unbounded_strings.ads
+   [Ada]          pragmarc-data_structures-skip_lists-unbounded.adb
+   [Ada]          pragmarc-matching.ads
+   [Ada]          pragmarc-randomness-universal.adb
+   [Ada]          pragmarc-menu_handler.adb
+   [Ada]          pragmarc-data_structures-sets.ads
+   [Ada]          pragmarc-unbounded_numbers.ads
+   [Ada]          pragmarc-persistent_skip_list_unbounded.adb
+   [Ada]          pragmarc-data_structures-bags-unbounded-protection.adb
+   [Ada]          pragmarc-data_structures-bags-unbounded.ads
+   [Ada]          pragmarc-b_strings.adb
+   [Ada]          pragmarc-data_structures-lists.ads
+   [Ada]          password_line.adb
+Build Libraries
+   [gprlib]       PragmARC.lexch
+   [archive]      libPragmARC.a
+   [index]        libPragmARC.a
+Bind
+   [gprbind]      xcrypt.bexch
+   [gprbind]      tf_test.bexch
+   [Ada]          xcrypt.ali
+   [gprbind]      tf_crypt.bexch
+   [Ada]          tf_test.ali
+   [gprbind]      tf_test_512.bexch
+   [Ada]          tf_crypt.ali
+   [Ada]          tf_test_512.ali
+   [gprbind]      tf_test_1024.bexch
+   [Ada]          tf_test_1024.ali
+Link
+   [link]         xcrypt.adb
+   [link]         tf_test.adb
+   [link]         tf_crypt.adb
+   [link]         tf_test_512.adb
+/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86_64-pc-linux-gnu/bin/ld: _64-pc-linux-gnu/bin/ld: _64-pc-linux-gnu/bin/ld: /lib/x86_64-linux-gnu/libc.so.6/lib/x86_64-linux-gnu/libc.so.6/lib/x86_64-linux-gnu/libc.so.6: unknown type [: unknown type [: unknown type [0x130x13] section `] section `0x13.relr.dyn.relr.dyn] section `''.relr.dyn
+
+'
+/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86_64-pc-linux-gnu/bin/ld: skipping incompatible /lib/x86_64-linux-gnu/libc.so.6 when searching for /lib/x86_64-linux-gnu/libc.so.6
+/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86_64-pc-linux-gnu/bin/ld/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86_64-pc-linux-gnu/bin/ld/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86_64-pc-linux-gnu/bin/ld: skipping incompatible : cannot find : skipping incompatible /lib/x86_64-linux-gnu/libc.so.6/lib/x86_64-linux-gnu/libc.so.6/lib/x86_64-linux-gnu/libc.so.6 when searching for 
+ when searching for /lib/x86_64-linux-gnu/libc.so.6/lib/x86_64-linux-gnu/libc.so.6
+
+/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86_64-pc-linux-gnu/bin/ld: cannot find /lib/x86_64-linux-gnu/libc.so.6/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86
+_64-pc-linux-gnu/bin/ld: /lib/x86_64-linux-gnu/libc.so.6: unknown type [0x13] section `/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86_64-pc-linux-gnu/bin/ld.relr.dyn: cannot find '/lib/x86_64-linux-gnu/libc.so.6
+
+/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86_64-pc-linux-gnu/bin/ld: /lib/x86_64-linux-gnu/libc.so.6: unknown type [0x13] section `.relr.dyn'
+/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86_64-pc-linux-gnu/bin/ld: /lib/x86_64-linux-gnu/libc.so.6: unknown type [0x13] section `.relr.dyn'
+/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86_64-pc-linux-gnu/bin/ld: skipping incompatible /lib/x86_64-linux-gnu/libc.so.6 when searching for /lib/x86_64-linux-gnu/libc.so.6
+/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86_64-pc-linux-gnu/bin/ld: skipping incompatible /lib/x86_64-linux-gnu/libc.so.6 when searching for /lib/x86_64-linux-gnu/libc.so.6
+/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86_64-pc-linux-gnu/bin/ld: skipping incompatible /lib/x86_64-linux-gnu/libc.so.6 when searching for /lib/x86_64-linux-gnu/libc.so.6
+/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86_64-pc-linux-gnu/bin/ld: /home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86/lib64/ld-linux-x86-64.so.2_64-pc-linux-gnu/bin/ld: /home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86: unknown type [/lib64/ld-linux-x86-64.so.2_64-pc-linux-gnu/bin/ld: 0x13: unknown type [/lib64/ld-linux-x86-64.so.2] section `0x13: unknown type [.relr.dyn] section `0x13'.relr.dyn] section `
+'.relr.dyn
+'
+/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86_64-pc-linux-gnu/bin/ld/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86_64-pc-linux-gnu/bin/ld: skipping incompatible : skipping incompatible /lib64/ld-linux-x86-64.so.2/lib64/ld-linux-x86-64.so.2 when searching for  when searching for /lib64/ld-linux-x86-64.so.2/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86_64-pc-linux-gnu/bin/ld/lib64/ld-linux-x86-64.so.2
+: skipping incompatible 
+/lib64/ld-linux-x86-64.so.2 when searching for /lib64/ld-linux-x86-64.so.2
+/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86_64-pc-linux-gnu/bin/ld/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86_64-pc-linux-gnu/bin/ld: cannot find /home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86_64-pc-linux-gnu/bin/ld: cannot find /lib64/ld-linux-x86-64.so.2: cannot find /lib64/ld-linux-x86-64.so.2
+/lib64/ld-linux-x86-64.so.2
+
+/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86_64-pc-linux-gnu/bin/ld: _64-pc-linux-gnu/bin/ld: _64-pc-linux-gnu/bin/ld: /lib64/ld-linux-x86-64.so.2/lib64/ld-linux-x86-64.so.2/lib64/ld-linux-x86-64.so.2: unknown type [: unknown type [: unknown type [0x130x130x13] section `] section `] section `.relr.dyn.relr.dyn.relr.dyn'''
+
+
+/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86_64-pc-linux-gnu/bin/ld/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86_64-pc-linux-gnu/bin/ld/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86_64-pc-linux-gnu/bin/ld: skipping incompatible : skipping incompatible : skipping incompatible /lib64/ld-linux-x86-64.so.2/lib64/ld-linux-x86-64.so.2/lib64/ld-linux-x86-64.so.2 when searching for  when searching for  when searching for /lib64/ld-linux-x86-64.so.2/lib64/ld-linux-x86-64.so.2/lib64/ld-linux-x86-64.so.2
+
+
+/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86_64-pc-linux-gnu/bin/ld: /lib/x86_64-linux-gnu/libc.so.6: unknown type [0x13] section `.relr.dyn'
+/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86_64-pc-linux-gnu/bin/ld: skipping incompatible /lib/x86_64-linux-gnu/libc.so.6 when searching for /lib/x86_64-linux-gnu/libc.so.6
+/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86_64-pc-linux-gnu/bin/ld: cannot find /lib/x86_64-linux-gnu/libc.so.6
+/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86_64-pc-linux-gnu/bin/ld: /lib/x86_64-linux-gnu/libc.so.6: unknown type [0x13] section `.relr.dyn'
+/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86_64-pc-linux-gnu/bin/ld: skipping incompatible /lib/x86_64-linux-gnu/libc.so.6 when searching for /lib/x86_64-linux-gnu/libc.so.6
+/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86_64-pc-linux-gnu/bin/ld: /lib64/ld-linux-x86-64.so.2: unknown type [0x13] section `.relr.dyn'
+/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86_64-pc-linux-gnu/bin/ld: skipping incompatible /lib64/ld-linux-x86-64.so.2 when searching for /lib64/ld-linux-x86-64.so.2
+/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86_64-pc-linux-gnu/bin/ld: cannot find /lib64/ld-linux-x86-64.so.2
+/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86_64-pc-linux-gnu/bin/ld: /lib64/ld-linux-x86-64.so.2: unknown type [0x13] section `.relr.dyn'
+/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86_64-pc-linux-gnu/bin/ld: skipping incompatible /lib64/ld-linux-x86-64.so.2 when searching for /lib64/ld-linux-x86-64.so.2
+collect2: error: ld returned 1 exit status
+collect2: error: ld returned 1 exit status
+collect2: error: ld returned 1 exit status
+collect2: error: ld returned 1 exit status
+   link of tf_test.adb failed
+   failed command was: /home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/gcc tf_test.o b__tf_test.o /home/runner/.local/share/alire/builds/pragmarc_20240323.0.0_31d8919a/b8a8c65e3afb4fdcb47ac93009a3a98291ddad399ea755bbfbaccc279a88c268/lib/libPragmARC.a -L/home/runner/work/alire-crates-ci/alire-crates-ci/test/c95280eb-a021-4bcc-ab9f-af3f09fd43d7/encryption_utilities_20220701.0.0_1b883b94/obj/release/ -L/home/runner/work/alire-crates-ci/alire-crates-ci/test/c95280eb-a021-4bcc-ab9f-af3f09fd43d7/encryption_utilities_20220701.0.0_1b883b94/obj/release/ -L/home/runner/.local/share/alire/builds/pragmarc_20240323.0.0_31d8919a/b8a8c65e3afb4fdcb47ac93009a3a98291ddad399ea755bbfbaccc279a88c268/lib/ -L/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/lib/gcc/x86_64-pc-linux-gnu/10.3.0/adalib/ -static-libgcc /home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/lib/gcc/x86_64-pc-linux-gnu/10.3.0/adalib/libgnat.a -ldl -Wl,-rpath-link,/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/lib/gcc/x86_64-pc-linux-gnu/10.3.0//adalib -Wl,-z,origin,-rpath,$ORIGIN/..//obj/release:$ORIGIN/../../../../../../..//.local/share/alire/builds/pragmarc_20240323.0.0_31d8919a/b8a8c65e3afb4fdcb47ac93009a3a98291ddad399ea755bbfbaccc279a88c268/lib:$ORIGIN/../../../../../../..//.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/lib/gcc/x86_64-pc-linux-gnu/10.3.0/adalib -o /home/runner/work/alire-crates-ci/alire-crates-ci/test/c95280eb-a021-4bcc-ab9f-af3f09fd43d7/encryption_utilities_20220701.0.0_1b883b94/bin//tf_test 
+   link of xcrypt.adb failed
+   failed command was: /home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/gcc xcrypt.o b__xcrypt.o /home/runner/work/alire-crates-ci/alire-crates-ci/test/c95280eb-a021-4bcc-ab9f-af3f09fd43d7/encryption_utilities_20220701.0.0_1b883b94/obj/release/password_line.o /home/runner/.local/share/alire/builds/pragmarc_20240323.0.0_31d8919a/b8a8c65e3afb4fdcb47ac93009a3a98291ddad399ea755bbfbaccc279a88c268/lib/libPragmARC.a -L/home/runner/work/alire-crates-ci/alire-crates-ci/test/c95280eb-a021-4bcc-ab9f-af3f09fd43d7/encryption_utilities_20220701.0.0_1b883b94/obj/release/ -L/home/runner/work/alire-crates-ci/alire-crates-ci/test/c95280eb-a021-4bcc-ab9f-af3f09fd43d7/encryption_utilities_20220701.0.0_1b883b94/obj/release/ -L/home/runner/.local/share/alire/builds/pragmarc_20240323.0.0_31d8919a/b8a8c65e3afb4fdcb47ac93009a3a98291ddad399ea755bbfbaccc279a88c268/lib/ -L/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/lib/gcc/x86_64-pc-linux-gnu/10.3.0/adalib/ -static-libgcc /home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/lib/gcc/x86_64-pc-linux-gnu/10.3.0/adalib/libgnat.a -ldl -Wl,-rpath-link,/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/lib/gcc/x86_64-pc-linux-gnu/10.3.0//adalib -Wl,-z,origin,-rpath,$ORIGIN/..//obj/release:$ORIGIN/../../../../../../..//.local/share/alire/builds/pragmarc_20240323.0.0_31d8919a/b8a8c65e3afb4fdcb47ac93009a3a98291ddad399ea755bbfbaccc279a88c268/lib:$ORIGIN/../../../../../../..//.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/lib/gcc/x86_64-pc-linux-gnu/10.3.0/adalib -o /home/runner/work/alire-crates-ci/alire-crates-ci/test/c95280eb-a021-4bcc-ab9f-af3f09fd43d7/encryption_utilities_20220701.0.0_1b883b94/bin//xcrypt 
+   link of tf_test_512.adb failed
+   failed command was: /home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/gcc tf_test_512.o b__tf_test_512.o /home/runner/.local/share/alire/builds/pragmarc_20240323.0.0_31d8919a/b8a8c65e3afb4fdcb47ac93009a3a98291ddad399ea755bbfbaccc279a88c268/lib/libPragmARC.a -L/home/runner/work/alire-crates-ci/alire-crates-ci/test/c95280eb-a021-4bcc-ab9f-af3f09fd43d7/encryption_utilities_20220701.0.0_1b883b94/obj/release/ -L/home/runner/work/alire-crates-ci/alire-crates-ci/test/c95280eb-a021-4bcc-ab9f-af3f09fd43d7/encryption_utilities_20220701.0.0_1b883b94/obj/release/ -L/home/runner/.local/share/alire/builds/pragmarc_20240323.0.0_31d8919a/b8a8c65e3afb4fdcb47ac93009a3a98291ddad399ea755bbfbaccc279a88c268/lib/ -L/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/lib/gcc/x86_64-pc-linux-gnu/10.3.0/adalib/ -static-libgcc /home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/lib/gcc/x86_64-pc-linux-gnu/10.3.0/adalib/libgnat.a -ldl -Wl,-rpath-link,/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/lib/gcc/x86_64-pc-linux-gnu/10.3.0//adalib -Wl,-z,origin,-rpath,$ORIGIN/..//obj/release:$ORIGIN/../../../../../../..//.local/share/alire/builds/pragmarc_20240323.0.0_31d8919a/b8a8c65e3afb4fdcb47ac93009a3a98291ddad399ea755bbfbaccc279a88c268/lib:$ORIGIN/../../../../../../..//.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/lib/gcc/x86_64-pc-linux-gnu/10.3.0/adalib -o /home/runner/work/alire-crates-ci/alire-crates-ci/test/c95280eb-a021-4bcc-ab9f-af3f09fd43d7/encryption_utilities_20220701.0.0_1b883b94/bin//tf_test_512 
+   link of tf_crypt.adb failed
+   failed command was: /home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/gcc tf_crypt.o b__tf_crypt.o /home/runner/work/alire-crates-ci/alire-crates-ci/test/c95280eb-a021-4bcc-ab9f-af3f09fd43d7/encryption_utilities_20220701.0.0_1b883b94/obj/release/password_line.o /home/runner/.local/share/alire/builds/pragmarc_20240323.0.0_31d8919a/b8a8c65e3afb4fdcb47ac93009a3a98291ddad399ea755bbfbaccc279a88c268/lib/libPragmARC.a -L/home/runner/work/alire-crates-ci/alire-crates-ci/test/c95280eb-a021-4bcc-ab9f-af3f09fd43d7/encryption_utilities_20220701.0.0_1b883b94/obj/release/ -L/home/runner/work/alire-crates-ci/alire-crates-ci/test/c95280eb-a021-4bcc-ab9f-af3f09fd43d7/encryption_utilities_20220701.0.0_1b883b94/obj/release/ -L/home/runner/.local/share/alire/builds/pragmarc_20240323.0.0_31d8919a/b8a8c65e3afb4fdcb47ac93009a3a98291ddad399ea755bbfbaccc279a88c268/lib/ -L/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/lib/gcc/x86_64-pc-linux-gnu/10.3.0/adalib/ -static-libgcc /home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/lib/gcc/x86_64-pc-linux-gnu/10.3.0/adalib/libgnat.a -ldl -Wl,-rpath-link,/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/lib/gcc/x86_64-pc-linux-gnu/10.3.0//adalib -Wl,-z,origin,-rpath,$ORIGIN/..//obj/release:$ORIGIN/../../../../../../..//.local/share/alire/builds/pragmarc_20240323.0.0_31d8919a/b8a8c65e3afb4fdcb47ac93009a3a98291ddad399ea755bbfbaccc279a88c268/lib:$ORIGIN/../../../../../../..//.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/lib/gcc/x86_64-pc-linux-gnu/10.3.0/adalib -o /home/runner/work/alire-crates-ci/alire-crates-ci/test/c95280eb-a021-4bcc-ab9f-af3f09fd43d7/encryption_utilities_20220701.0.0_1b883b94/bin//tf_crypt 
+gprbuild: *** link phase failed
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/c95280eb-a021-4bcc-ab9f-af3f09fd43d7/encryption_utilities_20220701.0.0_1b883b94/encryption_utilities.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/c95280eb-a021-4bcc-ab9f-af3f09fd43d7/encryption_utilities_20220701.0.0_1b883b94/encryption_utilities.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+stderr: ALIRE.CHECKED_ERROR
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/c95280eb-a021-4bcc-ab9f-af3f09fd43d7/encryption_utilities_20220701.0.0_1b883b94/encryption_utilities.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
+[/home/runner/work/alire-crates-ci/alire-crates-ci/alire_install/bin/alr]
+0xe75bc6 Alire.Raise_Checked_Error at alire.adb:284
+0xac1a54 Alire.Os_Lib.Subprocess.Checked_Spawn at alire-os_lib-subprocess.adb:111
+0xd40276 Alire.Spawn.Command at alire-spawn.adb:22
+0xd412ee Alire.Spawn.Gprbuild at alire-spawn.adb:68
+0xc748cb Alire.Roots.Build at alire-roots.adb:189
+0xc7301a Alire.Roots.Build at alire-roots.adb:255
+0xc9832b Alire.Roots.Traverse at alire-roots.adb:2143
+0xcfee85 Alire.Solutions.Traverse.Visit at alire-solutions.adb:1472
+0xcfdfcc Alire.Solutions.Traverse at alire-solutions.adb:1555
+0xc9841e Alire.Roots.Traverse at alire-roots.adb:2147
+0xc984dd Alire.Roots.Traverse at alire-roots.adb:2127
+0xc7359b Alire.Roots.Build at alire-roots.adb:286
+0xc736d7 Alire.Roots.Build at alire-roots.adb:114
+0x49aa0d Alr.Commands.Build.Execute at alr-commands-build.adb:145
+0x49a36d Alr.Commands.Build.Execute at alr-commands-build.adb:113
+0x49a51f Alr.Commands.Build.Execute at alr-commands-build.adb:54
+0x53bbcc Alr.Commands.Sub_Cmd.Execute at clic-subcommand-instance.adb:749
+0x5472be Alr.Commands.Execute at alr-commands.adb:632
+0x43d48a Alr.Main at alr-main.adb:13
+0x4403a3 Main at b__alr-main.adb:2445
+[/lib/x86_64-linux-gnu/libc.so.6]
+0x7f4323c2a1c8
+0x7f4323c2a289
+[/home/runner/work/alire-crates-ci/alire-crates-ci/alire_install/bin/alr]
+0x43d323 _start at ???
+0xfffffffffffffffe
+
+stderr: ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED
+stderr: alire-roots.adb:202
+stderr: raised ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED : alire-roots.adb:202
+[/home/runner/work/alire-crates-ci/alire-crates-ci/alire_install/bin/alr]
+0xc74cc7 Alire.Roots.Build at alire-roots.adb:202
+0xc7301a Alire.Roots.Build at alire-roots.adb:255
+0xc9832b Alire.Roots.Traverse at alire-roots.adb:2143
+0xcfee85 Alire.Solutions.Traverse.Visit at alire-solutions.adb:1472
+0xcfdfcc Alire.Solutions.Traverse at alire-solutions.adb:1555
+0xc9841e Alire.Roots.Traverse at alire-roots.adb:2147
+0xc984dd Alire.Roots.Traverse at alire-roots.adb:2127
+0xc7359b Alire.Roots.Build at alire-roots.adb:286
+0xc736d7 Alire.Roots.Build at alire-roots.adb:114
+0x49aa0d Alr.Commands.Build.Execute at alr-commands-build.adb:145
+0x49a36d Alr.Commands.Build.Execute at alr-commands-build.adb:113
+0x49a51f Alr.Commands.Build.Execute at alr-commands-build.adb:54
+0x53bbcc Alr.Commands.Sub_Cmd.Execute at clic-subcommand-instance.adb:749
+0x5472be Alr.Commands.Execute at alr-commands.adb:632
+0x43d48a Alr.Main at alr-main.adb:13
+0x4403a3 Main at b__alr-main.adb:2445
+[/lib/x86_64-linux-gnu/libc.so.6]
+0x7f4323c2a1c8
+0x7f4323c2a289
+[/home/runner/work/alire-crates-ci/alire-crates-ci/alire_install/bin/alr]
+0x43d323 _start at ???
+0xfffffffffffffffe
+
+ERROR: Compilation failed.

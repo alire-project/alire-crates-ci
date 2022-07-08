@@ -1,0 +1,183 @@
+Test ran at 2026-08-28 04:03:05.389571+00:00
+
+SOLUTION:
+zipada=62.0.0: Manage Zip Archives and raw BZip2 and LZMA streams
+Origin: source archive zipada62.zip at https://sourceforge.net/projects/unzip-ada/files/zipada62.zip with hash sha512:90a9e5a5c10ebe63b449f62d04c7f055d2c0dfa0b3edac556c7d0c24c4c46c79b8971b02f8f010e1709f8099d3c1bff4d77786c0009bffc80f5ba9ae26a6469d
+Properties:
+   Author: Gautier de Montmollin
+   Description: Manage Zip Archives and raw BZip2 and LZMA streams
+   Executable: comp_zip
+   Executable: find_zip
+   Executable: bzip2_dec
+   Executable: bzip2_enc
+   Executable: lzma_dec
+   Executable: lzma_enc
+   Executable: rezip
+   Executable: unzipada
+   Executable: zipada
+   Executable: zip_dir_list
+   case OS is
+      when Macos => GPR External: Zip_OS := MacOSX
+      when Windows => GPR External: Zip_OS := Win64
+   License: MIT
+   Long_Description: ![Zip-Ada logo](https://unzip-ada.sourceforge.io/za_logo.png)
+
+**Zip-Ada** is a free, open-source programming library for dealing with the Zip compressed archive file format.
+The full sources of Zip-Ada are in Ada, compilable on every compiler and for every system (*).
+
+Key features of Zip-Ada:
+
+* Files and streams supported, for archives and entries, for compression and decompression
+* Task safe
+* Endian-neutral
+* Standalone
+* Zip methods supported for compression: Reduce, Shrink, Deflate, BZip2, LZMA.
+* Zip methods supported for decompression: the above methods, plus: Implode, Deflate64
+* Library is in pure Ada 2012 (nothing compiler/system specific), can be used in projects in Ada 2012 and later versions of the language
+* Unconditionally **portable**: OS-, CPU-, compiler- independent code (*)
+* Tests and demos included
+* **Free**, open-source
+
+The library includes **LZMA** & **BZip2** independant encoder & decoder pairs
+(can be used outside of the Zip archive context).
+
+Note that the **BZip2** encoder is the best of its kind in terms of compression ratio!
+
+___
+
+(*) within limits of compiler's provided integer types and target architecture capacity.
+
+   Maintainer: gdemont@hotmail.com
+   Maintainers_Logins: mosteo
+   Maintainers_Logins: zertovitch
+   Name: zipada
+   Project_File: zipada.gpr
+   Tag: zip
+   Tag: zip64
+   Tag: archive
+   Tag: lossless
+   Tag: compression
+   Tag: decompression
+   Tag: encoding
+   Tag: decoding
+   Tag: lz77
+   Tag: deflate
+   Tag: lzma
+   Tag: bwt
+   Tag: bzip2
+   Tag: lzw
+   Tag: shrink
+   Version: 62.0.0
+   Website: https://github.com/zertovitch/zip-ada
+
+
+LOG:
+[alr test] Testing zipada=62.0.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get zipada=62.0.0
+Note: Deploying zipada=62.0.0...
+
+######################################################################## 100.0%
+######################################################################## 100.0%
+######################################################################## 100.0%
+#=#=#                                                                          
+######################################################################## 100.0%
+##=#=#                                                                         
+##-=#=-#                                                                       
+                                                                           0.2%
+                                                                           0.5%
+                                                                           1.3%
+#                                                                          2.5%
+###                                                                        5.2%
+#######                                                                   10.4%
+#############                                                             19.3%
+##########################                                                37.0%
+###################################################                       71.9%
+######################################################################## 100.0%
+
+zipada=62.0.0 successfully retrieved.
+There are no dependencies.
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building zipada=62.0.0/zipada.gpr...
+"obj\fast" created
+[Ada Compile]     bzip2-buffers.adb
+[Ada Compile]     bzip2-decoding.adb
+[Ada Compile]     bzip2-encoding.adb
+[Ada Compile]     bzip2.adb
+[Ada Compile]     bzip2_dec.adb
+[Ada Compile]     bzip2_enc.adb
+[Ada Compile]     comp_zip.adb
+[Ada Compile]     comp_zip_prc.adb
+[Ada Compile]     data_segmentation.adb
+[Ada Compile]     dual_io.adb
+[Ada Compile]     find_zip.adb
+[Ada Bind]        bzip2_dec
+[Ada Compile]     flexible_temp_files.adb
+[Ada Compile]     huffman-encoding-length_limited_coding.adb
+[Ada Compile]     huffman-encoding.adb
+[Ada Compile]     huffman.ads
+[Ada Compile]     lz77.adb
+[Ada Compile]     lzma-decoding.adb
+[Ada Compile]     lzma-encoding.adb
+[Ada Compile]     lzma.ads
+[Ada Compile]     lzma_dec.adb
+[Ada Compile]     lzma_enc.adb
+[Ada Compile]     rezip.adb
+[Ada Compile]     rezip_lib.adb
+[Ada Bind]        lzma_dec
+[Ada Compile]     set_modification_time_gnat.adb
+[Ada Compile]     show_license.adb
+[Ada Compile]     shrink.ads
+[Ada Compile]     touch2.adb
+[Ada Bind]        touch2
+[Ada Compile]     unzip-decompress-huffman.adb
+[Ada Compile]     unzip-decompress.adb
+[Ada Bind]        bzip2_enc
+[Ada Compile]     unzip-streams.adb
+[Ada Compile]     unzip.adb
+[Ada Compile]     unzipada.adb
+[Ada Compile]     zip-compress-bzip2_e.adb
+[Ada Bind]        lzma_enc
+[Ada Compile]     zip-compress-deflate.adb
+[Ada Compile]     zip-compress-lzma_e.adb
+[Ada Compile]     zip-compress-reduce.adb
+[Ada Compile]     zip-compress-shrink_e.adb
+[Ada Compile]     zip-compress.adb
+[Ada Compile]     zip-crc_crypto.adb
+[Ada Compile]     zip-create.adb
+[Ada Compile]     zip-headers.adb
+[Ada Compile]     zip.adb
+[Ada Compile]     zip_console_io.adb
+[Ada Compile]     zip_dir_list.adb
+[Ada Compile]     zip_streams.adb
+[Ada Compile]     zipada.adb
+[Ada Bind]        comp_zip
+[Ada Bind]        find_zip
+[Ada Bind]        unzipada
+[Ada Post-Bind]   b__bzip2_dec.adb
+[Link]            bzip2_dec.exe
+[Ada Post-Bind]   b__bzip2_enc.adb
+[Link]            bzip2_enc.exe
+[Ada Bind]        rezip
+[Ada Post-Bind]   b__comp_zip.adb
+[Ada Post-Bind]   b__find_zip.adb
+[Link]            comp_zip.exe
+[Ada Bind]        zipada
+[Link]            find_zip.exe
+[Ada Post-Bind]   b__lzma_dec.adb
+[Ada Post-Bind]   b__lzma_enc.adb
+[Link]            lzma_dec.exe
+[Ada Post-Bind]   b__rezip.adb
+[Ada Bind]        zip_dir_list
+[Link]            lzma_enc.exe
+[Ada Post-Bind]   b__touch2.adb
+[Ada Post-Bind]   b__unzipada.adb
+[Link]            rezip.exe
+[Link]            touch2.exe
+[Ada Post-Bind]   b__zip_dir_list.adb
+[Link]            unzipada.exe
+[Ada Post-Bind]   b__zipada.adb
+[Link]            zip_dir_list.exe
+[Link]            zipada.exe
+Success: Build finished successfully in 23.84 seconds.
+Found declared GPR file: zipada.gpr
+[alr test] Test completed SUCCESSFULLY

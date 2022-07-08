@@ -1,0 +1,390 @@
+badge: false
+crate: adsa
+creation_timestamp: 1786149041.1620321
+distro: darwin-25.5.0
+duration: 12.808386750000011
+gnat: 15.1.2
+last_attempt: 2026-08-14 12:29:43.446789+00:00
+log:
+- 'Test ran at 2026-08-14 12:29:43.446610+00:00
+
+
+  '
+- 'SOLUTION:
+
+  '
+- 'adsa=1.5.0: Ada Annex E (DSA) runtime + gnatdist replacement, backed by ZeroMQ
+
+  '
+- 'Origin: source archive adsa-1.5.0.tar.gz at https://codeberg.org/charlie5/aDSA/releases/download/v1.5.0/adsa-1.5.0.tar.gz
+  with hash sha512:a1887ee67bffd585445aa53b8a467783ddc7ad339df13a4c44c0b47ab2499d257041f256fbc1768be67d6a4c614078052cb446437c1c5de001875f9871ce9049
+
+  '
+- 'Properties:
+
+  '
+- '   Configuration: no modifiers
+
+  '
+- '   Description: Ada Annex E (DSA) runtime + gnatdist replacement, backed by ZeroMQ
+
+  '
+- '   Executable: pcs_gnatdist
+
+  '
+- '   Executable: pcs_supervisor
+
+  '
+- '   License: GPL-3.0-or-later WITH GCC-exception-3.1
+
+  '
+- '   Long_Description: aDSA is a Partition Communication Subsystem (PCS) for Ada''s
+  Distributed
+
+  '
+- 'Systems Annex (Annex E), replacing the discontinued PolyORB/GLADE runtime.
+
+  '
+- '`alr build` produces two ordinary tools:
+
+  '
+- '
+
+  '
+- '  * `pcs_gnatdist` -- the gnatdist replacement: builds a distributed
+
+  '
+- '    application from its `.cfg`, auto-assembling the GARLIC runtime (a
+
+  '
+- '    `--RTS` overlay of the toolchain''s own runtime) on first use and
+
+  '
+- '    re-assembling it when the toolchain changes;
+
+  '
+- '  * `pcs_supervisor` -- launches and restarts a built deployment per its
+
+  '
+- '    `.manifest`.
+
+  '
+- '
+
+  '
+- 'System prerequisites beyond the toolchain: libzmq >= 4.x and zlib
+
+  '
+- '(`pacman -S zeromq`, `apt install libzmq3-dev`, `pkg install libzmq4`;
+
+  '
+- 'Windows setup is in the README''s Platforms section).
+
+  '
+- '
+
+  '
+- 'Start with docs/users-guide.md; `examples/` holds runnable demos.
+
+  '
+- '
+
+  '
+- '   Maintainer: Rod Kay <rodakay5@gmail.com>
+
+  '
+- '   Maintainers_Logins: charlie5
+
+  '
+- '   Name: adsa
+
+  '
+- '   Project_File: adsa.gpr
+
+  '
+- '   Tag: distributed
+
+  '
+- '   Tag: dsa
+
+  '
+- '   Tag: annex-e
+
+  '
+- '   Tag: rpc
+
+  '
+- '   Tag: racw
+
+  '
+- '   Tag: gnatdist
+
+  '
+- '   Tag: zeromq
+
+  '
+- '   Version: 1.5.0
+
+  '
+- '   Website: https://codeberg.org/charlie5/aDSA
+
+  '
+- 'Dependencies (direct):
+
+  '
+- '   gnat>=12
+
+  '
+- 'Dependencies (solution):
+
+  '
+- '   gnat=15.1.2 (gnat_native)
+
+  '
+- 'Dependencies (graph):
+
+  '
+- '   adsa=1.5.0 --> gnat=15.1.2 (gnat_native) (>=12)
+
+  '
+- '
+
+  '
+- '
+
+  LOG:
+
+  '
+- '[alr test] Testing adsa=1.5.0
+
+  '
+- '[alr test] Spawning retrieval for remote crate: alr -d -n get adsa=1.5.0
+
+  '
+- 'Note: Deploying adsa=1.5.0...
+
+  '
+- "#=#=#                                                                         \
+  \ \n"
+- "##O#-#                                                                        \
+  \ \n"
+- "##O=#  #                                                                      \
+  \ \n"
+- '
+
+  '
+- '#####                                                                      7.1%
+
+  '
+- '##########                                                                14.3%
+
+  '
+- '###############                                                           21.4%
+
+  '
+- '#################################                                         46.3%
+
+  '
+- '######################################################################## 100.0%
+
+  '
+- '
+
+  '
+- 'adsa=1.5.0 successfully retrieved.
+
+  '
+- 'Dependencies were solved as follows:
+
+  '
+- '
+
+  '
+- '   +b gnat 15.1.2 (new,gnat_native,binary)
+
+  '
+- '[alr test] Spawning default test for remote crate: alr -d -n build --release --
+  -cargs:Ada -gnatwn
+
+  '
+- 'Note: Building adsa=1.5.0/adsa.gpr...
+
+  '
+- 'Setup
+
+  '
+- '   [mkdir]        object directory for project aDSA
+
+  '
+- 'Compile
+
+  '
+- '   [Ada]          pcs_gnatdist.adb
+
+  '
+- '   [Ada]          pcs_supervisor.adb
+
+  '
+- 'clang: warning: overriding deployment version from ''16.0'' to ''26.0'' [-Woverriding-deployment-version]
+
+  '
+- '   [Ada]          cfg_builder.adb
+
+  '
+- '   [Ada]          cfg_model.ads
+
+  '
+- 'clang: warning: overriding deployment version from ''16.0'' to ''26.0'' [-Woverriding-deployment-version]
+
+  '
+- '   [Ada]          cfg_parser.adb
+
+  '
+- 'clang: warning: overriding deployment version from ''16.0'' to ''26.0'' [-Woverriding-deployment-version]
+
+  '
+- 'clang: warning: overriding deployment version from ''16.0'' to ''26.0'' [-Woverriding-deployment-version]
+
+  '
+- '   [Ada]          rci_check.adb
+
+  '
+- 'clang: warning: overriding deployment version from ''16.0'' to ''26.0'' [-Woverriding-deployment-version]
+
+  '
+- 'clang: warning: overriding deployment version from ''16.0'' to ''26.0'' [-Woverriding-deployment-version]
+
+  '
+- 'Bind
+
+  '
+- '   [gprbind]      pcs_gnatdist.bexch
+
+  '
+- '   [gprbind]      pcs_supervisor.bexch
+
+  '
+- '   [Ada]          pcs_supervisor.ali
+
+  '
+- '   [Ada]          pcs_gnatdist.ali
+
+  '
+- 'clang: warning: overriding deployment version from ''16.0'' to ''26.0'' [-Woverriding-deployment-version]
+
+  '
+- 'clang: warning: overriding deployment version from ''16.0'' to ''26.0'' [-Woverriding-deployment-version]
+
+  '
+- 'Link
+
+  '
+- '   [link]         pcs_gnatdist.adb
+
+  '
+- '   [link]         pcs_supervisor.adb
+
+  '
+- 'ld: library not found for -lSystem
+
+  '
+- 'ld: library not found for -lSystem
+
+  '
+- 'collect2: error: ld returned 1 exit status
+
+  '
+- 'collect2: error: ld returned 1 exit status
+
+  '
+- '   link of pcs_supervisor.adb failed
+
+  '
+- "   failed command was: /users/runner/.local/share/alire/toolchains/gnat_native_15.1.2_60748c54/bin/gcc\
+  \ pcs_supervisor.o b__pcs_supervisor.o -L/Users/runner/work/alire-crates-ci/alire-crates-ci/test/4a86deb2-b324-4697-b107-5d836e6213ca/adsa_1.5.0_a1887ee6/build/gnatdist-obj/\
+  \ -L/Users/runner/work/alire-crates-ci/alire-crates-ci/test/4a86deb2-b324-4697-b107-5d836e6213ca/adsa_1.5.0_a1887ee6/build/gnatdist-obj/\
+  \ -L/users/runner/.local/share/alire/toolchains/gnat_native_15.1.2_60748c54/lib/gcc/aarch64-apple-darwin23.6.0/15.0.1/adalib/\
+  \ -static-libgcc /users/runner/.local/share/alire/toolchains/gnat_native_15.1.2_60748c54/lib/gcc/aarch64-apple-darwin23.6.0/15.0.1/adalib/libgnat.a\
+  \ -Wl,-rpath,@executable_path//gnatdist-obj -Wl,-rpath,@executable_path/../../../../../../..//.local/share/alire/toolchains/gnat_native_15.1.2_60748c54/lib/gcc/aarch64-apple-darwin23.6.0/15.0.1/adalib\
+  \ -o /Users/runner/work/alire-crates-ci/alire-crates-ci/test/4a86deb2-b324-4697-b107-5d836e6213ca/adsa_1.5.0_a1887ee6/build//pcs_supervisor\
+  \ \n"
+- '   link of pcs_gnatdist.adb failed
+
+  '
+- "   failed command was: /users/runner/.local/share/alire/toolchains/gnat_native_15.1.2_60748c54/bin/gcc\
+  \ pcs_gnatdist.o b__pcs_gnatdist.o /Users/runner/work/alire-crates-ci/alire-crates-ci/test/4a86deb2-b324-4697-b107-5d836e6213ca/adsa_1.5.0_a1887ee6/build/gnatdist-obj/cfg_model.o\
+  \ /Users/runner/work/alire-crates-ci/alire-crates-ci/test/4a86deb2-b324-4697-b107-5d836e6213ca/adsa_1.5.0_a1887ee6/build/gnatdist-obj/cfg_parser.o\
+  \ /Users/runner/work/alire-crates-ci/alire-crates-ci/test/4a86deb2-b324-4697-b107-5d836e6213ca/adsa_1.5.0_a1887ee6/build/gnatdist-obj/rci_check.o\
+  \ /Users/runner/work/alire-crates-ci/alire-crates-ci/test/4a86deb2-b324-4697-b107-5d836e6213ca/adsa_1.5.0_a1887ee6/build/gnatdist-obj/cfg_builder.o\
+  \ -L/Users/runner/work/alire-crates-ci/alire-crates-ci/test/4a86deb2-b324-4697-b107-5d836e6213ca/adsa_1.5.0_a1887ee6/build/gnatdist-obj/\
+  \ -L/Users/runner/work/alire-crates-ci/alire-crates-ci/test/4a86deb2-b324-4697-b107-5d836e6213ca/adsa_1.5.0_a1887ee6/build/gnatdist-obj/\
+  \ -L/users/runner/.local/share/alire/toolchains/gnat_native_15.1.2_60748c54/lib/gcc/aarch64-apple-darwin23.6.0/15.0.1/adalib/\
+  \ -static-libgcc /users/runner/.local/share/alire/toolchains/gnat_native_15.1.2_60748c54/lib/gcc/aarch64-apple-darwin23.6.0/15.0.1/adalib/libgnat.a\
+  \ -Wl,-rpath,@executable_path//gnatdist-obj -Wl,-rpath,@executable_path/../../../../../../..//.local/share/alire/toolchains/gnat_native_15.1.2_60748c54/lib/gcc/aarch64-apple-darwin23.6.0/15.0.1/adalib\
+  \ -o /Users/runner/work/alire-crates-ci/alire-crates-ci/test/4a86deb2-b324-4697-b107-5d836e6213ca/adsa_1.5.0_a1887ee6/build//pcs_gnatdist\
+  \ \n"
+- 'gprbuild: *** link phase failed
+
+  '
+- 'stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/Users/runner/work/alire-crates-ci/alire-crates-ci/test/4a86deb2-b324-4697-b107-5d836e6213ca/adsa_1.5.0_a1887ee6/adsa.gpr",
+  "-cargs:Ada", "-gnatwn"] exited with code 4
+
+  '
+- 'ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/Users/runner/work/alire-crates-ci/alire-crates-ci/test/4a86deb2-b324-4697-b107-5d836e6213ca/adsa_1.5.0_a1887ee6/adsa.gpr",
+  "-cargs:Ada", "-gnatwn"] exited with code 4
+
+  '
+- 'stderr: ALIRE.CHECKED_ERROR
+
+  '
+- 'stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/Users/runner/work/alire-crates-ci/alire-crates-ci/test/4a86deb2-b324-4697-b107-5d836e6213ca/adsa_1.5.0_a1887ee6/adsa.gpr",
+  "-cargs:Ada", "-gnatwn"] exited with code 4
+
+  '
+- 'stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
+
+  '
+- 'Load address: 0x104488000
+
+  '
+- 'Call stack traceback locations:
+
+  '
+- '0x1051940cc 0x10519412c 0x104ee866c 0x104b2d568 0x104db2594 0x104db34f4 0x104cf133c
+  0x104cefb08 0x104d1378c 0x104d7356c 0x104d7299c 0x104d13868 0x104d13950 0x104cf000c
+  0x104cf0174 0x1044f9730 0x1044f9070 0x1044f91e4 0x104596b38 0x1045a1c78 0x10448a9f8
+  0x10448fa2c
+
+  '
+- '
+
+  '
+- 'stderr: ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED
+
+  '
+- 'stderr: alire-roots.adb:202
+
+  '
+- 'stderr: raised ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED : alire-roots.adb:202
+
+  '
+- 'Load address: 0x104488000
+
+  '
+- 'Call stack traceback locations:
+
+  '
+- '0x1051940cc 0x10519412c 0x104cf1640 0x104cefb08 0x104d1378c 0x104d7356c 0x104d7299c
+  0x104d13868 0x104d13950 0x104cf000c 0x104cf0174 0x1044f9730 0x1044f9070 0x1044f91e4
+  0x104596b38 0x1045a1c78 0x10448a9f8 0x10448fa2c
+
+  '
+- '
+
+  '
+- 'ERROR: Compilation failed.
+
+  '
+platform: macos
+status: failing
+version: 1.5.0

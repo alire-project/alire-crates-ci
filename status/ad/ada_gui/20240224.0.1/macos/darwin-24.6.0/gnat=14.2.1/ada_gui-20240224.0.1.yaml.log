@@ -1,0 +1,880 @@
+Test ran at 2026-06-19 01:32:52.307637+00:00
+
+SOLUTION:
+ada_gui=20240224.0.1: An Ada-oriented GUI
+Origin: commit dc57a5593e7a1105458d23dfaf40aa4b13bf01d7 from https://github.com/bracke/Ada_GUI.git
+Properties:
+   Author: Jeff Carter
+   Build Switches: 
+   Description: An Ada-oriented GUI
+   License: BSD-3-Clause
+   Long_Description: # Ada_GUI
+An Ada-oriented GUI
+
+Traditionally, GUIs have been implemented by the client registering callback operations, then giving up its thread of control to the GUI. This is a hack to address the inherent parallelism of a GUI in sequential languages. It results in code that is unnecessarily difficult to understand.
+
+In a concurrent language like Ada, a better design for a GUI is for the GUI to have its own task, so it doesn't require that its client give up a thread of control. GUI events are communicated to the client through a protected queue of events. The client software can be written in the clearest way possible, unconstrained by the GUI.
+
+Ada_GUI is such a GUI.
+
+The purpose of Ada_GUI is to provide the specification, in hopes that multiple implementations will be created. Note that some of the comments in the specification are specific to the sample implementation, and should be removed or modified for other implementations. Especially interesting would be an implementation that is not GNAT specific.
+
+## Sample Implementation
+
+A sample implementation of Ada_GUI is supplied, derived from Gnoga, but simplified, reorganized, and converted to put events on a protected queue rather than call callbacks. The name Gnoga has been retained for the name of the implementation hierarchy, located at Ada_GUI.Gnoga, in recognition. Those parts of Kazakov's Simple Components used by the implementation are provided as well, with some minor modifications. If you have your own version of the Simple Components, you may use it instead: Delete all Ada source files that do not begin with ada_gui.
+
+The sample implementation is reasonably full-featured and useful. The implementation is more responsive than the former proof-of-concept directly on full Gnoga.
+
+The Test directory contains boot.html, boot.js, and jquery.min.js. These files must be available to every Ada-GUI program. It also contains favicon.ico, an icon of Ada.
+
+Show_All creates at least one of each widget. Visibility, playing audio, and responding to key-press events is demonstrated. Changing this program is the easiest way to experiment with the sample implementation. The audio file glass.ogg and image file rgb.jpg are used by Show_All.
+
+Luhn_Gen calculates Luhn checksum digits. Enter the first 15 digits of your credit-card number and it will generate the 16th.
+
+Random_Int is a Gnoga program that has been revised to use Ada GUI instead. It will generate random integers in a desired range.
+
+## Installation of the Sample Implementation
+
+Gnoga and the Simple Components require a recent GNAT compiler, so Ada_GUI cannot be compiled with another compiler. The file gnat.adc is needed to compile the Simple Components extensions to GNAT.Sockets. The use of gnatmake is recommended, as gprbuild is for mixed-language or complicated builds, which this is not. After compiling, it is recommended that you write-protect the .ali files. Typically, you can use a command such as
+
+gnatmake -m -j0 -gnat12 -gnatan -gnato2 -O2 -fstack-check Test/show_all.adb
+
+If you keep the Ada-GUI source files in a single directory, including the Simple Components source files, and have the compiler put the object and .ali files in that directory, then you need only add -I/path/to/Ada_GUI/ to your program's gnatmake command to use Ada_GUI.
+
+   Maintainer: Bent Bracke <bent@bracke.dk>
+   Maintainers_Logins: bracke
+   Name: ada_gui
+   Tag: gui
+   Tag: widgets
+   Tag: html
+   Version: 20240224.0.1
+   Website: https://github.com/bracke/Ada_GUI
+Dependencies (direct):
+   gnat<13.0 | >=13.3
+   simple_components^4.68.0
+Dependencies (solution):
+   gnat=14.2.1 (gnat_native)
+   libgnutls=3.8.13+_2
+   simple_components=4.68.0
+   unixodbc=2.3.14
+Dependencies (graph):
+   ada_gui=20240224.0.1     --> gnat=14.2.1 (gnat_native) (<13.0 | >=13.3)
+   ada_gui=20240224.0.1     --> simple_components=4.68.0 (^4.68.0)
+   simple_components=4.68.0 --> gnat=14.2.1 (gnat_native) (>=2021 | (>=12 & <2000))
+   simple_components=4.68.0 --> libgnutls=3.8.13+_2 (^3.7)
+   simple_components=4.68.0 --> unixodbc=2.3.14 (^2.3)
+
+
+LOG:
+[alr test] Testing ada_gui=20240224.0.1
+[alr test] Spawning retrieval for remote crate: alr -d -n get ada_gui=20240224.0.1
+Note: Deploying ada_gui=20240224.0.1...
+Note: Deploying unixodbc=2.3.14...
+The system package 'unixodbc' is about to be installed.
+This action might require admin privileges and impact your system installation.
+Do you want Alire to install this system package?
+Using default: Yes
+::warning::The following taps are not trusted:%0A  aws/tap%0A  azure/bicep%0A%0AHomebrew will ignore formulae, casks and commands from these taps when `HOMEBREW_REQUIRE_TAP_TRUST` is set.%0AThis will become the default in Homebrew 6.0.0 or 5.2.0, whichever comes first.%0AEnable trust checks now with:%0A  export HOMEBREW_REQUIRE_TAP_TRUST=1%0ATrust specific formulae, casks or commands with:%0A  brew trust --formula <user>/<tap>/<formula>%0A  brew trust --cask <user>/<tap>/<cask>%0A  brew trust --command <user>/<tap>/<command>%0Aor trust installed formulae from these taps with:%0A  brew trust --formula azure/bicep/bicep%0AYou can trust all formulae, casks and commands from these taps with:%0A  brew trust aws/tap azure/bicep%0APrefer trusting only the specific formulae, casks or commands you need.%0AUntap them with:%0A  brew untap aws/tap azure/bicep%0ATo keep allowing them by default during the transition:%0A  export HOMEBREW_NO_REQUIRE_TAP_TRUST=1%0AThis is not recommended and will be removed in a later release.%0A
+Inspect the formula dependency plan before installing with `brew install --ask`.
+Enable ask mode by setting `HOMEBREW_ASK=1`.
+Hide these hints with `HOMEBREW_NO_ENV_HINTS=1` (see `man brew`).
+[32m==>[0m [1mFetching downloads for: [32munixodbc[39m[0m
+✔︎ Bottle Manifest unixodbc (2.3.14)
+✔︎ Bottle Manifest m4 (1.4.21)
+✔︎ Bottle m4 (1.4.21)
+✔︎ Bottle Manifest libtool (2.5.4)
+✔︎ Bottle libtool (2.5.4)
+✔︎ Bottle unixodbc (2.3.14)
+[32m==>[0m [1mInstalling dependencies for unixodbc: [32mm4[39m and [32mlibtool[39m[0m
+[32m==>[0m [1mInstalling unixodbc dependency: [32mm4[39m[0m
+[34m==>[0m [1mPouring m4--1.4.21.arm64_sequoia.bottle.tar.gz[0m
+🍺  /opt/homebrew/Cellar/m4/1.4.21: 14 files, 817.8KB
+[32m==>[0m [1mInstalling unixodbc dependency: [32mlibtool[39m[0m
+[34m==>[0m [1mPouring libtool--2.5.4.arm64_sequoia.bottle.tar.gz[0m
+🍺  /opt/homebrew/Cellar/libtool/2.5.4: 76 files, 4.1MB
+[32m==>[0m [1mInstalling [32munixodbc[39m[0m
+[34m==>[0m [1mPouring unixodbc--2.3.14.arm64_sequoia.bottle.tar.gz[0m
+🍺  /opt/homebrew/Cellar/unixodbc/2.3.14: 48 files, 2.4MB
+Note: Deploying simple_components=4.68.0...
+
+ada_gui=20240224.0.1 successfully retrieved.
+Dependencies were solved as follows:
+
+   +b gnat              14.2.1    (new,gnat_native,binary)
+   +b libgnutls         3.8.13+_2 (new,indirect,system package)
+   +  simple_components 4.68.0    (new)
+   +b unixodbc          2.3.14    (new,indirect,system package)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building ada_gui=20240224.0.1/ada_gui.gpr...
+Setup
+   [mkdir]        object directory for project Ada_Gui
+   [mkdir]        library directory for project Ada_Gui
+Compile
+   [C]            py_conversions.c
+   [Ada]          py-load_python_library.adb
+   [Ada]          py.adb
+   [Ada]          odbc-architecture_dependent.ads
+odbc-architecture_dependent.ads:30:16: warning: unit "Interfaces.C" is not referenced [-gnatwu]
+   [Ada]          odbc-driver_dependent.ads
+   [Ada]          odbc-thin.adb
+py-load_python_library.adb:39:04: warning: named number "RTLD_LAZY" is not referenced [-gnatwu]
+py-load_python_library.adb:43:04: warning: named number "RTLD_BINDING_MASK" is not referenced [-gnatwu]
+py-load_python_library.adb:45:04: warning: named number "TLD_NOLOAD" is not referenced [-gnatwu]
+py-load_python_library.adb:47:04: warning: named number "RTLD_DEEPBIND" is not referenced [-gnatwu]
+py-load_python_library.adb:55:04: warning: named number "RTLD_LOCAL" is not referenced [-gnatwu]
+py-load_python_library.adb:57:04: warning: named number "RTLD_NODELETE" is not referenced [-gnatwu]
+   [Ada]          odbc-sqltypes.adb
+   [Ada]          odbc.ads
+   [Ada]          persistent-native_odbc-text_io.adb
+py.adb:50:04: warning: variable "TypeError" is assigned but never read [-gnatwm]
+py.adb:51:04: warning: variable "SystemError" is assigned but never read [-gnatwm]
+py.adb:888:04: warning: named number "Single_Input" is not referenced [-gnatwu]
+py.adb:890:04: warning: named number "Eval_Input" is not referenced [-gnatwu]
+py.adb:891:04: warning: named number "Func_Type_Input" is not referenced [-gnatwu]
+py.adb:2454:24: warning: can never be greater than, could replace by "=" [-gnatwc]
+py.adb:2464:19: warning: formal parameter "Data" is not referenced [-gnatwf]
+py.adb:2694:07: warning: variable "Result" is assigned but never read [-gnatwm]
+py.adb:2698:07: warning: possibly useless assignment to "Result", value might not be referenced [-gnatwm]
+py.adb:2703:07: warning: variable "Result" is assigned but never read [-gnatwm]
+py.adb:2706:07: warning: possibly useless assignment to "Result", value might not be referenced [-gnatwm]
+   [Ada]          odbc-api-keys.adb
+odbc-sqltypes.ads:206:04: warning: pragma Pack affects convention "C" component at line 203 [enabled by default]
+odbc-sqltypes.ads:206:04: warning: component "Data4" may not have "C" compatible representation [enabled by default]
+   [Ada]          odbc-api-keys-sets.ads
+   [Ada]          odbc-api.adb
+   [Ada]          odbc-api-links.adb
+   [Ada]          odbc-bound_parameters.adb
+   [Ada]          odbc-api-keys-edit.ads
+   [Ada]          odbc-api-keys-arrays.ads
+   [Ada]          persistent-native_odbc.adb
+   [Ada]          gnat-sockets-ntp.adb
+   [Ada]          julia-load_julia_library.adb
+odbc-api.adb:33:23: warning: no entities of "Strings_Edit.UTF8.Handling" are referenced [-gnatwu]
+odbc-api.adb:64:13: warning: function "Dump" is not referenced [-gnatwu]
+odbc-api.adb:85:13: warning: function "Dump" is not referenced [-gnatwu]
+odbc-api.adb:780:07: warning: variable "Result" is assigned but never read [-gnatwm]
+odbc-api.adb:782:07: warning: possibly useless assignment to "Result", value might not be referenced [-gnatwm]
+odbc-api.adb:1121:25: warning: formal parameter "State" is not referenced [-gnatwf]
+odbc-api.adb:1210:07: warning: variable "Result" is assigned but never read [-gnatwm]
+odbc-api.adb:5951:24: warning: formal parameter "State" is not referenced [-gnatwf]
+odbc-api.adb:6058:14: warning: procedure "Set" is not referenced [-gnatwu]
+odbc-api.adb:6078:14: warning: procedure "Set" is not referenced [-gnatwu]
+odbc-api.adb:6775:12: warning: variable "Error" is not referenced [-gnatwu]
+odbc-api.ads:30:16: warning: no entities of "Interfaces.C" are referenced in spec [-gnatwu]
+odbc-api.ads:30:16: warning: with clause might be moved to body [-gnatwu]
+odbc-api.ads:5327:04: warning: pragma "INLINE" for "Execute" duplicates pragma at line 5326 [-gnatwr]
+   [Ada]          julia-generic_3d_array.adb
+julia-load_julia_library.adb:39:04: warning: named number "RTLD_LAZY" is not referenced [-gnatwu]
+julia-load_julia_library.adb:43:04: warning: named number "RTLD_BINDING_MASK" is not referenced [-gnatwu]
+julia-load_julia_library.adb:45:04: warning: named number "TLD_NOLOAD" is not referenced [-gnatwu]
+julia-load_julia_library.adb:47:04: warning: named number "RTLD_DEEPBIND" is not referenced [-gnatwu]
+julia-load_julia_library.adb:55:04: warning: named number "RTLD_LOCAL" is not referenced [-gnatwu]
+julia-load_julia_library.adb:57:04: warning: named number "RTLD_NODELETE" is not referenced [-gnatwu]
+julia-load_julia_library.adb:358:13: warning: function "dlsym" is not referenced [-gnatwu]
+   [Ada]          julia-generic_1d_array.adb
+julia-generic_3d_array.adb:52:07: warning: constant "Len" is not referenced [-gnatwu]
+   [Ada]          julia-generic_2d_array.adb
+   [Ada]          julia.adb
+julia-generic_2d_array.adb:52:07: warning: constant "Len" is not referenced [-gnatwu]
+   [Ada]          parsers-json-string_source.ads
+julia.adb:34:09: warning: unit "Ada.Unchecked_Conversion" is not referenced [-gnatwu]
+julia.adb:50:13: warning: function "+" is not referenced [-gnatwu]
+julia.adb:55:13: warning: function "+" is not referenced [-gnatwu]
+julia.adb:477:07: warning: constant "Result" is not referenced [-gnatwu]
+julia.adb:483:07: warning: constant "Result" is not referenced [-gnatwu]
+julia.adb:776:14: warning: procedure "Init_With_Image" is not referenced [-gnatwu]
+   [Ada]          parsers-json-multiline_source.ads
+   [Ada]          parsers-json-generic_parser.adb
+   [Ada]          parsers-json.adb
+parsers-json.adb:67:29: warning: formal parameter "Left" is not referenced [-gnatwf]
+parsers-json.adb:67:35: warning: formal parameter "Right" is not referenced [-gnatwf]
+parsers-json.adb:72:25: warning: formal parameter "Operation" is not referenced [-gnatwf]
+parsers-json.adb:77:28: warning: formal parameter "Operation" is not referenced [-gnatwf]
+   [Ada]          gnat-sockets-smtp-client-synchronous.adb
+persistent-native_odbc.adb:28:20: warning: no entities of "Ada.Characters.Handling" are referenced [-gnatwu]
+persistent-native_odbc.adb:287:21: warning: variable "Error" is not referenced [-gnatwu]
+persistent-native_odbc.ads:63:09: warning: unit "Ada.Finalization" is not referenced [-gnatwu]
+   [Ada]          gnat-sockets-smtp-client.adb
+   [Ada]          gnat-sockets-smtp.adb
+gnat-sockets-smtp-client-synchronous.adb:39:17: warning: formal parameter "Accepted" is not referenced [-gnatwf]
+   [Ada]          gnutls.adb
+   [Ada]          gnat-sockets-server-secure-x509.adb
+   [Ada]          gnat-sockets-server-secure.adb
+   [Ada]          gnat-sockets-server-secure-anonymous.adb
+   [Ada]          openssl.adb
+   [Ada]          gnat-sockets-server-openssl.adb
+   [Ada]          gnat-sockets-mqtt-streams.adb
+   [Ada]          gnat-sockets-mqtt-server.adb
+gnat-sockets-server-openssl.adb:846:07: warning: variable "Buffer" is read but never assigned [-gnatwv]
+   [Ada]          gnat-sockets-mqtt.adb
+gnat-sockets-smtp-client.adb:1302:17: warning: formal parameter "Code" is not referenced [-gnatwf]
+gnat-sockets-smtp-client.ads:733:50: warning: applying 'Class to an untagged incomplete type is an obsolescent feature (RM J.11) [-gnatwr]
+gnat-sockets-smtp-client.ads:739:58: warning: applying 'Class to an untagged incomplete type is an obsolescent feature (RM J.11) [-gnatwr]
+   [Ada]          gnat-sockets-connection_state_machine-modbus_client-synchronous.adb
+gnat-sockets-connection_state_machine-modbus_client-synchronous.adb:82:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-modbus_client-synchronous.adb:149:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-modbus_client-synchronous.adb:168:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-modbus_client-synchronous.adb:187:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-modbus_client-synchronous.adb:206:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-modbus_client-synchronous.adb:225:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-modbus_client-synchronous.adb:241:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-modbus_client-synchronous.adb:255:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-modbus_client-synchronous.adb:271:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-modbus_client-synchronous.adb:286:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-modbus_client-synchronous.adb:303:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-modbus_client-synchronous.adb:320:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-modbus_client-synchronous.adb:338:07: warning: variable "Lock" is not referenced [-gnatwu]
+   [Ada]          gnat-sockets-connection_state_machine-modbus_client.adb
+gnat-sockets-mqtt.adb:356:13: warning: function "Get_Topic" is not referenced [-gnatwu]
+gnat-sockets-mqtt.adb:470:07: warning: variable "Level" is not referenced [-gnatwu]
+   [Ada]          gnat-sockets-connection_state_machine-ldap-server.adb
+gnat-sockets-connection_state_machine-modbus_client.adb:251:17: warning: formal parameter "Client" is not referenced [-gnatwf]
+gnat-sockets-connection_state_machine-modbus_client.adb:293:17: warning: formal parameter "Machine" is not referenced [-gnatwf]
+gnat-sockets-connection_state_machine-modbus_client.adb:381:17: warning: formal parameter "Pointer" is not referenced [-gnatwf]
+gnat-sockets-connection_state_machine-modbus_client.adb:382:17: warning: formal parameter "Machine" is not referenced [-gnatwf]
+gnat-sockets-connection_state_machine-modbus_client.adb:383:17: warning: formal parameter "State" is not referenced [-gnatwf]
+gnat-sockets-connection_state_machine-modbus_client.ads:662:52: warning: applying 'Class to an untagged incomplete type is an obsolescent feature (RM J.11) [-gnatwr]
+   [Ada]          gnat-sockets-connection_state_machine-ldap-client.adb
+gnat-sockets-mqtt-server.adb:133:19: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-mqtt-server.adb:148:19: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-mqtt-server.adb:212:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-mqtt-server.adb:228:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-mqtt-server.adb:285:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-mqtt-server.adb:313:13: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-mqtt-server.adb:342:13: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-mqtt-server.adb:361:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-mqtt-server.adb:377:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-mqtt-server.adb:386:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-mqtt-server.adb:405:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-mqtt-server.adb:422:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-mqtt-server.adb:440:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-mqtt-server.adb:456:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-mqtt-server.adb:473:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-mqtt-server.adb:512:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-mqtt-server.adb:787:10: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-mqtt-server.adb:966:13: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-mqtt-server.adb:998:13: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-mqtt-server.adb:1043:13: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-mqtt-server.adb:1132:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-mqtt-server.adb:1245:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-mqtt-server.adb:1328:10: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-mqtt-server.adb:1352:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-mqtt-server.adb:1363:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-mqtt-server.adb:1730:16: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-mqtt-server.adb:1736:16: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-mqtt-server.adb:1757:16: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-mqtt-server.adb:1773:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-mqtt-server.adb:1782:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-mqtt-server.adb:1809:07: warning: variable "Lock" is not referenced [-gnatwu]
+   [Ada]          gnat-sockets-connection_state_machine-ldap.adb
+gnat-sockets-connection_state_machine-ldap-server.adb:28:09: warning: no entities of "Ada.Exceptions" are referenced [-gnatwu]
+gnat-sockets-connection_state_machine-ldap-server.adb:29:09: warning: no entities of "Ada.IO_Exceptions" are referenced [-gnatwu]
+gnat-sockets-connection_state_machine-ldap-server.ads:28:09: warning: no entities of "Ada.Task_Identification" are referenced [-gnatwu]
+   [C]            sqlite3.c
+gnat-sockets-connection_state_machine-ldap-client.adb:35:09: warning: unit "ada.Text_IO" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-ldap-client.adb:561:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-ldap-client.adb:576:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-ldap-client.adb:631:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-ldap-client.adb:662:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-ldap-client.adb:676:13: warning: constant "Deadline" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-ldap-client.adb:693:25: warning: constant "Password" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-ldap-client.adb:721:14: warning: procedure "Receive_Challenge" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-ldap-client.adb:737:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-ldap-client.adb:759:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-ldap-client.adb:799:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-ldap-client.adb:835:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-ldap-client.adb:865:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-ldap-client.adb:893:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-ldap-client.adb:926:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-ldap-client.adb:963:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-ldap-client.adb:1035:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-ldap-client.adb:1135:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-ldap-client.adb:1207:32: warning: formal parameter "ID" is not referenced [-gnatwf]
+gnat-sockets-connection_state_machine-ldap-client.adb:1207:49: warning: formal parameter "Choice" is not referenced [-gnatwf]
+   [Ada]          persistent-sqlite_keys-arrays.ads
+   [Ada]          persistent-sqlite-text_io.adb
+   [Ada]          persistent-sqlite_keys-sets.ads
+persistent-sqlite_keys-sets.ads:28:06: warning: no entities of "Interfaces" are referenced [-gnatwu]
+   [Ada]          persistent-sqlite_keys.adb
+gnat-sockets-connection_state_machine-ldap.adb:33:48: warning: no entities of "GNAT.Sockets.Connection_State_Machine.ASN1.Tagged_Values" are referenced [-gnatwu]
+gnat-sockets-connection_state_machine-ldap.adb:35:09: warning: unit "ada.Text_IO" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-ldap.adb:37:04: warning: use clause for package "Booleans" has no effect [-gnatwu]
+gnat-sockets-connection_state_machine-ldap.adb:38:04: warning: use clause for package "Choices" has no effect [-gnatwu]
+gnat-sockets-connection_state_machine-ldap.adb:39:04: warning: use clause for package "Distinguished_Names" has no effect [-gnatwu]
+gnat-sockets-connection_state_machine-ldap.adb:40:04: warning: use clause for package "Integers_8" has no effect [-gnatwu]
+gnat-sockets-connection_state_machine-ldap.adb:41:04: warning: use clause for package "Integers_32" has no effect [-gnatwu]
+gnat-sockets-connection_state_machine-ldap.adb:42:04: warning: use clause for package "Nulls" has no effect [-gnatwu]
+gnat-sockets-connection_state_machine-ldap.adb:43:04: warning: use clause for package "Sequences" has no effect [-gnatwu]
+gnat-sockets-connection_state_machine-ldap.adb:44:04: warning: use clause for package "Sets" has no effect [-gnatwu]
+gnat-sockets-connection_state_machine-ldap.adb:45:04: warning: use clause for package "Strings" has no effect [-gnatwu]
+gnat-sockets-connection_state_machine-ldap.ads:39:53: warning: unit "GNAT.Sockets.Connection_State_Machine.ASN1.Sets.Generic_Reference" is not referenced [-gnatwu]
+   [Ada]          persistent-sqlite.adb
+   [Ada]          persistent-sqlite_links.adb
+persistent-sqlite_links.adb:120:19: warning: variable "Command" is not modified in loop body [enabled by default]
+persistent-sqlite_links.adb:120:19: warning: possible infinite loop [enabled by default]
+persistent-sqlite_links.adb:185:19: warning: variable "Command" is not modified in loop body [enabled by default]
+persistent-sqlite_links.adb:185:19: warning: possible infinite loop [enabled by default]
+persistent-sqlite_links.adb:215:19: warning: variable "Command" is not modified in loop body [enabled by default]
+persistent-sqlite_links.adb:215:19: warning: possible infinite loop [enabled by default]
+   [Ada]          sqlite.adb
+sqlite.adb:69:04: warning: named number "SQLITE_NOTICE" is not referenced [-gnatwu]
+sqlite.adb:70:04: warning: named number "SQLITE_WARNING" is not referenced [-gnatwu]
+sqlite.adb:74:04: warning: named number "SQLITE_IOERR_READ" is not referenced [-gnatwu]
+sqlite.adb:75:04: warning: named number "SQLITE_IOERR_SHORT_READ" is not referenced [-gnatwu]
+sqlite.adb:76:04: warning: named number "SQLITE_IOERR_WRITE" is not referenced [-gnatwu]
+sqlite.adb:77:04: warning: named number "SQLITE_IOERR_FSYNC" is not referenced [-gnatwu]
+sqlite.adb:78:04: warning: named number "SQLITE_IOERR_DIR_FSYNC" is not referenced [-gnatwu]
+sqlite.adb:79:04: warning: named number "SQLITE_IOERR_TRUNCATE" is not referenced [-gnatwu]
+sqlite.adb:80:04: warning: named number "SQLITE_IOERR_FSTAT" is not referenced [-gnatwu]
+sqlite.adb:81:04: warning: named number "SQLITE_IOERR_UNLOCK" is not referenced [-gnatwu]
+sqlite.adb:82:04: warning: named number "SQLITE_IOERR_RDLOCK" is not referenced [-gnatwu]
+sqlite.adb:83:04: warning: named number "SQLITE_IOERR_DELETE" is not referenced [-gnatwu]
+sqlite.adb:84:04: warning: named number "SQLITE_IOERR_BLOCKED" is not referenced [-gnatwu]
+sqlite.adb:85:04: warning: named number "SQLITE_IOERR_NOMEM" is not referenced [-gnatwu]
+sqlite.adb:86:04: warning: named number "SQLITE_IOERR_ACCESS" is not referenced [-gnatwu]
+sqlite.adb:87:04: warning: named number "SQLITE_IOERR_CHECKRESERVEDLOCK" is not referenced [-gnatwu]
+sqlite.adb:88:04: warning: named number "SQLITE_IOERR_LOCK" is not referenced [-gnatwu]
+sqlite.adb:89:04: warning: named number "SQLITE_IOERR_CLOSE" is not referenced [-gnatwu]
+sqlite.adb:90:04: warning: named number "SQLITE_IOERR_DIR_CLOSE" is not referenced [-gnatwu]
+sqlite.adb:91:04: warning: named number "SQLITE_IOERR_SHMOPEN" is not referenced [-gnatwu]
+sqlite.adb:92:04: warning: named number "SQLITE_IOERR_SHMSIZE" is not referenced [-gnatwu]
+sqlite.adb:93:04: warning: named number "SQLITE_IOERR_SHMLOCK" is not referenced [-gnatwu]
+sqlite.adb:94:04: warning: named number "SQLITE_IOERR_SHMMAP" is not referenced [-gnatwu]
+sqlite.adb:95:04: warning: named number "SQLITE_IOERR_SEEK" is not referenced [-gnatwu]
+sqlite.adb:96:04: warning: named number "SQLITE_IOERR_DELETE_NOENT" is not referenced [-gnatwu]
+sqlite.adb:97:04: warning: named number "SQLITE_IOERR_MMAP" is not referenced [-gnatwu]
+sqlite.adb:99:04: warning: named number "SQLITE_IOERR_CONVPATH" is not referenced [-gnatwu]
+sqlite.adb:100:04: warning: named number "SQLITE_IOERR_VNODE" is not referenced [-gnatwu]
+sqlite.adb:101:04: warning: named number "SQLITE_IOERR_AUTH" is not referenced [-gnatwu]
+sqlite.adb:102:04: warning: named number "SQLITE_IOERR_BEGIN_ATOMIC" is not referenced [-gnatwu]
+sqlite.adb:103:04: warning: named number "SQLITE_IOERR_COMMIT_ATOMIC" is not referenced [-gnatwu]
+sqlite.adb:104:04: warning: named number "SQLITE_IOERR_ROLLBACK_ATOMIC" is not referenced [-gnatwu]
+sqlite.adb:105:04: warning: named number "SQLITE_LOCKED_SHAREDCACHE" is not referenced [-gnatwu]
+sqlite.adb:615:07: warning: variable "Result" is assigned but never read [-gnatwm]
+sqlite.adb:833:07: warning: variable "Result" is assigned but never read [-gnatwm]
+sqlite.adb:835:07: warning: possibly useless assignment to "Result", value might not be referenced [-gnatwm]
+sqlite.adb:1037:07: warning: "Result" is not modified, could be declared constant [-gnatwk]
+sqlite.adb:1059:10: warning: "Result" is not modified, could be declared constant [-gnatwk]
+sqlite.adb:1099:07: warning: variable "Result" is assigned but never read [-gnatwm]
+sqlite.adb:1101:07: warning: possibly useless assignment to "Result", value might not be referenced [-gnatwm]
+   [Ada]          gnat-sockets-connection_state_machine-http_client.adb
+persistent-sqlite.adb:28:20: warning: no entities of "Ada.Characters.Handling" are referenced [-gnatwu]
+persistent-sqlite.adb:35:09: warning: unit "Ada.Unchecked_Deallocation" is not referenced [-gnatwu]
+persistent-sqlite.adb:92:13: warning: function "Image" is not referenced [-gnatwu]
+persistent-sqlite.adb:1126:13: warning: function "Unicode" is not referenced [-gnatwu]
+persistent-sqlite.adb:1126:22: warning: formal parameter "Storage" is not referenced [-gnatwf]
+persistent-sqlite.ads:63:09: warning: unit "Ada.Finalization" is not referenced [-gnatwu]
+   [Ada]          gnat-sockets-connection_state_machine-http_server-websocket_server.adb
+   [Ada]          gnat-sockets-connection_state_machine-http_server.adb
+gnat-sockets-connection_state_machine-http_client.adb:36:09: warning: unit "Ada.Unchecked_Conversion" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-http_client.adb:50:07: warning: variable "Colon" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-http_client.adb:369:16: warning: formal parameter "Session" is not referenced [-gnatwf]
+gnat-sockets-connection_state_machine-http_client.adb:371:16: warning: formal parameter "End_Of_Stream" is not referenced [-gnatwf]
+gnat-sockets-connection_state_machine-http_client.adb:461:16: warning: formal parameter "Session" is not referenced [-gnatwf]
+gnat-sockets-connection_state_machine-http_client.adb:2405:17: warning: procedure "Store" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-http_client.ads:31:09: warning: unit "Ada.Finalization" is not referenced [-gnatwu]
+   [Ada]          gnat-sockets-connection_state_machine-http_client-signaled.adb
+   [Ada]          gnat-sockets-connection_state_machine-http_server-sqlite_browser.adb
+   [Ada]          gnat-sockets-server.adb
+gnat-sockets-server.adb:302:13: warning: function "+" is not referenced [-gnatwu]
+gnat-sockets-server.adb:1800:19: warning: variable "Option" is not referenced [-gnatwu]
+gnat-sockets-server.ads:1633:04: warning: use clause for package "Connection_Handles" has no effect [-gnatwu]
+gnat-sockets-server.ads:1719:04: warning: pragma "INLINE" for "Available_To_Process" duplicates pragma at line 1426 [-gnatwr]
+gnat-sockets-server.ads:1720:04: warning: pragma "INLINE" for "Available_To_Send" duplicates pragma at line 1427 [-gnatwr]
+gnat-sockets-server.ads:1723:04: warning: pragma "INLINE" for "Queued_To_Send" duplicates pragma at line 1429 [-gnatwr]
+   [Ada]          gnat-sockets-connection_state_machine-asn1-generic_enumeration.adb
+gnat-sockets-connection_state_machine-asn1-generic_enumeration.adb:102:17: warning: formal parameter "Client" is not referenced [-gnatwf]
+   [Ada]          gnat-sockets-connection_state_machine-big_endian-unsigneds.adb
+gnat-sockets-connection_state_machine-big_endian-unsigneds.adb:38:17: warning: formal parameter "Client" is not referenced [-gnatwf]
+gnat-sockets-connection_state_machine-big_endian-unsigneds.adb:62:17: warning: formal parameter "Client" is not referenced [-gnatwf]
+gnat-sockets-connection_state_machine-big_endian-unsigneds.adb:91:17: warning: formal parameter "Client" is not referenced [-gnatwf]
+gnat-sockets-connection_state_machine-big_endian-unsigneds.adb:120:17: warning: formal parameter "Client" is not referenced [-gnatwf]
+   [Ada]          gnat-sockets-connection_state_machine-asn1-sequences-explicit.adb
+gnat-sockets-connection_state_machine-http_server.adb:887:16: warning: formal parameter "Client" is not referenced [-gnatwf]
+gnat-sockets-connection_state_machine-http_server.adb:889:16: warning: formal parameter "End_Of_Stream" is not referenced [-gnatwf]
+gnat-sockets-connection_state_machine-http_server.adb:914:16: warning: formal parameter "Client" is not referenced [-gnatwf]
+   [Ada]          gnat-sockets-connection_state_machine-little_endian-generic_single_precision_ieee_754.adb
+gnat-sockets-connection_state_machine-little_endian-generic_single_precision_ieee_754.adb:39:17: warning: formal parameter "Client" is not referenced [-gnatwf]
+   [Ada]          gnat-sockets-server-handles.ads
+   [Ada]          gnat-sockets-connection_state_machine-asn1-generic_unsigned.adb
+   [Ada]          gnat-sockets-connection_state_machine-asn1-integers_64.ads
+gnat-sockets-connection_state_machine-asn1-generic_unsigned.adb:102:17: warning: formal parameter "Client" is not referenced [-gnatwf]
+   [Ada]          gnat-sockets-connection_state_machine-little_endian-generic_double_precision_ieee_754.adb
+gnat-sockets-connection_state_machine-little_endian-generic_double_precision_ieee_754.adb:39:17: warning: formal parameter "Client" is not referenced [-gnatwf]
+   [Ada]          gnat-sockets-connection_state_machine-asn1-sets-explicit.adb
+   [Ada]          gnat-sockets-connection_state_machine-asn1-sets.adb
+   [Ada]          gnat-sockets-connection_state_machine-asn1-bit_strings-explicit.adb
+gnat-sockets-connection_state_machine-asn1-sets.adb:60:14: warning: procedure "Check" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-asn1-sets.adb:114:10: warning: variable "Count" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-asn1-sets.ads:30:48: warning: no entities of "GNAT.Sockets.Connection_State_Machine.ASN1.Lengths" are referenced [-gnatwu]
+   [Ada]          gnat-sockets-connection_state_machine-asn1-x509_certificates-stream_io.adb
+   [Ada]          gnat-sockets-connection_state_machine-little_endian-ieee_754_floats.ads
+   [Ada]          gnat-sockets-connection_state_machine-asn1-generic_integer.adb
+   [Ada]          gnat-sockets-connection_state_machine-asn1-sequences-generic_sequence_of.adb
+gnat-sockets-connection_state_machine-asn1-generic_integer.adb:103:17: warning: formal parameter "Client" is not referenced [-gnatwf]
+   [Ada]          gnat-sockets-connection_state_machine-asn1-text_io.adb
+   [Ada]          gnat-sockets-connection_state_machine-asn1-unsigneds_16.ads
+   [Ada]          gnat-sockets-connection_state_machine.adb
+gnat-sockets-connection_state_machine-asn1-text_io.adb:28:09: warning: no entities of "Ada.Exceptions" are referenced [-gnatwu]
+gnat-sockets-connection_state_machine-asn1-text_io.adb:29:09: warning: no entities of "Ada.IO_Exceptions" are referenced [-gnatwu]
+gnat-sockets-connection_state_machine-asn1-text_io.adb:42:48: warning: unit "GNAT.Sockets.Connection_State_Machine.ASN1.Integers_8" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-asn1-text_io.adb:47:48: warning: unit "GNAT.Sockets.Connection_State_Machine.ASN1.Nulls" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-asn1-text_io.adb:65:09: warning: unit "Ada.Unchecked_Conversion" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-asn1-text_io.adb:66:12: warning: unit "System.Address_To_Access_Conversions" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-asn1-text_io.adb:80:17: warning: formal parameter "Wrap" is not referenced [-gnatwf]
+   [Ada]          gnat-sockets-connection_state_machine-little_endian-ieee_754_long_floats.ads
+   [Ada]          gnat-sockets-connection_state_machine-asn1-sequences.adb
+gnat-sockets-connection_state_machine.adb:584:17: warning: formal parameter "Pointer" is not referenced [-gnatwf]
+gnat-sockets-connection_state_machine.adb:585:17: warning: formal parameter "Client" is not referenced [-gnatwf]
+gnat-sockets-connection_state_machine.adb:619:17: warning: formal parameter "Pointer" is not referenced [-gnatwf]
+gnat-sockets-connection_state_machine.adb:620:17: warning: formal parameter "Client" is not referenced [-gnatwf]
+gnat-sockets-connection_state_machine.adb:727:07: warning: variable "Length" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine.adb:841:17: warning: formal parameter "Item" is read but never assigned [-gnatwv]
+gnat-sockets-connection_state_machine.ads:203:60: warning: applying 'Class to an untagged incomplete type is an obsolescent feature (RM J.11) [-gnatwr]
+gnat-sockets-connection_state_machine.ads:413:40: warning: applying 'Class to an untagged incomplete type is an obsolescent feature (RM J.11) [-gnatwr]
+   [Ada]          gnat-sockets-connection_state_machine-big_endian-ieee_754_long_floats.ads
+   [Ada]          gnat-sockets-connection_state_machine-big_endian.ads
+   [Ada]          gnat-sockets-connection_state_machine-asn1-unsigneds_64.ads
+   [Ada]          gnat-sockets-connection_state_machine-asn1-dates.adb
+   [Ada]          gnat-sockets-connection_state_machine-asn1-integers_16.ads
+   [Ada]          gnat-sockets-connection_state_machine-chain_code-generic_unsigned.adb
+gnat-sockets-connection_state_machine-chain_code-generic_unsigned.adb:37:17: warning: formal parameter "Client" is not referenced [-gnatwf]
+   [Ada]          gnat-sockets-connection_state_machine-asn1-distinguished_names.adb
+gnat-sockets-connection_state_machine-asn1-dates.adb:660:07: warning: use clause for package "Time_Zones" has no effect [-gnatwu]
+gnat-sockets-connection_state_machine-asn1-dates.adb:762:07: warning: variable "Minute" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-asn1-dates.adb:938:07: warning: use clause for package "Time_Zones" has no effect [-gnatwu]
+gnat-sockets-connection_state_machine-asn1-dates.adb:991:07: warning: use clause for package "Time_Zones" has no effect [-gnatwu]
+gnat-sockets-connection_state_machine-asn1-dates.adb:1685:14: warning: procedure "Divide" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-asn1-dates.ads:28:18: warning: unit "Ada.Calendar.Time_Zones" is not referenced in spec [-gnatwu]
+gnat-sockets-connection_state_machine-asn1-dates.ads:28:18: warning: with clause might be moved to body [-gnatwu]
+   [Ada]          gnat-sockets-connection_state_machine-asn1-tagged_values.adb
+gnat-sockets-connection_state_machine-asn1-tagged_values.adb:32:18: warning: no entities of "Strings_Edit.Integers" are referenced [-gnatwu]
+gnat-sockets-connection_state_machine-asn1-tagged_values.adb:37:09: warning: unit "Ada.Unchecked_Conversion" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-asn1-tagged_values.adb:42:04: warning: constant "Invalid_EOC" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-asn1-tagged_values.adb:44:04: warning: constant "Invalid_Length" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-asn1-tagged_values.adb:45:04: warning: constant "Wrong_Class" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-asn1-tagged_values.adb:46:04: warning: constant "Type_Error" is not referenced [-gnatwu]
+   [Ada]          gnat-sockets-connection_state_machine-asn1-sets-generic_set_of.adb
+gnat-sockets-connection_state_machine-asn1-distinguished_names.adb:55:16: warning: constant "Name" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-asn1-distinguished_names.adb:84:16: warning: constant "Name" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-asn1-distinguished_names.adb:113:16: warning: constant "Name" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-asn1-distinguished_names.adb:142:16: warning: constant "Name" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-asn1-distinguished_names.adb:169:12: warning: variable "Error" is not referenced [-gnatwu]
+   [Ada]          gnat-sockets-connection_state_machine-expected_sequence.adb
+   [Ada]          gnat-sockets-connection_state_machine-chain_code-integers.ads
+gnat-sockets-connection_state_machine-expected_sequence.adb:37:17: warning: formal parameter "Client" is not referenced [-gnatwf]
+   [Ada]          gnat-sockets-connection_state_machine-big_endian-ieee_754_floats.ads
+   [Ada]          gnat-sockets-connection_state_machine-asn1.adb
+   [Ada]          gnat-sockets-connection_state_machine-asn1-floats.ads
+   [Ada]          gnat-sockets-connection_state_machine-asn1-strings-implicit.adb
+   [Ada]          gnat-sockets-connection_state_machine-variable_length_arrays.adb
+gnat-sockets-connection_state_machine-asn1-strings-implicit.adb:31:18: warning: no entities of "Strings_Edit.Integers" are referenced [-gnatwu]
+gnat-sockets-connection_state_machine-asn1-strings-implicit.adb:32:23: warning: no entities of "Strings_Edit.UTF8.Handling" are referenced [-gnatwu]
+gnat-sockets-connection_state_machine-asn1-strings-implicit.adb:34:48: warning: no entities of "GNAT.Sockets.Connection_State_Machine.ASN1.Lengths" are referenced [-gnatwu]
+gnat-sockets-connection_state_machine-asn1-strings-implicit.adb:37:09: warning: unit "Ada.Unchecked_Conversion" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-asn1-strings-implicit.adb:38:23: warning: unit "Strings_Edit.UTF8.ITU_T61" is not referenced [-gnatwu]
+   [Ada]          gnat-sockets-connection_state_machine-big_endian-generic_double_precision_ieee_754.adb
+gnat-sockets-connection_state_machine-variable_length_arrays.adb:38:17: warning: formal parameter "Client" is not referenced [-gnatwf]
+   [Ada]          gnat-sockets-connection_state_machine-asn1-integers.ads
+gnat-sockets-connection_state_machine-big_endian-generic_double_precision_ieee_754.adb:39:17: warning: formal parameter "Client" is not referenced [-gnatwf]
+   [Ada]          gnat-sockets-server-blocking.adb
+   [Ada]          gnat-sockets-connection_state_machine-asn1-indefinite_unsigneds.adb
+gnat-sockets-server-blocking.adb:186:17: warning: formal parameter "Client" is not referenced [-gnatwf]
+gnat-sockets-server-blocking.adb:256:17: warning: formal parameter "Client" is not referenced [-gnatwf]
+   [Ada]          gnat-sockets-connection_state_machine-asn1-bit_strings-implicit.adb
+gnat-sockets-connection_state_machine-asn1-indefinite_unsigneds.adb:189:17: warning: formal parameter "Client" is not referenced [-gnatwf]
+   [Ada]          gnat-sockets-connection_state_machine-asn1-sets-implicit.adb
+gnat-sockets-connection_state_machine-asn1-bit_strings-implicit.adb:174:14: warning: procedure "Explicit_Put" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-asn1-bit_strings-implicit.ads:254:17: warning: formal parameter "Client" is not referenced [-gnatwf]
+   [Ada]          gnat-sockets-connection_state_machine-asn1-integers_32.ads
+gnat-sockets-connection_state_machine-asn1-sets-implicit.adb:31:18: warning: no entities of "Strings_Edit.Integers" are referenced [-gnatwu]
+gnat-sockets-connection_state_machine-asn1-sets-implicit.adb:187:17: warning: formal parameter "Client" is not referenced [-gnatwf]
+gnat-sockets-connection_state_machine-asn1-sets-implicit.adb:324:10: warning: variable "Count" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-asn1-sets-implicit.adb:807:13: warning: function "Get" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-asn1-sets-implicit.adb:941:13: warning: function "Get_Size" is not referenced [-gnatwu]
+   [Ada]          gnat-sockets-connection_state_machine-chain_code.ads
+   [Ada]          gnat-sockets-connection_state_machine-little_endian-integers.adb
+   [Ada]          gnat-sockets-connection_state_machine-chain_code-naturals.ads
+gnat-sockets-connection_state_machine-little_endian-integers.adb:28:09: warning: no entities of "Ada.Exceptions" are referenced [-gnatwu]
+gnat-sockets-connection_state_machine-little_endian-integers.adb:29:09: warning: no entities of "Ada.IO_Exceptions" are referenced [-gnatwu]
+   [Ada]          gnat-sockets-connection_state_machine-terminated_strings.adb
+   [Ada]          gnat-sockets-connection_state_machine-big_endian-generic_single_precision_ieee_754.adb
+gnat-sockets-connection_state_machine-terminated_strings.adb:43:17: warning: formal parameter "Client" is not referenced [-gnatwf]
+gnat-sockets-connection_state_machine-terminated_strings.adb:77:17: warning: formal parameter "Client" is not referenced [-gnatwf]
+   [Ada]          gnat-sockets-connection_state_machine-asn1-long_floats.ads
+gnat-sockets-connection_state_machine-big_endian-generic_single_precision_ieee_754.adb:39:17: warning: formal parameter "Client" is not referenced [-gnatwf]
+   [Ada]          gnat-sockets-connection_state_machine-asn1-x509_certificates.adb
+   [Ada]          gnat-sockets-connection_state_machine-asn1-sequences-implicit.adb
+In file included from /Users/runner/.local/share/alire/builds/simple_components_4.68.0_da9b0f3a/51daa0112412a77162cdd64b4e30b9d9c063e453a7bd7766c0b3e76c92091743/sqlite-sources/sqlite3.c:13472:
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:83:8: error: unknown type name 'FILE'
+   83 | extern FILE *__stdinp;
+      |        ^~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:81:1: note: 'FILE' is defined in header '<stdio.h>'; this is probably fixable by adding '#include <stdio.h>'
+   80 | #include <sys/_types/_seek_set.h>
+  +++ |+#include <stdio.h>
+   81 | 
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:84:8: error: unknown type name 'FILE'
+   84 | extern FILE *__stdoutp;
+      |        ^~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:84:8: note: 'FILE' is defined in header '<stdio.h>'; this is probably fixable by adding '#include <stdio.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:85:8: error: unknown type name 'FILE'
+   85 | extern FILE *__stderrp;
+      |        ^~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:85:8: note: 'FILE' is defined in header '<stdio.h>'; this is probably fixable by adding '#include <stdio.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:148:19: error: unknown type name 'FILE'
+  148 | void     clearerr(FILE *);
+      |                   ^~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:148:19: note: 'FILE' is defined in header '<stdio.h>'; this is probably fixable by adding '#include <stdio.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:149:17: error: unknown type name 'FILE'
+  149 | int      fclose(FILE *);
+      |                 ^~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:149:17: note: 'FILE' is defined in header '<stdio.h>'; this is probably fixable by adding '#include <stdio.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:150:15: error: unknown type name 'FILE'
+  150 | int      feof(FILE *);
+      |               ^~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:150:15: note: 'FILE' is defined in header '<stdio.h>'; this is probably fixable by adding '#include <stdio.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:151:17: error: unknown type name 'FILE'
+  151 | int      ferror(FILE *);
+      |                 ^~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:151:17: note: 'FILE' is defined in header '<stdio.h>'; this is probably fixable by adding '#include <stdio.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:152:17: error: unknown type name 'FILE'
+  152 | int      fflush(FILE *);
+      |                 ^~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:152:17: note: 'FILE' is defined in header '<stdio.h>'; this is probably fixable by adding '#include <stdio.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:153:16: error: unknown type name 'FILE'
+  153 | int      fgetc(FILE *);
+      |                ^~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:153:16: note: 'FILE' is defined in header '<stdio.h>'; this is probably fixable by adding '#include <stdio.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:154:18: error: unknown type name 'FILE'
+  154 | int      fgetpos(FILE * __restrict, fpos_t *);
+      |                  ^~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:154:18: note: 'FILE' is defined in header '<stdio.h>'; this is probably fixable by adding '#include <stdio.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:154:37: error: unknown type name 'fpos_t'
+  154 | int      fgetpos(FILE * __restrict, fpos_t *);
+      |                                     ^~~~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:154:37: note: 'fpos_t' is defined in header '<stdio.h>'; this is probably fixable by adding '#include <stdio.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:155:40: error: unknown type name 'FILE'
+  155 | char    *fgets(char * __restrict, int, FILE *);
+      |                                        ^~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:155:40: note: 'FILE' is defined in header '<stdio.h>'; this is probably fixable by adding '#include <stdio.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:159:1: error: unknown type name 'FILE'
+  159 | FILE    *fopen(const char * __restrict __filename, const char * __restrict __mode) __DARWIN_ALIAS_STARTING(__MAC_10_6, __IPHONE_2_0, __DARWIN_ALIAS(fopen));
+      | ^~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:159:1: note: 'FILE' is defined in header '<stdio.h>'; this is probably fixable by adding '#include <stdio.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:161:18: error: unknown type name 'FILE'
+  161 | int      fprintf(FILE * __restrict, const char * __restrict, ...) __printflike(2, 3);
+      |                  ^~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:161:18: note: 'FILE' is defined in header '<stdio.h>'; this is probably fixable by adding '#include <stdio.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:162:21: error: unknown type name 'FILE'
+  162 | int      fputc(int, FILE *);
+      |                     ^~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:162:21: note: 'FILE' is defined in header '<stdio.h>'; this is probably fixable by adding '#include <stdio.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:163:41: error: unknown type name 'FILE'
+  163 | int      fputs(const char * __restrict, FILE * __restrict) __DARWIN_ALIAS(fputs);
+      |                                         ^~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:163:41: note: 'FILE' is defined in header '<stdio.h>'; this is probably fixable by adding '#include <stdio.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:164:1: error: unknown type name 'size_t'
+  164 | size_t   fread(void * __restrict __ptr, size_t __size, size_t __nitems, FILE * __restrict __stream);
+      | ^~~~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:81:1: note: 'size_t' is defined in header '<stddef.h>'; this is probably fixable by adding '#include <stddef.h>'
+   80 | #include <sys/_types/_seek_set.h>
+  +++ |+#include <stddef.h>
+   81 | 
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:164:41: error: unknown type name 'size_t'
+  164 | size_t   fread(void * __restrict __ptr, size_t __size, size_t __nitems, FILE * __restrict __stream);
+      |                                         ^~~~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:164:41: note: 'size_t' is defined in header '<stddef.h>'; this is probably fixable by adding '#include <stddef.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:164:56: error: unknown type name 'size_t'
+  164 | size_t   fread(void * __restrict __ptr, size_t __size, size_t __nitems, FILE * __restrict __stream);
+      |                                                        ^~~~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:164:56: note: 'size_t' is defined in header '<stddef.h>'; this is probably fixable by adding '#include <stddef.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:164:73: error: unknown type name 'FILE'
+  164 | size_t   fread(void * __restrict __ptr, size_t __size, size_t __nitems, FILE * __restrict __stream);
+      |                                                                         ^~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:164:73: note: 'FILE' is defined in header '<stdio.h>'; this is probably fixable by adding '#include <stdio.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:165:1: error: unknown type name 'FILE'
+  165 | FILE    *freopen(const char * __restrict, const char * __restrict,
+      | ^~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:165:1: note: 'FILE' is defined in header '<stdio.h>'; this is probably fixable by adding '#include <stdio.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:166:18: error: unknown type name 'FILE'
+  166 |                  FILE * __restrict) __DARWIN_ALIAS(freopen);
+      |                  ^~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:166:18: note: 'FILE' is defined in header '<stdio.h>'; this is probably fixable by adding '#include <stdio.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:167:17: error: unknown type name 'FILE'
+  167 | int      fscanf(FILE * __restrict, const char * __restrict, ...) __scanflike(2, 3);
+      |                 ^~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:167:17: note: 'FILE' is defined in header '<stdio.h>'; this is probably fixable by adding '#include <stdio.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:168:16: error: unknown type name 'FILE'
+  168 | int      fseek(FILE *, long, int);
+      |                ^~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:168:16: note: 'FILE' is defined in header '<stdio.h>'; this is probably fixable by adding '#include <stdio.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:169:18: error: unknown type name 'FILE'
+  169 | int      fsetpos(FILE *, const fpos_t *);
+      |                  ^~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:169:18: note: 'FILE' is defined in header '<stdio.h>'; this is probably fixable by adding '#include <stdio.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:169:32: error: unknown type name 'fpos_t'
+  169 | int      fsetpos(FILE *, const fpos_t *);
+      |                                ^~~~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:169:32: note: 'fpos_t' is defined in header '<stdio.h>'; this is probably fixable by adding '#include <stdio.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:170:16: error: unknown type name 'FILE'
+  170 | long     ftell(FILE *);
+      |                ^~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:170:16: note: 'FILE' is defined in header '<stdio.h>'; this is probably fixable by adding '#include <stdio.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:171:1: error: unknown type name 'size_t'
+  171 | size_t   fwrite(const void * __restrict __ptr, size_t __size, size_t __nitems, FILE * __restrict __stream) __DARWIN_ALIAS(fwrite);
+      | ^~~~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:171:1: note: 'size_t' is defined in header '<stddef.h>'; this is probably fixable by adding '#include <stddef.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:171:48: error: unknown type name 'size_t'
+  171 | size_t   fwrite(const void * __restrict __ptr, size_t __size, size_t __nitems, FILE * __restrict __stream) __DARWIN_ALIAS(fwrite);
+      |                                                ^~~~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:171:48: note: 'size_t' is defined in header '<stddef.h>'; this is probably fixable by adding '#include <stddef.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:171:63: error: unknown type name 'size_t'
+  171 | size_t   fwrite(const void * __restrict __ptr, size_t __size, size_t __nitems, FILE * __restrict __stream) __DARWIN_ALIAS(fwrite);
+      |                                                               ^~~~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:171:63: note: 'size_t' is defined in header '<stddef.h>'; this is probably fixable by adding '#include <stddef.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:171:80: error: unknown type name 'FILE'
+  171 | size_t   fwrite(const void * __restrict __ptr, size_t __size, size_t __nitems, FILE * __restrict __stream) __DARWIN_ALIAS(fwrite);
+      |                                                                                ^~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:171:80: note: 'FILE' is defined in header '<stdio.h>'; this is probably fixable by adding '#include <stdio.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:172:15: error: unknown type name 'FILE'
+  172 | int      getc(FILE *);
+      |               ^~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:172:15: note: 'FILE' is defined in header '<stdio.h>'; this is probably fixable by adding '#include <stdio.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:184:20: error: unknown type name 'FILE'
+  184 | int      putc(int, FILE *);
+      |                    ^~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:184:20: note: 'FILE' is defined in header '<stdio.h>'; this is probably fixable by adding '#include <stdio.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:189:17: error: unknown type name 'FILE'
+  189 | void     rewind(FILE *);
+      |                 ^~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:189:17: note: 'FILE' is defined in header '<stdio.h>'; this is probably fixable by adding '#include <stdio.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:191:17: error: unknown type name 'FILE'
+  191 | void     setbuf(FILE * __restrict, char * __restrict);
+      |                 ^~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:191:17: note: 'FILE' is defined in header '<stdio.h>'; this is probably fixable by adding '#include <stdio.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:192:18: error: unknown type name 'FILE'
+  192 | int      setvbuf(FILE * __restrict, char * __restrict, int, size_t);
+      |                  ^~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:192:18: note: 'FILE' is defined in header '<stdio.h>'; this is probably fixable by adding '#include <stdio.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:192:61: error: unknown type name 'size_t'
+  192 | int      setvbuf(FILE * __restrict, char * __restrict, int, size_t);
+      |                                                             ^~~~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:192:61: note: 'size_t' is defined in header '<stddef.h>'; this is probably fixable by adding '#include <stddef.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:203:1: error: unknown type name 'FILE'
+  203 | FILE    *tmpfile(void);
+      | ^~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:203:1: note: 'FILE' is defined in header '<stdio.h>'; this is probably fixable by adding '#include <stdio.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:213:22: error: unknown type name 'FILE'
+  213 | int      ungetc(int, FILE *);
+      |                      ^~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:213:22: note: 'FILE' is defined in header '<stdio.h>'; this is probably fixable by adding '#include <stdio.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:214:19: error: unknown type name 'FILE'
+  214 | int      vfprintf(FILE * __restrict, const char * __restrict, __gnuc_va_list) __printflike(2, 0);
+      |                   ^~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:214:19: note: 'FILE' is defined in header '<stdio.h>'; this is probably fixable by adding '#include <stdio.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:242:1: error: unknown type name 'FILE'
+  242 | FILE    *fdopen(int, const char *) __DARWIN_ALIAS_STARTING(__MAC_10_6, __IPHONE_2_0, __DARWIN_ALIAS(fdopen));
+      | ^~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:242:1: note: 'FILE' is defined in header '<stdio.h>'; this is probably fixable by adding '#include <stdio.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:244:17: error: unknown type name 'FILE'
+  244 | int      fileno(FILE *);
+      |                 ^~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:244:17: note: 'FILE' is defined in header '<stdio.h>'; this is probably fixable by adding '#include <stdio.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:255:17: error: unknown type name 'FILE'
+  255 | int      pclose(FILE *) __swift_unavailable("Use posix_spawn APIs or NSTask instead. (On iOS, process spawning is unavailable.)");
+      |                 ^~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:255:17: note: 'FILE' is defined in header '<stdio.h>'; this is probably fixable by adding '#include <stdio.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:259:1: error: unknown type name 'FILE'
+  259 | FILE    *popen(const char *, const char *) __DARWIN_ALIAS_STARTING(__MAC_10_6, __IPHONE_2_0, __DARWIN_ALIAS(popen)) __swift_unavailable("Use posix_spawn APIs or NSTask instead. (On iOS, process spawning is unavailable.)");
+      | ^~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:259:1: note: 'FILE' is defined in header '<stdio.h>'; this is probably fixable by adding '#include <stdio.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:274:17: error: unknown type name 'FILE'
+  274 | int     __srget(FILE *);
+      |                 ^~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:274:17: note: 'FILE' is defined in header '<stdio.h>'; this is probably fixable by adding '#include <stdio.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:275:20: error: unknown type name 'FILE'
+  275 | int     __svfscanf(FILE *, const char *, __gnuc_va_list) __scanflike(2, 0);
+      |                    ^~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:275:20: note: 'FILE' is defined in header '<stdio.h>'; this is probably fixable by adding '#include <stdio.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:276:22: error: unknown type name 'FILE'
+  276 | int     __swbuf(int, FILE *);
+      |                      ^~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:276:22: note: 'FILE' is defined in header '<stdio.h>'; this is probably fixable by adding '#include <stdio.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:285:44: error: unknown type name 'FILE'
+  285 | __header_always_inline int __sputc(int _c, FILE *_p) {
+      |                                            ^~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:285:44: note: 'FILE' is defined in header '<stdio.h>'; this is probably fixable by adding '#include <stdio.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:311:20: error: unknown type name 'FILE'
+  311 | void     flockfile(FILE *);
+      |                    ^~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:311:20: note: 'FILE' is defined in header '<stdio.h>'; this is probably fixable by adding '#include <stdio.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:312:23: error: unknown type name 'FILE'
+  312 | int      ftrylockfile(FILE *);
+      |                       ^~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:312:23: note: 'FILE' is defined in header '<stdio.h>'; this is probably fixable by adding '#include <stdio.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:313:22: error: unknown type name 'FILE'
+  313 | void     funlockfile(FILE *);
+      |                      ^~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:313:22: note: 'FILE' is defined in header '<stdio.h>'; this is probably fixable by adding '#include <stdio.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:314:24: error: unknown type name 'FILE'
+  314 | int      getc_unlocked(FILE *);
+      |                        ^~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:314:24: note: 'FILE' is defined in header '<stdio.h>'; this is probably fixable by adding '#include <stdio.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:316:29: error: unknown type name 'FILE'
+  316 | int      putc_unlocked(int, FILE *);
+      |                             ^~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:316:29: note: 'FILE' is defined in header '<stdio.h>'; this is probably fixable by adding '#include <stdio.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:321:15: error: unknown type name 'FILE'
+  321 | int      getw(FILE *);
+      |               ^~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:321:15: note: 'FILE' is defined in header '<stdio.h>'; this is probably fixable by adding '#include <stdio.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:322:20: error: unknown type name 'FILE'
+  322 | int      putw(int, FILE *);
+      |                    ^~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:322:20: note: 'FILE' is defined in header '<stdio.h>'; this is probably fixable by adding '#include <stdio.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:354:17: error: unknown type name 'FILE'
+  354 | int      fseeko(FILE * __stream, off_t __offset, int __whence);
+      |                 ^~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:354:17: note: 'FILE' is defined in header '<stdio.h>'; this is probably fixable by adding '#include <stdio.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:355:17: error: unknown type name 'FILE'
+  355 | off_t    ftello(FILE * __stream);
+      |                 ^~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:355:17: note: 'FILE' is defined in header '<stdio.h>'; this is probably fixable by adding '#include <stdio.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:361:44: error: unknown type name 'size_t'
+  361 | int      snprintf(char * __restrict __str, size_t __size, const char * __restrict __format, ...) __printflike(3, 4);
+      |                                            ^~~~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:361:44: note: 'size_t' is defined in header '<stddef.h>'; this is probably fixable by adding '#include <stddef.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:362:18: error: unknown type name 'FILE'
+  362 | int      vfscanf(FILE * __restrict __stream, const char * __restrict __format, __gnuc_va_list) __scanflike(2, 0);
+      |                  ^~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:362:18: note: 'FILE' is defined in header '<stdio.h>'; this is probably fixable by adding '#include <stdio.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:364:45: error: unknown type name 'size_t'
+  364 | int      vsnprintf(char * __restrict __str, size_t __size, const char * __restrict __format, __gnuc_va_list) __printflike(3, 0);
+      |                                             ^~~~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:364:45: note: 'size_t' is defined in header '<stddef.h>'; this is probably fixable by adding '#include <stddef.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:379:71: error: expected ',' or ';' before '__OSX_AVAILABLE_STARTING'
+  379 | int     dprintf(int, const char * __restrict, ...) __printflike(2, 3) __OSX_AVAILABLE_STARTING(__MAC_10_7, __IPHONE_4_3);
+      |                                                                       ^~~~~~~~~~~~~~~~~~~~~~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:380:83: error: expected ',' or ';' before '__OSX_AVAILABLE_STARTING'
+  380 | int     vdprintf(int, const char * __restrict, __gnuc_va_list) __printflike(2, 0) __OSX_AVAILABLE_STARTING(__MAC_10_7, __IPHONE_4_3);
+      |                                                                                   ^~~~~~~~~~~~~~~~~~~~~~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:381:46: error: unknown type name 'size_t'
+  381 | ssize_t getdelim(char ** __restrict __linep, size_t * __restrict __linecapp, int __delimiter, FILE * __restrict __stream) __OSX_AVAILABLE_STARTING(__MAC_10_7, __IPHONE_4_3);
+      |                                              ^~~~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:381:46: note: 'size_t' is defined in header '<stddef.h>'; this is probably fixable by adding '#include <stddef.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:381:95: error: unknown type name 'FILE'
+  381 | ssize_t getdelim(char ** __restrict __linep, size_t * __restrict __linecapp, int __delimiter, FILE * __restrict __stream) __OSX_AVAILABLE_STARTING(__MAC_10_7, __IPHONE_4_3);
+      |                                                                                               ^~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:381:95: note: 'FILE' is defined in header '<stdio.h>'; this is probably fixable by adding '#include <stdio.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:382:45: error: unknown type name 'size_t'
+  382 | ssize_t getline(char ** __restrict __linep, size_t * __restrict __linecapp, FILE * __restrict __stream) __OSX_AVAILABLE_STARTING(__MAC_10_7, __IPHONE_4_3);
+      |                                             ^~~~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:382:45: note: 'size_t' is defined in header '<stddef.h>'; this is probably fixable by adding '#include <stddef.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:382:77: error: unknown type name 'FILE'
+  382 | ssize_t getline(char ** __restrict __linep, size_t * __restrict __linecapp, FILE * __restrict __stream) __OSX_AVAILABLE_STARTING(__MAC_10_7, __IPHONE_4_3);
+      |                                                                             ^~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:382:77: note: 'FILE' is defined in header '<stdio.h>'; this is probably fixable by adding '#include <stdio.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:383:1: error: unknown type name 'FILE'
+  383 | FILE *fmemopen(void * __restrict __buf, size_t __size, const char * __restrict __mode) __API_AVAILABLE(macos(10.13), ios(11.0), tvos(11.0), watchos(4.0));
+      | ^~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:383:1: note: 'FILE' is defined in header '<stdio.h>'; this is probably fixable by adding '#include <stdio.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:383:41: error: unknown type name 'size_t'
+  383 | FILE *fmemopen(void * __restrict __buf, size_t __size, const char * __restrict __mode) __API_AVAILABLE(macos(10.13), ios(11.0), tvos(11.0), watchos(4.0));
+      |                                         ^~~~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:383:41: note: 'size_t' is defined in header '<stddef.h>'; this is probably fixable by adding '#include <stddef.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:384:1: error: unknown type name 'FILE'
+  384 | FILE *open_memstream(char **__bufp, size_t *__sizep) __API_AVAILABLE(macos(10.13), ios(11.0), tvos(11.0), watchos(4.0));
+      | ^~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:384:1: note: 'FILE' is defined in header '<stdio.h>'; this is probably fixable by adding '#include <stdio.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:384:37: error: unknown type name 'size_t'
+  384 | FILE *open_memstream(char **__bufp, size_t *__sizep) __API_AVAILABLE(macos(10.13), ios(11.0), tvos(11.0), watchos(4.0));
+      |                                     ^~~~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:384:37: note: 'size_t' is defined in header '<stddef.h>'; this is probably fixable by adding '#include <stddef.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:399:17: error: unknown type name 'FILE'
+  399 | char    *fgetln(FILE *, size_t *);
+      |                 ^~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:399:17: note: 'FILE' is defined in header '<stdio.h>'; this is probably fixable by adding '#include <stdio.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:399:25: error: unknown type name 'size_t'
+  399 | char    *fgetln(FILE *, size_t *);
+      |                         ^~~~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:399:25: note: 'size_t' is defined in header '<stddef.h>'; this is probably fixable by adding '#include <stddef.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:401:17: error: unknown type name 'FILE'
+  401 | int      fpurge(FILE *);
+      |                 ^~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:401:17: note: 'FILE' is defined in header '<stdio.h>'; this is probably fixable by adding '#include <stdio.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:402:20: error: unknown type name 'FILE'
+  402 | void     setbuffer(FILE *, char *, int);
+      |                    ^~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:402:20: note: 'FILE' is defined in header '<stdio.h>'; this is probably fixable by adding '#include <stdio.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:403:21: error: unknown type name 'FILE'
+  403 | int      setlinebuf(FILE *);
+      |                     ^~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:403:21: note: 'FILE' is defined in header '<stdio.h>'; this is probably fixable by adding '#include <stdio.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:410:1: error: unknown type name 'FILE'
+  410 | FILE    *funopen(const void *,
+      | ^~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:410:1: note: 'FILE' is defined in header '<stdio.h>'; this is probably fixable by adding '#include <stdio.h>'
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:413:18: error: unknown type name 'fpos_t'
+  413 |                  fpos_t (* _Nullable)(void *, fpos_t, int),
+      |                  ^~~~~~
+/Users/runner/.local/share/alire/toolchains/gnat_native_14.2.1_cc5517d6/lib/gcc/aarch64-apple-darwin23.6.0/14.2.0/include-fixed/stdio.h:413:18: note: 'fpos_t' is defined in header '<stdio.h>'; this is probably fixable by adding '#include <stdio.h>'
+/Users/runner/.local/share/alire/builds/simple_components_4.68.0_da9b0f3a/51daa0112412a77162cdd64b4e30b9d9c063e453a7bd7766c0b3e76c92091743/sqlite-sources/sqlite3.c: In function 'proxyBreakConchLock':
+/Users/runner/.local/share/alire/builds/simple_components_4.68.0_da9b0f3a/51daa0112412a77162cdd64b4e30b9d9c063e453a7bd7766c0b3e76c92091743/sqlite-sources/sqlite3.c:39103:3: error: implicit declaration of function 'fprintf' [-Wimplicit-function-declaration]
+39103 |   fprintf(stderr, "broke stale lock on %s\n", cPath);
+      |   ^~~~~~~
+/Users/runner/.local/share/alire/builds/simple_components_4.68.0_da9b0f3a/51daa0112412a77162cdd64b4e30b9d9c063e453a7bd7766c0b3e76c92091743/sqlite-sources/sqlite3.c:38459:1: note: include '<stdio.h>' or provide a declaration of 'fprintf'
+38458 | #include <dlfcn.h>
+  +++ |+#include <stdio.h>
+38459 | static void *unixDlOpen(sqlite3_vfs *NotUsed, const char *zFilename){
+/Users/runner/.local/share/alire/builds/simple_components_4.68.0_da9b0f3a/51daa0112412a77162cdd64b4e30b9d9c063e453a7bd7766c0b3e76c92091743/sqlite-sources/sqlite3.c:39103:3: warning: incompatible implicit declaration of built-in function 'fprintf' [-Wbuiltin-declaration-mismatch]
+39103 |   fprintf(stderr, "broke stale lock on %s\n", cPath);
+      |   ^~~~~~~
+/Users/runner/.local/share/alire/builds/simple_components_4.68.0_da9b0f3a/51daa0112412a77162cdd64b4e30b9d9c063e453a7bd7766c0b3e76c92091743/sqlite-sources/sqlite3.c:39103:3: note: include '<stdio.h>' or provide a declaration of 'fprintf'
+/Users/runner/.local/share/alire/builds/simple_components_4.68.0_da9b0f3a/51daa0112412a77162cdd64b4e30b9d9c063e453a7bd7766c0b3e76c92091743/sqlite-sources/sqlite3.c: In function 'sqlite3DefaultRowEst':
+/Users/runner/.local/share/alire/builds/simple_components_4.68.0_da9b0f3a/51daa0112412a77162cdd64b4e30b9d9c063e453a7bd7766c0b3e76c92091743/sqlite-sources/sqlite3.c:109169:3: warning: this 'if' clause does not guard... [-Wmisleading-indentation]
+109169 |   if( pIdx->pPartIdxWhere!=0 ) a[0] -= 10;  assert( 10==sqlite3LogEst(2) );
+       |   ^~
+In file included from /Users/runner/.local/share/alire/builds/simple_components_4.68.0_da9b0f3a/51daa0112412a77162cdd64b4e30b9d9c063e453a7bd7766c0b3e76c92091743/sqlite-sources/sqlite3.c:13475:
+/Users/runner/.local/share/alire/builds/simple_components_4.68.0_da9b0f3a/51daa0112412a77162cdd64b4e30b9d9c063e453a7bd7766c0b3e76c92091743/sqlite-sources/sqlite3.c:109169:45: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'if'
+109169 |   if( pIdx->pPartIdxWhere!=0 ) a[0] -= 10;  assert( 10==sqlite3LogEst(2) );
+       |                                             ^~~~~~
+/Users/runner/.local/share/alire/builds/simple_components_4.68.0_da9b0f3a/51daa0112412a77162cdd64b4e30b9d9c063e453a7bd7766c0b3e76c92091743/sqlite-sources/sqlite3.c:109170:3: warning: this 'if' clause does not guard... [-Wmisleading-indentation]
+109170 |   if( a[0]<33 ) a[0] = 33;                  assert( 33==sqlite3LogEst(10) );
+       |   ^~
+/Users/runner/.local/share/alire/builds/simple_components_4.68.0_da9b0f3a/51daa0112412a77162cdd64b4e30b9d9c063e453a7bd7766c0b3e76c92091743/sqlite-sources/sqlite3.c:109170:45: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'if'
+109170 |   if( a[0]<33 ) a[0] = 33;                  assert( 33==sqlite3LogEst(10) );
+       |                                             ^~~~~~
+gnat-sockets-connection_state_machine-asn1-sequences-implicit.adb:36:09: warning: unit "Ada.Unchecked_Conversion" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-asn1-sequences-implicit.adb:260:17: warning: formal parameter "Client" is not referenced [-gnatwf]
+gnat-sockets-connection_state_machine-asn1-sequences-implicit.ads:30:48: warning: no entities of "GNAT.Sockets.Connection_State_Machine.ASN1.Tagged_Values" are referenced [-gnatwu]
+gnat-sockets-connection_state_machine-asn1-x509_certificates.adb:28:09: warning: no entities of "Ada.Exceptions" are referenced [-gnatwu]
+gnat-sockets-connection_state_machine-asn1-x509_certificates.adb:29:09: warning: no entities of "Ada.IO_Exceptions" are referenced [-gnatwu]
+gnat-sockets-connection_state_machine-asn1-x509_certificates.adb:30:09: warning: no entities of "Ada.Tags" are referenced [-gnatwu]
+gnat-sockets-connection_state_machine-asn1-x509_certificates.adb:32:48: warning: no entities of "GNAT.Sockets.Connection_State_Machine.ASN1.Tagged_Values" are referenced [-gnatwu]
+gnat-sockets-connection_state_machine-asn1-x509_certificates.adb:37:04: warning: use clause for package "Choices" has no effect [-gnatwu]
+gnat-sockets-connection_state_machine-asn1-x509_certificates.adb:38:04: warning: use clause for package "Dates" has no effect [-gnatwu]
+gnat-sockets-connection_state_machine-asn1-x509_certificates.adb:39:04: warning: use clause for package "Sequences" has no effect [-gnatwu]
+gnat-sockets-connection_state_machine-asn1-x509_certificates.adb:40:04: warning: use clause for package "Strings" has no effect [-gnatwu]
+gnat-sockets-connection_state_machine-asn1-x509_certificates.ads:40:65: warning: no entities of "GNAT.Sockets.Connection_State_Machine.ASN1.Strings.Explicit.Constrained" are referenced [-gnatwu]
+gnat-sockets-connection_state_machine-asn1-x509_certificates.ads:54:04: warning: use clause for package "Constrained" has no effect [-gnatwu]
+
+   compilation of sqlite3.c failed
+
+gprbuild: *** compilation phase failed
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/Users/runner/work/alire-crates-ci/alire-crates-ci/test/5f342fde-9b70-46ee-a78c-2fae827d0a4c/ada_gui_20240224.0.1_dc57a559/ada_gui.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/Users/runner/work/alire-crates-ci/alire-crates-ci/test/5f342fde-9b70-46ee-a78c-2fae827d0a4c/ada_gui_20240224.0.1_dc57a559/ada_gui.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+stderr: ALIRE.CHECKED_ERROR
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/Users/runner/work/alire-crates-ci/alire-crates-ci/test/5f342fde-9b70-46ee-a78c-2fae827d0a4c/ada_gui_20240224.0.1_dc57a559/ada_gui.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
+Load address: 0x102fd8000
+Call stack traceback locations:
+0x103ce40cc 0x103ce412c 0x103a3866c 0x10367d568 0x103902594 0x1039034f4 0x10384133c 0x10383fb08 0x10386378c 0x1038c356c 0x1038c299c 0x103863868 0x103863950 0x10384000c 0x103840174 0x103049730 0x103049070 0x1030491e4 0x1030e6b38 0x1030f1c78 0x102fda9f8 0x102fdfa2c
+
+stderr: ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED
+stderr: alire-roots.adb:202
+stderr: raised ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED : alire-roots.adb:202
+Load address: 0x102fd8000
+Call stack traceback locations:
+0x103ce40cc 0x103ce412c 0x103841640 0x10383fb08 0x10386378c 0x1038c356c 0x1038c299c 0x103863868 0x103863950 0x10384000c 0x103840174 0x103049730 0x103049070 0x1030491e4 0x1030e6b38 0x1030f1c78 0x102fda9f8 0x102fdfa2c
+
+ERROR: Compilation failed.

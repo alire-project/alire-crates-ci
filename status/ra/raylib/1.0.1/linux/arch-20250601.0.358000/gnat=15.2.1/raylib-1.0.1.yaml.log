@@ -1,0 +1,388 @@
+Test ran at 2025-12-16 01:27:31.857142+00:00
+
+SOLUTION:
+raylib=1.0.1: Ada bindings for Raylib
+Origin: commit 0fd26c4b9cbcb89fcfb8b08476aaebf16738df48 from https://github.com/Fabien-Chouteau/raylib-ada.git
+Properties:
+   Author: Fabien Chouteau
+   Description: Ada bindings for Raylib
+   License: MIT OR Apache-2.0 WITH LLVM-exception
+   Long_Description: # Using raylib-ada
+
+This project is available in the [Alire package manager](https://alire.ada.dev).
+To use it, just add `raylib` in your dependencies:
+```console
+$ alr with raylib
+```
+
+And add the following linker switches for executable projects to link against
+Raylib and libmath:
+```
+   package Linker is
+      for Switches ("Ada") use ("-lraylib", "-lm");
+   end Linker;
+```
+
+# Raylib dependencies on Ubuntu/Debian
+
+When Raylib is available in the system distributions (Arch, Fedora, Msys2,
+Macports, Brew, etc.), Alire will install it for you so there's nothing to do
+here.
+
+For Ubuntu/Debian on the other hand, you have to download a Raylib release from
+GitHub (or build from source if you want).
+
+Alire will let you know with a message like this:
+```
+warn: The following external dependencies are unavailable within Alire:
+warn:    libraylib^5
+warn: They should be made available in the environment by the user.
+```
+
+Download the 5.0 release from this address:
+```
+$ wget https://github.com/raysan5/raylib/releases/download/5.0/raylib-5.0_linux_amd64.tar.gz
+```
+
+Extract it:
+```
+$ tar xf raylib-5.0_linux_amd64.tar.gz
+```
+
+Set the environment variables like so:
+```
+$ export C_INCLUDE_PATH=${PWD}/raylib-5.0_linux_amd64/include/:${C_INCLUDE_PATH}
+$ export LIBRARY_PATH=${PWD}/raylib-5.0_linux_amd64/lib/:${LIBRARY_PATH}
+```
+
+   Maintainer: Fabien Chouteau <fabien.chouteau@gmail.com>
+   Maintainers_Logins: Fabien-Chouteau
+   Name: raylib
+   Tag: raylib
+   Tag: gamedev
+   Tag: binding
+   Version: 1.0.1
+   Website: 
+Dependencies (direct):
+   gnat>=12 & <2000
+   libraylib^5
+Dependencies (solution):
+   gnat=15.2.1 (gnat_native)
+   libraylib=5.5.0
+Dependencies (graph):
+   raylib=1.0.1 --> gnat=15.2.1 (gnat_native) (>=12 & <2000)
+   raylib=1.0.1 --> libraylib=5.5.0 (^5)
+
+
+LOG:
+[alr test] Testing raylib=1.0.1
+[alr test] Spawning retrieval for remote crate: alr -d -n get raylib=1.0.1
+Note: Deploying raylib=1.0.1...
+Note: Deploying libraylib=5.5.0...
+The system package 'raylib-devel' is about to be installed.
+This action might require admin privileges and impact your system installation.
+Do you want Alire to install this system package?
+Using default: Yes
+Last metadata expiration check: 0:19:11 ago on Tue Dec 16 01:08:15 2025.
+Dependencies resolved.
+================================================================================
+ Package                    Arch      Version                  Repository  Size
+================================================================================
+Installing:
+ raylib-devel               x86_64    5.5-1.fc40               updates     91 k
+Installing dependencies:
+ cmake-filesystem           x86_64    3.30.8-1.fc40            updates     17 k
+ hwdata                     noarch    0.394-1.fc40             updates    1.6 M
+ libX11                     x86_64    1.8.10-2.fc40            updates    650 k
+ libX11-common              noarch    1.8.10-2.fc40            updates    176 k
+ libX11-devel               x86_64    1.8.10-2.fc40            updates    1.0 M
+ libX11-xcb                 x86_64    1.8.10-2.fc40            updates     12 k
+ libXau                     x86_64    1.0.11-6.fc40            fedora      32 k
+ libXau-devel               x86_64    1.0.11-6.fc40            fedora      14 k
+ libXcursor                 x86_64    1.2.1-7.fc40             fedora      30 k
+ libXcursor-devel           x86_64    1.2.1-7.fc40             fedora      40 k
+ libXext                    x86_64    1.3.6-1.fc40             fedora      39 k
+ libXext-devel              x86_64    1.3.6-1.fc40             fedora      86 k
+ libXfixes                  x86_64    6.0.1-3.fc40             fedora      19 k
+ libXfixes-devel            x86_64    6.0.1-3.fc40             fedora      13 k
+ libXi                      x86_64    1.8.2-1.fc40             updates     40 k
+ libXi-devel                x86_64    1.8.2-1.fc40             updates    116 k
+ libXinerama                x86_64    1.1.5-6.fc40             fedora      14 k
+ libXinerama-devel          x86_64    1.1.5-6.fc40             fedora      13 k
+ libXrandr                  x86_64    1.5.4-3.fc40             fedora      28 k
+ libXrandr-devel            x86_64    1.5.4-3.fc40             fedora      19 k
+ libXrender                 x86_64    0.9.11-6.fc40            fedora      27 k
+ libXrender-devel           x86_64    0.9.11-6.fc40            fedora      19 k
+ libXxf86vm                 x86_64    1.1.5-6.fc40             fedora      18 k
+ libdrm                     x86_64    2.4.123-1.fc40           updates    159 k
+ libdrm-devel               x86_64    2.4.123-1.fc40           updates    180 k
+ libffi-devel               x86_64    3.4.4-7.fc40             fedora      28 k
+ libglvnd                   x86_64    1:1.7.0-4.fc40           fedora     115 k
+ libglvnd-core-devel        x86_64    1:1.7.0-4.fc40           fedora      17 k
+ libglvnd-devel             x86_64    1:1.7.0-4.fc40           fedora     163 k
+ libglvnd-egl               x86_64    1:1.7.0-4.fc40           fedora      35 k
+ libglvnd-gles              x86_64    1:1.7.0-4.fc40           fedora      29 k
+ libglvnd-glx               x86_64    1:1.7.0-4.fc40           fedora     132 k
+ libglvnd-opengl            x86_64    1:1.7.0-4.fc40           fedora      38 k
+ libpciaccess               x86_64    0.16-12.fc40             fedora      26 k
+ libpciaccess-devel         x86_64    0.16-12.fc40             fedora      12 k
+ libwayland-client          x86_64    1.23.0-2.fc40            updates     33 k
+ libwayland-cursor          x86_64    1.23.0-2.fc40            updates     19 k
+ libwayland-egl             x86_64    1.23.0-2.fc40            updates     13 k
+ libwayland-server          x86_64    1.23.0-2.fc40            updates     41 k
+ libxcb                     x86_64    1.17.0-2.fc40            updates    240 k
+ libxcb-devel               x86_64    1.17.0-2.fc40            updates    1.4 M
+ libxkbcommon-devel         x86_64    1.6.0-2.fc40             fedora      66 k
+ libxml2-devel              x86_64    2.12.5-1.fc40            fedora     525 k
+ libxshmfence               x86_64    1.3.2-5.fc40             updates     13 k
+ llvm-libs                  x86_64    18.1.8-4.fc40            updates     28 M
+ lm_sensors-libs            x86_64    3.6.0-18.fc40            fedora      40 k
+ mesa-filesystem            x86_64    24.1.7-1.fc40            updates     21 k
+ mesa-libEGL                x86_64    24.1.7-1.fc40            updates    140 k
+ mesa-libGL                 x86_64    24.1.7-1.fc40            updates    176 k
+ mesa-libGL-devel           x86_64    24.1.7-1.fc40            updates     38 k
+ mesa-libgbm                x86_64    24.1.7-1.fc40            updates     48 k
+ mesa-libglapi              x86_64    24.1.7-1.fc40            updates     51 k
+ raylib                     x86_64    5.5-1.fc40               updates    682 k
+ wayland-devel              x86_64    1.23.0-2.fc40            updates    153 k
+ wayland-protocols-devel    noarch    1.44-1.fc40              updates    172 k
+ xorg-x11-proto-devel       noarch    2024.1-2.fc40            updates    300 k
+ xz-devel                   x86_64    1:5.4.6-3.fc40           fedora      67 k
+ zlib-ng-compat-devel       x86_64    2.1.6-2.fc40             fedora      36 k
+Installing weak dependencies:
+ gl-manpages                noarch    1.1-31.20190306.fc40     fedora     1.2 M
+ mesa-dri-drivers           x86_64    24.1.7-1.fc40            updates     26 M
+ mesa-va-drivers            x86_64    24.1.7-1.fc40            updates    4.0 M
+
+Transaction Summary
+================================================================================
+Install  62 Packages
+
+Total download size: 69 M
+Installed size: 290 M
+Downloading Packages:
+(1/62): libXau-devel-1.0.11-6.fc40.x86_64.rpm   174 kB/s |  14 kB     00:00    
+(2/62): libXau-1.0.11-6.fc40.x86_64.rpm         396 kB/s |  32 kB     00:00    
+(3/62): libXcursor-1.2.1-7.fc40.x86_64.rpm      2.4 MB/s |  30 kB     00:00    
+(4/62): libXcursor-devel-1.2.1-7.fc40.x86_64.rp 1.9 MB/s |  40 kB     00:00    
+(5/62): libXext-1.3.6-1.fc40.x86_64.rpm         2.0 MB/s |  39 kB     00:00    
+(6/62): libXfixes-6.0.1-3.fc40.x86_64.rpm       1.6 MB/s |  19 kB     00:00    
+(7/62): gl-manpages-1.1-31.20190306.fc40.noarch 9.1 MB/s | 1.2 MB     00:00    
+(8/62): libXext-devel-1.3.6-1.fc40.x86_64.rpm   2.8 MB/s |  86 kB     00:00    
+(9/62): libXinerama-1.1.5-6.fc40.x86_64.rpm     1.3 MB/s |  14 kB     00:00    
+(10/62): libXfixes-devel-6.0.1-3.fc40.x86_64.rp 643 kB/s |  13 kB     00:00    
+(11/62): libXinerama-devel-1.1.5-6.fc40.x86_64. 806 kB/s |  13 kB     00:00    
+(12/62): libXrandr-1.5.4-3.fc40.x86_64.rpm      2.2 MB/s |  28 kB     00:00    
+(13/62): libXrandr-devel-1.5.4-3.fc40.x86_64.rp 1.6 MB/s |  19 kB     00:00    
+(14/62): libXxf86vm-1.1.5-6.fc40.x86_64.rpm     1.4 MB/s |  18 kB     00:00    
+(15/62): libXrender-0.9.11-6.fc40.x86_64.rpm    1.3 MB/s |  27 kB     00:00    
+(16/62): libXrender-devel-0.9.11-6.fc40.x86_64. 872 kB/s |  19 kB     00:00    
+(17/62): libffi-devel-3.4.4-7.fc40.x86_64.rpm   1.7 MB/s |  28 kB     00:00    
+(18/62): libglvnd-core-devel-1.7.0-4.fc40.x86_6 809 kB/s |  17 kB     00:00    
+(19/62): libglvnd-1.7.0-4.fc40.x86_64.rpm       3.7 MB/s | 115 kB     00:00    
+(20/62): libglvnd-devel-1.7.0-4.fc40.x86_64.rpm 5.3 MB/s | 163 kB     00:00    
+(21/62): libglvnd-gles-1.7.0-4.fc40.x86_64.rpm  1.5 MB/s |  29 kB     00:00    
+(22/62): libglvnd-egl-1.7.0-4.fc40.x86_64.rpm   1.3 MB/s |  35 kB     00:00    
+(23/62): libglvnd-opengl-1.7.0-4.fc40.x86_64.rp 2.7 MB/s |  38 kB     00:00    
+(24/62): libglvnd-glx-1.7.0-4.fc40.x86_64.rpm   6.7 MB/s | 132 kB     00:00    
+(25/62): libpciaccess-0.16-12.fc40.x86_64.rpm   1.2 MB/s |  26 kB     00:00    
+(26/62): libpciaccess-devel-0.16-12.fc40.x86_64 794 kB/s |  12 kB     00:00    
+(27/62): libxkbcommon-devel-1.6.0-2.fc40.x86_64 3.0 MB/s |  66 kB     00:00    
+(28/62): lm_sensors-libs-3.6.0-18.fc40.x86_64.r 3.6 MB/s |  40 kB     00:00    
+(29/62): zlib-ng-compat-devel-2.1.6-2.fc40.x86_ 4.1 MB/s |  36 kB     00:00    
+(30/62): xz-devel-5.4.6-3.fc40.x86_64.rpm       3.3 MB/s |  67 kB     00:00    
+(31/62): cmake-filesystem-3.30.8-1.fc40.x86_64. 2.0 MB/s |  17 kB     00:00    
+(32/62): libxml2-devel-2.12.5-1.fc40.x86_64.rpm  11 MB/s | 525 kB     00:00    
+(33/62): libX11-1.8.10-2.fc40.x86_64.rpm         32 MB/s | 650 kB     00:00    
+(34/62): libX11-common-1.8.10-2.fc40.noarch.rpm 9.3 MB/s | 176 kB     00:00    
+(35/62): libX11-xcb-1.8.10-2.fc40.x86_64.rpm    1.4 MB/s |  12 kB     00:00    
+(36/62): hwdata-0.394-1.fc40.noarch.rpm          33 MB/s | 1.6 MB     00:00    
+(37/62): libXi-1.8.2-1.fc40.x86_64.rpm          4.6 MB/s |  40 kB     00:00    
+(38/62): libXi-devel-1.8.2-1.fc40.x86_64.rpm     12 MB/s | 116 kB     00:00    
+(39/62): libdrm-2.4.123-1.fc40.x86_64.rpm        14 MB/s | 159 kB     00:00    
+(40/62): libdrm-devel-2.4.123-1.fc40.x86_64.rpm  18 MB/s | 180 kB     00:00    
+(41/62): libwayland-cursor-1.23.0-2.fc40.x86_64 2.2 MB/s |  19 kB     00:00    
+(42/62): libwayland-client-1.23.0-2.fc40.x86_64 1.7 MB/s |  33 kB     00:00    
+(43/62): libwayland-egl-1.23.0-2.fc40.x86_64.rp 1.0 MB/s |  13 kB     00:00    
+(44/62): libwayland-server-1.23.0-2.fc40.x86_64 4.3 MB/s |  41 kB     00:00    
+(45/62): libX11-devel-1.8.10-2.fc40.x86_64.rpm   14 MB/s | 1.0 MB     00:00    
+(46/62): libxcb-1.17.0-2.fc40.x86_64.rpm         24 MB/s | 240 kB     00:00    
+(47/62): libxshmfence-1.3.2-5.fc40.x86_64.rpm   1.0 MB/s |  13 kB     00:00    
+(48/62): libxcb-devel-1.17.0-2.fc40.x86_64.rpm   70 MB/s | 1.4 MB     00:00    
+(49/62): mesa-filesystem-24.1.7-1.fc40.x86_64.r 1.5 MB/s |  21 kB     00:00    
+(50/62): mesa-libEGL-24.1.7-1.fc40.x86_64.rpm    15 MB/s | 140 kB     00:00    
+(51/62): mesa-libGL-24.1.7-1.fc40.x86_64.rpm     12 MB/s | 176 kB     00:00    
+(52/62): mesa-libGL-devel-24.1.7-1.fc40.x86_64. 3.9 MB/s |  38 kB     00:00    
+(53/62): mesa-libgbm-24.1.7-1.fc40.x86_64.rpm   2.7 MB/s |  48 kB     00:00    
+(54/62): mesa-libglapi-24.1.7-1.fc40.x86_64.rpm 3.0 MB/s |  51 kB     00:00    
+(55/62): mesa-va-drivers-24.1.7-1.fc40.x86_64.r  98 MB/s | 4.0 MB     00:00    
+(56/62): raylib-5.5-1.fc40.x86_64.rpm            11 MB/s | 682 kB     00:00    
+(57/62): raylib-devel-5.5-1.fc40.x86_64.rpm     2.2 MB/s |  91 kB     00:00    
+(58/62): wayland-devel-1.23.0-2.fc40.x86_64.rpm  15 MB/s | 153 kB     00:00    
+(59/62): wayland-protocols-devel-1.44-1.fc40.no  17 MB/s | 172 kB     00:00    
+(60/62): xorg-x11-proto-devel-2024.1-2.fc40.noa  14 MB/s | 300 kB     00:00    
+(61/62): mesa-dri-drivers-24.1.7-1.fc40.x86_64.  66 MB/s |  26 MB     00:00    
+(62/62): llvm-libs-18.1.8-4.fc40.x86_64.rpm      62 MB/s |  28 MB     00:00    
+--------------------------------------------------------------------------------
+Total                                            58 MB/s |  69 MB     00:01     
+Running transaction check
+Transaction check succeeded.
+Running transaction test
+Transaction test succeeded.
+Running transaction
+  Preparing        :                                                        1/1 
+  Installing       : xorg-x11-proto-devel-2024.1-2.fc40.noarch             1/62 
+  Installing       : libglvnd-1:1.7.0-4.fc40.x86_64                        2/62 
+  Installing       : libX11-xcb-1.8.10-2.fc40.x86_64                       3/62 
+  Installing       : libxshmfence-1.3.2-5.fc40.x86_64                      4/62 
+  Installing       : libwayland-server-1.23.0-2.fc40.x86_64                5/62 
+  Installing       : libwayland-client-1.23.0-2.fc40.x86_64                6/62 
+  Installing       : mesa-filesystem-24.1.7-1.fc40.x86_64                  7/62 
+  Installing       : llvm-libs-18.1.8-4.fc40.x86_64                        8/62 
+  Installing       : cmake-filesystem-3.30.8-1.fc40.x86_64                 9/62 
+  Installing       : libXau-1.0.11-6.fc40.x86_64                          10/62 
+  Installing       : libxcb-1.17.0-2.fc40.x86_64                          11/62 
+  Installing       : libXau-devel-1.0.11-6.fc40.x86_64                    12/62 
+  Installing       : libxcb-devel-1.17.0-2.fc40.x86_64                    13/62 
+  Installing       : libwayland-cursor-1.23.0-2.fc40.x86_64               14/62 
+  Installing       : libglvnd-opengl-1:1.7.0-4.fc40.x86_64                15/62 
+  Installing       : wayland-protocols-devel-1.44-1.fc40.noarch           16/62 
+  Installing       : raylib-5.5-1.fc40.x86_64                             17/62 
+  Installing       : libwayland-egl-1.23.0-2.fc40.x86_64                  18/62 
+  Installing       : libX11-common-1.8.10-2.fc40.noarch                   19/62 
+  Installing       : libX11-1.8.10-2.fc40.x86_64                          20/62 
+  Installing       : libX11-devel-1.8.10-2.fc40.x86_64                    21/62 
+  Installing       : libXext-1.3.6-1.fc40.x86_64                          22/62 
+  Installing       : libXext-devel-1.3.6-1.fc40.x86_64                    23/62 
+  Installing       : libXfixes-6.0.1-3.fc40.x86_64                        24/62 
+  Installing       : libXrender-0.9.11-6.fc40.x86_64                      25/62 
+  Installing       : libXrender-devel-0.9.11-6.fc40.x86_64                26/62 
+  Installing       : libXfixes-devel-6.0.1-3.fc40.x86_64                  27/62 
+  Installing       : libXcursor-1.2.1-7.fc40.x86_64                       28/62 
+  Installing       : libXcursor-devel-1.2.1-7.fc40.x86_64                 29/62 
+  Installing       : libXrandr-1.5.4-3.fc40.x86_64                        30/62 
+  Installing       : libXrandr-devel-1.5.4-3.fc40.x86_64                  31/62 
+  Installing       : libXinerama-1.1.5-6.fc40.x86_64                      32/62 
+  Installing       : libXinerama-devel-1.1.5-6.fc40.x86_64                33/62 
+  Installing       : libXxf86vm-1.1.5-6.fc40.x86_64                       34/62 
+  Installing       : libXi-1.8.2-1.fc40.x86_64                            35/62 
+  Installing       : libXi-devel-1.8.2-1.fc40.x86_64                      36/62 
+  Installing       : hwdata-0.394-1.fc40.noarch                           37/62 
+  Installing       : libpciaccess-0.16-12.fc40.x86_64                     38/62 
+  Installing       : libdrm-2.4.123-1.fc40.x86_64                         39/62 
+  Installing       : mesa-va-drivers-24.1.7-1.fc40.x86_64                 40/62 
+  Installing       : libpciaccess-devel-0.16-12.fc40.x86_64               41/62 
+  Installing       : libdrm-devel-2.4.123-1.fc40.x86_64                   42/62 
+  Installing       : zlib-ng-compat-devel-2.1.6-2.fc40.x86_64             43/62 
+  Installing       : xz-devel-1:5.4.6-3.fc40.x86_64                       44/62 
+  Installing       : libxml2-devel-2.12.5-1.fc40.x86_64                   45/62 
+  Installing       : libxkbcommon-devel-1.6.0-2.fc40.x86_64               46/62 
+  Installing       : lm_sensors-libs-3.6.0-18.fc40.x86_64                 47/62 
+  Installing       : mesa-libglapi-24.1.7-1.fc40.x86_64                   48/62 
+  Installing       : mesa-dri-drivers-24.1.7-1.fc40.x86_64                49/62 
+  Installing       : libglvnd-glx-1:1.7.0-4.fc40.x86_64                   50/62 
+  Installing       : mesa-libGL-24.1.7-1.fc40.x86_64                      51/62 
+  Installing       : mesa-libgbm-24.1.7-1.fc40.x86_64                     52/62 
+  Installing       : libglvnd-egl-1:1.7.0-4.fc40.x86_64                   53/62 
+  Installing       : mesa-libEGL-24.1.7-1.fc40.x86_64                     54/62 
+  Installing       : libglvnd-gles-1:1.7.0-4.fc40.x86_64                  55/62 
+  Installing       : libglvnd-core-devel-1:1.7.0-4.fc40.x86_64            56/62 
+  Installing       : libglvnd-devel-1:1.7.0-4.fc40.x86_64                 57/62 
+  Installing       : libffi-devel-3.4.4-7.fc40.x86_64                     58/62 
+  Installing       : wayland-devel-1.23.0-2.fc40.x86_64                   59/62 
+  Installing       : gl-manpages-1.1-31.20190306.fc40.noarch              60/62 
+  Installing       : mesa-libGL-devel-24.1.7-1.fc40.x86_64                61/62 
+  Installing       : raylib-devel-5.5-1.fc40.x86_64                       62/62 
+  Running scriptlet: raylib-devel-5.5-1.fc40.x86_64                       62/62 
+
+Installed:
+  cmake-filesystem-3.30.8-1.fc40.x86_64                                         
+  gl-manpages-1.1-31.20190306.fc40.noarch                                       
+  hwdata-0.394-1.fc40.noarch                                                    
+  libX11-1.8.10-2.fc40.x86_64                                                   
+  libX11-common-1.8.10-2.fc40.noarch                                            
+  libX11-devel-1.8.10-2.fc40.x86_64                                             
+  libX11-xcb-1.8.10-2.fc40.x86_64                                               
+  libXau-1.0.11-6.fc40.x86_64                                                   
+  libXau-devel-1.0.11-6.fc40.x86_64                                             
+  libXcursor-1.2.1-7.fc40.x86_64                                                
+  libXcursor-devel-1.2.1-7.fc40.x86_64                                          
+  libXext-1.3.6-1.fc40.x86_64                                                   
+  libXext-devel-1.3.6-1.fc40.x86_64                                             
+  libXfixes-6.0.1-3.fc40.x86_64                                                 
+  libXfixes-devel-6.0.1-3.fc40.x86_64                                           
+  libXi-1.8.2-1.fc40.x86_64                                                     
+  libXi-devel-1.8.2-1.fc40.x86_64                                               
+  libXinerama-1.1.5-6.fc40.x86_64                                               
+  libXinerama-devel-1.1.5-6.fc40.x86_64                                         
+  libXrandr-1.5.4-3.fc40.x86_64                                                 
+  libXrandr-devel-1.5.4-3.fc40.x86_64                                           
+  libXrender-0.9.11-6.fc40.x86_64                                               
+  libXrender-devel-0.9.11-6.fc40.x86_64                                         
+  libXxf86vm-1.1.5-6.fc40.x86_64                                                
+  libdrm-2.4.123-1.fc40.x86_64                                                  
+  libdrm-devel-2.4.123-1.fc40.x86_64                                            
+  libffi-devel-3.4.4-7.fc40.x86_64                                              
+  libglvnd-1:1.7.0-4.fc40.x86_64                                                
+  libglvnd-core-devel-1:1.7.0-4.fc40.x86_64                                     
+  libglvnd-devel-1:1.7.0-4.fc40.x86_64                                          
+  libglvnd-egl-1:1.7.0-4.fc40.x86_64                                            
+  libglvnd-gles-1:1.7.0-4.fc40.x86_64                                           
+  libglvnd-glx-1:1.7.0-4.fc40.x86_64                                            
+  libglvnd-opengl-1:1.7.0-4.fc40.x86_64                                         
+  libpciaccess-0.16-12.fc40.x86_64                                              
+  libpciaccess-devel-0.16-12.fc40.x86_64                                        
+  libwayland-client-1.23.0-2.fc40.x86_64                                        
+  libwayland-cursor-1.23.0-2.fc40.x86_64                                        
+  libwayland-egl-1.23.0-2.fc40.x86_64                                           
+  libwayland-server-1.23.0-2.fc40.x86_64                                        
+  libxcb-1.17.0-2.fc40.x86_64                                                   
+  libxcb-devel-1.17.0-2.fc40.x86_64                                             
+  libxkbcommon-devel-1.6.0-2.fc40.x86_64                                        
+  libxml2-devel-2.12.5-1.fc40.x86_64                                            
+  libxshmfence-1.3.2-5.fc40.x86_64                                              
+  llvm-libs-18.1.8-4.fc40.x86_64                                                
+  lm_sensors-libs-3.6.0-18.fc40.x86_64                                          
+  mesa-dri-drivers-24.1.7-1.fc40.x86_64                                         
+  mesa-filesystem-24.1.7-1.fc40.x86_64                                          
+  mesa-libEGL-24.1.7-1.fc40.x86_64                                              
+  mesa-libGL-24.1.7-1.fc40.x86_64                                               
+  mesa-libGL-devel-24.1.7-1.fc40.x86_64                                         
+  mesa-libgbm-24.1.7-1.fc40.x86_64                                              
+  mesa-libglapi-24.1.7-1.fc40.x86_64                                            
+  mesa-va-drivers-24.1.7-1.fc40.x86_64                                          
+  raylib-5.5-1.fc40.x86_64                                                      
+  raylib-devel-5.5-1.fc40.x86_64                                                
+  wayland-devel-1.23.0-2.fc40.x86_64                                            
+  wayland-protocols-devel-1.44-1.fc40.noarch                                    
+  xorg-x11-proto-devel-2024.1-2.fc40.noarch                                     
+  xz-devel-1:5.4.6-3.fc40.x86_64                                                
+  zlib-ng-compat-devel-2.1.6-2.fc40.x86_64                                      
+
+Complete!
+
+raylib=1.0.1 successfully retrieved.
+Dependencies were solved as follows:
+
+   +b gnat      15.2.1 (new,gnat_native,binary)
+   +b libraylib 5.5.0  (new,system package)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building raylib=1.0.1/raylib.gpr...
+Setup
+   [mkdir]        object directory for project Raylib
+   [mkdir]        library directory for project Raylib
+Compile
+   [C]            raygui_impl.c
+   [Ada]          raylib_config.ads
+   [Ada]          raylib-gui.adb
+   [Ada]          raylib.adb
+raylib-gui.adb:5:07: warning: possible aliasing problem for type "C_String_Array_Access" [enabled by default]
+raylib-gui.adb:5:07: warning: use -fno-strict-aliasing switch for references [enabled by default]
+raylib-gui.adb:5:07: warning: or use "pragma No_Strict_Aliasing (C_String_Array_Access);" [enabled by default]
+Build Libraries
+   [gprlib]       RaylibAda.lexch
+   [archive]      libRaylibAda.a
+   [index]        libRaylibAda.a
+Success: Build finished successfully in 0.96 seconds.
+Found declared GPR file: raylib.gpr
+[alr test] Test completed SUCCESSFULLY

@@ -1,0 +1,144 @@
+Test ran at 2026-05-08 01:28:48.237816+00:00
+
+SOLUTION:
+musicplayer=20210719.0.0: A Music Player
+Origin: commit 495babedd83cc48294de981baafd4f7c488ab8f6 from https://github.com/bracke/MP.git
+Properties:
+   Author: Jeff Carter
+   Build Switches: 
+   Description: A Music Player
+   Executable: mp
+   License: BSD-3-Clause
+   Long_Description: # MP
+A Music Player
+
+Uses the Gnoga audio widget to create a music player.
+
+This does what I want from a music player. Considering all the features that most music players have that this doesn't, I presume that most people will find MP lacking. However, it may serve someone as the basis for a more complex player.
+
+The audio widget seems to require relative paths to the audio files. The file browser in this program will only choose audio files that are in the program's working directory, or in a directory under that.
+
+MP uses [the Gnoga File Selection widget](https://github.com/jrcarter/Gnoga_File_Selection), which has only been tested on Linux.
+
+MP uses [the PragmAda Reusable Components](https://github.com/jrcarter/PragmARC).
+
+   Maintainer: Bent Bracke <bent@bracke.dk>
+   Maintainers_Logins: bracke
+   Name: musicplayer
+   Tag: music
+   Tag: audio
+   Tag: player
+   Version: 20210719
+   Website: https://github.com/bracke/MP
+Dependencies (direct):
+   ada_gui^20240224.0.0
+   gnat<13.0 | >=13.3
+   pragmarc^20240323.0.0
+   ssl^3.0.2
+Dependencies (solution):
+   ada_gui=20240224.0.1
+   gnat=15.1.2 (gnat_native)
+   libgnutls=3.8.3
+   pragmarc=20240323.0.0
+   simple_components=4.68.0
+   ssl=3.0.13
+   unixodbc=2.3.12
+Dependencies (graph):
+   ada_gui=20240224.0.1     --> gnat=15.1.2 (gnat_native) (<13.0 | >=13.3)
+   ada_gui=20240224.0.1     --> simple_components=4.68.0 (^4.68.0)
+   musicplayer=20210719.0.0 --> ada_gui=20240224.0.1 (^20240224.0.0)
+   musicplayer=20210719.0.0 --> gnat=15.1.2 (gnat_native) (<13.0 | >=13.3)
+   musicplayer=20210719.0.0 --> pragmarc=20240323.0.0 (^20240323.0.0)
+   musicplayer=20210719.0.0 --> ssl=3.0.13 (^3.0.2)
+   pragmarc=20240323.0.0    --> gnat=15.1.2 (gnat_native) (<13.0 | >=13.3)
+   simple_components=4.68.0 --> gnat=15.1.2 (gnat_native) (>=2021 | (>=12 & <2000))
+   simple_components=4.68.0 --> libgnutls=3.8.3 (^3.7)
+   simple_components=4.68.0 --> unixodbc=2.3.12 (^2.3)
+
+
+LOG:
+[alr test] Testing musicplayer=20210719.0.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get musicplayer=20210719.0.0
+Note: Deploying musicplayer=20210719.0.0...
+Note: Deploying ada_gui=20240224.0.1...
+
+musicplayer=20210719.0.0 successfully retrieved.
+Dependencies were solved as follows:
+
+   +  ada_gui           20240224.0.1 (new)
+   +b gnat              15.1.2       (new,gnat_native,binary)
+   +b libgnutls         3.8.3        (new,indirect,system package)
+   +  pragmarc          20240323.0.0 (new)
+   +  simple_components 4.68.0       (new,indirect)
+   +b ssl               3.0.13       (new,system package)
+   +b unixodbc          2.3.12       (new,indirect,system package)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building musicplayer=20210719.0.0/musicplayer.gpr...
+Setup
+   [mkdir]        object directory for project Ada_Gui
+   [mkdir]        library directory for project Ada_Gui
+   [mkdir]        object directory for project Musicplayer
+   [mkdir]        exec directory for project Musicplayer
+Compile
+   [Ada]          mp.adb
+   [C]            py_conversions.c
+   [C]            sqlite3.c
+   [Ada]          ada_gui_config.ads
+   [Ada]          ada_gui-gnoga-server-connection.adb
+   [Ada]          ada_gui-gnoga-server-template_parser.adb
+   [Ada]          ada_gui-gnoga-gui-document.adb
+   [Ada]          ada_gui-gnoga-server-connection-common.ads
+   [Ada]          ada_gui-gnoga-gui-window.adb
+   [Ada]          parsers-multiline_source-xpm.ads
+   [Ada]          ada_gui-gnoga-colors.adb
+   [Ada]          ada_gui-gnoga-gui-element-canvas.adb
+/home/runner/.local/share/alire/builds/simple_components_4.68.0_da9b0f3a/8bcfe5058aa7e81ae0ab4b6337487705bee37844ec6dad50473c2f253144abd1/sqlite-sources/sqlite3.c: In function 'sqlite3DefaultRowEst':
+/home/runner/.local/share/alire/builds/simple_components_4.68.0_da9b0f3a/8bcfe5058aa7e81ae0ab4b6337487705bee37844ec6dad50473c2f253144abd1/sqlite-sources/sqlite3.c:109169:3: warning: this 'if' clause does not guard... [-Wmisleading-indentation]
+109169 |   if( pIdx->pPartIdxWhere!=0 ) a[0] -= 10;  assert( 10==sqlite3LogEst(2) );
+       |   ^~
+In file included from /home/runner/.local/share/alire/builds/simple_components_4.68.0_da9b0f3a/8bcfe5058aa7e81ae0ab4b6337487705bee37844ec6dad50473c2f253144abd1/sqlite-sources/sqlite3.c:13475:
+/home/runner/.local/share/alire/builds/simple_components_4.68.0_da9b0f3a/8bcfe5058aa7e81ae0ab4b6337487705bee37844ec6dad50473c2f253144abd1/sqlite-sources/sqlite3.c:109169:45: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'if'
+109169 |   if( pIdx->pPartIdxWhere!=0 ) a[0] -= 10;  assert( 10==sqlite3LogEst(2) );
+       |                                             ^~~~~~
+/home/runner/.local/share/alire/builds/simple_components_4.68.0_da9b0f3a/8bcfe5058aa7e81ae0ab4b6337487705bee37844ec6dad50473c2f253144abd1/sqlite-sources/sqlite3.c:109170:3: warning: this 'if' clause does not guard... [-Wmisleading-indentation]
+109170 |   if( a[0]<33 ) a[0] = 33;                  assert( 33==sqlite3LogEst(10) );
+       |   ^~
+/home/runner/.local/share/alire/builds/simple_components_4.68.0_da9b0f3a/8bcfe5058aa7e81ae0ab4b6337487705bee37844ec6dad50473c2f253144abd1/sqlite-sources/sqlite3.c:109170:45: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'if'
+109170 |   if( a[0]<33 ) a[0] = 33;                  assert( 33==sqlite3LogEst(10) );
+       |                                             ^~~~~~
+   [Ada]          ada_gui-gnoga-gui-view.adb
+   [Ada]          ada_gui.adb
+   [Ada]          ada_gui-gnoga-gui-element-canvas-context_2d.adb
+   [Ada]          ada_gui-gnoga-gui-element-form.adb
+   [Ada]          ada_gui-gnoga-gui-element-common.adb
+   [Ada]          ada_gui-gnoga-server-model.adb
+   [Ada]          ada_gui-gnoga-server-model-queries.adb
+   [Ada]          ada_gui-gnoga-gui-location.adb
+   [Ada]          ada_gui-gnoga-gui-element-multimedia.adb
+   [Ada]          ada_gui-gnoga-gui-element-list.adb
+   [Ada]          ada_gui-gnoga-server-database.adb
+   [Ada]          ada_gui-gnoga-client_storage.adb
+   [Ada]          ada_gui-gnoga-server.adb
+   [Ada]          parsers-generic_source-xpm.adb
+   [Ada]          ada_gui-gnoga-application.adb
+   [Ada]          ada_gui-gnoga-gui-view-console.adb
+   [Ada]          ada_gui-gnoga-server-mime.adb
+   [Ada]          ada_gui-gnoga-gui-element.adb
+   [Ada]          ada_gui-gnoga.adb
+   [Ada]          ada_gui-gnoga-gui.adb
+   [Ada]          ada_gui-gnoga-gui-view-grid.adb
+   [Ada]          ada_gui-gnoga-server-template_parser-simple.adb
+Build Libraries
+   [gprlib]       Ada_GUI.lexch
+   [archive]      libAda_GUI.a
+   [index]        libAda_GUI.a
+Bind
+   [gprbind]      mp.bexch
+   [Ada]          mp.ali
+Link
+   [archive]      libmusicplayer.a
+   [index]        libmusicplayer.a
+   [link]         mp.adb
+Success: Build finished successfully in 21.06 seconds.
+Found declared GPR file: musicplayer.gpr
+[alr test] Test completed SUCCESSFULLY

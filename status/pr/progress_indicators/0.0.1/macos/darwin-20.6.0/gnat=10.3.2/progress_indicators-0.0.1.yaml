@@ -2,11 +2,11 @@ badge: false
 crate: progress_indicators
 creation_timestamp: 1648639113.2357152
 distro: darwin-20.6.0
-duration: 10.230344904999924
+duration: 37.124411667000004
 gnat: 10.3.2
-last_attempt: 2022-06-27 12:35:30.386072+00:00
+last_attempt: 2024-06-20 12:25:55.668749+00:00
 log:
-- 'Test ran at 2022-06-27 12:35:30.385931+00:00
+- 'Test ran at 2024-06-20 12:25:55.668571+00:00
 
 
   '
@@ -90,8 +90,8 @@ log:
 - 'Note: Deploying progress_indicators=0.0.1...
 
   '
-- 'Note: Migrating lockfile from /Users/runner/work/alire-crates-ci/alire-crates-ci/test/00e0472c-4330-4efa-bf38-1d91fa23a501/progress_indicators_0.0.1_863e14c4/alire.lock
-  to /Users/runner/work/alire-crates-ci/alire-crates-ci/test/00e0472c-4330-4efa-bf38-1d91fa23a501/progress_indicators_0.0.1_863e14c4/alire/alire.lock
+- 'Note: Migrating lockfile from /Users/runner/work/alire-crates-ci/alire-crates-ci/test/7bdf8398-e8c7-4edf-8259-ea04959e49a0/progress_indicators_0.0.1_863e14c4/alire.lock
+  to /Users/runner/work/alire-crates-ci/alire-crates-ci/test/7bdf8398-e8c7-4edf-8259-ea04959e49a0/progress_indicators_0.0.1_863e14c4/alire/alire.lock
 
   '
 - 'Note: Deploying ansiada=0.1.0...
@@ -133,58 +133,110 @@ log:
 - '   [link]         ansi-demo.adb
 
   '
-- 'Note: Building progress_indicators/progress_indicators.gpr...
+- '-macosx_version_min has been renamed to -macos_version_min
 
   '
-- 'Setup
+- 'ld: warning: ignoring duplicate libraries: ''-lSystem''
 
   '
-- '   [mkdir]        object directory for project Progress_Indicators
+- '0  0x1008bcf43  __assert_rtn + 64
 
   '
-- '   [mkdir]        library directory for project Progress_Indicators
+- '1  0x1007bef43  ld::AtomPlacement::findAtom(unsigned char, unsigned long long,
+  ld::AtomPlacement::AtomLoc const*&, long long&) const + 1411
 
   '
-- 'Compile
+- '2  0x1007db431  ld::InputFiles::SliceParser::parseObjectFile(mach_o::Header const*)
+  const + 19745
 
   '
-- '   [Ada]          ansi-demo.adb
+- '3  0x1007ebe44  ld::InputFiles::parseAllFiles(void (ld::AtomFile const*) block_pointer)::$_7::operator()(unsigned
+  long, ld::FileInfo const&) const + 1380
 
   '
-- '   [Ada]          ansi.ads
+- '4  0x7ff80b886def  _dispatch_client_callout2 + 8
 
   '
-- '   [Ada]          progress_indicators-bars.adb
+- '5  0x7ff80b898547  _dispatch_apply_invoke3 + 431
 
   '
-- '   [Ada]          progress_indicators-spinners.adb
+- '6  0x7ff80b886dbc  _dispatch_client_callout + 8
 
   '
-- '   [Ada]          progress_indicators-work_trackers.adb
+- '7  0x7ff80b88804e  _dispatch_once_callout + 20
 
   '
-- '   [Ada]          progress_indicators.ads
+- '8  0x7ff80b898a9b  _dispatch_apply_invoke_and_wait + 278
 
   '
-- 'Build Libraries
+- '9  0x7ff80b897cf8  _dispatch_apply_with_attr_f + 1225
 
   '
-- '   [gprlib]       Progress_Indicators.lexch
+- '10  0x7ff80b897eaf  dispatch_apply + 45
 
   '
-- '   [archive]      libProgress_Indicators.a
+- '11  0x100884972  ld::AtomFileConsolidator::parseFiles(bool) + 370
 
   '
-- '   [index]        libProgress_Indicators.a
+- '12  0x10080bd67  main + 12263
 
   '
-- 'Build finished successfully in 3.73 seconds.
+- 'ld: Assertion failed: (resultIndex < sectData.atoms.size()), function findAtom,
+  file Relocations.cpp, line 1336.
+
+  '
+- 'collect2: error: ld returned 1 exit status
+
+  '
+- 'gprbuild: link of ansi-demo.adb failed
+
+  '
+- 'gprbuild: failed command was: /users/runner/.config/alire/cache/dependencies/gnat_native_10.3.2_e112fd3f/bin/gcc
+  ansi-demo.o b__ansi-demo.o /Users/runner/work/alire-crates-ci/alire-crates-ci/test/7bdf8398-e8c7-4edf-8259-ea04959e49a0/progress_indicators_0.0.1_863e14c4/alire/cache/dependencies/ansiada_0.1.0_27a89150/obj/ansi.o
+  -L/Users/runner/work/alire-crates-ci/alire-crates-ci/test/7bdf8398-e8c7-4edf-8259-ea04959e49a0/progress_indicators_0.0.1_863e14c4/alire/cache/dependencies/ansiada_0.1.0_27a89150/obj/
+  -L/Users/runner/work/alire-crates-ci/alire-crates-ci/test/7bdf8398-e8c7-4edf-8259-ea04959e49a0/progress_indicators_0.0.1_863e14c4/alire/cache/dependencies/ansiada_0.1.0_27a89150/obj/
+  -L/users/runner/.config/alire/cache/dependencies/gnat_native_10.3.2_e112fd3f/lib/gcc/x86_64-apple-darwin19.6.0/10.3.0/adalib/
+  /users/runner/.config/alire/cache/dependencies/gnat_native_10.3.2_e112fd3f/lib/gcc/x86_64-apple-darwin19.6.0/10.3.0/adalib/libgnat.a
+  -Wl,-rpath,@executable_path/..//obj -Wl,-rpath,@executable_path/../../../../../../../../../../..//.config/alire/cache/dependencies/gnat_native_10.3.2_e112fd3f/lib/gcc/x86_64-apple-darwin19.6.0/10.3.0/adalib
+  -o /Users/runner/work/alire-crates-ci/alire-crates-ci/test/7bdf8398-e8c7-4edf-8259-ea04959e49a0/progress_indicators_0.0.1_863e14c4/alire/cache/dependencies/ansiada_0.1.0_27a89150/bin//ansi-demo
+
+  '
+- 'stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/Users/runner/work/alire-crates-ci/alire-crates-ci/test/7bdf8398-e8c7-4edf-8259-ea04959e49a0/progress_indicators_0.0.1_863e14c4/alire/cache/dependencies/ansiada_0.1.0_27a89150/ansi.gpr"]
+  exited with code 4
+
+  '
+- 'ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/Users/runner/work/alire-crates-ci/alire-crates-ci/test/7bdf8398-e8c7-4edf-8259-ea04959e49a0/progress_indicators_0.0.1_863e14c4/alire/cache/dependencies/ansiada_0.1.0_27a89150/ansi.gpr"]
+  exited with code 4
+
+  '
+- 'stderr: ALIRE.CHECKED_ERROR
+
+  '
+- 'stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/Users/runner/work/alire-crates-ci/alire-crates-ci/test/7bdf8398-e8c7-4edf-8259-ea04959e49a0/progress_indicators_0.0.1_863e14c4/alire/cache/dependencies/ansiada_0.1.0_27a89150/ansi.gpr"]
+  exited with code 4
+
+  '
+- 'stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
+
+  '
+- 'Load address: 0x10415e000
+
+  '
+- 'Call stack traceback locations:
+
+  '
+- '0x104a66415 0x104739e83 0x10494cdf9 0x10494d581 0x1048adac3 0x1048abf99 0x1048c8873
+  0x104914dc1 0x1049133c2 0x1048c89b8 0x1048ac349 0x1041bd9c1 0x1041ce578 0x1041d301c
+  0x10425905c 0x1042643b8 0x10415f605 0x104162914
 
   '
 - '
 
   '
-- 'progress_indicators=0.0.1 successfully retrieved and built.
+- '
+
+  '
+- 'Warning: progress_indicators=0.0.1 successfully retrieved but its build failed.
 
   '
 - 'Dependencies were solved as follows:
@@ -196,6 +248,9 @@ log:
 - '   + ansiada 0.1.0 (new)
 
   '
+- 'ERROR: Build ended with errors
+
+  '
 platform: macos
-status: success
+status: failing
 version: 0.0.1

@@ -1,0 +1,395 @@
+Test ran at 2026-09-05 01:10:28.182533+00:00
+
+SOLUTION:
+covex=1.40.0: Ada/SPARK coverage, proof, multi-standard compliance tool
+Origin: commit 29db3bebcfdd0c7e68b8f5a6426656135fbc28f9 from https://github.com/bladeacer/adacovex.git
+Properties:
+   Author: bladeacer
+   Auto_Gpr_With: auto-gpr-with=true
+   Description: Ada/SPARK coverage, proof, multi-standard compliance tool
+   Environment: PATH=${CRATE_ROOT}/bin:${PATH}
+   Executable: adacovex
+   License: Apache-2.0
+   Long_Description: Zero-dependency Ada/SPARK CLI tool for coverage analysis, proof verification,
+test-result parsing, multi-standard safety-compliance assessment (DO-178C /
+ISO 26262 / IEC 62304), and interactive dashboards.
+
+- Source scanning: walks .ads files, extracts subprogram declarations, docstring
+  annotations (@param, @return, @field, @formal), and HLR traceability tags
+- Proof analysis: parses GNATprove gnatprove.out summaries; assesses SPARK
+  assurance levels (Stone through Platinum)
+- Test parsing: reads markdown test results for pass/fail counts (native Ada or
+  AUnit format)
+- DAL compliance: assesses DO-178C DAL A-E criteria (HLR coverage, orphan tags,
+  test status, minimum SPARK proof level), re-labelled for ISO 26262
+  (ASIL A-D/QM) and IEC 62304 (safety classes A-C) via --dal / --asil / --class
+- Differential assessment: --compare-base / --coverage-delta snapshot a base
+  revision on git, Mercurial, Subversion, Fossil, or jj without touching the
+  working tree
+- Multiple outputs: ANSI terminal report, SVG badges, Markdown reports,
+  HTML dashboard, JSON API via a built-in HTTP/1.1 server, and a proof-aware
+  SBOM (CycloneDX / SPDX / Markdown)
+- Result caching: a content-addressed on-disk cache serves unchanged scan,
+  proof, test, and manifest results without re-running the work
+- Tooling: `status` reports the toolchain + VCS state, `man` installs a local
+  man page, and the `prove` subcommand resolves gnatprove at run time
+- Scalable: package/subprogram collections use Ada.Containers.Vectors
+  (heap-allocated, no compile-time limits)
+- Zero library dependencies: uses only the GNAT runtime library. gnatprove is
+  NOT a declared dependency -- the prove subcommand resolves it at run time
+  (per-project manifest, PATH, cached toolchain, or download), so the covex
+  crate installs and builds with no toolchain beyond the GNAT compiler
+-  Self-assessment: 100% docstring coverage, Platinum SPARK (725/725 VCs proved),
+  DAL-C / ASIL B / Class A Achieved, 1186/1186 native tests passing
+
+   Maintainer: bladeacer <wg.nick.exe@gmail.com>
+   Maintainers_Logins: bladeacer
+   Name: covex
+   Project_File: adacovex.gpr
+   Tag: ada
+   Tag: spark
+   Tag: formal-verify
+   Tag: cli
+   Tag: gnatprove
+   Tag: sbom
+   Tag: tests
+   Tag: code-coverage
+   Tag: do-178c
+   Tag: iso-26262
+   Tag: iec-62304
+   Tag: asil
+   Tag: compliance
+   Tag: developer-tools
+   Version: 1.40.0
+   Website: https://github.com/bladeacer/adacovex
+
+
+LOG:
+[alr test] Testing covex=1.40.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get covex=1.40.0
+Note: Deploying covex=1.40.0...
+
+covex=1.40.0 successfully retrieved.
+There are no dependencies.
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building covex=1.40.0/adacovex.gpr...
+"obj" created
+"bin" created
+[Ada Compile]     adacovex-ansi.adb
+[Ada Compile]     adacovex-cache.adb
+[Ada Compile]     adacovex-completion.adb
+[Ada Compile]     adacovex-complexity.adb
+[Ada Compile]     adacovex-compliance-dal.adb
+adacovex-completion.adb:66:07: warning: "F" is not modified, could be declared constant
+adacovex-completion.adb:142:10: warning: "F" is not modified, could be declared constant
+[Ada Compile]     adacovex-compliance.ads
+[Ada Compile]     adacovex-config.adb
+adacovex-cache.adb:92:09: warning: type "Stamp_Entry" is not referenced
+adacovex-cache.adb:105:14: warning: "Directories" is already use-visible through previous use_clause at line 11
+adacovex-cache.adb:259:07: warning: declaration hides "Size" at a-ststio.ads:125
+adacovex-cache.adb:353:14: warning: "Calendar" is already use-visible through previous use_clause at line 12
+adacovex-cache.adb:451:07: warning: declaration hides "Version" at adacovex.ads:15
+adacovex-cache.adb:457:14: warning: "Calendar" is already use-visible through previous use_clause at line 12
+adacovex-cache.adb:507:07: warning: declaration hides "Version" at adacovex.ads:15
+adacovex-cache.adb:570:07: warning: declaration hides "Search" at a-direct.ads:407
+adacovex-cache.adb:638:07: warning: declaration hides "Search" at a-direct.ads:407
+adacovex-cache.ads:174:07: warning: declaration hides "Version" at adacovex.ads:15
+adacovex-cache.ads:193:07: warning: declaration hides "Version" at adacovex.ads:15
+[Ada Compile]     adacovex-cpus.adb
+adacovex-compliance-dal.adb:5:18: warning: "DAL_Level" is already use-visible through previous use_type_clause
+adacovex-compliance-dal.ads:2:22: warning: unit "Adacovex.Parsers.DO178C" is not referenced in spec
+adacovex-compliance-dal.ads:2:22: warning: with clause might be moved to body
+adacovex-compliance-dal.ads:3:22: warning: unit "Adacovex.Parsers.Source" is not referenced
+[Ada Compile]     adacovex-dashboard_template.ads
+adacovex-cpus.adb:97:07: warning: declaration hides "Count" at a-textio.ads:77
+adacovex-cpus.adb:98:07: warning: declaration hides "Line" at a-textio.ads:365
+[Ada Compile]     adacovex-diff.adb
+[Ada Compile]     adacovex-docs_template.adb
+adacovex-diff.adb:7:06: warning: redundant with clause in body
+[Ada Compile]     adacovex-ir_bounds.adb
+[Ada Compile]     adacovex-ir_synthesiser.adb
+[Ada Compile]     adacovex-parsers-do178c.adb
+adacovex-ir_synthesiser.adb:93:41: warning: condition can only be False if invalid values present
+adacovex-ir_synthesiser.adb:93:41: warning: condition is always True
+adacovex-ir_synthesiser.adb:93:41: warning: (see assignment at line 80)
+adacovex-ir_synthesiser.adb:112:41: warning: condition can only be False if invalid values present
+[Ada Compile]     adacovex-parsers-gnatprove.adb
+adacovex-parsers-gnatprove.adb:142:07: warning: declaration hides "Line" at a-textio.ads:365
+adacovex-parsers-gnatprove.adb:218:42: warning: declaration hides "Row" at line 203
+adacovex-parsers-gnatprove.adb:229:43: warning: declaration hides "Row" at line 203
+adacovex-parsers-gnatprove.adb:432:07: warning: declaration hides "Line" at a-textio.ads:365
+[Ada Compile]     adacovex-parsers-manifest.adb
+adacovex-config.adb:1872:07: warning: "Last" is not modified, could be declared constant
+adacovex-config.ads:206:56: warning: lower bound check only fails if it is invalid
+adacovex-config.ads:207:51: warning: lower bound check only fails if it is invalid
+[Ada Compile]     adacovex-parsers-source.adb
+adacovex-parsers-do178c.adb:229:07: warning: declaration hides "Line" at a-textio.ads:365
+[Ada Compile]     adacovex-parsers-tests.adb
+adacovex-parsers-tests.adb:442:47: warning: index for "Line" may assume lower bound of 1
+adacovex-parsers-tests.adb:442:47: warning: suggested replacement: "Line'First"
+adacovex-parsers-tests.adb:459:47: warning: index for "Line" may assume lower bound of 1
+adacovex-parsers-tests.adb:459:47: warning: suggested replacement: "Line'First"
+adacovex-parsers-tests.adb:473:07: warning: "Tests_Run" is not modified, could be declared constant
+adacovex-parsers-tests.adb:474:07: warning: "Failures" is not modified, could be declared constant
+adacovex-parsers-tests.adb:475:07: warning: "Errors" is not modified, could be declared constant
+adacovex-parsers-tests.adb:511:07: warning: declaration hides "Line" at a-textio.ads:365
+[Ada Compile]     adacovex-parsers.adb
+adacovex-complexity.adb:1:06: warning: redundant with clause in body
+adacovex-complexity.adb:2:06: warning: redundant with clause in body
+adacovex-complexity.adb:3:06: warning: redundant with clause in body
+adacovex-complexity.adb:4:17: warning: no entities of "Ada.Strings.Fixed" are referenced
+adacovex-complexity.adb:13:04: warning: use clause for package "Fixed" has no effect
+adacovex-complexity.adb:16:04: warning: use clause for type "Ada.Containers.Count_Type" has no effect
+adacovex-complexity.adb:219:10: warning: "Start" is not modified, could be declared constant
+adacovex-complexity.adb:232:19: warning: index for "Name" may assume lower bound of 1
+adacovex-complexity.adb:232:19: warning: suggested replacement: "Name'First"
+adacovex-complexity.adb:297:13: warning: "Start" is not modified, could be declared constant
+adacovex-complexity.adb:309:22: warning: index for "Name" may assume lower bound of 1
+adacovex-complexity.adb:309:22: warning: suggested replacement: "Name'First"
+adacovex-complexity.adb:345:10: warning: "Start" is not modified, could be declared constant
+adacovex-complexity.adb:358:19: warning: index for "Name" may assume lower bound of 1
+adacovex-complexity.adb:358:19: warning: suggested replacement: "Name'First"
+adacovex-complexity.adb:655:10: warning: declaration hides "Search" at a-direct.ads:407
+adacovex-complexity.adb:718:07: warning: declaration hides "Line" at a-textio.ads:365
+adacovex-complexity.adb:718:07: warning: variable "Line" is never read and never assigned
+adacovex-complexity.adb:719:07: warning: variable "Last" is never read and never assigned
+adacovex-complexity.adb:739:26: warning: useless assignment of object to itself
+adacovex-complexity.adb:750:47: warning: index for "N" may assume lower bound of 1
+adacovex-complexity.adb:750:47: warning: suggested replacement: "N'First"
+adacovex-complexity.ads:9:09: warning: unit "Ada.Directories" is not referenced in spec
+adacovex-complexity.ads:9:09: warning: with clause might be moved to body
+adacovex-complexity.ads:10:09: warning: unit "Ada.Text_IO" is not referenced in spec
+adacovex-complexity.ads:10:09: warning: with clause might be moved to body
+[Ada Compile]     adacovex-prove.adb
+adacovex-parsers.adb:1:06: warning: redundant with clause in body
+[Ada Compile]     adacovex-prove_patch.adb
+adacovex-prove_patch.adb:89:62: warning: condition is always False
+adacovex-prove_patch.adb:282:62: warning: condition is always False
+adacovex-prove_patch.adb:308:62: warning: condition is always False
+adacovex-prove_patch.ads:34:14: warning: unit "Adacovex.Types" is not referenced in spec
+adacovex-prove_patch.ads:34:14: warning: with clause might be moved to body
+[Ada Compile]     adacovex-renderers-ansi.adb
+adacovex-prove.adb:3:06: warning: redundant with clause in body
+adacovex-prove.adb:285:13: warning: declaration hides "Line" at a-textio.ads:365
+adacovex-prove.adb:481:07: warning: declaration hides "Version" at adacovex.ads:15
+adacovex-prove.adb:512:47: warning: "Best_Name" may be referenced before it has a value
+adacovex-prove.adb:707:44: warning: index for "Exe_Path" may assume lower bound of 1
+adacovex-prove.adb:707:44: warning: suggested replacement: "Exe_Path'First"
+adacovex-prove.adb:729:53: warning: index for "Toolchain_Dir" may assume lower bound of 1
+adacovex-prove.adb:729:53: warning: suggested replacement: "Toolchain_Dir'First"
+adacovex-prove.adb:778:07: warning: variable "Found" is not referenced
+adacovex-prove.adb:782:07: warning: declaration hides "Search" at a-direct.ads:407
+adacovex-prove.adb:860:16: warning: declaration hides "Line" at a-textio.ads:365
+adacovex-prove.adb:933:22: warning: "Fixed" is already use-visible through previous use_clause at line 18
+adacovex-prove.adb:1230:13: warning: "Hit" is not modified, could be declared constant
+adacovex-prove.adb:1466:07: warning: declaration hides "Search" at a-direct.ads:407
+adacovex-prove.ads:1:14: warning: unit "Adacovex.Types" is not referenced in spec
+adacovex-prove.ads:1:14: warning: with clause might be moved to body
+[Ada Compile]     adacovex-renderers-html.adb
+adacovex-renderers-ansi.adb:5:04: warning: use clause for type "Test_Status" defined at adacovex-types.ads:64 has no effect
+[Ada Compile]     adacovex-renderers-man.adb
+adacovex-parsers-source.adb:415:07: warning: declaration hides "Line" at a-textio.ads:365
+adacovex-parsers-source.adb:675:07: warning: declaration hides "Search" at a-direct.ads:407
+adacovex-parsers-source.adb:707:13: warning: "Current" is not modified, could be declared constant
+adacovex-parsers-source.adb:956:07: warning: declaration hides "Search" at a-direct.ads:407
+adacovex-parsers-source.adb:995:13: warning: "Current" is not modified, could be declared constant
+[Ada Compile]     adacovex-renderers-markdown.adb
+adacovex-renderers-man.adb:3:17: warning: no entities of "Ada.Strings.Fixed" are referenced
+adacovex-renderers-man.adb:11:04: warning: use clause for package "Fixed" has no effect
+adacovex-renderers-man.adb:56:26: warning: declaration hides "Version" at adacovex.ads:15
+adacovex-renderers-man.adb:446:26: warning: declaration hides "Version" at adacovex.ads:15
+adacovex-renderers-man.adb:545:13: warning: declaration hides "Line" at a-textio.ads:365
+adacovex-renderers-man.ads:18:26: warning: declaration hides "Version" at adacovex.ads:15
+adacovex-renderers-man.ads:35:26: warning: declaration hides "Version" at adacovex.ads:15
+[Ada Compile]     adacovex-renderers-sbom.adb
+[Ada Compile]     adacovex-renderers-svg.adb
+[Ada Compile]     adacovex-renderers.ads
+[Ada Compile]     adacovex-server-http.adb
+adacovex-renderers-sbom.adb:4:06: warning: redundant with clause in body
+adacovex-renderers-sbom.adb:9:04: warning: use clause for type "SPARK_Level" defined at adacovex-types.ads:51 has no effect
+adacovex-renderers-sbom.adb:238:38: warning: lower bound check only fails if it is invalid
+adacovex-renderers-sbom.adb:340:45: warning: lower bound check only fails if it is invalid
+adacovex-renderers-sbom.adb:344:07: warning: "Sec" is not modified, could be declared constant
+adacovex-renderers-sbom.adb:356:16: warning: declaration hides "DY" at line 347
+adacovex-renderers-sbom.adb:380:44: warning: upper bound test optimized away
+adacovex-renderers-sbom.adb:380:44: warning: value is known to be in range
+adacovex-renderers-sbom.adb:645:07: warning: if statement has no effect
+adacovex-renderers-sbom.adb:720:13: warning: "C" is not modified, could be declared constant
+adacovex-renderers-sbom.adb:913:13: warning: "C" is not modified, could be declared constant
+adacovex-renderers-sbom.adb:1075:16: warning: "C" is not modified, could be declared constant
+[Ada Compile]     adacovex-server.ads
+[Ada Compile]     adacovex-target_profiles.adb
+[Ada Compile]     adacovex-test_support.adb
+adacovex-renderers-html.adb:22:13: warning: function "Img_Frac" is not referenced
+adacovex-renderers-html.adb:98:13: warning: function "Frac" is not referenced
+adacovex-renderers-html.adb:138:38: warning: declaration hides "Count" at a-strunb.ads:427
+adacovex-renderers-html.adb:2075:31: warning: index for "F" may assume lower bound of 1
+adacovex-renderers-html.adb:2075:31: warning: suggested replacement: "F'First"
+adacovex-renderers-html.adb:2139:31: warning: index for "F" may assume lower bound of 1
+adacovex-renderers-html.adb:2139:31: warning: suggested replacement: "F'First"
+[Ada Compile]     adacovex-timezones.adb
+[Ada Compile]     adacovex-types.adb
+adacovex-timezones.adb:6:17: warning: unit "Ada.Strings.Fixed" is not referenced
+adacovex-timezones.adb:15:04: warning: use clause for package "Strings" has no effect
+adacovex-timezones.adb:529:07: warning: declaration hides "Clock" at a-calend.ads:56
+[Ada Compile]     adacovex-vcs.adb
+adacovex-server-http.adb:24:07: warning: declaration hides "Keep_Alive" at g-socket.ads:811
+adacovex-server-http.adb:27:49: warning: declaration hides "Keep_Alive" at g-socket.ads:811
+adacovex-server-http.adb:43:52: warning: declaration hides "Keep_Alive" at g-socket.ads:811
+adacovex-server-http.adb:86:07: warning: "Family" is not modified, could be declared constant
+adacovex-server-http.adb:88:07: warning: "Svr_State" is not modified, could be declared constant
+adacovex-server-http.adb:190:49: warning: declaration hides "Keep_Alive" at g-socket.ads:811
+adacovex-server-http.adb:220:34: warning: "Last" modified by call, but value might not be referenced
+adacovex-server-http.adb:228:07: warning: declaration hides "Keep_Alive" at g-socket.ads:811
+adacovex-server-http.adb:261:34: warning: "Last" modified by call, but value might not be referenced
+adacovex-server-http.adb:277:07: warning: declaration hides "Keep_Alive" at g-socket.ads:811
+adacovex-server-http.adb:324:37: warning: "Last" modified by call, but value might not be referenced
+adacovex-server-http.adb:403:07: warning: declaration hides "Start" at adacovex-server-http.ads:99
+adacovex-server-http.adb:428:52: warning: declaration hides "Keep_Alive" at g-socket.ads:811
+adacovex-server-http.ads:100:27: warning: condition can only be False if invalid values present
+[Ada Compile]     adacovex.ads
+[Ada Compile]     adacovex_complexity_tests.adb
+adacovex-vcs.adb:103:07: warning: "Stop" is not modified, could be declared constant
+adacovex-vcs.adb:151:07: warning: "Stop" is not modified, could be declared constant
+[Ada Compile]     adacovex_config_tests.adb
+[Ada Compile]     adacovex_dal_tests.adb
+[Ada Compile]     adacovex_ir_tests.adb
+adacovex_ir_tests.adb:148:28: warning: condition is always False
+adacovex_ir_tests.adb:149:36: warning: condition is always False
+adacovex_ir_tests.adb:151:36: warning: condition is always False
+adacovex_ir_tests.adb:153:36: warning: condition is always True
+[Ada Compile]     adacovex_main.adb
+adacovex_config_tests.adb:515:10: warning: "Cfg" is not modified, could be declared constant
+[Ada Compile]     adacovex_man_tests.adb
+adacovex_man_tests.adb:4:06: warning: redundant with clause in body
+[Ada Compile]     adacovex_prove_patch_tests.adb
+adacovex_prove_patch_tests.adb:2:06: warning: redundant with clause in body
+[Ada Compile]     adacovex_prove_tests.adb
+adacovex_main.adb:5:09: warning: unit "Ada.Environment_Variables" is not referenced
+adacovex_main.adb:6:10: warning: unit "GNAT.Sockets" is not referenced
+adacovex_main.adb:15:22: warning: unit "Adacovex.Parsers.DO178C" is not referenced
+adacovex_main.adb:1071:10: warning: variable "J" is not referenced
+[Ada Compile]     adacovex_renderer_svg_tests.adb
+adacovex_prove_tests.adb:81:10: warning: "S" is not modified, could be declared constant
+[Ada Compile]     adacovex_renderer_tests.adb
+[Ada Compile]     adacovex_sbom_tests.adb
+[Ada Compile]     adacovex_scanner_tests.adb
+adacovex-types.adb:53:17: warning: condition can only be False if invalid values present
+adacovex-types.adb:53:17: warning: condition is always True
+adacovex-types.adb:54:28: warning: condition can only be False if invalid values present
+adacovex-types.adb:54:28: warning: condition is always True
+adacovex-types.adb:101:17: warning: condition can only be False if invalid values present
+adacovex-types.adb:101:17: warning: condition is always True
+adacovex-types.adb:102:28: warning: condition can only be False if invalid values present
+adacovex-types.adb:102:28: warning: condition is always True
+adacovex-types.adb:134:17: warning: condition can only be False if invalid values present
+adacovex-types.adb:134:17: warning: condition is always True
+adacovex-types.adb:135:28: warning: condition can only be False if invalid values present
+adacovex-types.adb:135:28: warning: condition is always True
+[Ada Compile]     adacovex_server_tests.adb
+adacovex_scanner_tests.adb:120:29: warning: condition can only be False if invalid values present
+adacovex_scanner_tests.adb:121:23: warning: condition can only be False if invalid values present
+adacovex_scanner_tests.adb:227:27: warning: condition can only be False if invalid values present
+adacovex_scanner_tests.adb:228:21: warning: condition can only be False if invalid values present
+[Ada Compile]     adacovex_testparser_tests.adb
+adacovex_sbom_tests.adb:48:07: warning: variable "C" is read but never assigned
+[Ada Compile]     adacovex_types_tests.adb
+adacovex_server_tests.adb:1:06: warning: redundant with clause in body
+[Ada Compile]     adacovex_tz_ansi_tests.adb
+adacovex_tz_ansi_tests.adb:149:10: warning: "Bad" is not modified, could be declared constant
+[Ada Compile]     adacovex_vcs_tests.adb
+adacovex_types_tests.adb:119:25: warning: condition is always True
+adacovex_types_tests.adb:122:25: warning: condition is always True
+adacovex_types_tests.adb:125:19: warning: condition is always True
+adacovex_types_tests.adb:128:19: warning: condition is always True
+adacovex_types_tests.adb:131:23: warning: condition is always True
+adacovex_types_tests.adb:131:46: warning: condition is always True
+adacovex_types_tests.adb:131:67: warning: condition is always True
+[Ada Compile]     adacovex_version_info.ads
+[Ada Compile]     test_runner.adb
+adacovex_vcs_tests.adb:5:06: warning: redundant with clause in body
+test_runner.adb:42:28: warning: declaration hides "Out_File" at a-textio.ads:66
+test_runner.adb:52:25: warning: declaration hides "Name" at a-textio.ads:159
+test_runner.adb:129:25: warning: declaration hides "Name" at a-textio.ads:159
+adacovex-parsers-manifest.adb:171:07: warning: declaration hides "Test_Names" at line 50
+adacovex-parsers-manifest.adb:220:27: warning: declaration hides "Test_Names" at line 50
+adacovex-parsers-manifest.adb:226:07: warning: declaration hides "Version" at adacovex.ads:15
+adacovex-parsers-manifest.adb:255:07: warning: declaration hides "Version" at adacovex.ads:15
+adacovex-parsers-manifest.adb:274:07: warning: declaration hides "Base_Names" at line 48
+adacovex-parsers-manifest.adb:275:07: warning: declaration hides "Dev_Names" at line 49
+adacovex-parsers-manifest.adb:388:07: warning: declaration hides "Version" at adacovex.ads:15
+adacovex-parsers-manifest.adb:398:07: warning: declaration hides "Version" at adacovex.ads:15
+adacovex-parsers-manifest.adb:615:07: warning: declaration hides "Search" at a-direct.ads:407
+adacovex-parsers-manifest.adb:637:43: warning: declaration hides "Version" at adacovex.ads:15
+adacovex-parsers-manifest.adb:848:43: warning: declaration hides "Version" at adacovex.ads:15
+adacovex-parsers-manifest.adb:960:10: warning: declaration hides "Line" at a-textio.ads:365
+adacovex-parsers-manifest.adb:1013:27: warning: declaration hides "Target_Dir" at adacovex-parsers-manifest.ads:62
+adacovex-parsers-manifest.adb:1063:17: warning: "Directories" is already use-visible through previous use_clause at line 608
+adacovex-parsers-manifest.adb:1064:15: warning: declaration hides "Dir_Entry" at line 609
+adacovex-parsers-manifest.adb:1094:16: warning: "C" is not modified, could be declared constant
+adacovex-parsers-manifest.adb:1201:19: warning: "Current" is not modified, could be declared constant
+adacovex-parsers-manifest.adb:1385:07: warning: declaration hides "Search" at a-direct.ads:407
+adacovex-parsers-manifest.adb:1434:16: warning: "Current" is not modified, could be declared constant
+adacovex-parsers-manifest.adb:1512:13: warning: "Current" is not modified, could be declared constant
+adacovex-parsers-manifest-read_manifest.adb:21:04: warning: declaration hides "Line" at a-textio.ads:365
+adacovex-parsers-manifest-parse_gpr.adb:11:04: warning: declaration hides "Line" at a-textio.ads:365
+adacovex-parsers-manifest-collect_gpr_files.adb:14:04: warning: declaration hides "Search" at a-direct.ads:407
+adacovex-parsers-manifest-collect_gpr_files.adb:33:10: warning: "Current" is not modified, could be declared constant
+adacovex-parsers-manifest-read_manifest_deps.adb:12:04: warning: declaration hides "Test_Names" at adacovex-parsers-manifest.adb:50
+adacovex-parsers-manifest-read_manifest_deps.adb:16:04: warning: declaration hides "Line" at a-textio.ads:365
+adacovex-parsers-manifest-collect_owner_test_names.adb:37:24: warning: declaration hides "Test_Names" at adacovex-parsers-manifest.adb:50
+adacovex-parsers-manifest-collect_owner_test_names.adb:77:27: warning: declaration hides "Line" at a-textio.ads:365
+adacovex-parsers-manifest-collect_owner_test_names.adb:99:23: warning: declaration hides "Line" at a-textio.ads:365
+adacovex-parsers-manifest-collect_owner_test_names.adb:127:07: warning: declaration hides "Line" at a-textio.ads:365
+adacovex-parsers-manifest-collect_owner_test_names.adb:153:29: warning: declaration hides "Line" at a-textio.ads:365
+adacovex-parsers-manifest-collect_owner_test_names.adb:172:07: warning: declaration hides "Line" at a-textio.ads:365
+adacovex-parsers-manifest-collect_owner_test_names.adb:225:07: warning: declaration hides "Line" at a-textio.ads:365
+adacovex-parsers-manifest-collect_owner_test_names.adb:291:07: warning: declaration hides "Line" at a-textio.ads:365
+adacovex-parsers-manifest-collect_owner_test_names.adb:375:07: warning: declaration hides "Line" at a-textio.ads:365
+adacovex-parsers-manifest-collect_owner_test_names.adb:429:07: warning: declaration hides "Line" at a-textio.ads:365
+adacovex-parsers-manifest-collect_owner_test_names.adb:512:07: warning: declaration hides "Line" at a-textio.ads:365
+adacovex-parsers-manifest-collect_owner_test_names.adb:646:23: warning: declaration hides "Line" at a-textio.ads:365
+adacovex-parsers-manifest-collect_owner_test_names.adb:683:07: warning: declaration hides "Line" at a-textio.ads:365
+adacovex-parsers-manifest-collect_owner_test_names.adb:736:07: warning: declaration hides "Line" at a-textio.ads:365
+adacovex-parsers-manifest-collect_owner_test_names.adb:782:07: warning: declaration hides "Line" at a-textio.ads:365
+adacovex-parsers-manifest-collect_owner_test_names.adb:868:07: warning: declaration hides "Line" at a-textio.ads:365
+adacovex-parsers-manifest-append_dependency.adb:5:04: warning: declaration hides "Version" at adacovex.ads:15
+adacovex-parsers-manifest-resolve_ecosystem_metadata.adb:28:04: warning: declaration hides "Version" at adacovex.ads:15
+adacovex-parsers-manifest-resolve_ecosystem_metadata.adb:405:25: warning: "B" is not modified, could be declared constant
+adacovex-parsers-manifest-register_manifest_deps.adb:17:04: warning: declaration hides "Base_Names" at adacovex-parsers-manifest.adb:48
+adacovex-parsers-manifest-register_manifest_deps.adb:18:04: warning: declaration hides "Dev_Names" at adacovex-parsers-manifest.adb:49
+adacovex-parsers-manifest-register_manifest_deps.adb:63:07: warning: declaration hides "Target_Dir" at adacovex-parsers-manifest.adb:272
+adacovex-parsers-manifest-read_alire_lock.adb:8:04: warning: declaration hides "Line" at a-textio.ads:365
+adacovex-parsers-manifest-resolve_gpr_deps.adb:98:25: warning: "C_Index" is not modified, could be declared constant
+adacovex-parsers-manifest-detect_languages.adb:22:04: warning: declaration hides "Search" at a-direct.ads:407
+adacovex-parsers-manifest-detect_languages.adb:68:10: warning: "Current" is not modified, could be declared constant
+adacovex-parsers-manifest-language_summary.adb:44:16: warning: "T" is not modified, could be declared constant
+adacovex-parsers-manifest-file_quoted_value.adb:8:04: warning: declaration hides "Line" at a-textio.ads:365
+adacovex-parsers-manifest-go_module_path.adb:7:04: warning: declaration hides "Line" at a-textio.ads:365
+adacovex-parsers-manifest-gem_entry.adb:7:04: warning: declaration hides "Version" at adacovex.ads:15
+adacovex-parsers-manifest-gem_entry.adb:12:04: warning: declaration hides "Line" at a-textio.ads:365
+adacovex-parsers-manifest-req_entry.adb:8:04: warning: declaration hides "Version" at adacovex.ads:15
+adacovex-parsers-manifest-req_entry.adb:13:04: warning: declaration hides "Line" at a-textio.ads:365
+adacovex-parsers-manifest-collect_req_entries.adb:11:04: warning: declaration hides "Line" at a-textio.ads:365
+adacovex-parsers-manifest-register_root_python_deps.adb:38:10: warning: declaration hides "Search" at a-direct.ads:407
+adacovex-parsers-manifest-xml_tag_value.adb:7:04: warning: declaration hides "Line" at a-textio.ads:365
+adacovex-parsers-manifest-read_vendor_manifest.adb:208:07: warning: declaration hides "Search" at a-direct.ads:407
+adacovex-parsers-manifest-discover_vendored_components.adb:29:04: warning: declaration hides "Search" at a-direct.ads:407
+adacovex-parsers-manifest-discover_vendored_components.adb:247:13: warning: "Current" is not modified, could be declared constant
+adacovex-parsers-manifest-discover_generic_vendored.adb:34:04: warning: declaration hides "Search" at a-direct.ads:407
+adacovex-parsers-manifest-discover_generic_vendored.adb:130:13: warning: "Current" is not modified, could be declared constant
+adacovex-parsers-manifest-discover_generic_vendored.adb:171:25: warning: "N" is not modified, could be declared constant
+adacovex-parsers-manifest-discover_generic_vendored.adb:175:25: warning: "V" is not modified, could be declared constant
+adacovex-parsers-manifest-discover_generic_vendored.adb:185:25: warning: "Pur" is not modified, could be declared constant
+adacovex-parsers-manifest-discover_generic_vendored.adb:303:10: warning: "Current" is not modified, could be declared constant
+adacovex-parsers-manifest-probe_version.adb:31:04: warning: variable "OK" is never read and never assigned
+adacovex-parsers-manifest-probe_version.adb:32:04: warning: variable "Code" is never read and never assigned
+[Ada Bind]        adacovex_main
+[Ada Bind]        test_runner
+[Ada Post-Bind]   b__adacovex_main.adb
+[Ada Post-Bind]   b__test_runner.adb
+[Link]            adacovex.exe
+[Link]            test_runner.exe
+Success: Build finished successfully in 13.70 seconds.
+Found declared GPR file: adacovex.gpr
+[alr test] Test completed SUCCESSFULLY

@@ -2,11 +2,11 @@ badge: false
 crate: septum
 creation_timestamp: 1650735301.7662506
 distro: mingw64_nt-10.0-20348
-duration: 38.577999999999975
+duration: 33.891000000000076
 gnat: 10.3.2
-last_attempt: 2022-06-27 00:37:59.158386+00:00
+last_attempt: 2025-01-06 01:13:18.884570+00:00
 log:
-- 'Test ran at 2022-06-27 00:37:59.158386+00:00
+- 'Test ran at 2025-01-06 01:13:18.884570+00:00
 
 
   '
@@ -43,13 +43,13 @@ log:
 - "Dependencies (solution):\r\n"
 - "   ansiada=0.1.0\r\n"
 - "   atomic=0.3.0\r\n"
-- "   dir_iterators=0.0.3\r\n"
+- "   dir_iterators=0.0.4\r\n"
 - "   progress_indicators=0.0.1\r\n"
 - "   trendy_terminal=0.0.5\r\n"
 - "Dependencies (graph):\r\n"
 - "   progress_indicators=0.0.1 --> ansiada=0.1.0 (~0.1.0)            \r\n"
 - "   septum=0.0.7              --> atomic=0.3.0 (~0.3.0)             \r\n"
-- "   septum=0.0.7              --> dir_iterators=0.0.3 (~0.0.3)      \r\n"
+- "   septum=0.0.7              --> dir_iterators=0.0.4 (~0.0.3)      \r\n"
 - "   septum=0.0.7              --> progress_indicators=0.0.1 (~0.0.1)\r\n"
 - "   septum=0.0.7              --> trendy_terminal=0.0.5 (~0.0.5)    \r\n"
 - '
@@ -69,7 +69,7 @@ log:
 - 'Note: Deploying atomic=0.3.0...
 
   '
-- 'Note: Deploying dir_iterators=0.0.3...
+- 'Note: Deploying dir_iterators=0.0.4...
 
   '
 - 'Note: Deploying trendy_terminal=0.0.5...
@@ -258,16 +258,19 @@ log:
 - '   [Ada]          sp-file_system.adb
 
   '
-- 'sp-interactive.adb:17:09: warning: unit "Ada.IO_Exceptions" is not referenced
-
-  '
-- 'sp-interactive.adb:26:08: warning: unit "SP.Platform" is not referenced
-
-  '
 - '   [Ada]          sp-platform.adb
 
   '
 - '   [Ada]          sp-strings.adb
+
+  '
+- '   [Ada]          sp-terminal.adb
+
+  '
+- 'sp-interactive.adb:17:09: warning: unit "Ada.IO_Exceptions" is not referenced
+
+  '
+- 'sp-interactive.adb:26:08: warning: unit "SP.Platform" is not referenced
 
   '
 - '   [Ada]          sp-commands.adb
@@ -276,32 +279,29 @@ log:
 - '   [Ada]          sp-filters.adb
 
   '
-- 'sp-commands.adb:18:20: warning: unit "Ada.Containers.Vectors" is never instantiated
+- 'sp-terminal.ads:20:06: warning: unit "System" is not referenced
 
   '
 - '   [Ada]          sp-searches.adb
 
   '
-- '   [Ada]          sp-terminal.adb
-
-  '
-- 'sp-terminal.ads:20:06: warning: unit "System" is not referenced
-
-  '
 - '   [Ada]          sp-contexts.adb
+
+  '
+- '   [Ada]          sp-memory.adb
 
   '
 - 'sp-searches.ads:29:05: warning: use clause for type "Ada.Containers.Count_Type"
   has no effect
 
   '
-- '   [Ada]          sp-memory.adb
-
-  '
 - '   [Ada]          sp-progress.adb
 
   '
 - '   [Ada]          sp-cache.adb
+
+  '
+- 'sp-commands.adb:18:20: warning: unit "Ada.Containers.Vectors" is never instantiated
 
   '
 - 'sp-cache.adb:20:09: warning: unit "Ada.Task_Identification" is not referenced
@@ -322,18 +322,6 @@ log:
 - '   [gprlib]       Progress_Indicators.lexch
 
   '
-- '   [archive]      libAtomic.a
-
-  '
-- '   [archive]      libDir_Iterators.a
-
-  '
-- '   [index]        libAtomic.a
-
-  '
-- '   [index]        libDir_Iterators.a
-
-  '
 - '   [gprlib]       Trendy_Terminal.lexch
 
   '
@@ -343,10 +331,22 @@ log:
 - '   [archive]      libTrendy_Terminal.a
 
   '
+- '   [archive]      libAtomic.a
+
+  '
 - '   [index]        libProgress_Indicators.a
 
   '
+- '   [index]        libAtomic.a
+
+  '
 - '   [index]        libTrendy_Terminal.a
+
+  '
+- '   [archive]      libDir_Iterators.a
+
+  '
+- '   [index]        libDir_Iterators.a
 
   '
 - 'Bind
@@ -364,7 +364,7 @@ log:
 - '   [link]         septum.adb
 
   '
-- 'Build finished successfully in 20.82 seconds.
+- 'Build finished successfully in 14.56 seconds.
 
   '
 - '
@@ -383,9 +383,12 @@ log:
 
   '
 - "   + atomic              0.3.0 (new)         \n"
-- "   + dir_iterators       0.0.3 (new)         \n"
+- "   + dir_iterators       0.0.4 (new)         \n"
 - "   + progress_indicators 0.0.1 (new)         \n"
 - "   + trendy_terminal     0.0.5 (new)         \n"
+- 'Found declared GPR file: septum.gpr
+
+  '
 platform: windows
 status: success
 version: 0.0.7
