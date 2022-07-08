@@ -1,4 +1,4 @@
-Test ran at 2022-06-20 01:05:12.953980+00:00
+Test ran at 2022-08-11 00:56:43.575902+00:00
 
 SOLUTION:
 rewriters=22.0.0: Easy, yet advanced manipulation of Ada code
@@ -50,17 +50,60 @@ Dependencies (graph):
 
 
 LOG:
+Can't find C:\Strawberry\perl\bin\pkg-config on PATH, '.' not in PATH.
 Note: Deploying rewriters=22.0.0...
 Note: Deploying libgmp=6.2.1...
+The system package 'mingw-w64-x86_64-gmp' is about to be installed.
+This action might require admin privileges and impact your system installation.
+Do you want Alire to install this system package?
+Using default: Yes
+resolving dependencies...
+looking for conflicting packages...
+
+Packages (1) mingw-w64-x86_64-gmp-6.2.1-3
+
+Total Download Size:   0.55 MiB
+Total Installed Size:  2.85 MiB
+
+:: Proceed with installation? [Y/n] 
+:: Retrieving packages...
+ mingw-w64-x86_64-gmp-6.2.1-3-any downloading...
+checking keyring...
+checking package integrity...
+loading package files...
+checking for file conflicts...
+checking available disk space...
+:: Processing package changes...
+installing mingw-w64-x86_64-gmp...
 Note: Deploying libiconv=1.17.0...
+The system package 'mingw-w64-x86_64-libiconv' is about to be installed.
+This action might require admin privileges and impact your system installation.
+Do you want Alire to install this system package?
+Using default: Yes
+resolving dependencies...
+looking for conflicting packages...
+
+Packages (1) mingw-w64-x86_64-libiconv-1.17-1
+
+Total Download Size:   0.70 MiB
+Total Installed Size:  2.37 MiB
+
+:: Proceed with installation? [Y/n] 
+:: Retrieving packages...
+ mingw-w64-x86_64-libiconv-1.17-1-any downloading...
+checking keyring...
+checking package integrity...
+loading package files...
+checking for file conflicts...
+checking available disk space...
+:: Processing package changes...
+installing mingw-w64-x86_64-libiconv...
 Note: Deploying xmlada=22.0.0...
 #=#=#                                                                         
 ##O#-#                                                                        
 ##O=#  #                                                                      
 #=#=-#  #                                                                     
  #=#=-#   #                                                                   
-  #=#=- #   #                                                                 
-   #=#=- #   #                                                                
 Note: Running post_fetch actions for xmlada=22.0.0...
 configure: loading site script /usr/local/etc/config.site
 checking build system type... x86_64-w64-mingw32
@@ -79,42 +122,36 @@ Note: Deploying libgpr=22.0.0...
 ##O=#  #                                                                      
 #=#=-#  #                                                                     
  #=#=-#   #                                                                   
-  #=#=- #   #                                                                 
-   #=#=- #   #                                                                
 Note: Deploying gnatcoll=22.0.0...
 #=#=#                                                                         
 ##O#-#                                                                        
 ##O=#  #                                                                      
 #=#=-#  #                                                                     
--#O#- #   #                                                                   
- -#O#-  #   #                                                                 
-  -#O#-  #   #                                                                
-   -#O=#   #   #                                                              
+ #=#=-#   #                                                                   
 Note: Deploying gnatcoll_gmp=22.0.0...
 #=#=#                                                                         
 ##O#-#                                                                        
 ##O=#  #                                                                      
-#=#=-#  #                                                                     
- #=#=-#   #                                                                   
-  #=#=- #   #                                                                 
+
+#########################                                                 35.1%
+######################################################################## 100.0%
 Note: Deploying gnatcoll_iconv=22.0.0...
 #=#=#                                                                         
 ##O#-#                                                                        
 ##O=#  #                                                                      
-#=#=-#  #                                                                     
- #=#=-#   #                                                                   
-  #=#=- #   #                                                                 
+
+#########################                                                 35.1%
+######################################################################## 100.0%
 Note: Deploying langkit_support=22.0.0...
 #=#=#                                                                         
 ##O#-#                                                                        
 ##O=#  #                                                                      
 
-###########                                                               15.6%
+#####                                                                      7.9%
 ######################################################################## 100.0%
 Note: Deploying libadalang=22.0.0...
 #=#=#                                                                         
 ##O#-#                                                                        
-##O=#  #                                                                      
 
 ######################################################################## 100.0%
 Note: Deploying rejuvenation=22.0.1...
@@ -623,6 +660,10 @@ Compile
    [Ada]          gnatcoll-remote.ads
    [Ada]          gnatcoll-remote-db.adb
    [Ada]          gnatcoll-refcount.adb
+gnatcoll-refcount.ads:90:04: warning: in instantiation at gnatcoll-storage_pools-headers.adb:57
+gnatcoll-refcount.ads:90:04: warning: possible aliasing problem for type "Header_Access"
+gnatcoll-refcount.ads:90:04: warning: use -fno-strict-aliasing switch for references
+gnatcoll-refcount.ads:90:04: warning: or use "pragma No_Strict_Aliasing (Header_Access);"
    [Ada]          gnatcoll-refcount-weakref.adb
    [Ada]          gnatcoll-promises.adb
    [Ada]          gnatcoll-projects.adb
@@ -765,9 +806,9 @@ Build Libraries
    [index]        libgnatcoll.a
    [gprlib]       gnatcoll_iconv.lexch
    [archive]      libgnatcoll_gmp.a
+   [gprlib]       langkit_support.lexch
    [archive]      libgnatcoll_iconv.a
    [index]        libgnatcoll_gmp.a
-   [gprlib]       langkit_support.lexch
    [index]        libgnatcoll_iconv.a
    [bind SAL]     langkit_support
    [Ada]          b__langkit_support.adb
@@ -786,7 +827,7 @@ Build Libraries
    [index]        libRejuvenation.a
    [archive]      libRewriters.a
    [index]        libRewriters.a
-Build finished successfully in 1531.74 seconds.
+Build finished successfully in 1188.69 seconds.
 
 rewriters=22.0.0 successfully retrieved and built.
 Dependencies were solved as follows:

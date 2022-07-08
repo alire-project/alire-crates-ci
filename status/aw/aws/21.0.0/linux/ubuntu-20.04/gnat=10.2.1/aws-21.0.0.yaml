@@ -3,11 +3,11 @@ badge_color: green
 crate: aws
 creation_timestamp: 1648648483.1886234
 distro: ubuntu-20.04
-duration: 89.00625788000002
+duration: 148.72000595999998
 gnat: 10.2.1
-last_attempt: 2022-06-06 01:15:31.383698+00:00
+last_attempt: 2022-09-02 01:29:54.647346+00:00
 log:
-- 'Test ran at 2022-06-06 01:15:31.383491+00:00
+- 'Test ran at 2022-09-02 01:29:54.647240+00:00
 
 
   '
@@ -25,7 +25,7 @@ log:
 
   '
 - '   Post_Fetch run: ${CRATE_DIR}/./make setup build install ZLIB=false DEMOS=false
-  LAL=false XMLADA=false prefix=install_dir
+  LAL=false XMLADA=false prefix=install_dir PRJ_BUILD=Release
 
   '
 - '   Author: AdaCore
@@ -49,11 +49,12 @@ log:
 - '   case OS is
 
   '
-- '      when Linux => (GPR External: PRJ_TARGET := UNIX and GPR External: TARGET
-  := x86_64-linux-gnu)
+- '      when Linux => (GPR External: PRJ_TARGET := UNIX and GPR External: SOCKET
+  := openssl and GPR External: TARGET := x86_64-linux-gnu)
 
   '
-- '      when Macos => GPR External: PRJ_TARGET := Darwin
+- '      when Macos => (GPR External: PRJ_TARGET := Darwin and GPR External: SOCKET
+  := openssl)
 
   '
 - '      when Windows => GPR External: PRJ_TARGET := Windows_NT
@@ -116,6 +117,9 @@ log:
 - '   make*
 
   '
+- '   openssl*
+
+  '
 - '   xmlada~21.0.0
 
   '
@@ -128,6 +132,9 @@ log:
 - '   make=4.3.0
 
   '
+- '   openssl=1.1.1
+
+  '
 - '   xmlada=21.0.0
 
   '
@@ -138,6 +145,7 @@ log:
 
   '
 - "   aws=21.0.0 --> make=4.3.0 (*)                   \n"
+- "   aws=21.0.0 --> openssl=1.1.1 (*)                \n"
 - "   aws=21.0.0 --> xmlada=21.0.0 (~21.0.0)          \n"
 - '
 
@@ -147,26 +155,207 @@ log:
   LOG:
 
   '
-- 'Note: Deploying release aws=21.0.0...
+- 'Note: Deploying aws=21.0.0...
 
   '
 - "#=#=#                                                                         \n"
-- "##O#-#                                                                        \n"
 - '
+
+  '
+- '#############################################                             62.9%
 
   '
 - '######################################################################## 100.0%
 
   '
-- 'Note: Deploying release make=4.3.0...
+- 'Note: Deploying make=4.3.0...
 
   '
-- 'Note: Deploying release xmlada=21.0.0...
+- 'Note: Deploying openssl=1.1.1...
+
+  '
+- 'The system package ''libssl-dev'' is about to be installed.
+
+  '
+- 'This action might require admin privileges and impact your system installation.
+
+  '
+- 'Do you want Alire to install this system package?
+
+  '
+- 'Using default: Yes
+
+  '
+- 'debconf: delaying package configuration, since apt-utils is not installed
+
+  '
+- "(Reading database ... \n"
+- '(Reading database ... 5%
+
+  '
+- '(Reading database ... 10%
+
+  '
+- '(Reading database ... 15%
+
+  '
+- '(Reading database ... 20%
+
+  '
+- '(Reading database ... 25%
+
+  '
+- '(Reading database ... 30%
+
+  '
+- '(Reading database ... 35%
+
+  '
+- '(Reading database ... 40%
+
+  '
+- '(Reading database ... 45%
+
+  '
+- '(Reading database ... 50%
+
+  '
+- '(Reading database ... 55%
+
+  '
+- '(Reading database ... 60%
+
+  '
+- '(Reading database ... 65%
+
+  '
+- '(Reading database ... 70%
+
+  '
+- '(Reading database ... 75%
+
+  '
+- '(Reading database ... 80%
+
+  '
+- '(Reading database ... 85%
+
+  '
+- '(Reading database ... 90%
+
+  '
+- '(Reading database ... 95%
+
+  '
+- '(Reading database ... 100%
+
+  '
+- '(Reading database ... 27342 files and directories currently installed.)
+
+  '
+- 'Preparing to unpack .../libssl1.1_1.1.1n-0+deb11u3_amd64.deb ...
+
+  '
+- 'Unpacking libssl1.1:amd64 (1.1.1n-0+deb11u3) over (1.1.1k-1+deb11u1) ...
+
+  '
+- 'Setting up libssl1.1:amd64 (1.1.1n-0+deb11u3) ...
+
+  '
+- 'debconf: unable to initialize frontend: Dialog
+
+  '
+- 'debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer,
+  or without a controlling terminal.)
+
+  '
+- 'debconf: falling back to frontend: Readline
+
+  '
+- 'Selecting previously unselected package libssl-dev:amd64.
+
+  '
+- "(Reading database ... \n"
+- '(Reading database ... 5%
+
+  '
+- '(Reading database ... 10%
+
+  '
+- '(Reading database ... 15%
+
+  '
+- '(Reading database ... 20%
+
+  '
+- '(Reading database ... 25%
+
+  '
+- '(Reading database ... 30%
+
+  '
+- '(Reading database ... 35%
+
+  '
+- '(Reading database ... 40%
+
+  '
+- '(Reading database ... 45%
+
+  '
+- '(Reading database ... 50%
+
+  '
+- '(Reading database ... 55%
+
+  '
+- '(Reading database ... 60%
+
+  '
+- '(Reading database ... 65%
+
+  '
+- '(Reading database ... 70%
+
+  '
+- '(Reading database ... 75%
+
+  '
+- '(Reading database ... 80%
+
+  '
+- '(Reading database ... 85%
+
+  '
+- '(Reading database ... 90%
+
+  '
+- '(Reading database ... 95%
+
+  '
+- '(Reading database ... 100%
+
+  '
+- '(Reading database ... 27342 files and directories currently installed.)
+
+  '
+- 'Preparing to unpack .../libssl-dev_1.1.1n-0+deb11u3_amd64.deb ...
+
+  '
+- 'Unpacking libssl-dev:amd64 (1.1.1n-0+deb11u3) ...
+
+  '
+- 'Setting up libssl-dev:amd64 (1.1.1n-0+deb11u3) ...
+
+  '
+- 'Processing triggers for libc-bin (2.31-13) ...
+
+  '
+- 'Note: Deploying xmlada=21.0.0...
 
   '
 - "#=#=#                                                                         \n"
-- "##O#-#                                                                        \n"
-- "##=O#- #                                                                      \n"
+- "##=#=#                                                                        \n"
 - 'Note: Running post_fetch actions for xmlada=21.0.0...
 
   '
@@ -203,7 +392,7 @@ log:
 - 'Note: Running post_fetch actions for aws=21.0.0...
 
   '
-- 'make[1]: Entering directory ''/home/runner/work/alire-crates-ci/alire-crates-ci/test/95c4df5a-2b9c-422e-bab7-f4e92dded9a9/aws_21.0.0_57fddf8f/config''
+- 'make[1]: Entering directory ''/home/runner/work/alire-crates-ci/alire-crates-ci/test/15eefec5-be13-48de-8621-ec04930a5bcb/aws_21.0.0_57fddf8f/config''
 
   '
 - 'Bind
@@ -224,37 +413,37 @@ log:
 - 'Setup OS specific definitions
 
   '
-- 'make[1]: Leaving directory ''/home/runner/work/alire-crates-ci/alire-crates-ci/test/95c4df5a-2b9c-422e-bab7-f4e92dded9a9/aws_21.0.0_57fddf8f/config''
+- 'make[1]: Leaving directory ''/home/runner/work/alire-crates-ci/alire-crates-ci/test/15eefec5-be13-48de-8621-ec04930a5bcb/aws_21.0.0_57fddf8f/config''
 
   '
-- 'make[1]: Entering directory ''/home/runner/work/alire-crates-ci/alire-crates-ci/test/95c4df5a-2b9c-422e-bab7-f4e92dded9a9/aws_21.0.0_57fddf8f/regtests''
+- 'make[1]: Entering directory ''/home/runner/work/alire-crates-ci/alire-crates-ci/test/15eefec5-be13-48de-8621-ec04930a5bcb/aws_21.0.0_57fddf8f/regtests''
 
   '
 - 'Can not generate system tags. The test are disabled
 
   '
-- 'make[1]: Leaving directory ''/home/runner/work/alire-crates-ci/alire-crates-ci/test/95c4df5a-2b9c-422e-bab7-f4e92dded9a9/aws_21.0.0_57fddf8f/regtests''
+- 'make[1]: Leaving directory ''/home/runner/work/alire-crates-ci/alire-crates-ci/test/15eefec5-be13-48de-8621-ec04930a5bcb/aws_21.0.0_57fddf8f/regtests''
 
   '
-- 'make[1]: Entering directory ''/home/runner/work/alire-crates-ci/alire-crates-ci/test/95c4df5a-2b9c-422e-bab7-f4e92dded9a9/aws_21.0.0_57fddf8f/demos''
+- 'make[1]: Entering directory ''/home/runner/work/alire-crates-ci/alire-crates-ci/test/15eefec5-be13-48de-8621-ec04930a5bcb/aws_21.0.0_57fddf8f/demos''
 
   '
 - 'make[1]: Nothing to be done for ''setup''.
 
   '
-- 'make[1]: Leaving directory ''/home/runner/work/alire-crates-ci/alire-crates-ci/test/95c4df5a-2b9c-422e-bab7-f4e92dded9a9/aws_21.0.0_57fddf8f/demos''
+- 'make[1]: Leaving directory ''/home/runner/work/alire-crates-ci/alire-crates-ci/test/15eefec5-be13-48de-8621-ec04930a5bcb/aws_21.0.0_57fddf8f/demos''
 
   '
-- 'make[1]: Entering directory ''/home/runner/work/alire-crates-ci/alire-crates-ci/test/95c4df5a-2b9c-422e-bab7-f4e92dded9a9/aws_21.0.0_57fddf8f/templates_parser''
+- 'make[1]: Entering directory ''/home/runner/work/alire-crates-ci/alire-crates-ci/test/15eefec5-be13-48de-8621-ec04930a5bcb/aws_21.0.0_57fddf8f/templates_parser''
 
   '
-- 'make[1]: Leaving directory ''/home/runner/work/alire-crates-ci/alire-crates-ci/test/95c4df5a-2b9c-422e-bab7-f4e92dded9a9/aws_21.0.0_57fddf8f/templates_parser''
+- 'make[1]: Leaving directory ''/home/runner/work/alire-crates-ci/alire-crates-ci/test/15eefec5-be13-48de-8621-ec04930a5bcb/aws_21.0.0_57fddf8f/templates_parser''
 
   '
-- 'make[1]: Entering directory ''/home/runner/work/alire-crates-ci/alire-crates-ci/test/95c4df5a-2b9c-422e-bab7-f4e92dded9a9/aws_21.0.0_57fddf8f/templates_parser''
+- 'make[1]: Entering directory ''/home/runner/work/alire-crates-ci/alire-crates-ci/test/15eefec5-be13-48de-8621-ec04930a5bcb/aws_21.0.0_57fddf8f/templates_parser''
 
   '
-- 'make[1]: Leaving directory ''/home/runner/work/alire-crates-ci/alire-crates-ci/test/95c4df5a-2b9c-422e-bab7-f4e92dded9a9/aws_21.0.0_57fddf8f/templates_parser''
+- 'make[1]: Leaving directory ''/home/runner/work/alire-crates-ci/alire-crates-ci/test/15eefec5-be13-48de-8621-ec04930a5bcb/aws_21.0.0_57fddf8f/templates_parser''
 
   '
 - 'Setup
@@ -311,7 +500,7 @@ log:
 - '   [Ada]          templatespp.adb
 
   '
-- '   [Ada]          memory_streams.adb
+- '   [Ada]          zlib.adb
 
   '
 - '   [Ada]          zlib-thin.adb
@@ -320,16 +509,10 @@ log:
 - '   [Ada]          zlib-streams.adb
 
   '
-- '   [Ada]          zlib.adb
+- '   [Ada]          memory_streams.adb
 
   '
 - '   [Ada]          aws-os_lib.ads
-
-  '
-- '   [Ada]          templates_parser.adb
-
-  '
-- '   [Ada]          templates_parser-query.adb
 
   '
 - '   [Ada]          templates_parser-utils.adb
@@ -338,124 +521,19 @@ log:
 - '   [Ada]          templates_parser-debug.adb
 
   '
-- '   [Ada]          aws-services-split_pages-uniform.adb
+- '   [Ada]          templates_parser.adb
 
   '
-- '   [Ada]          aws-services-web_block-context.adb
-
-  '
-- '   [Ada]          aws-services-split_pages-uniform-alpha.adb
-
-  '
-- '   [Ada]          aws-services-dispatchers-transient_pages.adb
+- '   [Ada]          templates_parser-query.adb
 
   '
 - '   [Ada]          aws-smtp.adb
 
   '
-- '   [Ada]          aws-smtp-messages-set.adb
-
-  '
-- '   [Ada]          aws-cookie.adb
-
-  '
-- '   [Ada]          aws-communication-client.adb
-
-  '
-- '   [Ada]          aws-services-web_mail.adb
-
-  '
-- '   [Ada]          aws-services-split_pages-uniform-overlapping.adb
-
-  '
-- '   [Ada]          aws-services-page_server.adb
-
-  '
-- '   [Ada]          aws-smtp-client.adb
-
-  '
-- '   [Ada]          aws-services-directory.adb
-
-  '
-- '   [Ada]          aws-services-dispatchers-virtual_host.adb
-
-  '
-- '   [Ada]          aws-services-web_block-registry.adb
-
-  '
-- '   [Ada]          aws-server-hotplug.adb
-
-  '
-- '   [Ada]          aws-services-split_pages-alpha.adb
-
-  '
-- '   [Ada]          aws-smtp-messages.adb
-
-  '
 - '   [Ada]          aws-communication-server.adb
 
   '
-- '   [Ada]          aws-services-split_pages.adb
-
-  '
-- '   [Ada]          aws-status-translate_table.adb
-
-  '
 - '   [Ada]          aws-services-dispatchers.ads
-
-  '
-- '   [Ada]          aws-services-dispatchers-linker.adb
-
-  '
-- '   [Ada]          aws-net-sets.ads
-
-  '
-- '   [Ada]          aws-communication.adb
-
-  '
-- '   [Ada]          aws-services-web_block.ads
-
-  '
-- '   [Ada]          aws-services-split_pages-alpha-bounded.adb
-
-  '
-- '   [Ada]          aws-smtp-server.adb
-
-  '
-- '   [Ada]          aws-net-log-callbacks.adb
-
-  '
-- '   [Ada]          aws-services-dispatchers-timer.adb
-
-  '
-- '   [Ada]          aws-net-stream_io.adb
-
-  '
-- '   [Ada]          aws-services-dispatchers-uri.adb
-
-  '
-- '   [Ada]          aws-smtp-authentication.ads
-
-  '
-- '   [Ada]          aws-services-download.adb
-
-  '
-- '   [Ada]          aws-client-hotplug.adb
-
-  '
-- '   [Ada]          aws-server-push.adb
-
-  '
-- '   [Ada]          aws-resources-streams-pipe.adb
-
-  '
-- '   [Ada]          aws-services-split_pages-shared.adb
-
-  '
-- '   [Ada]          aws-pop.adb
-
-  '
-- '   [Ada]          aws-services-dispatchers-method.adb
 
   '
 - '   [Ada]          aws-services-callbacks.adb
@@ -464,31 +542,175 @@ log:
 - '   [Ada]          aws-smtp-authentication-plain.adb
 
   '
-- '   [Ada]          aws-dispatchers-callback.adb
+- '   [Ada]          aws-server-push.adb
 
   '
-- '   [Ada]          aws-log.adb
+- '   [Ada]          aws-services-web_block-context.adb
 
   '
-- '   [Ada]          aws-net.adb
+- '   [Ada]          aws-services-dispatchers-transient_pages.adb
 
   '
-- '   [Ada]          aws-resources-files.adb
+- '   [Ada]          aws-services-dispatchers-virtual_host.adb
 
   '
-- '   [Ada]          aws-headers-values.adb
+- '   [Ada]          aws-communication-client.adb
 
   '
-- '   [Ada]          aws-server-log.adb
+- '   [Ada]          aws-pop.adb
+
+  '
+- '   [Ada]          aws-smtp-authentication.ads
+
+  '
+- '   [Ada]          aws-services-split_pages-shared.adb
+
+  '
+- '   [Ada]          aws-communication.adb
+
+  '
+- '   [Ada]          aws-services-web_mail.adb
+
+  '
+- '   [Ada]          aws-net-stream_io.adb
+
+  '
+- '   [Ada]          aws-smtp-messages.adb
+
+  '
+- '   [Ada]          aws-services-web_block.ads
+
+  '
+- '   [Ada]          aws-resources-streams-pipe.adb
+
+  '
+- '   [Ada]          aws-services-page_server.adb
+
+  '
+- '   [Ada]          aws-services-split_pages-alpha.adb
+
+  '
+- '   [Ada]          aws-services-directory.adb
+
+  '
+- '   [Ada]          aws-cookie.adb
+
+  '
+- '   [Ada]          aws-services-dispatchers-method.adb
+
+  '
+- '   [Ada]          aws-smtp-client.adb
+
+  '
+- '   [Ada]          aws-services-dispatchers-linker.adb
+
+  '
+- '   [Ada]          aws-smtp-server.adb
+
+  '
+- '   [Ada]          aws-services-dispatchers-uri.adb
+
+  '
+- '   [Ada]          aws-client-hotplug.adb
+
+  '
+- '   [Ada]          aws-services-split_pages.adb
+
+  '
+- '   [Ada]          aws-net-log-callbacks.adb
+
+  '
+- '   [Ada]          aws-net-sets.ads
+
+  '
+- '   [Ada]          aws-services-download.adb
+
+  '
+- '   [Ada]          aws-smtp-messages-set.adb
+
+  '
+- '   [Ada]          aws-services-split_pages-uniform-alpha.adb
+
+  '
+- '   [Ada]          aws-services-split_pages-alpha-bounded.adb
+
+  '
+- '   [Ada]          aws-status-translate_table.adb
+
+  '
+- '   [Ada]          aws-services-dispatchers-timer.adb
+
+  '
+- '   [Ada]          aws-services-web_block-registry.adb
+
+  '
+- '   [Ada]          aws-server-hotplug.adb
+
+  '
+- '   [Ada]          aws-services-split_pages-uniform-overlapping.adb
+
+  '
+- '   [Ada]          aws-services-split_pages-uniform.adb
+
+  '
+- '   [Ada]          aws-resources-streams-zlib.adb
+
+  '
+- '   [Ada]          aws-services.ads
+
+  '
+- '   [Ada]          aws-status-set.adb
+
+  '
+- '   [Ada]          aws-resources-embedded.adb
+
+  '
+- '   [Ada]          aws-net-websocket-registry-utils.adb
+
+  '
+- '   [Ada]          aws-url-raise_url_error.adb
+
+  '
+- '   [Ada]          aws-server-status.adb
+
+  '
+- '   [Ada]          aws-translator.adb
 
   '
 - '   [Ada]          aws-net-generic_sets.adb
 
   '
-- '   [Ada]          aws-net-websocket-protocol-rfc6455.adb
+- '   [Ada]          aws-net-acceptors.adb
 
   '
-- '   [Ada]          aws-utils.adb
+- '   [Ada]          aws-server-http_utils.adb
+
+  '
+- '   [Ada]          aws-default.ads
+
+  '
+- '   [Ada]          aws.ads
+
+  '
+- '   [Ada]          aws-config.adb
+
+  '
+- '   [Ada]          aws-net-poll_events.adb
+
+  '
+- '   [Ada]          aws-net.adb
+
+  '
+- '   [Ada]          aws-parameters.adb
+
+  '
+- '   [Ada]          aws-services-transient_pages.adb
+
+  '
+- '   [Ada]          aws-containers-string_vectors.ads
+
+  '
+- '   [Ada]          aws-net-buffered.adb
 
   '
 - '   [Ada]          aws-resources-streams-disk.adb
@@ -497,172 +719,13 @@ log:
 - '   [Ada]          aws-hotplug.adb
 
   '
-- '   [Ada]          aws-resources-streams-memory.adb
-
-  '
-- '   [Ada]          aws-templates.ads
-
-  '
-- '   [Ada]          aws-hotplug-get_status.adb
-
-  '
 - '   [Ada]          aws-digest.adb
-
-  '
-- '   [Ada]          aws-net-log.adb
-
-  '
-- '   [Ada]          aws-resources-streams-zlib.adb
-
-  '
-- '   [Ada]          aws-containers-tables.adb
-
-  '
-- '   [Ada]          aws-config-set.adb
-
-  '
-- '   [Ada]          aws-attachments.adb
-
-  '
-- '   [Ada]          aws-server.adb
-
-  '
-- '   [Ada]          aws-dispatchers.adb
-
-  '
-- '   [Ada]          aws-containers-string_vectors.ads
-
-  '
-- '   [Ada]          aws-config-utils.adb
-
-  '
-- '   [Ada]          aws-net-poll_events-g_poll.adb
-
-  '
-- '   [Ada]          aws-parameters-set.adb
-
-  '
-- '   [Ada]          aws-server-http_utils.adb
-
-  '
-- '   [Ada]          aws-mime.adb
-
-  '
-- '   [Ada]          aws-exceptions.ads
-
-  '
-- '   [Ada]          aws-net-websocket.adb
-
-  '
-- '   [Ada]          aws-config.adb
-
-  '
-- '   [Ada]          aws-net-websocket-handshake_error.adb
-
-  '
-- '   [Ada]          aws-messages.adb
-
-  '
-- '   [Ada]          aws-translator.adb
-
-  '
-- '   [Ada]          aws-net-memory.adb
-
-  '
-- '   [Ada]          aws-net-poll_events.adb
-
-  '
-- '   [Ada]          aws-config-ini.adb
-
-  '
-- '   [Ada]          aws-resources-embedded.adb
-
-  '
-- '   [Ada]          aws-net-buffered.adb
-
-  '
-- '   [Ada]          aws-services.ads
-
-  '
-- '   [Ada]          aws-parameters.adb
-
-  '
-- '   [Ada]          aws-client-http_utils.adb
-
-  '
-- '   [Ada]          aws-headers-set.adb
-
-  '
-- '   [Ada]          aws-default.ads
-
-  '
-- '   [Ada]          aws-net-websocket-protocol.ads
-
-  '
-- '   [Ada]          aws-session.adb
-
-  '
-- '   [Ada]          aws-containers-key_value.ads
-
-  '
-- '   [Ada]          aws-containers-tables-set.ads
-
-  '
-- '   [Ada]          aws-headers.adb
-
-  '
-- '   [Ada]          aws-containers.ads
-
-  '
-- '   [Ada]          aws-status-translate_set.adb
-
-  '
-- '   [Ada]          aws-url.adb
-
-  '
-- '   [Ada]          aws-url-raise_url_error.adb
-
-  '
-- '   [Ada]          aws-containers-memory_streams.ads
-
-  '
-- '   [Ada]          aws-resources-streams.adb
-
-  '
-- '   [Ada]          aws-session-control.adb
-
-  '
-- '   [Ada]          aws-server-get_status.adb
-
-  '
-- '   [Ada]          aws-resources-streams-disk-once.adb
-
-  '
-- '   [Ada]          aws-url-set.adb
-
-  '
-- '   [Ada]          aws-net-ssl-certificate.adb
 
   '
 - '   [Ada]          aws-resources-streams-memory-zlib.adb
 
   '
-- '   [Ada]          aws-status-set.adb
-
-  '
-- '   [Ada]          aws-server-status.adb
-
-  '
-- '   [Ada]          aws-net-websocket-registry-utils.adb
-
-  '
-- '   [Ada]          aws-net-websocket-registry.adb
-
-  '
-- '   [Ada]          aws-response.adb
-
-  '
-- '   [Ada]          aws-net-websocket-registry-control.adb
+- '   [Ada]          aws-server-get_status.adb
 
   '
 - '   [Ada]          aws-net-websocket-protocol-draft76.adb
@@ -671,31 +734,157 @@ log:
 - '   [Ada]          aws-services-transient_pages-control.adb
 
   '
-- '   [Ada]          aws.ads
+- '   [Ada]          aws-utils.adb
 
   '
-- '   [Ada]          aws-net-acceptors.adb
-
-  '
-- '   [Ada]          aws-utils-streams.adb
-
-  '
-- '   [Ada]          aws-services-transient_pages.adb
-
-  '
-- '   [Ada]          aws-response-set.adb
-
-  '
-- '   [Ada]          aws-client.adb
+- '   [Ada]          aws-net-websocket-protocol-rfc6455.adb
 
   '
 - '   [Ada]          aws-resources.adb
 
   '
-- '   [Ada]          aws-status.adb
+- '   [Ada]          aws-templates.ads
+
+  '
+- '   [Ada]          aws-utils-streams.adb
+
+  '
+- '   [Ada]          aws-resources-streams-disk-once.adb
+
+  '
+- '   [Ada]          aws-headers-set.adb
+
+  '
+- '   [Ada]          aws-config-set.adb
+
+  '
+- '   [Ada]          aws-response.adb
+
+  '
+- '   [Ada]          aws-messages.adb
+
+  '
+- '   [Ada]          aws-resources-files.adb
+
+  '
+- '   [Ada]          aws-response-set.adb
 
   '
 - '   [Ada]          aws-net-ssl-rsa_dh_generators.adb
+
+  '
+- '   [Ada]          aws-client.adb
+
+  '
+- '   [Ada]          aws-status.adb
+
+  '
+- '   [Ada]          aws-config-ini.adb
+
+  '
+- '   [Ada]          aws-resources-streams-memory.adb
+
+  '
+- '   [Ada]          aws-url.adb
+
+  '
+- '   [Ada]          aws-config-utils.adb
+
+  '
+- '   [Ada]          aws-net-ssl-certificate.adb
+
+  '
+- '   [Ada]          aws-session-control.adb
+
+  '
+- '   [Ada]          aws-parameters-set.adb
+
+  '
+- '   [Ada]          aws-headers.adb
+
+  '
+- '   [Ada]          aws-net-websocket-handshake_error.adb
+
+  '
+- '   [Ada]          aws-url-set.adb
+
+  '
+- '   [Ada]          aws-net-log.adb
+
+  '
+- '   [Ada]          aws-headers-values.adb
+
+  '
+- '   [Ada]          aws-containers-tables-set.ads
+
+  '
+- '   [Ada]          aws-containers-key_value.ads
+
+  '
+- '   [Ada]          aws-client-http_utils.adb
+
+  '
+- '   [Ada]          aws-net-memory.adb
+
+  '
+- '   [Ada]          aws-mime.adb
+
+  '
+- '   [Ada]          aws-attachments.adb
+
+  '
+- '   [Ada]          aws-resources-streams.adb
+
+  '
+- '   [Ada]          aws-net-websocket-registry-control.adb
+
+  '
+- '   [Ada]          aws-server-log.adb
+
+  '
+- '   [Ada]          aws-dispatchers.adb
+
+  '
+- '   [Ada]          aws-session.adb
+
+  '
+- '   [Ada]          aws-net-websocket-protocol.ads
+
+  '
+- '   [Ada]          aws-containers-tables.adb
+
+  '
+- '   [Ada]          aws-net-websocket.adb
+
+  '
+- '   [Ada]          aws-containers.ads
+
+  '
+- '   [Ada]          aws-dispatchers-callback.adb
+
+  '
+- '   [Ada]          aws-log.adb
+
+  '
+- '   [Ada]          aws-server.adb
+
+  '
+- '   [Ada]          aws-net-websocket-registry.adb
+
+  '
+- '   [Ada]          aws-containers-memory_streams.ads
+
+  '
+- '   [Ada]          aws-exceptions.ads
+
+  '
+- '   [Ada]          aws-status-translate_set.adb
+
+  '
+- '   [Ada]          aws-hotplug-get_status.adb
+
+  '
+- '   [Ada]          aws-net-poll_events-g_poll.adb
 
   '
 - '   [Ada]          templates_parser-input__aws.adb
@@ -722,25 +911,31 @@ log:
 - '   [Ada]          ssl-thin__dummy.ads
 
   '
-- '   [C]            gzclose.c
+- '   [C]            crc32.c
 
   '
-- '   [C]            infback.c
-
-  '
-- '   [C]            deflate.c
-
-  '
-- '   [C]            trees.c
-
-  '
-- '   [C]            zutil.c
+- '   [C]            adler32.c
 
   '
 - '   [C]            uncompr.c
 
   '
-- '   [C]            inflate.c
+- '   [C]            zutil.c
+
+  '
+- '   [C]            infback.c
+
+  '
+- '   [C]            inftrees.c
+
+  '
+- '   [C]            trees.c
+
+  '
+- '   [C]            gzclose.c
+
+  '
+- '   [C]            compress.c
 
   '
 - '   [C]            gzlib.c
@@ -749,22 +944,16 @@ log:
 - '   [C]            gzread.c
 
   '
-- '   [C]            crc32.c
-
-  '
-- '   [C]            compress.c
-
-  '
-- '   [C]            gzwrite.c
+- '   [C]            inflate.c
 
   '
 - '   [C]            inffast.c
 
   '
-- '   [C]            adler32.c
+- '   [C]            gzwrite.c
 
   '
-- '   [C]            inftrees.c
+- '   [C]            deflate.c
 
   '
 - 'Build Libraries
@@ -782,10 +971,10 @@ log:
 - '   [archive]      libz.a
 
   '
-- '   [archive]      libaws_ssl.a
+- '   [index]        libz.a
 
   '
-- '   [index]        libz.a
+- '   [archive]      libaws_ssl.a
 
   '
 - '   [index]        libaws_ssl.a
@@ -881,7 +1070,7 @@ log:
 - 'Compile
 
   '
-- '   [Ada]          memory_streams.adb
+- '   [Ada]          zlib.adb
 
   '
 - '   [Ada]          zlib-thin.adb
@@ -890,16 +1079,10 @@ log:
 - '   [Ada]          zlib-streams.adb
 
   '
-- '   [Ada]          zlib.adb
+- '   [Ada]          memory_streams.adb
 
   '
 - '   [Ada]          aws-os_lib.ads
-
-  '
-- '   [Ada]          templates_parser.adb
-
-  '
-- '   [Ada]          templates_parser-query.adb
 
   '
 - '   [Ada]          templates_parser-utils.adb
@@ -908,124 +1091,19 @@ log:
 - '   [Ada]          templates_parser-debug.adb
 
   '
-- '   [Ada]          aws-services-split_pages-uniform.adb
+- '   [Ada]          templates_parser.adb
 
   '
-- '   [Ada]          aws-services-web_block-context.adb
-
-  '
-- '   [Ada]          aws-services-split_pages-uniform-alpha.adb
-
-  '
-- '   [Ada]          aws-services-dispatchers-transient_pages.adb
+- '   [Ada]          templates_parser-query.adb
 
   '
 - '   [Ada]          aws-smtp.adb
 
   '
-- '   [Ada]          aws-smtp-messages-set.adb
-
-  '
-- '   [Ada]          aws-cookie.adb
-
-  '
-- '   [Ada]          aws-communication-client.adb
-
-  '
-- '   [Ada]          aws-services-web_mail.adb
-
-  '
-- '   [Ada]          aws-services-split_pages-uniform-overlapping.adb
-
-  '
-- '   [Ada]          aws-services-page_server.adb
-
-  '
-- '   [Ada]          aws-smtp-client.adb
-
-  '
-- '   [Ada]          aws-services-directory.adb
-
-  '
-- '   [Ada]          aws-services-dispatchers-virtual_host.adb
-
-  '
-- '   [Ada]          aws-services-web_block-registry.adb
-
-  '
-- '   [Ada]          aws-server-hotplug.adb
-
-  '
-- '   [Ada]          aws-services-split_pages-alpha.adb
-
-  '
-- '   [Ada]          aws-smtp-messages.adb
-
-  '
 - '   [Ada]          aws-communication-server.adb
 
   '
-- '   [Ada]          aws-services-split_pages.adb
-
-  '
-- '   [Ada]          aws-status-translate_table.adb
-
-  '
 - '   [Ada]          aws-services-dispatchers.ads
-
-  '
-- '   [Ada]          aws-services-dispatchers-linker.adb
-
-  '
-- '   [Ada]          aws-net-sets.ads
-
-  '
-- '   [Ada]          aws-communication.adb
-
-  '
-- '   [Ada]          aws-services-web_block.ads
-
-  '
-- '   [Ada]          aws-services-split_pages-alpha-bounded.adb
-
-  '
-- '   [Ada]          aws-smtp-server.adb
-
-  '
-- '   [Ada]          aws-net-log-callbacks.adb
-
-  '
-- '   [Ada]          aws-services-dispatchers-timer.adb
-
-  '
-- '   [Ada]          aws-net-stream_io.adb
-
-  '
-- '   [Ada]          aws-services-dispatchers-uri.adb
-
-  '
-- '   [Ada]          aws-smtp-authentication.ads
-
-  '
-- '   [Ada]          aws-services-download.adb
-
-  '
-- '   [Ada]          aws-client-hotplug.adb
-
-  '
-- '   [Ada]          aws-server-push.adb
-
-  '
-- '   [Ada]          aws-resources-streams-pipe.adb
-
-  '
-- '   [Ada]          aws-services-split_pages-shared.adb
-
-  '
-- '   [Ada]          aws-pop.adb
-
-  '
-- '   [Ada]          aws-services-dispatchers-method.adb
 
   '
 - '   [Ada]          aws-services-callbacks.adb
@@ -1034,31 +1112,175 @@ log:
 - '   [Ada]          aws-smtp-authentication-plain.adb
 
   '
-- '   [Ada]          aws-dispatchers-callback.adb
+- '   [Ada]          aws-server-push.adb
 
   '
-- '   [Ada]          aws-log.adb
+- '   [Ada]          aws-services-web_block-context.adb
 
   '
-- '   [Ada]          aws-net.adb
+- '   [Ada]          aws-services-dispatchers-transient_pages.adb
 
   '
-- '   [Ada]          aws-resources-files.adb
+- '   [Ada]          aws-services-dispatchers-virtual_host.adb
 
   '
-- '   [Ada]          aws-headers-values.adb
+- '   [Ada]          aws-communication-client.adb
 
   '
-- '   [Ada]          aws-server-log.adb
+- '   [Ada]          aws-pop.adb
+
+  '
+- '   [Ada]          aws-smtp-authentication.ads
+
+  '
+- '   [Ada]          aws-services-split_pages-shared.adb
+
+  '
+- '   [Ada]          aws-communication.adb
+
+  '
+- '   [Ada]          aws-services-web_mail.adb
+
+  '
+- '   [Ada]          aws-net-stream_io.adb
+
+  '
+- '   [Ada]          aws-smtp-messages.adb
+
+  '
+- '   [Ada]          aws-services-web_block.ads
+
+  '
+- '   [Ada]          aws-resources-streams-pipe.adb
+
+  '
+- '   [Ada]          aws-services-page_server.adb
+
+  '
+- '   [Ada]          aws-services-split_pages-alpha.adb
+
+  '
+- '   [Ada]          aws-services-directory.adb
+
+  '
+- '   [Ada]          aws-cookie.adb
+
+  '
+- '   [Ada]          aws-services-dispatchers-method.adb
+
+  '
+- '   [Ada]          aws-smtp-client.adb
+
+  '
+- '   [Ada]          aws-services-dispatchers-linker.adb
+
+  '
+- '   [Ada]          aws-smtp-server.adb
+
+  '
+- '   [Ada]          aws-services-dispatchers-uri.adb
+
+  '
+- '   [Ada]          aws-client-hotplug.adb
+
+  '
+- '   [Ada]          aws-services-split_pages.adb
+
+  '
+- '   [Ada]          aws-net-log-callbacks.adb
+
+  '
+- '   [Ada]          aws-net-sets.ads
+
+  '
+- '   [Ada]          aws-services-download.adb
+
+  '
+- '   [Ada]          aws-smtp-messages-set.adb
+
+  '
+- '   [Ada]          aws-services-split_pages-uniform-alpha.adb
+
+  '
+- '   [Ada]          aws-services-split_pages-alpha-bounded.adb
+
+  '
+- '   [Ada]          aws-status-translate_table.adb
+
+  '
+- '   [Ada]          aws-services-dispatchers-timer.adb
+
+  '
+- '   [Ada]          aws-services-web_block-registry.adb
+
+  '
+- '   [Ada]          aws-server-hotplug.adb
+
+  '
+- '   [Ada]          aws-services-split_pages-uniform-overlapping.adb
+
+  '
+- '   [Ada]          aws-services-split_pages-uniform.adb
+
+  '
+- '   [Ada]          aws-resources-streams-zlib.adb
+
+  '
+- '   [Ada]          aws-services.ads
+
+  '
+- '   [Ada]          aws-status-set.adb
+
+  '
+- '   [Ada]          aws-resources-embedded.adb
+
+  '
+- '   [Ada]          aws-net-websocket-registry-utils.adb
+
+  '
+- '   [Ada]          aws-url-raise_url_error.adb
+
+  '
+- '   [Ada]          aws-server-status.adb
+
+  '
+- '   [Ada]          aws-translator.adb
 
   '
 - '   [Ada]          aws-net-generic_sets.adb
 
   '
-- '   [Ada]          aws-net-websocket-protocol-rfc6455.adb
+- '   [Ada]          aws-net-acceptors.adb
 
   '
-- '   [Ada]          aws-utils.adb
+- '   [Ada]          aws-server-http_utils.adb
+
+  '
+- '   [Ada]          aws-default.ads
+
+  '
+- '   [Ada]          aws.ads
+
+  '
+- '   [Ada]          aws-config.adb
+
+  '
+- '   [Ada]          aws-net-poll_events.adb
+
+  '
+- '   [Ada]          aws-net.adb
+
+  '
+- '   [Ada]          aws-parameters.adb
+
+  '
+- '   [Ada]          aws-services-transient_pages.adb
+
+  '
+- '   [Ada]          aws-containers-string_vectors.ads
+
+  '
+- '   [Ada]          aws-net-buffered.adb
 
   '
 - '   [Ada]          aws-resources-streams-disk.adb
@@ -1067,172 +1289,13 @@ log:
 - '   [Ada]          aws-hotplug.adb
 
   '
-- '   [Ada]          aws-resources-streams-memory.adb
-
-  '
-- '   [Ada]          aws-templates.ads
-
-  '
-- '   [Ada]          aws-hotplug-get_status.adb
-
-  '
 - '   [Ada]          aws-digest.adb
-
-  '
-- '   [Ada]          aws-net-log.adb
-
-  '
-- '   [Ada]          aws-resources-streams-zlib.adb
-
-  '
-- '   [Ada]          aws-containers-tables.adb
-
-  '
-- '   [Ada]          aws-config-set.adb
-
-  '
-- '   [Ada]          aws-attachments.adb
-
-  '
-- '   [Ada]          aws-server.adb
-
-  '
-- '   [Ada]          aws-dispatchers.adb
-
-  '
-- '   [Ada]          aws-containers-string_vectors.ads
-
-  '
-- '   [Ada]          aws-config-utils.adb
-
-  '
-- '   [Ada]          aws-net-poll_events-g_poll.adb
-
-  '
-- '   [Ada]          aws-parameters-set.adb
-
-  '
-- '   [Ada]          aws-server-http_utils.adb
-
-  '
-- '   [Ada]          aws-mime.adb
-
-  '
-- '   [Ada]          aws-exceptions.ads
-
-  '
-- '   [Ada]          aws-net-websocket.adb
-
-  '
-- '   [Ada]          aws-config.adb
-
-  '
-- '   [Ada]          aws-net-websocket-handshake_error.adb
-
-  '
-- '   [Ada]          aws-messages.adb
-
-  '
-- '   [Ada]          aws-translator.adb
-
-  '
-- '   [Ada]          aws-net-memory.adb
-
-  '
-- '   [Ada]          aws-net-poll_events.adb
-
-  '
-- '   [Ada]          aws-config-ini.adb
-
-  '
-- '   [Ada]          aws-resources-embedded.adb
-
-  '
-- '   [Ada]          aws-net-buffered.adb
-
-  '
-- '   [Ada]          aws-services.ads
-
-  '
-- '   [Ada]          aws-parameters.adb
-
-  '
-- '   [Ada]          aws-client-http_utils.adb
-
-  '
-- '   [Ada]          aws-headers-set.adb
-
-  '
-- '   [Ada]          aws-default.ads
-
-  '
-- '   [Ada]          aws-net-websocket-protocol.ads
-
-  '
-- '   [Ada]          aws-session.adb
-
-  '
-- '   [Ada]          aws-containers-key_value.ads
-
-  '
-- '   [Ada]          aws-containers-tables-set.ads
-
-  '
-- '   [Ada]          aws-headers.adb
-
-  '
-- '   [Ada]          aws-containers.ads
-
-  '
-- '   [Ada]          aws-status-translate_set.adb
-
-  '
-- '   [Ada]          aws-url.adb
-
-  '
-- '   [Ada]          aws-url-raise_url_error.adb
-
-  '
-- '   [Ada]          aws-containers-memory_streams.ads
-
-  '
-- '   [Ada]          aws-resources-streams.adb
-
-  '
-- '   [Ada]          aws-session-control.adb
-
-  '
-- '   [Ada]          aws-server-get_status.adb
-
-  '
-- '   [Ada]          aws-resources-streams-disk-once.adb
-
-  '
-- '   [Ada]          aws-url-set.adb
-
-  '
-- '   [Ada]          aws-net-ssl-certificate.adb
 
   '
 - '   [Ada]          aws-resources-streams-memory-zlib.adb
 
   '
-- '   [Ada]          aws-status-set.adb
-
-  '
-- '   [Ada]          aws-server-status.adb
-
-  '
-- '   [Ada]          aws-net-websocket-registry-utils.adb
-
-  '
-- '   [Ada]          aws-net-websocket-registry.adb
-
-  '
-- '   [Ada]          aws-response.adb
-
-  '
-- '   [Ada]          aws-net-websocket-registry-control.adb
+- '   [Ada]          aws-server-get_status.adb
 
   '
 - '   [Ada]          aws-net-websocket-protocol-draft76.adb
@@ -1241,31 +1304,157 @@ log:
 - '   [Ada]          aws-services-transient_pages-control.adb
 
   '
-- '   [Ada]          aws.ads
+- '   [Ada]          aws-utils.adb
 
   '
-- '   [Ada]          aws-net-acceptors.adb
-
-  '
-- '   [Ada]          aws-utils-streams.adb
-
-  '
-- '   [Ada]          aws-services-transient_pages.adb
-
-  '
-- '   [Ada]          aws-response-set.adb
-
-  '
-- '   [Ada]          aws-client.adb
+- '   [Ada]          aws-net-websocket-protocol-rfc6455.adb
 
   '
 - '   [Ada]          aws-resources.adb
 
   '
-- '   [Ada]          aws-status.adb
+- '   [Ada]          aws-templates.ads
+
+  '
+- '   [Ada]          aws-utils-streams.adb
+
+  '
+- '   [Ada]          aws-resources-streams-disk-once.adb
+
+  '
+- '   [Ada]          aws-headers-set.adb
+
+  '
+- '   [Ada]          aws-config-set.adb
+
+  '
+- '   [Ada]          aws-response.adb
+
+  '
+- '   [Ada]          aws-messages.adb
+
+  '
+- '   [Ada]          aws-resources-files.adb
+
+  '
+- '   [Ada]          aws-response-set.adb
 
   '
 - '   [Ada]          aws-net-ssl-rsa_dh_generators.adb
+
+  '
+- '   [Ada]          aws-client.adb
+
+  '
+- '   [Ada]          aws-status.adb
+
+  '
+- '   [Ada]          aws-config-ini.adb
+
+  '
+- '   [Ada]          aws-resources-streams-memory.adb
+
+  '
+- '   [Ada]          aws-url.adb
+
+  '
+- '   [Ada]          aws-config-utils.adb
+
+  '
+- '   [Ada]          aws-net-ssl-certificate.adb
+
+  '
+- '   [Ada]          aws-session-control.adb
+
+  '
+- '   [Ada]          aws-parameters-set.adb
+
+  '
+- '   [Ada]          aws-headers.adb
+
+  '
+- '   [Ada]          aws-net-websocket-handshake_error.adb
+
+  '
+- '   [Ada]          aws-url-set.adb
+
+  '
+- '   [Ada]          aws-net-log.adb
+
+  '
+- '   [Ada]          aws-headers-values.adb
+
+  '
+- '   [Ada]          aws-containers-tables-set.ads
+
+  '
+- '   [Ada]          aws-containers-key_value.ads
+
+  '
+- '   [Ada]          aws-client-http_utils.adb
+
+  '
+- '   [Ada]          aws-net-memory.adb
+
+  '
+- '   [Ada]          aws-mime.adb
+
+  '
+- '   [Ada]          aws-attachments.adb
+
+  '
+- '   [Ada]          aws-resources-streams.adb
+
+  '
+- '   [Ada]          aws-net-websocket-registry-control.adb
+
+  '
+- '   [Ada]          aws-server-log.adb
+
+  '
+- '   [Ada]          aws-dispatchers.adb
+
+  '
+- '   [Ada]          aws-session.adb
+
+  '
+- '   [Ada]          aws-net-websocket-protocol.ads
+
+  '
+- '   [Ada]          aws-containers-tables.adb
+
+  '
+- '   [Ada]          aws-net-websocket.adb
+
+  '
+- '   [Ada]          aws-containers.ads
+
+  '
+- '   [Ada]          aws-dispatchers-callback.adb
+
+  '
+- '   [Ada]          aws-log.adb
+
+  '
+- '   [Ada]          aws-server.adb
+
+  '
+- '   [Ada]          aws-net-websocket-registry.adb
+
+  '
+- '   [Ada]          aws-containers-memory_streams.ads
+
+  '
+- '   [Ada]          aws-exceptions.ads
+
+  '
+- '   [Ada]          aws-status-translate_set.adb
+
+  '
+- '   [Ada]          aws-hotplug-get_status.adb
+
+  '
+- '   [Ada]          aws-net-poll_events-g_poll.adb
 
   '
 - '   [Ada]          templates_parser-input__aws.adb
@@ -1292,25 +1481,31 @@ log:
 - '   [Ada]          ssl-thin__dummy.ads
 
   '
-- '   [C]            gzclose.c
+- '   [C]            crc32.c
 
   '
-- '   [C]            infback.c
-
-  '
-- '   [C]            deflate.c
-
-  '
-- '   [C]            trees.c
-
-  '
-- '   [C]            zutil.c
+- '   [C]            adler32.c
 
   '
 - '   [C]            uncompr.c
 
   '
-- '   [C]            inflate.c
+- '   [C]            zutil.c
+
+  '
+- '   [C]            infback.c
+
+  '
+- '   [C]            inftrees.c
+
+  '
+- '   [C]            trees.c
+
+  '
+- '   [C]            gzclose.c
+
+  '
+- '   [C]            compress.c
 
   '
 - '   [C]            gzlib.c
@@ -1319,22 +1514,16 @@ log:
 - '   [C]            gzread.c
 
   '
-- '   [C]            crc32.c
-
-  '
-- '   [C]            compress.c
-
-  '
-- '   [C]            gzwrite.c
+- '   [C]            inflate.c
 
   '
 - '   [C]            inffast.c
 
   '
-- '   [C]            adler32.c
+- '   [C]            gzwrite.c
 
   '
-- '   [C]            inftrees.c
+- '   [C]            deflate.c
 
   '
 - 'Build Libraries
@@ -1388,25 +1577,25 @@ log:
 - '   [link]         gen_gps_ref.adb
 
   '
-- 'make[1]: Entering directory ''/home/runner/work/alire-crates-ci/alire-crates-ci/test/95c4df5a-2b9c-422e-bab7-f4e92dded9a9/aws_21.0.0_57fddf8f/gps''
+- 'make[1]: Entering directory ''/home/runner/work/alire-crates-ci/alire-crates-ci/test/15eefec5-be13-48de-8621-ec04930a5bcb/aws_21.0.0_57fddf8f/gps''
 
   '
-- 'make[1]: Leaving directory ''/home/runner/work/alire-crates-ci/alire-crates-ci/test/95c4df5a-2b9c-422e-bab7-f4e92dded9a9/aws_21.0.0_57fddf8f/gps''
+- 'make[1]: Leaving directory ''/home/runner/work/alire-crates-ci/alire-crates-ci/test/15eefec5-be13-48de-8621-ec04930a5bcb/aws_21.0.0_57fddf8f/gps''
 
   '
 - 'Install project AWS - static
 
   '
-- 'warning: file does not exist ''/home/runner/work/alire-crates-ci/alire-crates-ci/test/95c4df5a-2b9c-422e-bab7-f4e92dded9a9/aws_21.0.0_57fddf8f/templates_parser/docs/build/latex/*.pdf''
+- 'warning: file does not exist ''/home/runner/work/alire-crates-ci/alire-crates-ci/test/15eefec5-be13-48de-8621-ec04930a5bcb/aws_21.0.0_57fddf8f/templates_parser/docs/build/latex/*.pdf''
 
   '
-- 'warning: file does not exist ''/home/runner/work/alire-crates-ci/alire-crates-ci/test/95c4df5a-2b9c-422e-bab7-f4e92dded9a9/aws_21.0.0_57fddf8f/templates_parser/docs/build/html''
+- 'warning: file does not exist ''/home/runner/work/alire-crates-ci/alire-crates-ci/test/15eefec5-be13-48de-8621-ec04930a5bcb/aws_21.0.0_57fddf8f/templates_parser/docs/build/html''
 
   '
-- 'warning: file does not exist ''/home/runner/work/alire-crates-ci/alire-crates-ci/test/95c4df5a-2b9c-422e-bab7-f4e92dded9a9/aws_21.0.0_57fddf8f/docs/build/latex/*.pdf''
+- 'warning: file does not exist ''/home/runner/work/alire-crates-ci/alire-crates-ci/test/15eefec5-be13-48de-8621-ec04930a5bcb/aws_21.0.0_57fddf8f/docs/build/latex/*.pdf''
 
   '
-- 'warning: file does not exist ''/home/runner/work/alire-crates-ci/alire-crates-ci/test/95c4df5a-2b9c-422e-bab7-f4e92dded9a9/aws_21.0.0_57fddf8f/docs/build/html''
+- 'warning: file does not exist ''/home/runner/work/alire-crates-ci/alire-crates-ci/test/15eefec5-be13-48de-8621-ec04930a5bcb/aws_21.0.0_57fddf8f/docs/build/html''
 
   '
 - 'Install project Tools - static
@@ -1415,16 +1604,22 @@ log:
 - 'Install project AWS - relocatable
 
   '
-- 'warning: file does not exist ''/home/runner/work/alire-crates-ci/alire-crates-ci/test/95c4df5a-2b9c-422e-bab7-f4e92dded9a9/aws_21.0.0_57fddf8f/templates_parser/docs/build/latex/*.pdf''
+- 'warning: file does not exist ''/home/runner/work/alire-crates-ci/alire-crates-ci/test/15eefec5-be13-48de-8621-ec04930a5bcb/aws_21.0.0_57fddf8f/templates_parser/docs/build/latex/*.pdf''
 
   '
-- 'warning: file does not exist ''/home/runner/work/alire-crates-ci/alire-crates-ci/test/95c4df5a-2b9c-422e-bab7-f4e92dded9a9/aws_21.0.0_57fddf8f/templates_parser/docs/build/html''
+- 'warning: file does not exist ''/home/runner/work/alire-crates-ci/alire-crates-ci/test/15eefec5-be13-48de-8621-ec04930a5bcb/aws_21.0.0_57fddf8f/templates_parser/docs/build/html''
 
   '
-- 'warning: file does not exist ''/home/runner/work/alire-crates-ci/alire-crates-ci/test/95c4df5a-2b9c-422e-bab7-f4e92dded9a9/aws_21.0.0_57fddf8f/docs/build/latex/*.pdf''
+- 'warning: file does not exist ''/home/runner/work/alire-crates-ci/alire-crates-ci/test/15eefec5-be13-48de-8621-ec04930a5bcb/aws_21.0.0_57fddf8f/docs/build/latex/*.pdf''
 
   '
-- 'warning: file does not exist ''/home/runner/work/alire-crates-ci/alire-crates-ci/test/95c4df5a-2b9c-422e-bab7-f4e92dded9a9/aws_21.0.0_57fddf8f/docs/build/html''
+- 'warning: file does not exist ''/home/runner/work/alire-crates-ci/alire-crates-ci/test/15eefec5-be13-48de-8621-ec04930a5bcb/aws_21.0.0_57fddf8f/docs/build/html''
+
+  '
+- 'Note: Building aws/install_dir/share/gpr/aws.gpr...
+
+  '
+- 'Build finished successfully in 0.32 seconds.
 
   '
 - '
@@ -1439,11 +1634,12 @@ log:
 - '
 
   '
-- '   +i gnat   10.2.1 (new,installed,gnat_external)
+- '   +i gnat    10.2.1 (new,installed,gnat_external)
 
   '
-- "   +  make   4.3.0  (new)                        \n"
-- "   +  xmlada 21.0.0 (new)                        \n"
+- "   +  make    4.3.0  (new)                        \n"
+- "   +  openssl 1.1.1  (new)                        \n"
+- "   +  xmlada  21.0.0 (new)                        \n"
 platform: linux
 status: success
 version: 21.0.0

@@ -1,4 +1,4 @@
-Test ran at 2022-07-07 00:52:09.283919+00:00
+Test ran at 2025-01-14 12:47:52.186241+00:00
 
 SOLUTION:
 dependency_graph_extractor=22.0.0: Extract dependency information from Ada projects
@@ -53,15 +53,55 @@ Dependencies (graph):
 LOG:
 Note: Deploying dependency_graph_extractor=22.0.0...
 Note: Deploying libgmp=6.2.1...
+The system package 'mingw-w64-x86_64-gmp' is about to be installed.
+This action might require admin privileges and impact your system installation.
+Do you want Alire to install this system package?
+Using default: Yes
+resolving dependencies...
+looking for conflicting packages...
+
+Packages (1) mingw-w64-x86_64-gmp-6.2.1-5
+
+Total Download Size:   0.56 MiB
+Total Installed Size:  2.96 MiB
+
+:: Proceed with installation? [Y/n] 
+:: Retrieving packages...
+ mingw-w64-x86_64-gmp-6.2.1-5-any downloading...
+checking keyring...
+checking package integrity...
+loading package files...
+checking for file conflicts...
+checking available disk space...
+:: Processing package changes...
+installing mingw-w64-x86_64-gmp...
 Note: Deploying libiconv=1.17.0...
+The system package 'mingw-w64-x86_64-libiconv' is about to be installed.
+This action might require admin privileges and impact your system installation.
+Do you want Alire to install this system package?
+Using default: Yes
+resolving dependencies...
+looking for conflicting packages...
+
+Packages (1) mingw-w64-x86_64-libiconv-1.17-3
+
+Total Download Size:   0.70 MiB
+Total Installed Size:  2.38 MiB
+
+:: Proceed with installation? [Y/n] 
+:: Retrieving packages...
+ mingw-w64-x86_64-libiconv-1.17-3-any downloading...
+checking keyring...
+checking package integrity...
+loading package files...
+checking for file conflicts...
+checking available disk space...
+:: Processing package changes...
+installing mingw-w64-x86_64-libiconv...
 Note: Deploying xmlada=22.0.0...
 #=#=#                                                                         
 ##O#-#                                                                        
-##O=#  #                                                                      
-
-##                                                                         3.3%
-################################                                          45.6%
-######################################################################## 100.0%
+##=O#- #                                                                      
 Note: Running post_fetch actions for xmlada=22.0.0...
 configure: loading site script /usr/local/etc/config.site
 checking build system type... x86_64-w64-mingw32
@@ -82,32 +122,24 @@ Note: Deploying libgpr=22.0.0...
 Note: Deploying gnatcoll=22.0.0...
 #=#=#                                                                         
 ##O#-#                                                                        
-##O=#  #                                                                      
-#-#O=#  #                                                                     
+##=O#- #                                                                      
 Note: Deploying gnatcoll_gmp=22.0.0...
 #=#=#                                                                         
 ##O#-#                                                                        
-
-##                                                                         3.6%
-######################################################################    97.4%
-######################################################################## 100.0%
 Note: Deploying gnatcoll_iconv=22.0.0...
 #=#=#                                                                         
 ##O#-#                                                                        
-
-#########################                                                 35.1%
-######################################################################## 100.0%
 Note: Deploying langkit_support=22.0.0...
 #=#=#                                                                         
 ##O#-#                                                                        
 
-#######                                                                   10.5%
+#####################################################                     74.4%
 ######################################################################## 100.0%
 Note: Deploying libadalang=22.0.0...
 #=#=#                                                                         
 ##O#-#                                                                        
 
-                                                                           0.5%
+#                                                                          2.2%
 ######################################################################## 100.0%
 Note: Building dependency_graph_extractor/dependency_graph_extractor.gpr...
 gnatcoll.gpr:254:07: warning: value "windows" is not used as label
@@ -587,6 +619,10 @@ Compile
    [Ada]          gnatcoll-remote.ads
    [Ada]          gnatcoll-remote-db.adb
    [Ada]          gnatcoll-refcount.adb
+gnatcoll-refcount.ads:90:04: warning: in instantiation at gnatcoll-storage_pools-headers.adb:57
+gnatcoll-refcount.ads:90:04: warning: possible aliasing problem for type "Header_Access"
+gnatcoll-refcount.ads:90:04: warning: use -fno-strict-aliasing switch for references
+gnatcoll-refcount.ads:90:04: warning: or use "pragma No_Strict_Aliasing (Header_Access);"
    [Ada]          gnatcoll-refcount-weakref.adb
    [Ada]          gnatcoll-promises.adb
    [Ada]          gnatcoll-projects.adb
@@ -712,9 +748,9 @@ Build Libraries
    [gprlib]       gnatcoll_iconv.lexch
    [archive]      libgnatcoll_gmp.a
    [archive]      libgnatcoll_iconv.a
+   [gprlib]       langkit_support.lexch
    [index]        libgnatcoll_iconv.a
    [index]        libgnatcoll_gmp.a
-   [gprlib]       langkit_support.lexch
    [bind SAL]     langkit_support
    [Ada]          b__langkit_support.adb
    [gprlib]       adalang.lexch
@@ -732,7 +768,7 @@ Bind
 Link
    [link]         dependency_graph_extractor.adb
 langkit_support.gpr:4:17: warning: linker options section not found in langkit_support.a, using defaults.
-Build finished successfully in 625.02 seconds.
+Build finished successfully in 419.57 seconds.
 
 dependency_graph_extractor=22.0.0 successfully retrieved and built.
 Dependencies were solved as follows:
@@ -747,3 +783,4 @@ Dependencies were solved as follows:
    +  libgpr          22.0.0 (new,indirect)                      
    +  libiconv        1.17.0 (new,indirect)                      
    +  xmlada          22.0.0 (new,indirect)                      
+Found declared GPR file: dependency_graph_extractor.gpr

@@ -1,4 +1,4 @@
-Test ran at 2022-07-05 12:52:41.102424+00:00
+Test ran at 2025-01-15 13:12:33.293704+00:00
 
 SOLUTION:
 itsybitsy_bsp=0.0.4: Board support package for Arduino ItsyBitsy
@@ -21,8 +21,8 @@ Dependencies (direct):
    hal~0.1
    rp2040_hal^1
 Dependencies (solution):
-   atomic=0.4.1
-   bbqueue=0.3.0
+   atomic=0.5.0
+   bbqueue=0.3.1
    cortex_m=0.3.0
    gnat=11.2.4 (gnat_arm_elf) (installed)
    gnat_arm_elf=11.2.4 (installed)
@@ -30,8 +30,8 @@ Dependencies (solution):
    rp2040_hal=1.6.0
    usb_embedded=0.2.0
 Dependencies (graph):
-   bbqueue=0.3.0       --> atomic=0.4.1 (~0.4)              
-   bbqueue=0.3.0       --> gnat=11.2.4 (gnat_arm_elf) (>=10)
+   bbqueue=0.3.1       --> atomic=0.5.0 (~0.5)              
+   bbqueue=0.3.1       --> gnat=11.2.4 (gnat_arm_elf) (>=10)
    cortex_m=0.3.0      --> hal=0.1.0 (^0.1.0)               
    itsybitsy_bsp=0.0.4 --> hal=0.1.0 (~0.1)                 
    itsybitsy_bsp=0.0.4 --> rp2040_hal=1.6.0 (^1)            
@@ -39,7 +39,7 @@ Dependencies (graph):
    rp2040_hal=1.6.0    --> gnat_arm_elf=11.2.4 (^11.2)      
    rp2040_hal=1.6.0    --> hal=0.1.0 (~0.1)                 
    rp2040_hal=1.6.0    --> usb_embedded=0.2.0 (~0.2)        
-   usb_embedded=0.2.0  --> bbqueue=0.3.0 (~0.3.0)           
+   usb_embedded=0.2.0  --> bbqueue=0.3.1 (~0.3.0)           
    usb_embedded=0.2.0  --> hal=0.1.0 (~0.1.0)               
 
 
@@ -48,41 +48,41 @@ Note: Deploying itsybitsy_bsp=0.0.4...
 Note: Deploying gnat_arm_elf=11.2.4...
 #=#=#                                                                         
 
-                                                                           0.0%
-###                                                                        4.7%
-#######                                                                    9.8%
-#########                                                                 12.7%
-############                                                              17.8%
-##############                                                            20.2%
-##################                                                        26.1%
-#######################                                                   32.0%
-#########################                                                 35.5%
-############################                                              39.0%
-#############################                                             40.8%
-################################                                          45.0%
-##################################                                        47.8%
-#####################################                                     51.6%
-#######################################                                   55.5%
-##########################################                                59.1%
-###############################################                           65.3%
-##################################################                        70.2%
-######################################################                    75.8%
-#########################################################                 79.4%
-###########################################################               82.5%
-#############################################################             85.4%
-##############################################################            86.6%
-#################################################################         91.3%
-####################################################################      95.5%
-#####################################################################     97.2%
-######################################################################    98.3%
+##                                                                         3.0%
+#####                                                                      7.5%
+########                                                                  11.9%
+############                                                              17.1%
+##############                                                            20.8%
+#################                                                         23.7%
+###################                                                       27.4%
+#####################                                                     29.6%
+#######################                                                   33.2%
+#########################                                                 35.8%
+###########################                                               38.5%
+##############################                                            42.2%
+################################                                          45.4%
+####################################                                      50.4%
+######################################                                    54.0%
+#########################################                                 58.0%
+############################################                              62.2%
+##############################################                            65.2%
+#################################################                         68.1%
+#####################################################                     74.0%
+#######################################################                   77.0%
+#########################################################                 80.0%
+#############################################################             84.7%
+#############################################################             86.0%
+#################################################################         90.4%
+####################################################################      94.6%
+######################################################################    97.7%
 ######################################################################## 100.0%
 Note: gnat_arm_elf=11.2.4 installed successfully.
-Note: Deploying atomic=0.4.1...
+Note: Deploying atomic=0.5.0...
 Note: Deploying hal=0.1.0...
 #=#=#                                                                         
 
 ######################################################################## 100.0%
-Note: Deploying bbqueue=0.3.0...
+Note: Deploying bbqueue=0.3.1...
 Note: Deploying cortex_m=0.3.0...
 Note: Deploying usb_embedded=0.2.0...
 Note: Deploying rp2040_hal=1.6.0...
@@ -122,6 +122,7 @@ Compile
    [Ada]          atomic.adb
    [Ada]          atomic-unsigned.adb
    [Ada]          atomic-signed.adb
+   [Ada]          atomic_config.ads
    [Ada]          atomic-unsigned_8.ads
    [Ada]          atomic-unsigned_32.ads
    [Ada]          atomic-unsigned_16.ads
@@ -231,34 +232,35 @@ Build Libraries
    [gprlib]       hal.lexch
    [gprlib]       Atomic.lexch
    [gprlib]       Bbqueue.lexch
-   [archive]      libAtomic.a
    [archive]      libhal.a
-   [index]        libAtomic.a
    [index]        libhal.a
+   [archive]      libAtomic.a
+   [index]        libAtomic.a
    [gprlib]       Usb_Embedded.lexch
    [archive]      libBbqueue.a
    [index]        libBbqueue.a
    [gprlib]       cortex_m0.lexch
    [gprlib]       rp2040_hal.lexch
    [archive]      libUsb_Embedded.a
-   [archive]      libcortex_m0.a
    [index]        libUsb_Embedded.a
+   [archive]      libcortex_m0.a
    [index]        libcortex_m0.a
    [gprlib]       itsybitsy_bsp.lexch
    [archive]      librp2040_hal.a
    [index]        librp2040_hal.a
    [archive]      libitsybitsy_bsp.a
    [index]        libitsybitsy_bsp.a
-Build finished successfully in 11.41 seconds.
+Build finished successfully in 6.81 seconds.
 
 itsybitsy_bsp=0.0.4 successfully retrieved and built.
 Dependencies were solved as follows:
 
-   +  atomic       0.4.1  (new,indirect)                       
-   +  bbqueue      0.3.0  (new,indirect)                       
+   +  atomic       0.5.0  (new,indirect)                       
+   +  bbqueue      0.3.1  (new,indirect)                       
    +  cortex_m     0.3.0  (new,indirect)                       
    +i gnat         11.2.4 (new,installed,gnat_arm_elf,indirect)
    +i gnat_arm_elf 11.2.4 (new,installed,indirect)             
    +  hal          0.1.0  (new)                                
    +  rp2040_hal   1.6.0  (new)                                
    +  usb_embedded 0.2.0  (new,indirect)                       
+Found declared GPR file: itsybitsy_bsp.gpr

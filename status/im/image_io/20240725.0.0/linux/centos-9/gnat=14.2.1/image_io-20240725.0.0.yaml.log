@@ -1,0 +1,313 @@
+Test ran at 2025-02-05 13:10:44.368419+00:00
+
+SOLUTION:
+image_io=20240725.0.0: Output in BMP,PPM,QOI;input in BMP,GIF,JPG,PNG,PNM,QOI,TGA
+Origin: commit e3fcdc57ed2f868e3ad21aeb3330d23c5ec3dbe5 from https://github.com/bracke/Image_IO.git
+Properties:
+   Author: Jeff Carter
+   Build Switches: 
+   Description: Output in BMP,PPM,QOI;input in BMP,GIF,JPG,PNG,PNM,QOI,TGA
+   License: BSD-3-Clause
+   Long_Description: # Image_IO
+Output in BMP, PNG, PPM, and QOI formats; input in BMP, GIF, JPG, PNG, PNM, QOI, and TGA formats
+
+Package Image_IO.Operations provides the ability to input and output images.
+
+PNG is a lossless compressed format that is widely supported. Uncompressed BMP is a universal format that is very large. PPM is intended to be a set of portable formats, but lacks support by default on some platforms. QOI is a lossless compressed format, but not widely supported.
+
+Write_P3 uses [PragmARC.Text_IO](https://github.com/jrcarter/PragmARC/blob/Ada-12/pragmarc-text_io.ads) to obtain uniform line terminators across platforms. This can be easily changed to Ada.Text_IO if the line terminators are not a concern.
+
+Write_PNG uses [Z_Compression](https://github.com/jrcarter/Z_Compression) and [CRC-32](https://github.com/jrcarter/CRC-32).
+
+Read is a wrapper around [Generic Image Decoder (GID)](https://github.com/zertovitch/gid) for the most common use: reading an image from a file. GID may be used to decode images from other sources, but that generality makes it complex to use. Read ignores transparency (Alpha channel) and only reads the first frame of an animation.
+
+Pure_RGB is a demo program that reads an image using Read, modifies it to change all color components to the closest of 0 or 255, and outputs the result using Write_PNG. It is invoked with
+
+     pure_rgb <name>
+
+The output name is the input name with ".png" appended. Pure_RGB does no error handling; if the input file name is omitted, doesn't exist, or is not a supported image format, the program will terminate with an unhandled exception.
+
+Image_IO and Pure_RGB have been compiled and tested with GNAT 12.3.0 on Linux and ObjectAda 10.5U7 on Windows.
+
+   Maintainer: Bent Bracke <bent@bracke.dk>
+   Maintainers_Logins: bracke
+   Name: image_io
+   Tag: image
+   Tag: io
+   Tag: bmp
+   Tag: ppm
+   Tag: qoi
+   Tag: gif
+   Tag: jpg
+   Tag: png
+   Tag: pnm
+   Tag: tga
+   Version: 20240725.0.0
+   Website: https://github.com/bracke/Image_IO
+Dependencies (direct):
+   crc_32^20240725.0.0
+   gid^13.0.0
+   gnat<13.0 | >=13.3
+   pragmarc^20240323.0.0
+   z_compression^20240724.0.0
+Dependencies (solution):
+   crc_32=20240725.0.0
+   gid=13.0.1
+   gnat=14.2.1 (gnat_native)
+   pragmarc=20240323.0.0
+   z_compression=20240724.0.0
+Dependencies (graph):
+   crc_32=20240725.0.0        --> gnat=14.2.1 (gnat_native) (<13.0 | >=13.3)
+   image_io=20240725.0.0      --> crc_32=20240725.0.0 (^20240725.0.0)
+   image_io=20240725.0.0      --> gid=13.0.1 (^13.0.0)
+   image_io=20240725.0.0      --> gnat=14.2.1 (gnat_native) (<13.0 | >=13.3)
+   image_io=20240725.0.0      --> pragmarc=20240323.0.0 (^20240323.0.0)
+   image_io=20240725.0.0      --> z_compression=20240724.0.0 (^20240724.0.0)
+   pragmarc=20240323.0.0      --> gnat=14.2.1 (gnat_native) (<13.0 | >=13.3)
+   z_compression=20240724.0.0 --> gnat=14.2.1 (gnat_native) (<13.0 | >=13.3)
+
+
+LOG:
+Spawning: alr -d -n get --build image_io=20240725.0.0
+Note: Deploying image_io=20240725.0.0...
+Note: Deploying gid=13.0.1...
+#=#=#                                                                         
+##O#-#                                                                        
+
+######################################################################## 100.0%##O=#  #                                                                      
+
+######################################################################## 100.0%#-#O=#  #                                                                     
+
+######################################################################## 100.0% #-#O=#   #                                                                   
+
+######################################################################## 100.0%  #-#O=-#   #                                                                 
+   #-#O=-#   #                                                                
+
+#######                                                                   10.5%
+###########################                                               38.8%
+#############################################################             85.5%
+######################################################################## 100.0%
+Note: Deploying crc_32=20240725.0.0...
+Note: Deploying pragmarc=20240323.0.0...
+Note: Deploying z_compression=20240724.0.0...
+Note: Building gid=13.0.1/gid.gpr...
+Setup
+   [mkdir]        object directory for project GID
+Compile
+   [Ada]          to_png.adb
+   [Ada]          to_bmp.adb
+   [Ada]          mini.adb
+   [Ada]          all_rgb.adb
+   [Ada]          benchmark.adb
+   [Ada]          color_avg.adb
+   [Ada]          comp_img.adb
+   [Ada]          is_opaque.adb
+   [Ada]          recurve.adb
+   [Ada]          steg.adb
+   [Ada]          dumb_png.adb
+   [Ada]          gid.adb
+   [Ada]          color_distances.adb
+   [Ada]          color_statistics.adb
+   [Ada]          comp_img_fct.adb
+   [Ada]          fast_io.adb
+fast_io.ads:11:64: (style) trailing spaces not permitted [-gnatyb]
+   [Ada]          gid-decoding_bmp.adb
+   [Ada]          gid-decoding_gif.adb
+   [Ada]          gid-decoding_jpg.adb
+   [Ada]          gid-decoding_png.adb
+   [Ada]          gid-decoding_pnm.adb
+   [Ada]          gid-decoding_qoi.adb
+   [Ada]          gid-decoding_tga.adb
+   [Ada]          gid-headers.adb
+   [Ada]          gid-buffering.adb
+   [Ada]          gid-color_tables.adb
+   [Ada]          gid-decoding_png-huffman.adb
+Bind
+   [gprbind]      to_png.bexch
+   [gprbind]      to_bmp.bexch
+   [gprbind]      mini.bexch
+   [gprbind]      all_rgb.bexch
+   [Ada]          to_png.ali
+   [Ada]          to_bmp.ali
+   [Ada]          mini.ali
+   [Ada]          all_rgb.ali
+   [gprbind]      benchmark.bexch
+   [gprbind]      color_avg.bexch
+   [gprbind]      comp_img.bexch
+   [gprbind]      is_opaque.bexch
+   [Ada]          benchmark.ali
+   [Ada]          color_avg.ali
+   [Ada]          comp_img.ali
+   [Ada]          is_opaque.ali
+   [gprbind]      recurve.bexch
+   [gprbind]      steg.bexch
+   [Ada]          recurve.ali
+   [Ada]          steg.ali
+Link
+   [link]         to_png.adb
+   [link]         to_bmp.adb
+   [link]         mini.adb
+   [link]         all_rgb.adb
+   [link]         benchmark.adb
+   [link]         color_avg.adb
+   [link]         comp_img.adb
+   [link]         is_opaque.adb
+   [link]         recurve.adb
+   [link]         steg.adb
+Note: Building image_io=20240725.0.0/image_io.gpr...
+Setup
+   [mkdir]        object directory for project Crc_32
+   [mkdir]        library directory for project Crc_32
+   [mkdir]        object directory for project PragmARC
+   [mkdir]        library directory for project PragmARC
+   [mkdir]        object directory for project Z_Compression
+   [mkdir]        library directory for project Z_Compression
+   [mkdir]        object directory for project Image_IO
+   [mkdir]        library directory for project Image_IO
+Compile
+   [Ada]          z_compression_config.ads
+   [Ada]          z_compression-length_limited_huffman_code_lengths.adb
+   [Ada]          z_compression-lz77.adb
+   [Ada]          z_compression.adb
+   [Ada]          pragmarc_config.ads
+   [Ada]          pragmarc-encryption-threefish-block_512.adb
+   [Ada]          pragmarc-line_fields.adb
+   [Ada]          pragmarc-cards-us.adb
+   [Ada]          pragmarc-rational_postfix_calculator.adb
+   [Ada]          pragmarc-data_structures-queues-bounded-protection-blocking.ads
+   [Ada]          pragmarc-luhn_generation.adb
+   [Ada]          pragmarc-matching.ads
+   [Ada]          pragmarc-matching-character_regular_expression.adb
+   [Ada]          pragmarc-data_structures-sets-discrete.adb
+   [Ada]          pragmarc-persistent_skip_list_unbounded.adb
+   [Ada]          pragmarc-cards-decks-general.adb
+   [Ada]          pragmarc-data_structures-lists-unbounded.ads
+   [Ada]          pragmarc-cards-decks-us.adb
+   [Ada]          pragmarc-data_structures-queues-bounded.ads
+   [Ada]          pragmarc-data_structures-skip_lists-unbounded.adb
+   [Ada]          pragmarc-sorting-radix.adb
+   [Ada]          pragmarc-safety-semaphores.adb
+   [Ada]          pragmarc-randomness-real_ranges.adb
+   [Ada]          pragmarc-hash.adb
+   [Ada]          pragmarc-data_structures-queues-unbounded.ads
+   [Ada]          pragmarc-data_structures-queues-unbounded-protection.ads
+   [Ada]          pragmarc-binary_searcher.adb
+   [Ada]          pragmarc-data_structures-lists-unbounded-protection.adb
+   [Ada]          pragmarc-encryption.ads
+   [Ada]          pragmarc-protected_option.adb
+   [Ada]          pragmarc-randomness-universal.adb
+   [Ada]          pragmarc-randomness-isaac.adb
+   [Ada]          pragmarc-math.adb
+   [Ada]          pragmarc-sorting.ads
+   [Ada]          pragmarc-randomness.ads
+   [Ada]          pragmarc.ads
+   [Ada]          pragmarc-task_communication-forwarders.adb
+   [Ada]          pragmarc-data_structures-lists-bounded.ads
+   [Ada]          pragmarc-date_handler.adb
+   [Ada]          pragmarc-data_structures-queues-unbounded-protection-blocking.ads
+   [Ada]          pragmarc-unbounded_numbers.ads
+   [Ada]          pragmarc-randomness-combined.adb
+   [Ada]          pragmarc-data_structures-queues-bounded-protection-non_blocking.adb
+   [Ada]          pragmarc-matching-regular_expression.adb
+   [Ada]          pragmarc-task_communication.ads
+   [Ada]          pragmarc-data_structures-bags-unbounded.ads
+   [Ada]          pragmarc-encryption-bifid.adb
+   [Ada]          pragmarc-conversions-unbounded_strings.ads
+   [Ada]          pragmarc-data_structures-queues.ads
+   [Ada]          pragmarc-conversions.ads
+   [Ada]          pragmarc-data_structures-queues-bounded-unprotected.adb
+   [Ada]          pragmarc-genetic_algorithm.adb
+   [Ada]          pragmarc-safety-pointers.adb
+   [Ada]          pragmarc-randomness-kiss.adb
+   [Ada]          pragmarc-data_structures-queues-bounded-protection.ads
+   [Ada]          pragmarc-randomness-threefry.adb
+   [Ada]          pragmarc-reflection.ads
+   [Ada]          pragmarc-ansi_tty_control.adb
+   [Ada]          pragmarc-cards.ads
+   [Ada]          pragmarc-data_structures-bags.ads
+   [Ada]          pragmarc-min_max.ads
+   [Ada]          pragmarc-images-image.ads
+   [Ada]          pragmarc-permutations.adb
+   [Ada]          pragmarc-data_structures-lists-bounded-protection.adb
+   [Ada]          pragmarc-matching-quick_string.adb
+   [Ada]          pragmarc-images.adb
+   [Ada]          pragmarc-cards-decks.ads
+   [Ada]          pragmarc-three_way.adb
+   [Ada]          pragmarc-data_structures-sets.ads
+   [Ada]          pragmarc-sorting-insertion.adb
+   [Ada]          pragmarc-data_structures-bags-unbounded-unprotected.adb
+   [Ada]          pragmarc-binary_semaphore_handler.adb
+   [Ada]          pragmarc-unbounded_numbers-integers.adb
+   [Ada]          pragmarc-safety-suspension_objects.adb
+   [Ada]          pragmarc-text_io.adb
+   [Ada]          pragmarc-concurrent_pipeline.adb
+   [Ada]          pragmarc-hash_fast_variable_length.adb
+   [Ada]          pragmarc-task_communication-transporters.adb
+   [Ada]          pragmarc-data_structures-stacks-unbounded-unprotected.adb
+   [Ada]          pragmarc-job_pools.adb
+   [Ada]          pragmarc-data_structures-stacks.ads
+   [Ada]          pragmarc-menu_handler.adb
+   [Ada]          pragmarc-data_structures.ads
+   [Ada]          pragmarc-least_squares_fitting.adb
+   [Ada]          pragmarc-postfix_calculator.adb
+   [Ada]          pragmarc-unbounded_numbers-rationals.adb
+pragmarc-matching-character_regular_expression.ads:31:04: warning: in instantiation at pragmarc-matching-regular_expression.adb:30 [-gnatwv]
+pragmarc-matching-character_regular_expression.ads:31:04: warning: aggregate not fully initialized [-gnatwv]
+   [Ada]          pragmarc-rem_nn_wrapper.adb
+   [Ada]          pragmarc-mixed_case.adb
+   [Ada]          pragmarc-encryption-threefish-block_256.adb
+   [Ada]          pragmarc-data_structures-queues-unbounded-protection-non_blocking.adb
+   [Ada]          pragmarc-b_strings.adb
+   [Ada]          pragmarc-word_input.adb
+   [Ada]          pragmarc-comparisons.ads
+   [Ada]          pragmarc-encryption-simple_xor.adb
+   [Ada]          pragmarc-encryption-threefish.adb
+   [Ada]          pragmarc-data_structures-skip_lists.ads
+   [Ada]          pragmarc-safety.ads
+   [Ada]          pragmarc-data_structures-queues-unbounded-unprotected.adb
+   [Ada]          pragmarc-data_structures-stacks-unbounded-protection.adb
+   [Ada]          pragmarc-sorting-heap.adb
+   [Ada]          pragmarc-randomness-real_values.ads
+   [Ada]          pragmarc-data_structures-lists.ads
+   [Ada]          pragmarc-title_comparisons.adb
+   [Ada]          compile_all.adb
+   [Ada]          pragmarc-conversions-vectors.adb
+   [Ada]          pragmarc-randomness-u32_ranges.adb
+   [Ada]          pragmarc-data_structures-bags-unbounded-protection.adb
+   [Ada]          pragmarc-sorting-quick.adb
+   [Ada]          pragmarc-wrapping.ads
+   [Ada]          pragmarc-encryption-threefish-block_1024.adb
+   [Ada]          pragmarc-data_structures-stacks-unbounded.ads
+   [Ada]          pragmarc-task_communication-monitors.adb
+   [Ada]          crc_32_config.ads
+   [Ada]          crc_32.adb
+   [Ada]          image_io_config.ads
+   [Ada]          image_io-operations.adb
+   [Ada]          image_io-qoi.adb
+   [Ada]          image_io-qoi_holders.adb
+   [Ada]          image_io.ads
+   [Ada]          image_io-holders.adb
+image_io-operations.adb:129:50: warning: unreachable code [enabled by default]
+Build Libraries
+   [gprlib]       Crc_32.lexch
+   [gprlib]       PragmARC.lexch
+   [gprlib]       Z_Compression.lexch
+   [gprlib]       Image_IO.lexch
+   [archive]      libCrc_32.a
+   [archive]      libPragmARC.a
+   [archive]      libZ_Compression.a
+   [index]        libCrc_32.a
+   [index]        libZ_Compression.a
+   [index]        libPragmARC.a
+   [archive]      libImage_IO.a
+   [index]        libImage_IO.a
+
+image_io=20240725.0.0 successfully retrieved and built.
+Dependencies were solved as follows:
+
+   +  crc_32        20240725.0.0 (new)
+   +  gid           13.0.1       (new)
+   +b gnat          14.2.1       (new,gnat_native,binary)
+   +  pragmarc      20240323.0.0 (new)
+   +  z_compression 20240724.0.0 (new)
+Found declared GPR file: image_io.gpr

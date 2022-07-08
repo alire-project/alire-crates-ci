@@ -1,0 +1,110 @@
+Test ran at 2025-02-05 01:18:13.817838+00:00
+
+SOLUTION:
+security=1.5.1: Security Library for HTTP client and server with OAuth2 support
+Origin: commit 4cdc7c89a00b939763126ea1b658aa83dc5f5a0e from https://gitlab.com/stcarrez/ada-security.git
+Properties:
+   Author: Stephane.Carrez@gmail.com
+   Configuration: no modifiers
+   Description: Security Library for HTTP client and server with OAuth2 support
+   GPR Scenario: SECURITY_BUILD := distrib | debug | optimize | profile | coverage
+   GPR Scenario: SECURITY_LIBRARY_TYPE := relocatable | static | static-pic
+   License: Apache-2.0
+   Long_Description: [![Build Status](https://img.shields.io/endpoint?url=https://porion.vacs.fr/porion/api/v1/projects/ada-security/badges/build.json)](https://porion.vacs.fr/porion/projects/view/ada-security/summary)
+[![Test Status](https://img.shields.io/endpoint?url=https://porion.vacs.fr/porion/api/v1/projects/ada-security/badges/tests.json)](https://porion.vacs.fr/porion/projects/view/ada-securit/xunits)
+[![Coverage](https://img.shields.io/endpoint?url=https://porion.vacs.fr/porion/api/v1/projects/ada-security/badges/coverage.json)](https://porion.vacs.fr/porion/projects/view/ada-security/summary)
+[![Documentation Status](https://readthedocs.org/projects/ada-security/badge/?version=latest)](https://ada-security.readthedocs.io/en/latest/?badge=latest)
+
+Ada Security provides a security framework which allows applications to define
+and enforce security policies. This framework allows users to authenticate by using
+[OpenID Authentication 2.0](https://openid.net/specs/openid-authentication-2_0.html)
+as well as [OAuth 2.0](https://oauth.net/2/) protocol.
+It allows a web application to integrate easily with Yahoo!, Gitlab, Github, Facebook and
+Google+ authentication systems.
+The Ada05 library includes:
+
+* An OpenID client authentication,
+* An OAuth 2.0 client authentication,
+* An OpenID Connect authentication framework,
+* An OAuth 2.0 server authentication framework,
+* A policy based security framework to protect the resources
+
+The Ada Security library is used by the
+[Ada Web Application](https://gitlab.com/stcarrez/ada-awa)
+to provide authentication and access control to users within the web applications.
+
+## Documentation
+
+* [Ada Security Programmer's Guide](https://ada-security.readthedocs.io/en/latest/)
+
+
+   Maintainer: Stephane.Carrez@gmail.com
+   Maintainers_Logins: stcarrez
+   Name: security
+   Project_File: security.gpr
+   Tag: security
+   Tag: oauth2
+   Tag: authentication
+   Tag: permissions
+   Tag: jwt
+   Version: 1.5.1
+   Website: https://gitlab.com/stcarrez/ada-security
+Dependencies (direct):
+   utilada^2.6.0
+   utilada_xml^2.6.0
+Dependencies (solution):
+   gnat=14.2.1 (gnat_native)
+   utilada=2.8.0
+   utilada_xml=2.8.0
+   xmlada=25.0.0
+Dependencies (graph):
+   security=1.5.1    --> utilada=2.8.0 (^2.6.0)
+   security=1.5.1    --> utilada_xml=2.8.0 (^2.6.0)
+   utilada_xml=2.8.0 --> utilada=2.8.0 (^2.7.0)
+   utilada_xml=2.8.0 --> xmlada=25.0.0 (*)
+   xmlada=25.0.0     --> gnat=14.2.1 (gnat_native) (>=11)
+
+
+LOG:
+Spawning: alr -d -n get --build security=1.5.1
+Note: Deploying security=1.5.1...
+Note: Building security=1.5.1/security.gpr...
+Setup
+   [mkdir]        object directory for project Security
+   [mkdir]        library directory for project Security
+Compile
+   [Ada]          security-oauth-jwt.adb
+   [Ada]          security-contexts.adb
+   [Ada]          security-random.adb
+   [Ada]          security-oauth-file_registry.adb
+   [Ada]          security-auth.adb
+   [Ada]          security-auth-oauth-github.adb
+   [Ada]          security-oauth-servers.adb
+   [Ada]          security-auth-oauth-googleplus.adb
+   [Ada]          security-oauth.adb
+   [Ada]          security-permissions.adb
+   [Ada]          security-policies.adb
+   [Ada]          security-auth-oauth-yahoo.adb
+   [Ada]          security-policies-urls.adb
+   [Ada]          security-controllers.ads
+   [Ada]          security.ads
+   [Ada]          security-oauth-clients.adb
+   [Ada]          security-controllers-roles.adb
+   [Ada]          security-auth-oauth-facebook.adb
+   [Ada]          security-auth-oauth.adb
+   [Ada]          security-auth-openid.adb
+   [Ada]          security-policies-roles.adb
+   [Ada]          security-controllers-urls.adb
+Build Libraries
+   [gprlib]       security.lexch
+   [archive]      libsecurity.a
+   [index]        libsecurity.a
+
+security=1.5.1 successfully retrieved and built.
+Dependencies were solved as follows:
+
+   +b gnat        14.2.1 (new,gnat_native,indirect,binary)
+   +  utilada     2.8.0  (new)
+   +  utilada_xml 2.8.0  (new)
+   +  xmlada      25.0.0 (new,indirect)
+Found declared GPR file: security.gpr

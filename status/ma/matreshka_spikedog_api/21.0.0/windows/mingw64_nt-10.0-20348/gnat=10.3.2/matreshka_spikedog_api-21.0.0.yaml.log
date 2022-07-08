@@ -1,4 +1,4 @@
-Test ran at 2022-07-02 12:27:03.896714+00:00
+Test ran at 2024-12-26 12:57:19.479365+00:00
 
 SOLUTION:
 matreshka_spikedog_api=21.0.0: Web-application server. API library
@@ -16,16 +16,16 @@ Properties:
    Tag: web
    Tag: servlet
    Version: 21.0.0
-   Website: https://forge.ada-ru.org/matreshka
+   Website: https://github.com/godunko/matreshka
 Dependencies (direct):
    matreshka_league21.0.0
    matreshka_servlet21.0.0
 Dependencies (solution):
-   make=4.3.0
+   make=4.4.1
    matreshka_league=21.0.0
    matreshka_servlet=21.0.0
 Dependencies (graph):
-   matreshka_league=21.0.0       --> make=4.3.0 (*)                   
+   matreshka_league=21.0.0       --> make=4.4.1 (*)                   
    matreshka_servlet=21.0.0      --> matreshka_league=21.0.0 (21.0.0) 
    matreshka_spikedog_api=21.0.0 --> matreshka_league=21.0.0 (21.0.0) 
    matreshka_spikedog_api=21.0.0 --> matreshka_servlet=21.0.0 (21.0.0)
@@ -33,7 +33,7 @@ Dependencies (graph):
 
 LOG:
 Note: Deploying matreshka_spikedog_api=21.0.0...
-Note: Deploying make=4.3.0...
+Note: Deploying make=4.4.1...
 The system package 'make' is about to be installed.
 This action might require admin privileges and impact your system installation.
 Do you want Alire to install this system package?
@@ -41,14 +41,14 @@ Using default: Yes
 resolving dependencies...
 looking for conflicting packages...
 
-Packages (1) make-4.3-3
+Packages (1) make-4.4.1-1
 
-Total Download Size:   0.46 MiB
-Total Installed Size:  1.48 MiB
+Total Download Size:   0.49 MiB
+Total Installed Size:  1.61 MiB
 
 :: Proceed with installation? [Y/n] 
 :: Retrieving packages...
- make-4.3-3-x86_64 downloading...
+ make-4.4.1-1-x86_64 downloading...
 checking keyring...
 checking package integrity...
 loading package files...
@@ -59,32 +59,9 @@ installing make...
 :: Running post-transaction hooks...
 (1/1) Updating the info directory file...
 Note: Deploying matreshka_league=21.0.0...
-#=#=#                                                                         
-##O#-#                                                                        
-##O=#  #                                                                      
 
-                                                                           0.0%
                                                                            0.1%
-                                                                           0.1%
-                                                                           0.3%
-                                                                           0.7%
-                                                                           1.3%
-#                                                                          2.7%
-###                                                                        5.4%
-#######                                                                   10.8%
-#############                                                             18.2%
-###################                                                       27.0%
-##########################                                                37.4%
-###########################                                               37.6%
-#################################                                         47.0%
-#######################################                                   54.7%
-#######################################                                   55.1%
-###############################################                           66.7%
-####################################################                      72.7%
-########################################################                  79.0%
-#############################################################             84.9%
-#################################################################         91.1%
-######################################################################    97.3%
+#####################################################################     96.5%
 ######################################################################## 100.0%
 Note: Running post_fetch actions for matreshka_league=21.0.0...
 gnatmake -p -j0  -Pgnat/tools_configure.gpr
@@ -192,6 +169,8 @@ Compile
    [Ada]          servlet-http_sessions.ads
    [Ada]          servlet-http_servlets.adb
    [Ada]          servlet-http_responses.adb
+   [Ada]          servlet-http_requests.adb
+   [Ada]          servlet-http_parameter_vectors.ads
 servlet-http_responses.ads:50:06: no read access to file "matreshka-internals-strings-handlers-generic_x86_sse2.ads"
 servlet-http_responses.ads:50:06: "Matreshka.Internals.Strings.Handlers.X86_64 (spec)" depends on "Matreshka.Internals.Strings.Handlers.Generic_X86_Sse2 (spec)"
 servlet-http_responses.ads:50:06: no read access to file "matreshka-internals-strings-handlers-x86_utilities.ads"
@@ -216,28 +195,41 @@ matreshka-internals-strings-handlers-x86_64.ads:51:45: "X86_Utilities" not decla
 matreshka-internals-strings-handlers-x86_64.ads:51:59: instantiation abandoned
 matreshka-internals-strings-handlers-x86_64.ads:53:58: "X86_64" not declared in "Handlers"
 compilation abandoned due to previous error
+servlet-http_requests.adb:44:06: no read access to file "matreshka-internals-strings-handlers-generic_x86_sse2.ads"
+servlet-http_requests.adb:44:06: "Matreshka.Internals.Strings.Handlers.X86_64 (spec)" depends on "Matreshka.Internals.Strings.Handlers.Generic_X86_Sse2 (spec)"
+servlet-http_requests.adb:44:06: no read access to file "matreshka-internals-strings-handlers-x86_utilities.ads"
+servlet-http_requests.adb:44:06: "Servlet.Http_Requests (body)" depends on "League.Strings (body)"
+servlet-http_requests.adb:44:06: "League.Strings (body)" depends on "Matreshka.Internals.Strings.Configuration (spec)"
+servlet-http_requests.adb:44:06: "Matreshka.Internals.Strings.Configuration (spec)" depends on "Matreshka.Internals.Strings.Handlers.X86_64 (spec)"
+servlet-http_requests.adb:44:06: "Matreshka.Internals.Strings.Handlers.X86_64 (spec)" depends on "Matreshka.Internals.Strings.Handlers.X86_Utilities (spec)"
+matreshka-internals-strings-handlers-x86_64.ads:49:43: "Generic_X86_SSE2" not declared in "Handlers"
+matreshka-internals-strings-handlers-x86_64.ads:51:45: "X86_Utilities" not declared in "Handlers"
+matreshka-internals-strings-handlers-x86_64.ads:51:59: instantiation abandoned
+matreshka-internals-strings-handlers-x86_64.ads:53:58: "X86_64" not declared in "Handlers"
+compilation abandoned due to previous error
 
+   compilation of servlet-http_requests.adb failed
    compilation of servlet-http_responses.adb failed
    compilation of servlet-http_servlets.adb failed
 
 gprbuild: *** compilation phase failed
-stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "D:\a\alire-crates-ci\alire-crates-ci\test\e1717ebf-451f-4114-960f-e62cbed35f3f\matreshka_spikedog_api_21.0.0_2b70f85e\build_matreshka_spikedog_api.gpr"] exited with code 4
-ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "D:\a\alire-crates-ci\alire-crates-ci\test\e1717ebf-451f-4114-960f-e62cbed35f3f\matreshka_spikedog_api_21.0.0_2b70f85e\build_matreshka_spikedog_api.gpr"] exited with code 4
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "D:\a\alire-crates-ci\alire-crates-ci\test\e40e4140-9cb8-4f67-8181-b0354e7a0dc5\matreshka_spikedog_api_21.0.0_2b70f85e\build_matreshka_spikedog_api.gpr"] exited with code 4
+ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "D:\a\alire-crates-ci\alire-crates-ci\test\e40e4140-9cb8-4f67-8181-b0354e7a0dc5\matreshka_spikedog_api_21.0.0_2b70f85e\build_matreshka_spikedog_api.gpr"] exited with code 4
 stderr: ALIRE.CHECKED_ERROR
-stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "D:\a\alire-crates-ci\alire-crates-ci\test\e1717ebf-451f-4114-960f-e62cbed35f3f\matreshka_spikedog_api_21.0.0_2b70f85e\build_matreshka_spikedog_api.gpr"] exited with code 4
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "D:\a\alire-crates-ci\alire-crates-ci\test\e40e4140-9cb8-4f67-8181-b0354e7a0dc5\matreshka_spikedog_api_21.0.0_2b70f85e\build_matreshka_spikedog_api.gpr"] exited with code 4
 stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
 [D:\a\alire-crates-ci\alire-crates-ci\alire_install\bin\alr.exe]
-0xdc4c9b Semantic_Versioning.Basic.At_Least at alire.adb:251
-0xa61b82 Semantic_Versioning.Basic.At_Least at alire-os_lib-subprocess.adb:110
-0xc98383 Semantic_Versioning.Basic.At_Least at alire-spawn.adb:21
-0xc98ad4 Semantic_Versioning.Basic.At_Least at alire-spawn.adb:41
-0xbf9000 Semantic_Versioning.Basic.At_Least at alire-roots.adb:140
-0xbf7507 Semantic_Versioning.Basic.At_Least at alire-roots.adb:171
-0xc13f83 Semantic_Versioning.Basic.At_Least at alire-roots.adb:1364
-0xc5ee28 Semantic_Versioning.Basic.At_Least at alire-solutions.adb:1434
-0xc5da50 Semantic_Versioning.Basic.At_Least at alire-solutions.adb:1509
-0xc140c4 Semantic_Versioning.Basic.At_Least at alire-roots.adb:1368
-0xbf7877 Semantic_Versioning.Basic.At_Least at alire-roots.adb:196
+0xdc98eb Semantic_Versioning.Basic.At_Least at alire.adb:251
+0xa63e32 Semantic_Versioning.Basic.At_Least at alire-os_lib-subprocess.adb:110
+0xc9b793 Semantic_Versioning.Basic.At_Least at alire-spawn.adb:21
+0xc9bee4 Semantic_Versioning.Basic.At_Least at alire-spawn.adb:41
+0xbfc3e0 Semantic_Versioning.Basic.At_Least at alire-roots.adb:140
+0xbfa8e7 Semantic_Versioning.Basic.At_Least at alire-roots.adb:171
+0xc17363 Semantic_Versioning.Basic.At_Least at alire-roots.adb:1364
+0xc62228 Semantic_Versioning.Basic.At_Least at alire-solutions.adb:1443
+0xc60e50 Semantic_Versioning.Basic.At_Least at alire-solutions.adb:1518
+0xc174a4 Semantic_Versioning.Basic.At_Least at alire-roots.adb:1368
+0xbfac57 Semantic_Versioning.Basic.At_Least at alire-roots.adb:196
 0x47726b Semantic_Versioning.Basic.At_Least at alr-commands-build.adb:58
 0x488aa6 Semantic_Versioning.Basic.At_Least at alr-commands-get.adb:187
 0x48d3cc Semantic_Versioning.Basic.At_Least at alr-commands-get.adb:348
@@ -248,15 +240,15 @@ stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
 0x401423 __tmainCRTStartup at ???
 0x40113b mainCRTStartup at ???
 [C:\Windows\System32\KERNEL32.DLL]
-0x7ff97aab4ece
+0x7ffa7f794cae
 [C:\Windows\SYSTEM32\ntdll.dll]
-0x7ff97b4ee399
+0x7ffa80abedc9
 
 
 Warning: matreshka_spikedog_api=21.0.0 successfully retrieved but its build failed.
 Dependencies were solved as follows:
 
-   + make              4.3.0  (new,indirect)
+   + make              4.4.1  (new,indirect)
    + matreshka_league  21.0.0 (new)         
    + matreshka_servlet 21.0.0 (new)         
 ERROR: Build ended with errors

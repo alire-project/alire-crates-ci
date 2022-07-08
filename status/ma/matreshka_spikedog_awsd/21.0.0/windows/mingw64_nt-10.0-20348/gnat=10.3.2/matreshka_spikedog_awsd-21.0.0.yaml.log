@@ -1,4 +1,4 @@
-Test ran at 2022-06-30 12:31:49.231500+00:00
+Test ran at 2022-08-08 00:38:50.721178+00:00
 
 SOLUTION:
 matreshka_spikedog_awsd=21.0.0: Web-application server. API library
@@ -31,10 +31,12 @@ Dependencies (solution):
    matreshka_servlet=21.0.0
    matreshka_spikedog_api=21.0.0
    matreshka_spikedog_core=21.0.0
+   openssl=1.1.1
    xmlada=21.0.0
 Dependencies (graph):
    aws=21.0.0                     --> gnat=10.3.2 (gnat_native) (>=9)        
    aws=21.0.0                     --> make=4.3.0 (*)                         
+   aws=21.0.0                     --> openssl=1.1.1 (*)                      
    aws=21.0.0                     --> xmlada=21.0.0 (~21.0.0)                
    matreshka_league=21.0.0        --> make=4.3.0 (*)                         
    matreshka_servlet=21.0.0       --> matreshka_league=21.0.0 (21.0.0)       
@@ -50,15 +52,62 @@ Dependencies (graph):
 LOG:
 Note: Deploying matreshka_spikedog_awsd=21.0.0...
 Note: Deploying make=4.3.0...
+Note: Deploying openssl=1.1.1...
+The system package 'mingw-w64-x86_64-openssl' is about to be installed.
+This action might require admin privileges and impact your system installation.
+Do you want Alire to install this system package?
+Using default: Yes
+resolving dependencies...
+looking for conflicting packages...
+
+Packages (14) mingw-w64-x86_64-ca-certificates-20211016-3  mingw-w64-x86_64-expat-2.4.8-1  mingw-w64-x86_64-gcc-libs-12.1.0-3  mingw-w64-x86_64-gettext-0.21-3  mingw-w64-x86_64-gmp-6.2.1-3  mingw-w64-x86_64-libffi-3.3-4  mingw-w64-x86_64-libiconv-1.17-1  mingw-w64-x86_64-libtasn1-4.18.0-1  mingw-w64-x86_64-libwinpthread-git-10.0.0.r62.gafef638c3-1  mingw-w64-x86_64-mpc-1.2.1-1  mingw-w64-x86_64-mpfr-4.1.0.p13-1  mingw-w64-x86_64-p11-kit-0.24.1-2  mingw-w64-x86_64-zlib-1.2.12-1  mingw-w64-x86_64-openssl-1.1.1.q-1
+
+Total Download Size:    11.57 MiB
+Total Installed Size:  101.02 MiB
+
+:: Proceed with installation? [Y/n] 
+:: Retrieving packages...
+ mingw-w64-x86_64-openssl-1.1.1.q-1-any downloading...
+ mingw-w64-x86_64-gettext-0.21-3-any downloading...
+ mingw-w64-x86_64-gcc-libs-12.1.0-3-any downloading...
+ mingw-w64-x86_64-libiconv-1.17-1-any downloading...
+ mingw-w64-x86_64-gmp-6.2.1-3-any downloading...
+ mingw-w64-x86_64-mpfr-4.1.0.p13-1-any downloading...
+ mingw-w64-x86_64-p11-kit-0.24.1-2-any downloading...
+ mingw-w64-x86_64-ca-certificates-20211016-3-any downloading...
+ mingw-w64-x86_64-libtasn1-4.18.0-1-any downloading...
+ mingw-w64-x86_64-expat-2.4.8-1-any downloading...
+ mingw-w64-x86_64-zlib-1.2.12-1-any downloading...
+ mingw-w64-x86_64-mpc-1.2.1-1-any downloading...
+ mingw-w64-x86_64-libffi-3.3-4-any downloading...
+ mingw-w64-x86_64-libwinpthread-git-10.0.0.r62.gafef638c3-1-any downloading...
+checking keyring...
+checking package integrity...
+loading package files...
+checking for file conflicts...
+checking available disk space...
+:: Processing package changes...
+installing mingw-w64-x86_64-gmp...
+installing mingw-w64-x86_64-mpfr...
+installing mingw-w64-x86_64-mpc...
+installing mingw-w64-x86_64-libwinpthread-git...
+installing mingw-w64-x86_64-gcc-libs...
+installing mingw-w64-x86_64-libtasn1...
+installing mingw-w64-x86_64-libffi...
+installing mingw-w64-x86_64-expat...
+installing mingw-w64-x86_64-libiconv...
+installing mingw-w64-x86_64-gettext...
+installing mingw-w64-x86_64-p11-kit...
+installing mingw-w64-x86_64-ca-certificates...
+installing mingw-w64-x86_64-zlib...
+installing mingw-w64-x86_64-openssl...
 Note: Deploying xmlada=21.0.0...
 #=#=#                                                                         
 ##O#-#                                                                        
 ##O=#  #                                                                      
 #=#=-#  #                                                                     
--#O#- #   #                                                                   
- -#O#-  #   #                                                                 
-  -#O#-  #   #                                                                
-   -#O=#   #   #                                                              
+ #=#=-#   #                                                                   
+  #=#=- #   #                                                                 
 Note: Running post_fetch actions for xmlada=21.0.0...
 configure: loading site script /usr/local/etc/config.site
 checking build system type... x86_64-w64-mingw32
@@ -75,17 +124,11 @@ Note: Deploying aws=21.0.0...
 #=#=#                                                                         
 ##O#-#                                                                        
 ##O=#  #                                                                      
-#=#=-#  #                                                                     
 
-                                                                           0.3%
-#                                                                          1.6%
-####                                                                       5.6%
-#########                                                                 13.8%
-#####################                                                     29.9%
-#########################################                                 57.2%
+                                                                           0.7%
 ######################################################################## 100.0%
 Note: Running post_fetch actions for aws=21.0.0...
-make[1]: Entering directory '/d/a/alire-crates-ci/alire-crates-ci/test/fad23e0c-4f4e-4a57-aa3a-7cc1687ddd37/matreshka_spikedog_awsd_21.0.0_1478b224/alire/cache/dependencies/aws_21.0.0_57fddf8f/config'
+make[1]: Entering directory '/d/a/alire-crates-ci/alire-crates-ci/test/cd1b1b68-00e4-4b21-b403-29ca7760af5e/matreshka_spikedog_awsd_21.0.0_1478b224/alire/cache/dependencies/aws_21.0.0_57fddf8f/config'
 Bind
    [gprbind]      xoscons.bexch
    [Ada]          xoscons.ali
@@ -342,17 +385,17 @@ In file included from c:\users\runneradmin\.config\alire\cache\dependencies\gnat
 c:\users\runneradmin\.config\alire\cache\dependencies\gnat_native_10.3.2_b187d954\x86_64-w64-mingw32\include\errno.h:162: note: this is the location of the previous definition
   162 | #define EOPNOTSUPP 130
       | 
-make[1]: Leaving directory '/d/a/alire-crates-ci/alire-crates-ci/test/fad23e0c-4f4e-4a57-aa3a-7cc1687ddd37/matreshka_spikedog_awsd_21.0.0_1478b224/alire/cache/dependencies/aws_21.0.0_57fddf8f/config'
-make[1]: Entering directory '/d/a/alire-crates-ci/alire-crates-ci/test/fad23e0c-4f4e-4a57-aa3a-7cc1687ddd37/matreshka_spikedog_awsd_21.0.0_1478b224/alire/cache/dependencies/aws_21.0.0_57fddf8f/regtests'
+make[1]: Leaving directory '/d/a/alire-crates-ci/alire-crates-ci/test/cd1b1b68-00e4-4b21-b403-29ca7760af5e/matreshka_spikedog_awsd_21.0.0_1478b224/alire/cache/dependencies/aws_21.0.0_57fddf8f/config'
+make[1]: Entering directory '/d/a/alire-crates-ci/alire-crates-ci/test/cd1b1b68-00e4-4b21-b403-29ca7760af5e/matreshka_spikedog_awsd_21.0.0_1478b224/alire/cache/dependencies/aws_21.0.0_57fddf8f/regtests'
 Can not generate system tags. The test are disabled
-make[1]: Leaving directory '/d/a/alire-crates-ci/alire-crates-ci/test/fad23e0c-4f4e-4a57-aa3a-7cc1687ddd37/matreshka_spikedog_awsd_21.0.0_1478b224/alire/cache/dependencies/aws_21.0.0_57fddf8f/regtests'
-make[1]: Entering directory '/d/a/alire-crates-ci/alire-crates-ci/test/fad23e0c-4f4e-4a57-aa3a-7cc1687ddd37/matreshka_spikedog_awsd_21.0.0_1478b224/alire/cache/dependencies/aws_21.0.0_57fddf8f/demos'
+make[1]: Leaving directory '/d/a/alire-crates-ci/alire-crates-ci/test/cd1b1b68-00e4-4b21-b403-29ca7760af5e/matreshka_spikedog_awsd_21.0.0_1478b224/alire/cache/dependencies/aws_21.0.0_57fddf8f/regtests'
+make[1]: Entering directory '/d/a/alire-crates-ci/alire-crates-ci/test/cd1b1b68-00e4-4b21-b403-29ca7760af5e/matreshka_spikedog_awsd_21.0.0_1478b224/alire/cache/dependencies/aws_21.0.0_57fddf8f/demos'
 make[1]: Nothing to be done for 'setup'.
-make[1]: Leaving directory '/d/a/alire-crates-ci/alire-crates-ci/test/fad23e0c-4f4e-4a57-aa3a-7cc1687ddd37/matreshka_spikedog_awsd_21.0.0_1478b224/alire/cache/dependencies/aws_21.0.0_57fddf8f/demos'
-make[1]: Entering directory '/d/a/alire-crates-ci/alire-crates-ci/test/fad23e0c-4f4e-4a57-aa3a-7cc1687ddd37/matreshka_spikedog_awsd_21.0.0_1478b224/alire/cache/dependencies/aws_21.0.0_57fddf8f/templates_parser'
-make[1]: Leaving directory '/d/a/alire-crates-ci/alire-crates-ci/test/fad23e0c-4f4e-4a57-aa3a-7cc1687ddd37/matreshka_spikedog_awsd_21.0.0_1478b224/alire/cache/dependencies/aws_21.0.0_57fddf8f/templates_parser'
-make[1]: Entering directory '/d/a/alire-crates-ci/alire-crates-ci/test/fad23e0c-4f4e-4a57-aa3a-7cc1687ddd37/matreshka_spikedog_awsd_21.0.0_1478b224/alire/cache/dependencies/aws_21.0.0_57fddf8f/templates_parser'
-make[1]: Leaving directory '/d/a/alire-crates-ci/alire-crates-ci/test/fad23e0c-4f4e-4a57-aa3a-7cc1687ddd37/matreshka_spikedog_awsd_21.0.0_1478b224/alire/cache/dependencies/aws_21.0.0_57fddf8f/templates_parser'
+make[1]: Leaving directory '/d/a/alire-crates-ci/alire-crates-ci/test/cd1b1b68-00e4-4b21-b403-29ca7760af5e/matreshka_spikedog_awsd_21.0.0_1478b224/alire/cache/dependencies/aws_21.0.0_57fddf8f/demos'
+make[1]: Entering directory '/d/a/alire-crates-ci/alire-crates-ci/test/cd1b1b68-00e4-4b21-b403-29ca7760af5e/matreshka_spikedog_awsd_21.0.0_1478b224/alire/cache/dependencies/aws_21.0.0_57fddf8f/templates_parser'
+make[1]: Leaving directory '/d/a/alire-crates-ci/alire-crates-ci/test/cd1b1b68-00e4-4b21-b403-29ca7760af5e/matreshka_spikedog_awsd_21.0.0_1478b224/alire/cache/dependencies/aws_21.0.0_57fddf8f/templates_parser'
+make[1]: Entering directory '/d/a/alire-crates-ci/alire-crates-ci/test/cd1b1b68-00e4-4b21-b403-29ca7760af5e/matreshka_spikedog_awsd_21.0.0_1478b224/alire/cache/dependencies/aws_21.0.0_57fddf8f/templates_parser'
+make[1]: Leaving directory '/d/a/alire-crates-ci/alire-crates-ci/test/cd1b1b68-00e4-4b21-b403-29ca7760af5e/matreshka_spikedog_awsd_21.0.0_1478b224/alire/cache/dependencies/aws_21.0.0_57fddf8f/templates_parser'
 Setup
    [mkdir]        object directory for project Zlib
    [mkdir]        library directory for project Zlib
@@ -400,9 +443,9 @@ Compile
    [Ada]          aws-services-split_pages-uniform-overlapping.adb
 gprbuild: spawn failed with ERRNO = 2 (No such file or directory)
 make: *** [Makefile:183: build-native] Error 4
-stderr: Command ["make", "setup", "build", "install", "ZLIB=false", "DEMOS=false", "LAL=false", "XMLADA=false", "prefix=install_dir"] exited with code 2
+stderr: Command ["make", "setup", "build", "install", "ZLIB=false", "DEMOS=false", "LAL=false", "XMLADA=false", "prefix=install_dir", "PRJ_BUILD=Release"] exited with code 2
 stderr: ALIRE.CHECKED_ERROR
-stderr: Command ["make", "setup", "build", "install", "ZLIB=false", "DEMOS=false", "LAL=false", "XMLADA=false", "prefix=install_dir"] exited with code 2
+stderr: Command ["make", "setup", "build", "install", "ZLIB=false", "DEMOS=false", "LAL=false", "XMLADA=false", "prefix=install_dir", "PRJ_BUILD=Release"] exited with code 2
 stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
 [D:\a\alire-crates-ci\alire-crates-ci\alire_install\bin\alr.exe]
 0xdc4c9b Semantic_Versioning.Basic.At_Least at alire.adb:251
@@ -426,9 +469,9 @@ stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
 0x401423 __tmainCRTStartup at ???
 0x40113b mainCRTStartup at ???
 [C:\Windows\System32\KERNEL32.DLL]
-0x7ff9a5614ece
+0x7ffc7b724ece
 [C:\Windows\SYSTEM32\ntdll.dll]
-0x7ff9a6e8e399
+0x7ffc7d29e399
 
 stderr: A post-fetch action failed, re-run with -vv -d for details
 ERROR: A post-fetch action failed, re-run with -vv -d for details

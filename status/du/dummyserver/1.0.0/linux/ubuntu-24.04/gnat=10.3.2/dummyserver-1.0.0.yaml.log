@@ -1,0 +1,113 @@
+Test ran at 2025-02-05 12:40:33.805150+00:00
+
+SOLUTION:
+dummyserver=1.0.0: DummyServer is a terminal program that serves dummy content
+Origin: commit 9a6e8708b748fc1f16b8fdd69c3944ae4e7ebcb3 from https://github.com/bracke/dummyserver.git
+Properties:
+   Author: Bent Bracke
+   Description: DummyServer is a terminal program that serves dummy content
+   Executable: dummyserver
+   License: CC0-1.0
+   Long_Description: DummyServer is a terminal program that serves dummy content (resources). These resources are defined in a single JSON configuration and configuration is thus very simple and fast. The prime purpose of DummyServer is to serve content to test client applications.
+   Maintainer: Bent Bracke <bent@bracke.dk>
+   Maintainers_Logins: bracke
+   Name: dummyserver
+   Tag: http
+   Tag: server
+   Tag: test
+   Tag: terminal
+   Tag: console
+   Version: 1.0.0
+   Website: https://github.com/bracke/dummyserver
+Dependencies (direct):
+   json^5.0.3
+Dependencies (solution):
+   gnat=10.3.2 (gnat_native)
+   json=5.0.3
+Dependencies (graph):
+   dummyserver=1.0.0 --> json=5.0.3 (^5.0.3)
+   json=5.0.3        --> gnat=10.3.2 (gnat_native) (<=13)
+
+
+LOG:
+Spawning: alr -d -n get --build dummyserver=1.0.0
+Note: Deploying dummyserver=1.0.0...
+Note: Deploying json=5.0.3...
+Note: Building json=5.0.3/json.gpr (1/2)...
+Setup
+   [mkdir]        object directory for project JSON
+   [mkdir]        library directory for project JSON
+Compile
+   [Ada]          json-streams.adb
+   [Ada]          json-tokenizers.adb
+   [Ada]          json-types.adb
+   [Ada]          json.ads
+   [Ada]          json-parsers.adb
+Build Libraries
+   [gprlib]       json-ada.lexch
+   [archive]      libjson-ada.a
+   [index]        libjson-ada.a
+Note: Building json=5.0.3/json_pretty_print.gpr (2/2)...
+Setup
+   [mkdir]        object directory for project JSON_Pretty_Print
+   [mkdir]        exec directory for project JSON_Pretty_Print
+Compile
+   [Ada]          pretty_print.adb
+Bind
+   [gprbind]      pretty_print.bexch
+   [Ada]          pretty_print.ali
+Link
+   [link]         pretty_print.adb
+/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86_64-pc-linux-gnu/bin/ld: /lib/x86_64-linux-gnu/libc.so.6: unknown type [0x13] section `.relr.dyn'
+/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86_64-pc-linux-gnu/bin/ld: skipping incompatible /lib/x86_64-linux-gnu/libc.so.6 when searching for /lib/x86_64-linux-gnu/libc.so.6
+/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86_64-pc-linux-gnu/bin/ld: cannot find /lib/x86_64-linux-gnu/libc.so.6
+/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86_64-pc-linux-gnu/bin/ld: /lib/x86_64-linux-gnu/libc.so.6: unknown type [0x13] section `.relr.dyn'
+/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86_64-pc-linux-gnu/bin/ld: skipping incompatible /lib/x86_64-linux-gnu/libc.so.6 when searching for /lib/x86_64-linux-gnu/libc.so.6
+/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86_64-pc-linux-gnu/bin/ld: /lib64/ld-linux-x86-64.so.2: unknown type [0x13] section `.relr.dyn'
+/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86_64-pc-linux-gnu/bin/ld: skipping incompatible /lib64/ld-linux-x86-64.so.2 when searching for /lib64/ld-linux-x86-64.so.2
+/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86_64-pc-linux-gnu/bin/ld: cannot find /lib64/ld-linux-x86-64.so.2
+/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86_64-pc-linux-gnu/bin/ld: /lib64/ld-linux-x86-64.so.2: unknown type [0x13] section `.relr.dyn'
+/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/../lib/gcc/x86_64-pc-linux-gnu/10.3.0/../../../../x86_64-pc-linux-gnu/bin/ld: skipping incompatible /lib64/ld-linux-x86-64.so.2 when searching for /lib64/ld-linux-x86-64.so.2
+collect2: error: ld returned 1 exit status
+gprbuild: link of pretty_print.adb failed
+gprbuild: failed command was: /home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/bin/gcc pretty_print.o b__pretty_print.o /home/runner/.local/share/alire/builds/json_ada_fda3e8b1/94d15065a10c76d3b9452f4fb92113289eeee99ca074ef2cd5fe0fb8ddb8163a/json/build/lib/libjson-ada.a -L/home/runner/.local/share/alire/builds/json_ada_fda3e8b1/94d15065a10c76d3b9452f4fb92113289eeee99ca074ef2cd5fe0fb8ddb8163a/json/build/tools/obj/release/ -L/home/runner/.local/share/alire/builds/json_ada_fda3e8b1/94d15065a10c76d3b9452f4fb92113289eeee99ca074ef2cd5fe0fb8ddb8163a/json/build/tools/obj/release/ -L/home/runner/.local/share/alire/builds/json_ada_fda3e8b1/94d15065a10c76d3b9452f4fb92113289eeee99ca074ef2cd5fe0fb8ddb8163a/json/build/lib/ -L/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/lib/gcc/x86_64-pc-linux-gnu/10.3.0/adalib/ -static-libgcc /home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/lib/gcc/x86_64-pc-linux-gnu/10.3.0/adalib/libgnat.a -ldl -Wl,-rpath-link,/home/runner/.local/share/alire/toolchains/gnat_native_10.3.2_d7078088/lib/gcc/x86_64-pc-linux-gnu/10.3.0//adalib -Wl,-z,origin,-rpath,$ORIGIN/..//tools/obj/release:$ORIGIN/..//lib:$ORIGIN/../../../../../..//toolchains/gnat_native_10.3.2_d7078088/lib/gcc/x86_64-pc-linux-gnu/10.3.0/adalib -o /home/runner/.local/share/alire/builds/json_ada_fda3e8b1/94d15065a10c76d3b9452f4fb92113289eeee99ca074ef2cd5fe0fb8ddb8163a/json/build/bin//pretty_print
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/.local/share/alire/builds/json_ada_fda3e8b1/94d15065a10c76d3b9452f4fb92113289eeee99ca074ef2cd5fe0fb8ddb8163a/json/json_pretty_print.gpr"] exited with code 4
+ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/.local/share/alire/builds/json_ada_fda3e8b1/94d15065a10c76d3b9452f4fb92113289eeee99ca074ef2cd5fe0fb8ddb8163a/json/json_pretty_print.gpr"] exited with code 4
+stderr: ALIRE.CHECKED_ERROR
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/.local/share/alire/builds/json_ada_fda3e8b1/94d15065a10c76d3b9452f4fb92113289eeee99ca074ef2cd5fe0fb8ddb8163a/json/json_pretty_print.gpr"] exited with code 4
+stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
+[/home/runner/work/alire-crates-ci/alire-crates-ci/alire_install/bin/alr]
+0xe16f5e Alire.Raise_Checked_Error at alire.adb:284
+0xa845be Alire.Os_Lib.Subprocess.Checked_Spawn at alire-os_lib-subprocess.adb:111
+0xcef7be Alire.Spawn.Command at alire-spawn.adb:21
+0xcefdde Alire.Spawn.Gprbuild at alire-spawn.adb:41
+0xc31d1f Alire.Roots.Build at alire-roots.adb:186
+0xc304da Alire.Roots.Build at alire-roots.adb:252
+0xc53d6f Alire.Roots.Traverse at alire-roots.adb:2075
+0xcba1fd Alire.Solutions.Traverse.Visit at alire-solutions.adb:1480
+0xcb901a Alire.Solutions.Traverse at alire-solutions.adb:1547
+0xc53e62 Alire.Roots.Traverse at alire-roots.adb:2079
+0xc53f21 Alire.Roots.Traverse at alire-roots.adb:2059
+0xc30a46 Alire.Roots.Build at alire-roots.adb:283
+0xc30b2b Alire.Roots.Build at alire-roots.adb:111
+0x4a5e38 Alr.Commands.Get.Retrieve at alr-commands-get.adb:205
+0x4a94f3 Alr.Commands.Get.Execute at alr-commands-get.adb:378
+0x4a96a1 Alr.Commands.Get.Execute at alr-commands-get.adb:256
+0x533c96 Alr.Commands.Sub_Cmd.Execute at clic-subcommand-instance.adb:749
+0x53eff7 Alr.Commands.Execute at alr-commands.adb:561
+0x43953a Alr.Main at alr-main.adb:13
+0x43c1d3 Main at b__alr-main.adb:2299
+[/lib/x86_64-linux-gnu/libc.so.6]
+0x7fcd80a2a1c8
+0x7fcd80a2a289
+[/home/runner/work/alire-crates-ci/alire-crates-ci/alire_install/bin/alr]
+0x4393dc _start at ???
+0xfffffffffffffffe
+
+
+Warning: dummyserver=1.0.0 successfully retrieved but its build failed.
+Dependencies were solved as follows:
+
+   +b gnat 10.3.2 (new,gnat_native,indirect,binary)
+   +  json 5.0.3  (new)
+ERROR: Build ended with errors
