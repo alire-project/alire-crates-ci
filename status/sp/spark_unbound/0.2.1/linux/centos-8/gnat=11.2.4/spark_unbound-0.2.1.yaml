@@ -1,13 +1,13 @@
-badge: true
+badge: false
 badge_color: green
 crate: spark_unbound
 creation_timestamp: 1648655817.0611467
 distro: centos-8
-duration: 7.974580005000007
+duration: 1.0959679609998147
 gnat: 11.2.4
-last_attempt: 2022-06-17 01:14:14.913822+00:00
+last_attempt: 2026-07-04 01:21:16.871212+00:00
 log:
-- 'Test ran at 2022-06-17 01:14:14.913753+00:00
+- 'Test ran at 2026-07-04 01:21:16.871192+00:00
 
 
   '
@@ -101,13 +101,13 @@ log:
 - 'Dependencies (solution):
 
   '
-- '   gnat=11.2.4 (gnat_arm_elf) (installed)
+- '   gnat=11.2.4 (gnat_native)
 
   '
 - 'Dependencies (graph):
 
   '
-- '   spark_unbound=0.2.1 --> gnat=11.2.4 (gnat_arm_elf) ((>=9.3.1 & <2000) | >=2021)
+- '   spark_unbound=0.2.1 --> gnat=11.2.4 (gnat_native) ((>=9.3.1 & <2000) | >=2021)
 
   '
 - '
@@ -118,10 +118,35 @@ log:
   LOG:
 
   '
+- '[alr test] Testing spark_unbound=0.2.1
+
+  '
+- '[alr test] Spawning retrieval for remote crate: alr -d -n get spark_unbound=0.2.1
+
+  '
 - 'Note: Deploying spark_unbound=0.2.1...
 
   '
-- 'Note: Building spark_unbound/spark_unbound.gpr...
+- '
+
+  '
+- 'spark_unbound=0.2.1 successfully retrieved.
+
+  '
+- 'Dependencies were solved as follows:
+
+  '
+- '
+
+  '
+- '   +b gnat 11.2.4 (new,gnat_native,binary)
+
+  '
+- '[alr test] Spawning default test for remote crate: alr -d -n build --release --
+  -cargs:Ada -gnatwn
+
+  '
+- 'Note: Building spark_unbound=0.2.1/spark_unbound.gpr...
 
   '
 - 'Setup
@@ -136,10 +161,10 @@ log:
 - 'Compile
 
   '
-- '   [Ada]          spark_unbound.ads
+- '   [Ada]          spark_unbound-safe_alloc.adb
 
   '
-- '   [Ada]          spark_unbound-safe_alloc.adb
+- '   [Ada]          spark_unbound.ads
 
   '
 - '   [Ada]          spark_unbound-arrays.adb
@@ -157,22 +182,13 @@ log:
 - '   [index]        libSpark_Unbound.a
 
   '
-- 'Build finished successfully in 0.31 seconds.
+- 'Success: Build finished successfully in 0.37 seconds.
 
   '
-- '
+- 'Found declared GPR file: spark_unbound.gpr
 
   '
-- 'spark_unbound=0.2.1 successfully retrieved and built.
-
-  '
-- 'Dependencies were solved as follows:
-
-  '
-- '
-
-  '
-- '   +i gnat 11.2.4 (new,installed,gnat_arm_elf)
+- '[alr test] Test completed SUCCESSFULLY
 
   '
 platform: linux

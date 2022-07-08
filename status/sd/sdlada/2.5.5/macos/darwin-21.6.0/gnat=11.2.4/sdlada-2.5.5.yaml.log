@@ -1,0 +1,50 @@
+Test ran at 2024-04-24 00:45:46.695288+00:00
+
+SOLUTION:
+sdlada=2.5.5: Ada 2012 SDL 2.x bindings.
+Origin: commit 429c594de613c5ba2f0d7c59f8708956697e14f1 from https://github.com/Lucretia/sdlada.git
+Available when: (case Distribution is others => True)
+Properties:
+   Pre_Build run: ${CRATE_DIR}/./make -C ./build/gnat tools
+   Author: Luke A. Guest
+   Description: Ada 2012 SDL 2.x bindings.
+   case Distribution is
+      when Msys2 => Environment: C_INCLUDE_PATH=${C_INCLUDE_PATH}:${DISTRIB_ROOT}/mingw64/include/SDL2
+   GPR Scenario: SDL_MODE := debug | release
+   GPR Scenario: SDL_PLATFORM := linux | bsd | windows | macosx | macos_homebrew | ios | android
+   case OS is
+      when Linux => GPR External: SDL_PLATFORM := linux
+      when Macos => GPR External: SDL_PLATFORM := macos_homebrew
+      when Windows => GPR External: SDL_PLATFORM := windows
+   GPR External: BUILD_MODE := release
+   License: Zlib
+   Maintainer: Luke A. Guest <laguest@archeia.com>
+   Maintainers_Logins: Lucretia
+   Name: sdlada
+   Project_File: build/gnat/sdlada.gpr
+   Tag: gamedev
+   Tag: games
+   Tag: portable
+   Tag: cross-platform
+   Version: 2.5.5
+   Website: https://github.com/Lucretia/sdlada
+Dependencies (direct):
+   libsdl2^2.0.0
+   libsdl2_image^2.0.0
+   libsdl2_ttf^2.0.0
+   make*
+Dependencies (solution):
+   make=3.81.0
+Dependencies (external):
+   libsdl2^2.0.0 (direct,hinted)
+   libsdl2_image^2.0.0 (direct,hinted)
+   libsdl2_ttf^2.0.0 (direct,hinted)
+Dependencies (graph):
+   sdlada=2.5.5 --> libsdl2^2.0.0      
+   sdlada=2.5.5 --> libsdl2_image^2.0.0
+   sdlada=2.5.5 --> libsdl2_ttf^2.0.0  
+   sdlada=2.5.5 --> make=3.81.0 (*)    
+Dependencies cannot be met
+
+
+LOG:

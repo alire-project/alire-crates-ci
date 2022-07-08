@@ -1,0 +1,83 @@
+Test ran at 2026-07-05 01:28:43.385596+00:00
+
+SOLUTION:
+linenoise_ada=1.1.2: Bindings to the Linenoise line editing library
+Origin: source archive v1.1.2.tar.gz at https://git.sr.ht/~nytpu/linenoise-ada/archive/v1.1.2.tar.gz with hashes sha256:d96796f61c2f04f2dd986adfe6efec2c11c120b2453b1c3f20aabd54a584c9d3, sha512:1f8823196e68602f5a69932e5fd475acae98b1199e9baa74ba1d1125dd13271dc4205abd6431a96677c2b0c6cdd38fee5ea38e107e27ee389dc28dec063c9612
+Available when: (case OS is Linux => True, Macos => True, Windows => False, others => False)
+Properties:
+   Author: nytpu
+   Description: Bindings to the Linenoise line editing library
+   GPR Scenario: LINENOISE_BUILD_MODE := debug | optimize
+   GPR Scenario: LINENOISE_COMPILE_CHECKS := enabled | disabled
+   GPR Scenario: LINENOISE_CONTRACTS := enabled | disabled
+   GPR Scenario: LINENOISE_LIBRARY_TYPE := dynamic | relocatable | static | static-pic
+   GPR Scenario: LINENOISE_RUNTIME_CHECKS := enabled | disabled
+   GPR Scenario: LINENOISE_STYLE_CHECKS := enabled | disabled
+   License: BSD-2-Clause
+   Maintainer: nytpu <alex@nytpu.com>
+   Maintainers_Logins: nytpu
+   Name: linenoise_ada
+   Project_File: linenoise.gpr
+   Tag: linenoise
+   Tag: readline
+   Tag: line-editing
+   Version: 1.1.2
+   Website: https://git.sr.ht/~nytpu/linenoise-ada
+
+
+LOG:
+[alr test] Testing linenoise_ada=1.1.2
+[alr test] Spawning retrieval for remote crate: alr -d -n get linenoise_ada=1.1.2
+Note: Deploying linenoise_ada=1.1.2...
+#=#=#                                                                          
+##O#-#                                                                         
+##O=#  #                                                                       
+#=#=-#  #                                                                      
+
+linenoise_ada=1.1.2 successfully retrieved.
+There are no dependencies.
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building linenoise_ada=1.1.2/linenoise.gpr...
+Setup
+   [mkdir]        object directory for project Linenoise
+   [mkdir]        library directory for project Linenoise
+Compile
+   [C]            example.c
+   [C]            linenoise-c.c
+   [C]            helpers.c
+/Users/runner/work/alire-crates-ci/alire-crates-ci/test/9d6a0a7f-5f79-406f-a38c-e9dcd5bcfaf3/linenoise_ada_1.1.2_d96796f6/src/helpers.c:5:10: fatal error: stdlib.h: No such file or directory
+    5 | #include <stdlib.h>
+      |          ^~~~~~~~~~
+compilation terminated.
+In file included from /Users/runner/work/alire-crates-ci/alire-crates-ci/test/9d6a0a7f-5f79-406f-a38c-e9dcd5bcfaf3/linenoise_ada_1.1.2_d96796f6/src/linenoise/example.c:1:
+/Users/runner/.local/share/alire/toolchains/gnat_native_15.1.2_60748c54/lib/gcc/aarch64-apple-darwin23.6.0/15.0.1/include-fixed/stdio.h:78:10: fatal error: _stdio.h: No such file or directory
+   78 | #include <_stdio.h>
+      |          ^~~~~~~~~~
+compilation terminated.
+/Users/runner/work/alire-crates-ci/alire-crates-ci/test/9d6a0a7f-5f79-406f-a38c-e9dcd5bcfaf3/linenoise_ada_1.1.2_d96796f6/src/linenoise/linenoise-c.c:106:10: fatal error: termios.h: No such file or directory
+  106 | #include <termios.h>
+      |          ^~~~~~~~~~~
+compilation terminated.
+
+   compilation of helpers.c failed
+   compilation of linenoise-c.c failed
+   compilation of example.c failed
+
+gprbuild: *** compilation phase failed
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/Users/runner/work/alire-crates-ci/alire-crates-ci/test/9d6a0a7f-5f79-406f-a38c-e9dcd5bcfaf3/linenoise_ada_1.1.2_d96796f6/linenoise.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/Users/runner/work/alire-crates-ci/alire-crates-ci/test/9d6a0a7f-5f79-406f-a38c-e9dcd5bcfaf3/linenoise_ada_1.1.2_d96796f6/linenoise.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+stderr: ALIRE.CHECKED_ERROR
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/Users/runner/work/alire-crates-ci/alire-crates-ci/test/9d6a0a7f-5f79-406f-a38c-e9dcd5bcfaf3/linenoise_ada_1.1.2_d96796f6/linenoise.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
+Load address: 0x100854000
+Call stack traceback locations:
+0x1015600cc 0x10156012c 0x1012b466c 0x100ef9568 0x10117e594 0x10117f4f4 0x1010bd33c 0x1010bbb08 0x1010df78c 0x10113f56c 0x10113e99c 0x1010df868 0x1010df950 0x1010bc00c 0x1010bc174 0x1008c5730 0x1008c5070 0x1008c51e4 0x100962b38 0x10096dc78 0x1008569f8 0x10085ba2c
+
+stderr: ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED
+stderr: alire-roots.adb:202
+stderr: raised ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED : alire-roots.adb:202
+Load address: 0x100854000
+Call stack traceback locations:
+0x1015600cc 0x10156012c 0x1010bd640 0x1010bbb08 0x1010df78c 0x10113f56c 0x10113e99c 0x1010df868 0x1010df950 0x1010bc00c 0x1010bc174 0x1008c5730 0x1008c5070 0x1008c51e4 0x100962b38 0x10096dc78 0x1008569f8 0x10085ba2c
+
+ERROR: Compilation failed.

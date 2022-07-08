@@ -1,34 +1,40 @@
-Test ran at 2022-07-04 12:49:12.153157+00:00
+Test ran at 2025-08-13 12:51:33.038189+00:00
 
 SOLUTION:
-garlic=6.0.1: GNAT Library for Ada Distributed Environment (garlic)
-Origin: commit 90ef4b6f01c95df7e04c8f3e4c41c275f23acea9 from https://github.com/reznikmm/garlic.git
-Properties:
-   Author: AdaCore
-   Configuration: no modifiers
-   Description: GNAT Library for Ada Distributed Environment (garlic)
-   case OS is
-      when Linux => Environment: LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:${CRATE_ROOT}/.libs/relocatable
-      when Macos => Environment: DYLD_LIBRARY_PATH=${DYLD_LIBRARY_PATH}:${CRATE_ROOT}/.libs/relocatable
-      when Windows => Environment: PATH=${PATH}:${CRATE_ROOT}/.libs/relocatable
-   GPR Scenario: GARLIC_BUILD_MODE := dev | prod
-   License: GPL-2.0-or-later WITH GCC-exception-2.0
-   Maintainer: Max Reznik <reznikmm@gmail.com>
-   Maintainers_Logins: reznikmm
-   Name: garlic
-   Project_File: gnat/garlic.gpr
-   Tag: dsa
-   Tag: distributed
-   Tag: annex
-   Tag: network
-   Tag: glade
-   Version: 6.0.1
-   Website: https://github.com/reznikmm/garlic/wiki
+garlic=6.0.1: GNAT Library for Ada Distributed Environment (garlic)
+Origin: commit 90ef4b6f01c95df7e04c8f3e4c41c275f23acea9 from https://github.com/reznikmm/garlic.git
+Properties:
+   Author: AdaCore
+   Configuration: no modifiers
+   Description: GNAT Library for Ada Distributed Environment (garlic)
+   case OS is
+      when Linux => Environment: LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:${CRATE_ROOT}/.libs/relocatable
+      when Macos => Environment: DYLD_LIBRARY_PATH=${DYLD_LIBRARY_PATH}:${CRATE_ROOT}/.libs/relocatable
+      when Windows => Environment: PATH=${PATH}:${CRATE_ROOT}/.libs/relocatable
+   GPR Scenario: GARLIC_BUILD_MODE := dev | prod
+   License: GPL-2.0-or-later WITH GCC-exception-2.0
+   Maintainer: Max Reznik <reznikmm@gmail.com>
+   Maintainers_Logins: reznikmm
+   Name: garlic
+   Project_File: gnat/garlic.gpr
+   Tag: dsa
+   Tag: distributed
+   Tag: annex
+   Tag: network
+   Tag: glade
+   Version: 6.0.1
+   Website: https://github.com/reznikmm/garlic/wiki
 
 
 LOG:
+[alr test] Testing garlic=6.0.1
+[alr test] Spawning retrieval for remote crate: alr -d -n get garlic=6.0.1
 Note: Deploying garlic=6.0.1...
-Note: Building garlic/gnat/garlic.gpr...
+
+garlic=6.0.1 successfully retrieved.
+There are no dependencies.
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building garlic=6.0.1/gnat/garlic.gpr...
 Setup
    [mkdir]        object directory for project Garlic
    [mkdir]        library directory for project Garlic
@@ -81,7 +87,6 @@ Build Libraries
    [gprlib]       garlic.lexch
    [archive]      libgarlic.a
    [index]        libgarlic.a
-Build finished successfully in 6.65 seconds.
-
-garlic=6.0.1 successfully retrieved and built.
-There are no dependencies.
+Success: Build finished successfully in 5.56 seconds.
+Found declared GPR file: gnat/garlic.gpr
+[alr test] Test completed SUCCESSFULLY

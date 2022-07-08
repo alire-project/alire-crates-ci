@@ -1,0 +1,50 @@
+Test ran at 2026-07-06 01:25:53.403575+00:00
+
+SOLUTION:
+df_ccv=0.1.0: Ada bindings to Liu Liu's CCV computer vision library
+Origin: commit ec4e224e77c7ec669663a887b80bec416f1dec84 from https://github.com/the-dark-factory/ccv-ada.git
+Available when: (case OS is Linux => True, Macos => True, Windows => False)
+Properties:
+   Author: The Dark Factory Ltd
+   Auto_Gpr_With: auto-gpr-with=false
+   Build Switches: 
+   Description: Ada bindings to Liu Liu's CCV computer vision library
+   License: MIT
+   Maintainer: tony.gair@thedarkfactory.co.uk
+   Maintainers_Logins: tonygair
+   Name: df_ccv
+   Notes: CCV is built separately: clone liuliu/ccv and make lib (needs libpng+libjpeg), then point df_ccv.gpr's CCV_LIB_DIR at libccv.a. See CHARTER.md.
+   Project_File: df_ccv.gpr
+   Tag: binding
+   Tag: image
+   Tag: computer-vision
+   Tag: ccv
+   Version: 0.1.0
+   Website: https://github.com/the-dark-factory/ccv-ada
+
+
+LOG:
+[alr test] Testing df_ccv=0.1.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get df_ccv=0.1.0
+Note: Deploying df_ccv=0.1.0...
+
+df_ccv=0.1.0 successfully retrieved.
+There are no dependencies.
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building df_ccv=0.1.0/df_ccv.gpr...
+Setup
+   [mkdir]        object directory for project Df_Ccv
+   [mkdir]        library directory for project Df_Ccv
+Compile
+   [Ada]          ccv-c.ads
+   [Ada]          ccv.adb
+   [Ada]          ccv-io.adb
+   [Ada]          ccv-image.adb
+ccv-io.adb:26:80: (style) this line is too long
+Build Libraries
+   [gprlib]       ccv_ada.lexch
+   [archive]      libccv_ada.a
+   [index]        libccv_ada.a
+Success: Build finished successfully in 1.22 seconds.
+Found declared GPR file: df_ccv.gpr
+[alr test] Test completed SUCCESSFULLY

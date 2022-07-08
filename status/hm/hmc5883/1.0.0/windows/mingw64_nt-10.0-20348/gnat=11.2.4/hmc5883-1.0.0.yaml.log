@@ -1,0 +1,104 @@
+Test ran at 2025-07-06 01:12:09.776452+00:00
+
+SOLUTION:
+hmc5883=1.0.0: Driver for HMC5883L magnetic sensor
+Origin: commit acd90287298323b2dbd08a2f0551e2afa1e39cfa from https://github.com/reznikmm/hmc5883.git
+Properties:
+   Author: Max Reznik
+   Build Switches: 
+   Configuration: no modifiers
+   Description: Driver for HMC5883L magnetic sensor
+   License: Apache-2.0 WITH LLVM-exception
+   Maintainer: Max Reznik <reznikmm@gmail.com>
+   Maintainers_Logins: reznikmm
+   Name: hmc5883
+   Project_File: gnat/hmc5883.gpr
+   Tag: sensor
+   Tag: magnetometer
+   Tag: driver
+   Version: 1.0.0
+   Website: https://github.com/reznikmm/hmc5883
+Dependencies (direct):
+   gnat>=11 & <2000
+   hal~0.3.0
+Dependencies (solution):
+   gnat=11.2.4 (gnat_native)
+   hal=0.3.1
+Dependencies (graph):
+   hmc5883=1.0.0 --> gnat=11.2.4 (gnat_native) (>=11 & <2000)
+   hmc5883=1.0.0 --> hal=0.3.1 (~0.3.0)
+
+
+LOG:
+Spawning: alr -d -n get --build hmc5883=1.0.0
+Note: Deploying hmc5883=1.0.0...
+Note: Deploying hal=0.3.1...
+Note: Building hmc5883=1.0.0/gnat/hmc5883.gpr...
+Setup
+   [mkdir]        object directory for project HAL
+   [mkdir]        library directory for project HAL
+   [mkdir]        object directory for project HMC5883
+   [mkdir]        library directory for project HMC5883
+Compile
+   [Ada]          hal.ads
+   [Ada]          hal-uart.ads
+   [Ada]          hal-touch_panel.ads
+   [Ada]          hal-time.ads
+   [Ada]          hal-spi.ads
+   [Ada]          hal-sdmmc.adb
+   [Ada]          hal-real_time_clock.ads
+   [Ada]          hal-i2c.ads
+   [Ada]          hal-gpio.ads
+   [Ada]          hal-framebuffer.ads
+   [Ada]          hal-flash.ads
+   [Ada]          hal-filesystem.ads
+   [Ada]          hal-dsi.ads
+   [Ada]          hal-block_drivers.ads
+   [Ada]          hal-bitmap.ads
+   [Ada]          hal-audio.ads
+   [Ada]          hmc5883-sensors.adb
+hmc5883.ads:16:11: aspect specification causes premature freezing of "Output_Data_Rate"
+
+   compilation of hmc5883-sensors.adb failed
+
+gprbuild: *** compilation phase failed
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "D:\a\alire-crates-ci\alire-crates-ci\test\65c9c235-91f6-4c4a-88b2-f9b50ae79bce\hmc5883_1.0.0_acd90287\gnat/hmc5883.gpr"] exited with code 4
+ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "D:\a\alire-crates-ci\alire-crates-ci\test\65c9c235-91f6-4c4a-88b2-f9b50ae79bce\hmc5883_1.0.0_acd90287\gnat/hmc5883.gpr"] exited with code 4
+stderr: ALIRE.CHECKED_ERROR
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "D:\a\alire-crates-ci\alire-crates-ci\test\65c9c235-91f6-4c4a-88b2-f9b50ae79bce\hmc5883_1.0.0_acd90287\gnat/hmc5883.gpr"] exited with code 4
+stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
+[D:\a\alire-crates-ci\alire-crates-ci\alire_install\bin\alr.exe]
+0x7ff6744eb6aa Semantic_Versioning.Basic.Restrictions.First_Index at alire.adb:284
+0x7ff6741062cb Semantic_Versioning.Basic.Restrictions.First_Index at alire-os_lib-subprocess.adb:111
+0x7ff6743a9ee1 Semantic_Versioning.Basic.Restrictions.First_Index at alire-spawn.adb:21
+0x7ff6743aa5bf Semantic_Versioning.Basic.Restrictions.First_Index at alire-spawn.adb:41
+0x7ff6742de35c Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:186
+0x7ff6742dc84a Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:252
+0x7ff6743029c9 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2075
+0x7ff6743710ed Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1480
+0x7ff674370218 Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1563
+0x7ff674302ac8 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2079
+0x7ff674302b96 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2059
+0x7ff6742dce0e Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:283
+0x7ff6742dcf0a Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:111
+0x7ff673aa4f23 Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-get.adb:205
+0x7ff673aa88df Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-get.adb:378
+0x7ff673aa8a9a Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-get.adb:256
+0x7ff673b41628 Semantic_Versioning.Basic.Restrictions.First_Index at clic-subcommand-instance.adb:749
+0x7ff673b4deeb Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands.adb:561
+0x7ff673a216a0 Alr.Main at alr-main.adb:13
+0x7ff673a24f2e Main at b__alr-main.adb:2306
+0x7ff673a2133e __tmainCRTStartup at ???
+0x7ff673a21144 mainCRTStartup at ???
+[C:\Windows\System32\KERNEL32.DLL]
+0x7ffbbc8b4cae
+[C:\Windows\SYSTEM32\ntdll.dll]
+0x7ffbbdbbedc9
+
+
+Warning: hmc5883=1.0.0 successfully retrieved but its build failed.
+Dependencies were solved as follows:
+
+   +b gnat 11.2.4 (new,gnat_native,binary)
+   +  hal  0.3.1  (new)
+ERROR: Build ended with errors

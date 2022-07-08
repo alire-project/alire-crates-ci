@@ -1,0 +1,112 @@
+Test ran at 2025-07-29 00:47:19.882508+00:00
+
+SOLUTION:
+lmdb_ada=1.2.0: Bindings to the Lightning Memory-Mapped Database
+Origin: source archive v1.2.0.tar.gz at https://git.sr.ht/~nytpu/lmdb-ada/archive/v1.2.0.tar.gz with hashes sha256:b9d19e0eec24a79d5ff951c13062e076ff95042e6ca0e4d9ba90849437b39ce4, sha512:8af6120dd3ff8602694ec5dc52408c69b8fbf327b72a57261b7020d922f6941d0287b8b5a8dccd34ddb4f68c3ce92152990ffda58f8b76ac0313879705d3a7c4
+Properties:
+   Author: nytpu
+   Description: Bindings to the Lightning Memory-Mapped Database
+   GPR Scenario: LMDB_BUILD_MODE := debug | optimize
+   GPR Scenario: LMDB_COMPILE_CHECKS := enabled | disabled
+   GPR Scenario: LMDB_CONTRACTS := enabled | disabled
+   GPR Scenario: LMDB_LIBRARY_TYPE := dynamic | relocatable | static | static-pic
+   GPR Scenario: LMDB_PLATFORM := unix | windows
+   GPR Scenario: LMDB_RUNTIME_CHECKS := enabled | disabled
+   GPR Scenario: LMDB_STYLE_CHECKS := enabled | disabled
+   case OS is
+      when Linux => GPR External: LMDB_PLATFORM := unix
+      when Macos => GPR External: LMDB_PLATFORM := unix
+      when Windows => GPR External: LMDB_PLATFORM := windows
+   License: BSD-2-Clause AND OLDAP-2.8+
+   Maintainer: nytpu <alex@nytpu.com>
+   Maintainers_Logins: nytpu
+   Name: lmdb_ada
+   Project_File: lmdb.gpr
+   Tag: database
+   Tag: key-value
+   Version: 1.2.0
+   Website: https://git.sr.ht/~nytpu/lmdb-ada
+Dependencies (direct):
+   gnatcoll^22.0.0
+Dependencies (solution):
+   gnat=13.2.2 (gnat_native)
+   gnatcoll=22.0.0
+   libgpr=22.0.0
+   xmlada=22.0.0
+Dependencies (graph):
+   gnatcoll=22.0.0 --> libgpr=22.0.0 (~22.0.0)
+   libgpr=22.0.0   --> gnat=13.2.2 (gnat_native) (/=2020)
+   libgpr=22.0.0   --> xmlada=22.0.0 (~22.0.0)
+   lmdb_ada=1.2.0  --> gnatcoll=22.0.0 (^22.0.0)
+   xmlada=22.0.0   --> gnat=13.2.2 (gnat_native) (>=11)
+
+
+LOG:
+[alr test] Testing lmdb_ada=1.2.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get lmdb_ada=1.2.0
+Note: Deploying lmdb_ada=1.2.0...
+#=#=#                                                                          
+##O#-#                                                                         
+##O=#  #                                                                       
+#=#=-#  #                                                                      
+ #=#=-#   #                                                                    
+  #=#=- #   #                                                                  
+   #=#=- #   #                                                                 
+Note: Deploying xmlada=22.0.0...
+#=#=#                                                                          
+##O#-#                                                                         
+##O=#  #                                                                       
+#=#=-#  #                                                                      
+ #=#=-#   #                                                                    
+stderr: Generating Outcome_Failure with message: release integrity test failed: expected [sha512:b322ae27f386dc530784f129af9b2f456302f53752d11829b687f90ae60424b1530a28c0667a186647f3bf416766a4633366af26b8d831a5a7e6c16c355c593b] but got [sha512:90beb50ffe017773d5fd18c2d3bfdf95534a40b4f478995eb0ca652ea64a4b274839b2e980fbc87909e1889b6cee90972e14de14d39e3f43f05a594bdfb9a47e]
+stderr: Generating Outcome_Failure with call stack:
+stderr: raised AAA.DEBUG.STACK_TRACE.DEBUG_EXCEPTION : aaa-debug.adb:44
+Load address: 0x10078c000
+Call stack traceback locations:
+0x1014980cc 0x10149812c 0x10135fdf8 0x1011eb12c 0x1011eb810 0x100d88f38 0x100d86624 0x100d87a20 0x100fbfca8 0x100fff048 0x10101778c 0x10107756c 0x1010762a8 0x101017868 0x101017950 0x100fff2b0 0x100fff46c 0x10080cc3c 0x100810368 0x1008104e8 0x10089ab38 0x1008a5c78 0x10078e9f8 0x100793a2c
+
+stderr: ALIRE.CHECKED_ERROR
+stderr: release integrity test failed: expected [sha512:b322ae27f386dc530784f129af9b2f456302f53752d11829b687f90ae60424b1530a28c0667a186647f3bf416766a4633366af26b8d831a5a7e6c16c355c593b] but got [sha512:90beb50ffe017773d5fd18c2d3bfdf95534a40b4f478995eb0ca652ea64a4b274839b2e980fbc87909e1889b6cee90972e14de14d39e3f43f05a594bdfb9a47e]
+stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
+Load address: 0x10078c000
+Call stack traceback locations:
+0x1014980cc 0x10149812c 0x1011e9c0c 0x100fbfcc0 0x100fff048 0x10101778c 0x10107756c 0x1010762a8 0x101017868 0x101017950 0x100fff2b0 0x100fff46c 0x10080cc3c 0x100810368 0x1008104e8 0x10089ab38 0x1008a5c78 0x10078e9f8 0x100793a2c
+
+ERROR: release integrity test failed: expected [sha512:b322ae27f386dc530784f129af9b2f456302f53752d11829b687f90ae60424b1530a28c0667a186647f3bf416766a4633366af26b8d831a5a7e6c16c355c593b] but got [sha512:90beb50ffe017773d5fd18c2d3bfdf95534a40b4f478995eb0ca652ea64a4b274839b2e980fbc87909e1889b6cee90972e14de14d39e3f43f05a594bdfb9a47e]
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Deploying xmlada=22.0.0...
+#=#=#                                                                          
+##O#-#                                                                         
+##O=#  #                                                                       
+#=#=-#  #                                                                      
+ #=#=-#   #                                                                    
+  #=#=- #   #                                                                  
+   #=#=- #   #                                                                 
+Note: Deploying libgpr=22.0.0...
+#=#=#                                                                          
+##O#-#                                                                         
+##O=#  #                                                                       
+#=#=-#  #                                                                      
+ #=#=-#   #                                                                    
+  #=#=- #   #                                                                  
+   #=#=- #   #                                                                 
+Note: Deploying gnatcoll=22.0.0...
+#=#=#                                                                          
+##O#-#                                                                         
+##O=#  #                                                                       
+#-#O=#  #                                                                      
+stderr: Generating Outcome_Failure with message: release integrity test failed: expected [sha512:620c2f23bc047b82e659c7282d6306bc9c8b09e7ec428a9e39722802164ca2962628e5d91a33a00921707033d121bd7a179fffd4a439a0b48df21869b35e82d9] but got [sha512:90beb50ffe017773d5fd18c2d3bfdf95534a40b4f478995eb0ca652ea64a4b274839b2e980fbc87909e1889b6cee90972e14de14d39e3f43f05a594bdfb9a47e]
+stderr: Generating Outcome_Failure with call stack:
+stderr: raised AAA.DEBUG.STACK_TRACE.DEBUG_EXCEPTION : aaa-debug.adb:44
+Load address: 0x100334000
+Call stack traceback locations:
+0x1010400cc 0x10104012c 0x100f07df8 0x100d9312c 0x100d93810 0x100930f38 0x10092e624 0x10092fa20 0x100b67ca8 0x100ba7048 0x100bbf78c 0x100c1f56c 0x100c1e2a8 0x100bbf868 0x100bbf950 0x100ba72b0 0x100ba746c 0x100bbb170 0x100bbb350 0x10044be58 0x1003a4efc 0x1003a51e4 0x100442b38 0x10044dc78 0x1003369f8 0x10033ba2c
+
+stderr: ALIRE.CHECKED_ERROR
+stderr: release integrity test failed: expected [sha512:620c2f23bc047b82e659c7282d6306bc9c8b09e7ec428a9e39722802164ca2962628e5d91a33a00921707033d121bd7a179fffd4a439a0b48df21869b35e82d9] but got [sha512:90beb50ffe017773d5fd18c2d3bfdf95534a40b4f478995eb0ca652ea64a4b274839b2e980fbc87909e1889b6cee90972e14de14d39e3f43f05a594bdfb9a47e]
+stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
+Load address: 0x100334000
+Call stack traceback locations:
+0x1010400cc 0x10104012c 0x100d91c0c 0x100b67cc0 0x100ba7048 0x100bbf78c 0x100c1f56c 0x100c1e2a8 0x100bbf868 0x100bbf950 0x100ba72b0 0x100ba746c 0x100bbb170 0x100bbb350 0x10044be58 0x1003a4efc 0x1003a51e4 0x100442b38 0x10044dc78 0x1003369f8 0x10033ba2c
+
+ERROR: release integrity test failed: expected [sha512:620c2f23bc047b82e659c7282d6306bc9c8b09e7ec428a9e39722802164ca2962628e5d91a33a00921707033d121bd7a179fffd4a439a0b48df21869b35e82d9] but got [sha512:90beb50ffe017773d5fd18c2d3bfdf95534a40b4f478995eb0ca652ea64a4b274839b2e980fbc87909e1889b6cee90972e14de14d39e3f43f05a594bdfb9a47e]

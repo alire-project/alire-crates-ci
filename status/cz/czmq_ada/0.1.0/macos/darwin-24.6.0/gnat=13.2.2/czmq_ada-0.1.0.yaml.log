@@ -1,0 +1,50 @@
+Test ran at 2025-11-06 12:24:48.322427+00:00
+
+SOLUTION:
+czmq_ada=0.1.0: Ada bindings for CZMQ (high-level C API for ZeroMQ)
+Origin: commit 4049d2175f7deb77d6f3fe13c5f86834df44c5cf from https://github.com/geewiz/czmq_ada.git
+Properties:
+   Author: Jochen Lillich <jochen@lillich.co>
+   Description: Ada bindings for CZMQ (high-level C API for ZeroMQ)
+   License: MPL-2.0
+   Maintainer: Jochen Lillich <jochen@lillich.co>
+   Maintainers_Logins: geewiz
+   Name: czmq_ada
+   Notes: Requires CZMQ library to be installed.
+See README.md for installation instructions for your platform.
+
+   Tag: zeromq
+   Tag: messaging
+   Tag: networking
+   Tag: bindings
+   Version: 0.1.0
+   Website: https://github.com/geewiz/czmq_ada
+
+
+LOG:
+[alr test] Testing czmq_ada=0.1.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get czmq_ada=0.1.0
+Note: Deploying czmq_ada=0.1.0...
+
+czmq_ada=0.1.0 successfully retrieved.
+There are no dependencies.
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building czmq_ada=0.1.0/czmq_ada.gpr...
+Setup
+   [mkdir]        object directory for project CZMQ_Ada
+   [mkdir]        library directory for project CZMQ_Ada
+Compile
+   [Ada]          czmq-sockets.adb
+   [Ada]          czmq-low_level.ads
+   [Ada]          czmq-messages.adb
+   [Ada]          czmq.ads
+czmq-messages.adb:96:07: warning: use clause for type "zsock_t_Access" defined at czmq-low_level.ads:21 has no effect [-gnatwu]
+czmq-messages.adb:124:07: warning: use clause for type "zsock_t_Access" defined at czmq-low_level.ads:21 has no effect [-gnatwu]
+czmq-sockets.adb:317:07: warning: use clause for private type "System.Address" has no effect [-gnatwu]
+Build Libraries
+   [gprlib]       czmq_ada.lexch
+   [archive]      libczmq_ada.a
+   [index]        libczmq_ada.a
+Success: Build finished successfully in 6.80 seconds.
+Found declared GPR file: czmq_ada.gpr
+[alr test] Test completed SUCCESSFULLY

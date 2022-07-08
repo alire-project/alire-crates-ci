@@ -1,0 +1,106 @@
+Test ran at 2026-08-18 12:46:44.403667+00:00
+
+SOLUTION:
+rabbitmq=0.1.0: Ada bindings for the librabbitmq C client library
+Origin: commit cf05eeb7b9c85a6a23fff7f57e4910bd3d38fd88 from https://github.com/geewiz/rabbitmq_ada.git
+Available when: (case Distribution is Arch => True, Debian => True, Fedora => True, Homebrew => True, Macports => True, Msys2 => True, Ubuntu => True, others => False)
+Properties:
+   Author: Jochen Lillich
+   Description: Ada bindings for the librabbitmq C client library
+   License: MIT
+   Maintainer: Jochen Lillich <hello@geewiz.dev>
+   Maintainers_Logins: geewiz
+   Name: rabbitmq
+   Tag: rabbitmq
+   Tag: amqp
+   Tag: message
+   Tag: queue
+   Version: 0.1.0
+   Website: https://github.com/geewiz/rabbitmq_ada
+Dependencies (direct):
+   librabbitmq*
+Dependencies (solution):
+   librabbitmq=0.17.0
+Dependencies (graph):
+   rabbitmq=0.1.0 --> librabbitmq=0.17.0 (*)
+
+
+LOG:
+[alr test] Testing rabbitmq=0.1.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get rabbitmq=0.1.0
+Note: Deploying rabbitmq=0.1.0...
+Note: Deploying librabbitmq=0.17.0...
+The system package 'rabbitmq-c' is about to be installed.
+This action might require admin privileges and impact your system installation.
+Do you want Alire to install this system package?
+Using default: Yes
+::warning::The following taps are not trusted:%0A  aws/tap%0A%0AHomebrew is currently ignoring formulae, casks and commands from these taps because tap trust is required.%0A%0AUntap them with:%0A  brew untap aws/tap%0ATrust specific formulae, casks and commands with:%0A  brew trust --formula <user>/<tap>/<formula>%0A  brew trust --cask <user>/<tap>/<cask>%0A  brew trust --command <user>/<tap>/<command>%0AWhole-tap trust is broader and includes all current and future formulae,%0Acasks and commands from the listed taps. Trust whole taps with:%0A  brew trust aws/tap%0ATo disable trust checks:%0A  export HOMEBREW_NO_REQUIRE_TAP_TRUST=1%0AThis is not recommended and will be removed in a later release.%0AFor more information, see:%0A  https://docs.brew.sh/Tap-Trust
+[34m==>[0m [1mWould install 1 formula:[0m
+rabbitmq-c
+[34m==>[0m [1mDownloading https://ghcr.io/v2/homebrew/core/rabbitmq-c/manifests/0.17.0[0m
+[34m==>[0m [1mWould install 1 dependency for rabbitmq-c:[0m
+popt
+[32m==>[0m [1mFetching downloads for: [32mrabbitmq-c[39m[0m
+✔︎ Bottle Manifest popt (1.19)
+✔︎ Bottle popt (1.19)
+✔︎ Bottle rabbitmq-c (0.17.0)
+[32m==>[0m [1mInstalling rabbitmq-c dependency: [32mpopt[39m[0m
+[34m==>[0m [1mPouring popt--1.19.arm64_tahoe.bottle.tar.gz[0m
+🍺  /opt/homebrew/Cellar/popt/1.19: 11 files, 179.5KB
+[32m==>[0m [1mInstalling [32mrabbitmq-c[39m[0m
+[34m==>[0m [1mPouring rabbitmq-c--0.17.0.arm64_tahoe.bottle.tar.gz[0m
+🍺  /opt/homebrew/Cellar/rabbitmq-c/0.17.0: 36 files, 711.3KB
+
+rabbitmq=0.1.0 successfully retrieved.
+Dependencies were solved as follows:
+
+   +b librabbitmq 0.17.0 (new,system package)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building rabbitmq=0.1.0/rabbitmq.gpr...
+Setup
+   [mkdir]        object directory for project Rabbitmq
+   [mkdir]        library directory for project Rabbitmq
+Compile
+   [C]            rabbitmq_ada_helpers.c
+   [Ada]          rabbitmq_config.ads
+   [Ada]          rabbitmq-exchanges.adb
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+   [Ada]          rabbitmq-exceptions.ads
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+   [Ada]          rabbitmq-connections.adb
+In file included from /Users/runner/work/alire-crates-ci/alire-crates-ci/test/eb94625c-3f00-4611-80e8-38213edb80f0/rabbitmq_0.1.0_cf05eeb7/src/rabbitmq_ada_helpers.c:6:
+/opt/homebrew/include/amqp.h:10:5: warning: #warning "amqp.h is deprecated, use rabbitmq-c/amqp.h instead." [-Wcpp]
+   10 | #   warning "amqp.h is deprecated, use rabbitmq-c/amqp.h instead."
+      |     ^~~~~~~
+In file included from /Users/runner/work/alire-crates-ci/alire-crates-ci/test/eb94625c-3f00-4611-80e8-38213edb80f0/rabbitmq_0.1.0_cf05eeb7/src/rabbitmq_ada_helpers.c:7:
+/opt/homebrew/include/amqp_tcp_socket.h:10:5: warning: #warning "amqp_tcp_socket.h is deprecated, use rabbitmq-c/tcp_socket.h instead." [-Wcpp]
+   10 | #   warning "amqp_tcp_socket.h is deprecated, use rabbitmq-c/tcp_socket.h instead."
+      |     ^~~~~~~
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+   [Ada]          rabbitmq-publishing.adb
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+   [Ada]          rabbitmq-queues.adb
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+   [Ada]          rabbitmq-messages.adb
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+   [Ada]          rabbitmq-consuming.adb
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+   [Ada]          rabbitmq-client.adb
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+   [Ada]          rabbitmq.ads
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+   [Ada]          rabbitmq-channels.adb
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+   [Ada]          rabbitmq-c_binding.ads
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+   [Ada]          rabbitmq-client-urls.adb
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+Build Libraries
+   [gprlib]       Rabbitmq.lexch
+   [archive]      libRabbitmq.a
+   [index]        libRabbitmq.a
+Success: Build finished successfully in 3.32 seconds.
+Found declared GPR file: rabbitmq.gpr
+[alr test] Test completed SUCCESSFULLY
