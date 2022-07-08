@@ -1,0 +1,86 @@
+Test ran at 2024-09-06 13:01:07.063719+00:00
+
+SOLUTION:
+garlic=6.0.1: GNAT Library for Ada Distributed Environment (garlic)
+Origin: commit 90ef4b6f01c95df7e04c8f3e4c41c275f23acea9 from https://github.com/reznikmm/garlic.git
+Properties:
+   Author: AdaCore
+   Configuration: no modifiers
+   Description: GNAT Library for Ada Distributed Environment (garlic)
+   case OS is
+      when Linux => Environment: LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:${CRATE_ROOT}/.libs/relocatable
+      when Macos => Environment: DYLD_LIBRARY_PATH=${DYLD_LIBRARY_PATH}:${CRATE_ROOT}/.libs/relocatable
+      when Windows => Environment: PATH=${PATH}:${CRATE_ROOT}/.libs/relocatable
+   GPR Scenario: GARLIC_BUILD_MODE := dev | prod
+   License: GPL-2.0-or-later WITH GCC-exception-2.0
+   Maintainer: Max Reznik <reznikmm@gmail.com>
+   Maintainers_Logins: reznikmm
+   Name: garlic
+   Project_File: gnat/garlic.gpr
+   Tag: dsa
+   Tag: distributed
+   Tag: annex
+   Tag: network
+   Tag: glade
+   Version: 6.0.1
+   Website: https://github.com/reznikmm/garlic/wiki
+
+
+LOG:
+Note: Deploying garlic=6.0.1...
+Note: Building garlic/gnat/garlic.gpr...
+Setup
+   [mkdir]        object directory for project Garlic
+   [mkdir]        library directory for project Garlic
+Compile
+   [Ada]          s-garrem.adb
+   [Ada]          s-garela.adb
+   [Ada]          s-gasoli.adb
+   [Ada]          s-garopt.adb
+   [Ada]          s-garexc.adb
+   [Ada]          s-ganota.adb
+   [Ada]          s-gaprtc.adb
+   [Ada]          s-rpcser.adb
+   [Ada]          s-gptcse.adb
+s-gptcse.adb:37:06: warning: unnecessary with of ancestor [-gnatwr]
+s-gaprtc.adb:42:06: warning: unnecessary with of ancestor [-gnatwr]
+
+   compilation of s-gptcse.adb failed
+   compilation of s-gaprtc.adb failed
+
+gprbuild: *** compilation phase failed
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/28300fb9-3a2b-49df-80e7-76f8f76e93d5/garlic_6.0.1_90ef4b6f/gnat/garlic.gpr"] exited with code 4
+ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/28300fb9-3a2b-49df-80e7-76f8f76e93d5/garlic_6.0.1_90ef4b6f/gnat/garlic.gpr"] exited with code 4
+stderr: ALIRE.CHECKED_ERROR
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/28300fb9-3a2b-49df-80e7-76f8f76e93d5/garlic_6.0.1_90ef4b6f/gnat/garlic.gpr"] exited with code 4
+stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
+[/usr/sbin/alr]
+0xd7ada2 Alire.Raise_Checked_Error at alire.adb:251
+0xa423cf Alire.Os_Lib.Subprocess.Checked_Spawn at alire-os_lib-subprocess.adb:110
+0xc5cdee Alire.Spawn.Command at alire-spawn.adb:21
+0xc5d51c Alire.Spawn.Gprbuild at alire-spawn.adb:41
+0xbc1550 Alire.Roots.Build.Build_Single_Release.Call_Gprbuild at alire-roots.adb:140
+0xbbfbaf Alire.Roots.Build.Build_Single_Release at alire-roots.adb:171
+0xbdb95e Alire.Roots.Traverse.Traverse_Wrap at alire-roots.adb:1364
+0xc25a8b Alire.Solutions.Traverse.Visit at alire-solutions.adb:1443
+0xc246a2 Alire.Solutions.Traverse at alire-solutions.adb:1518
+0xbdbaac Alire.Roots.Traverse at alire-roots.adb:1368
+0xbbff40 Alire.Roots.Build at alire-roots.adb:196
+0x4a0334 Alr.Commands.Build.Execute at alr-commands-build.adb:58
+0x4b065a Alr.Commands.Get.Retrieve at alr-commands-get.adb:187
+0x4b4e77 Alr.Commands.Get.Execute at alr-commands-get.adb:348
+0x53bb7e Alr.Commands.Sub_Cmd.Execute at clic-subcommand-instance.adb:742
+0x54756f Alr.Commands.Execute at alr-commands.adb:492
+0x43cb1a Alr.Main at alr-main.adb:10
+0x43f3e7 Main at b__alr-main.adb:2132
+[/usr/bin/..//lib/libc.so.6]
+0x7fbfc3702c86
+0x7fbfc3702d4a
+[/usr/sbin/alr]
+0x43c9f8 _start at ???
+0xfffffffffffffffe
+
+
+Warning: garlic=6.0.1 successfully retrieved but its build failed.
+There are no dependencies.
+ERROR: Build ended with errors

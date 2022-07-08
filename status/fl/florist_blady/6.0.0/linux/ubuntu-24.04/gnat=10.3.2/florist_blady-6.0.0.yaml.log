@@ -1,0 +1,66 @@
+Test ran at 2024-10-14 12:31:00.892265+00:00
+
+SOLUTION:
+florist_blady=6.0.0: POSIX Ada Bindings
+Provides: florist=22.0.0
+Origin: commit 3bc476ccf9541b32ad409e639394ae0b45df35cd from https://github.com/Blady-Com/florist.git
+Available when: (case OS is Linux => True, Macos => True, Windows => False, others => False)
+Properties:
+   Post_Fetch run: ${CRATE_DIR}/./sh configure
+   Post_Fetch run: ${CRATE_DIR}/./make gen
+   Author: Florida State University (FSU)
+   Author: AdaCore
+   Description: POSIX Ada Bindings
+   License: GPL-3.0-only
+   Maintainer: Pascal Pignard <blady.net@orange.fr>
+   Maintainers_Logins: Blady-Com
+   Name: florist_blady
+   Project_File: lib_florist.gpr
+   Tag: florist
+   Tag: posix
+   Tag: bindings
+   Version: 6.0.0
+   Website: https://github.com/Blady-Com/florist
+
+
+LOG:
+Note: Deploying florist_blady=6.0.0...
+Note: Running post_fetch actions for florist_blady=6.0.0...
+See file configure.log for results of this step.
+checking for gcc... gcc
+checking whether the C compiler works... no
+configure: error: in `/home/runner/work/alire-crates-ci/alire-crates-ci/test/fc5477f6-b7e9-4547-a3b3-58edcf4c4ebe/florist_blady_6.0.0_3bc476cc':
+configure: error: C compiler cannot create executables
+See `config.log' for more details
+stderr: Command ["sh", "configure"] exited with code 77
+stderr: ALIRE.CHECKED_ERROR
+stderr: Command ["sh", "configure"] exited with code 77
+stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
+[/home/runner/work/alire-crates-ci/alire-crates-ci/alire_install/bin/alr]
+0xd7ada2 Alire.Raise_Checked_Error at alire.adb:251
+0xa423cf Alire.Os_Lib.Subprocess.Checked_Spawn at alire-os_lib-subprocess.adb:110
+0xa4a085 Alire.Properties.Actions.Executor.Execute_Run at alire-properties-actions-executor.adb:40
+0xa4b07f Alire.Properties.Actions.Executor.Execute_Actions at alire-properties-actions-executor.adb:94
+0xa4a689 Alire.Properties.Actions.Executor.Execute_Actions at alire-properties-actions-executor.adb:58
+0xbc4d2c Alire.Roots.Deploy_Dependencies.Deploy_Release.Run_Post_Fetch at alire-roots.adb:346
+0xbc5401 Alire.Roots.Deploy_Dependencies.Deploy_Release at alire-roots.adb:377
+0xbdb95e Alire.Roots.Traverse.Traverse_Wrap at alire-roots.adb:1364
+0xc25a8b Alire.Solutions.Traverse.Visit at alire-solutions.adb:1443
+0xc246a2 Alire.Solutions.Traverse at alire-solutions.adb:1518
+0xbdbaac Alire.Roots.Traverse at alire-roots.adb:1368
+0xbc5d8e Alire.Roots.Deploy_Dependencies at alire-roots.adb:434
+0x4b0337 Alr.Commands.Get.Retrieve at alr-commands-get.adb:173
+0x4b4e77 Alr.Commands.Get.Execute at alr-commands-get.adb:348
+0x53bb7e Alr.Commands.Sub_Cmd.Execute at clic-subcommand-instance.adb:742
+0x54756f Alr.Commands.Execute at alr-commands.adb:492
+0x43cb1a Alr.Main at alr-main.adb:10
+0x43f3e7 Main at b__alr-main.adb:2132
+[/lib/x86_64-linux-gnu/libc.so.6]
+0x7f57b7c2a1c8
+0x7f57b7c2a289
+[/home/runner/work/alire-crates-ci/alire-crates-ci/alire_install/bin/alr]
+0x43c9f8 _start at ???
+0xfffffffffffffffe
+
+stderr: A post-fetch action failed, re-run with -vv -d for details
+ERROR: A post-fetch action failed, re-run with -vv -d for details

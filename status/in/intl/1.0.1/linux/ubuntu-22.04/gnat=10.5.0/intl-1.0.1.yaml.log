@@ -1,0 +1,88 @@
+Test ran at 2024-05-25 13:02:33.267120+00:00
+
+SOLUTION:
+intl=1.0.1: NLS thin Ada binding
+Origin: commit 881966ea8636d4f0f64bb7e59107d446f812fffa from https://gitlab.com/stcarrez/ada-intl.git
+Properties:
+   Author: Stephane.Carrez@gmail.com
+   Configuration: no modifiers
+   Description: NLS thin Ada binding
+   GPR Scenario: INTL_USE_LIBINTL := yes | no
+   GPR Scenario: INTL_USE_NLS := yes | no
+   case OS is
+      when Freebsd => (GPR External: INTL_USE_LIBINTL := yes and GPR External: INTL_USE_NLS := yes)
+      when Linux => (GPR External: INTL_USE_LIBINTL := no and GPR External: INTL_USE_NLS := yes)
+      when Macos => (GPR External: INTL_USE_LIBINTL := no and GPR External: INTL_USE_NLS := no)
+      when Windows => (GPR External: INTL_USE_LIBINTL := no and GPR External: INTL_USE_NLS := no)
+   License: Apache-2.0
+   Long_Description: This is a small Ada library that provides NLS support by using
+[gettext (3)](https://linux.die.net/man/3/gettext),
+[textdomain (3)](https://linux.die.net/man/3/textdomain) and
+[bindtextdomain (3)](https://linux.die.net/man/3/bindtextdomain).
+
+When NLS is not supported or disabled, the Ada library implements the
+NLS operations by using empty suitable stubs that skip the NLS transformation
+and emit the English default message.
+
+## Using the library
+
+The first step in using the NLS library is to call the `Initialize` procedure
+that handles the setup of `textdomain` and `bindtextdomain` to configure the
+language according to the user's locale.  The program localized messages are
+stored in a catalog file that is created by `msginit (1)` and `msgfmt (1)` tools.
+In most cases catalog file are identified by a unique name that must be given
+to the `Initialize` procedure (below, it will be `mytool`).
+
+```
+with Intl;
+...
+   PROG_NAME : constant String := "mytool";
+ ...
+   Intl.Initialize (PROG_NAME, "/usr/share/locale");
+```
+
+To localize a message, the `"-"` function is provided to encapsulate the call
+to the [gettext (3)](https://linux.die.net/man/3/gettext) method.  If the message
+is translated and the catalog contains it in the user's language, it will be
+converted by `gettext` and the `"-"` function returns the localized message.
+
+```
+with GNAT.IO;
+   ...
+   function "-" (Message : in String) return String is (Intl."-" (Message));
+   ...
+   GNAT.IO.Put_Line (-("Hello world!"));
+```
+
+To build the message translation file (`PO files`), a tool can be used to extract
+from the source code the default messages.  This process is
+explained in the [GNU gettext](https://www.gnu.org/software/gettext/manual/) documentation.
+
+
+   Maintainer: Stephane.Carrez@gmail.com
+   Maintainers_Logins: stcarrez
+   Name: intl
+   Tag: i18n
+   Tag: nls
+   Tag: bindings
+   Version: 1.0.1
+   Website: https://gitlab.com/stcarrez/ada-intl
+
+
+LOG:
+Note: Deploying intl=1.0.1...
+Note: Building intl/intl.gpr...
+Setup
+   [mkdir]        object directory for project Intl
+   [mkdir]        library directory for project Intl
+Compile
+   [Ada]          intl__nls.adb
+Build Libraries
+   [gprlib]       Intl.lexch
+   [archive]      libIntl.a
+   [index]        libIntl.a
+Build finished successfully in 0.32 seconds.
+
+intl=1.0.1 successfully retrieved and built.
+There are no dependencies.
+Found declared GPR file: intl.gpr
