@@ -1,0 +1,224 @@
+Test ran at 2026-07-01 01:34:24.063429+00:00
+
+SOLUTION:
+wi2wic=1.1.0: Wiki to Wiki translator
+Origin: commit 0a98e7fdc9b98f9ba9e8b307813aad9db5ebce48 from https://github.com/stcarrez/wi2wic.git
+Properties:
+   Author: Stephane.Carrez@gmail.com
+   Configuration: no modifiers
+   Description: Wiki to Wiki translator
+   Executable: wi2wic-server
+   License: Apache-2.0
+   Long_Description: Wi2wic is a small server that allows to convert HTML in Wiki text such as Markdown, MediaWiki, Dotclear or Creole.
+It can also convert one Wiki syntax to another.  It can be used to:
+
+* Migrate HTML page in Markdown or another Wiki,
+* Convert Wiki page in HTML,
+* Convert HTML documentation in Markdown or another Wiki,
+* Cleanup a complex and noisy HTML page
+
+The server is written in Ada and provides the following REST operations:
+
+* import some HTML content and convert it in a Wiki syntax,
+* convert a Wiki text from one syntax to another,
+* render a Wiki text in HTML.
+
+
+   Maintainer: Stephane.Carrez@gmail.com
+   Maintainers_Logins: stcarrez
+   Name: wi2wic
+   Project_File: wi2wic.gpr
+   Tag: web
+   Tag: demo
+   Tag: wiki
+   Tag: markdown
+   Tag: html
+   Version: 1.1.0
+   Website: https://github.com/stcarrez/wi2wic
+Dependencies (direct):
+   aws^24.0
+   security^1.5.1
+   servletada^1.8.1
+   servletada_aws*
+   utilada^2.8.2
+   utilada_aws^2.8.2
+   utilada_xml^2.8.2
+   wikiada^1.5.0
+Dependencies (solution):
+   aws=24.0.0
+   elada=1.8.8
+   gnat=15.1.2 (gnat_native)
+   gnatcoll=24.0.0
+   libgpr=24.0.0
+   make=4.4.1
+   openssl=3.6.2
+   security=1.6.0
+   servletada=1.8.2
+   servletada_aws=1.8.2
+   utilada=2.9.0
+   utilada_aws=2.9.0
+   utilada_xml=2.9.0
+   wikiada=1.5.0
+   xmlada=24.0.0
+Dependencies (graph):
+   aws=24.0.0           --> gnat=15.1.2 (gnat_native) (>=12)
+   aws=24.0.0           --> gnatcoll=24.0.0 (~24.0.0)
+   aws=24.0.0           --> make=4.4.1 (*)
+   aws=24.0.0           --> openssl=3.6.2 (*)
+   aws=24.0.0           --> xmlada=24.0.0 (~24.0.0)
+   elada=1.8.8          --> utilada=2.9.0 (^2.8.0)
+   gnatcoll=24.0.0      --> libgpr=24.0.0 (~24.0.0)
+   libgpr=24.0.0        --> gnat=15.1.2 (gnat_native) (/=2020)
+   libgpr=24.0.0        --> xmlada=24.0.0 (~24.0.0)
+   security=1.6.0       --> utilada=2.9.0 (^2.9.0)
+   security=1.6.0       --> utilada_xml=2.9.0 (^2.9.0)
+   servletada=1.8.2     --> elada=1.8.8 (^1.8.5)
+   servletada=1.8.2     --> security=1.6.0 (^1.6.0)
+   servletada=1.8.2     --> utilada=2.9.0 (^2.9.0)
+   servletada_aws=1.8.2 --> aws=24.0.0 (^24.0|25.0)
+   servletada_aws=1.8.2 --> servletada=1.8.2 (^1.8.2)
+   servletada_aws=1.8.2 --> utilada_aws=2.9.0 (^2.9.0)
+   utilada_aws=2.9.0    --> aws=24.0.0 (^24.0|^25.0)
+   utilada_aws=2.9.0    --> utilada=2.9.0 (^2.9.0)
+   utilada_xml=2.9.0    --> utilada=2.9.0 (^2.9.0)
+   utilada_xml=2.9.0    --> xmlada=24.0.0 (^24.0|^25.0)
+   wi2wic=1.1.0         --> aws=24.0.0 (^24.0)
+   wi2wic=1.1.0         --> security=1.6.0 (^1.5.1)
+   wi2wic=1.1.0         --> servletada=1.8.2 (^1.8.1)
+   wi2wic=1.1.0         --> servletada_aws=1.8.2 (*)
+   wi2wic=1.1.0         --> utilada=2.9.0 (^2.8.2)
+   wi2wic=1.1.0         --> utilada_aws=2.9.0 (^2.8.2)
+   wi2wic=1.1.0         --> utilada_xml=2.9.0 (^2.8.2)
+   wi2wic=1.1.0         --> wikiada=1.5.0 (^1.5.0)
+   wikiada=1.5.0        --> utilada=2.9.0 (^2.8.0)
+   xmlada=24.0.0        --> gnat=15.1.2 (gnat_native) (>=11)
+
+
+LOG:
+[alr test] Testing wi2wic=1.1.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get wi2wic=1.1.0
+Note: Deploying wi2wic=1.1.0...
+Note: Deploying make=4.4.1...
+The system package 'make' is about to be installed.
+This action might require admin privileges and impact your system installation.
+Do you want Alire to install this system package?
+Using default: Yes
+::warning::The following taps are not trusted:%0A  aws/tap%0A%0AHomebrew is currently ignoring formulae, casks and commands from these taps because tap trust is required.%0AUntap them with:%0A  brew untap aws/tap%0ATrust specific formulae, casks and commands with:%0A  brew trust --formula <user>/<tap>/<formula>%0A  brew trust --cask <user>/<tap>/<cask>%0A  brew trust --command <user>/<tap>/<command>%0AWhole-tap trust is broader and includes all current and future formulae,%0Acasks and commands from the listed taps. Trust whole taps with:%0A  brew trust aws/tap%0ATo disable trust checks:%0A  export HOMEBREW_NO_REQUIRE_TAP_TRUST=1%0AThis is not recommended and will be removed in a later release.%0AFor more information, see:%0A  https://docs.brew.sh/Tap-Trust%0A
+[34m==>[0m [1mWould install 1 formula:[0m
+make
+[34m==>[0m [1mDownloading https://ghcr.io/v2/homebrew/core/make/manifests/4.4.1-1[0m
+[32m==>[0m [1mFetching downloads for: [32mmake[39m[0m
+✔︎ Bottle make (4.4.1)
+[34m==>[0m [1mPouring make--4.4.1.arm64_tahoe.bottle.1.tar.gz[0m
+[34m==>[0m [1mCaveats[0m
+GNU "make" has been installed as "gmake".
+If you need to use it as "make", you can add a "gnubin" directory
+to your PATH from your bashrc like:
+
+    PATH="/opt/homebrew/opt/make/libexec/gnubin:$PATH"
+[34m==>[0m [1mSummary[0m
+🍺  /opt/homebrew/Cellar/make/4.4.1: 17 files, 1.3MB
+Note: Deploying utilada=2.9.0...
+Note: Deploying elada=1.8.8...
+Note: Deploying wikiada=1.5.0...
+Note: Deploying xmlada=24.0.0...
+#=#=#                                                                          
+##O#-#                                                                         
+##O=#  #                                                                       
+#=#=-#  #                                                                      
+ #=#=-#   #                                                                    
+  #=#=- #   #                                                                  
+   #=#=- #   #                                                                 
+Note: Deploying libgpr=24.0.0...
+#=#=#                                                                          
+##O#-#                                                                         
+##O=#  #                                                                       
+#=#=-#  #                                                                      
+ #=#=-#   #                                                                    
+  #=#=- #   #                                                                  
+   #=#=- #   #                                                                 
+Note: Deploying utilada_xml=2.9.0...
+Note: Deploying gnatcoll=24.0.0...
+#=#=#                                                                          
+##O#-#                                                                         
+##O=#  #                                                                       
+#=#=-#  #                                                                      
+ #=#=-#   #                                                                    
+  #=#=- #   #                                                                  
+   #=#=- #   #                                                                 
+Note: Deploying security=1.6.0...
+Note: Deploying aws=24.0.0...
+#=#=#                                                                          
+##O#-#                                                                         
+
+                                                                           0.9%
+######################################################################## 100.0%
+Note: Deploying servletada=1.8.2...
+Note: Deploying servletada_aws=1.8.2...
+
+wi2wic=1.1.0 successfully retrieved.
+Dependencies were solved as follows:
+
+   +  aws            24.0.0 (new)
+   +  elada          1.8.8  (new,indirect)
+   +b gnat           15.1.2 (new,gnat_native,indirect,binary)
+   +  gnatcoll       24.0.0 (new,indirect)
+   +  libgpr         24.0.0 (new,indirect)
+   +b make           4.4.1  (new,indirect,system package)
+   +b openssl        3.6.2  (new,indirect,system package)
+   +  security       1.6.0  (new)
+   +  servletada     1.8.2  (new)
+   +  servletada_aws 1.8.2  (new)
+   +  utilada        2.9.0  (new)
+   +  utilada_aws    2.9.0  (new)
+   +  utilada_xml    2.9.0  (new)
+   +  wikiada        1.5.0  (new)
+   +  xmlada         24.0.0 (new,indirect)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Running post-fetch actions for xmlada=24.0.0...
+checking build system type... aarch64-apple-darwin25.4.0
+checking host system type... aarch64-apple-darwin25.4.0
+checking target system type... aarch64-apple-darwin25.4.0
+checking whether gnat can build shared libs... yes
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether ln -s works... yes
+configure: creating ./config.status
+config.status: creating xmlada_shared.gpr
+config.status: creating Makefile
+config.status: creating tests/dom/default.gpr
+Note: Running post-fetch actions for aws=24.0.0...
+sed: illegal option -- s
+usage: sed script [-EHalnru] [-i extension] [file ...]
+	sed [-EHalnu] [-i extension] [-e script] ... [-f script_file] ... [file ...]
+sed: illegal option -- s
+usage: sed script [-EHalnru] [-i extension] [file ...]
+	sed [-EHalnu] [-i extension] [-e script] ... [-f script_file] ... [file ...]
+Bind
+   [gprbind]      xoscons.bexch
+   [Ada]          xoscons.ali
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+Link
+   [link]         xoscons.adb
+ld: library not found for -lSystem
+collect2: error: ld returned 1 exit status
+gprbuild: link of xoscons.adb failed
+gprbuild: failed command was: /users/runner/.local/share/alire/toolchains/gnat_native_15.1.2_60748c54/bin/gcc xoscons.o b__xoscons.o /Users/runner/.local/share/alire/builds/aws_24.0.0_2b75fe6d/75c68b2892651ce6f0e5e1a9c5661459ef6ea6f67921637d57f5099a428256b1/.build/aarch64-apple-darwin23.6.0/setup/obj/xutil.o -L/Users/runner/.local/share/alire/builds/aws_24.0.0_2b75fe6d/75c68b2892651ce6f0e5e1a9c5661459ef6ea6f67921637d57f5099a428256b1/.build/aarch64-apple-darwin23.6.0/setup/obj/ -L/Users/runner/.local/share/alire/builds/aws_24.0.0_2b75fe6d/75c68b2892651ce6f0e5e1a9c5661459ef6ea6f67921637d57f5099a428256b1/.build/aarch64-apple-darwin23.6.0/setup/obj/ -L/users/runner/.local/share/alire/toolchains/gnat_native_15.1.2_60748c54/lib/gcc/aarch64-apple-darwin23.6.0/15.0.1/adalib/ -static-libgcc /users/runner/.local/share/alire/toolchains/gnat_native_15.1.2_60748c54/lib/gcc/aarch64-apple-darwin23.6.0/15.0.1/adalib/libgnat.a -Wl,-rpath,@executable_path//obj -Wl,-rpath,@executable_path/../../../../../..//toolchains/gnat_native_15.1.2_60748c54/lib/gcc/aarch64-apple-darwin23.6.0/15.0.1/adalib -o /Users/runner/.local/share/alire/builds/aws_24.0.0_2b75fe6d/75c68b2892651ce6f0e5e1a9c5661459ef6ea6f67921637d57f5099a428256b1/.build/aarch64-apple-darwin23.6.0/setup//xoscons
+Setup OS specific definitions
+aws-os_lib-tmplt.c:77:10: fatal error: stdlib.h: No such file or directory
+   77 | #include <stdlib.h>
+      |          ^~~~~~~~~~
+compilation terminated.
+/bin/sh: ../xoscons: No such file or directory
+make[1]: *** [../.build/aarch64-apple-darwin23.6.0/debug/../setup/src/aws-os_lib.ads] Error 127
+make: *** [config_setup] Error 2
+Warning: Execution failed for action: Post_Fetch run: make setup ZLIB=false DEMOS=false LAL=false XMLADA=false SOCKET=openssl prefix=install_dir PRJ_BUILD=Release (from ${CRATE_ROOT}/.)
+Warning: Exit code: 2
+Warning: Action output not captured, check it above.
+stderr: ALIRE.PROPERTIES.ACTIONS.ACTION_FAILED
+stderr: Action failed with exit code 2
+stderr: raised ALIRE.PROPERTIES.ACTIONS.ACTION_FAILED : Action failed with exit code 2
+Load address: 0x104ecc000
+Call stack traceback locations:
+0x105bd80cc 0x105bd812c 0x10557bfe4 0x10557a788 0x1057339c0 0x10575778c 0x1057b756c 0x1057b62a8 0x105757868 0x105757950 0x10573400c 0x105734174 0x104f3d730 0x104f3d070 0x104f3d1e4 0x104fdab38 0x104fe5c78 0x104ece9f8 0x104ed3a2c
+
+ERROR: Compilation failed.

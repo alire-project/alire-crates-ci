@@ -1,0 +1,1547 @@
+badge: false
+crate: lsystem_editor
+creation_timestamp: 1787315043.7287977
+distro: ubuntu-24.04
+duration: 25.01766823400021
+gnat: 16.1.0
+last_attempt: 2026-08-22 12:45:20.963499+00:00
+log:
+- 'Test ran at 2026-08-22 12:45:20.963477+00:00
+
+
+  '
+- 'SOLUTION:
+
+  '
+- 'lsystem_editor=1.0.0: L-Systems editor in Ada
+
+  '
+- 'Origin: commit b01f05b870b2eb91e95f4868e259d9208afdbe34 from https://github.com/Heziode/lsystem-editor
+
+  '
+- 'Properties:
+
+  '
+- '   Author: Heziode
+
+  '
+- '   Description: L-Systems editor in Ada
+
+  '
+- '   Executable: lsystem-editor
+
+  '
+- '   License: MIT
+
+  '
+- '   Long_Description: <img src="https://github.com/Heziode/lsystem-editor/blob/master/share/lsystem_editor/ressources/icon.png?raw=true"
+  alt="App Icon">
+
+  '
+- '
+
+  '
+- '# L-System Editor
+
+  '
+- '
+
+  '
+- '<img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License">
+
+  '
+- '
+
+  '
+- 'A comprehensive graphical and command-line editor for creating, manipulating, and
+  visualizing Lindenmayer systems (L-systems).
+
+  '
+- '
+
+  '
+- 'This project was initially developed as part of a university project.
+
+  '
+- '
+
+  '
+- '## What are L-Systems?
+
+  '
+- '
+
+  '
+- 'L-systems (Lindenmayer systems) are a type of formal grammar introduced by biologist
+  Aristid Lindenmayer in 1968. They are particularly useful for modeling plant growth
+  and generating fractals. An L-system consists of:
+
+  '
+- '
+
+  '
+- '- An **alphabet** of symbols that can be used to make strings
+
+  '
+- '- An **axiom** (initial string) to start with
+
+  '
+- '- A set of **production rules** that expand each symbol into a larger string of
+  symbols
+
+  '
+- '
+
+  '
+- 'Through recursive application of these rules, complex structures can be generated
+  from simple initial conditions.
+
+  '
+- '
+
+  '
+- '## Features
+
+  '
+- '
+
+  '
+- '- **Interactive GUI** for creating and editing L-systems
+
+  '
+- '- **Command-line interface** for batch processing and automated workflows
+
+  '
+- '- **Real-time visualization** of the L-system at different development levels
+
+  '
+- '- **Export capabilities** to PS (PostScript) format for now
+
+  '
+- '- **Customizable rendering** with adjustable parameters (colors, margins, dimensions)
+
+  '
+- '- **Save and load** L-system definitions using `.ls` files
+
+  '
+- '
+
+  '
+- '## Installation
+
+  '
+- '
+
+  '
+- '### Using Alire (recommended)
+
+  '
+- '
+
+  '
+- '```
+
+  '
+- 'alr install lsystem_editor
+
+  '
+- '```
+
+  '
+- '
+
+  '
+- '### From Source
+
+  '
+- '
+
+  '
+- '1. Ensure you have Ada and GtkAda installed. This project depends on GNAT Lib.
+
+  '
+- '2. Clone the repository: `git clone https://github.com/Heziode/lsystem-editor.git`
+
+  '
+- '3. Build with Alire: `alr build` or manually with `make`
+
+  '
+- '
+
+  '
+- '## Usage
+
+  '
+- '
+
+  '
+- '### GUI Mode
+
+  '
+- '
+
+  '
+- 'Launch the graphical interface:
+
+  '
+- '
+
+  '
+- '```
+
+  '
+- './bin/lsystem_editor
+
+  '
+- '# Or
+
+  '
+- 'alr run
+
+  '
+- '```
+
+  '
+- '
+
+  '
+- 'The GUI offers:
+
+  '
+- '- A text editor area for defining L-system rules
+
+  '
+- '- Controls to adjust the development level
+
+  '
+- '- Real-time visualization of the L-system
+
+  '
+- '- Export options
+
+  '
+- '- Customization of colors and rendering parameters
+
+  '
+- '
+
+  '
+- '### Command-Line Mode
+
+  '
+- '
+
+  '
+- 'For automated processing or batch operations:
+
+  '
+- '
+
+  '
+- '```
+
+  '
+- 'lsystem_editor --no-gui [OPTIONS]
+
+  '
+- '```
+
+  '
+- '
+
+  '
+- '#### Command-Line Options
+
+  '
+- '
+
+  '
+- '| Option | Long Form | Description |
+
+  '
+- '|--------|-----------|-------------|
+
+  '
+- '| `-i` | `--input=FILE` | Input file containing an L-system definition |
+
+  '
+- '| `-o` | `--output=FILE` | Output file to store an L-system definition |
+
+  '
+- '| `-e` | `--export=FORMAT` | Export format for the L-system representation |
+
+  '
+- '| `-p` | `--export-file=FILE` | Output file for the exported representation |
+
+  '
+- '| `-d` | `--develop=N` | Number of development steps to apply |
+
+  '
+- '| `-w` | `--width=N` | Width of the output representation |
+
+  '
+- '| `-h` | `--height=N` | Height of the output representation |
+
+  '
+- '| `-b` | `--background-color=COLOR` | Background color in hex format (e.g., #AABBCC)
+  |
+
+  '
+- '| `-f` | `--foreground-color=COLOR` | Foreground color in hex format (e.g., #AABBCC)
+  |
+
+  '
+- '| `-mt` | `--margin-top=N` | Top margin for rendering |
+
+  '
+- '| `-mr` | `--margin-right=N` | Right margin for rendering |
+
+  '
+- '| `-mb` | `--margin-bottom=N` | Bottom margin for rendering |
+
+  '
+- '| `-ml` | `--margin-left=N` | Left margin for rendering |
+
+  '
+- '
+
+  '
+- '## L-System File Format
+
+  '
+- '
+
+  '
+- 'L-system definitions are stored in `.ls` files with the following syntax:
+
+  '
+- '
+
+  '
+- '```
+
+  '
+- '<angle> [angle in degrees]
+
+  '
+- '<axiom> [initial string]
+
+  '
+- '<rules>
+
+  '
+- '[symbol] [replacement string]
+
+  '
+- '[symbol] [replacement string]
+
+  '
+- '...
+
+  '
+- '</rules>
+
+  '
+- '```
+
+  '
+- '
+
+  '
+- '### Example L-System: Koch Curve
+
+  '
+- '
+
+  '
+- '```
+
+  '
+- '60.0
+
+  '
+- '-F++F++F
+
+  '
+- 'F F-F++F-F
+
+  '
+- '```
+
+  '
+- '
+
+  '
+- 'Where:
+
+  '
+- '- `F` means "draw forward"
+
+  '
+- '- `+` means "turn left by angle"
+
+  '
+- '- `-` means "turn right by angle"
+
+  '
+- '
+
+  '
+- '## Controls in GUI Mode
+
+  '
+- '
+
+  '
+- '- **Text Editor**: Define and edit your L-system
+
+  '
+- '- **Validate Button**: Check if your L-system definition is valid
+
+  '
+- '- **Level Spinner**: Adjust the development level
+
+  '
+- '- **Color Controls**: Change foreground and background colors
+
+  '
+- '- **Export Options**: Save visualizations
+
+  '
+- '
+
+  '
+- '## License
+
+  '
+- '
+
+  '
+- 'L-System Editor is distributed under the MIT License.
+
+  '
+- '
+
+  '
+- 'Copyright (c) 2018 Quentin Dauprat (Heziode)
+
+  '
+- '
+
+  '
+- 'See the [LICENSE](https://github.com/Heziode/lsystem-editor/blob/master/LICENSE)
+  file for full details.
+
+  '
+- '
+
+  '
+- '   Maintainer: Heziode <heziode@protonmail.com>
+
+  '
+- '   Maintainers_Logins: heziode
+
+  '
+- '   Name: lsystem_editor
+
+  '
+- '   Project_File: LSystem_Editor.gpr
+
+  '
+- '   Tag: gtk
+
+  '
+- '   Tag: gtk3
+
+  '
+- '   Tag: ada
+
+  '
+- '   Tag: l-systems
+
+  '
+- '   Tag: gtkada
+
+  '
+- '   Tag: l-system
+
+  '
+- '   Tag: editor
+
+  '
+- '   Tag: gui
+
+  '
+- '   Version: 1.0.0
+
+  '
+- '   Website: https://github.com/Heziode/lsystem-editor
+
+  '
+- 'Dependencies (direct):
+
+  '
+- '   gtkada^25.0.1
+
+  '
+- '   resources~0.1.0
+
+  '
+- 'Dependencies (solution):
+
+  '
+- '   gtkada=25.0.1
+
+  '
+- '   libgtk3=3.24.41
+
+  '
+- '   make=4.3.0
+
+  '
+- '   pkg_config=1.8.1
+
+  '
+- '   resources=0.1.0
+
+  '
+- 'Dependencies (graph):
+
+  '
+- '   gtkada=25.0.1        --> libgtk3=3.24.41 (>=3.24.24)
+
+  '
+- '   gtkada=25.0.1        --> make=4.3.0 (*)
+
+  '
+- '   gtkada=25.0.1        --> pkg_config=1.8.1 (*)
+
+  '
+- '   lsystem_editor=1.0.0 --> gtkada=25.0.1 (^25.0.1)
+
+  '
+- '   lsystem_editor=1.0.0 --> resources=0.1.0 (~0.1.0)
+
+  '
+- '
+
+  '
+- '
+
+  LOG:
+
+  '
+- '[alr test] Testing lsystem_editor=1.0.0
+
+  '
+- '[alr test] Spawning retrieval for remote crate: alr -d -n get lsystem_editor=1.0.0
+
+  '
+- 'Note: Deploying lsystem_editor=1.0.0...
+
+  '
+- 'Note: Deploying libgtk3=3.24.41...
+
+  '
+- 'The system package ''libgtk-3-dev'' is about to be installed.
+
+  '
+- 'This action might require admin privileges and impact your system installation.
+
+  '
+- 'Do you want Alire to install this system package?
+
+  '
+- 'Using default: Yes
+
+  '
+- 'Selecting previously unselected package gir1.2-atk-1.0:amd64.
+
+  '
+- "(Reading database ... \n"
+- '(Reading database ... 5%
+
+  '
+- '(Reading database ... 10%
+
+  '
+- '(Reading database ... 15%
+
+  '
+- '(Reading database ... 20%
+
+  '
+- '(Reading database ... 25%
+
+  '
+- '(Reading database ... 30%
+
+  '
+- '(Reading database ... 35%
+
+  '
+- '(Reading database ... 40%
+
+  '
+- '(Reading database ... 45%
+
+  '
+- '(Reading database ... 50%
+
+  '
+- '(Reading database ... 55%
+
+  '
+- '(Reading database ... 60%
+
+  '
+- '(Reading database ... 65%
+
+  '
+- '(Reading database ... 70%
+
+  '
+- '(Reading database ... 75%
+
+  '
+- '(Reading database ... 80%
+
+  '
+- '(Reading database ... 85%
+
+  '
+- '(Reading database ... 90%
+
+  '
+- '(Reading database ... 95%
+
+  '
+- '(Reading database ... 100%
+
+  '
+- '(Reading database ... 208667 files and directories currently installed.)
+
+  '
+- 'Preparing to unpack .../00-gir1.2-atk-1.0_2.52.0-1build1_amd64.deb ...
+
+  '
+- 'Unpacking gir1.2-atk-1.0:amd64 (2.52.0-1build1) ...
+
+  '
+- 'Selecting previously unselected package gir1.2-atspi-2.0:amd64.
+
+  '
+- 'Preparing to unpack .../01-gir1.2-atspi-2.0_2.52.0-1build1_amd64.deb ...
+
+  '
+- 'Unpacking gir1.2-atspi-2.0:amd64 (2.52.0-1build1) ...
+
+  '
+- 'Selecting previously unselected package gir1.2-gdkpixbuf-2.0:amd64.
+
+  '
+- 'Preparing to unpack .../02-gir1.2-gdkpixbuf-2.0_2.42.10+dfsg-3ubuntu3.3_amd64.deb
+  ...
+
+  '
+- 'Unpacking gir1.2-gdkpixbuf-2.0:amd64 (2.42.10+dfsg-3ubuntu3.3) ...
+
+  '
+- 'Selecting previously unselected package libpangoxft-1.0-0:amd64.
+
+  '
+- 'Preparing to unpack .../03-libpangoxft-1.0-0_1.52.1+ds-1build1_amd64.deb ...
+
+  '
+- 'Unpacking libpangoxft-1.0-0:amd64 (1.52.1+ds-1build1) ...
+
+  '
+- 'Selecting previously unselected package gir1.2-pango-1.0:amd64.
+
+  '
+- 'Preparing to unpack .../04-gir1.2-pango-1.0_1.52.1+ds-1build1_amd64.deb ...
+
+  '
+- 'Unpacking gir1.2-pango-1.0:amd64 (1.52.1+ds-1build1) ...
+
+  '
+- 'Selecting previously unselected package gir1.2-gtk-3.0:amd64.
+
+  '
+- 'Preparing to unpack .../05-gir1.2-gtk-3.0_3.24.41-4ubuntu1.3_amd64.deb ...
+
+  '
+- 'Unpacking gir1.2-gtk-3.0:amd64 (3.24.41-4ubuntu1.3) ...
+
+  '
+- 'Selecting previously unselected package libatk1.0-dev:amd64.
+
+  '
+- 'Preparing to unpack .../06-libatk1.0-dev_2.52.0-1build1_amd64.deb ...
+
+  '
+- 'Unpacking libatk1.0-dev:amd64 (2.52.0-1build1) ...
+
+  '
+- 'Selecting previously unselected package libxtst-dev:amd64.
+
+  '
+- 'Preparing to unpack .../07-libxtst-dev_2%3a1.2.3-1.1build1_amd64.deb ...
+
+  '
+- 'Unpacking libxtst-dev:amd64 (2:1.2.3-1.1build1) ...
+
+  '
+- 'Selecting previously unselected package libatspi2.0-dev:amd64.
+
+  '
+- 'Preparing to unpack .../08-libatspi2.0-dev_2.52.0-1build1_amd64.deb ...
+
+  '
+- 'Unpacking libatspi2.0-dev:amd64 (2.52.0-1build1) ...
+
+  '
+- 'Selecting previously unselected package libatk-bridge2.0-dev:amd64.
+
+  '
+- 'Preparing to unpack .../09-libatk-bridge2.0-dev_2.52.0-1build1_amd64.deb ...
+
+  '
+- 'Unpacking libatk-bridge2.0-dev:amd64 (2.52.0-1build1) ...
+
+  '
+- 'Selecting previously unselected package libcairo-script-interpreter2:amd64.
+
+  '
+- 'Preparing to unpack .../10-libcairo-script-interpreter2_1.18.0-3build1_amd64.deb
+  ...
+
+  '
+- 'Unpacking libcairo-script-interpreter2:amd64 (1.18.0-3build1) ...
+
+  '
+- 'Selecting previously unselected package libfontconfig-dev:amd64.
+
+  '
+- 'Preparing to unpack .../11-libfontconfig-dev_2.15.0-1.1ubuntu2_amd64.deb ...
+
+  '
+- 'Unpacking libfontconfig-dev:amd64 (2.15.0-1.1ubuntu2) ...
+
+  '
+- 'Selecting previously unselected package libpixman-1-dev:amd64.
+
+  '
+- 'Preparing to unpack .../12-libpixman-1-dev_0.42.2-1build1_amd64.deb ...
+
+  '
+- 'Unpacking libpixman-1-dev:amd64 (0.42.2-1build1) ...
+
+  '
+- 'Selecting previously unselected package libxcb-render0-dev:amd64.
+
+  '
+- 'Preparing to unpack .../13-libxcb-render0-dev_1.15-1ubuntu2_amd64.deb ...
+
+  '
+- 'Unpacking libxcb-render0-dev:amd64 (1.15-1ubuntu2) ...
+
+  '
+- 'Selecting previously unselected package libxcb-shm0-dev:amd64.
+
+  '
+- 'Preparing to unpack .../14-libxcb-shm0-dev_1.15-1ubuntu2_amd64.deb ...
+
+  '
+- 'Unpacking libxcb-shm0-dev:amd64 (1.15-1ubuntu2) ...
+
+  '
+- 'Selecting previously unselected package libcairo2-dev:amd64.
+
+  '
+- 'Preparing to unpack .../15-libcairo2-dev_1.18.0-3build1_amd64.deb ...
+
+  '
+- 'Unpacking libcairo2-dev:amd64 (1.18.0-3build1) ...
+
+  '
+- 'Selecting previously unselected package libdatrie-dev:amd64.
+
+  '
+- 'Preparing to unpack .../16-libdatrie-dev_0.2.13-3build1_amd64.deb ...
+
+  '
+- 'Unpacking libdatrie-dev:amd64 (0.2.13-3build1) ...
+
+  '
+- 'Selecting previously unselected package libglvnd-core-dev:amd64.
+
+  '
+- 'Preparing to unpack .../17-libglvnd-core-dev_1.7.0-1build1_amd64.deb ...
+
+  '
+- 'Unpacking libglvnd-core-dev:amd64 (1.7.0-1build1) ...
+
+  '
+- 'Selecting previously unselected package libglvnd-dev:amd64.
+
+  '
+- 'Preparing to unpack .../18-libglvnd-dev_1.7.0-1build1_amd64.deb ...
+
+  '
+- 'Unpacking libglvnd-dev:amd64 (1.7.0-1build1) ...
+
+  '
+- 'Selecting previously unselected package libegl1-mesa-dev:amd64.
+
+  '
+- 'Preparing to unpack .../19-libegl1-mesa-dev_25.2.8-0ubuntu0.24.04.2_amd64.deb ...
+
+  '
+- 'Unpacking libegl1-mesa-dev:amd64 (25.2.8-0ubuntu0.24.04.2) ...
+
+  '
+- 'Selecting previously unselected package libepoxy-dev:amd64.
+
+  '
+- 'Preparing to unpack .../20-libepoxy-dev_1.5.10-1build1_amd64.deb ...
+
+  '
+- 'Unpacking libepoxy-dev:amd64 (1.5.10-1build1) ...
+
+  '
+- 'Selecting previously unselected package libfribidi-dev:amd64.
+
+  '
+- 'Preparing to unpack .../21-libfribidi-dev_1.0.13-3build1_amd64.deb ...
+
+  '
+- 'Unpacking libfribidi-dev:amd64 (1.0.13-3build1) ...
+
+  '
+- 'Selecting previously unselected package libgdk-pixbuf2.0-bin.
+
+  '
+- 'Preparing to unpack .../22-libgdk-pixbuf2.0-bin_2.42.10+dfsg-3ubuntu3.3_amd64.deb
+  ...
+
+  '
+- 'Unpacking libgdk-pixbuf2.0-bin (2.42.10+dfsg-3ubuntu3.3) ...
+
+  '
+- 'Selecting previously unselected package libgdk-pixbuf-2.0-dev:amd64.
+
+  '
+- 'Preparing to unpack .../23-libgdk-pixbuf-2.0-dev_2.42.10+dfsg-3ubuntu3.3_amd64.deb
+  ...
+
+  '
+- 'Unpacking libgdk-pixbuf-2.0-dev:amd64 (2.42.10+dfsg-3ubuntu3.3) ...
+
+  '
+- 'Selecting previously unselected package libthai-dev:amd64.
+
+  '
+- 'Preparing to unpack .../24-libthai-dev_0.1.29-2build1_amd64.deb ...
+
+  '
+- 'Unpacking libthai-dev:amd64 (0.1.29-2build1) ...
+
+  '
+- 'Selecting previously unselected package libxft-dev:amd64.
+
+  '
+- 'Preparing to unpack .../25-libxft-dev_2.3.6-1build1_amd64.deb ...
+
+  '
+- 'Unpacking libxft-dev:amd64 (2.3.6-1build1) ...
+
+  '
+- 'Selecting previously unselected package pango1.0-tools.
+
+  '
+- 'Preparing to unpack .../26-pango1.0-tools_1.52.1+ds-1build1_amd64.deb ...
+
+  '
+- 'Unpacking pango1.0-tools (1.52.1+ds-1build1) ...
+
+  '
+- 'Selecting previously unselected package libpango1.0-dev:amd64.
+
+  '
+- 'Preparing to unpack .../27-libpango1.0-dev_1.52.1+ds-1build1_amd64.deb ...
+
+  '
+- 'Unpacking libpango1.0-dev:amd64 (1.52.1+ds-1build1) ...
+
+  '
+- 'Selecting previously unselected package libxcomposite-dev:amd64.
+
+  '
+- 'Preparing to unpack .../28-libxcomposite-dev_1%3a0.4.5-1build3_amd64.deb ...
+
+  '
+- 'Unpacking libxcomposite-dev:amd64 (1:0.4.5-1build3) ...
+
+  '
+- 'Selecting previously unselected package libxdamage-dev:amd64.
+
+  '
+- 'Preparing to unpack .../29-libxdamage-dev_1%3a1.1.6-1build1_amd64.deb ...
+
+  '
+- 'Unpacking libxdamage-dev:amd64 (1:1.1.6-1build1) ...
+
+  '
+- 'Selecting previously unselected package wayland-protocols.
+
+  '
+- 'Preparing to unpack .../30-wayland-protocols_1.45-1~ubuntu0.24.04.2_all.deb ...
+
+  '
+- 'Unpacking wayland-protocols (1.45-1~ubuntu0.24.04.2) ...
+
+  '
+- 'Selecting previously unselected package libgtk-3-dev:amd64.
+
+  '
+- 'Preparing to unpack .../31-libgtk-3-dev_3.24.41-4ubuntu1.3_amd64.deb ...
+
+  '
+- 'Unpacking libgtk-3-dev:amd64 (3.24.41-4ubuntu1.3) ...
+
+  '
+- 'Setting up libxdamage-dev:amd64 (1:1.1.6-1build1) ...
+
+  '
+- 'Setting up libcairo-script-interpreter2:amd64 (1.18.0-3build1) ...
+
+  '
+- 'Setting up libpixman-1-dev:amd64 (0.42.2-1build1) ...
+
+  '
+- 'Setting up libpangoxft-1.0-0:amd64 (1.52.1+ds-1build1) ...
+
+  '
+- 'Setting up libglvnd-core-dev:amd64 (1.7.0-1build1) ...
+
+  '
+- 'Setting up gir1.2-gdkpixbuf-2.0:amd64 (2.42.10+dfsg-3ubuntu3.3) ...
+
+  '
+- 'Setting up libfontconfig-dev:amd64 (2.15.0-1.1ubuntu2) ...
+
+  '
+- 'Setting up gir1.2-atk-1.0:amd64 (2.52.0-1build1) ...
+
+  '
+- 'Setting up libxcomposite-dev:amd64 (1:0.4.5-1build3) ...
+
+  '
+- 'Setting up libfribidi-dev:amd64 (1.0.13-3build1) ...
+
+  '
+- 'Setting up libepoxy-dev:amd64 (1.5.10-1build1) ...
+
+  '
+- 'Setting up pango1.0-tools (1.52.1+ds-1build1) ...
+
+  '
+- 'Setting up libglvnd-dev:amd64 (1.7.0-1build1) ...
+
+  '
+- 'Setting up gir1.2-atspi-2.0:amd64 (2.52.0-1build1) ...
+
+  '
+- 'Setting up libxcb-shm0-dev:amd64 (1.15-1ubuntu2) ...
+
+  '
+- 'Setting up gir1.2-pango-1.0:amd64 (1.52.1+ds-1build1) ...
+
+  '
+- 'Setting up libxcb-render0-dev:amd64 (1.15-1ubuntu2) ...
+
+  '
+- 'Setting up wayland-protocols (1.45-1~ubuntu0.24.04.2) ...
+
+  '
+- 'Setting up libdatrie-dev:amd64 (0.2.13-3build1) ...
+
+  '
+- 'Setting up libgdk-pixbuf2.0-bin (2.42.10+dfsg-3ubuntu3.3) ...
+
+  '
+- 'Setting up libcairo2-dev:amd64 (1.18.0-3build1) ...
+
+  '
+- 'Setting up libatk1.0-dev:amd64 (2.52.0-1build1) ...
+
+  '
+- 'Setting up libxft-dev:amd64 (2.3.6-1build1) ...
+
+  '
+- 'Setting up libxtst-dev:amd64 (2:1.2.3-1.1build1) ...
+
+  '
+- 'Setting up libegl1-mesa-dev:amd64 (25.2.8-0ubuntu0.24.04.2) ...
+
+  '
+- 'Setting up libgdk-pixbuf-2.0-dev:amd64 (2.42.10+dfsg-3ubuntu3.3) ...
+
+  '
+- 'Setting up libatspi2.0-dev:amd64 (2.52.0-1build1) ...
+
+  '
+- 'Setting up gir1.2-gtk-3.0:amd64 (3.24.41-4ubuntu1.3) ...
+
+  '
+- 'Setting up libatk-bridge2.0-dev:amd64 (2.52.0-1build1) ...
+
+  '
+- 'Setting up libthai-dev:amd64 (0.1.29-2build1) ...
+
+  '
+- 'Setting up libpango1.0-dev:amd64 (1.52.1+ds-1build1) ...
+
+  '
+- 'Setting up libgtk-3-dev:amd64 (3.24.41-4ubuntu1.3) ...
+
+  '
+- 'Processing triggers for man-db (2.12.0-4build2) ...
+
+  '
+- 'Not building database; man-db/auto-update is not ''true''.
+
+  '
+- 'Processing triggers for libc-bin (2.39-0ubuntu8.8) ...
+
+  '
+- '
+
+  '
+- 'Running kernel seems to be up-to-date.
+
+  '
+- '
+
+  '
+- 'Restarting services...
+
+  '
+- '
+
+  '
+- 'Service restarts being deferred:
+
+  '
+- ' systemctl restart hosted-compute-agent.service
+
+  '
+- '
+
+  '
+- 'No containers need to be restarted.
+
+  '
+- '
+
+  '
+- 'No user sessions are running outdated binaries.
+
+  '
+- '
+
+  '
+- 'No VM guests are running outdated hypervisor (qemu) binaries on this host.
+
+  '
+- 'Note: Deploying resources=0.1.0...
+
+  '
+- 'Note: Deploying gtkada=25.0.1...
+
+  '
+- "#=#=#                                                                         \
+  \ \n"
+- "##O#-#                                                                        \
+  \ \n"
+- "##=O#- #                                                                      \
+  \ \n"
+- "# #=O#- #                                                                     \
+  \ \n"
+- " # #=O#-  #                                                                   \
+  \ \n"
+- "  # #=O=#   #                                                                 \
+  \ \n"
+- "   # #=O=#   #                                                                \
+  \ \n"
+- "    # -#O=-#   #                                                              \
+  \ \n"
+- "     # -#O=- #   #                                                            \
+  \ \n"
+- '
+
+  '
+- 'lsystem_editor=1.0.0 successfully retrieved.
+
+  '
+- 'Dependencies were solved as follows:
+
+  '
+- '
+
+  '
+- '   +  gtkada     25.0.1  (new)
+
+  '
+- '   +b libgtk3    3.24.41 (new,indirect,system package)
+
+  '
+- '   +b make       4.3.0   (new,indirect,system package)
+
+  '
+- '   +b pkg_config 1.8.1   (new,indirect,system package)
+
+  '
+- '   +  resources  0.1.0   (new)
+
+  '
+- '[alr test] Spawning default test for remote crate: alr -d -n build --release --
+  -cargs:Ada -gnatwn
+
+  '
+- 'Note: Running post-fetch actions for gtkada=25.0.1...
+
+  '
+- 'checking build system type... x86_64-pc-linux-gnu
+
+  '
+- 'checking host system type... x86_64-pc-linux-gnu
+
+  '
+- 'checking target system type... x86_64-pc-linux-gnu
+
+  '
+- 'checking for pkg-config... /usr/bin/pkg-config
+
+  '
+- 'checking pkg-config is at least version 0.9.0... yes
+
+  '
+- 'checking for gcc... gcc
+
+  '
+- 'checking whether the C compiler works... yes
+
+  '
+- 'checking for C compiler default output file name... a.out
+
+  '
+- "checking for suffix of executables... \n"
+- 'checking whether we are cross compiling... no
+
+  '
+- 'checking for suffix of object files... o
+
+  '
+- 'checking whether we are using the GNU C compiler... yes
+
+  '
+- 'checking whether gcc accepts -g... yes
+
+  '
+- 'checking for gcc option to accept ISO C89... none needed
+
+  '
+- 'checking for gprbuild... /home/runner/.local/share/alire/toolchains/gprbuild_26.0.1_e3f27f25/bin/gprbuild
+
+  '
+- 'checking for gprinstall... /home/runner/.local/share/alire/toolchains/gprbuild_26.0.1_e3f27f25/bin/gprinstall
+
+  '
+- 'checking that your gnat compiler works with a simple example... yes
+
+  '
+- 'checking whether NLS is requested... yes
+
+  '
+- 'checking for gettext in libc... yes
+
+  '
+- 'checking for GTK... yes
+
+  '
+- 'checking for pkg-config... (cached) /usr/bin/pkg-config
+
+  '
+- 'checking pkg-config is at least version 0.16... yes
+
+  '
+- 'checking for GTK+ - version >= 3.24.24... yes (version 3.24.41)
+
+  '
+- 'checking for GMODULE... yes
+
+  '
+- 'checking for FONTCONFIG... yes
+
+  '
+- 'configure: creating ./config.status
+
+  '
+- 'config.status: creating Makefile
+
+  '
+- 'config.status: creating gtkada_shared.gpr
+
+  '
+- 'config.status: creating po/Makefile
+
+  '
+- 'config.status: creating docs/gtkada_rm/html/static/index.html
+
+  '
+- 'configure: --------- Summary for Gtkada 18.0w -----------------
+
+  '
+- 'configure:   Shared libraries:       yes (default: static)
+
+  '
+- 'configure: --------------------------------------------
+
+  '
+- 'gnatprep -DGETTEXT_INTL=False -DHAVE_GETTEXT=True src/gtkada-intl.gpb src/gtkada-intl.adb
+
+  '
+- 'Note: Building lsystem_editor=1.0.0/LSystem_Editor.gpr...
+
+  '
+- 'Setup
+
+  '
+- '   [mkdir]        object directory for project GtkAda
+
+  '
+- '   [mkdir]        library directory for project GtkAda
+
+  '
+- '   [mkdir]        object directory for project Resources
+
+  '
+- '   [mkdir]        library directory for project Resources
+
+  '
+- '   [mkdir]        object directory for project Lsystem_Editor
+
+  '
+- '   [mkdir]        exec directory for project Lsystem_Editor
+
+  '
+- 'Compile
+
+  '
+- '   [Ada]          main.adb
+
+  '
+- '   [C]            whereami.c
+
+  '
+- '   [Ada]          resources.adb
+
+  '
+- '   [Ada]          gtkada.ads
+
+  '
+- '   [Ada]          gdk-types.ads
+
+  '
+- '   [Ada]          gtkada-multi_paned.adb
+
+  '
+- '   [Ada]          gdk-visual.adb
+
+  '
+- '   [Ada]          gtkada-multiline_entry.adb
+
+  '
+- '   [Ada]          pango-cairo.adb
+
+  '
+- '   [Ada]          gdk-cairo.adb
+
+  '
+- '   [Ada]          gtkada-stock_labels.ads
+
+  '
+- '   [Ada]          gdk-pixbuf.adb
+
+  '
+- '   [Ada]          glib-key_file.adb
+
+  '
+- '   [Ada]          glib-object.adb
+
+  '
+- '   [Ada]          gtkada-stock_icons.ads
+
+  '
+- '   [Ada]          glib-convert.adb
+
+  '
+- '   [Ada]          gtkada-mdi.adb
+
+  '
+- '   [Ada]          gtkada-application.adb
+
+  '
+- '   [Ada]          gtk-arguments.adb
+
+  '
+- '   [Ada]          gtk-rc.adb
+
+  '
+- '   [Ada]          glib-graphs.adb
+
+  '
+- '   [Ada]          gdk-keyval.adb
+
+  '
+- '   [Ada]          gtk-text_child.adb
+
+  '
+- '   [Ada]          glib-enums.ads
+
+  '
+- '   [Ada]          glib.adb
+
+  '
+- '   [Ada]          gdk-property.adb
+
+  '
+- '   [Ada]          fontconfig.adb
+
+  '
+- '   [Ada]          gtk-bindings.adb
+
+  '
+- '   [Ada]          cairo-surface.adb
+
+  '
+- '   [Ada]          cairo-png.adb
+
+  '
+- '   [Ada]          glib-xml_int.ads
+
+  '
+- '   [Ada]          gtkada-canvas_view-views.adb
+
+  '
+- 'gtkada-canvas_view.ads:592:32: error: implicit conversion of anonymous access parameter
+  not allowed
+
+  '
+- 'gtkada-canvas_view.ads:2030:32: error: implicit conversion of anonymous access
+  parameter not allowed
+
+  '
+- '
+
+  '
+- '   compilation of gtkada-canvas_view-views.adb failed
+
+  '
+- '
+
+  '
+- 'gprbuild: *** compilation phase failed
+
+  '
+- 'stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/ce96596f-6ad9-4e85-a01e-95b709fecbee/lsystem_editor_1.0.0_b01f05b8/LSystem_Editor.gpr",
+  "-cargs:Ada", "-gnatwn"] exited with code 4
+
+  '
+- 'ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/ce96596f-6ad9-4e85-a01e-95b709fecbee/lsystem_editor_1.0.0_b01f05b8/LSystem_Editor.gpr",
+  "-cargs:Ada", "-gnatwn"] exited with code 4
+
+  '
+- 'stderr: ALIRE.CHECKED_ERROR
+
+  '
+- 'stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/ce96596f-6ad9-4e85-a01e-95b709fecbee/lsystem_editor_1.0.0_b01f05b8/LSystem_Editor.gpr",
+  "-cargs:Ada", "-gnatwn"] exited with code 4
+
+  '
+- 'stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
+
+  '
+- '[/home/runner/work/alire-crates-ci/alire-crates-ci/alire_install/bin/alr]
+
+  '
+- '0xe75bc6 Alire.Raise_Checked_Error at alire.adb:284
+
+  '
+- '0xac1a54 Alire.Os_Lib.Subprocess.Checked_Spawn at alire-os_lib-subprocess.adb:111
+
+  '
+- '0xd40276 Alire.Spawn.Command at alire-spawn.adb:22
+
+  '
+- '0xd412ee Alire.Spawn.Gprbuild at alire-spawn.adb:68
+
+  '
+- '0xc748cb Alire.Roots.Build at alire-roots.adb:189
+
+  '
+- '0xc7301a Alire.Roots.Build at alire-roots.adb:255
+
+  '
+- '0xc9832b Alire.Roots.Traverse at alire-roots.adb:2143
+
+  '
+- '0xcfee85 Alire.Solutions.Traverse.Visit at alire-solutions.adb:1472
+
+  '
+- '0xcfdfcc Alire.Solutions.Traverse at alire-solutions.adb:1555
+
+  '
+- '0xc9841e Alire.Roots.Traverse at alire-roots.adb:2147
+
+  '
+- '0xc984dd Alire.Roots.Traverse at alire-roots.adb:2127
+
+  '
+- '0xc7359b Alire.Roots.Build at alire-roots.adb:286
+
+  '
+- '0xc736d7 Alire.Roots.Build at alire-roots.adb:114
+
+  '
+- '0x49aa0d Alr.Commands.Build.Execute at alr-commands-build.adb:145
+
+  '
+- '0x49a36d Alr.Commands.Build.Execute at alr-commands-build.adb:113
+
+  '
+- '0x49a51f Alr.Commands.Build.Execute at alr-commands-build.adb:54
+
+  '
+- '0x53bbcc Alr.Commands.Sub_Cmd.Execute at clic-subcommand-instance.adb:749
+
+  '
+- '0x5472be Alr.Commands.Execute at alr-commands.adb:632
+
+  '
+- '0x43d48a Alr.Main at alr-main.adb:13
+
+  '
+- '0x4403a3 Main at b__alr-main.adb:2445
+
+  '
+- '[/lib/x86_64-linux-gnu/libc.so.6]
+
+  '
+- '0x7feb44c2a1c8
+
+  '
+- '0x7feb44c2a289
+
+  '
+- '[/home/runner/work/alire-crates-ci/alire-crates-ci/alire_install/bin/alr]
+
+  '
+- '0x43d323 _start at ???
+
+  '
+- '0xfffffffffffffffe
+
+  '
+- '
+
+  '
+- 'stderr: ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED
+
+  '
+- 'stderr: alire-roots.adb:202
+
+  '
+- 'stderr: raised ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED : alire-roots.adb:202
+
+  '
+- '[/home/runner/work/alire-crates-ci/alire-crates-ci/alire_install/bin/alr]
+
+  '
+- '0xc74cc7 Alire.Roots.Build at alire-roots.adb:202
+
+  '
+- '0xc7301a Alire.Roots.Build at alire-roots.adb:255
+
+  '
+- '0xc9832b Alire.Roots.Traverse at alire-roots.adb:2143
+
+  '
+- '0xcfee85 Alire.Solutions.Traverse.Visit at alire-solutions.adb:1472
+
+  '
+- '0xcfdfcc Alire.Solutions.Traverse at alire-solutions.adb:1555
+
+  '
+- '0xc9841e Alire.Roots.Traverse at alire-roots.adb:2147
+
+  '
+- '0xc984dd Alire.Roots.Traverse at alire-roots.adb:2127
+
+  '
+- '0xc7359b Alire.Roots.Build at alire-roots.adb:286
+
+  '
+- '0xc736d7 Alire.Roots.Build at alire-roots.adb:114
+
+  '
+- '0x49aa0d Alr.Commands.Build.Execute at alr-commands-build.adb:145
+
+  '
+- '0x49a36d Alr.Commands.Build.Execute at alr-commands-build.adb:113
+
+  '
+- '0x49a51f Alr.Commands.Build.Execute at alr-commands-build.adb:54
+
+  '
+- '0x53bbcc Alr.Commands.Sub_Cmd.Execute at clic-subcommand-instance.adb:749
+
+  '
+- '0x5472be Alr.Commands.Execute at alr-commands.adb:632
+
+  '
+- '0x43d48a Alr.Main at alr-main.adb:13
+
+  '
+- '0x4403a3 Main at b__alr-main.adb:2445
+
+  '
+- '[/lib/x86_64-linux-gnu/libc.so.6]
+
+  '
+- '0x7feb44c2a1c8
+
+  '
+- '0x7feb44c2a289
+
+  '
+- '[/home/runner/work/alire-crates-ci/alire-crates-ci/alire_install/bin/alr]
+
+  '
+- '0x43d323 _start at ???
+
+  '
+- '0xfffffffffffffffe
+
+  '
+- '
+
+  '
+- 'ERROR: Compilation failed.
+
+  '
+platform: linux
+status: failing
+version: 1.0.0

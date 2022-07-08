@@ -1,0 +1,117 @@
+Test ran at 2024-06-11 01:27:48.813541+00:00
+
+SOLUTION:
+excel_writer=18.0.0: Produce Excel spreadsheets
+Origin: source archive excel_writer_18.zip at https://sourceforge.net/projects/excel-writer/files/excel-writer/excel_writer_18.zip with hash sha512:ae0dcf496dbf106fd0928d45dad8a9c8967909a653ae7b08a74cef9e7cfcc3909f0af8726ecf61e34c0dc861fc972f7c575eb6c910a677e1f85c4cbcfa76d76b
+Properties:
+   Author: Gautier de Montmollin
+   Description: Produce Excel spreadsheets
+   Executable: excel_out_demo
+   License: MIT
+   Long_Description: ![Excel Writer logo](https://excel-writer.sourceforge.io/ew_logo_no_shadow.png)
+
+Excel_Out is a standalone, portable Ada package for writing Excel spreadsheets with basic formattings, easily and programmatically.
+
+* Enables the automatic production of reports
+* Fast: 50 sheets per second, with 10,000 data cells each on a slow 1.66 GHz computer
+* No interaction needed with Excel or MS Office
+* Unconditionally portable (*)
+* Endian-neutral
+* Object oriented
+* Task safe
+* Pure Ada 95 (nothing compiler/system specific), can be used in projects in Ada 95, Ada 2005, Ada 2012 and later versions of the language
+* Floating-point hardware neutral: no IEEE hardware required
+* Tests and demos included
+* Includes a CSV parser with related tools.
+* Free, open-source
+
+The creation of an Excel file is as simple as this small procedure:
+
+```ada
+with Excel_Out;
+
+procedure Small_Demo is
+  xl : Excel_Out.Excel_Out_File;
+begin
+  xl.Create ("small.xls");
+  xl.Put_Line ("This is a small demo for Excel_Out");
+  for row in 3 .. 8 loop
+    for column in 1 .. 8 loop
+      xl.Write (row, column, row * 1000 + column);
+    end loop;
+  end loop;
+  xl.Close;
+end Small_Demo;
+```
+
+___
+
+(*) within limits of compiler's provided integer types and target architecture capacity.
+
+   Maintainer: gdemont@hotmail.com
+   Maintainers_Logins: mosteo
+   Maintainers_Logins: zertovitch
+   Name: excel_writer
+   Project_File: excel_out_gnat.gpr
+   Tag: excel
+   Tag: spreadsheet
+   Tag: xls
+   Tag: csv
+   Version: 18.0.0
+   Website: https://excel-writer.sourceforge.io/
+
+
+LOG:
+Note: Deploying excel_writer=18.0.0...
+#=#=#                                                                          
+##=#=#                                                                         
+##-=#=-#                                                                       
+# #-=#=-#                                                                      
+
+######################################################################## 100.0% # #-=#=- #                                                                    
+
+######################################################################## 100.0%
+Note: Building excel_writer/excel_out_gnat.gpr...
+Setup
+   [mkdir]        object directory for project Excel_Out_Gnat
+Compile
+   [Ada]          excel_out_demo.adb
+   [Ada]          biff_dump.adb
+   [Ada]          spreadsheet_references_demo.adb
+   [Ada]          csv2tex.adb
+   [Ada]          csv2html.adb
+   [Ada]          csv2xls.adb
+   [Ada]          ew_test.adb
+   [Ada]          csv.adb
+   [Ada]          spreadsheet_references.adb
+   [Ada]          excel_out.adb
+   [Ada]          ieee_754.ads
+   [Ada]          ieee_754-generic_double_precision.adb
+Bind
+   [gprbind]      excel_out_demo.bexch
+   [gprbind]      biff_dump.bexch
+   [gprbind]      spreadsheet_references_demo.bexch
+   [gprbind]      csv2tex.bexch
+   [Ada]          excel_out_demo.ali
+   [Ada]          biff_dump.ali
+   [Ada]          spreadsheet_references_demo.ali
+   [Ada]          csv2tex.ali
+   [gprbind]      csv2html.bexch
+   [gprbind]      csv2xls.bexch
+   [Ada]          csv2html.ali
+   [Ada]          csv2xls.ali
+   [gprbind]      ew_test.bexch
+   [Ada]          ew_test.ali
+Link
+   [link]         excel_out_demo.adb
+   [link]         biff_dump.adb
+   [link]         spreadsheet_references_demo.adb
+   [link]         csv2tex.adb
+   [link]         csv2html.adb
+   [link]         csv2xls.adb
+   [link]         ew_test.adb
+Build finished successfully in 1.81 seconds.
+
+excel_writer=18.0.0 successfully retrieved and built.
+There are no dependencies.
+Found declared GPR file: excel_out_gnat.gpr

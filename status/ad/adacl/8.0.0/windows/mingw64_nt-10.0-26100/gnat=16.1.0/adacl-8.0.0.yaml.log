@@ -1,0 +1,144 @@
+Test ran at 2026-09-22 01:39:41.453593+00:00
+
+SOLUTION:
+adacl=8.0.0: AdaCL: SPARK gold core shared by desktop, embedded and bare-metal
+Origin: source archive adacl-8.0.0.tgz at https://sourceforge.net/projects/adacl/files/Alire/adacl-8.0.0.tgz with hashes sha256:99495ecbf9ef78e4ebea5dd2e6fb61b13de71284b522feaf2e2d1ae829efd80b, sha512:572d2db8a56819d9610eb5ba8f575b6a74f7e0a320c84076fcedc1928041f6d9fb79afe2bfbbbda2e2f9f95b9f12703cb71e5919019db4dd7c0ff66277de89d8
+Properties:
+   case OS is
+      when Linux => Test run: /bin/bash ci-verify.sh (from ${CRATE_ROOT}/.)
+      when Macos => Test run: /bin/bash ci-verify.sh (from ${CRATE_ROOT}/.)
+      when Windows => Test run: powershell -ExecutionPolicy Bypass -File ci-verify.ps1 (from ${CRATE_ROOT}/.)
+      when others => (empty)
+   Author: Martin Krischik <krischik@users.sourceforge.net>
+   Build Switches: 
+   Description: AdaCL: SPARK gold core shared by desktop, embedded and bare-metal
+   License: GPL-3.0-or-later
+   Long_Description: Ada Class Library core crate for Ada 2022.
+
+`adacl` is the shared root of the AdaCL family. It is suitable for both
+embedded and desktop targets and is proven to SPARK gold. The former
+desktop utilities no longer live here; they were moved to `adacl_desktop`
+in 8.0.0.
+
+Sister crates:
+
+- [adacl_aunit](https://alire.ada.dev/crates/adacl_aunit) - AUnit-compatible assertions and parameterised tests
+- [adacl_desktop](https://alire.ada.dev/crates/adacl_desktop) - Getopt, strings, calendar, tracing, queues, and smart pointers
+- [adacl_eastrings](https://alire.ada.dev/crates/adacl_eastrings) - encoding-aware string utilities
+- [adacl_embedded](https://alire.ada.dev/crates/adacl_embedded) - lightweight tracing and text I/O for embedded targets
+- [adacl_regexp](https://alire.ada.dev/crates/adacl_regexp) - regular expressions and SPITBOL patterns
+- [adacl_sar](https://alire.ada.dev/crates/adacl_sar) - search and replace for String, Wide_String, and Wide_Wide_String
+- [adacl_serial](https://alire.ada.dev/crates/adacl_serial) - SPARK-friendly serial I/O helpers over GNAT.Serial_Communications
+
+Source: [SourceForge](https://sourceforge.net/p/adacl/git/ci/master/tree/adacl/src/)
+Documentation: [GNATdoc](https://adacl.sourceforge.net/gnatdoc/adacl/index.html)
+
+   Maintainer: Martin Krischik <krischik@users.sourceforge.net>
+   Maintainers_Logins: krischik
+   Name: adacl
+   Notes: Breaking change in 8.0.0: AdaCL has been split.
+
+`adacl` is now the SPARK-proven common foundation used by both desktop and
+embedded crates. The previous desktop API (Getopt, Strings, Calendar,
+Tracing, Protected Queue, Smart Pointers) lives in `adacl_desktop`.
+
+Applications that used those utilities must replace the old dependency:
+
+    [[depends-on]]
+    adacl = "^7.2"
+
+with:
+
+    [[depends-on]]
+    adacl_desktop = "^8.0"
+
+`adacl_desktop` depends on `adacl`. Keep a direct `adacl` dependency only
+when the shared core is all you need.
+
+   Tag: library
+   Tag: embedded
+   Tag: spark
+   Tag: ada2022
+   Version: 8.0.0
+   Website: https://adacl.sourceforge.net/
+
+
+LOG:
+=== Ada CI Verification ===
+=== adacl_prove ===
+Directory: prove
+Updating dependencies...
+Dependencies automatically updated as follows:
+
+   +. adacl     8.0.0  (new,path=..)
+   +b gnatprove 16.1.0 (new,binary)
+Note: Deploying gnatprove=16.1.0...
+
+#=#=#                                                                          
+#                                                                          2.0%
+###                                                                        5.1%
+#####                                                                      8.2%
+#########                                                                 12.9%
+###########                                                               16.5%
+############                                                              17.8%
+#############                                                             18.8%
+###############                                                           22.0%
+#################                                                         24.3%
+###################                                                       27.0%
+######################                                                    30.7%
+#########################                                                 34.9%
+##########################                                                36.7%
+#############################                                             40.4%
+##############################                                            43.0%
+#################################                                         46.1%
+##################################                                        47.8%
+###################################                                       48.7%
+####################################                                      51.1%
+#####################################                                     52.0%
+######################################                                    53.3%
+########################################                                  56.4%
+###########################################                               60.0%
+############################################                              62.4%
+##############################################                            64.4%
+###############################################                           66.1%
+################################################                          68.0%
+#################################################                         68.6%
+#################################################                         68.9%
+##################################################                        69.5%
+##################################################                        69.8%
+####################################################                      73.5%
+######################################################                    76.1%
+#########################################################                 80.1%
+##########################################################                81.9%
+############################################################              83.9%
+##############################################################            86.3%
+###############################################################           88.8%
+#################################################################         91.0%
+###################################################################       93.5%
+######################################################################    97.3%
+#######################################################################   99.9%
+######################################################################## 100.0%
+Building with validation...
+Note: Building adacl_prove=8.0.0/adacl_prove.gpr...
+"..\obj\validation" created
+"..\lib\validation" created
+"obj\validation" created
+"bin\validation" created
+[Ada Compile]     adacl.ads
+[Ada Compile]     adacl_config.ads
+[Ada Compile]     dummy-main.adb
+[Ada Compile]     dummy.ads
+[Archive]         libAdaCL.a
+[Ada Bind]        dummy-main
+[Ada Post-Bind]   b__dummy-main.adb
+[Link]            dummy-main.exe
+Success: Build finished successfully in 2.30 seconds.
+Running GNATprove...
+Phase 1 of 3: generation of data representation information ...
+Phase 2 of 3: generation of Global contracts ...
+Phase 3 of 3: flow analysis and proof ...
+Summary logged in D:\a\alire-crates-ci\alire-crates-ci\test\34b80c64-8baa-43ac-9ca5-633449859200\adacl_8.0.0_99495ecb\prove\obj\validation\gnatprove\gnatprove.out
+SUCCESS: adacl_prove
+--------------------------------------------------
+All steps completed.
+[alr test] Test completed SUCCESSFULLY

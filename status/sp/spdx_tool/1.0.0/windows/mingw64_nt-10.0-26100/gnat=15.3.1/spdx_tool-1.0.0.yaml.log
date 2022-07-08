@@ -1,0 +1,710 @@
+Test ran at 2026-10-21 13:11:40.852718+00:00
+
+SOLUTION:
+spdx_tool=1.0.0: SPDX license detection and management tool
+Origin: commit a2c70523a2c712053ef6f4780b1dc0e875782058 from https://gitlab.com/stcarrez/spdx-tool.git
+Properties:
+   Post_Fetch run: sh ./alire-setup.sh (from ${CRATE_ROOT}/.)
+   Author: ciceron
+   Description: SPDX license detection and management tool
+   Executable: spdx-tool
+   case OS is
+      when Freebsd => GPR External: USE_MAGICADA := no
+      when Linux => GPR External: USE_MAGICADA := yes
+      when Macos => GPR External: USE_MAGICADA := no
+      when Windows => GPR External: USE_MAGICADA := no
+   License: Apache-2.0
+   Long_Description: spdx-tool scans the source files to identify licenses and allows to update them in order to use the
+SPDX license format.  It can be used to:
+
+* identify the license used in source files of a project,
+* produce a JSON/XML report for the licenses found with the list of files,
+* replace a license header by the [SPDX license](https://spdx.org/licenses/) tag equivalent.
+
+Identify licenses used in a project:
+
+```
+spdx-tool
+```
+
+Identify files matching a given license:
+
+```
+spdx-tool --only-licenses=Apache-2.0 -f
+```
+
+Check the license header before replacing it:
+
+```
+spdx-tool --only-licenses=Apache-2.0 --print-license --line-number src
+```
+
+Replace the license header by the `SPDX-License-Identifier` header:
+
+```
+spdx-tool --only-licenses=Apache-2.0 --update=spdx src
+```
+
+Build an XML or JSON report of files with their licenses:
+
+```
+spdx-tool --output-xml=report.xml
+```
+
+## Documentation
+
+* Man page: [spdx-tool (1)](https://gitlab.com/stcarrez/spdx-tool/-/blob/main/docs/spdx-tool.md?ref_type=heads)
+
+
+   Maintainer: ciceron <Stephane.Carrez@gmail.com>
+   Maintainers_Logins: stcarrez
+   Name: spdx_tool
+   Project_File: spdx_tool.gpr
+   Tag: tools
+   Tag: spdx
+   Tag: license
+   Version: 1.0.0
+   Website: https://github.com/stcarrez/spdx-tool
+Dependencies (direct):
+   case OS is
+      when Linux => magicada^1
+   ada_toml~0.5.0
+   ansiada^1.0.0
+   intl^1.0.1
+   printer_toolkit~0.2.0
+   sciada~0.4.0
+   spdx~0.2.0
+   utilada^2.8.0
+   utilada_xml^2.8.0
+Dependencies (solution):
+   ada_toml=0.5.0
+   ansiada=1.1.0
+   gnat=15.3.1 (gnat_native)
+   intl=1.0.1
+   printer_toolkit=0.2.0
+   sciada=0.4.0
+   spdx=0.2.0
+   utilada=2.9.0
+   utilada_xml=2.9.0
+   xmlada=25.0.0
+Dependencies (graph):
+   printer_toolkit=0.2.0 --> ansiada=1.1.0 (^1.0.0)
+   spdx_tool=1.0.0       --> ada_toml=0.5.0 (~0.5.0)
+   spdx_tool=1.0.0       --> ansiada=1.1.0 (^1.0.0)
+   spdx_tool=1.0.0       --> intl=1.0.1 (^1.0.1)
+   spdx_tool=1.0.0       --> printer_toolkit=0.2.0 (~0.2.0)
+   spdx_tool=1.0.0       --> sciada=0.4.0 (~0.4.0)
+   spdx_tool=1.0.0       --> spdx=0.2.0 (~0.2.0)
+   spdx_tool=1.0.0       --> utilada=2.9.0 (^2.8.0)
+   spdx_tool=1.0.0       --> utilada_xml=2.9.0 (^2.8.0)
+   utilada_xml=2.9.0     --> utilada=2.9.0 (^2.9.0)
+   utilada_xml=2.9.0     --> xmlada=25.0.0 (^24.0|^25.0)
+   xmlada=25.0.0         --> gnat=15.3.1 (gnat_native) (>=11)
+
+
+LOG:
+[alr test] Testing spdx_tool=1.0.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get spdx_tool=1.0.0
+Note: Deploying spdx_tool=1.0.0...
+Note: Deploying ada_toml=0.5.0...
+
+#=#=#                                                                          
+##O#-#                                                                         
+Note: Deploying ansiada=1.1.0...
+Note: Deploying intl=1.0.1...
+Note: Deploying sciada=0.4.0...
+Note: Deploying spdx=0.2.0...
+Note: Deploying utilada=2.9.0...
+Note: Deploying printer_toolkit=0.2.0...
+Note: Deploying xmlada=25.0.0...
+
+#=#=#                                                                          
+##O#-#                                                                         
+##=O#- #                                                                       
+Note: Deploying utilada_xml=2.9.0...
+
+spdx_tool=1.0.0 successfully retrieved.
+Dependencies were solved as follows:
+
+   +  ada_toml        0.5.0  (new)
+   +  ansiada         1.1.0  (new)
+   +b gnat            15.3.1 (new,gnat_native,indirect,binary)
+   +  intl            1.0.1  (new)
+   +  printer_toolkit 0.2.0  (new)
+   +  sciada          0.4.0  (new)
+   +  spdx            0.2.0  (new)
+   +  utilada         2.9.0  (new)
+   +  utilada_xml     2.9.0  (new)
+   +  xmlada          25.0.0 (new,indirect)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Running post-fetch actions for xmlada=25.0.0...
+configure: loading site script /usr/local/etc/config.site
+checking build system type... x86_64-pc-mingw64
+checking host system type... x86_64-pc-mingw64
+checking target system type... x86_64-pc-mingw64
+checking whether gnat can build shared libs... yes
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether ln -s works... no, using cp -pR
+configure: creating ./config.status
+config.status: creating xmlada_shared.gpr
+config.status: creating Makefile
+config.status: creating tests/dom/default.gpr
+Note: Running post-fetch actions for spdx_tool=1.0.0...
+Note: Building spdx_tool=1.0.0/spdx_tool.gpr...
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\ada_toml_0.5.0_33dcb0dd\602e2236f2f3ffbba47d784aaea8dc97de0dff97a2f47b4cd2f3e5506ed8af09\obj\static\dev" created
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\ada_toml_0.5.0_33dcb0dd\602e2236f2f3ffbba47d784aaea8dc97de0dff97a2f47b4cd2f3e5506ed8af09\lib\static\dev" created
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\spdx_0.2.0_2df9b118\611f49f73913b00d7df4f1a1afaa75f3fd5ebf6f71d8a17d2b42201212019ec7\obj" created
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\spdx_0.2.0_2df9b118\611f49f73913b00d7df4f1a1afaa75f3fd5ebf6f71d8a17d2b42201212019ec7\lib" created
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\intl_1.0.1_881966ea\1c32d20f7acca721672f055d9ba4ce58b3e2b03f6597b1a10d0434998b45ba96\obj\development" created
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\intl_1.0.1_881966ea\1c32d20f7acca721672f055d9ba4ce58b3e2b03f6597b1a10d0434998b45ba96\lib" created
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\ansiada_1.1.0_405f110b\02819a441b070dabad40960549bc74ca86d5bbb8a6f03490a1bbdb47adb05240\obj\release" created
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\ansiada_1.1.0_405f110b\02819a441b070dabad40960549bc74ca86d5bbb8a6f03490a1bbdb47adb05240\lib" created
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\sciada_0.4.0_af24740d\ef60e4a77efef38ddb3c387540704b599c9c8056a18a55cc33b5218d307f9335\obj\scicada\static" created
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\sciada_0.4.0_af24740d\ef60e4a77efef38ddb3c387540704b599c9c8056a18a55cc33b5218d307f9335\lib\sciada\static" created
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\utilada_2.9.0_bd635f55\ea8fd3f6355039eb34b564f443812a0ba547c3097ba8dbf8e1b62a70bcaa706d\obj\utilada_core\static" created
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\utilada_2.9.0_bd635f55\ea8fd3f6355039eb34b564f443812a0ba547c3097ba8dbf8e1b62a70bcaa706d\lib\utilada_core\static" created
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\printer_toolkit_0.2.0_dcd7470e\ddd0b4fa6c0f86e910e082b5eb37178b1ebbf7a3483522191dd7f73930395735\obj\printer_toolkit\static" created
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\printer_toolkit_0.2.0_dcd7470e\ddd0b4fa6c0f86e910e082b5eb37178b1ebbf7a3483522191dd7f73930395735\lib\static" created
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\xmlada_25.0.0_7f12fe3a\d742d3eb05395e43cb8d228624b1f652ccc6ec71a070dc9d50d1ba6f2db9480b\sax\obj\static" created
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\xmlada_25.0.0_7f12fe3a\d742d3eb05395e43cb8d228624b1f652ccc6ec71a070dc9d50d1ba6f2db9480b\sax\lib\static" created
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\utilada_2.9.0_bd635f55\ea8fd3f6355039eb34b564f443812a0ba547c3097ba8dbf8e1b62a70bcaa706d\obj\utilada_sys\static" created
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\utilada_2.9.0_bd635f55\ea8fd3f6355039eb34b564f443812a0ba547c3097ba8dbf8e1b62a70bcaa706d\lib\utilada_sys\static" created
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\ada_util_bd635f55\921094f9cdc505d756d074eb4f2fa3f7b8d0254b40b6cfb312a1dc64aea2d356\obj\utilada_xml\static" created
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\ada_util_bd635f55\921094f9cdc505d756d074eb4f2fa3f7b8d0254b40b6cfb312a1dc64aea2d356\lib\utilada_xml\static" created
+"obj\development" created
+"bin" created
+[Ada Compile]     toml-file_io.adb
+[Ada Compile]     toml-generic_dump.adb
+[Ada Compile]     toml-generic_parse.adb
+[Ada Compile]     toml.adb
+[Ada Compile]     util-serialize-io-xml.adb
+[Ada Compile]     ansiada.ads
+[Ada Compile]     ansiada_config.ads
+[Ada Compile]     intl__none.adb
+[Archive]         libAnsiada.a
+[Archive]         libutilada_xml.a
+[Ada Compile]     pt-charts-barcharts.adb
+[Archive]         libIntl.a
+[Ada Compile]     pt-charts.adb
+[Ada Compile]     pt-colors.adb
+[Ada Compile]     pt-drivers-texts-gnat_io.adb
+[Ada Compile]     pt-drivers-texts.adb
+[Ada Compile]     pt-drivers.ads
+[Ada Compile]     pt-texts.adb
+[Ada Compile]     pt.adb
+[C Compile]       terminal.c
+[Ada Compile]     sci-correlations-pearson.adb
+[Ada Compile]     sci-correlations.ads
+[Ada Compile]     sci-numbers.ads
+[Ada Compile]     sci-occurrences-arrays.adb
+[Ada Compile]     sci-occurrences-finites.adb
+[Archive]         libada_toml.a
+[Ada Compile]     sci-occurrences.ads
+[Ada Compile]     sci-similarities-coo_arrays.adb
+[Ada Compile]     sci-similarities-indefinite_hashed_sets.adb
+[Ada Compile]     sci-similarities-indefinite_ordered_sets.adb
+[Ada Compile]     sci-similarities.adb
+[Ada Compile]     sci-sparse-coo_arrays.adb
+[Ada Compile]     sci-sparse.ads
+[Ada Compile]     sci-statistics-descriptive.adb
+[Ada Compile]     sci-statistics.ads
+[Ada Compile]     sci-vectorizers-counters.adb
+[Ada Compile]     sci-vectorizers-indefinite_counters.adb
+[Ada Compile]     sci-vectorizers-transformers.adb
+[Ada Compile]     sci-vectorizers.ads
+[Ada Compile]     sci.ads
+[Ada Compile]     spdx-exceptions.adb
+[Ada Compile]     spdx-licenses.adb
+[Archive]         libsciada.a
+[Ada Compile]     spdx.adb
+[Archive]         libprinter_toolkit.a
+[Ada Compile]     util-beans-basic-lists.adb
+[Ada Compile]     util-beans-basic-ranges.adb
+[Ada Compile]     util-beans-basic.ads
+[Ada Compile]     util-beans-factory.adb
+[Ada Compile]     util-beans-lists-strings.adb
+[Ada Compile]     util-beans-lists.ads
+[Ada Compile]     util-beans-methods.ads
+[Ada Compile]     util-beans-objects-datasets.adb
+[Ada Compile]     util-beans-objects-enums.adb
+[Ada Compile]     util-beans-objects-hash.adb
+[Ada Compile]     util-beans-objects-iterators.adb
+[Ada Compile]     util-beans-objects-lists.adb
+[Ada Compile]     util-beans-objects-maps.adb
+[Ada Compile]     util-beans-objects-pairs.adb
+[Archive]         libSpdx.a
+[Ada Compile]     util-beans-objects-records.adb
+[Ada Compile]     util-beans-objects-time.adb
+[Ada Compile]     util-beans-objects-to_access.adb
+[Ada Compile]     util-beans-objects-vectors.adb
+[Ada Compile]     util-beans-objects.adb
+[Ada Compile]     util-beans-ranges.ads
+[Ada Compile]     util-beans.ads
+[Ada Compile]     util-commands-consoles-text.adb
+[Ada Compile]     util-commands-consoles.adb
+[Ada Compile]     util-commands-drivers.adb
+[Ada Compile]     util-commands-parsers-gnat_parser.adb
+[Ada Compile]     util-commands-parsers.adb
+[Ada Compile]     util-commands-raw_io.ads
+[Ada Compile]     util-commands-text_io.ads
+[Ada Compile]     util-commands.adb
+[Ada Compile]     util-dates-formats.adb
+[Ada Compile]     util-dates-iso8601.adb
+[Ada Compile]     util-dates-rfc7231.adb
+[Ada Compile]     util-dates-simple_format.adb
+[Ada Compile]     util-dates.adb
+[Ada Compile]     util-events-channels.adb
+[Ada Compile]     util-events-timers.adb
+[Ada Compile]     util-events.adb
+[Ada Compile]     util-files-filters.adb
+[Ada Compile]     util-files-rolling.adb
+[Ada Compile]     util-files-walk.adb
+[Ada Compile]     util-files.adb
+[Ada Compile]     util-log-appenders-consoles.adb
+[Ada Compile]     util-log-appenders-factories.adb
+[Ada Compile]     util-log-appenders-files.adb
+[Ada Compile]     util-log-appenders-formatter.adb
+[Ada Compile]     util-log-appenders-rolling_files.adb
+[Ada Compile]     util-log-appenders.adb
+[Ada Compile]     util-log-formatters-factories.adb
+[Ada Compile]     util-log-formatters.adb
+[Ada Compile]     util-log-locations.adb
+[Ada Compile]     util-log-loggers.adb
+[Ada Compile]     util-log.adb
+[Ada Compile]     util-properties-basic.adb
+[Ada Compile]     util-properties-bundles.adb
+[Ada Compile]     util-properties-discrete.adb
+[Ada Compile]     util-properties.adb
+[Ada Compile]     util-systems-constants.ads
+[Ada Compile]     util-systems-io.adb
+[Ada Compile]     util-systems-os.adb
+[Ada Compile]     util-systems-types.ads
+[Ada Compile]     util-systems.ads
+[Ada Compile]     util-algorithms.ads
+[Ada Compile]     util-blobs.adb
+[Ada Compile]     util-concurrent-arrays.adb
+[Ada Compile]     util-concurrent-copies.adb
+[Ada Compile]     util-concurrent-counters.adb
+[Ada Compile]     util-concurrent-fifos.adb
+[Ada Compile]     util-concurrent-locks.adb
+[Ada Compile]     util-concurrent-pools.adb
+[Ada Compile]     util-concurrent-sequence_queues.adb
+[Ada Compile]     util-concurrent.ads
+[Ada Compile]     util-executors.adb
+[Ada Compile]     util-listeners-lifecycles.adb
+[Ada Compile]     util-listeners-observers.adb
+[Ada Compile]     util-listeners.ads
+[Ada Compile]     util-locales.adb
+[Ada Compile]     util-named_lists.adb
+[Ada Compile]     util-nullables.ads
+[Ada Compile]     util-refs.adb
+[Ada Compile]     util-stacks.adb
+[Archive]         libutilada_base.a
+[Ada Compile]     util-strings-builders-transforms.ads
+[Ada Compile]     util-strings-builders.ads
+[Ada Compile]     util-strings-formats.adb
+[Ada Compile]     util-strings-maps.ads
+[Ada Compile]     util-strings-maps_incensitive.ads
+[Ada Compile]     util-strings-sets.ads
+[Ada Compile]     util-strings-tokenizers.ads
+[Ada Compile]     util-strings-transforms.adb
+[Ada Compile]     util-strings-vectors.ads
+[Ada Compile]     util-strings.adb
+[Ada Compile]     util-texts-builders.adb
+[Ada Compile]     util-texts-formats.adb
+[Ada Compile]     util-texts-tokenizers.adb
+[Ada Compile]     util-texts-transforms.adb
+[Ada Compile]     util-texts.ads
+[Ada Compile]     util.ads
+[Ada Compile]     util-beans-objects-readers.adb
+[Ada Compile]     util-encoders-aes.adb
+[Ada Compile]     util-encoders-base16.adb
+[Ada Compile]     util-encoders-base32.adb
+[Archive]         libutilada_core.a
+[Ada Compile]     util-encoders-base64.adb
+[Ada Compile]     util-encoders-ecc.adb
+[Ada Compile]     util-encoders-hmac-hotp.adb
+[Ada Compile]     util-encoders-hmac-sha1.adb
+[Ada Compile]     util-encoders-hmac-sha256.adb
+[Ada Compile]     util-encoders-hmac.ads
+[Ada Compile]     util-encoders-kdf-pbkdf2.adb
+[Ada Compile]     util-encoders-kdf-pbkdf2_hmac_sha256.ads
+[Ada Compile]     util-encoders-kdf.ads
+[Ada Compile]     util-encoders-quoted_printable.adb
+[Ada Compile]     util-encoders-sha1.adb
+[Ada Compile]     util-encoders-sha256.adb
+[Ada Compile]     util-encoders-uri.adb
+[Ada Compile]     util-encoders.adb
+[Ada Compile]     util-http-clients-mockups.adb
+[Ada Compile]     util-http-clients.adb
+[Ada Compile]     util-http-cookies.adb
+[Ada Compile]     util-http-headers.adb
+[Ada Compile]     util-http-mimes.adb
+[Ada Compile]     util-http-mockups.adb
+[Ada Compile]     util-http-parts.adb
+[Ada Compile]     util-http-rest-rest_get_vector.adb
+[Ada Compile]     util-http-rest.adb
+[Ada Compile]     util-http-tools.adb
+[Ada Compile]     util-http.adb
+[Ada Compile]     util-mail.adb
+[Ada Compile]     util-measures.adb
+[Ada Compile]     util-processes-os.adb
+[Ada Compile]     util-processes-tools.adb
+[Ada Compile]     util-processes.adb
+[Ada Compile]     util-properties-form.adb
+[Ada Compile]     util-properties-json.adb
+[Ada Compile]     util-serialize-contexts.adb
+[Ada Compile]     util-serialize-io-csv.adb
+[Ada Compile]     util-serialize-io-form.adb
+[Ada Compile]     util-serialize-io-json.adb
+[Ada Compile]     util-serialize-io.adb
+[Ada Compile]     util-serialize-mappers-record_mapper.adb
+[Ada Compile]     util-serialize-mappers-vector_mapper.adb
+[Ada Compile]     util-serialize-mappers.adb
+[Ada Compile]     util-serialize-tools.adb
+[Ada Compile]     util-serialize.ads
+[Ada Compile]     util-streams-aes.adb
+[Ada Compile]     util-streams-base16.ads
+[Ada Compile]     util-streams-base64.ads
+[Ada Compile]     util-streams-buffered-encoders.adb
+[Ada Compile]     util-streams-buffered-parts.adb
+[Ada Compile]     util-streams-buffered.adb
+[Ada Compile]     util-streams-files.adb
+[Ada Compile]     util-streams-pipes.adb
+[Ada Compile]     util-streams-raw.adb
+[Ada Compile]     util-streams-sockets.adb
+[Ada Compile]     util-streams-texts-tr.ads
+[Ada Compile]     util-streams-texts-wtr.ads
+[Ada Compile]     util-streams-texts.adb
+[Ada Compile]     util-streams.adb
+[Ada Compile]     util-systems-dlls.adb
+[Ada Compile]     input_sources-file.adb
+[Ada Compile]     input_sources-http.adb
+[Ada Compile]     input_sources-socket.adb
+[Archive]         libutilada_sys.a
+[Ada Compile]     input_sources-strings.adb
+[Ada Compile]     input_sources.adb
+[Ada Compile]     sax-attributes.adb
+[Ada Compile]     sax-encodings.ads
+[Ada Compile]     sax-exceptions.adb
+[Ada Compile]     sax-htable.adb
+[Archive]         libxmlada_input_sources.a
+[Ada Compile]     sax-locators.adb
+[Ada Compile]     sax-models.adb
+[Ada Compile]     sax-pointers.adb
+[Ada Compile]     sax-readers.adb
+[Ada Compile]     sax-state_machines.adb
+[Ada Compile]     sax-symbols.adb
+[Ada Compile]     sax-utils.adb
+[Ada Compile]     sax.ads
+[Ada Compile]     unicode-ccs-iso_8859_1.adb
+[Ada Compile]     unicode-ccs-iso_8859_15.adb
+[Ada Compile]     unicode-ccs-iso_8859_2.adb
+[Ada Compile]     unicode-ccs-iso_8859_3.adb
+[Ada Compile]     unicode-ccs-iso_8859_4.adb
+[Ada Compile]     unicode-ccs-windows_1251.adb
+[Ada Compile]     unicode-ccs-windows_1252.adb
+[Ada Compile]     unicode-ccs.adb
+[Ada Compile]     unicode-ces-basic_8bit.adb
+[Ada Compile]     unicode-ces-utf16.adb
+[Ada Compile]     unicode-ces-utf32.adb
+[Ada Compile]     unicode-ces-utf8.adb
+[Ada Compile]     unicode-ces.adb
+[Ada Compile]     unicode-encodings.adb
+[Ada Compile]     unicode-names-aegean_numbers.ads
+[Ada Compile]     unicode-names-ahom.ads
+[Ada Compile]     unicode-names-alchemical_symbols.ads
+[Ada Compile]     unicode-names-alpha_presentation_forms.ads
+[Ada Compile]     unicode-names-anatolian_hieroglyphs.ads
+[Ada Compile]     unicode-names-ancient_greek_music.ads
+[Ada Compile]     unicode-names-ancient_greek_numbers.ads
+[Ada Compile]     unicode-names-ancient_symbols.ads
+[Ada Compile]     unicode-names-arabic.ads
+[Ada Compile]     unicode-names-arabic_extended_a.ads
+[Ada Compile]     unicode-names-arabic_math_alpha_symb.ads
+[Ada Compile]     unicode-names-arabic_present_formsa.ads
+[Ada Compile]     unicode-names-arabic_present_formsb.ads
+[Ada Compile]     unicode-names-arabic_supplement.ads
+[Ada Compile]     unicode-names-armenian.ads
+[Ada Compile]     unicode-names-arrows.ads
+[Ada Compile]     unicode-names-avestan.ads
+[Ada Compile]     unicode-names-balinese.ads
+[Ada Compile]     unicode-names-bamum.ads
+[Ada Compile]     unicode-names-bamum_supplement.ads
+[Ada Compile]     unicode-names-basic_latin.ads
+[Ada Compile]     unicode-names-bassa_vah.ads
+[Ada Compile]     unicode-names-batak.ads
+[Ada Compile]     unicode-names-bengali.ads
+[Ada Compile]     unicode-names-block_elements.ads
+[Ada Compile]     unicode-names-bopomofo.ads
+[Ada Compile]     unicode-names-bopomofo_extended.ads
+[Ada Compile]     unicode-names-box_drawing.ads
+[Ada Compile]     unicode-names-brahmi.ads
+[Ada Compile]     unicode-names-braille_patterns.ads
+[Ada Compile]     unicode-names-buginese.ads
+[Ada Compile]     unicode-names-buhid.ads
+[Ada Compile]     unicode-names-byzantine_musical_symbols.ads
+[Ada Compile]     unicode-names-canadian_aboriginal.ads
+[Ada Compile]     unicode-names-canadian_aboriginal_ext.ads
+[Ada Compile]     unicode-names-carian.ads
+[Ada Compile]     unicode-names-caucasian_albanian.ads
+[Ada Compile]     unicode-names-chakma.ads
+[Ada Compile]     unicode-names-cham.ads
+[Ada Compile]     unicode-names-cherokee.ads
+[Ada Compile]     unicode-names-cherokee_supplement.ads
+[Ada Compile]     unicode-names-cjk_compat_ideo_sup.ads
+[Ada Compile]     unicode-names-cjk_compat_ideographs.ads
+[Ada Compile]     unicode-names-cjk_compatibility.ads
+[Ada Compile]     unicode-names-cjk_compatibility_forms.ads
+[Ada Compile]     unicode-names-cjk_letters_months.ads
+[Ada Compile]     unicode-names-cjk_radicals_supplement.ads
+[Ada Compile]     unicode-names-cjk_strokes.ads
+[Ada Compile]     unicode-names-cjk_symbols_and_punct.ads
+[Ada Compile]     unicode-names-combining_diacritical.ads
+[Ada Compile]     unicode-names-combining_diacritical_ext.ads
+[Ada Compile]     unicode-names-combining_diacritical_sup.ads
+[Ada Compile]     unicode-names-combining_diacritical_sym.ads
+[Ada Compile]     unicode-names-combining_half_marks.ads
+[Ada Compile]     unicode-names-common_indic_number_forms.ads
+[Ada Compile]     unicode-names-control_pictures.ads
+[Ada Compile]     unicode-names-coptic.ads
+[Ada Compile]     unicode-names-coptic_epact_numbers.ads
+[Ada Compile]     unicode-names-counting_rod_numerals.ads
+[Ada Compile]     unicode-names-cuneiform.ads
+[Ada Compile]     unicode-names-cuneiform_num_punctuation.ads
+[Ada Compile]     unicode-names-currency_symbols.ads
+[Ada Compile]     unicode-names-cypriot_syllabary.ads
+[Ada Compile]     unicode-names-cyrillic.ads
+[Ada Compile]     unicode-names-cyrillic_extended_a.ads
+[Ada Compile]     unicode-names-cyrillic_extended_b.ads
+[Ada Compile]     unicode-names-cyrillic_supplement.ads
+[Ada Compile]     unicode-names-deseret.ads
+[Ada Compile]     unicode-names-devanagari.ads
+[Ada Compile]     unicode-names-devanagari_extended.ads
+[Ada Compile]     unicode-names-dingbats.ads
+[Ada Compile]     unicode-names-domino_tiles.ads
+[Ada Compile]     unicode-names-duployan.ads
+[Ada Compile]     unicode-names-early_dynastic_cuneiform.ads
+[Ada Compile]     unicode-names-egyptian_hieroglyphs.ads
+[Ada Compile]     unicode-names-elbasan.ads
+[Ada Compile]     unicode-names-emoticons.ads
+[Ada Compile]     unicode-names-enclosed_alphanum_sup.ads
+[Ada Compile]     unicode-names-enclosed_alphanumerics.ads
+[Ada Compile]     unicode-names-enclosed_ideographic_sup.ads
+[Ada Compile]     unicode-names-ethiopic.ads
+[Ada Compile]     unicode-names-ethiopic_extended.ads
+[Ada Compile]     unicode-names-ethiopic_extended_a.ads
+[Ada Compile]     unicode-names-ethiopic_supplement.ads
+[Ada Compile]     unicode-names-general_punctuation.ads
+[Ada Compile]     unicode-names-geometric_shapes.ads
+[Ada Compile]     unicode-names-geometric_shapes_extended.ads
+[Ada Compile]     unicode-names-georgian.ads
+[Ada Compile]     unicode-names-georgian_supplement.ads
+[Ada Compile]     unicode-names-glagolitic.ads
+[Ada Compile]     unicode-names-gothic.ads
+[Ada Compile]     unicode-names-grantha.ads
+[Ada Compile]     unicode-names-greek_and_coptic.ads
+[Ada Compile]     unicode-names-greek_extended.ads
+[Ada Compile]     unicode-names-gujarati.ads
+[Ada Compile]     unicode-names-gurmukhi.ads
+[Ada Compile]     unicode-names-half_full_width_forms.ads
+[Ada Compile]     unicode-names-hangul_compatibility_jamo.ads
+[Ada Compile]     unicode-names-hangul_jamo.ads
+[Ada Compile]     unicode-names-hangul_jamo_extended_a.ads
+[Ada Compile]     unicode-names-hangul_jamo_extended_b.ads
+[Ada Compile]     unicode-names-hanunoo.ads
+[Ada Compile]     unicode-names-hatran.ads
+[Ada Compile]     unicode-names-hebrew.ads
+[Ada Compile]     unicode-names-hiragana.ads
+[Ada Compile]     unicode-names-ideograph_descr_chars.ads
+[Ada Compile]     unicode-names-imperial_aramaic.ads
+[Ada Compile]     unicode-names-inscriptional_pahlavi.ads
+[Ada Compile]     unicode-names-inscriptional_parthian.ads
+[Ada Compile]     unicode-names-ipa_extensions.ads
+[Ada Compile]     unicode-names-javanese.ads
+[Ada Compile]     unicode-names-kaithi.ads
+[Ada Compile]     unicode-names-kana_supplement.ads
+[Ada Compile]     unicode-names-kanbun.ads
+[Ada Compile]     unicode-names-kangxi_radicals.ads
+[Ada Compile]     unicode-names-kannada.ads
+[Ada Compile]     unicode-names-katakana.ads
+[Ada Compile]     unicode-names-katakana_phonetic_ext.ads
+[Ada Compile]     unicode-names-kayah_li.ads
+[Ada Compile]     unicode-names-kharoshthi.ads
+[Ada Compile]     unicode-names-khmer.ads
+[Ada Compile]     unicode-names-khmer_symbols.ads
+[Ada Compile]     unicode-names-khojki.ads
+[Ada Compile]     unicode-names-khudawadi.ads
+[Ada Compile]     unicode-names-lao.ads
+[Ada Compile]     unicode-names-latin_1_supplement.ads
+[Ada Compile]     unicode-names-latin_extended_a.ads
+[Ada Compile]     unicode-names-latin_extended_additional.ads
+[Ada Compile]     unicode-names-latin_extended_b.ads
+[Ada Compile]     unicode-names-latin_extended_c.ads
+[Ada Compile]     unicode-names-latin_extended_d.ads
+[Ada Compile]     unicode-names-latin_extended_e.ads
+[Ada Compile]     unicode-names-lepcha.ads
+[Ada Compile]     unicode-names-letterlike_symbols.ads
+[Ada Compile]     unicode-names-limbu.ads
+[Ada Compile]     unicode-names-linear_a.ads
+[Ada Compile]     unicode-names-linear_b_ideograms.ads
+[Ada Compile]     unicode-names-linear_b_syllabary.ads
+[Ada Compile]     unicode-names-lisu.ads
+[Ada Compile]     unicode-names-lycian.ads
+[Ada Compile]     unicode-names-lydian.ads
+[Ada Compile]     unicode-names-mahajani.ads
+[Ada Compile]     unicode-names-mahjong_tiles.ads
+[Ada Compile]     unicode-names-malayalam.ads
+[Ada Compile]     unicode-names-mandaic.ads
+[Ada Compile]     unicode-names-manichaean.ads
+[Ada Compile]     unicode-names-math_alphanumeric_symb.ads
+[Ada Compile]     unicode-names-mathematical_operators.ads
+[Ada Compile]     unicode-names-meetei_mayek.ads
+[Ada Compile]     unicode-names-meetei_mayek_extensions.ads
+[Ada Compile]     unicode-names-mende_kikakui.ads
+[Ada Compile]     unicode-names-meroitic_cursive.ads
+[Ada Compile]     unicode-names-meroitic_hieroglyphs.ads
+[Ada Compile]     unicode-names-miao.ads
+[Ada Compile]     unicode-names-misc_math_symbols_a.ads
+[Ada Compile]     unicode-names-misc_math_symbols_b.ads
+[Ada Compile]     unicode-names-misc_symbols_and_arrows.ads
+[Ada Compile]     unicode-names-misc_symbols_pictographs.ads
+[Ada Compile]     unicode-names-miscellaneous_symbols.ads
+[Ada Compile]     unicode-names-miscellaneous_technical.ads
+[Ada Compile]     unicode-names-modi.ads
+[Ada Compile]     unicode-names-modifier_tone_letters.ads
+[Ada Compile]     unicode-names-mongolian.ads
+[Ada Compile]     unicode-names-mro.ads
+[Ada Compile]     unicode-names-multani.ads
+[Ada Compile]     unicode-names-musical_symbols.ads
+[Ada Compile]     unicode-names-myanmar.ads
+[Ada Compile]     unicode-names-myanmar_extended_a.ads
+[Ada Compile]     unicode-names-myanmar_extended_b.ads
+[Ada Compile]     unicode-names-nabataean.ads
+[Ada Compile]     unicode-names-new_tai_lue.ads
+[Ada Compile]     unicode-names-nko.ads
+[Ada Compile]     unicode-names-number_forms.ads
+[Ada Compile]     unicode-names-ogham.ads
+[Ada Compile]     unicode-names-ol_chiki.ads
+[Ada Compile]     unicode-names-old_hungarian.ads
+[Ada Compile]     unicode-names-old_italic.ads
+[Ada Compile]     unicode-names-old_north_arabian.ads
+[Ada Compile]     unicode-names-old_permic.ads
+[Ada Compile]     unicode-names-old_persian.ads
+[Ada Compile]     unicode-names-old_south_arabian.ads
+[Ada Compile]     unicode-names-old_turkic.ads
+[Ada Compile]     unicode-names-optical_chars_recognition.ads
+[Ada Compile]     unicode-names-oriya.ads
+[Ada Compile]     unicode-names-ornamental_dingbats.ads
+[Ada Compile]     unicode-names-osmanya.ads
+[Ada Compile]     unicode-names-pahawh_hmong.ads
+[Ada Compile]     unicode-names-palmyrene.ads
+[Ada Compile]     unicode-names-pau_cin_hau.ads
+[Ada Compile]     unicode-names-phags_pa.ads
+[Ada Compile]     unicode-names-phaistos_disc.ads
+[Ada Compile]     unicode-names-phoenician.ads
+[Ada Compile]     unicode-names-phonetic_ext_sup.ads
+[Ada Compile]     unicode-names-phonetic_extensions.ads
+[Ada Compile]     unicode-names-playing_cards.ads
+[Ada Compile]     unicode-names-psalter_pahlavi.ads
+[Ada Compile]     unicode-names-rejang.ads
+[Ada Compile]     unicode-names-rumi_numeral_symbols.ads
+[Ada Compile]     unicode-names-runic.ads
+[Ada Compile]     unicode-names-samaritan.ads
+[Ada Compile]     unicode-names-saurashtra.ads
+[Archive]         libxmlada_sax.a
+[Ada Compile]     unicode-names-sharada.ads
+[Ada Compile]     unicode-names-shavian.ads
+[Ada Compile]     unicode-names-shorthand_format_controls.ads
+[Ada Compile]     unicode-names-siddham.ads
+[Ada Compile]     unicode-names-sinhala.ads
+[Ada Compile]     unicode-names-sinhala_archaic_numbers.ads
+[Ada Compile]     unicode-names-small_form_variants.ads
+[Ada Compile]     unicode-names-sora_sompeng.ads
+[Ada Compile]     unicode-names-spacing_modifier_letters.ads
+[Ada Compile]     unicode-names-specials.ads
+[Ada Compile]     unicode-names-sundanese.ads
+[Ada Compile]     unicode-names-sundanese_supplement.ads
+[Ada Compile]     unicode-names-sup_math_operators.ads
+[Ada Compile]     unicode-names-sup_symbols_pictographs.ads
+[Ada Compile]     unicode-names-super_and_sub_scripts.ads
+[Ada Compile]     unicode-names-supplemental_arrows_a.ads
+[Ada Compile]     unicode-names-supplemental_arrows_b.ads
+[Ada Compile]     unicode-names-supplemental_arrows_c.ads
+[Ada Compile]     unicode-names-supplemental_punctuation.ads
+[Ada Compile]     unicode-names-sutton_signwriting.ads
+[Ada Compile]     unicode-names-syloti_nagri.ads
+[Ada Compile]     unicode-names-syriac.ads
+[Ada Compile]     unicode-names-tagalog.ads
+[Ada Compile]     unicode-names-tagbanwa.ads
+[Ada Compile]     unicode-names-tags.ads
+[Ada Compile]     unicode-names-tai_le.ads
+[Ada Compile]     unicode-names-tai_tham.ads
+[Ada Compile]     unicode-names-tai_viet.ads
+[Ada Compile]     unicode-names-tai_xuan_jing_symbols.ads
+[Ada Compile]     unicode-names-takri.ads
+[Ada Compile]     unicode-names-tamil.ads
+[Ada Compile]     unicode-names-telugu.ads
+[Ada Compile]     unicode-names-thaana.ads
+[Ada Compile]     unicode-names-thai.ads
+[Ada Compile]     unicode-names-tibetan.ads
+[Ada Compile]     unicode-names-tifinagh.ads
+[Ada Compile]     unicode-names-tirhuta.ads
+[Ada Compile]     unicode-names-transport_and_map_symbols.ads
+[Ada Compile]     unicode-names-ugaritic.ads
+[Ada Compile]     unicode-names-vai.ads
+[Ada Compile]     unicode-names-variation_selectors.ads
+[Ada Compile]     unicode-names-variation_selectors_sup.ads
+[Ada Compile]     unicode-names-vedic_extensions.ads
+[Ada Compile]     unicode-names-vertical_forms.ads
+[Ada Compile]     unicode-names-warang_citi.ads
+[Ada Compile]     unicode-names-yi_radicals.ads
+[Ada Compile]     unicode-names-yi_syllables.ads
+[Ada Compile]     unicode-names-yijing_hexagram_symbols.ads
+[Ada Compile]     unicode-names.ads
+[Ada Compile]     unicode.adb
+[Ada Compile]     spdx_tool-arrays.adb
+[Ada Compile]     spdx_tool-configs-default.ads
+[Ada Compile]     spdx_tool-configs-defaults.ads
+[Ada Compile]     spdx_tool-configs.adb
+[Ada Compile]     spdx_tool-counter_arrays.ads
+[Ada Compile]     spdx_tool-files-manager.adb
+[Archive]         libxmlada_unicode.a
+[Ada Compile]     spdx_tool-files.ads
+[Ada Compile]     spdx_tool-infos.adb
+[Ada Compile]     spdx_tool-languages-aliasmap.adb
+[Ada Compile]     spdx_tool-languages-commentsmap.adb
+[Ada Compile]     spdx_tool-languages-extensionmap.adb
+[Ada Compile]     spdx_tool-languages-extensions.adb
+[Ada Compile]     spdx_tool-languages-filenamemap.adb
+[Ada Compile]     spdx_tool-languages-filenames.adb
+[Ada Compile]     spdx_tool-languages-generated.adb
+[Ada Compile]     spdx_tool-languages-interpretermap.adb
+[Ada Compile]     spdx_tool-languages-manager.adb
+[Ada Compile]     spdx_tool-languages-mimes.adb
+[Ada Compile]     spdx_tool-languages-modelines.adb
+[Ada Compile]     spdx_tool-languages-rules-disambiguations.ads
+[Ada Compile]     spdx_tool-languages-rules-generated.ads
+[Ada Compile]     spdx_tool-languages-rules.adb
+[Ada Compile]     spdx_tool-languages-shell.adb
+[Ada Compile]     spdx_tool-languages.adb
+[Ada Compile]     spdx_tool-licenses-files.adb
+[Ada Compile]     spdx_tool-licenses-manager.adb
+[Ada Compile]     spdx_tool-licenses-reader.adb
+[Ada Compile]     spdx_tool-licenses-repository.adb
+[Ada Compile]     spdx_tool-licenses-templates.ads
+[Ada Compile]     spdx_tool-licenses.adb
+[Ada Compile]     spdx_tool-magic_manager.adb
+[Ada Compile]     spdx_tool-main.adb
+[Ada Compile]     spdx_tool-reports.adb
+[Ada Compile]     spdx_tool-token_counters.ads
+[Ada Compile]     spdx_tool.adb
+[Ada Compile]     util-algorithms-arrays.adb
+util-algorithms-arrays.ads:16:04: (style) missing "overriding" indicator in declaration of "&" [-gnatyO]
+[Ada Compile]     util-strings-split.adb
+[Ada Bind]        spdx_tool-main
+[Ada Post-Bind]   b__spdx_tool-main.adb
+[Link]            spdx-tool.exe
+Success: Build finished successfully in 64.73 seconds.
+Found declared GPR file: spdx_tool.gpr
+[alr test] Test completed SUCCESSFULLY

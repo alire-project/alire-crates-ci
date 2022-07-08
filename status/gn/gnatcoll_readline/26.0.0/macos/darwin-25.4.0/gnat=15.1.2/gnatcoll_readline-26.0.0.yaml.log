@@ -1,0 +1,98 @@
+Test ran at 2026-08-17 00:28:34.285302+00:00
+
+SOLUTION:
+gnatcoll_readline=26.0.0: GNAT Components Collection - readline binding
+Origin: source archive v26.0.0.zip at https://github.com/AdaCore/gnatcoll-bindings/archive/refs/tags/v26.0.0.zip with hash sha512:dacec6f3f87c5ba7b197db9d3df4f7547019583d0c440c9cd572a458a736e1a59c165df6148848fd574bef16cf69a7fb19b66f46d963addfc343c3ff10bf649b
+Properties:
+   Author: AdaCore
+   Configuration: no modifiers
+   Description: GNAT Components Collection - readline binding
+   License: GPL-3.0-or-later WITH GCC-exception-3.1
+   Maintainer: chouteau@adacore.com
+   Maintainer: sagaert@adacore.com
+   Maintainers_Logins: Fabien-Chouteau
+   Maintainers_Logins: AldanTanneo
+   Name: gnatcoll_readline
+   Project_File: readline/gnatcoll_readline.gpr
+   Tag: gnatcoll
+   Tag: bindings
+   Tag: readline
+   Tag: cli
+   Version: 26.0.0
+   Website: https://github.com/adacore/gnatcoll-bindings
+Dependencies (direct):
+   gnatcoll_minimal~26.0.0
+   libreadline*
+Dependencies (solution):
+   gnat=15.1.2 (gnat_native)
+   gnatcoll_minimal=26.0.0
+   libreadline=8.3.3
+Dependencies (graph):
+   gnatcoll_minimal=26.0.0  --> gnat=15.1.2 (gnat_native) (>=14)
+   gnatcoll_readline=26.0.0 --> gnatcoll_minimal=26.0.0 (~26.0.0)
+   gnatcoll_readline=26.0.0 --> libreadline=8.3.3 (*)
+
+
+LOG:
+[alr test] Testing gnatcoll_readline=26.0.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get gnatcoll_readline=26.0.0
+Note: Deploying gnatcoll_readline=26.0.0...
+#=#=#                                                                          
+##O#-#                                                                         
+##=O#- #                                                                       
+Note: Deploying gnatcoll_minimal=26.0.0...
+#=#=#                                                                          
+##O#-#                                                                         
+##=O#- #                                                                       
+# #=O#- #                                                                      
+ # #=O#-  #                                                                    
+  # #=O=#   #                                                                  
+
+gnatcoll_readline=26.0.0 successfully retrieved.
+Dependencies were solved as follows:
+
+   +b gnat             15.1.2 (new,gnat_native,indirect,binary)
+   +  gnatcoll_minimal 26.0.0 (new)
+   +b libreadline      8.3.3  (new,system package)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building gnatcoll_readline=26.0.0/readline/gnatcoll_readline.gpr...
+Setup
+   [mkdir]        object directory for project GNATCOLL_Minimal
+   [mkdir]        library directory for project GNATCOLL_Minimal
+   [mkdir]        object directory for project GnatColl_Readline
+   [mkdir]        library directory for project GnatColl_Readline
+Compile
+   [C]            gnatcoll_atomics.c
+   [C]            getrss.c
+   [Ada]          gnatcoll-memory.adb
+/Users/runner/.local/share/alire/builds/gnatcoll_minimal_26.0.0_cc5dd0a1/9f0dcf7aaeffbce4f8c8ee0939345b9f3f74a88eeb320dce980db90277223806/minimal/src/getRSS.c:13:10: fatal error: unistd.h: No such file or directory
+   13 | #include <unistd.h>
+      |          ^~~~~~~~~~
+compilation terminated.
+/Users/runner/.local/share/alire/builds/gnatcoll_minimal_26.0.0_cc5dd0a1/9f0dcf7aaeffbce4f8c8ee0939345b9f3f74a88eeb320dce980db90277223806/minimal/src/gnatcoll_atomics.c:24:10: fatal error: stdlib.h: No such file or directory
+   24 | #include <stdlib.h>
+      |          ^~~~~~~~~~
+compilation terminated.
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+
+   compilation of gnatcoll_atomics.c failed
+   compilation of getRSS.c failed
+
+gprbuild: *** compilation phase failed
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/Users/runner/work/alire-crates-ci/alire-crates-ci/test/67d9d5f9-323f-4763-a81a-5324fc715e7c/gnatcoll_readline_26.0.0_dacec6f3/readline/gnatcoll_readline.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/Users/runner/work/alire-crates-ci/alire-crates-ci/test/67d9d5f9-323f-4763-a81a-5324fc715e7c/gnatcoll_readline_26.0.0_dacec6f3/readline/gnatcoll_readline.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+stderr: ALIRE.CHECKED_ERROR
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/Users/runner/work/alire-crates-ci/alire-crates-ci/test/67d9d5f9-323f-4763-a81a-5324fc715e7c/gnatcoll_readline_26.0.0_dacec6f3/readline/gnatcoll_readline.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
+Load address: 0x102bd4000
+Call stack traceback locations:
+0x1038e00cc 0x1038e012c 0x10363466c 0x103279568 0x1034fe594 0x1034ff4f4 0x10343d33c 0x10343bb08 0x10345f78c 0x1034bf56c 0x1034be99c 0x10345f868 0x10345f950 0x10343c00c 0x10343c174 0x102c45730 0x102c45070 0x102c451e4 0x102ce2b38 0x102cedc78 0x102bd69f8 0x102bdba2c
+
+stderr: ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED
+stderr: alire-roots.adb:202
+stderr: raised ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED : alire-roots.adb:202
+Load address: 0x102bd4000
+Call stack traceback locations:
+0x1038e00cc 0x1038e012c 0x10343d640 0x10343bb08 0x10345f78c 0x1034bf56c 0x1034be99c 0x10345f868 0x10345f950 0x10343c00c 0x10343c174 0x102c45730 0x102c45070 0x102c451e4 0x102ce2b38 0x102cedc78 0x102bd69f8 0x102bdba2c
+
+ERROR: Compilation failed.

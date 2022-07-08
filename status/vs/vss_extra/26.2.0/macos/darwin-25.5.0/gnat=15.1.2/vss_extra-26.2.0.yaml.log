@@ -1,0 +1,239 @@
+Test ran at 2026-08-20 12:47:01.657428+00:00
+
+SOLUTION:
+vss_extra=26.2.0: Extra features for VSS
+Origin: commit 879b9b89cae0ff5d68c6ac1bfcb5534b16513988 from https://github.com/AdaCore/vss-extra
+Properties:
+   Author: AdaCore
+   Build Switches: 
+   Configuration: no modifiers
+   Description: Extra features for VSS
+   License: Apache-2.0
+   Long_Description: ## Warning - Work in Progress
+
+This crate is based on [`VSS`](https://github.com/AdaCore/VSS) (Virtual
+String System). VSS has been split into two crates:
+
+* [`vss_text`](https://alire.ada.dev/crates/vss_text): a library for Unicode text
+  processing.
+* [`vss_extra`](https://alire.ada.dev/crates/vss_extra) (this crate): libraries
+  for handling JSON, Regexp, XML and other features based on `vss_text`.
+
+Significant API changes are planned in `vss_text` which will likely have an
+impact on this crate.
+
+Moreover, `vss_extra` is planned to be further split into more focused
+projects (e.g. JSON, Regexp, XML, etc.) and might ultimately disappear once all
+features find a new home.
+
+   Maintainer: Vadim Godunko <vgodunko@gmail.com>
+   Maintainer: Maxim Reznik <reznikmm@gmail.com>
+   Maintainer: sagaert@adacore.com
+   Maintainer: chouteau@adacore.com
+   Maintainers_Logins: godunko
+   Maintainers_Logins: reznikmm
+   Maintainers_Logins: AldanTanneo
+   Maintainers_Logins: Fabien-Chouteau
+   Name: vss_extra
+   Project_File: gnat/vss_os.gpr
+   Project_File: gnat/vss_json.gpr
+   Project_File: gnat/vss_regexp.gpr
+   Project_File: gnat/vss_xml.gpr
+   Project_File: gnat/vss_xml_templates.gpr
+   Tag: unicode
+   Tag: vss
+   Tag: os
+   Tag: json
+   Tag: xml
+   Version: 26.2.0
+   Website: https://github.com/AdaCore/vss-extra
+Dependencies (direct):
+   vss_text^26.2.0
+Dependencies (solution):
+   vss_text=26.2.0
+Dependencies (graph):
+   vss_extra=26.2.0 --> vss_text=26.2.0 (^26.2.0)
+
+
+LOG:
+[alr test] Testing vss_extra=26.2.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get vss_extra=26.2.0
+Note: Deploying vss_extra=26.2.0...
+
+vss_extra=26.2.0 successfully retrieved.
+Dependencies were solved as follows:
+
+   + vss_text 26.2.0 (new)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building vss_extra=26.2.0/gnat/vss_os.gpr (1/5)...
+Setup
+   [mkdir]        object directory for project VSS_OS
+   [mkdir]        library directory for project VSS_OS
+Compile
+   [Ada]          vss-environments.adb
+   [Ada]          vss-application.adb
+   [Ada]          vss-text_streams-file_output.adb
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+   [Ada]          vss-text_streams-file_input.adb
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+   [Ada]          vss-command_line-parsers.adb
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+   [Ada]          vss-command_line.adb
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+   [Ada]          vss-text_streams-standards.adb
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+   [Ada]          vss-implementation-environment_utilities__posix.adb
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+   [Ada]          vss-standard_paths__posix.adb
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+Build Libraries
+   [gprlib]       vss-os.lexch
+   [archive]      libvss-os.a
+   [index]        libvss-os.a
+Note: Building vss_extra=26.2.0/gnat/vss_json.gpr (2/5)...
+Compile
+   [Ada]          vss-json-pull_readers-simple.adb
+   [Ada]          vss-json-streams-cursors.adb
+   [Ada]          vss-json-pull_readers.adb
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+   [Ada]          vss-json-pull_readers-buffered.adb
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+   [Ada]          vss-json-implementation-parsers-json.adb
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+   [Ada]          vss-json-implementation.ads
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+   [Ada]          vss-json.adb
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+   [Ada]          vss-json-push_writers.adb
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+   [Ada]          vss-json-implementation-parsers-json5.adb
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+   [Ada]          vss-json-implementation-parsers.adb
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+   [Ada]          vss-json-push_readers-simple.adb
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+   [Ada]          vss-json-pull_readers-json5.adb
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+   [Ada]          vss-json-content_handlers.adb
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+   [Ada]          vss-json-push_readers.ads
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+   [Ada]          vss-json-streams.ads
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+Build Libraries
+   [gprlib]       vss-json.lexch
+   [archive]      libvss-json.a
+   [index]        libvss-json.a
+Note: Building vss_extra=26.2.0/gnat/vss_regexp.gpr (3/5)...
+Compile
+   [Ada]          vss-regular_expressions-engines.adb
+   [Ada]          vss-regular_expressions.adb
+   [Ada]          vss-regular_expressions-name_sets.adb
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+   [Ada]          vss-regular_expressions-category_maps.adb
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+   [Ada]          vss-regular_expressions-ecma_parser.adb
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+   [Ada]          vss-regular_expressions-utilities.adb
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+   [Ada]          vss-regular_expressions-pike_engines.adb
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+   [Ada]          vss-regular_expressions-matches.adb
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+Build Libraries
+   [gprlib]       vss-regexp.lexch
+   [archive]      libvss-regexp.a
+   [index]        libvss-regexp.a
+Note: Building vss_extra=26.2.0/gnat/vss_xml.gpr (4/5)...
+Compile
+   [Ada]          vss-iris.adb
+   [Ada]          vss-xml-implementation-error_handlers.adb
+   [Ada]          vss-xml-attributes-containers.adb
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+   [Ada]          vss-xml-writers-simple.adb
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+   [Ada]          vss-xml-namespace_maps.adb
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+   [Ada]          vss-xml-implementation.ads
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+   [Ada]          vss-iris-hash.adb
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+   [Ada]          vss-xml-implementation-parse_errors.adb
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+   [Ada]          vss-xml-error_handlers.ads
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+   [Ada]          vss-xml-writers.ads
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+   [Ada]          vss-xml-events.ads
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+   [Ada]          vss-xml-namespaces.ads
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+   [Ada]          vss-xml-readers.ads
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+   [Ada]          vss-xml-locators.ads
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+   [Ada]          vss-xml-event_vectors.ads
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+   [Ada]          vss-xml-lexical_handlers.ads
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+   [Ada]          vss-xml.ads
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+   [Ada]          vss-xml-attributes.ads
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+   [Ada]          vss-xml-content_handlers.ads
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+   [Ada]          vss-xml-parse_errors.ads
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+   [Ada]          vss-xml-implementation-html_writer_data.adb
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+   [Ada]          vss-html-writers.adb
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+   [Ada]          vss-html.ads
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+Build Libraries
+   [gprlib]       vss-xml.lexch
+   [archive]      libvss-xml.a
+   [index]        libvss-xml.a
+Note: Building vss_extra=26.2.0/gnat/vss_xml_templates.gpr (5/5)...
+Compile
+   [Ada]          vss-xml-implementation-template_programs.ads
+   [Ada]          vss-xml-templates-proxies-booleans.adb
+   [Ada]          vss-xml-implementation-template_programs-debug.adb
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+   [Ada]          vss-xml-implementation-template_parsers.adb
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+   [Ada]          vss-xml-implementation-template_evaluators.adb
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+   [Ada]          vss-xml-templates-proxies-strings.adb
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+   [Ada]          vss-xml-implementation-template_namespaces.adb
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+   [Ada]          vss-xml-templates-processors.adb
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+   [Ada]          vss-xml-templates-values.ads
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+   [Ada]          vss-xml-templates-proxies.ads
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+   [Ada]          vss-xml-templates.ads
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+clang: warning: overriding deployment version from '16.0' to '26.0' [-Woverriding-deployment-version]
+Build Libraries
+   [gprlib]       vss-xml-templates.lexch
+   [archive]      libvss-xml-templates.a
+   [index]        libvss-xml-templates.a
+Success: Build finished successfully in 33.74 seconds.
+Found declared GPR file: gnat/vss_os.gpr
+Found declared GPR file: gnat/vss_json.gpr
+Found declared GPR file: gnat/vss_regexp.gpr
+Found declared GPR file: gnat/vss_xml.gpr
+Found declared GPR file: gnat/vss_xml_templates.gpr
+[alr test] Test completed SUCCESSFULLY

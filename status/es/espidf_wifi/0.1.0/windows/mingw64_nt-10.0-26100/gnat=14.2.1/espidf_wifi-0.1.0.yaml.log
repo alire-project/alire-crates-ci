@@ -1,0 +1,108 @@
+Test ran at 2026-10-09 01:15:35.825842+00:00
+
+SOLUTION:
+espidf_wifi=0.1.0: Ada/ESP-IDF: Wi-Fi driver bindings
+Origin: commit bf7178396359544708ce7fdad4e481addbc384b8 from https://github.com/godunko/espidf_wifi.git
+Properties:
+   Author: Vadim Godunko
+   Configuration: no modifiers
+   Description: Ada/ESP-IDF: Wi-Fi driver bindings
+   License: Apache-2.0 WITH LLVM-exception
+   Long_Description: Ada bindings for the ESP-IDF Wi-Fi driver (`esp_wifi`).
+
+Covers:
+- driver initialization, start/stop, connect/disconnect;
+- mode selection (station, access point) and configuration storage;
+- station and access point configuration (SSID, password, authentication mode, PMF);
+- creation of default network interfaces for station and access point.
+
+   Maintainer: Vadim Godunko <vgodunko@gmail.com>
+   Maintainers_Logins: godunko
+   Name: espidf_wifi
+   Tag: a0b
+   Tag: embedded
+   Tag: esp
+   Tag: esp32
+   Tag: espidf
+   Tag: wifi
+   Version: 0.1.0
+   Website: https://github.com/godunko/espidf_wifi
+Dependencies (direct):
+   espidf_netif^0.1.0
+Dependencies (solution):
+   a0b_base=0.5.0
+   espidf=0.2.0
+   espidf_event=0.1.0
+   espidf_netif=0.1.0
+Dependencies (graph):
+   espidf=0.2.0       --> a0b_base=0.5.0 (^0.5.0)
+   espidf_event=0.1.0 --> espidf=0.2.0 (^0.2.0)
+   espidf_netif=0.1.0 --> espidf_event=0.1.0 (^0.1.0)
+   espidf_wifi=0.1.0  --> espidf_netif=0.1.0 (^0.1.0)
+
+
+LOG:
+[alr test] Testing espidf_wifi=0.1.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get espidf_wifi=0.1.0
+Note: Deploying espidf_wifi=0.1.0...
+Note: Deploying a0b_base=0.5.0...
+Note: Deploying espidf=0.2.0...
+Note: Deploying espidf_event=0.1.0...
+Note: Deploying espidf_netif=0.1.0...
+Warning: Possible tilde intended instead of caret for a 0.x version.
+   Alire does not change the meaning of caret and tilde for pre/post-1.0 versions.
+   The suspicious dependency is: espidf_netif^0.1.0
+   You can disable this warning by setting the option warning.caret to false.
+
+espidf_wifi=0.1.0 successfully retrieved.
+Dependencies were solved as follows:
+
+   + a0b_base     0.5.0 (new,indirect)
+   + espidf       0.2.0 (new,indirect)
+   + espidf_event 0.1.0 (new,indirect)
+   + espidf_netif 0.1.0 (new)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building espidf_wifi=0.1.0/espidf_wifi.gpr...
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\a0b_base_0.5.0_882bbc92\915d9e449026d1d4f43f3226bfc4b70abfde071dd71458b799fa5d10a341a7e6\.objs\x86_64-windows\none" created
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\a0b_base_0.5.0_882bbc92\915d9e449026d1d4f43f3226bfc4b70abfde071dd71458b799fa5d10a341a7e6\.libs\x86_64-windows\none" created
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\espidf_0.2.0_180c1c28\8bddf5b4ab3427d9c6b658f9f03ff1b927a397c6dbaa9872145608710309968d\.objs\x86_64-windows\none" created
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\espidf_0.2.0_180c1c28\8bddf5b4ab3427d9c6b658f9f03ff1b927a397c6dbaa9872145608710309968d\.libs\x86_64-windows\none" created
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\espidf_event_0.1.0_210b46d8\25dd48c7aa23ec3cbb7754154b98bdd9f7de6b7db1ee1386fe547a2e93758f1d\.objs\x86_64-windows\none" created
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\espidf_event_0.1.0_210b46d8\25dd48c7aa23ec3cbb7754154b98bdd9f7de6b7db1ee1386fe547a2e93758f1d\.libs\x86_64-windows\none" created
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\espidf_netif_0.1.0_29077b6b\b7ac59fabcfe1db3ea9647a77760601651256ceff64e2e0eb3e0f6a7e621c213\.objs\x86_64-windows\none" created
+"C:\Users\runneradmin\AppData\Local\alire\cache\builds\espidf_netif_0.1.0_29077b6b\b7ac59fabcfe1db3ea9647a77760601651256ceff64e2e0eb3e0f6a7e621c213\.libs\x86_64-windows\none" created
+".objs\x86_64-windows\none" created
+".libs\x86_64-windows\none" created
+[Ada Compile]     a0b-peripherals.ads
+[Ada Compile]     a0b-types-arrays.ads
+[Ada Compile]     a0b-types-big_endian.adb
+[Ada Compile]     a0b-types-enumerable.ads
+[Ada Compile]     a0b-types-gcc_builtins.ads
+[Ada Compile]     a0b-types-svd.ads
+a0b-types-big_endian.adb:10:04: warning: "Unsigned_64" is already use-visible through previous use_type_clause at a0b-types.ads:297 [-gnatwr]
+a0b-types-big_endian.adb:10:04: warning: use clause for type "Unsigned_64" defined at a0b-types.ads:88 has no effect [-gnatwu]
+[Ada Compile]     a0b-types.ads
+[Ada Compile]     a0b.ads
+[Ada Compile]     espidf-ada_esp_check_error.adb
+[Ada Compile]     espidf-c_strings.adb
+[Ada Compile]     espidf-driver.ads
+[Archive]         liba0b_base.a
+espidf-c_strings.ads:130:54: (style) bad casing of "NUL" declared in Standard [-gnatyn]
+[Ada Compile]     espidf-hal.ads
+[Ada Compile]     espidf.ads
+[Ada Compile]     espidf-event.adb
+[Ada Compile]     espidf-netif.adb
+[Archive]         libadaespidf_event.a
+[Ada Compile]     espidf-sockets.adb
+[Ada Compile]     espidf-wifi-default.adb
+[Archive]         libadaespidf_netif.a
+[Ada Compile]     espidf-wifi.adb
+[Archive]         libadaespidf.a
+espidf-wifi.adb:42:13: (style) subprogram body "esp_wifi_get_config" not in alphabetical order [-gnatyo]
+espidf-wifi.adb:240:14: (style) subprogram body "Set_authmode" not in alphabetical order [-gnatyo]
+espidf-wifi.adb:314:14: (style) subprogram body "Set_max_connection" not in alphabetical order [-gnatyo]
+espidf-wifi.ads:815:11: warning: "Finalizable" is not a valid aspect identifier [enabled by default]
+[Archive]         libadaespidf_wifi.a
+Success: Build finished successfully in 5.71 seconds.
+Found declared GPR file: espidf_wifi.gpr
+[alr test] Test completed SUCCESSFULLY
