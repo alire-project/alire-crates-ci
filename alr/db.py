@@ -12,6 +12,7 @@ import yaml
 
 from datetime import datetime, timezone
 from os.path import join
+from packaging.version import parse as parse_version
 from subprocess import check_output, run
 from typing import *
 
@@ -326,7 +327,9 @@ def load(populate_if_empty : bool=True, all_platforms : bool=False, online : boo
             name = os.path.basename(path)
             tests = 0
             # Use only last known version for testing
-            version = os.path.basename(glob.glob(join(path, "*"))[-1])
+            versions = list(map(os.path.basename, glob.glob(join(path, "*"))))
+            versions.sort(key = parse_version)
+            version = versions[-1]
             for plat_path in glob.iglob(join(path, version, "*")):
                 plat = os.path.basename(plat_path)
                 if all_platforms or plat == osname():
