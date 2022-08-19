@@ -24,4 +24,9 @@ esac
 
 $sudo pip3 install -r requirements.txt
 
+# Disable check for ownership that sometimes confuses docker-run git
+# Also, Github is not vulnerable to iCVE-2022-24765/CVE-2022-24767, see
+# https://github.blog/2022-04-12-git-security-vulnerability-announced/
+git config --global --add safe.directory '*'
+
 python3 -X utf8 test_release.py
