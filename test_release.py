@@ -196,6 +196,9 @@ def commit(crate : db.Test):
 def main():
     print(f"START {db.osname()}--{db.distro_full()}--gnat={gnat_version()}")
 
+    if os.environ.get("SHORT_RUN", "") != "":
+        print("SHORT RUN")
+
     # Switch to testing branch so previous test info can be reused
     print(check_output(["git", "fetch", "origin", f"{BRANCH}"]).decode())
     print(check_output(["git", "checkout", f"{BRANCH}"]).decode())
@@ -210,6 +213,8 @@ def main():
         test_one(crate)
         commit(crate)
         if time.monotonic() - start > MIN_RUN_TIME:
+            break
+        if os.environ.get("SHORT_RUN", "") != "":
             break
 
 
