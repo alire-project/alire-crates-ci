@@ -1,11 +1,12 @@
 name: CI with Alire compilers
 
 on:
+  pull_request:
   schedule:
     - cron: '13 */12 * * *'
-#  push:
-#    branches: ["master", "devel"]
-workflow_dispatch: # Allow manual triggering
+  #  push:
+  #    branches: ["master", "devel"]
+  workflow_dispatch: # Allow manual triggering
 
 jobs:
 
@@ -24,19 +25,20 @@ jobs:
         gnat_version:
           - ^10
           - ^11
+          - ^12
 
     steps:
     - name: Check out repository
       uses: actions/checkout@v2
 
     - name: Set up stable `alr`
-      uses: alire-project/setup-alire@v1
+      uses: alire-project/setup-alire@v2
       with:
         toolchain: gnat${{ matrix.gnat_version }} gprbuild
 
     - name: Decide badging
       id : set-badge
-      if: ${{ matrix.gnat_version }} == '^11'
+      if: ${{ matrix.gnat_version }} == '^12'
       run: echo '::set-output BADGE=1'
 
     - name: Test release
