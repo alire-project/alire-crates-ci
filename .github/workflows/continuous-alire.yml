@@ -41,6 +41,13 @@ jobs:
       if: ${{ matrix.gnat_version }} == '^12'
       run: echo '::set-output BADGE=1'
 
+    # For runs triggered by a pull request, we'll do only one crate test
+    - name: Decide short run
+      id : short-run
+      if: ${{ github.event_name == 'pull_request' }}
+      run: echo 'output=true' >> $GITHUB_OUTPUT
+      shell: bash
+
     - name: Test release
       run: scripts/run-tests.sh
       shell: bash
@@ -48,3 +55,4 @@ jobs:
         BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
         DISTRO: ${{ matrix.os }}
         BADGE: ${{ steps.set-badge.outputs.BADGE }}
+        SHORT_RUN: ${{ steps.short-run.outputs.output }}

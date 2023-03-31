@@ -32,7 +32,14 @@ jobs:
         toolchain: --disable-assistant
         # We want to use the externally provided toolchain in the docker image
 
-    - name: Run docker
+    # For runs triggered by a pull request, we'll do only one crate test
+    - name: Decide short run
+      id : short-run
+      if: ${{ github.event_name == 'pull_request' }}
+      run: echo 'output=true' >> $GITHUB_OUTPUT
+      shell: bash
+
+    - name: Test releases in Docker
       uses: mosteo-actions/docker-run@v1
       with:
         image: ghcr.io/alire-project/docker/gnat:${{ matrix.tag }}
@@ -44,4 +51,5 @@ jobs:
           -e GNAT_EXTERNAL=True
           -e CI=True
           -e BADGE=1
+          -e SHORT_RUN=${{ steps.short-run.outputs.output }}
           -v ${{ github.workspace }}/alire_install/bin/alr:/usr/bin/alr
