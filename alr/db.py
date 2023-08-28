@@ -358,7 +358,7 @@ def load(populate_if_empty : bool=True, all_platforms : bool=False, online : boo
 
     # Keep and sort. Python's sort is stable hence we can sort by minor-major field
     crates = kept
-    crates.sort(key=operator.attrgetter("gnat"))
+    crates.sort(key=lambda test: parse_version(test.gnat), reverse=True)
     crates.sort(key=operator.attrgetter("distro"))
     crates.sort(key=operator.attrgetter("platform"))
     crates.sort(key=operator.attrgetter("crate"))
