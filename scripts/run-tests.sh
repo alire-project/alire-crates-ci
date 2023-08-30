@@ -11,7 +11,7 @@ case $DISTRO in
         ;;
     debian-stable)
         $sudo apt-get update
-        $sudo apt-get install $(awk 'print "python-" $0' requirements.txt)
+        $sudo apt-get install $(awk '{print "python-" $0}' requirements.txt)
         ;;
     ubuntu-lts | ubuntu-latest)
         $sudo apt-get update
