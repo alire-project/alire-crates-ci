@@ -22,7 +22,13 @@ case $DISTRO in
         ;;
 esac
 
-$sudo pip3 install -r requirements.txt
+# Some distros don't allow touching the system python libraries, so create a
+# virtualenv for our test environment.
+if [ "$DISTRO" != "windows-latest" ]; then
+    python3 -m venv venv
+    source venv/bin/activate
+fi
+pip3 install -r requirements.txt
 
 # Disable check for ownership that sometimes confuses docker-run git
 # Also, Github is not vulnerable to iCVE-2022-24765/CVE-2022-24767, see
