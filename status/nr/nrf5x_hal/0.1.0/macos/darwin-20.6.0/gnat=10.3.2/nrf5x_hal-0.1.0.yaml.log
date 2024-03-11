@@ -1,0 +1,74 @@
+Test ran at 2022-06-09 00:42:12.760210+00:00
+
+SOLUTION:
+nrf5x_hal=0.1.0: Drivers and HAL for the Nordic nRF5X micro-controller family
+Origin: commit 0cf20efac2d0a64ed22844edbfcdd3acbbcdb1cc from https://github.com/Fabien-Chouteau/nrf5x-hal.git
+Properties:
+   Auto_Gpr_With: auto-gpr-with=false
+   Description: Drivers and HAL for the Nordic nRF5X micro-controller family
+   License: BSD-3-Clause
+   Maintainer: chouteau@adacore.com
+   Maintainers_Logins: Fabien-Chouteau
+   Name: nrf5x_hal
+   Project_File: nrf51.gpr
+   Project_File: nrf52.gpr
+   Tag: embedded
+   Tag: nostd
+   Tag: nrf51
+   Tag: nrf52
+   Tag: nordic
+   Tag: drivers
+   Tag: ble
+   Version: 0.1.0
+   Website: https://github.com/AdaCore/Ada_Drivers_Library/
+Dependencies (direct):
+   cortex_m^0.2.0
+   hal^0.1.0
+Dependencies (solution):
+   cortex_m=0.3.0
+   hal=0.3.0
+Dependencies (graph):
+   cortex_m=0.3.0  --> hal=0.3.0 (^0.1.0)     
+   nrf5x_hal=0.1.0 --> cortex_m=0.3.0 (^0.2.0)
+   nrf5x_hal=0.1.0 --> hal=0.3.0 (^0.1.0)     
+
+
+LOG:
+Note: Deploying nrf5x_hal=0.1.0...
+Note: Deploying hal=0.3.0...
+Note: Deploying cortex_m=0.3.0...
+Warning: Possible tilde intended instead of caret for a 0.x version.
+   Alire does not change the meaning of caret and tilde for pre/post-1.0 versions.
+   The suspicious dependency is: cortex_m^0.2.0
+   You can disable this warning by setting the option warning.caret to false.
+Note: Building nrf5x_hal/nrf51.gpr (1/2)...
+gprconfig: can't find a toolchain for the following configuration:
+gprconfig: language 'ada', target 'arm-eabi', runtime 'zfp-cortex-m0'
+Setup
+   [mkdir]        object directory for project HAL
+   [mkdir]        library directory for project HAL
+   [mkdir]        object directory for project Cortex_M0
+   [mkdir]        library directory for project Cortex_M0
+   [mkdir]        object directory for project NRF51
+   [mkdir]        library directory for project NRF51
+nrf51.gpr:18:25: warning: libraries are not supported on this platform
+hal.gpr:5:24: warning: libraries are not supported on this platform
+cortex_m0.gpr:17:25: warning: libraries are not supported on this platform
+cortex_m0.gpr:4:09: no compiler for language "Ada", cannot compile "cortex_m-nvic.ads"
+gprbuild: *** compilation phase failed
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/Users/runner/work/alire-crates-ci/alire-crates-ci/test/54ab0e25-78c9-4921-b2d7-05671f3503da/nrf5x_hal_0.1.0_0cf20efa/nrf51.gpr"] exited with code 4
+ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/Users/runner/work/alire-crates-ci/alire-crates-ci/test/54ab0e25-78c9-4921-b2d7-05671f3503da/nrf5x_hal_0.1.0_0cf20efa/nrf51.gpr"] exited with code 4
+stderr: ALIRE.CHECKED_ERROR
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/Users/runner/work/alire-crates-ci/alire-crates-ci/test/54ab0e25-78c9-4921-b2d7-05671f3503da/nrf5x_hal_0.1.0_0cf20efa/nrf51.gpr"] exited with code 4
+stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
+Load address: 0x100852000
+Call stack traceback locations:
+0x10115a12d 0x100e2f867 0x1010420d9 0x101042861 0x100fa2dc7 0x100fa129d 0x100fbdb77 0x10100a0a9 0x101008b02 0x100fbdcbc 0x100fa164d 0x1008b4f01 0x1008c5ab8 0x1008ca55c 0x10095059c 0x10095b8f8 0x100856b45 0x100859e54
+
+
+Warning: nrf5x_hal=0.1.0 successfully retrieved but its build failed.
+Dependencies were solved as follows:
+
+   + cortex_m 0.3.0 (new)
+   + hal      0.3.0 (new)
+ERROR: Build ended with errors

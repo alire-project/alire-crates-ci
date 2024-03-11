@@ -1,0 +1,73 @@
+Test ran at 2024-10-16 00:55:11.294951+00:00
+
+SOLUTION:
+vaton=0.1.0: Verified Ascii To Number conversion written in Ada/SPARK
+Origin: commit c07eed4c36f9950c4bf93efb069eb6346fcca07f from https://github.com/mhatzl/vaton.git
+Properties:
+   Author: Manuel Hatzl
+   Build Switches: 
+   Description: Verified Ascii To Number conversion written in Ada/SPARK
+   License: MIT
+   Long_Description: This library offers formally verified functions to convert character streams into the smallest standard type representation the resulting number may fit in.
+The allowed formats are based on the [JSON-Number format](https://www.json.org/json-en.html), with the addition to allow single underscores between digits.
+
+**Note:** Only decimal based numbers are supported!
+
+**Examples:**
+
+```
+-10_000 -> Standard.Integer
+1.0 -> Standard.Float
+1e4 -> Standard.Float
+```
+
+   Maintainer: Manuel Hatzl <hatzlmanuel@outlook.com>
+   Maintainers_Logins: mhatzl
+   Name: vaton
+   Tag: spark
+   Version: 0.1.0
+   Website: https://github.com/mhatzl/vaton
+Dependencies (direct):
+   gnat(>=12.0.0 & <2000) | >=2021
+   spark_unbound~0.2.1
+Dependencies (solution):
+   gnat=12.2.1 (gnat_native) (installed)
+   spark_unbound=0.2.1
+Dependencies (graph):
+   spark_unbound=0.2.1 --> gnat=12.2.1 (gnat_native) ((>=9.3.1 & <2000) | >=2021) 
+   vaton=0.1.0         --> gnat=12.2.1 (gnat_native) ((>=12.0.0 & <2000) | >=2021)
+   vaton=0.1.0         --> spark_unbound=0.2.1 (~0.2.1)                           
+
+
+LOG:
+Note: Deploying vaton=0.1.0...
+Note: Deploying spark_unbound=0.2.1...
+Note: Building vaton/vaton.gpr...
+Setup
+   [mkdir]        object directory for project Spark_Unbound
+   [mkdir]        library directory for project Spark_Unbound
+   [mkdir]        object directory for project Vaton
+   [mkdir]        library directory for project Vaton
+Compile
+   [Ada]          spark_unbound-arrays.adb
+   [Ada]          spark_unbound-safe_alloc.adb
+   [Ada]          spark_unbound.ads
+   [Ada]          vaton_config.ads
+   [Ada]          vaton-integer_conversions.adb
+   [Ada]          vaton.adb
+   [Ada]          vaton-float_conversions.adb
+Build Libraries
+   [gprlib]       Spark_Unbound.lexch
+   [gprlib]       Vaton.lexch
+   [archive]      libSpark_Unbound.a
+   [index]        libSpark_Unbound.a
+   [archive]      libVaton.a
+   [index]        libVaton.a
+Build finished successfully in 1.03 seconds.
+
+vaton=0.1.0 successfully retrieved and built.
+Dependencies were solved as follows:
+
+   +i gnat          12.2.1 (new,installed,gnat_native)
+   +  spark_unbound 0.2.1  (new)                      
+Found declared GPR file: vaton.gpr
