@@ -4,12 +4,9 @@
 # Fix `alr test` for binary crates
 # Test all version, lowering prio of old versions?
 
-import distro
 import os
-import platform
 import random
 import subprocess
-import sys
 import time
 import uuid
 

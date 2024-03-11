@@ -1,5 +1,3 @@
-from asyncore import write
-from tabnanny import check
 import distro
 import glob
 import operator
@@ -13,7 +11,7 @@ import yaml
 from datetime import datetime, timezone
 from os.path import join
 from packaging.version import parse as parse_version
-from subprocess import check_output, run
+from subprocess import check_output
 from typing import *
 
 DEBUG_MAX_CRATES = 999999  # Let's hope ha!
