@@ -1,0 +1,60 @@
+name: CI with Alire compilers
+
+on:
+  pull_request:
+  schedule:
+    - cron: '13 */12 * * *'
+  #  push:
+  #    branches: ["master", "devel"]
+  workflow_dispatch: # Allow manual triggering
+
+jobs:
+
+  exp:
+
+    name: ${{ matrix.os }}::gnat${{ matrix.gnat_version }}
+
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      fail-fast: false
+      matrix:
+        os:
+          - macos-latest
+          - ubuntu-latest
+          - windows-latest
+        gnat_version:
+          - ^10
+          - ^11
+          - ^12
+          - ^13
+
+    steps:
+    - name: Check out repository
+      uses: actions/checkout@v2
+
+    - name: Set up stable `alr`
+      uses: alire-project/setup-alire@v2
+      with:
+        toolchain: gnat${{ matrix.gnat_version }} gprbuild
+
+    - name: Decide badging
+      id : set-badge
+      if: ${{ matrix.gnat_version }} == '^13'
+      run: echo '::set-output BADGE=1'
+
+    # For runs triggered by a pull request, we'll do only one crate test
+    - name: Decide short run
+      id : short-run
+      if: ${{ github.event_name == 'pull_request' }}
+      run: echo 'output=true' >> $GITHUB_OUTPUT
+      shell: bash
+
+    - name: Test release
+      run: scripts/run-tests.sh
+      shell: bash
+      env:
+        BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
+        DISTRO:      ${{ matrix.os }}
+        BADGE:       ${{ steps.set-badge.outputs.BADGE }}
+        SHORT_RUN:   ${{ steps.short-run.outputs.output }}

@@ -1,0 +1,1090 @@
+badge: false
+crate: akt
+creation_timestamp: 1716856304.846787
+distro: darwin-23.5.0
+duration: 105.51736625000012
+gnat: 10.3.2
+last_attempt: 2024-07-19 13:41:19.162702+00:00
+log:
+- 'Test ran at 2024-07-19 13:41:19.162351+00:00
+
+
+  '
+- 'SOLUTION:
+
+  '
+- 'akt=1.3.3: Ada Keystore Tool
+
+  '
+- 'Origin: commit e0e9d5ef2c92c74d06b3ada5ed162ad3400a9f5c from https://gitlab.com/stcarrez/ada-keystore.git
+
+  '
+- 'Properties:
+
+  '
+- '   Post_Fetch run: ${CRATE_DIR}/./gnatprep -DPREFIX="/usr/local" -DVERSION="1.3.3"
+  tools/akt-configs.gpb tools/akt-configs.ads
+
+  '
+- '   Author: Stephane.Carrez@gmail.com
+
+  '
+- '   Configuration: no modifiers
+
+  '
+- '   Description: Ada Keystore Tool
+
+  '
+- '   Environment: MANPATH=${CRATE_ROOT}/man:${MANPATH}
+
+  '
+- '   Environment: PATH=${CRATE_ROOT}/bin:${PATH}
+
+  '
+- '   Executable: akt
+
+  '
+- '   GPR Scenario: BUILD := distrib | debug | optimize | profile | coverage
+
+  '
+- '   GPR Scenario: KEYSTORE_LIBRARY_TYPE := relocatable | static | static-pic
+
+  '
+- '   License: Apache-2.0
+
+  '
+- '   Long_Description: [![Build Status](https://img.shields.io/jenkins/s/https/jenkins.vacs.fr/Bionic-Ada-Keystore.svg)](http://jenkins.vacs.fr/job/Bionic-Ada-Keystore/)
+
+  '
+- '[![Test Status](https://img.shields.io/jenkins/t/https/jenkins.vacs.fr/Bionic-Ada-Keystore.svg)](http://jenkins.vacs.fr/job/Bionic-Ada-Keystore/)
+
+  '
+- '[![codecov](https://codecov.io/gh/stcarrez/ada-keystore/branch/master/graph/badge.svg)](https://codecov.io/gh/stcarrez/ada-keystore)
+
+  '
+- '
+
+  '
+- '# Overview
+
+  '
+- '
+
+  '
+- 'AKT is a tool to store and protect your sensitive information and documents by
+
+  '
+- 'encrypting them in secure keystore (AES-256, HMAC-256).
+
+  '
+- '
+
+  '
+- 'Create the keystore and protect it with a gpg public key:
+
+  '
+- '```
+
+  '
+- '   akt create secure.akt --gpg <keyid> ...
+
+  '
+- '```
+
+  '
+- '
+
+  '
+- 'Store a small content:
+
+  '
+- '```
+
+  '
+- '   akt set secure.akt bank.password 012345
+
+  '
+- '```
+
+  '
+- '
+
+  '
+- 'Store files, directory or a tar file:
+
+  '
+- '```
+
+  '
+- '   akt store secure.akt notes.txt
+
+  '
+- '   akt store secure.akt contract.doc
+
+  '
+- '   akt store secure.akt directory
+
+  '
+- '   tar czf - . | akt store secure.akt -- backup
+
+  '
+- '```
+
+  '
+- '
+
+  '
+- 'Edit a content with your $EDITOR:
+
+  '
+- '```
+
+  '
+- '   akt edit secure.akt bank.password
+
+  '
+- '   akt edit secure.akt notes.txt
+
+  '
+- '```
+
+  '
+- '
+
+  '
+- 'Get a content:
+
+  '
+- '```
+
+  '
+- '   akt get secure.akt bank.password
+
+  '
+- '   akt extract secure.akt contract.doc
+
+  '
+- '   akt extract secure.akt -- backup | tar xzf -
+
+  '
+- '```
+
+  '
+- '
+
+  '
+- '## Documents
+
+  '
+- '
+
+  '
+- '* [Ada Keystore Guide](https://ada-keystore.readthedocs.io/en/latest/) [PDF](https://github.com/stcarrez/ada-keystore/blob/master/docs/keystore-book.pdf)
+
+  '
+- '
+
+  '
+- '
+
+  '
+- '   Maintainer: Stephane.Carrez@gmail.com
+
+  '
+- '   Maintainers_Logins: stcarrez
+
+  '
+- '   Name: akt
+
+  '
+- '   Project_File: .alire/keystoreada_tools.gpr
+
+  '
+- '   Tag: security
+
+  '
+- '   Tag: storage
+
+  '
+- '   Tag: nosql
+
+  '
+- '   Version: 1.3.3
+
+  '
+- '   Website: https://gitlab.com/stcarrez/ada-keystore
+
+  '
+- 'Dependencies (direct):
+
+  '
+- '   keystoreada^1.3.3
+
+  '
+- '   utilada^2.5.0
+
+  '
+- 'Dependencies (solution):
+
+  '
+- '   keystoreada=1.3.3
+
+  '
+- '   utilada=2.5.0
+
+  '
+- 'Dependencies (graph):
+
+  '
+- '   akt=1.3.3         --> keystoreada=1.3.3 (^1.3.3)
+
+  '
+- "   akt=1.3.3         --> utilada=2.5.0 (^2.5.0)    \n"
+- "   keystoreada=1.3.3 --> utilada=2.5.0 (^2.5.0)    \n"
+- '
+
+  '
+- '
+
+  LOG:
+
+  '
+- 'Note: Deploying akt=1.3.3...
+
+  '
+- 'Note: Deploying utilada=2.5.0...
+
+  '
+- 'Note: Deploying keystoreada=1.3.3...
+
+  '
+- 'Note: Running post_fetch actions for akt=1.3.3...
+
+  '
+- 'Note: Building akt/.alire/keystoreada_tools.gpr...
+
+  '
+- 'Setup
+
+  '
+- '   [mkdir]        object directory for project UtilAda_Core
+
+  '
+- '   [mkdir]        library directory for project UtilAda_Core
+
+  '
+- '   [mkdir]        object directory for project UtilAda_Sys
+
+  '
+- '   [mkdir]        library directory for project UtilAda_Sys
+
+  '
+- '   [mkdir]        object directory for project KeystoreAda
+
+  '
+- '   [mkdir]        library directory for project KeystoreAda
+
+  '
+- '   [mkdir]        object directory for project KeystoreAda_Tools
+
+  '
+- '   [mkdir]        exec directory for project KeystoreAda_Tools
+
+  '
+- 'Compile
+
+  '
+- '   [Ada]          akt-main.adb
+
+  '
+- '   [Ada]          util-systems-types.ads
+
+  '
+- '   [Ada]          util-systems-constants.ads
+
+  '
+- '   [Ada]          util-systems-os.ads
+
+  '
+- '   [Ada]          util-properties-basic.adb
+
+  '
+- '   [Ada]          util-properties-discrete.adb
+
+  '
+- '   [Ada]          util-properties.adb
+
+  '
+- '   [Ada]          util-properties-bundles.adb
+
+  '
+- '   [Ada]          util-log-locations.adb
+
+  '
+- '   [Ada]          util-log-appenders-rolling_files.adb
+
+  '
+- '   [Ada]          util-log-appenders-files.adb
+
+  '
+- '   [Ada]          util-log-appenders-consoles.adb
+
+  '
+- '   [Ada]          util-log-appenders-formatter.adb
+
+  '
+- '   [Ada]          util-log-loggers.adb
+
+  '
+- '   [Ada]          util-log-appenders-factories.adb
+
+  '
+- '   [Ada]          util-log.adb
+
+  '
+- '   [Ada]          util-log-appenders.adb
+
+  '
+- '   [Ada]          util-files-rolling.adb
+
+  '
+- '   [Ada]          util-files.adb
+
+  '
+- '   [Ada]          util-events-channels.adb
+
+  '
+- '   [Ada]          util-events-timers.adb
+
+  '
+- '   [Ada]          util-events.adb
+
+  '
+- '   [Ada]          util-dates-formats.adb
+
+  '
+- '   [Ada]          util-dates-rfc7231.adb
+
+  '
+- '   [Ada]          util-dates-simple_format.adb
+
+  '
+- '   [Ada]          util-dates-iso8601.adb
+
+  '
+- '   [Ada]          util-dates.adb
+
+  '
+- '   [Ada]          util-commands-parsers.adb
+
+  '
+- '   [Ada]          util-commands.adb
+
+  '
+- '   [Ada]          util-commands-consoles.adb
+
+  '
+- '   [Ada]          util-commands-parsers-gnat_parser.adb
+
+  '
+- '   [Ada]          util-commands-consoles-text.adb
+
+  '
+- '   [Ada]          util-commands-drivers.adb
+
+  '
+- '   [Ada]          util-beans-objects-maps.adb
+
+  '
+- '   [Ada]          util-beans-objects.adb
+
+  '
+- '   [Ada]          util-beans-objects-pairs.adb
+
+  '
+- '   [Ada]          util-beans-objects-records.adb
+
+  '
+- '   [Ada]          util-beans-basic-ranges.adb
+
+  '
+- '   [Ada]          util-beans.ads
+
+  '
+- '   [Ada]          util-beans-objects-to_access.adb
+
+  '
+- '   [Ada]          util-beans-ranges.ads
+
+  '
+- '   [Ada]          util-beans-objects-lists.adb
+
+  '
+- '   [Ada]          util-beans-objects-iterators.adb
+
+  '
+- '   [Ada]          util-beans-basic-lists.adb
+
+  '
+- '   [Ada]          util-beans-factory.adb
+
+  '
+- '   [Ada]          util-beans-objects-enums.adb
+
+  '
+- '   [Ada]          util-beans-basic.ads
+
+  '
+- '   [Ada]          util-beans-objects-datasets.adb
+
+  '
+- '   [Ada]          util-beans-methods.ads
+
+  '
+- '   [Ada]          util-beans-lists-strings.adb
+
+  '
+- '   [Ada]          util-beans-objects-time.adb
+
+  '
+- '   [Ada]          util-beans-lists.ads
+
+  '
+- '   [Ada]          util-beans-objects-vectors.adb
+
+  '
+- '   [Ada]          util-beans-objects-hash.adb
+
+  '
+- '   [Ada]          util-systems.ads
+
+  '
+- '   [Ada]          util-texts-transforms.adb
+
+  '
+- '   [Ada]          util-texts-formats.adb
+
+  '
+- '   [Ada]          util-texts.ads
+
+  '
+- '   [Ada]          util-texts-builders.adb
+
+  '
+- '   [Ada]          util-texts-tokenizers.adb
+
+  '
+- '   [Ada]          util-strings-sets.ads
+
+  '
+- '   [Ada]          util-strings-tokenizers.ads
+
+  '
+- '   [Ada]          util-strings.adb
+
+  '
+- '   [Ada]          util-strings-transforms.adb
+
+  '
+- '   [Ada]          util-strings-formats.adb
+
+  '
+- '   [Ada]          util-strings-builders.ads
+
+  '
+- '   [Ada]          util-strings-builders-transforms.ads
+
+  '
+- '   [Ada]          util-strings-vectors.ads
+
+  '
+- '   [Ada]          util-strings-maps.ads
+
+  '
+- '   [Ada]          util-listeners.ads
+
+  '
+- '   [Ada]          util-listeners-observers.adb
+
+  '
+- '   [Ada]          util-listeners-lifecycles.adb
+
+  '
+- '   [Ada]          util-concurrent-counters.adb
+
+  '
+- '   [Ada]          util-concurrent-locks.adb
+
+  '
+- '   [Ada]          util-concurrent-sequence_queues.adb
+
+  '
+- '   [Ada]          util-concurrent-copies.adb
+
+  '
+- '   [Ada]          util-concurrent-arrays.adb
+
+  '
+- '   [Ada]          util-concurrent-pools.adb
+
+  '
+- '   [Ada]          util-concurrent-fifos.adb
+
+  '
+- '   [Ada]          util-concurrent.ads
+
+  '
+- '   [Ada]          util-nullables.ads
+
+  '
+- '   [Ada]          util.ads
+
+  '
+- '   [Ada]          util-algorithms.ads
+
+  '
+- '   [Ada]          util-stacks.adb
+
+  '
+- '   [Ada]          util-executors.adb
+
+  '
+- '   [Ada]          util-blobs.adb
+
+  '
+- '   [Ada]          util-refs.adb
+
+  '
+- '   [Ada]          util-locales.adb
+
+  '
+- '   [Ada]          util-streams-raw.adb
+
+  '
+- '   [Ada]          util-systems-dlls.adb
+
+  '
+- '   [Ada]          util-processes-os.adb
+
+  '
+- '   [Ada]          util-processes.adb
+
+  '
+- '   [Ada]          util-processes-tools.adb
+
+  '
+- '   [Ada]          util-http-tools.adb
+
+  '
+- '   [Ada]          util-http-headers.adb
+
+  '
+- '   [Ada]          util-http-mimes.adb
+
+  '
+- '   [Ada]          util-mail.adb
+
+  '
+- '   [Ada]          util-http-cookies.adb
+
+  '
+- '   [Ada]          util-http.adb
+
+  '
+- '   [Ada]          util-http-mockups.adb
+
+  '
+- '   [Ada]          util-http-clients-mockups.adb
+
+  '
+- '   [Ada]          util-http-rest-rest_get_vector.adb
+
+  '
+- 'util-http-mockups.adb:123:07: (style) subprogram body has no previous spec
+
+  '
+- '   [Ada]          util-http-rest.adb
+
+  '
+- '   [Ada]          util-http-parts.adb
+
+  '
+- '   [Ada]          util-http-clients.adb
+
+  '
+- '   [Ada]          util-encoders-base16.adb
+
+  '
+- '   [Ada]          util-encoders-hmac-sha1.adb
+
+  '
+- '   [Ada]          util-encoders.adb
+
+  '
+- '   [Ada]          util-encoders-uri.adb
+
+  '
+- '   [Ada]          util-encoders-base64.adb
+
+  '
+- '   [Ada]          util-encoders-hmac-sha256.adb
+
+  '
+- '   [Ada]          util-encoders-quoted_printable.adb
+
+  '
+- '   [Ada]          util-encoders-hmac.ads
+
+  '
+- '   [Ada]          util-encoders-kdf-pbkdf2.adb
+
+  '
+- '   [Ada]          util-encoders-aes.adb
+
+  '
+- '   [Ada]          util-encoders-sha1.adb
+
+  '
+- '   [Ada]          util-encoders-kdf.ads
+
+  '
+- '   [Ada]          util-encoders-kdf-pbkdf2_hmac_sha256.ads
+
+  '
+- '   [Ada]          util-encoders-ecc.adb
+
+  '
+- '   [Ada]          util-encoders-sha256.adb
+
+  '
+- '   [Ada]          util-measures.adb
+
+  '
+- '   [Ada]          util-streams-aes.adb
+
+  '
+- '   [Ada]          util-streams-texts.adb
+
+  '
+- '   [Ada]          util-streams-buffered.adb
+
+  '
+- '   [Ada]          util-streams-base64.ads
+
+  '
+- '   [Ada]          util-streams-buffered-encoders.adb
+
+  '
+- '   [Ada]          util-streams-sockets.adb
+
+  '
+- '   [Ada]          util-streams-base16.ads
+
+  '
+- '   [Ada]          util-streams-texts-tr.ads
+
+  '
+- '   [Ada]          util-streams-files.adb
+
+  '
+- '   [Ada]          util-streams-texts-wtr.ads
+
+  '
+- '   [Ada]          util-streams-pipes.adb
+
+  '
+- '   [Ada]          util-streams.adb
+
+  '
+- '   [Ada]          util-properties-json.adb
+
+  '
+- '   [Ada]          util-serialize-io-form.adb
+
+  '
+- '   [Ada]          util-serialize-io.adb
+
+  '
+- '   [Ada]          util-serialize-contexts.adb
+
+  '
+- '   [Ada]          util-serialize-mappers-record_mapper.adb
+
+  '
+- '   [Ada]          util-serialize-tools.adb
+
+  '
+- '   [Ada]          util-serialize-io-csv.adb
+
+  '
+- '   [Ada]          util-beans-objects-readers.adb
+
+  '
+- '   [Ada]          util-serialize-mappers-vector_mapper.adb
+
+  '
+- '   [Ada]          util-serialize-mappers.adb
+
+  '
+- '   [Ada]          util-serialize.ads
+
+  '
+- '   [Ada]          util-properties-form.adb
+
+  '
+- '   [Ada]          util-serialize-io-json.adb
+
+  '
+- '   [Ada]          keystore-repository-data.adb
+
+  '
+- '   [Ada]          keystore-io-refs.adb
+
+  '
+- '   [Ada]          keystore-io.adb
+
+  '
+- '   [Ada]          keystore-properties.adb
+
+  '
+- '   [Ada]          keystore-passwords-input.adb
+
+  '
+- '   [Ada]          keystore-tools.adb
+
+  '
+- '   [Ada]          keystore-io-files.adb
+
+  '
+- '   [Ada]          keystore-passwords-keys.adb
+
+  '
+- '   [Ada]          keystore-files.adb
+
+  '
+- '   [Ada]          keystore-passwords-cmds.adb
+
+  '
+- '   [Ada]          keystore-buffers.adb
+
+  '
+- '   [Ada]          keystore-io-headers.adb
+
+  '
+- '   [Ada]          keystore-passwords.adb
+
+  '
+- '   [Ada]          keystore-keys.adb
+
+  '
+- '   [Ada]          keystore-repository.adb
+
+  '
+- '   [Ada]          keystore-repository-workers.adb
+
+  '
+- '   [Ada]          keystore-repository-keys.adb
+
+  '
+- '   [Ada]          keystore-marshallers.adb
+
+  '
+- '   [Ada]          keystore-gpg.adb
+
+  '
+- '   [Ada]          keystore-random.adb
+
+  '
+- '   [Ada]          keystore.adb
+
+  '
+- '   [Ada]          keystore-passwords-files.adb
+
+  '
+- '   [Ada]          keystore-passwords-gpg.adb
+
+  '
+- '   [Ada]          keystore-passwords-unsafe.adb
+
+  '
+- '   [Ada]          keystore-repository-entries.adb
+
+  '
+- '   [Ada]          keystore-logs.adb
+
+  '
+- '   [Ada]          keystore-containers.adb
+
+  '
+- '   [Ada]          akt.adb
+
+  '
+- '   [Ada]          akt-commands.adb
+
+  '
+- '   [Ada]          intl_none.adb
+
+  '
+- '   [Ada]          akt-commands-config.adb
+
+  '
+- '   [Ada]          akt-commands-create.adb
+
+  '
+- '   [Ada]          akt-commands-drivers.adb
+
+  '
+- '   [Ada]          akt-commands-edit.adb
+
+  '
+- '   [Ada]          akt-commands-extract.adb
+
+  '
+- '   [Ada]          akt-commands-get.adb
+
+  '
+- '   [Ada]          akt-commands-info.adb
+
+  '
+- '   [Ada]          akt-commands-list.adb
+
+  '
+- '   [Ada]          akt-commands-mount.ads
+
+  '
+- '   [Ada]          akt-commands-password.adb
+
+  '
+- '   [Ada]          akt-commands-password-add.adb
+
+  '
+- '   [Ada]          akt-commands-password-remove.adb
+
+  '
+- '   [Ada]          akt-commands-password-set.adb
+
+  '
+- '   [Ada]          akt-commands-remove.adb
+
+  '
+- '   [Ada]          akt-commands-set.adb
+
+  '
+- '   [Ada]          akt-commands-store.adb
+
+  '
+- '   [Ada]          akt-configs.adb
+
+  '
+- '   [Ada]          keystore-verifier.adb
+
+  '
+- 'Build Libraries
+
+  '
+- '   [gprlib]       utilada_core.lexch
+
+  '
+- '   [gprlib]       utilada_base.lexch
+
+  '
+- '   [archive]      libutilada_core.a
+
+  '
+- '   [index]        libutilada_core.a
+
+  '
+- '   [gprlib]       utilada_sys.lexch
+
+  '
+- '   [archive]      libutilada_base.a
+
+  '
+- '   [index]        libutilada_base.a
+
+  '
+- '   [gprlib]       keystoreada.lexch
+
+  '
+- '   [archive]      libutilada_sys.a
+
+  '
+- '   [index]        libutilada_sys.a
+
+  '
+- '   [archive]      libkeystoreada.a
+
+  '
+- '   [index]        libkeystoreada.a
+
+  '
+- 'Bind
+
+  '
+- '   [gprbind]      akt-main.bexch
+
+  '
+- '   [Ada]          akt-main.ali
+
+  '
+- 'Link
+
+  '
+- '   [link]         akt-main.adb
+
+  '
+- '-macosx_version_min has been renamed to -macos_version_min
+
+  '
+- 'ld: warning: ignoring duplicate libraries: ''-lSystem''
+
+  '
+- '0  0x1026e7f43  __assert_rtn + 64
+
+  '
+- '1  0x1025e9f43  ld::AtomPlacement::findAtom(unsigned char, unsigned long long,
+  ld::AtomPlacement::AtomLoc const*&, long long&) const + 1411
+
+  '
+- '2  0x102606431  ld::InputFiles::SliceParser::parseObjectFile(mach_o::Header const*)
+  const + 19745
+
+  '
+- '3  0x102616b71  ld::InputFiles::parseAllFiles(void (ld::AtomFile const*) block_pointer)::$_7::operator()(unsigned
+  long, ld::FileInfo const&) const + 657
+
+  '
+- '4  0x7ff813f1edef  _dispatch_client_callout2 + 8
+
+  '
+- '5  0x7ff813f30547  _dispatch_apply_invoke3 + 431
+
+  '
+- '6  0x7ff813f1edbc  _dispatch_client_callout + 8
+
+  '
+- '7  0x7ff813f2004e  _dispatch_once_callout + 20
+
+  '
+- '8  0x7ff813f30a9b  _dispatch_apply_invoke_and_wait + 278
+
+  '
+- '9  0x7ff813f2fcf8  _dispatch_apply_with_attr_f + 1225
+
+  '
+- '10  0x7ff813f2feaf  dispatch_apply + 45
+
+  '
+- '11  0x1026af972  ld::AtomFileConsolidator::parseFiles(bool) + 370
+
+  '
+- '12  0x102636d67  main + 12263
+
+  '
+- 'ld: Assertion failed: (resultIndex < sectData.atoms.size()), function findAtom,
+  file Relocations.cpp, line 1336.
+
+  '
+- 'collect2: error: ld returned 1 exit status
+
+  '
+- 'gprbuild: link of akt-main.adb failed
+
+  '
+- 'gprbuild: failed command was: /users/runner/.config/alire/cache/dependencies/gnat_native_10.3.2_e112fd3f/bin/gcc
+  akt-main.o b__akt-main.o /Users/runner/work/alire-crates-ci/alire-crates-ci/test/b2dd33b2-142a-4086-b6bf-08547c4b8651/akt_1.3.3_e0e9d5ef/obj/keystoreada_tools/intl_none.o
+  /Users/runner/work/alire-crates-ci/alire-crates-ci/test/b2dd33b2-142a-4086-b6bf-08547c4b8651/akt_1.3.3_e0e9d5ef/obj/keystoreada_tools/akt.o
+  /Users/runner/work/alire-crates-ci/alire-crates-ci/test/b2dd33b2-142a-4086-b6bf-08547c4b8651/akt_1.3.3_e0e9d5ef/obj/keystoreada_tools/akt-configs.o
+  /Users/runner/work/alire-crates-ci/alire-crates-ci/test/b2dd33b2-142a-4086-b6bf-08547c4b8651/akt_1.3.3_e0e9d5ef/obj/keystoreada_tools/keystore-verifier.o
+  /Users/runner/work/alire-crates-ci/alire-crates-ci/test/b2dd33b2-142a-4086-b6bf-08547c4b8651/akt_1.3.3_e0e9d5ef/obj/keystoreada_tools/akt-commands-drivers.o
+  /Users/runner/work/alire-crates-ci/alire-crates-ci/test/b2dd33b2-142a-4086-b6bf-08547c4b8651/akt_1.3.3_e0e9d5ef/obj/keystoreada_tools/akt-commands-config.o
+  /Users/runner/work/alire-crates-ci/alire-crates-ci/test/b2dd33b2-142a-4086-b6bf-08547c4b8651/akt_1.3.3_e0e9d5ef/obj/keystoreada_tools/akt-commands-create.o
+  /Users/runner/work/alire-crates-ci/alire-crates-ci/test/b2dd33b2-142a-4086-b6bf-08547c4b8651/akt_1.3.3_e0e9d5ef/obj/keystoreada_tools/akt-commands-edit.o
+  /Users/runner/work/alire-crates-ci/alire-crates-ci/test/b2dd33b2-142a-4086-b6bf-08547c4b8651/akt_1.3.3_e0e9d5ef/obj/keystoreada_tools/akt-commands-extract.o
+  /Users/runner/work/alire-crates-ci/alire-crates-ci/test/b2dd33b2-142a-4086-b6bf-08547c4b8651/akt_1.3.3_e0e9d5ef/obj/keystoreada_tools/akt-commands-get.o
+  /Users/runner/work/alire-crates-ci/alire-crates-ci/test/b2dd33b2-142a-4086-b6bf-08547c4b8651/akt_1.3.3_e0e9d5ef/obj/keystoreada_tools/akt-commands-info.o
+  /Users/runner/work/alire-crates-ci/alire-crates-ci/test/b2dd33b2-142a-4086-b6bf-08547c4b8651/akt_1.3.3_e0e9d5ef/obj/keystoreada_tools/akt-commands-list.o
+  /Users/runner/work/alire-crates-ci/alire-crates-ci/test/b2dd33b2-142a-4086-b6bf-08547c4b8651/akt_1.3.3_e0e9d5ef/obj/keystoreada_tools/akt-commands-mount.o
+  /Users/runner/work/alire-crates-ci/alire-crates-ci/test/b2dd33b2-142a-4086-b6bf-08547c4b8651/akt_1.3.3_e0e9d5ef/obj/keystoreada_tools/akt-commands-password.o
+  /Users/runner/work/alire-crates-ci/alire-crates-ci/test/b2dd33b2-142a-4086-b6bf-08547c4b8651/akt_1.3.3_e0e9d5ef/obj/keystoreada_tools/akt-commands-password-add.o
+  /Users/runner/work/alire-crates-ci/alire-crates-ci/test/b2dd33b2-142a-4086-b6bf-08547c4b8651/akt_1.3.3_e0e9d5ef/obj/keystoreada_tools/akt-commands-password-remove.o
+  /Users/runner/work/alire-crates-ci/alire-crates-ci/test/b2dd33b2-142a-4086-b6bf-08547c4b8651/akt_1.3.3_e0e9d5ef/obj/keystoreada_tools/akt-commands-password-set.o
+  /Users/runner/work/alire-crates-ci/alire-crates-ci/test/b2dd33b2-142a-4086-b6bf-08547c4b8651/akt_1.3.3_e0e9d5ef/obj/keystoreada_tools/akt-commands-remove.o
+  /Users/runner/work/alire-crates-ci/alire-crates-ci/test/b2dd33b2-142a-4086-b6bf-08547c4b8651/akt_1.3.3_e0e9d5ef/obj/keystoreada_tools/akt-commands-set.o
+  /Users/runner/work/alire-crates-ci/alire-crates-ci/test/b2dd33b2-142a-4086-b6bf-08547c4b8651/akt_1.3.3_e0e9d5ef/obj/keystoreada_tools/akt-commands-store.o
+  /Users/runner/work/alire-crates-ci/alire-crates-ci/test/b2dd33b2-142a-4086-b6bf-08547c4b8651/akt_1.3.3_e0e9d5ef/obj/keystoreada_tools/akt-commands.o
+  /Users/runner/work/alire-crates-ci/alire-crates-ci/test/b2dd33b2-142a-4086-b6bf-08547c4b8651/akt_1.3.3_e0e9d5ef/lib/static/libkeystoreada.a
+  /Users/runner/work/alire-crates-ci/alire-crates-ci/test/b2dd33b2-142a-4086-b6bf-08547c4b8651/akt_1.3.3_e0e9d5ef/alire/cache/dependencies/utilada_2.5.0_f65f9ba9/lib/utilada_sys/static/libutilada_sys.a
+  /Users/runner/work/alire-crates-ci/alire-crates-ci/test/b2dd33b2-142a-4086-b6bf-08547c4b8651/akt_1.3.3_e0e9d5ef/alire/cache/dependencies/utilada_2.5.0_f65f9ba9/lib/utilada_core/static/libutilada_base.a
+  /Users/runner/work/alire-crates-ci/alire-crates-ci/test/b2dd33b2-142a-4086-b6bf-08547c4b8651/akt_1.3.3_e0e9d5ef/alire/cache/dependencies/utilada_2.5.0_f65f9ba9/lib/utilada_core/static/libutilada_core.a
+  -L/Users/runner/work/alire-crates-ci/alire-crates-ci/test/b2dd33b2-142a-4086-b6bf-08547c4b8651/akt_1.3.3_e0e9d5ef/obj/keystoreada_tools/
+  -L/Users/runner/work/alire-crates-ci/alire-crates-ci/test/b2dd33b2-142a-4086-b6bf-08547c4b8651/akt_1.3.3_e0e9d5ef/obj/keystoreada_tools/
+  -L/Users/runner/work/alire-crates-ci/alire-crates-ci/test/b2dd33b2-142a-4086-b6bf-08547c4b8651/akt_1.3.3_e0e9d5ef/lib/static/
+  -L/Users/runner/work/alire-crates-ci/alire-crates-ci/test/b2dd33b2-142a-4086-b6bf-08547c4b8651/akt_1.3.3_e0e9d5ef/alire/cache/dependencies/utilada_2.5.0_f65f9ba9/lib/utilada_sys/static/
+  -L/Users/runner/work/alire-crates-ci/alire-crates-ci/test/b2dd33b2-142a-4086-b6bf-08547c4b8651/akt_1.3.3_e0e9d5ef/alire/cache/dependencies/utilada_2.5.0_f65f9ba9/lib/utilada_core/static/
+  -L/users/runner/.config/alire/cache/dependencies/gnat_native_10.3.2_e112fd3f/lib/gcc/x86_64-apple-darwin19.6.0/10.3.0/adalib/
+  /users/runner/.config/alire/cache/dependencies/gnat_native_10.3.2_e112fd3f/lib/gcc/x86_64-apple-darwin19.6.0/10.3.0/adalib/libgnarl.a
+  /users/runner/.config/alire/cache/dependencies/gnat_native_10.3.2_e112fd3f/lib/gcc/x86_64-apple-darwin19.6.0/10.3.0/adalib/libgnat.a
+  -Wl,-rpath,@executable_path/..//obj/keystoreada_tools -Wl,-rpath,@executable_path/..//lib/static
+  -Wl,-rpath,@executable_path/..//alire/cache/dependencies/utilada_2.5.0_f65f9ba9/lib/utilada_sys/static
+  -Wl,-rpath,@executable_path/..//alire/cache/dependencies/utilada_2.5.0_f65f9ba9/lib/utilada_core/static
+  -Wl,-rpath,@executable_path/../../../../../../..//.config/alire/cache/dependencies/gnat_native_10.3.2_e112fd3f/lib/gcc/x86_64-apple-darwin19.6.0/10.3.0/adalib
+  -o /Users/runner/work/alire-crates-ci/alire-crates-ci/test/b2dd33b2-142a-4086-b6bf-08547c4b8651/akt_1.3.3_e0e9d5ef/bin//akt
+
+  '
+- 'stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/Users/runner/work/alire-crates-ci/alire-crates-ci/test/b2dd33b2-142a-4086-b6bf-08547c4b8651/akt_1.3.3_e0e9d5ef/.alire/keystoreada_tools.gpr"]
+  exited with code 4
+
+  '
+- 'ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/Users/runner/work/alire-crates-ci/alire-crates-ci/test/b2dd33b2-142a-4086-b6bf-08547c4b8651/akt_1.3.3_e0e9d5ef/.alire/keystoreada_tools.gpr"]
+  exited with code 4
+
+  '
+- 'stderr: ALIRE.CHECKED_ERROR
+
+  '
+- 'stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/Users/runner/work/alire-crates-ci/alire-crates-ci/test/b2dd33b2-142a-4086-b6bf-08547c4b8651/akt_1.3.3_e0e9d5ef/.alire/keystoreada_tools.gpr"]
+  exited with code 4
+
+  '
+- 'stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
+
+  '
+- 'Load address: 0x100060000
+
+  '
+- 'Call stack traceback locations:
+
+  '
+- '0x100968415 0x10063be83 0x10084edf9 0x10084f581 0x1007afac3 0x1007adf99 0x1007ca873
+  0x100816dc1 0x10081581a 0x1007ca9b8 0x1007ae349 0x1000bf9c1 0x1000d0578 0x1000d501c
+  0x10015b05c 0x1001663b8 0x100061605 0x100064914
+
+  '
+- '
+
+  '
+- '
+
+  '
+- 'Warning: akt=1.3.3 successfully retrieved but its build failed.
+
+  '
+- 'Dependencies were solved as follows:
+
+  '
+- '
+
+  '
+- '   + keystoreada 1.3.3 (new)
+
+  '
+- '   + utilada     2.5.0 (new)
+
+  '
+- 'ERROR: Build ended with errors
+
+  '
+platform: macos
+status: failing
+version: 1.3.3

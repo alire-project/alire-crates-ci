@@ -1,0 +1,42 @@
+Test ran at 2022-08-11 00:30:56.563197+00:00
+
+SOLUTION:
+gtkada=21.0.0: An Ada graphical toolkit based on Gtk+
+Origin: source archive gtkada-21.0.0.zip at https://github.com/AdaCore/gtkada/archive/v21.0.0/gtkada-21.0.0.zip with hash sha512:3c1373c0a1168ae875398a0b5a1941234f6620ac114088980b83558c984c4566b87796fb4098de371af206ca6a4ae0fb4c6390119c5606a9f6a5b142916ce8d8
+Properties:
+   Post_Fetch run: ${CRATE_DIR}/./sed -i s/| -mingw32\*/| -mingw32\* | -msys\*/g config.sub
+   Post_Fetch run: ${CRATE_DIR}/./bash configure --with-GL=no
+   Post_Fetch run: ${CRATE_DIR}/./make all install prefix=install_dir
+   Author: AdaCore
+   Description: An Ada graphical toolkit based on Gtk+
+   case Distribution is
+      when Msys2 => (Environment: C_INCLUDE_PATH=${C_INCLUDE_PATH}:${DISTRIB_ROOT}/mingw64/x86_64-w64-mingw32/include and Environment: LIBRARY_PATH=${LIBRARY_PATH}:${DISTRIB_ROOT}/mingw64/x86_64-w64-mingw32/lib)
+   GPR Scenario: LIBRARY_TYPE := static | static-pic | relocatable
+   License: GPL-3.0-only WITH GCC-exception-3.1
+   Maintainer: chouteau@adacore.com
+   Maintainers_Logins: Fabien-Chouteau
+   Name: gtkada
+   Project_File: install_dir/lib/gnat/gtkada.gpr
+   Tag: gtk
+   Tag: gui
+   Version: 21.0.0
+   Website: https://github.com/adacore/gtkada
+Dependencies (direct):
+   case OS is
+      when Windows => winpthreads*
+   libgtk3^3
+   make*
+   pkg_config*
+Dependencies (solution):
+   make=3.81.0
+Dependencies (external):
+   libgtk3^3 (direct,hinted)
+   pkg_config* (direct,hinted)
+Dependencies (graph):
+   gtkada=21.0.0 --> libgtk3^3      
+   gtkada=21.0.0 --> make=3.81.0 (*)
+   gtkada=21.0.0 --> pkg_config*    
+Dependencies cannot be met
+
+
+LOG:

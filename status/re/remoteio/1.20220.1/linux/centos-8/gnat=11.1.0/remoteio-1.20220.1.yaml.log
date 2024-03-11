@@ -1,0 +1,287 @@
+Test ran at 2022-05-18 14:55:11.815456+00:00
+
+SOLUTION:
+remoteio=1.20220.1: Remote I/O Protocol Client Library for GNAT Ada
+Origin: source archive remoteio-1.20220.1.tbz2 at http://repo.munts.com/alire/remoteio-1.20220.1.tbz2 with hashes sha256:64576e563db4b914de34bc316e632522b0d58c3d6a2f86996480bb6770ea0946, sha512:76e58c614dcdf4333fd9d23dd1d2031f6f802c195fcea08b1ed1ec6d25e49430fd4ed8f7aa44cba94ae8f075427eeea3a1e1a045e47e673a5873609c4be265b0
+Available when: (case OS is Linux => True, Windows => True, others => False)
+Properties:
+   case OS is
+      when Linux => Post_Fetch run: ${CRATE_DIR}/./sh -c sed -i 's/lhidapi/lhidapi-hidraw/g' src/objects/hid/hid-hidapi.ads
+      when Windows => Post_Fetch run: ${CRATE_DIR}/./sh -c mkdir -p ./bin && cp src/win64/*.dll ./bin && mkdir -p ./lib && cp src/win64/*.dll ./lib
+   Author: Philip Munts
+   Description: Remote I/O Protocol Client Library for GNAT Ada
+   License: BSD-1-Clause
+   Maintainer: Philip Munts <phil@munts.net>
+   Maintainers_Logins: pmunts
+   Name: remoteio
+   Project_File: remoteio.gpr
+   Project_File: programs.gpr
+   Tag: embedded
+   Tag: linux
+   Tag: remoteio
+   Tag: adc
+   Tag: dac
+   Tag: gpio
+   Tag: i2c
+   Tag: motor
+   Tag: pwm
+   Tag: sensor
+   Tag: serial
+   Tag: servo
+   Tag: spi
+   Tag: stepper
+   Version: 1.20220.1
+   Website: https://github.com/pmunts/libsimpleio
+Dependencies (direct):
+   case OS is
+      when Linux => libhidapi*
+   case OS is
+      when Linux => libusb~1.0
+Dependencies (solution):
+   libhidapi=0.11.2
+   libusb=1.0.26
+Dependencies (graph):
+   remoteio=1.20220.1 --> libhidapi=0.11.2 (*)
+   remoteio=1.20220.1 --> libusb=1.0.26 (~1.0)
+
+
+LOG:
+Note: Deploying release remoteio=1.20220.1...
+#=#=#                                                                         
+
+###                                                                        4.6%
+########################                                                  33.9%
+######################################################################## 100.0%
+Note: Deploying release libhidapi=0.11.2...
+The system package 'hidapi' is about to be installed.
+This action might require admin privileges and impact your system installation.
+Do you want Alire to install this system package?
+Using default: Yes
+resolving dependencies...
+looking for conflicting packages...
+
+Package (1)       New Version  Net Change  Download Size
+
+community/hidapi  0.11.2-1       0.08 MiB       0.03 MiB
+
+Total Download Size:   0.03 MiB
+Total Installed Size:  0.08 MiB
+
+:: Proceed with installation? [Y/n] 
+:: Retrieving packages...
+ hidapi-0.11.2-1-x86_64 downloading...
+checking keyring...
+checking package integrity...
+loading package files...
+checking for file conflicts...
+:: Processing package changes...
+installing hidapi...
+Optional dependencies for hidapi
+    libusb: for the libusb backend -- hidapi-libusb.so
+    libudev.so: for the hidraw backend -- hidapi-hidraw.so [installed]
+:: Running post-transaction hooks...
+(1/1) Arming ConditionNeedsUpdate...
+Note: Deploying release libusb=1.0.26...
+The system package 'libusb' is about to be installed.
+This action might require admin privileges and impact your system installation.
+Do you want Alire to install this system package?
+Using default: Yes
+resolving dependencies...
+looking for conflicting packages...
+
+Package (1)  New Version  Net Change  Download Size
+
+core/libusb  1.0.26-1       0.21 MiB       0.07 MiB
+
+Total Download Size:   0.07 MiB
+Total Installed Size:  0.21 MiB
+
+:: Proceed with installation? [Y/n] 
+:: Retrieving packages...
+ libusb-1.0.26-1-x86_64 downloading...
+checking keyring...
+checking package integrity...
+loading package files...
+checking for file conflicts...
+:: Processing package changes...
+installing libusb...
+:: Running post-transaction hooks...
+(1/1) Arming ConditionNeedsUpdate...
+Note: Running post_fetch actions for remoteio=1.20220.1...
+Setup
+   [mkdir]        object directory for project RemoteIO
+   [mkdir]        library directory for project RemoteIO
+Compile
+   [Ada]          remoteio-pocketbeagle.ads
+   [Ada]          i2c-remoteio.adb
+   [Ada]          spi-remoteio.adb
+i2c-remoteio.adb:79:42: warning: "resp" modified by call, but value might not be referenced
+   [Ada]          remoteio-client-libusb.ads
+spi-remoteio.adb:85:36: warning: "resp" modified by call, but value might not be referenced
+   [Ada]          gpio-remoteio.adb
+   [Ada]          remoteio-client-stream.ads
+   [Ada]          remoteio-client-udp.ads
+   [Ada]          remoteio-client-hidapi.ads
+   [Ada]          adc-remoteio.adb
+   [Ada]          remoteio-client.adb
+   [Ada]          remoteio-munts_0016.ads
+   [Ada]          remoteio-abstract_device.adb
+   [Ada]          pwm-remoteio.adb
+   [Ada]          dac-remoteio.adb
+   [Ada]          remoteio-munts_0018.ads
+   [Ada]          remoteio-client-serial.adb
+   [Ada]          remoteio-raspberrypi.ads
+remoteio-client-serial.adb:32:07: warning: use of an anonymous access type allocator
+   [Ada]          remoteio-arduino.ads
+   [Ada]          remoteio-munts_0015.ads
+   [Ada]          remoteio.ads
+   [Ada]          hid-hidapi.adb
+   [Ada]          hid-libusb.adb
+   [Ada]          clickboard-remoteio.adb
+   [Ada]          clickboard-leds_8x8-remoteio.ads
+   [Ada]          clickboard-sevensegment-remoteio.adb
+   [Ada]          clickboard-htu21d-remoteio.ads
+   [Ada]          clickboard-adc-remoteio.ads
+   [Ada]          clickboard-expand2-remoteio.ads
+   [Ada]          clickboard-thermo3-remoteio.ads
+   [Ada]          clickboard-servers.adb
+   [Ada]          clickboard-pwm_click-remoteio.ads
+   [Ada]          clickboard-thermo-remoteio.ads
+   [Ada]          clickboard-altitude-remoteio.ads
+   [Ada]          clickboard-adc.adb
+   [Ada]          clickboard-thermo.ads
+   [Ada]          clickboard.ads
+   [Ada]          clickboard-leds_8x8.adb
+   [Ada]          clickboard-template.ads
+   [Ada]          clickboard-htu21d.ads
+   [Ada]          clickboard-thermo3.ads
+   [Ada]          clickboard-sevensegment.adb
+   [Ada]          clickboard-pwm_click.ads
+   [Ada]          clickboard-altitude.ads
+   [Ada]          clickboard-expand2.ads
+   [Ada]          motor-servo.adb
+   [Ada]          servo-pwm.ads
+   [Ada]          messaging-fixed-gnat_udp.adb
+   [Ada]          message64-stream.ads
+   [Ada]          thermistor.adb
+   [Ada]          messaging-fixed-ada_streams.adb
+   [Ada]          message64-udp.ads
+   [Ada]          stream_framing_protocol.adb
+   [Ada]          debug.adb
+   [Ada]          gpio-pwm.adb
+   [Ada]          motor-pwm.adb
+   [Ada]          voltage.ads
+   [Ada]          truecolor.ads
+   [Ada]          servo-pwm_template.adb
+   [Ada]          logging.ads
+   [Ada]          resistance.ads
+   [Ada]          watchdog.ads
+   [Ada]          humidity.ads
+   [Ada]          dac.adb
+   [Ada]          angle.ads
+   [Ada]          pressure.ads
+   [Ada]          temperature.ads
+   [Ada]          joystick.ads
+   [Ada]          i2c.adb
+   [Ada]          adc.adb
+   [Ada]          gpio.ads
+   [Ada]          servo.ads
+   [Ada]          accelerometer.ads
+   [Ada]          analog.ads
+   [Ada]          stepper.ads
+   [Ada]          motor.ads
+   [Ada]          messaging.adb
+   [Ada]          message64.ads
+   [Ada]          hid.adb
+   [Ada]          messaging-text.ads
+   [Ada]          magnetometer.ads
+   [Ada]          spi.ads
+   [Ada]          gyroscope.ads
+   [Ada]          pwm.ads
+   [Ada]          io_interfaces.ads
+   [Ada]          messaging-fixed.ads
+   [Ada]          ads1015.adb
+   [Ada]          mcp4822.adb
+   [Ada]          grove_temperature_humidity.ads
+   [Ada]          lps25h.adb
+   [Ada]          grove_adc.ads
+   [Ada]          mcp3204.adb
+   [Ada]          mcp23017-word.adb
+   [Ada]          pca9685-gpio.adb
+   [Ada]          hts221.adb
+   [Ada]          tlc1543.adb
+   [Ada]          mcp3202.adb
+   [Ada]          a4988.adb
+   [Ada]          grove_temperature.adb
+   [Ada]          mcp3208.adb
+   [Ada]          mcp23017-byte.adb
+   [Ada]          mcp23017.adb
+   [Ada]          th02.adb
+   [Ada]          mpl3115a2.adb
+   [Ada]          hdc1080.adb
+   [Ada]          pca8574-gpio.adb
+   [Ada]          adc121c021.adb
+   [Ada]          pca8574.adb
+   [Ada]          max31855.adb
+   [Ada]          grove_tb6612-stepper.adb
+   [Ada]          pca9534-gpio.adb
+grove_tb6612-stepper.adb:28:01: warning: "Stepper.Steps" is already use-visible through previous use_type_clause at grove_tb6612-stepper.ads:32
+   [Ada]          hid-munts.ads
+   [Ada]          htu21d.adb
+   [Ada]          pca9685.adb
+   [Ada]          grove_tb6612.adb
+   [Ada]          mcp23017-gpio.adb
+   [Ada]          lsm9ds1.adb
+   [Ada]          tcs3472.adb
+   [Ada]          bmp280.adb
+   [Ada]          tmp102.adb
+   [Ada]          pca9685-pwm.adb
+   [Ada]          max7219.adb
+   [Ada]          grove_tb6612-motor.adb
+   [Ada]          pca9534.adb
+   [Ada]          cytron_md13s.adb
+   [Ada]          errno.ads
+Build Libraries
+   [gprlib]       remoteio.lexch
+   [archive]      libremoteio.a
+   [index]        libremoteio.a
+Setup
+   [mkdir]        exec directory for project Programs
+Compile
+   [Ada]          test_query_hidapi.adb
+   [Ada]          test_query_libusb.adb
+   [Ada]          test_query_serial.adb
+   [Ada]          test_query_udp.adb
+Bind
+   [gprbind]      test_query_hidapi.bexch
+   [gprbind]      test_query_libusb.bexch
+   [Ada]          test_query_hidapi.ali
+   [Ada]          test_query_libusb.ali
+   [gprbind]      test_query_serial.bexch
+   [gprbind]      test_query_udp.bexch
+   [Ada]          test_query_serial.ali
+   [Ada]          test_query_udp.ali
+Link
+   [link]         test_query_hidapi.adb
+   [link]         test_query_libusb.adb
+/usr/sbin/ld: /usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/../../../../lib/libusb-1.0.so: undefined reference to `pthread_join@GLIBC_2.34'
+/usr/sbin/ld: /usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/../../../../lib/libusb-1.0.so: undefined reference to `pthread_key_delete@GLIBC_2.34'
+/usr/sbin/ld: /usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/../../../../lib/libusb-1.0.so: undefined reference to `pthread_mutex_trylock@GLIBC_2.34'
+/usr/sbin/ld: /usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/../../../../lib/libusb-1.0.so: undefined reference to `pthread_getspecific@GLIBC_2.34'
+/usr/sbin/ld: /usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/../../../../lib/libusb-1.0.so: undefined reference to `pthread_condattr_setclock@GLIBC_2.34'
+/usr/sbin/ld: /usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/../../../../lib/libusb-1.0.so: undefined reference to `pthread_key_create@GLIBC_2.34'
+/usr/sbin/ld: /usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/../../../../lib/libusb-1.0.so: undefined reference to `pthread_setname_np@GLIBC_2.34'
+/usr/sbin/ld: /usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/../../../../lib/libusb-1.0.so: undefined reference to `pthread_setspecific@GLIBC_2.34'
+/usr/sbin/ld: /usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/../../../../lib/libusb-1.0.so: undefined reference to `pthread_create@GLIBC_2.34'
+collect2: error: ld returned 1 exit status
+gprbuild: link of test_query_libusb.adb failed
+gprbuild: failed command was: /usr/bin/gcc test_query_libusb.o b__test_query_libusb.o /home/runner/work/alire-crates-ci/alire-crates-ci/test/70890df2-d594-46b6-98db-b6ca7699a17f/remoteio_1.20220.1_64576e56/lib/libremoteio.a -L/home/runner/work/alire-crates-ci/alire-crates-ci/test/70890df2-d594-46b6-98db-b6ca7699a17f/remoteio_1.20220.1_64576e56/obj/ -L/home/runner/work/alire-crates-ci/alire-crates-ci/test/70890df2-d594-46b6-98db-b6ca7699a17f/remoteio_1.20220.1_64576e56/obj/ -L/home/runner/work/alire-crates-ci/alire-crates-ci/test/70890df2-d594-46b6-98db-b6ca7699a17f/remoteio_1.20220.1_64576e56/lib/ -L/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/adalib/ -static-libgcc -lusb-1.0 /usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/adalib/libgnat.a -ldl -Wl,-rpath-link,/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0//adalib -Wl,-z,origin,-rpath,$ORIGIN/..//obj:$ORIGIN/..//lib:/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/adalib -o /home/runner/work/alire-crates-ci/alire-crates-ci/test/70890df2-d594-46b6-98db-b6ca7699a17f/remoteio_1.20220.1_64576e56/bin//test_query_libusb
+stderr: Command ["gprbuild", "-gnatwU", "-j0", "-p", "-P", "programs.gpr"] exited with code 4
+ERROR: Command ["gprbuild", "-gnatwU", "-j0", "-p", "-P", "programs.gpr"] exited with code 4
+
+Warning: remoteio=1.20220.1 successfully retrieved but its build failed.
+Dependencies were solved as follows:
+
+   + libhidapi 0.11.2 (new)
+   + libusb    1.0.26 (new)
+ERROR: Build ended with errors
