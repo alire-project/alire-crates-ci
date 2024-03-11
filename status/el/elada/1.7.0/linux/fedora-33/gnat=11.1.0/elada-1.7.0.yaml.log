@@ -1,0 +1,108 @@
+Test ran at 2022-05-25 03:24:26.073361+00:00
+
+SOLUTION:
+elada=1.7.0: Expression Language Library (JSR245)
+Origin: source archive 1.7.0.tar.gz at https://github.com/stcarrez/ada-el/archive/1.7.0.tar.gz with hash sha512:86ac5fc839aa91cd9da2681b5fbeed0d41e749d73bf547f7bf4e1172b351d483fb8549deabd63adf688583a990c7af70bd121a39018ba6c34d93f513aa4f588d
+Properties:
+   Post_Fetch run: ${CRATE_DIR}/./rm -f config.gpr
+   Description: Expression Language Library (JSR245)
+   GPR Scenario: BUILD := distrib | debug | optimize | profile | coverage
+   GPR Scenario: EL_LIBRARY_TYPE := relocatable | static | static-pic
+   License: Apache-2.0
+   Maintainer: Stephane.Carrez@gmail.com
+   Maintainers_Logins: stcarrez
+   Name: elada
+   Project_File: .alire/elada.gpr
+   Version: 1.7.0
+Dependencies (direct):
+   utilada^2.0.0
+Dependencies (solution):
+   utilada=2.1.0
+Dependencies (graph):
+   elada=1.7.0 --> utilada=2.1.0 (^2.0.0)
+
+
+LOG:
+Note: Deploying release elada=1.7.0...
+#=#=#                                                                         
+##O#-#                                                                        
+Note: Deploying release utilada=2.1.0...
+#=#=#                                                                         
+##=#=#                                                                        
+Note: Running post_fetch actions for elada=1.7.0...
+Setup
+   [mkdir]        object directory for project UtilAda_Core
+   [mkdir]        library directory for project UtilAda_Core
+   [mkdir]        object directory for project ElAda
+   [mkdir]        library directory for project ElAda
+Compile
+   [Ada]          util-texts-formats.adb
+   [Ada]          util-texts.ads
+   [Ada]          util-texts-builders.adb
+   [Ada]          util-texts-tokenizers.adb
+   [Ada]          util-texts-transforms.adb
+   [Ada]          util-strings-maps.ads
+   [Ada]          util-strings-builders.ads
+   [Ada]          util-strings-sets.ads
+   [Ada]          util-strings-builders-transforms.ads
+   [Ada]          util-strings-vectors.ads
+   [Ada]          util-strings.adb
+   [Ada]          util-strings-transforms.adb
+   [Ada]          util-strings-tokenizers.ads
+   [Ada]          util-listeners-lifecycles.adb
+   [Ada]          util-listeners-observers.adb
+   [Ada]          util-listeners.ads
+   [Ada]          util-concurrent-counters.adb
+   [Ada]          util-concurrent-sequence_queues.adb
+   [Ada]          util-concurrent-locks.adb
+   [Ada]          util-concurrent.ads
+   [Ada]          util-concurrent-arrays.adb
+   [Ada]          util-concurrent-pools.adb
+   [Ada]          util-concurrent-fifos.adb
+   [Ada]          util-concurrent-copies.adb
+   [Ada]          util-executors.adb
+   [Ada]          util-refs.adb
+   [Ada]          util.ads
+   [Ada]          util-nullables.ads
+util-nullables.ads:47:21: warning: equality should be parenthesized here
+util-nullables.ads:61:21: warning: equality should be parenthesized here
+util-nullables.ads:75:21: warning: equality should be parenthesized here
+util-nullables.ads:89:21: warning: equality should be parenthesized here
+util-nullables.ads:103:21: warning: equality should be parenthesized here
+   [Ada]          util-locales.adb
+   [Ada]          util-stacks.adb
+   [Ada]          util-algorithms.ads
+   [Ada]          util-properties-basic.adb
+   [Ada]          util-properties-bundles.adb
+   [Ada]          util-properties-discrete.adb
+   [Ada]          util-properties.adb
+util-properties.adb:518:07: warning: variable "Old_Shared" is never read and never assigned
+   [Ada]          util-log-loggers.adb
+   [Ada]          util-log-locations.adb
+   [Ada]          util-log.adb
+   [Ada]          util-log-appenders.adb
+   [Ada]          util-files.adb
+   [Ada]          util-events.adb
+   [Ada]          util-events-channels.adb
+   [Ada]          util-events-timers.adb
+   [Ada]          util-dates-iso8601.adb
+   [Ada]          util-dates-formats.adb
+   [Ada]          util-dates-rfc7231.adb
+   [Ada]          util-dates.adb
+   [Ada]          util-commands-parsers.adb
+   [Ada]          util-commands-parsers-gnat_parser.adb
+   [Ada]          util-commands-consoles.adb
+util-commands-parsers-gnat_parser.ads:38:04: instantiation error at util-commands-parsers.ads:37
+util-commands-parsers-gnat_parser.ads:38:04: "not null" required for parameter "Process" at line 28
+
+   compilation of util-commands-parsers-gnat_parser.adb failed
+
+gprbuild: *** compilation phase failed
+stderr: Command ["gprbuild", "-gnatwU", "-j0", "-p", "-P", ".alire/elada.gpr"] exited with code 4
+ERROR: Command ["gprbuild", "-gnatwU", "-j0", "-p", "-P", ".alire/elada.gpr"] exited with code 4
+
+Warning: elada=1.7.0 successfully retrieved but its build failed.
+Dependencies were solved as follows:
+
+   + utilada 2.1.0 (new)
+ERROR: Build ended with errors

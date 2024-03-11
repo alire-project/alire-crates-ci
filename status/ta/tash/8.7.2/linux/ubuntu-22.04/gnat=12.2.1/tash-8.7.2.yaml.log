@@ -1,0 +1,173 @@
+Test ran at 2024-10-24 00:41:45.969092+00:00
+
+SOLUTION:
+tash=8.7.2: Binding to Tcl/Tk
+Origin: commit 4c588c12752a81819b9e0cf186ffb765d86637c0 from https://github.com/simonjwright/tcladashell.git
+Properties:
+   Post_Fetch run: ${CRATE_DIR}/./make -C src tcl_record_sizes.ads
+   Author: Simon Wright
+   Description: Binding to Tcl/Tk
+   GPR Scenario: TASH_LIBRARY_TYPE := static | relocatable
+   case OS is
+      when Linux => GPR External: TASH_PLATFORM := linux
+      when Macos => GPR External: TASH_PLATFORM := macos
+      when Windows => GPR External: TASH_PLATFORM := windows
+   License: GPL-2.0-or-later WITH GCC-exception-2.0
+   Long_Description: Tash (previously known as Tcl Ada Shell) is an Ada binding to Tcl/Tk.
+
+Its purpose is to
+
+* allow a Tcl program to use Ada in place of C to implement Tcl
+  commands where additional execution speed, more complex data
+  structures, or better name space management is needed, and
+
+* support the rapid development of Platform-Independent Graphical User
+  Interfaces via Tk.
+
+Please note that, on macOS, tash assumes that Tcl/Tk is provided via
+[Homebrew](https://brew.sh).
+
+   Maintainer: Simon Wright <simon@pushface.org>
+   Maintainers_Logins: simonjwright
+   Name: tash
+   Project_File: tash.gpr
+   Tag: scripting
+   Tag: tcl
+   Tag: tk
+   Version: 8.7.2
+   Website: https://github.com/simonjwright/tcladashell
+Dependencies (direct):
+   libtcl~8.6.0
+   libtk~8.6.0
+Dependencies (solution):
+   libtcl=8.6.12
+   libtk=8.6.12
+Dependencies (graph):
+   tash=8.7.2 --> libtcl=8.6.12 (~8.6.0)
+   tash=8.7.2 --> libtk=8.6.12 (~8.6.0) 
+
+
+LOG:
+Note: Deploying tash=8.7.2...
+Note: Deploying libtcl=8.6.12...
+The system package 'tcl8.6-dev' is about to be installed.
+This action might require admin privileges and impact your system installation.
+Do you want Alire to install this system package?
+Using default: Yes
+Selecting previously unselected package tcl8.6-dev:amd64.
+(Reading database ... 
+(Reading database ... 5%
+(Reading database ... 10%
+(Reading database ... 15%
+(Reading database ... 20%
+(Reading database ... 25%
+(Reading database ... 30%
+(Reading database ... 35%
+(Reading database ... 40%
+(Reading database ... 45%
+(Reading database ... 50%
+(Reading database ... 55%
+(Reading database ... 60%
+(Reading database ... 65%
+(Reading database ... 70%
+(Reading database ... 75%
+(Reading database ... 80%
+(Reading database ... 85%
+(Reading database ... 90%
+(Reading database ... 95%
+(Reading database ... 100%
+(Reading database ... 266992 files and directories currently installed.)
+Preparing to unpack .../tcl8.6-dev_8.6.12+dfsg-1build1_amd64.deb ...
+Unpacking tcl8.6-dev:amd64 (8.6.12+dfsg-1build1) ...
+Setting up tcl8.6-dev:amd64 (8.6.12+dfsg-1build1) ...
+NEEDRESTART-VER: 3.5
+NEEDRESTART-KCUR: 6.5.0-1025-azure
+NEEDRESTART-KEXP: 6.5.0-1025-azure
+NEEDRESTART-KSTA: 1
+NEEDRESTART-SVC: runner-provisioner.service
+Note: Deploying libtk=8.6.12...
+The system package 'tk8.6-dev' is about to be installed.
+This action might require admin privileges and impact your system installation.
+Do you want Alire to install this system package?
+Using default: Yes
+Selecting previously unselected package libxft-dev:amd64.
+(Reading database ... 
+(Reading database ... 5%
+(Reading database ... 10%
+(Reading database ... 15%
+(Reading database ... 20%
+(Reading database ... 25%
+(Reading database ... 30%
+(Reading database ... 35%
+(Reading database ... 40%
+(Reading database ... 45%
+(Reading database ... 50%
+(Reading database ... 55%
+(Reading database ... 60%
+(Reading database ... 65%
+(Reading database ... 70%
+(Reading database ... 75%
+(Reading database ... 80%
+(Reading database ... 85%
+(Reading database ... 90%
+(Reading database ... 95%
+(Reading database ... 100%
+(Reading database ... 267060 files and directories currently installed.)
+Preparing to unpack .../libxft-dev_2.3.4-1_amd64.deb ...
+Unpacking libxft-dev:amd64 (2.3.4-1) ...
+Selecting previously unselected package libxss-dev:amd64.
+Preparing to unpack .../libxss-dev_1%3a1.2.3-1build2_amd64.deb ...
+Unpacking libxss-dev:amd64 (1:1.2.3-1build2) ...
+Selecting previously unselected package tk8.6-dev:amd64.
+Preparing to unpack .../tk8.6-dev_8.6.12-1build1_amd64.deb ...
+Unpacking tk8.6-dev:amd64 (8.6.12-1build1) ...
+Setting up libxss-dev:amd64 (1:1.2.3-1build2) ...
+Setting up libxft-dev:amd64 (2.3.4-1) ...
+Setting up tk8.6-dev:amd64 (8.6.12-1build1) ...
+Processing triggers for man-db (2.10.2-1) ...
+NEEDRESTART-VER: 3.5
+NEEDRESTART-KCUR: 6.5.0-1025-azure
+NEEDRESTART-KEXP: 6.5.0-1025-azure
+NEEDRESTART-KSTA: 1
+NEEDRESTART-SVC: runner-provisioner.service
+Note: Running post_fetch actions for tash=8.7.2...
+make: Entering directory '/home/runner/work/alire-crates-ci/alire-crates-ci/test/fc8f89f1-b429-4b12-8d40-d8da35126be7/tash_8.7.2_4c588c12/src'
+tclsh tcl_record_sizes.tcl >tcl_record_sizes.c
+gprbuild -P tcl_record_sizes.gpr -o tcl_record_sizes.exe
+Setup
+   [mkdir]        object directory for project Tcl_Record_Sizes
+Compile
+   [c]            tcl_record_sizes.c
+Link
+   [archive]      libtcl_record_sizes.a
+   [index]        libtcl_record_sizes.a
+   [link]         tcl_record_sizes.c
+./tcl_record_sizes.exe >tcl_record_sizes.ads
+make: Leaving directory '/home/runner/work/alire-crates-ci/alire-crates-ci/test/fc8f89f1-b429-4b12-8d40-d8da35126be7/tash_8.7.2_4c588c12/src'
+Note: Building tash/tash.gpr...
+Setup
+   [mkdir]        object directory for project Tash
+   [mkdir]        library directory for project Tash
+Compile
+   [c]            tkmacro.c
+   [c]            tclmacro.c
+   [ada]          tcl.adb
+   [ada]          tcl-tk.adb
+   [ada]          tcl-tk-ada.adb
+   [ada]          cargv.adb
+   [ada]          chelper.adb
+   [ada]          tcl-ada.adb
+   [ada]          tcl_record_sizes.ads
+   [ada]          tcl-async.adb
+Build Libraries
+   [gprlib]       tash.lexch
+   [archive]      libtash.a
+   [index]        libtash.a
+Build finished successfully in 2.03 seconds.
+
+tash=8.7.2 successfully retrieved and built.
+Dependencies were solved as follows:
+
+   + libtcl 8.6.12 (new)
+   + libtk  8.6.12 (new)
+Found declared GPR file: tash.gpr
