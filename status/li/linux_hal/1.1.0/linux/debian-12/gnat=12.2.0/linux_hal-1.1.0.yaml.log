@@ -1,0 +1,185 @@
+Test ran at 2024-10-13 01:27:30.703008+00:00
+
+SOLUTION:
+linux_hal=1.1.0: HAL drivers for Linux userspace
+Origin: commit c7c2f276f55fcab601ccd247d3db14433bd179fe from https://github.com/JeremyGrosser/linux_hal.git
+Available when: (case Distribution is Centos => True, Debian => True, Fedora => True, Ubuntu => True, others => False)
+Properties:
+   Author: Jeremy Grosser
+   Description: HAL drivers for Linux userspace
+   License: BSD-3-Clause
+   Maintainer: Jeremy Grosser <jeremy@synack.me>
+   Maintainers_Logins: JeremyGrosser
+   Name: linux_hal
+   Tag: embedded
+   Tag: hal
+   Tag: linux
+   Tag: i2c
+   Tag: smbus
+   Tag: gpio
+   Tag: spi
+   Tag: audio
+   Version: 1.1.0
+   Website: https://github.com/JeremyGrosser/linux_hal
+Dependencies (direct):
+   hal~0.3.0
+   libgpiod^1
+   libi2c^4
+   libpulse^16
+Dependencies (solution):
+   hal=0.3.0
+   libgpiod=1.6.3
+   libi2c=4.3.0
+   libpulse=16.1.0
+Dependencies (graph):
+   linux_hal=1.1.0 --> hal=0.3.0 (~0.3.0)   
+   linux_hal=1.1.0 --> libgpiod=1.6.3 (^1)  
+   linux_hal=1.1.0 --> libi2c=4.3.0 (^4)    
+   linux_hal=1.1.0 --> libpulse=16.1.0 (^16)
+
+
+LOG:
+Note: Deploying linux_hal=1.1.0...
+Note: Deploying hal=0.3.0...
+Note: Deploying libgpiod=1.6.3...
+The system package 'libgpiod-dev' is about to be installed.
+This action might require admin privileges and impact your system installation.
+Do you want Alire to install this system package?
+Using default: Yes
+debconf: delaying package configuration, since apt-utils is not installed
+Selecting previously unselected package libgpiod2:amd64.
+(Reading database ... 
+(Reading database ... 5%
+(Reading database ... 10%
+(Reading database ... 15%
+(Reading database ... 20%
+(Reading database ... 25%
+(Reading database ... 30%
+(Reading database ... 35%
+(Reading database ... 40%
+(Reading database ... 45%
+(Reading database ... 50%
+(Reading database ... 55%
+(Reading database ... 60%
+(Reading database ... 65%
+(Reading database ... 70%
+(Reading database ... 75%
+(Reading database ... 80%
+(Reading database ... 85%
+(Reading database ... 90%
+(Reading database ... 95%
+(Reading database ... 100%
+(Reading database ... 41025 files and directories currently installed.)
+Preparing to unpack .../libgpiod2_1.6.3-1+b3_amd64.deb ...
+Unpacking libgpiod2:amd64 (1.6.3-1+b3) ...
+Selecting previously unselected package libgpiod-dev:amd64.
+Preparing to unpack .../libgpiod-dev_1.6.3-1+b3_amd64.deb ...
+Unpacking libgpiod-dev:amd64 (1.6.3-1+b3) ...
+Setting up libgpiod2:amd64 (1.6.3-1+b3) ...
+Setting up libgpiod-dev:amd64 (1.6.3-1+b3) ...
+Processing triggers for libc-bin (2.36-9+deb12u7) ...
+Note: Deploying libi2c=4.3.0...
+The system package 'libi2c-dev' is about to be installed.
+This action might require admin privileges and impact your system installation.
+Do you want Alire to install this system package?
+Using default: Yes
+debconf: delaying package configuration, since apt-utils is not installed
+Selecting previously unselected package udev.
+(Reading database ... 
+(Reading database ... 5%
+(Reading database ... 10%
+(Reading database ... 15%
+(Reading database ... 20%
+(Reading database ... 25%
+(Reading database ... 30%
+(Reading database ... 35%
+(Reading database ... 40%
+(Reading database ... 45%
+(Reading database ... 50%
+(Reading database ... 55%
+(Reading database ... 60%
+(Reading database ... 65%
+(Reading database ... 70%
+(Reading database ... 75%
+(Reading database ... 80%
+(Reading database ... 85%
+(Reading database ... 90%
+(Reading database ... 95%
+(Reading database ... 100%
+(Reading database ... 41046 files and directories currently installed.)
+Preparing to unpack .../0-udev_252.30-1~deb12u2_amd64.deb ...
+Unpacking udev (252.30-1~deb12u2) ...
+Selecting previously unselected package libi2c0:amd64.
+Preparing to unpack .../1-libi2c0_4.3-2+b3_amd64.deb ...
+Unpacking libi2c0:amd64 (4.3-2+b3) ...
+Selecting previously unselected package i2c-tools.
+Preparing to unpack .../2-i2c-tools_4.3-2+b3_amd64.deb ...
+Unpacking i2c-tools (4.3-2+b3) ...
+Selecting previously unselected package libi2c-dev:amd64.
+Preparing to unpack .../3-libi2c-dev_4.3-2+b3_amd64.deb ...
+Unpacking libi2c-dev:amd64 (4.3-2+b3) ...
+Selecting previously unselected package libx86-1:amd64.
+Preparing to unpack .../4-libx86-1_1.1+ds1-12_amd64.deb ...
+Unpacking libx86-1:amd64 (1.1+ds1-12) ...
+Selecting previously unselected package read-edid.
+Preparing to unpack .../5-read-edid_3.0.2-1.1_amd64.deb ...
+Unpacking read-edid (3.0.2-1.1) ...
+Setting up libx86-1:amd64 (1.1+ds1-12) ...
+Setting up libi2c0:amd64 (4.3-2+b3) ...
+Setting up read-edid (3.0.2-1.1) ...
+Setting up libi2c-dev:amd64 (4.3-2+b3) ...
+Setting up udev (252.30-1~deb12u2) ...
+invoke-rc.d: could not determine current runlevel
+invoke-rc.d: policy-rc.d denied execution of start.
+Setting up i2c-tools (4.3-2+b3) ...
+Failed to send reload request: No such file or directory
+
+Processing triggers for libc-bin (2.36-9+deb12u7) ...
+Note: Deploying libpulse=16.1.0...
+Note: Building linux_hal/linux_hal.gpr...
+Setup
+   [mkdir]        object directory for project HAL
+   [mkdir]        library directory for project HAL
+   [mkdir]        object directory for project Linux_Hal
+Compile
+   [Ada]          hal-spi.ads
+   [Ada]          hal-uart.ads
+   [Ada]          hal-filesystem.ads
+   [Ada]          hal-block_drivers.ads
+   [Ada]          hal-audio.ads
+   [Ada]          hal.ads
+   [Ada]          hal-touch_panel.ads
+   [Ada]          hal-bitmap.ads
+   [Ada]          hal-i2c.ads
+   [Ada]          hal-real_time_clock.ads
+   [Ada]          hal-dsi.ads
+   [Ada]          hal-time.ads
+   [Ada]          hal-framebuffer.ads
+   [Ada]          hal-gpio.ads
+   [Ada]          hal-sdmmc.adb
+   [C]            linux_ioctl_wrap.c
+   [Ada]          linux_hal_config.ads
+   [Ada]          linux-time.adb
+   [Ada]          linux-spi.adb
+   [Ada]          linux-gpio.adb
+   [Ada]          linux-smbus.adb
+   [Ada]          linux.ads
+   [Ada]          linux-i2c.adb
+   [Ada]          linux-audio.adb
+Build Libraries
+   [gprlib]       hal.lexch
+   [gprlib]       Linux_Hal.lexch
+   [archive]      libhal.a
+   [index]        libhal.a
+   [archive]      libLinux_Hal.a
+   [index]        libLinux_Hal.a
+Build finished successfully in 0.96 seconds.
+
+linux_hal=1.1.0 successfully retrieved and built.
+Dependencies were solved as follows:
+
+   + hal      0.3.0  (new)
+   + libgpiod 1.6.3  (new)
+   + libi2c   4.3.0  (new)
+   + libpulse 16.1.0 (new)
+Found declared GPR file: linux_hal.gpr
