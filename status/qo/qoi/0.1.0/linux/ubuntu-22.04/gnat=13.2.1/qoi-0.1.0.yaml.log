@@ -1,0 +1,98 @@
+Test ran at 2024-03-25 01:21:25.091104+00:00
+
+SOLUTION:
+qoi=0.1.0: Ada/SPARK implementation of the Quite Ok Image format
+Origin: commit 25d61809e0e520abec78afd94bfae8a8140414c3 from https://github.com/Fabien-Chouteau/qoi-spark.git
+Properties:
+   Author: Fabien Chouteau
+   Author: Joffrey Huguet
+   Description: Ada/SPARK implementation of the Quite Ok Image format
+   License: MIT
+   Maintainer: Fabien-Chouteau <chouteau@adacore.com>
+   Maintainer: Joffrey Huguet <huguet@adacore.com>
+   Maintainers_Logins: Fabien-Chouteau
+   Maintainers_Logins: joffreyhuguet
+   Name: qoi
+   Tag: image
+   Tag: encoding
+   Tag: qoi
+   Version: 0.1.0
+   Website: https://github.com/Fabien-Chouteau/qoi-spark
+Dependencies (direct):
+   gnat>=11.2
+Dependencies (solution):
+   gnat=13.2.1 (gnat_native)
+Dependencies (graph):
+   qoi=0.1.0 --> gnat=13.2.1 (gnat_native) (>=11.2)
+
+
+LOG:
+Spawning: alr -d -n get --build qoi=0.1.0
+Note: Deploying qoi=0.1.0...
+Note: Building qoi=0.1.0/qoi.gpr...
+Setup
+   [mkdir]        object directory for project Qoi
+   [mkdir]        library directory for project Qoi
+Compile
+   [Ada]          qoi.adb
+qoi.adb:62:53: unrecognized attribute "Initialized"
+qoi.adb:64:65: unrecognized attribute "Initialized"
+qoi.adb:74:53: unrecognized attribute "Initialized"
+qoi.adb:76:65: unrecognized attribute "Initialized"
+qoi.adb:156:53: unrecognized attribute "Initialized"
+qoi.adb:168:64: unrecognized attribute "Initialized"
+qoi.adb:252:56: unrecognized attribute "Initialized"
+qoi.adb:256:53: unrecognized attribute "Initialized"
+qoi.adb:264:64: unrecognized attribute "Initialized"
+qoi.adb:268:53: unrecognized attribute "Initialized"
+qoi.adb:358:61: unrecognized attribute "Initialized"
+qoi.adb:361:61: unrecognized attribute "Initialized"
+qoi.adb:417:55: unrecognized attribute "Initialized"
+qoi.ads:39:06: "Relaxed_Initialization" is not a valid aspect identifier
+qoi.ads:47:06: warning: postcondition does not check the outcome of calling "Encode"
+qoi.ads:48:64: unrecognized attribute "Initialized"
+qoi.ads:70:06: "Relaxed_Initialization" is not a valid aspect identifier
+qoi.ads:86:67: unrecognized attribute "Initialized"
+
+   compilation of qoi.adb failed
+
+gprbuild: *** compilation phase failed
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/9de0636b-b591-461b-a41b-b1186eb28408/qoi_0.1.0_25d61809/qoi.gpr"] exited with code 4
+ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/9de0636b-b591-461b-a41b-b1186eb28408/qoi_0.1.0_25d61809/qoi.gpr"] exited with code 4
+stderr: ALIRE.CHECKED_ERROR
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/9de0636b-b591-461b-a41b-b1186eb28408/qoi_0.1.0_25d61809/qoi.gpr"] exited with code 4
+stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
+[/usr/bin/alr]
+0xe4810a Alire.Raise_Checked_Error at alire.adb:272
+0xa90404 Alire.Os_Lib.Subprocess.Checked_Spawn at alire-os_lib-subprocess.adb:111
+0xd153f3 Alire.Spawn.Command at alire-spawn.adb:21
+0xd15b11 Alire.Spawn.Gprbuild at alire-spawn.adb:41
+0xc45693 Alire.Roots.Build at alire-roots.adb:182
+0xc43936 Alire.Roots.Build at alire-roots.adb:248
+0xc6b083 Alire.Roots.Traverse at alire-roots.adb:2053
+0xcd9c00 Alire.Solutions.Traverse.Visit at alire-solutions.adb:1480
+0xcd8a70 Alire.Solutions.Traverse at alire-solutions.adb:1563
+0xc6b1be Alire.Roots.Traverse at alire-roots.adb:2057
+0xc6b3f5 Alire.Roots.Traverse at alire-roots.adb:2037
+0xc440f1 Alire.Roots.Build at alire-roots.adb:281
+0xc441d7 Alire.Roots.Build at alire-roots.adb:107
+0x4a4206 Alr.Commands.Get.Retrieve at alr-commands-get.adb:195
+0x4a87b2 Alr.Commands.Get.Execute at alr-commands-get.adb:368
+0x4a8a49 Alr.Commands.Get.Execute at alr-commands-get.adb:246
+0x53939b Alr.Commands.Sub_Cmd.Execute at clic-subcommand-instance.adb:749
+0x54587e Alr.Commands.Execute at alr-commands.adb:561
+0x436183 Alr.Main at alr-main.adb:13
+0x438de1 Main at b__alr-main.adb:2257
+[/lib/x86_64-linux-gnu/libc.so.6]
+0x7f2670fb1d8e
+0x7f2670fb1e3e
+[/usr/bin/alr]
+0x43601c _start at ???
+0xfffffffffffffffe
+
+
+Warning: qoi=0.1.0 successfully retrieved but its build failed.
+Dependencies were solved as follows:
+
+   +b gnat 13.2.1 (new,gnat_native,binary)
+ERROR: Build ended with errors

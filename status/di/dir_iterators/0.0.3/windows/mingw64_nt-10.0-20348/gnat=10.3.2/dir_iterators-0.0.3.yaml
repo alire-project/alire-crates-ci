@@ -1,0 +1,157 @@
+badge: false
+crate: dir_iterators
+creation_timestamp: 1648578051.8669026
+distro: mingw64_nt-10.0-20348
+duration: 15.015999999999849
+gnat: 10.3.2
+last_attempt: 2022-07-25 00:39:43.986465+00:00
+log:
+- 'Test ran at 2022-07-25 00:39:43.986465+00:00
+
+
+  '
+- 'SOLUTION:
+
+  '
+- "dir_iterators=0.0.3: Ways of moving around directory trees\r\n"
+- "Origin: commit 9a345982c4680cea101a4295da1ead5610526a3d from https://github.com/pyjarrett/dir_iterators.git\r\
+  \n"
+- "Properties:\r\n"
+- "   Author: Paul Jarrett\r\n"
+- "   Description: Ways of moving around directory trees\r\n"
+- "   License: Apache-2.0\r\n"
+- "   Long_Description: [![Build Status](https://github.com/pyjarrett/dir_iterators/actions/workflows/build.yml/badge.svg)](https://github.com/pyjarrett/dir_iterators/actions)\r\
+  \n"
+- "[![Alire](https://img.shields.io/endpoint?url=https://alire.ada.dev/badges/dir_iterators.json)](https://alire.ada.dev/crates/dir_iterators.html)\r\
+  \n"
+- "\r\n"
+- "## Iterator-based directory walks\r\n"
+- "\r\n"
+- "Provides convenient ways to walk directories based on Ada 2012 user-defined\r\n"
+- "iterators.\r\n"
+- "\r\n"
+- "Inspired by [walkdir for Rust](https://github.com/BurntSushi/walkdir).\r\n"
+- "\r\n"
+- "\r\n"
+- "## Walking a directory tree recursively\r\n"
+- "\r\n"
+- "```ada\r\n"
+- "with Ada.Directories;\r\n"
+- "with Ada.Text_IO;\r\n"
+- "with Dir_Iterators.Recursive;\r\n"
+- "\r\n"
+- "-- ...\r\n"
+- "\r\n"
+- "Dir_Walk : constant Dir_Iterators.Recursive.Recursive_Dir_Walk\r\n"
+- "    := Dir_Iterators.Recursive.Walk (Dir);\r\n"
+- "\r\n"
+- "for Dir_Entry of Dir_Walk loop\r\n"
+- "    Ada.Text_IO.Put_Line(Ada.Directories.Full_Name(Dir_Entry));\r\n"
+- "end loop;\r\n"
+- "```\r\n"
+- "\r\n"
+- "## Walking a directory tree recursively with a filter\r\n"
+- "\r\n"
+- "Use a filter to prune directories and files from the walk.\r\n"
+- "\r\n"
+- "```ada\r\n"
+- "with Ada.Directories;\r\n"
+- "with Ada.Text_IO;\r\n"
+- "with Dir_Iterators.Recursive;\r\n"
+- "\r\n"
+- "package AD renames Ada.Directories;\r\n"
+- "\r\n"
+- "-- ...\r\n"
+- "\r\n"
+- "    procedure Foo (Include_Dot_Files : Boolean; Dir_Root : String) is\r\n"
+- "        function Filter (E : Ada.Directories.Directory_Entry_Type) return Boolean\
+  \ is\r\n"
+- "            Name : constant String := Ada.Directories.Simple_Name(E);\r\n"
+- "        begin\r\n"
+- "            return Include_Dot_Files\r\n"
+- "                or else (not (Name'Length > 1 and then Name(1) = '.'));\r\n"
+- "        end Filter;\r\n"
+- "\r\n"
+- "        Walk : constant Dir_Iterators.Recursive.Recursive_Dir_Walk :=\r\n"
+- "            Dir_Iterators.Recursive.Walk (Dir_Root, Filter'Access);\r\n"
+- "    begin\r\n"
+- "        for Dir_Entry of Walk loop\r\n"
+- "            Ada.Text_IO.Put_Line(Ada.Directories.Full_Name(Dir_Entry));\r\n"
+- "        end loop;\r\n"
+- "    end Foo;\r\n"
+- "```\r\n"
+- "\r\n"
+- "   Maintainer: Paul Jarrett <jarrett.paul.young@gmail.com>\r\n"
+- "   Maintainers_Logins: pyjarrett\r\n"
+- "   Name: dir_iterators\r\n"
+- "   Tag: dir\r\n"
+- "   Tag: files\r\n"
+- "   Tag: walk\r\n"
+- "   Version: 0.0.3\r\n"
+- "   Website: https://github.com/pyjarrett/dir_iterators\r\n"
+- '
+
+  '
+- '
+
+  LOG:
+
+  '
+- 'Note: Deploying dir_iterators=0.0.3...
+
+  '
+- 'Note: Migrating lockfile from D:\a\alire-crates-ci\alire-crates-ci\test\a1d324e8-9e89-486d-8fdb-880568e9c13a\dir_iterators_0.0.3_9a345982\alire.lock
+  to D:\a\alire-crates-ci\alire-crates-ci\test\a1d324e8-9e89-486d-8fdb-880568e9c13a\dir_iterators_0.0.3_9a345982\alire\alire.lock
+
+  '
+- 'Note: Building dir_iterators/dir_iterators.gpr...
+
+  '
+- 'Setup
+
+  '
+- '   [mkdir]        object directory for project Dir_Iterators
+
+  '
+- '   [mkdir]        library directory for project Dir_Iterators
+
+  '
+- 'Compile
+
+  '
+- '   [Ada]          dir_iterators.ads
+
+  '
+- '   [Ada]          dir_iterators-recursive.adb
+
+  '
+- '   [Ada]          dir_iterators-ancestor.adb
+
+  '
+- 'Build Libraries
+
+  '
+- '   [gprlib]       Dir_Iterators.lexch
+
+  '
+- '   [archive]      libDir_Iterators.a
+
+  '
+- '   [index]        libDir_Iterators.a
+
+  '
+- 'Build finished successfully in 2.15 seconds.
+
+  '
+- '
+
+  '
+- 'dir_iterators=0.0.3 successfully retrieved and built.
+
+  '
+- 'There are no dependencies.
+
+  '
+platform: windows
+status: success
+version: 0.0.3

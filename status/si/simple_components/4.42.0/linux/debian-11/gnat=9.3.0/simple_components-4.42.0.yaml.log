@@ -1,0 +1,1021 @@
+Test ran at 2022-05-30 12:10:59.128512+00:00
+
+SOLUTION:
+simple_components=4.42.0: Simple Components - A collection of support packages
+Origin: commit 21c0053074f991b615eae2d678e1d3afc6bf7a2a from https://github.com/alire-project/dak_simple_components.git
+Properties:
+   Author: Dmitry A. Kazakov
+   Description: Simple Components - A collection of support packages
+   GPR Scenario: Atomic_Access := Pragma-atomic | GCC-built-ins | GCC-long-offsets
+   GPR Scenario: Development := Debug | Release
+   GPR Scenario: Legacy := Ada95 | Ada2005 | Ada2012
+   GPR Scenario: Tasking := Multiple | Single
+   GPR Scenario: Traced_Objects := Off | On
+   case OS is
+      when Linux => GPR External: odbc := unixODBC
+      when Windows => GPR External: odbc := ODBC32
+   case Word_Size is
+      when Bits_32 => GPR External: arch := i686
+      when Bits_64 => GPR External: arch := x86_64
+   License: GPL-2.0-only WITH GCC-exception-2.0
+   Maintainer: alejandro@mosteo.com
+   Maintainers_Logins: mosteo
+   Name: simple_components
+   Notes: Tasking=Single seems to be broken at persistent-single_file-text_io.adb
+   Project_File: components.gpr
+   Project_File: components-connections_server.gpr
+   Project_File: components-connections_server-elv_max_cube.gpr
+   Project_File: components-connections_server-http_server.gpr
+   Project_File: components-connections_server-http_server-sqlite_browser.gpr
+   Project_File: components-connections_server-modbus.gpr
+   Project_File: components-connections_server-mqtt.gpr
+   Project_File: components-connections_server-secure.gpr
+   Project_File: components-connections_server-smtp.gpr
+   Project_File: components-gnutls.gpr
+   Project_File: components-ntp.gpr
+   Project_File: components-odbc.gpr
+   Project_File: components-sqlite.gpr
+   Project_File: strings_edit.gpr
+   Project_File: tables.gpr
+   Version: 4.42.0
+   Website: http://www.dmitry-kazakov.de/ada/components.htm
+Dependencies (direct):
+   gnat/=2021 & <11
+   libgnutls^3.5.8
+   unixodbc^2.3
+Dependencies (solution):
+   gnat=9.3.0 (gnat_external) (installed)
+   libgnutls=3.6.13
+   unixodbc=2.3.6
+Dependencies (graph):
+   simple_components=4.42.0 --> gnat=9.3.0 (gnat_external) (/=2021 & <11)
+   simple_components=4.42.0 --> libgnutls=3.6.13 (^3.5.8)                
+   simple_components=4.42.0 --> unixodbc=2.3.6 (^2.3)                    
+
+
+LOG:
+Note: Deploying release simple_components=4.42.0...
+Cloning into '/home/runner/work/alire-crates-ci/alire-crates-ci/test/2e340408-7765-4690-9ead-a9772222f08f/alr-xatu.tmp'...
+remote: Enumerating objects: 1424, done.        
+remote: Counting objects:   2% (1/48)        
+remote: Counting objects:   4% (2/48)        
+remote: Counting objects:   6% (3/48)        
+remote: Counting objects:   8% (4/48)        
+remote: Counting objects:  10% (5/48)        
+remote: Counting objects:  12% (6/48)        
+remote: Counting objects:  14% (7/48)        
+remote: Counting objects:  16% (8/48)        
+remote: Counting objects:  18% (9/48)        
+remote: Counting objects:  20% (10/48)        
+remote: Counting objects:  22% (11/48)        
+remote: Counting objects:  25% (12/48)        
+remote: Counting objects:  27% (13/48)        
+remote: Counting objects:  29% (14/48)        
+remote: Counting objects:  31% (15/48)        
+remote: Counting objects:  33% (16/48)        
+remote: Counting objects:  35% (17/48)        
+remote: Counting objects:  37% (18/48)        
+remote: Counting objects:  39% (19/48)        
+remote: Counting objects:  41% (20/48)        
+remote: Counting objects:  43% (21/48)        
+remote: Counting objects:  45% (22/48)        
+remote: Counting objects:  47% (23/48)        
+remote: Counting objects:  50% (24/48)        
+remote: Counting objects:  52% (25/48)        
+remote: Counting objects:  54% (26/48)        
+remote: Counting objects:  56% (27/48)        
+remote: Counting objects:  58% (28/48)        
+remote: Counting objects:  60% (29/48)        
+remote: Counting objects:  62% (30/48)        
+remote: Counting objects:  64% (31/48)        
+remote: Counting objects:  66% (32/48)        
+remote: Counting objects:  68% (33/48)        
+remote: Counting objects:  70% (34/48)        
+remote: Counting objects:  72% (35/48)        
+remote: Counting objects:  75% (36/48)        
+remote: Counting objects:  77% (37/48)        
+remote: Counting objects:  79% (38/48)        
+remote: Counting objects:  81% (39/48)        
+remote: Counting objects:  83% (40/48)        
+remote: Counting objects:  85% (41/48)        
+remote: Counting objects:  87% (42/48)        
+remote: Counting objects:  89% (43/48)        
+remote: Counting objects:  91% (44/48)        
+remote: Counting objects:  93% (45/48)        
+remote: Counting objects:  95% (46/48)        
+remote: Counting objects:  97% (47/48)        
+remote: Counting objects: 100% (48/48)        
+remote: Counting objects: 100% (48/48), done.        
+remote: Compressing objects:   2% (1/46)        
+remote: Compressing objects:   4% (2/46)        
+remote: Compressing objects:   6% (3/46)        
+remote: Compressing objects:   8% (4/46)        
+remote: Compressing objects:  10% (5/46)        
+remote: Compressing objects:  13% (6/46)        
+remote: Compressing objects:  15% (7/46)        
+remote: Compressing objects:  17% (8/46)        
+remote: Compressing objects:  19% (9/46)        
+remote: Compressing objects:  21% (10/46)        
+remote: Compressing objects:  23% (11/46)        
+remote: Compressing objects:  26% (12/46)        
+remote: Compressing objects:  28% (13/46)        
+remote: Compressing objects:  30% (14/46)        
+remote: Compressing objects:  32% (15/46)        
+remote: Compressing objects:  34% (16/46)        
+remote: Compressing objects:  36% (17/46)        
+remote: Compressing objects:  39% (18/46)        
+remote: Compressing objects:  41% (19/46)        
+remote: Compressing objects:  43% (20/46)        
+remote: Compressing objects:  45% (21/46)        
+remote: Compressing objects:  47% (22/46)        
+remote: Compressing objects:  50% (23/46)        
+remote: Compressing objects:  52% (24/46)        
+remote: Compressing objects:  54% (25/46)        
+remote: Compressing objects:  56% (26/46)        
+remote: Compressing objects:  58% (27/46)        
+remote: Compressing objects:  60% (28/46)        
+remote: Compressing objects:  63% (29/46)        
+remote: Compressing objects:  65% (30/46)        
+remote: Compressing objects:  67% (31/46)        
+remote: Compressing objects:  69% (32/46)        
+remote: Compressing objects:  71% (33/46)        
+remote: Compressing objects:  73% (34/46)        
+remote: Compressing objects:  76% (35/46)        
+remote: Compressing objects:  78% (36/46)        
+remote: Compressing objects:  80% (37/46)        
+remote: Compressing objects:  82% (38/46)        
+remote: Compressing objects:  84% (39/46)        
+remote: Compressing objects:  86% (40/46)        
+remote: Compressing objects:  89% (41/46)        
+remote: Compressing objects:  91% (42/46)        
+remote: Compressing objects:  93% (43/46)        
+remote: Compressing objects:  95% (44/46)        
+remote: Compressing objects:  97% (45/46)        
+remote: Compressing objects: 100% (46/46)        
+remote: Compressing objects: 100% (46/46), done.        
+Receiving objects:   0% (1/1424)
+Receiving objects:   1% (15/1424)
+Receiving objects:   2% (29/1424)
+Receiving objects:   3% (43/1424)
+Receiving objects:   4% (57/1424)
+Receiving objects:   5% (72/1424)
+Receiving objects:   6% (86/1424)
+Receiving objects:   7% (100/1424)
+Receiving objects:   8% (114/1424)
+Receiving objects:   9% (129/1424)
+Receiving objects:  10% (143/1424)
+Receiving objects:  11% (157/1424)
+Receiving objects:  12% (171/1424)
+Receiving objects:  13% (186/1424)
+Receiving objects:  14% (200/1424)
+Receiving objects:  15% (214/1424)
+Receiving objects:  16% (228/1424)
+Receiving objects:  17% (243/1424)
+Receiving objects:  18% (257/1424)
+Receiving objects:  19% (271/1424)
+Receiving objects:  20% (285/1424)
+Receiving objects:  21% (300/1424)
+Receiving objects:  22% (314/1424)
+Receiving objects:  23% (328/1424)
+Receiving objects:  24% (342/1424)
+Receiving objects:  25% (356/1424)
+Receiving objects:  26% (371/1424)
+Receiving objects:  27% (385/1424)
+Receiving objects:  28% (399/1424)
+Receiving objects:  29% (413/1424)
+Receiving objects:  30% (428/1424)
+Receiving objects:  31% (442/1424)
+Receiving objects:  32% (456/1424)
+Receiving objects:  33% (470/1424)
+Receiving objects:  34% (485/1424)
+Receiving objects:  35% (499/1424)
+Receiving objects:  36% (513/1424)
+Receiving objects:  37% (527/1424)
+Receiving objects:  38% (542/1424)
+Receiving objects:  39% (556/1424)
+Receiving objects:  40% (570/1424)
+Receiving objects:  41% (584/1424)
+Receiving objects:  42% (599/1424)
+Receiving objects:  43% (613/1424)
+Receiving objects:  44% (627/1424)
+Receiving objects:  45% (641/1424)
+Receiving objects:  46% (656/1424)
+Receiving objects:  47% (670/1424)
+Receiving objects:  48% (684/1424)
+Receiving objects:  49% (698/1424)
+Receiving objects:  50% (712/1424)
+Receiving objects:  51% (727/1424)
+Receiving objects:  52% (741/1424)
+Receiving objects:  53% (755/1424)
+Receiving objects:  54% (769/1424)
+Receiving objects:  55% (784/1424)
+Receiving objects:  56% (798/1424)
+Receiving objects:  57% (812/1424)
+Receiving objects:  58% (826/1424)
+Receiving objects:  59% (841/1424)
+Receiving objects:  60% (855/1424)
+Receiving objects:  61% (869/1424)
+Receiving objects:  62% (883/1424)
+Receiving objects:  63% (898/1424)
+Receiving objects:  64% (912/1424)
+Receiving objects:  65% (926/1424)
+Receiving objects:  66% (940/1424)
+Receiving objects:  67% (955/1424)
+Receiving objects:  68% (969/1424)
+Receiving objects:  69% (983/1424)
+Receiving objects:  70% (997/1424)
+Receiving objects:  71% (1012/1424)
+Receiving objects:  72% (1026/1424)
+Receiving objects:  73% (1040/1424)
+Receiving objects:  74% (1054/1424)
+Receiving objects:  75% (1068/1424)
+Receiving objects:  76% (1083/1424)
+Receiving objects:  77% (1097/1424)
+Receiving objects:  78% (1111/1424)
+Receiving objects:  79% (1125/1424)
+Receiving objects:  80% (1140/1424)
+Receiving objects:  81% (1154/1424)
+Receiving objects:  82% (1168/1424)
+Receiving objects:  83% (1182/1424)
+Receiving objects:  84% (1197/1424)
+Receiving objects:  85% (1211/1424)
+Receiving objects:  86% (1225/1424)
+Receiving objects:  87% (1239/1424)
+Receiving objects:  88% (1254/1424)
+Receiving objects:  89% (1268/1424)
+Receiving objects:  90% (1282/1424)
+Receiving objects:  91% (1296/1424)
+Receiving objects:  92% (1311/1424)
+Receiving objects:  93% (1325/1424)
+Receiving objects:  94% (1339/1424)
+Receiving objects:  95% (1353/1424)
+Receiving objects:  96% (1368/1424)
+Receiving objects:  97% (1382/1424)
+Receiving objects:  98% (1396/1424)
+remote: Total 1424 (delta 13), reused 6 (delta 2), pack-reused 1376        
+Receiving objects:  99% (1410/1424)
+Receiving objects: 100% (1424/1424)
+Receiving objects: 100% (1424/1424), 5.49 MiB | 16.06 MiB/s, done.
+Resolving deltas:   0% (0/986)
+Resolving deltas:   3% (34/986)
+Resolving deltas:   4% (40/986)
+Resolving deltas:   5% (50/986)
+Resolving deltas:   9% (92/986)
+Resolving deltas:  11% (111/986)
+Resolving deltas:  15% (152/986)
+Resolving deltas:  16% (162/986)
+Resolving deltas:  17% (170/986)
+Resolving deltas:  18% (186/986)
+Resolving deltas:  19% (191/986)
+Resolving deltas:  20% (198/986)
+Resolving deltas:  21% (209/986)
+Resolving deltas:  22% (217/986)
+Resolving deltas:  23% (227/986)
+Resolving deltas:  24% (239/986)
+Resolving deltas:  25% (254/986)
+Resolving deltas:  26% (265/986)
+Resolving deltas:  27% (267/986)
+Resolving deltas:  29% (287/986)
+Resolving deltas:  30% (300/986)
+Resolving deltas:  31% (310/986)
+Resolving deltas:  34% (336/986)
+Resolving deltas:  35% (349/986)
+Resolving deltas:  36% (357/986)
+Resolving deltas:  37% (365/986)
+Resolving deltas:  38% (376/986)
+Resolving deltas:  39% (389/986)
+Resolving deltas:  40% (402/986)
+Resolving deltas:  43% (428/986)
+Resolving deltas:  46% (457/986)
+Resolving deltas:  47% (469/986)
+Resolving deltas:  48% (475/986)
+Resolving deltas:  50% (495/986)
+Resolving deltas:  51% (508/986)
+Resolving deltas:  52% (518/986)
+Resolving deltas:  53% (526/986)
+Resolving deltas:  54% (533/986)
+Resolving deltas:  55% (546/986)
+Resolving deltas:  56% (556/986)
+Resolving deltas:  57% (568/986)
+Resolving deltas:  58% (576/986)
+Resolving deltas:  59% (587/986)
+Resolving deltas:  60% (597/986)
+Resolving deltas:  61% (602/986)
+Resolving deltas:  62% (612/986)
+Resolving deltas:  63% (622/986)
+Resolving deltas:  64% (632/986)
+Resolving deltas:  65% (641/986)
+Resolving deltas:  68% (674/986)
+Resolving deltas:  69% (681/986)
+Resolving deltas:  70% (691/986)
+Resolving deltas:  71% (703/986)
+Resolving deltas:  72% (715/986)
+Resolving deltas:  73% (721/986)
+Resolving deltas:  74% (731/986)
+Resolving deltas:  75% (744/986)
+Resolving deltas:  76% (750/986)
+Resolving deltas:  77% (761/986)
+Resolving deltas:  78% (773/986)
+Resolving deltas:  79% (780/986)
+Resolving deltas:  80% (790/986)
+Resolving deltas:  81% (804/986)
+Resolving deltas:  82% (812/986)
+Resolving deltas:  84% (831/986)
+Resolving deltas:  85% (842/986)
+Resolving deltas:  86% (849/986)
+Resolving deltas:  87% (867/986)
+Resolving deltas:  88% (877/986)
+Resolving deltas:  90% (889/986)
+Resolving deltas:  91% (899/986)
+Resolving deltas:  92% (909/986)
+Resolving deltas:  94% (931/986)
+Resolving deltas:  95% (938/986)
+Resolving deltas:  96% (952/986)
+Resolving deltas:  97% (960/986)
+Resolving deltas:  98% (967/986)
+Resolving deltas:  99% (979/986)
+Resolving deltas: 100% (986/986)
+Resolving deltas: 100% (986/986), done.
+Note: Deploying release libgnutls=3.6.13...
+The system package 'libgnutls28-dev' is about to be installed.
+This action might require admin privileges and impact your system installation.
+Do you want Alire to install this system package?
+Using default: Yes
+debconf: delaying package configuration, since apt-utils is not installed
+(Reading database ... 
+(Reading database ... 5%
+(Reading database ... 10%
+(Reading database ... 15%
+(Reading database ... 20%
+(Reading database ... 25%
+(Reading database ... 30%
+(Reading database ... 35%
+(Reading database ... 40%
+(Reading database ... 45%
+(Reading database ... 50%
+(Reading database ... 55%
+(Reading database ... 60%
+(Reading database ... 65%
+(Reading database ... 70%
+(Reading database ... 75%
+(Reading database ... 80%
+(Reading database ... 85%
+(Reading database ... 90%
+(Reading database ... 95%
+(Reading database ... 100%
+(Reading database ... 42143 files and directories currently installed.)
+Preparing to unpack .../libnettle7_3.5.1+really3.5.1-2ubuntu0.2_amd64.deb ...
+Unpacking libnettle7:amd64 (3.5.1+really3.5.1-2ubuntu0.2) over (3.5.1+really3.5.1-2) ...
+Setting up libnettle7:amd64 (3.5.1+really3.5.1-2ubuntu0.2) ...
+(Reading database ... 
+(Reading database ... 5%
+(Reading database ... 10%
+(Reading database ... 15%
+(Reading database ... 20%
+(Reading database ... 25%
+(Reading database ... 30%
+(Reading database ... 35%
+(Reading database ... 40%
+(Reading database ... 45%
+(Reading database ... 50%
+(Reading database ... 55%
+(Reading database ... 60%
+(Reading database ... 65%
+(Reading database ... 70%
+(Reading database ... 75%
+(Reading database ... 80%
+(Reading database ... 85%
+(Reading database ... 90%
+(Reading database ... 95%
+(Reading database ... 100%
+(Reading database ... 42143 files and directories currently installed.)
+Preparing to unpack .../libhogweed5_3.5.1+really3.5.1-2ubuntu0.2_amd64.deb ...
+Unpacking libhogweed5:amd64 (3.5.1+really3.5.1-2ubuntu0.2) over (3.5.1+really3.5.1-2) ...
+Setting up libhogweed5:amd64 (3.5.1+really3.5.1-2ubuntu0.2) ...
+(Reading database ... 
+(Reading database ... 5%
+(Reading database ... 10%
+(Reading database ... 15%
+(Reading database ... 20%
+(Reading database ... 25%
+(Reading database ... 30%
+(Reading database ... 35%
+(Reading database ... 40%
+(Reading database ... 45%
+(Reading database ... 50%
+(Reading database ... 55%
+(Reading database ... 60%
+(Reading database ... 65%
+(Reading database ... 70%
+(Reading database ... 75%
+(Reading database ... 80%
+(Reading database ... 85%
+(Reading database ... 90%
+(Reading database ... 95%
+(Reading database ... 100%
+(Reading database ... 42143 files and directories currently installed.)
+Preparing to unpack .../libp11-kit0_0.23.20-1ubuntu0.1_amd64.deb ...
+Unpacking libp11-kit0:amd64 (0.23.20-1ubuntu0.1) over (0.23.20-1build1) ...
+Setting up libp11-kit0:amd64 (0.23.20-1ubuntu0.1) ...
+(Reading database ... 
+(Reading database ... 5%
+(Reading database ... 10%
+(Reading database ... 15%
+(Reading database ... 20%
+(Reading database ... 25%
+(Reading database ... 30%
+(Reading database ... 35%
+(Reading database ... 40%
+(Reading database ... 45%
+(Reading database ... 50%
+(Reading database ... 55%
+(Reading database ... 60%
+(Reading database ... 65%
+(Reading database ... 70%
+(Reading database ... 75%
+(Reading database ... 80%
+(Reading database ... 85%
+(Reading database ... 90%
+(Reading database ... 95%
+(Reading database ... 100%
+(Reading database ... 42143 files and directories currently installed.)
+Preparing to unpack .../libgnutls30_3.6.13-2ubuntu1.6_amd64.deb ...
+Unpacking libgnutls30:amd64 (3.6.13-2ubuntu1.6) over (3.6.13-2ubuntu1.3) ...
+Setting up libgnutls30:amd64 (3.6.13-2ubuntu1.6) ...
+Selecting previously unselected package libevent-2.1-7:amd64.
+(Reading database ... 
+(Reading database ... 5%
+(Reading database ... 10%
+(Reading database ... 15%
+(Reading database ... 20%
+(Reading database ... 25%
+(Reading database ... 30%
+(Reading database ... 35%
+(Reading database ... 40%
+(Reading database ... 45%
+(Reading database ... 50%
+(Reading database ... 55%
+(Reading database ... 60%
+(Reading database ... 65%
+(Reading database ... 70%
+(Reading database ... 75%
+(Reading database ... 80%
+(Reading database ... 85%
+(Reading database ... 90%
+(Reading database ... 95%
+(Reading database ... 100%
+(Reading database ... 42143 files and directories currently installed.)
+Preparing to unpack .../00-libevent-2.1-7_2.1.11-stable-1_amd64.deb ...
+Unpacking libevent-2.1-7:amd64 (2.1.11-stable-1) ...
+Selecting previously unselected package libgmpxx4ldbl:amd64.
+Preparing to unpack .../01-libgmpxx4ldbl_2%3a6.2.0+dfsg-4_amd64.deb ...
+Unpacking libgmpxx4ldbl:amd64 (2:6.2.0+dfsg-4) ...
+Selecting previously unselected package libgmp-dev:amd64.
+Preparing to unpack .../02-libgmp-dev_2%3a6.2.0+dfsg-4_amd64.deb ...
+Unpacking libgmp-dev:amd64 (2:6.2.0+dfsg-4) ...
+Selecting previously unselected package libgnutls-openssl27:amd64.
+Preparing to unpack .../03-libgnutls-openssl27_3.6.13-2ubuntu1.6_amd64.deb ...
+Unpacking libgnutls-openssl27:amd64 (3.6.13-2ubuntu1.6) ...
+Selecting previously unselected package libunbound8:amd64.
+Preparing to unpack .../04-libunbound8_1.9.4-2ubuntu1.2_amd64.deb ...
+Unpacking libunbound8:amd64 (1.9.4-2ubuntu1.2) ...
+Selecting previously unselected package libgnutls-dane0:amd64.
+Preparing to unpack .../05-libgnutls-dane0_3.6.13-2ubuntu1.6_amd64.deb ...
+Unpacking libgnutls-dane0:amd64 (3.6.13-2ubuntu1.6) ...
+Selecting previously unselected package libgnutlsxx28:amd64.
+Preparing to unpack .../06-libgnutlsxx28_3.6.13-2ubuntu1.6_amd64.deb ...
+Unpacking libgnutlsxx28:amd64 (3.6.13-2ubuntu1.6) ...
+Selecting previously unselected package libidn2-dev:amd64.
+Preparing to unpack .../07-libidn2-dev_2.2.0-2_amd64.deb ...
+Unpacking libidn2-dev:amd64 (2.2.0-2) ...
+Selecting previously unselected package libp11-kit-dev:amd64.
+Preparing to unpack .../08-libp11-kit-dev_0.23.20-1ubuntu0.1_amd64.deb ...
+Unpacking libp11-kit-dev:amd64 (0.23.20-1ubuntu0.1) ...
+Selecting previously unselected package libtasn1-6-dev:amd64.
+Preparing to unpack .../09-libtasn1-6-dev_4.16.0-2_amd64.deb ...
+Unpacking libtasn1-6-dev:amd64 (4.16.0-2) ...
+Selecting previously unselected package nettle-dev:amd64.
+Preparing to unpack .../10-nettle-dev_3.5.1+really3.5.1-2ubuntu0.2_amd64.deb ...
+Unpacking nettle-dev:amd64 (3.5.1+really3.5.1-2ubuntu0.2) ...
+Selecting previously unselected package libgnutls28-dev:amd64.
+Preparing to unpack .../11-libgnutls28-dev_3.6.13-2ubuntu1.6_amd64.deb ...
+Unpacking libgnutls28-dev:amd64 (3.6.13-2ubuntu1.6) ...
+Selecting previously unselected package libtasn1-doc.
+Preparing to unpack .../12-libtasn1-doc_4.16.0-2_all.deb ...
+Unpacking libtasn1-doc (4.16.0-2) ...
+Setting up libgnutls-openssl27:amd64 (3.6.13-2ubuntu1.6) ...
+Setting up libtasn1-doc (4.16.0-2) ...
+Setting up libgmpxx4ldbl:amd64 (2:6.2.0+dfsg-4) ...
+Setting up libevent-2.1-7:amd64 (2.1.11-stable-1) ...
+Setting up libgnutlsxx28:amd64 (3.6.13-2ubuntu1.6) ...
+Setting up libidn2-dev:amd64 (2.2.0-2) ...
+Setting up libtasn1-6-dev:amd64 (4.16.0-2) ...
+Setting up libp11-kit-dev:amd64 (0.23.20-1ubuntu0.1) ...
+Setting up libgmp-dev:amd64 (2:6.2.0+dfsg-4) ...
+Setting up nettle-dev:amd64 (3.5.1+really3.5.1-2ubuntu0.2) ...
+Setting up libunbound8:amd64 (1.9.4-2ubuntu1.2) ...
+Setting up libgnutls-dane0:amd64 (3.6.13-2ubuntu1.6) ...
+Setting up libgnutls28-dev:amd64 (3.6.13-2ubuntu1.6) ...
+Processing triggers for libc-bin (2.31-0ubuntu9.1) ...
+Note: Deploying release unixodbc=2.3.6...
+The system package 'unixodbc-dev' is about to be installed.
+This action might require admin privileges and impact your system installation.
+Do you want Alire to install this system package?
+Using default: Yes
+debconf: delaying package configuration, since apt-utils is not installed
+Selecting previously unselected package libsigsegv2:amd64.
+(Reading database ... 
+(Reading database ... 5%
+(Reading database ... 10%
+(Reading database ... 15%
+(Reading database ... 20%
+(Reading database ... 25%
+(Reading database ... 30%
+(Reading database ... 35%
+(Reading database ... 40%
+(Reading database ... 45%
+(Reading database ... 50%
+(Reading database ... 55%
+(Reading database ... 60%
+(Reading database ... 65%
+(Reading database ... 70%
+(Reading database ... 75%
+(Reading database ... 80%
+(Reading database ... 85%
+(Reading database ... 90%
+(Reading database ... 95%
+(Reading database ... 100%
+(Reading database ... 42490 files and directories currently installed.)
+Preparing to unpack .../00-libsigsegv2_2.12-2_amd64.deb ...
+Unpacking libsigsegv2:amd64 (2.12-2) ...
+Selecting previously unselected package m4.
+Preparing to unpack .../01-m4_1.4.18-4_amd64.deb ...
+Unpacking m4 (1.4.18-4) ...
+Selecting previously unselected package autoconf.
+Preparing to unpack .../02-autoconf_2.69-11.1_all.deb ...
+Unpacking autoconf (2.69-11.1) ...
+Selecting previously unselected package autotools-dev.
+Preparing to unpack .../03-autotools-dev_20180224.1_all.deb ...
+Unpacking autotools-dev (20180224.1) ...
+Selecting previously unselected package automake.
+Preparing to unpack .../04-automake_1%3a1.16.1-4ubuntu6_all.deb ...
+Unpacking automake (1:1.16.1-4ubuntu6) ...
+Selecting previously unselected package libltdl7:amd64.
+Preparing to unpack .../05-libltdl7_2.4.6-14_amd64.deb ...
+Unpacking libltdl7:amd64 (2.4.6-14) ...
+Selecting previously unselected package libltdl-dev:amd64.
+Preparing to unpack .../06-libltdl-dev_2.4.6-14_amd64.deb ...
+Unpacking libltdl-dev:amd64 (2.4.6-14) ...
+Selecting previously unselected package libodbc1:amd64.
+Preparing to unpack .../07-libodbc1_2.3.6-0.1build1_amd64.deb ...
+Unpacking libodbc1:amd64 (2.3.6-0.1build1) ...
+Selecting previously unselected package libtool.
+Preparing to unpack .../08-libtool_2.4.6-14_all.deb ...
+Unpacking libtool (2.4.6-14) ...
+Selecting previously unselected package odbcinst1debian2:amd64.
+Preparing to unpack .../09-odbcinst1debian2_2.3.6-0.1build1_amd64.deb ...
+Unpacking odbcinst1debian2:amd64 (2.3.6-0.1build1) ...
+Selecting previously unselected package odbcinst.
+Preparing to unpack .../10-odbcinst_2.3.6-0.1build1_amd64.deb ...
+Unpacking odbcinst (2.3.6-0.1build1) ...
+Selecting previously unselected package unixodbc-dev:amd64.
+Preparing to unpack .../11-unixodbc-dev_2.3.6-0.1build1_amd64.deb ...
+Unpacking unixodbc-dev:amd64 (2.3.6-0.1build1) ...
+Setting up autotools-dev (20180224.1) ...
+Setting up libsigsegv2:amd64 (2.12-2) ...
+Setting up libltdl7:amd64 (2.4.6-14) ...
+Setting up libtool (2.4.6-14) ...
+Setting up m4 (1.4.18-4) ...
+Setting up libodbc1:amd64 (2.3.6-0.1build1) ...
+Setting up autoconf (2.69-11.1) ...
+Setting up automake (1:1.16.1-4ubuntu6) ...
+update-alternatives: using /usr/bin/automake-1.16 to provide /usr/bin/automake (automake) in auto mode
+update-alternatives: warning: skip creation of /usr/share/man/man1/automake.1.gz because associated file /usr/share/man/man1/automake-1.16.1.gz (of link group automake) doesn't exist
+update-alternatives: warning: skip creation of /usr/share/man/man1/aclocal.1.gz because associated file /usr/share/man/man1/aclocal-1.16.1.gz (of link group automake) doesn't exist
+Setting up libltdl-dev:amd64 (2.4.6-14) ...
+Setting up odbcinst1debian2:amd64 (2.3.6-0.1build1) ...
+Setting up unixodbc-dev:amd64 (2.3.6-0.1build1) ...
+Setting up odbcinst (2.3.6-0.1build1) ...
+Processing triggers for libc-bin (2.31-0ubuntu9.1) ...
+Compile
+   [Ada]          tables.adb
+   [Ada]          tables-names.adb
+   [Ada]          strings_edit-utf8-windows_1255.adb
+   [Ada]          strings_edit-utf8-handling.adb
+   [Ada]          strings_edit-float_edit.adb
+   [Ada]          strings_edit-utf8-iso_8859_9.adb
+strings_edit-float_edit.adb:264:18: warning: Numeric_Error is an obsolescent feature (RM J.6(1))
+strings_edit-float_edit.adb:264:18: warning: use Constraint_Error instead
+   [Ada]          strings_edit-utf8-iso_8859_3.adb
+   [Ada]          strings_edit-distinguished_names.adb
+   [Ada]          strings_edit-utf8-blocks.ads
+   [Ada]          strings_edit-utf8-wildcards.adb
+   [Ada]          strings_edit-utf8-iso_8859_6.adb
+   [Ada]          strings_edit-utf8-iso_8859_2.adb
+   [Ada]          strings_edit-utf8-iso_8859_10.adb
+   [Ada]          strings_edit-streams-integers_32.ads
+   [Ada]          strings_edit-utf8-maps.adb
+   [Ada]          strings_edit-utf8-windows_1256.adb
+   [Ada]          strings_edit-utf8-maps-constants.ads
+   [Ada]          strings_edit-utf8-radix50.adb
+   [Ada]          strings_edit-utf8-iso_8859_7.adb
+   [Ada]          strings_edit-streams-unsigneds_32.ads
+   [Ada]          strings_edit-integers-superscript.ads
+   [Ada]          strings_edit.adb
+   [Ada]          strings_edit-integers-subscript.ads
+   [Ada]          strings_edit-chacha20.adb
+   [Ada]          strings_edit-streams-generic_integer.adb
+   [Ada]          strings_edit-iso_8601.adb
+   [Ada]          strings_edit-integers.ads
+   [Ada]          strings_edit-utf8-windows_1258.adb
+   [Ada]          strings_edit-utf8-itu_t61.adb
+   [Ada]          strings_edit-integer_edit.adb
+   [Ada]          strings_edit-utf8-recoding_streams.adb
+   [Ada]          strings_edit-utf8-mapping.adb
+   [Ada]          strings_edit-utf8-windows_1253.adb
+   [Ada]          strings_edit-chacha20-poly1305.adb
+   [Ada]          strings_edit-chacha20-aead.adb
+   [Ada]          strings_edit-utf8-windows_1251.adb
+   [Ada]          strings_edit-utf8-categorization.adb
+   [Ada]          strings_edit-utf8-windows_1250.adb
+   [Ada]          strings_edit-utf8-iso_8859_4.adb
+   [Ada]          strings_edit-utf8-koi8.adb
+   [Ada]          strings_edit-utf8-wildcards-case_insensitive.adb
+   [Ada]          strings_edit-streams-integers.ads
+   [Ada]          strings_edit-utf8-subscript-integer_edit.ads
+   [Ada]          strings_edit-utf8-windows_1252.adb
+   [Ada]          strings_edit-quoted.adb
+   [Ada]          strings_edit-utf8-windows_1257.adb
+   [Ada]          strings_edit-utf8-iso_8859_5.adb
+   [Ada]          strings_edit-long_floats.ads
+   [Ada]          strings_edit-utf8-superscript-integer_edit.ads
+   [Ada]          strings_edit-streams-unsigneds_64.ads
+   [Ada]          strings_edit-streams-integers_64.ads
+   [Ada]          strings_edit-floats.ads
+   [Ada]          strings_edit-lexicographical_order.adb
+   [Ada]          strings_edit-base64.adb
+   [Ada]          strings_edit-utf8-iso_8859_8.adb
+   [Ada]          strings_edit-utf8-integer_edit.adb
+   [Ada]          strings_edit-utf8-superscript.adb
+   [Ada]          strings_edit-object_identifiers.adb
+   [Ada]          strings_edit-roman_edit.adb
+   [Ada]          strings_edit-streams-generic_unsigned.adb
+   [Ada]          strings_edit-utf8-macos_roman.adb
+   [Ada]          strings_edit-fields.adb
+   [Ada]          strings_edit-streams-naturals.ads
+   [Ada]          strings_edit-utf8-windows_1254.adb
+   [Ada]          strings_edit-generic_scale.adb
+   [Ada]          strings_edit-utf8-subscript.adb
+   [Ada]          strings_edit-utf8.adb
+   [Ada]          strings_edit-streams.adb
+   [Ada]          strings_edit-streams-generic_modular.adb
+   [Ada]          synchronization-interprocess-generic_blackboard.adb
+   [Ada]          generic_blackboard.adb
+   [Ada]          synchronization-interprocess.adb
+   [Ada]          synchronization-interprocess-events.adb
+synchronization-interprocess-events.adb:49:07: warning: variable "Result" is assigned but never read
+   [Ada]          synchronization-windows.adb
+synchronization-interprocess.adb:93:07: warning: variable "Result" is assigned but never read
+synchronization-interprocess.adb:129:07: warning: variable "Result" is never read and never assigned
+/usr/lib/gcc/x86_64-linux-gnu/9/adainclude/s-atacco.ads: In function ‘Synchronization.Interprocess.Read’:
+/home/runner/work/alire-crates-ci/alire-crates-ci/test/2e340408-7765-4690-9ead-a9772222f08f/simple_components_4.42.0_21c00530/os/windows/synchronization-interprocess.adb:524:8: warning: ‘Last’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+   [Ada]          synchronization-interprocess-pulse_events.adb
+   [Ada]          synchronization-interprocess-mutexes.adb
+synchronization-interprocess-pulse_events.adb:50:07: warning: variable "Result" is assigned but never read
+   [Ada]          system_errno.ads
+   [Ada]          ieee_754-floats.ads
+   [Ada]          synchronization-interprocess-process_call_service-generic_call_service_arrays.adb
+synchronization-interprocess-mutexes.adb:53:07: warning: variable "Result" is assigned but never read
+synchronization-interprocess-mutexes.adb:102:07: warning: variable "Result" is never read and never assigned
+   [Ada]          parsers-multiline_source-latin1_text_io.adb
+   [Ada]          persistent-blocking_files-transactional-dump.adb
+   [Ada]          generic_map.adb
+   [Ada]          persistent-memory_pools-streams-external_b_tree.adb
+   [Ada]          persistent-data_bank.adb
+   [Ada]          persistent-memory_pools-streams-external_b_tree-generic_table.adb
+persistent-memory_pools-streams-external_b_tree.adb:438:16: warning: variable "Ptr" is assigned but never read
+persistent-memory_pools-streams-external_b_tree.adb:1403:10: warning: variable "Key" is assigned but never read
+persistent-memory_pools-streams-external_b_tree.adb:1716:29: warning: "Replaced" modified by call, but value might not be referenced
+   [Ada]          storage_streams.adb
+   [Ada]          generic_fifo.adb
+   [Ada]          synchronization-interprocess-process_call_service-set_string.ads
+   [Ada]          persistent-single_file_keys-sets.ads
+   [Ada]          ieee_754-long_floats.ads
+   [Ada]          generic_discrete_set.adb
+   [Ada]          generic_indefinite_fifo-generic_signaled.adb
+generic_discrete_set.adb:375:36: warning: redundant conversion, "Right" is of type "Set"
+   [Ada]          parsers-generic_token-segmented_lexer.ads
+   [Ada]          synchronization-interprocess-process_call_service-generic_dyadic_function.adb
+   [Ada]          synchronization-interprocess-process_call_service-generic_parameterless_function.adb
+   [Ada]          generic_doubly_linked_web.adb
+   [Ada]          synchronization-interprocess-process_call_service-get_string.ads
+   [Ada]          generic_indefinite_map.adb
+   [Ada]          persistent-data_bank-index-text_io.adb
+   [Ada]          object.adb
+   [Ada]          persistent-data_bank-indexed.adb
+   [Ada]          generic_discrete_map.adb
+   [Ada]          generic_indefinite_b_tree.adb
+   [Ada]          synchronization-interprocess-generic_fifo.adb
+   [Ada]          parsers-generic_source-get_cpp_blank.adb
+   [Ada]          synchronization-interprocess-process_call_service.adb
+persistent-data_bank-indexed.adb:244:19: warning: variable "Parent" is assigned but never read
+   [Ada]          persistent-data_bank-indexed-text_io.adb
+   [Ada]          generic_directed_weighted_graph.adb
+generic_directed_weighted_graph.adb:666:17: warning: formal parameter "Vertex" is not modified
+generic_directed_weighted_graph.adb:666:17: warning: mode could be "in" instead of "in out"
+   [Ada]          parsers-generic_source-keywords.adb
+   [Ada]          ieee_754-generic_single_precision.adb
+   [Ada]          synchronization-interprocess-process_call_service-generic_ternary_function.adb
+   [Ada]          parsers-generic_operation-segmented_stack.ads
+synchronization-interprocess-process_call_service.adb:1000:17: warning: formal parameter "Item" is read but never assigned
+synchronization-interprocess-process_call_service.adb:1009:17: warning: formal parameter "Item" is read but never assigned
+synchronization-interprocess-process_call_service.adb:1183:16: warning: formal parameter "Header" is not modified
+synchronization-interprocess-process_call_service.adb:1183:16: warning: mode could be "in" instead of "in out"
+synchronization-interprocess-process_call_service.ads:385:04: warning: in instantiation at synchronization-interprocess-generic_fifo.adb:484
+synchronization-interprocess-process_call_service.ads:385:04: warning: volatile actual passed by copy (RM C.6(19))
+   [Ada]          synchronization-interprocess-process_call_service-parameterless_procedure.adb
+   [Ada]          parsers-multiline_source-text_io.adb
+   [Ada]          persistent-memory_pools-streams.adb
+   [Ada]          parsers-string_source.adb
+   [Ada]          parsers-generic_lexer-ada_2005_blanks.adb
+   [Ada]          persistent-memory_pools-streams-generic_external_b_tree.adb
+   [Ada]          synchronization-generic_pulse_events.adb
+   [Ada]          synchronization-generic_events_array.adb
+   [Ada]          deposit_handles.ads
+   [Ada]          generic_blackboard-generic_task_safe.adb
+   [Ada]          synchronization-interprocess-process_call_service-generic_unary_procedure.adb
+   [Ada]          parsers-generic_lexer.adb
+   [Ada]          long_float_cubic_spline.ads
+parsers-generic_lexer.adb:224:17: warning: formal parameter "Modifier" is not modified
+parsers-generic_lexer.adb:224:17: warning: mode could be "in" instead of "in out"
+parsers-generic_lexer.adb:491:22: warning: "Modifier" may be referenced before it has a value
+   [Ada]          synchronization-interprocess-memory_pools.adb
+   [Ada]          generic_segmented_stack.adb
+   [Ada]          parsers-multiline_source-wide_text_io.adb
+   [Ada]          generic_directed_graph.adb
+   [Ada]          persistent-blocking_files.adb
+generic_directed_graph.adb:333:17: warning: formal parameter "Vertex" is not modified
+generic_directed_graph.adb:333:17: warning: mode could be "in" instead of "in out"
+   [Ada]          generic_unbounded_ptr_array.adb
+   [Ada]          backward_link_handles-sets.ads
+   [Ada]          parsers-generic_argument-segmented_stack.adb
+   [Ada]          parsers-multiline_source-standard_input.adb
+parsers-generic_argument-segmented_stack.ads:89:30: warning: "Default" may be referenced before it has a value
+   [Ada]          generic_discrete_indefinite_map.adb
+   [Ada]          ieee_754.ads
+   [Ada]          parsers-generic_lexer-cpp_blanks.adb
+   [Ada]          block_streams.adb
+   [Ada]          persistent-blocking_files-text_io.adb
+   [Ada]          object-archived-sets.adb
+   [Ada]          persistent-handle.adb
+   [Ada]          stack_storage.adb
+   [Ada]          parsers-generic_token-generic_token_lexer.adb
+   [Ada]          parsers-generic_source-get_token.adb
+   [Ada]          synchronization-interprocess-process_call_service-process_string.ads
+   [Ada]          persistent-directory.adb
+   [Ada]          parsers-multiline_source-location_text_io.ads
+   [Ada]          generic_chebyshev_polynomials.adb
+   [Ada]          persistent-data_bank-reference.adb
+   [Ada]          object-handle-generic_bounded_array.adb
+   [Ada]          synchronization-pulse_events.adb
+   [Ada]          persistent-single_file.adb
+   [Ada]          generic_b_tree.adb
+   [Ada]          generic_doubly_linked_web-generic_list.adb
+generic_doubly_linked_web-generic_list.adb:137:14: warning: redundant conversion, expression is of type "Item"
+generic_doubly_linked_web-generic_list.adb:170:14: warning: redundant conversion, expression is of type "Item"
+   [Ada]          generic_set.adb
+   [Ada]          generic_cubic_spline.adb
+   [Ada]          parsers-multiline_source-stream_io.adb
+   [Ada]          object-archived.adb
+   [Ada]          object-handle.adb
+   [Ada]          parsers-generic_source-get_ada_2005_blank.adb
+   [Ada]          synchronization.ads
+   [Ada]          generic_unbounded_array.adb
+   [Ada]          strings_edit-time_conversions.adb
+   [Ada]          parsers-generic_lexer-ada_blanks.adb
+   [Ada]          synchronization-interprocess-process_call_service-generic_unary_function.adb
+   [Ada]          persistent-memory_pools.adb
+   [Ada]          object-handle-generic_set.adb
+   [Ada]          parsers-generic_lexer-blanks.adb
+   [Ada]          generic_random_sequence.adb
+   [Ada]          parsers-generic_source-get_text.adb
+   [Ada]          ieee_754-generic_double_precision.adb
+   [Ada]          object-archived-handle.adb
+   [Ada]          parsers-generic_operation.ads
+   [Ada]          persistent-single_file_keys.adb
+   [Ada]          parsers-generic_source-get_utf8_text.adb
+   [Ada]          synchronization-interprocess-process_call_service-manager.adb
+   [Ada]          generic_fifo-generic_signaled.adb
+   [Ada]          synchronization-mutexes.adb
+   [Ada]          synchronization-interprocess-process_call_service-generic_dyadic_procedure.adb
+   [Ada]          parsers.ads
+   [Ada]          persistent.adb
+   [Ada]          parsers-multiline_source.adb
+   [Ada]          parsers-generic_source-get_ada_blank.adb
+   [Ada]          parsers-generic_source-text_io.adb
+   [Ada]          synchronization-interprocess-streams.adb
+   [Ada]          stack_storage-mark_and_release.adb
+   [Ada]          persistent-single_file_keys-arrays.ads
+   [Ada]          generic_stack.adb
+   [Ada]          generic_address_order.adb
+   [Ada]          synchronization-events.adb
+   [Ada]          persistent-memory_pools-dump.adb
+   [Ada]          backward_link_handles.ads
+   [Ada]          persistent-data_bank-mutexes.ads
+   [Ada]          object-handle-generic_handle_set.adb
+   [Ada]          parsers-generic_source.ads
+   [Ada]          parsers-generic_argument.ads
+   [Ada]          object-archived-lists.adb
+   [Ada]          generic_indefinite_set.adb
+   [Ada]          generic_doubly_linked.ads
+   [Ada]          strings_edit-symmetric_serialization.adb
+strings_edit-symmetric_serialization.adb:137:07: warning: variable "Sequencer" is read but never assigned
+   [Ada]          object-handle-generic_unbounded_array.adb
+   [Ada]          gamma.adb
+   [Ada]          synchronization-interprocess-generic_shared_object.adb
+   [Ada]          parsers-generic_operation-generic_stack.adb
+parsers-generic_operation-generic_stack.adb:250:28: warning: "Inverse" is not modified, could be declared constant
+   [Ada]          generic_indefinite_fifo.adb
+   [Ada]          persistent-blocking_files-transactional.adb
+   [Ada]          parsers-generic_source-get_blank.adb
+   [Ada]          tables-utf8_names.adb
+   [Ada]          parsers-generic_token.adb
+   [Ada]          long_float_chebyshev_polynomials.ads
+   [Ada]          persistent-memory_pools-streams-generic_external_ptr_b_tree.adb
+persistent-memory_pools-streams-generic_external_ptr_b_tree.adb:468:16: warning: variable "Ptr" is assigned but never read
+persistent-memory_pools-streams-generic_external_ptr_b_tree.adb:1798:31: warning: "Replaced" modified by call, but value might not be referenced
+   [Ada]          persistent-data_bank-index.adb
+persistent-blocking_files-transactional.adb:46:16: warning: variable "Ptr" is assigned but never read
+persistent-blocking_files-transactional.adb:975:13: warning: variable "Block" is assigned but never read
+persistent-blocking_files-transactional.adb:1098:34: warning: condition is always True
+persistent-blocking_files-transactional.adb:1182:39: warning: condition is always True
+persistent-blocking_files-transactional.adb:1253:18: warning: condition is always False
+persistent-blocking_files-transactional.adb:1295:07: warning: variable "Physical" is assigned but never read
+   [Ada]          object-archived-iterators.adb
+   [Ada]          persistent-single_file-text_io.adb
+   [Ada]          synchronization-generic_mutexes_array.adb
+synchronization-generic_mutexes_array.adb:140:23: warning: "Success" modified by call, but value might not be referenced
+   [Ada]          synchronization-interprocess-process_call_service-generic_ternary_procedure.adb
+Compile
+   [Ada]          gnat-sockets-server.adb
+   [Ada]          gnat-sockets-connection_state_machine-asn1-choices.adb
+   [Ada]          gnat-sockets-connection_state_machine-asn1-object_identifiers.adb
+   [Ada]          gnat-sockets-connection_state_machine-asn1-sets-generic_reference.adb
+   [Ada]          gnat-sockets-connection_state_machine-asn1-lengths.adb
+   [Ada]          gnat-sockets-server-handles.ads
+   [Ada]          gnat-sockets-connection_state_machine-asn1-unsigneds_16.ads
+   [Ada]          gnat-sockets-connection_state_machine-little_endian-integers.adb
+   [Ada]          gnat-sockets-connection_state_machine-asn1-unsigneds_64.ads
+   [Ada]          gnat-sockets-connection_state_machine-asn1-indefinite_unsigneds.adb
+   [Ada]          gnat-sockets-connection_state_machine-asn1-sequences-explicit.adb
+   [Ada]          gnat-sockets-connection_state_machine-asn1-bit_strings-implicit.adb
+   [Ada]          gnat-sockets-connection_state_machine-variable_length_strings.adb
+   [Ada]          gnat-sockets-connection_state_machine-asn1-strings-implicit.adb
+   [Ada]          gnat-sockets-connection_state_machine-chain_code-naturals.ads
+   [Ada]          gnat-sockets-connection_state_machine-big_endian-unsigneds.adb
+   [Ada]          gnat-sockets-connection_state_machine-little_endian.ads
+   [Ada]          gnat-sockets-connection_state_machine-asn1-bit_strings-explicit.adb
+   [Ada]          gnat-sockets-connection_state_machine-little_endian-generic_single_precision_ieee_754.adb
+   [Ada]          gnat-sockets-connection_state_machine-asn1-sequences-implicit.adb
+   [Ada]          gnat-sockets-connection_state_machine-asn1-sets-explicit.adb
+   [Ada]          gnat-sockets-connection_state_machine-asn1.adb
+   [Ada]          gnat-sockets-connection_state_machine-asn1-unsigneds_8.adb
+   [Ada]          gnat-sockets-connection_state_machine-expected_sequence.adb
+   [Ada]          gnat-sockets-connection_state_machine-little_endian-generic_double_precision_ieee_754.adb
+   [Ada]          gnat-sockets-connection_state_machine-little_endian-unsigneds.adb
+   [Ada]          gnat-sockets-connection_state_machine-chain_code.ads
+   [Ada]          gnat-sockets-connection_state_machine-big_endian-integers.adb
+   [Ada]          gnat-sockets-connection_state_machine-chain_code-generic_integer.adb
+   [Ada]          gnat-sockets-connection_state_machine-asn1-tagged_values.adb
+   [Ada]          gnat-sockets-connection_state_machine-asn1-floats.ads
+   [Ada]          gnat-sockets-connection_state_machine-asn1-generic_enumeration.adb
+   [Ada]          gnat-sockets-connection_state_machine-chain_code-generic_unsigned.adb
+   [Ada]          gnat-sockets-connection_state_machine-asn1-booleans.adb
+   [Ada]          gnat-sockets-connection_state_machine-big_endian-ieee_754_floats.ads
+   [Ada]          gnat-sockets-connection_state_machine-big_endian-generic_single_precision_ieee_754.adb
+   [Ada]          gnat-sockets-connection_state_machine-asn1-integers_32.ads
+   [Ada]          gnat-sockets-connection_state_machine-little_endian-ieee_754_floats.ads
+   [Ada]          gnat-sockets-connection_state_machine-asn1-generic_integer.adb
+   [Ada]          gnat-sockets-connection_state_machine-little_endian-ieee_754_long_floats.ads
+   [Ada]          gnat-sockets-connection_state_machine-asn1-dates.adb
+   [Ada]          gnat-sockets-connection_state_machine-terminated_strings.adb
+   [Ada]          gnat-sockets-connection_state_machine-big_endian.ads
+   [Ada]          gnat-sockets-connection_state_machine-asn1-nulls.adb
+   [Ada]          gnat-sockets-server-pooled.adb
+   [Ada]          gnat-sockets-connection_state_machine-asn1-sets-generic_set_of.adb
+   [Ada]          gnat-sockets-connection_state_machine-asn1-sets-implicit.adb
+   [Ada]          gnat-sockets-connection_state_machine-asn1-sequences-generic_sequence_of.adb
+   [Ada]          gnat-sockets-connection_state_machine-asn1-sequences.adb
+   [Ada]          gnat-sockets-connection_state_machine-asn1-x509_certificates-stream_io.adb
+   [Ada]          gnat-sockets-connection_state_machine.adb
+gnat-sockets-connection_state_machine-asn1-x509_certificates-stream_io.adb:148:28: warning: "Encoder" may be referenced before it has a value
+   [Ada]          gnat-sockets-connection_state_machine-asn1-integers_8.adb
+gnat-sockets-connection_state_machine.adb:817:17: warning: formal parameter "Item" is read but never assigned
+   [Ada]          gnat-sockets-server-blocking.adb
+   [Ada]          gnat-sockets-connection_state_machine-asn1-strings.adb
+   [Ada]          gnat-sockets-connection_state_machine-asn1-integers_16.ads
+   [Ada]          gnat-sockets-connection_state_machine-asn1-text_io.adb
+   [Ada]          gnat-sockets-connection_state_machine-big_endian-ieee_754_long_floats.ads
+   [Ada]          gnat-sockets-connection_state_machine-asn1-integers_64.ads
+   [Ada]          gnat-sockets-connection_state_machine-big_endian-generic_double_precision_ieee_754.adb
+   [Ada]          gnat-sockets-connection_state_machine-asn1-long_floats.ads
+   [Ada]          gnat-sockets-connection_state_machine-asn1-integers.ads
+   [Ada]          gnat-sockets-connection_state_machine-chain_code-integers.ads
+   [Ada]          gnat-sockets-connection_state_machine-asn1-sets.adb
+   [Ada]          gnat-sockets-connection_state_machine-asn1-objects.adb
+   [Ada]          gnat-sockets-connection_state_machine-asn1-unsigneds_32.ads
+   [Ada]          gnat-sockets-connection_state_machine-asn1-distinguished_names.adb
+   [Ada]          gnat-sockets-connection_state_machine-asn1-bit_strings.adb
+   [Ada]          gnat-sockets-connection_state_machine-asn1-strings-implicit-constrained.adb
+   [Ada]          gnat-sockets-connection_state_machine-asn1-strings-explicit-constrained.adb
+   [Ada]          gnat-sockets-connection_state_machine-variable_length_arrays.adb
+   [Ada]          gnat-sockets-connection_state_machine-asn1-strings-explicit.adb
+   [Ada]          gnat-sockets-connection_state_machine-asn1-generic_unsigned.adb
+   [Ada]          gnat-sockets-connection_state_machine-asn1-generic_real.adb
+   [Ada]          gnat-sockets-connection_state_machine-asn1-x509_certificates.adb
+Compile
+   [Ada]          gnat-sockets-connection_state_machine-elv_max_cube_client-topology.adb
+   [Ada]          gnat-sockets-connection_state_machine-elv_max_cube_client.adb
+   [Ada]          gnat-sockets-connection_state_machine-elv_max_cube_client-time_zones.ads
+   [Ada]          gnat-sockets-connection_state_machine-elv_max_cube_client-stream_io.adb
+gnat-sockets-connection_state_machine-elv_max_cube_client.adb:1577:07: warning: useless assignment to "Action", value overwritten at line 1583
+gnat-sockets-connection_state_machine-elv_max_cube_client.adb:1583:07: warning: useless assignment to "Action", value overwritten at line 1589
+gnat-sockets-connection_state_machine-elv_max_cube_client.adb:2050:10: warning: variable "ID" is assigned but never read
+gnat-sockets-connection_state_machine-elv_max_cube_client.adb:2619:07: warning: variable "Answer" is assigned but never read
+gnat-sockets-connection_state_machine-elv_max_cube_client.adb:2621:07: warning: variable "Uptodate" is assigned but never read
+gnat-sockets-connection_state_machine-elv_max_cube_client.adb:5681:48: warning: "Result" may be referenced before it has a value
+gnat-sockets-connection_state_machine-elv_max_cube_client.ads:172:51: warning: static fixed-point value is not a multiple of Small
+Compile
+   [Ada]          gnat-sockets-connection_state_machine-http_server-websocket_server.adb
+   [Ada]          gnat-sockets-connection_state_machine-http_client.adb
+   [Ada]          gnat-sockets-connection_state_machine-http_client-signaled.adb
+   [Ada]          gnat-sockets-connection_state_machine-http_server.adb
+Compile
+   [C]            sqlite3.c
+   [Ada]          persistent-sqlite_links.adb
+persistent-sqlite_links.adb:120:19: warning: variable "Command" is not modified in loop body
+persistent-sqlite_links.adb:120:19: warning: possible infinite loop
+persistent-sqlite_links.adb:185:19: warning: variable "Command" is not modified in loop body
+persistent-sqlite_links.adb:185:19: warning: possible infinite loop
+persistent-sqlite_links.adb:215:19: warning: variable "Command" is not modified in loop body
+persistent-sqlite_links.adb:215:19: warning: possible infinite loop
+   [Ada]          persistent-sqlite-text_io.adb
+   [Ada]          persistent-sqlite_keys-sets.ads
+   [Ada]          persistent-sqlite_keys.adb
+   [Ada]          persistent-sqlite_keys-arrays.ads
+   [Ada]          persistent-sqlite.adb
+   [Ada]          sqlite.adb
+sqlite.adb:529:07: warning: "Destination" is not modified, could be declared constant
+sqlite.adb:530:07: warning: "Object" is not modified, could be declared constant
+sqlite.adb:576:07: warning: variable "Result" is assigned but never read
+sqlite.adb:784:07: warning: variable "Result" is assigned but never read
+sqlite.adb:786:07: warning: possibly useless assignment to "Result", value might not be referenced
+sqlite.adb:819:07: warning: variable "Result" is assigned but never read
+sqlite.adb:821:07: warning: possibly useless assignment to "Result", value might not be referenced
+   [Ada]          gnat-sockets-connection_state_machine-http_server-sqlite_browser.adb
+cc1: warning: ‘-fstack-check=’ and ‘-fstack-clash_protection’ are mutually exclusive.  Disabling ‘-fstack-check=’
+Compile
+   [Ada]          gnat-sockets-connection_state_machine-modbus_client.adb
+   [Ada]          gnat-sockets-connection_state_machine-modbus_client-synchronous.adb
+Compile
+   [Ada]          gnat-sockets-mqtt-streams.adb
+   [Ada]          gnat-sockets-mqtt-server.adb
+   [Ada]          gnat-sockets-mqtt.adb
+Compile
+   [Ada]          gnutls.adb
+   [Ada]          gnat-sockets-server-secure-anonymous.adb
+   [Ada]          gnat-sockets-server-secure.adb
+   [Ada]          gnat-sockets-server-secure-x509.adb
+Compile
+   [Ada]          gnat-sockets-smtp-client-synchronous.adb
+   [Ada]          gnat-sockets-smtp.adb
+   [Ada]          gnat-sockets-smtp-client.adb
+Compile
+   [Ada]          gnat-sockets-ntp.adb
+Compile
+   [Ada]          odbc-architecture_dependent.ads
+   [Ada]          odbc-driver_dependent.ads
+   [Ada]          odbc-api-keys.adb
+   [Ada]          odbc-api.adb
+   [Ada]          odbc-api-links.adb
+   [Ada]          odbc-sqltypes.adb
+odbc-sqltypes.ads:206:04: warning: pragma Pack affects convention "C" component at line 203
+odbc-sqltypes.ads:206:04: warning: component "Data4" may not have "C" compatible representation
+   [Ada]          odbc-api-keys-sets.ads
+   [Ada]          odbc-thin.adb
+   [Ada]          odbc-api-keys-arrays.ads
+odbc-api.adb:780:07: warning: variable "Result" is assigned but never read
+odbc-api.adb:782:07: warning: possibly useless assignment to "Result", value might not be referenced
+odbc-api.adb:1210:07: warning: variable "Result" is assigned but never read
+   [Ada]          odbc-bound_parameters.adb
+   [Ada]          persistent-native_odbc-text_io.adb
+   [Ada]          persistent-native_odbc.adb
+   [Ada]          odbc.ads
+   [Ada]          odbc-api-keys-edit.ads
+
+simple_components=4.42.0 successfully retrieved and built.
+Dependencies were solved as follows:
+
+   +i gnat      9.3.0  (new,installed,gnat_external)
+   +  libgnutls 3.6.13 (new)                        
+   +  unixodbc  2.3.6  (new)                        

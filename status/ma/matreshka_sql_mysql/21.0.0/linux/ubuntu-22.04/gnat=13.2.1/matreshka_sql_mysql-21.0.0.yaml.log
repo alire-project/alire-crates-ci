@@ -1,0 +1,148 @@
+Test ran at 2024-03-23 01:17:56.041892+00:00
+
+SOLUTION:
+matreshka_sql_mysql=21.0.0: MySQL binding for Ada
+Origin: commit e880d413a557f324505cf8fdf2857c38a3007b37 from https://github.com/reznikmm/matreshka-alire
+Properties:
+   Author: Vadim Godunko
+   Description: MySQL binding for Ada
+   License: BSD-3-Clause
+   Maintainer: Vadim Godunko <vgodunko@gmail.com>
+   Maintainer: Maxim Reznik <reznikmm@gmail.com>
+   Maintainers_Logins: godunko
+   Maintainers_Logins: reznikmm
+   Name: matreshka_sql_mysql
+   Project_File: build_matreshka_sql_mysql.gpr
+   Tag: sql
+   Tag: database
+   Tag: db
+   Tag: mysql
+   Tag: mariadb
+   Version: 21.0.0
+   Website: https://github.com/godunko/matreshka
+Dependencies (direct):
+   libmysqlclient*
+   matreshka_league21.0.0
+   matreshka_sql21.0.0
+Dependencies (solution):
+   libmysqlclient=8.0.35
+   make=4.4.1
+   matreshka_league=21.0.0
+   matreshka_sql=21.0.0
+Dependencies (graph):
+   matreshka_league=21.0.0    --> make=4.4.1 (*)
+   matreshka_sql=21.0.0       --> matreshka_league=21.0.0 (21.0.0)
+   matreshka_sql_mysql=21.0.0 --> libmysqlclient=8.0.35 (*)
+   matreshka_sql_mysql=21.0.0 --> matreshka_league=21.0.0 (21.0.0)
+   matreshka_sql_mysql=21.0.0 --> matreshka_sql=21.0.0 (21.0.0)
+
+
+LOG:
+Spawning: alr -d -n get --build matreshka_sql_mysql=21.0.0
+Note: Deploying matreshka_sql_mysql=21.0.0...
+Note: Deploying libmysqlclient=8.0.35...
+The system package 'community-mysql-devel' is about to be installed.
+This action might require admin privileges and impact your system installation.
+Do you want Alire to install this system package?
+Using default: Yes
+Last metadata expiration check: 0:11:37 ago on Sat Mar 23 01:06:08 2024.
+Dependencies resolved.
+================================================================================
+ Package                        Arch       Version            Repository   Size
+================================================================================
+Installing:
+ community-mysql-devel          x86_64     8.0.35-1.fc39      updates      97 k
+Installing dependencies:
+ community-mysql-common         x86_64     8.0.35-1.fc39      updates      76 k
+ community-mysql-libs           x86_64     8.0.35-1.fc39      updates     1.2 M
+ libzstd-devel                  x86_64     1.5.5-4.fc39       fedora       51 k
+ mariadb-connector-c-config     noarch     3.3.8-1.fc39       updates     8.6 k
+ openssl-devel                  x86_64     1:3.1.1-4.fc39     fedora      2.6 M
+ zlib-devel                     x86_64     1.2.13-4.fc39      fedora       45 k
+
+Transaction Summary
+================================================================================
+Install  7 Packages
+
+Total download size: 4.2 M
+Installed size: 12 M
+Downloading Packages:
+(1/7): zlib-devel-1.2.13-4.fc39.x86_64.rpm      221 kB/s |  45 kB     00:00    
+(2/7): libzstd-devel-1.5.5-4.fc39.x86_64.rpm    236 kB/s |  51 kB     00:00    
+(3/7): openssl-devel-3.1.1-4.fc39.x86_64.rpm    6.2 MB/s | 2.6 MB     00:00    
+(4/7): community-mysql-common-8.0.35-1.fc39.x86 116 kB/s |  76 kB     00:00    
+(5/7): community-mysql-devel-8.0.35-1.fc39.x86_ 107 kB/s |  97 kB     00:00    
+(6/7): mariadb-connector-c-config-3.3.8-1.fc39. 5.4 kB/s | 8.6 kB     00:01    
+(7/7): community-mysql-libs-8.0.35-1.fc39.x86_6 233 kB/s | 1.2 MB     00:05    
+--------------------------------------------------------------------------------
+Total                                           685 kB/s | 4.2 MB     00:06     
+Running transaction check
+Transaction check succeeded.
+Running transaction test
+Transaction test succeeded.
+Running transaction
+  Preparing        :                                                        1/1 
+  Installing       : mariadb-connector-c-config-3.3.8-1.fc39.noarch         1/7 
+  Installing       : community-mysql-common-8.0.35-1.fc39.x86_64            2/7 
+  Installing       : community-mysql-libs-8.0.35-1.fc39.x86_64              3/7 
+  Installing       : zlib-devel-1.2.13-4.fc39.x86_64                        4/7 
+  Installing       : openssl-devel-1:3.1.1-4.fc39.x86_64                    5/7 
+  Installing       : libzstd-devel-1.5.5-4.fc39.x86_64                      6/7 
+  Installing       : community-mysql-devel-8.0.35-1.fc39.x86_64             7/7 
+  Running scriptlet: community-mysql-devel-8.0.35-1.fc39.x86_64             7/7 
+  Verifying        : libzstd-devel-1.5.5-4.fc39.x86_64                      1/7 
+  Verifying        : openssl-devel-1:3.1.1-4.fc39.x86_64                    2/7 
+  Verifying        : zlib-devel-1.2.13-4.fc39.x86_64                        3/7 
+  Verifying        : community-mysql-common-8.0.35-1.fc39.x86_64            4/7 
+  Verifying        : community-mysql-devel-8.0.35-1.fc39.x86_64             5/7 
+  Verifying        : community-mysql-libs-8.0.35-1.fc39.x86_64              6/7 
+  Verifying        : mariadb-connector-c-config-3.3.8-1.fc39.noarch         7/7 
+
+Installed:
+  community-mysql-common-8.0.35-1.fc39.x86_64                                   
+  community-mysql-devel-8.0.35-1.fc39.x86_64                                    
+  community-mysql-libs-8.0.35-1.fc39.x86_64                                     
+  libzstd-devel-1.5.5-4.fc39.x86_64                                             
+  mariadb-connector-c-config-3.3.8-1.fc39.noarch                                
+  openssl-devel-1:3.1.1-4.fc39.x86_64                                           
+  zlib-devel-1.2.13-4.fc39.x86_64                                               
+
+Complete!
+Note: Deploying matreshka_sql=21.0.0...
+Note: Building matreshka_sql_mysql=21.0.0/build_matreshka_sql_mysql.gpr...
+Setup
+   [mkdir]        object directory for project Matreshka_SQL
+   [mkdir]        object directory for project Matreshka_SQL_MySQL
+Compile
+   [Ada]          matreshka-internals-sql_parameter_sets.adb
+   [Ada]          sql-databases.adb
+   [Ada]          sql-queries-internals.adb
+   [Ada]          matreshka-internals-sql_parameter_rewriters.adb
+   [Ada]          sql-options-internals.adb
+   [Ada]          sql-options.adb
+   [Ada]          sql-queries.adb
+   [Ada]          matreshka-internals-sql_drivers-dummy.adb
+   [Ada]          sql.ads
+   [Ada]          sql-queries-holders.adb
+sql-queries.adb:245:14: warning: procedure "Previous" is not referenced [-gnatwu]
+   [Ada]          sql-databases-internals.adb
+   [Ada]          matreshka-internals-sql_drivers.adb
+   [Ada]          matreshka-internals-sql_drivers-mysql-queries.adb
+   [Ada]          matreshka-internals-sql_drivers-mysql-databases.adb
+   [Ada]          matreshka-internals-sql_parameter_rewriters-mysql.adb
+   [Ada]          matreshka-internals-sql_drivers-mysql-factory.adb
+   [Ada]          matreshka-internals-sql_drivers-mysql.adb
+Build Libraries
+   [gprlib]       matreshka-sql-13.2.lexch
+   [gprlib]       matreshka-sql-mysql-13.2.lexch
+   [link library] libmatreshka-sql-13.2.so
+   [link library] libmatreshka-sql-mysql-13.2.so
+
+matreshka_sql_mysql=21.0.0 successfully retrieved and built.
+Dependencies were solved as follows:
+
+   +b libmysqlclient   8.0.35 (new,system package)
+   +b make             4.4.1  (new,indirect,system package)
+   +  matreshka_league 21.0.0 (new)
+   +  matreshka_sql    21.0.0 (new)
+Found declared GPR file: build_matreshka_sql_mysql.gpr
