@@ -12,7 +12,7 @@ jobs:
 
   exp:
 
-    name: Test on ${{ matrix.os }} with gnat${{ matrix.gnat_version }}
+    name: ${{ matrix.os }}::gnat${{ matrix.gnat_version }}
 
     runs-on: ${{ matrix.os }}
 
@@ -40,7 +40,7 @@ jobs:
 
     - name: Decide badging
       id : set-badge
-      if: ${{ matrix.gnat_version }} == '^12'
+      if: ${{ matrix.gnat_version }} == '^13'
       run: echo '::set-output BADGE=1'
 
     # For runs triggered by a pull request, we'll do only one crate test
@@ -55,6 +55,6 @@ jobs:
       shell: bash
       env:
         BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
-        DISTRO: ${{ matrix.os }}
-        BADGE: ${{ steps.set-badge.outputs.BADGE }}
-        SHORT_RUN: ${{ steps.short-run.outputs.output }}
+        DISTRO:      ${{ matrix.os }}
+        BADGE:       ${{ steps.set-badge.outputs.BADGE }}
+        SHORT_RUN:   ${{ steps.short-run.outputs.output }}
