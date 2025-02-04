@@ -11,7 +11,7 @@ import yaml
 from datetime import datetime, timezone
 from os.path import join
 from packaging.version import parse as parse_version
-from subprocess import check_output
+from subprocess import check_output, run
 from typing import *
 
 DEBUG_MAX_CRATES = 999999  # Let's hope ha!
@@ -231,7 +231,7 @@ def identify_latest(crate):
     except KeyboardInterrupt:
         raise
     except:
-        print("WARNING: version identification failure:")
+        print(f"WARNING: version identification failure (crate: {crate}):")
         print(check_output(["alr", "--no-tty", "show", crate]).decode())
         return "unknown"
 
@@ -275,7 +275,15 @@ def populate():
     print("POPULATING DB...")
     count = 0
     crates = []
-    for line in check_output(["alr", "search", "--crates"]).decode().split("\n"):
+
+    # This serves not only as log info but also that ensure that behaviors on
+    # first run don't interfere with the output (index refresh, etc.)
+    print("Crate list:")
+    print(check_output(["alr", "search", "--crates"]).decode())
+
+    for line in run(["alr", "search", "--crates"],
+                    text=True,
+                    capture_output=True).stdout.split("\n"):
         count += 1
         if count > DEBUG_MAX_CRATES:
             return crates

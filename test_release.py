@@ -76,8 +76,12 @@ def test_one(crate):
     tested_count += 1
 
     try:
+        log = []
         start = time.monotonic()
-        solution = check_output(["alr", "--non-interactive", "--no-tty", "show", "--solve", milestone]).decode()
+        solution = run(["alr", "--non-interactive", "--no-tty", "show", "--solve", milestone],
+                       capture_output=True,
+                       text=True
+                      ).stdout
         run(["alr", "--non-interactive", "--no-tty", "test", "--redo", f"{crate.crate}={crate.version}"])
         duration = time.monotonic() - start
 
@@ -110,6 +114,10 @@ def test_one(crate):
 
         print(f"DONE: {crate.status} ({status})")
         print(f"ELAPSED {round(crate.duration, 2)} seconds")
+    except Exception as e:
+        print(f"EXCEPTION: {e}")
+        log += [f"EXCEPTION: {e}\n"]
+        crate.set_result(status=db.BUILD_STATUS["ERR"], log=log)
     finally:
         os.chdir("..")
         os.chdir("..")

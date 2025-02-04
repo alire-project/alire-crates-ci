@@ -35,4 +35,5 @@ pip3 install -r requirements.txt
 # https://github.blog/2022-04-12-git-security-vulnerability-announced/
 git config --global --add safe.directory '*'
 
-python3 -X utf8 test_release.py
+python3 -u -X utf8 test_release.py
+# -u: unbuffered output, simplifies GHA log interpretation on error
