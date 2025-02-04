@@ -28,19 +28,27 @@ jobs:
           - ^11
           - ^12
           - ^13
+          - "" # Ensure latest is tested even if we forget to update the matrix
+        exclude: # We don't have full toolchain for those (yet?)
+          - os: macos-latest
+            gnat_version: ^10
+          - os: macos-latest
+            gnat_version: ^11
+          - os: macos-latest
+            gnat_version: ^12
 
     steps:
     - name: Check out repository
       uses: actions/checkout@v2
 
     - name: Set up stable `alr`
-      uses: alire-project/setup-alire@v2
+      uses: alire-project/setup-alire@v4
       with:
-        toolchain: gnat${{ matrix.gnat_version }} gprbuild
+        toolchain: gnat_native${{ matrix.gnat_version }} gprbuild
 
     - name: Decide badging
       id : set-badge
-      if: ${{ matrix.gnat_version }} == '^13'
+      if: ${{ matrix.gnat_version }} == ''
       run: echo '::set-output BADGE=1'
 
     # For runs triggered by a pull request, we'll do only one crate test
