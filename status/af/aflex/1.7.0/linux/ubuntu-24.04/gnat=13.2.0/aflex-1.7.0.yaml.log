@@ -1,0 +1,107 @@
+Test ran at 2024-12-14 12:58:21.961022+00:00
+
+SOLUTION:
+aflex=1.7.0: An Ada Lexical Analyzer Generator
+Origin: commit 77dbb4dadecc689de9e050652e8900ad40a47da5 from https://github.com/Ada-France/aflex.git
+Properties:
+   Author: John Self
+   Configuration: no modifiers
+   Description: An Ada Lexical Analyzer Generator
+   Environment: MANPATH=${CRATE_ROOT}/man:${MANPATH}
+   Environment: PATH=${CRATE_ROOT}/bin:${PATH}
+   Executable: aflex
+   GPR Scenario: AFLEX_BUILD := distrib | debug | optimize | profile | coverage
+   License: Unlicense
+   Long_Description: Aflex is a lexical analyzer generating tool similar to the Unix tool lex.
+
+The first implementation was written by John Self of the Arcadia project
+at the University of California, Irvine.  The last version that was released
+appeared to be the aflex 1.4a released in 1994.
+
+Aflex was used and improved by P2Ada, the Pascal to Ada translator.
+This version of Aflex is derived from the P2Ada aflex implementation
+released in August 2010.
+
+This version brings a number of improvements:
+
+- Aflex generates the spec and body files as separate files so that
+  there is no need to use gnatchop to split the DFA and IO files.
+- Aflex uses the lex file name to generate the package name and
+  it supports child package with the `%unit` directive.
+- Aflex supports reentrant scanner through the use of `%option reentrant`,
+  `%yyvar` and `%yydecl` directives.
+
+
+   Maintainer: Stephane.Carrez@gmail.com
+   Maintainers_Logins: stcarrez
+   Name: aflex
+   Tag: parser
+   Tag: generator
+   Tag: grammar
+   Version: 1.7
+   Website: https://github.com/Ada-France/aflex
+
+
+LOG:
+Note: Deploying aflex=1.7.0...
+Note: Building aflex/aflex.gpr...
+Setup
+   [mkdir]        object directory for project aflex
+   [mkdir]        exec directory for project aflex
+Compile
+   [Ada]          aflex.adb
+aflex.adb:66:38: warning: renamed predefined unit is an obsolescent feature (RM J.1) [-gnatwj]
+   [Ada]          dfa.adb
+   [Ada]          gen.adb
+   [Ada]          main_body.adb
+   [Ada]          misc.adb
+main_body.adb:25:52: warning: renamed predefined unit is an obsolescent feature (RM J.1) [-gnatwj]
+   [Ada]          misc_defs.adb
+gen.adb:25:17: warning: renamed predefined unit is an obsolescent feature (RM J.1) [-gnatwj]
+   [Ada]          template_manager.adb
+misc_defs.ads:29:06: warning: renamed predefined unit is an obsolescent feature (RM J.1) [-gnatwj]
+   [Ada]          command_line_interface.adb
+misc.adb:31:31: warning: renamed predefined unit is an obsolescent feature (RM J.1) [-gnatwj]
+misc.ads:28:26: warning: renamed predefined unit is an obsolescent feature (RM J.1) [-gnatwj]
+   [Ada]          ecs.adb
+dfa.ads:25:06: warning: renamed predefined unit is an obsolescent feature (RM J.1) [-gnatwj]
+   [Ada]          external_file_manager.adb
+   [Ada]          int_io.ads
+external_file_manager.ads:27:06: warning: renamed predefined unit is an obsolescent feature (RM J.1) [-gnatwj]
+   [Ada]          lex_parser.adb
+   [Ada]          parse_tokens.ads
+   [Ada]          skeleton_manager.adb
+int_io.ads:24:06: warning: renamed predefined unit is an obsolescent feature (RM J.1) [-gnatwj]
+   [Ada]          tstring.ads
+   [Ada]          scanner.adb
+   [Ada]          ascan_dfa.adb
+   [Ada]          ccl.adb
+   [Ada]          nfa.adb
+lex_parser.adb:2:52: warning: renamed predefined unit is an obsolescent feature (RM J.1) [-gnatwj]
+lex_parser.adb:82:10: warning: variable "value_stack" is never read and never assigned [-gnatwu]
+lex_parser.adb:83:10: warning: variable "state_stack" is never read and never assigned [-gnatwu]
+lex_parser.adb:86:10: warning: variable "action" is never read and never assigned [-gnatwu]
+lex_parser.adb:87:10: warning: variable "rule_id" is never read and never assigned [-gnatwu]
+lex_parser.adb:95:10: warning: variable "index" is never read and never assigned [-gnatwu]
+   [Ada]          tblcmp.adb
+ccl.ads:24:17: warning: renamed predefined unit is an obsolescent feature (RM J.1) [-gnatwj]
+   [Ada]          template_manager-templates.ads
+   [Ada]          vstrings.adb
+vstrings.ads:161:06: warning: renamed predefined unit is an obsolescent feature (RM J.1) [-gnatwj]
+   [Ada]          aflex_scanner.adb
+   [Ada]          parse_goto.ads
+   [Ada]          parse_shift_reduce.ads
+   [Ada]          sym.adb
+   [Ada]          ascan_io.adb
+nfa.adb:26:14: warning: renamed predefined unit is an obsolescent feature (RM J.1) [-gnatwj]
+sym.adb:25:17: warning: renamed predefined unit is an obsolescent feature (RM J.1) [-gnatwj]
+Bind
+   [gprbind]      aflex.bexch
+   [Ada]          aflex.ali
+Link
+   [link]         aflex.adb
+Build finished successfully in 3.38 seconds.
+
+aflex=1.7.0 successfully retrieved and built.
+There are no dependencies.
+Found declared GPR file: aflex.gpr

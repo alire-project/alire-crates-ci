@@ -1,0 +1,71 @@
+Test ran at 2025-01-15 00:39:06.160345+00:00
+
+SOLUTION:
+bbqueue=0.3.1: DMA friendly lock-free BipBuffer
+Origin: commit 24c1ae73dfd44f9361ea8b0f42c1f0a91fddc0e8 from https://github.com/Fabien-Chouteau/bbqueue-spark.git
+Properties:
+   Author: Fabien Chouteau
+   Description: DMA friendly lock-free BipBuffer
+   License: MIT
+   Long_Description: An Ada/SPARK proved implementation of James Munns'
+BBQueue (https://github.com/jamesmunns/bbqueue)
+   Maintainer: Fabien Chouteau <chouteau@adacore.com>
+   Maintainers_Logins: Fabien-Chouteau
+   Name: bbqueue
+   Tag: spark
+   Tag: nostd
+   Tag: embedded
+   Tag: lockfree
+   Tag: dma
+   Tag: bipbuffer
+   Version: 0.3.1
+   Website: https://github.com/Fabien-Chouteau/bbqueue-spark
+Dependencies (direct):
+   atomic~0.5
+   gnat>=10
+Dependencies (solution):
+   atomic=0.5.0
+   gnat=10.3.2 (gnat_native) (installed)
+Dependencies (graph):
+   bbqueue=0.3.1 --> atomic=0.5.0 (~0.5)             
+   bbqueue=0.3.1 --> gnat=10.3.2 (gnat_native) (>=10)
+
+
+LOG:
+Note: Deploying bbqueue=0.3.1...
+Note: Deploying atomic=0.5.0...
+Note: Building bbqueue/bbqueue.gpr...
+Setup
+   [mkdir]        object directory for project Atomic
+   [mkdir]        library directory for project Atomic
+   [mkdir]        object directory for project BBqueue
+   [mkdir]        library directory for project BBqueue
+Compile
+   [Ada]          atomic-signed.adb
+   [Ada]          atomic.adb
+   [Ada]          atomic-unsigned.adb
+   [Ada]          atomic_config.ads
+   [Ada]          atomic-unsigned_8.ads
+   [Ada]          atomic-signed_16.ads
+   [Ada]          atomic-signed_8.ads
+   [Ada]          atomic-unsigned_16.ads
+   [Ada]          atomic-unsigned_32.ads
+   [Ada]          atomic-signed_32.ads
+   [Ada]          bbqueue.adb
+   [Ada]          bbqueue-buffers-framed.adb
+   [Ada]          bbqueue-buffers.adb
+Build Libraries
+   [gprlib]       Atomic.lexch
+   [gprlib]       Bbqueue.lexch
+   [archive]      libAtomic.a
+   [index]        libAtomic.a
+   [archive]      libBbqueue.a
+   [index]        libBbqueue.a
+Build finished successfully in 0.62 seconds.
+
+bbqueue=0.3.1 successfully retrieved and built.
+Dependencies were solved as follows:
+
+   +  atomic 0.5.0  (new)                      
+   +i gnat   10.3.2 (new,installed,gnat_native)
+Found declared GPR file: bbqueue.gpr

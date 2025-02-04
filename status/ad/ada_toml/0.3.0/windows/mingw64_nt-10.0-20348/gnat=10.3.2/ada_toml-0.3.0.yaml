@@ -1,0 +1,195 @@
+badge: false
+crate: ada_toml
+creation_timestamp: 1648632387.0980492
+distro: mingw64_nt-10.0-20348
+duration: 17.78099999999995
+gnat: 10.3.2
+last_attempt: 2025-01-29 13:01:14.293721+00:00
+log:
+- 'Test ran at 2025-01-29 13:01:14.293721+00:00
+
+
+  '
+- 'SOLUTION:
+
+  '
+- "ada_toml=0.3.0: TOML parser for Ada\r\n"
+- "Origin: source archive v0.3.tar.gz at https://github.com/pmderodat/ada-toml/archive/v0.3.tar.gz\
+  \ with hash sha512:862d230bf28c393243b01425b259a2fd5d1cf33d3da521eea5f5533691efb46cd3fa335941bcd768b5da635896737b5ee51cbd593d84df58785db6d4c836afd2\r\
+  \n"
+- "Properties:\r\n"
+- "   Author: AdaCore\r\n"
+- "   Author: Pierre-Marie de Rodat <pmderodat@kawie.fr>\r\n"
+- "   Description: TOML parser for Ada\r\n"
+- "   GPR Scenario: ADA_TOML_BUILD_MODE := dev | prod\r\n"
+- "   GPR Scenario: LIBRARY_TYPE := static | relocatable | static-pic\r\n"
+- "   GPR External: ADA_TOML_BUILD_MODE := prod\r\n"
+- "   License: BSD-3-Clause\r\n"
+- "   Long_Description: ada-toml: TOML parser for Ada\r\n"
+- "=============================\r\n"
+- "\r\n"
+- "`ada-toml` is a pure Ada library for parsing and creating\r\n"
+- "[TOML](https://github.com/toml-lang/toml#toml) documents. It conforms to the\r\n"
+- "[version 1.0.0](https://toml.io/en/v1.0.0) of the format standard.\r\n"
+- "\r\n"
+- "\r\n"
+- "Quick tutorial\r\n"
+- "--------------\r\n"
+- "\r\n"
+- "All basic types and subprograms are in the `TOML` package. All \"nodes\" in a\r\
+  \n"
+- "TOML documents are materialized using the `TOML.TOML_Value` type. Since TOML\r\n"
+- "values make up a tree, this type has reference semantics. This means that\r\n"
+- "modifying a TOML node does not modify the corresponding `TOML_Value` value\r\n"
+- "itself, but rather the TOML value that is referenced.\r\n"
+- "\r\n"
+- "Parsing a TOML file is as easy as using the `TOML.File_IO.Load_File` function:\r\
+  \n"
+- "\r\n"
+- "```ada\r\n"
+- "declare\r\n"
+- "   Result : constant TOML.Read_Result :=\r\n"
+- "      TOML.File_IO.Load_File (\"config.toml\");\r\n"
+- "begin\r\n"
+- "   if Result.Success then\r\n"
+- "      Ada.Text_IO.Put_Line (\"config.toml loaded with success!\");\r\n"
+- "   else\r\n"
+- "      Ada.Text_IO.Put_Line (\"error while loading config.toml:\");\r\n"
+- "      Ada.Text_IO.Put_Line\r\n"
+- "         (Ada.Strings.Unbounded.To_String (Result.Message));\r\n"
+- "   end if;\r\n"
+- "end;\r\n"
+- "```\r\n"
+- "\r\n"
+- "Each TOML value has kind, defining which data it contains (a boolean, an\r\n"
+- "integer, a string, a table, ...). To each kind, one or several primitives are\r\
+  \n"
+- "associated to let one process the underlying data:\r\n"
+- "\r\n"
+- "```ada\r\n"
+- "case Result.Kind is\r\n"
+- "   when TOML.TOML_Boolean =>\r\n"
+- "      Ada.Text_IO.Put_Line (\"Boolean: \" & Result.As_Boolean'Image);\r\n"
+- "\r\n"
+- "   when TOML.TOML_Integer =>\r\n"
+- "      Ada.Text_IO.Put_Line (\"Boolean: \" & Result.As_Integer'Image);\r\n"
+- "\r\n"
+- "   when TOML.TOML_String =>\r\n"
+- "      Ada.Text_IO.Put_Line (\"Boolean: \" & Result.As_String);\r\n"
+- "\r\n"
+- "   when TOML.TOML_Array =>\r\n"
+- "      Ada.Text_IO.Put_Line (\"Array of \" & Result.Length & \" elements\");\r\n"
+- "\r\n"
+- "   when others =>\r\n"
+- "      null;\r\n"
+- "end case;\r\n"
+- "```\r\n"
+- "\r\n"
+- "There are also primitives to build TOML values:\r\n"
+- "\r\n"
+- "```ada\r\n"
+- "declare\r\n"
+- "   Bool : constant TOML.TOML_Value := TOML.Create_Boolean (False);\r\n"
+- "   Int  : constant TOML.TOML_Value := TOML.Create_Integer (10);\r\n"
+- "   Str  : constant TOML.TOML_Value := TOML.Create_String (\"Hello, world\");\r\n"
+- "\r\n"
+- "   Table : constant TOML.TOML_Value := TOML.Create_Table;\r\n"
+- "begin\r\n"
+- "   Table.Set (\"bool_field\", Bool);\r\n"
+- "   Table.Set (\"int_field\", Int);\r\n"
+- "   Table.Set (\"str_field\", Str);\r\n"
+- "end;\r\n"
+- "```\r\n"
+- "\r\n"
+- "And finally one can turn a tree of TOML nodes back in text form:\r\n"
+- "\r\n"
+- "```ada\r\n"
+- "Ada.Text_IO.Put_Line (\"TOML document:\");\r\n"
+- "Ada.Text_IO.Put_Line (Table.Dump_As_String);\r\n"
+- "```\r\n"
+- "\r\n"
+- "\r\n"
+- "Contributing\r\n"
+- "------------\r\n"
+- "\r\n"
+- "The development of `ada-toml` happens on\r\n"
+- "[GitHub](https://github.com/pmderodat/ada-toml).  Everyone is welcome to\r\n"
+- "contribute to this project: please read our [contribution\r\n"
+- "rules](https://github.com/pmderodat/ada-toml/tree/master/CONTRIBUTING.rst) if\r\
+  \n"
+- "you consider doing so.\r\n"
+- "\r\n"
+- "   Maintainer: pmderodat@kawie.fr\r\n"
+- "   Maintainers_Logins: pmderodat\r\n"
+- "   Name: ada_toml\r\n"
+- "   Project_File: ada_toml.gpr\r\n"
+- "   Version: 0.3.0\r\n"
+- '
+
+  '
+- '
+
+  LOG:
+
+  '
+- 'Note: Deploying ada_toml=0.3.0...
+
+  '
+- "#=#=#                                                                         \n"
+- 'Note: Building ada_toml/ada_toml.gpr...
+
+  '
+- 'Setup
+
+  '
+- '   [mkdir]        object directory for project Ada_TOML
+
+  '
+- '   [mkdir]        library directory for project Ada_TOML
+
+  '
+- 'Compile
+
+  '
+- '   [Ada]          toml.adb
+
+  '
+- '   [Ada]          toml-generic_parse.adb
+
+  '
+- '   [Ada]          toml-generic_dump.adb
+
+  '
+- '   [Ada]          toml-file_io.adb
+
+  '
+- 'Build Libraries
+
+  '
+- '   [gprlib]       ada_toml.lexch
+
+  '
+- '   [archive]      libada_toml.a
+
+  '
+- '   [index]        libada_toml.a
+
+  '
+- 'Build finished successfully in 6.39 seconds.
+
+  '
+- '
+
+  '
+- 'ada_toml=0.3.0 successfully retrieved and built.
+
+  '
+- 'There are no dependencies.
+
+  '
+- 'Found declared GPR file: ada_toml.gpr
+
+  '
+platform: windows
+status: success
+version: 0.3.0

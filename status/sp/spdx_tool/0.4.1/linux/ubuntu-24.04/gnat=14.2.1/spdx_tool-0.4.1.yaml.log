@@ -1,0 +1,111 @@
+Test ran at 2025-02-04 22:46:12.286103+00:00
+
+SOLUTION:
+spdx_tool=0.4.1: SPDX license detection and management tool
+Origin: commit 0ca2cee437e71cd5f8a32edaa6f3facff8868be3 from https://gitlab.com/stcarrez/spdx-tool.git
+Properties:
+   Post_Fetch run: sh ./alire-setup.sh (from ${CRATE_ROOT}/.)
+   Author: ciceron
+   Description: SPDX license detection and management tool
+   Executable: spdx-tool
+   case OS is
+      when Freebsd => GPR External: USE_MAGICADA := no
+      when Linux => GPR External: USE_MAGICADA := yes
+      when Macos => GPR External: USE_MAGICADA := no
+      when Windows => GPR External: USE_MAGICADA := no
+   License: Apache-2.0
+   Long_Description: spdx-tool scans the source files to identify licenses and allows to update them in order to use the
+SPDX license format.  It can be used to:
+
+* identify the license used in source files of a project,
+* produce a JSON/XML report for the licenses found with the list of files,
+* replace a license header by the [SPDX license](https://spdx.org/licenses/) tag equivalent.
+
+Identify licenses used in a project:
+
+```
+spdx-tool
+```
+
+Identify files matching a given license:
+
+```
+spdx-tool --only-licenses=Apache-2.0 -f
+```
+
+Check the license header before replacing it:
+
+```
+spdx-tool --only-licenses=Apache-2.0 --print-license --line-number src
+```
+
+Replace the license header by the `SPDX-License-Identifier` header:
+
+```
+spdx-tool --only-licenses=Apache-2.0 --update=spdx src
+```
+
+Build an XML or JSON report of files with their licenses:
+
+```
+spdx-tool --output-xml=report.xml
+```
+
+## Documentation
+
+* Man page: [spdx-tool (1)](https://gitlab.com/stcarrez/spdx-tool/-/blob/main/docs/spdx-tool.md?ref_type=heads)
+
+
+   Maintainer: ciceron <Stephane.Carrez@gmail.com>
+   Maintainers_Logins: stcarrez
+   Name: spdx_tool
+   Project_File: spdx_tool.gpr
+   Tag: tools
+   Tag: spdx
+   Tag: license
+   Version: 0.4.1
+   Website: https://github.com/stcarrez/spdx-tool
+Dependencies (direct):
+   case OS is
+      when Linux => magicada^1
+   ada_toml~0.5.0
+   ansiada^1.0.0
+   intl^1.0.1
+   printer_toolkit~0.2.0
+   sciada~0.4.0
+   spdx~0.2.0
+   utilada^2.8.0
+   utilada_xml^2.8.0
+Dependencies (solution):
+   ada_toml=0.5.0
+   ansiada=1.1.0
+   gnat=14.2.1 (gnat_arm_elf)
+   intl=1.0.1
+   magicada=1.0.1
+   printer_toolkit=0.2.0
+   sciada=0.4.0
+   spdx=0.2.0
+   utilada=2.8.0
+   utilada_xml=2.8.0
+   xmlada=25.0.0
+Dependencies (missing):
+   libmagic* (indirect,hinted)
+Dependencies (graph):
+   magicada=1.0.1        --> libmagic*
+   printer_toolkit=0.2.0 --> ansiada=1.1.0 (^1.0.0)
+   spdx_tool=0.4.1       --> ada_toml=0.5.0 (~0.5.0)
+   spdx_tool=0.4.1       --> ansiada=1.1.0 (^1.0.0)
+   spdx_tool=0.4.1       --> intl=1.0.1 (^1.0.1)
+   spdx_tool=0.4.1       --> magicada=1.0.1 (^1)
+   spdx_tool=0.4.1       --> printer_toolkit=0.2.0 (~0.2.0)
+   spdx_tool=0.4.1       --> sciada=0.4.0 (~0.4.0)
+   spdx_tool=0.4.1       --> spdx=0.2.0 (~0.2.0)
+   spdx_tool=0.4.1       --> utilada=2.8.0 (^2.8.0)
+   spdx_tool=0.4.1       --> utilada_xml=2.8.0 (^2.8.0)
+   utilada_xml=2.8.0     --> utilada=2.8.0 (^2.7.0)
+   utilada_xml=2.8.0     --> xmlada=25.0.0 (*)
+   xmlada=25.0.0         --> gnat=14.2.1 (gnat_arm_elf) (>=11)
+Dependencies cannot be met
+
+
+LOG:

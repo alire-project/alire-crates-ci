@@ -1,0 +1,42 @@
+Test ran at 2022-08-11 12:54:49.861860+00:00
+
+SOLUTION:
+mcp2221=1.20220.1: MCP2221 USB Raw HID I/O Expander Library for GNAT Ada
+Origin: source archive mcp2221-1.20220.1.tbz2 at http://repo.munts.com/alire/mcp2221-1.20220.1.tbz2 with hashes sha256:af01ab3406c53ddb317ffef3ed510aec2f0cdbd3a8435d37004c0d1bb6d14422, sha512:4bb16b3cfce2e0bf88c8827281251ed64ae4edac24f02347406c8360cf4e7baaaf0623dda95d1eda87fdb93c1eed1baabe5c1553654d8b73a56140c7e2ae5c55
+Available when: (case OS is Linux => True, Windows => True, others => False)
+Properties:
+   case OS is
+      when Linux => Post_Fetch run: ${CRATE_DIR}/./sh -c sed -i 's/lhidapi/lhidapi-hidraw/g' src/objects/hid/hid-hidapi.ads
+      when Windows => Post_Fetch run: ${CRATE_DIR}/./sh -c mkdir -p ./bin && cp src/win64/*.dll ./bin && mkdir -p ./lib && cp src/win64/*.dll ./lib
+   Author: Philip Munts
+   Description: MCP2221 USB Raw HID I/O Expander Library for GNAT Ada
+   License: BSD-1-Clause
+   Maintainer: Philip Munts <phil@munts.net>
+   Maintainers_Logins: pmunts
+   Name: mcp2221
+   Project_File: mcp2221.gpr
+   Project_File: programs.gpr
+   Tag: embedded
+   Tag: linux
+   Tag: mcp2221
+   Tag: adc
+   Tag: dac
+   Tag: gpio
+   Tag: i2c
+   Tag: motor
+   Tag: pwm
+   Tag: sensor
+   Tag: serial
+   Tag: servo
+   Tag: spi
+   Tag: stepper
+   Version: 1.20220.1
+   Website: https://github.com/pmunts/libsimpleio
+Dependencies (direct):
+   case OS is
+      when Linux => libhidapi*
+   case OS is
+      when Linux => libusb~1.0
+
+
+LOG:

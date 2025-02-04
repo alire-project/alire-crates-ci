@@ -1,0 +1,203 @@
+Test ran at 2024-12-08 00:40:48.213366+00:00
+
+SOLUTION:
+geste=1.1.0: GEneric Sprite and Tile Engine
+Origin: source archive GESTE-1.1.0.zip at https://github.com/Fabien-Chouteau/GESTE/releases/download/v1.1.0/GESTE-1.1.0.zip with hash sha512:55da4926a318a664e798131b094711d8eef151c0ff905ae13fbc5d2c116b1c7724d936b6e5a37ace5b72c49980b7c6ae8549a261501b861e4d5af5101931efef
+Properties:
+   Author: Fabien Chouteau <fabien.chouteau@gmail.com>
+   Auto_Gpr_With: auto-gpr-with=false
+   Description: GEneric Sprite and Tile Engine
+   License: BSD-3-Clause
+   Long_Description: 
+[![Build Status](https://travis-ci.org/Fabien-Chouteau/GESTE.svg?branch=master)](https://travis-ci.org/Fabien-Chouteau/GESTE)
+[![codecov](https://codecov.io/gh/Fabien-Chouteau/GESTE/branch/master/graph/badge.svg)](https://codecov.io/gh/Fabien-Chouteau/GESTE)
+
+GESTE is a sprite and tile 2D render engine designed to run on
+micro-controllers low performance systems. GESTE also provides a basic math and
+physic engine using fixed point arithmetic.
+
+## Creating maps
+
+GESTE is developed in parallel with
+[tiled-code-gen](https://github.com/Fabien-Chouteau/tiled-code-gen), a tool
+that generates code from the [Tiled Map Editor](https://www.mapeditor.org/).
+
+## Examples
+
+The crate `geste_examples` contains 3 examples of different game genre:
+ - platformer
+ - RPG
+ - racing
+
+## Design
+
+### Layers
+
+In GESTE, a scene is made of layers. Native layers can be `Sprite`, `Grid` or
+`Text`. You can implement you own type of layers if you want to.
+
+ - `Sprite` layers display a single tile at a given position
+ - `Grid` layers display a grid of tiles at a given position
+ - `Text` layers display a text at a given position
+
+Layers have a priority which tells in which order they will be drawn on the
+screen.
+
+### Rendering
+
+The rendering algorithm is somewhat similar to ray casting. Instead of taking
+each objects of the scene and drawing it on the screen, the engine takes each
+pixel and tries to find its color from the different objects of the scene.
+
+For each pixel of the area that is being drawn, GESTE will go through the list
+of layers and see if the corresponding pixel inside the layer is transparent or
+not. When a non transparent pixel is found, the pixel is pushed to the screen
+and the procedure starts again for the next pixel. If all the layers have a
+transparent pixel, the background color is used.
+
+The more layers to go through, the more time time it will take to render a
+pixel.
+
+
+   Maintainer: fabien.chouteau@gmail.com
+   Maintainers_Logins: Fabien-Chouteau
+   Name: geste
+   Project_File: geste.gpr
+   Tag: game
+   Tag: nostd
+   Tag: rendering
+   Tag: sprite
+   Version: 1.1.0
+   Website: https://github.com/Fabien-Chouteau/GESTE
+
+
+LOG:
+Note: Deploying geste=1.1.0...
+#=#=#                                                                         
+
+######################################################################## 100.0%
+Note: Building geste/geste.gpr...
+Setup
+   [mkdir]        object directory for project GESTE
+Compile
+   [Ada]          geste_fonts.ads
+   [Ada]          geste_fonts-freeserifitalic8pt7b.ads
+   [Ada]          geste_fonts-freeserifitalic6pt7b.ads
+   [Ada]          geste_fonts-freeserifitalic5pt7b.ads
+   [Ada]          geste_fonts-freeserifitalic24pt7b.ads
+   [Ada]          geste_fonts-freeserifitalic18pt7b.ads
+   [Ada]          geste_fonts-freeserifitalic12pt7b.ads
+   [Ada]          geste_fonts-freeserifbolditalic8pt7b.ads
+   [Ada]          geste_fonts-freeserifbolditalic6pt7b.ads
+   [Ada]          geste_fonts-freeserifbolditalic5pt7b.ads
+   [Ada]          geste_fonts-freeserifbolditalic24pt7b.ads
+   [Ada]          geste_fonts-freeserifbolditalic18pt7b.ads
+   [Ada]          geste_fonts-freeserifbolditalic12pt7b.ads
+   [Ada]          geste_fonts-freeserifbold8pt7b.ads
+   [Ada]          geste_fonts-freeserifbold6pt7b.ads
+   [Ada]          geste_fonts-freeserifbold5pt7b.ads
+   [Ada]          geste_fonts-freeserifbold24pt7b.ads
+   [Ada]          geste_fonts-freeserifbold18pt7b.ads
+   [Ada]          geste_fonts-freeserifbold12pt7b.ads
+   [Ada]          geste_fonts-freeserif8pt7b.ads
+   [Ada]          geste_fonts-freeserif6pt7b.ads
+   [Ada]          geste_fonts-freeserif5pt7b.ads
+   [Ada]          geste_fonts-freeserif24pt7b.ads
+   [Ada]          geste_fonts-freeserif18pt7b.ads
+   [Ada]          geste_fonts-freeserif12pt7b.ads
+   [Ada]          geste_fonts-freesansoblique8pt7b.ads
+   [Ada]          geste_fonts-freesansoblique6pt7b.ads
+   [Ada]          geste_fonts-freesansoblique5pt7b.ads
+   [Ada]          geste_fonts-freesansoblique24pt7b.ads
+   [Ada]          geste_fonts-freesansoblique18pt7b.ads
+   [Ada]          geste_fonts-freesansoblique12pt7b.ads
+   [Ada]          geste_fonts-freesansboldoblique8pt7b.ads
+   [Ada]          geste_fonts-freesansboldoblique6pt7b.ads
+   [Ada]          geste_fonts-freesansboldoblique5pt7b.ads
+   [Ada]          geste_fonts-freesansboldoblique24pt7b.ads
+   [Ada]          geste_fonts-freesansboldoblique18pt7b.ads
+   [Ada]          geste_fonts-freesansboldoblique12pt7b.ads
+   [Ada]          geste_fonts-freesansbold8pt7b.ads
+   [Ada]          geste_fonts-freesansbold6pt7b.ads
+   [Ada]          geste_fonts-freesansbold5pt7b.ads
+   [Ada]          geste_fonts-freesansbold24pt7b.ads
+   [Ada]          geste_fonts-freesansbold18pt7b.ads
+   [Ada]          geste_fonts-freesansbold12pt7b.ads
+   [Ada]          geste_fonts-freesans8pt7b.ads
+   [Ada]          geste_fonts-freesans6pt7b.ads
+   [Ada]          geste_fonts-freesans5pt7b.ads
+   [Ada]          geste_fonts-freesans24pt7b.ads
+   [Ada]          geste_fonts-freesans18pt7b.ads
+   [Ada]          geste_fonts-freesans12pt7b.ads
+   [Ada]          geste_fonts-freemonooblique8pt7b.ads
+   [Ada]          geste_fonts-freemonooblique6pt7b.ads
+   [Ada]          geste_fonts-freemonooblique5pt7b.ads
+   [Ada]          geste_fonts-freemonooblique24pt7b.ads
+   [Ada]          geste_fonts-freemonooblique18pt7b.ads
+   [Ada]          geste_fonts-freemonooblique12pt7b.ads
+   [Ada]          geste_fonts-freemonoboldoblique8pt7b.ads
+   [Ada]          geste_fonts-freemonoboldoblique6pt7b.ads
+   [Ada]          geste_fonts-freemonoboldoblique5pt7b.ads
+   [Ada]          geste_fonts-freemonoboldoblique24pt7b.ads
+   [Ada]          geste_fonts-freemonoboldoblique18pt7b.ads
+   [Ada]          geste_fonts-freemonoboldoblique12pt7b.ads
+   [Ada]          geste_fonts-freemonobold8pt7b.ads
+   [Ada]          geste_fonts-freemonobold6pt7b.ads
+   [Ada]          geste_fonts-freemonobold5pt7b.ads
+   [Ada]          geste_fonts-freemonobold24pt7b.ads
+   [Ada]          geste_fonts-freemonobold18pt7b.ads
+   [Ada]          geste_fonts-freemonobold12pt7b.ads
+   [Ada]          geste_fonts-freemono8pt7b.ads
+   [Ada]          geste_fonts-freemono6pt7b.ads
+   [Ada]          geste_fonts-freemono5pt7b.ads
+   [Ada]          geste_fonts-freemono24pt7b.ads
+   [Ada]          geste_fonts-freemono18pt7b.ads
+   [Ada]          geste_fonts-freemono12pt7b.ads
+   [Ada]          geste.adb
+   [Ada]          geste-tile_bank.ads
+geste.ads:35:06: file "geste_config.ads" not found
+geste.ads:35:06: "GESTE (body)" depends on "GESTE (spec)"
+geste.ads:35:06: "GESTE (spec)" depends on "GESTE_CONFIG (spec)"
+geste-tile_bank.ads:35:14: file "geste_config.ads" not found
+geste-tile_bank.ads:35:14: "GESTE.TILE_BANK (spec)" depends on "GESTE (spec)"
+geste-tile_bank.ads:35:14: "GESTE (spec)" depends on "GESTE_CONFIG (spec)"
+
+   compilation of geste-tile_bank.ads failed
+   compilation of geste.adb failed
+
+gprbuild: *** compilation phase failed
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "D:\a\alire-crates-ci\alire-crates-ci\test\6df10e06-b8b5-49bf-9171-743b8b51a90a\geste_1.1.0_55da4926\geste.gpr"] exited with code 4
+ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "D:\a\alire-crates-ci\alire-crates-ci\test\6df10e06-b8b5-49bf-9171-743b8b51a90a\geste_1.1.0_55da4926\geste.gpr"] exited with code 4
+stderr: ALIRE.CHECKED_ERROR
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "D:\a\alire-crates-ci\alire-crates-ci\test\6df10e06-b8b5-49bf-9171-743b8b51a90a\geste_1.1.0_55da4926\geste.gpr"] exited with code 4
+stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
+[D:\a\alire-crates-ci\alire-crates-ci\alire_install\bin\alr.exe]
+0xdc98eb Semantic_Versioning.Basic.At_Least at alire.adb:251
+0xa63e32 Semantic_Versioning.Basic.At_Least at alire-os_lib-subprocess.adb:110
+0xc9b793 Semantic_Versioning.Basic.At_Least at alire-spawn.adb:21
+0xc9bee4 Semantic_Versioning.Basic.At_Least at alire-spawn.adb:41
+0xbfc3e0 Semantic_Versioning.Basic.At_Least at alire-roots.adb:140
+0xbfa8e7 Semantic_Versioning.Basic.At_Least at alire-roots.adb:171
+0xc17363 Semantic_Versioning.Basic.At_Least at alire-roots.adb:1364
+0xc62228 Semantic_Versioning.Basic.At_Least at alire-solutions.adb:1443
+0xc60e50 Semantic_Versioning.Basic.At_Least at alire-solutions.adb:1518
+0xc174a4 Semantic_Versioning.Basic.At_Least at alire-roots.adb:1368
+0xbfac57 Semantic_Versioning.Basic.At_Least at alire-roots.adb:196
+0x47726b Semantic_Versioning.Basic.At_Least at alr-commands-build.adb:58
+0x488aa6 Semantic_Versioning.Basic.At_Least at alr-commands-get.adb:187
+0x48d3cc Semantic_Versioning.Basic.At_Least at alr-commands-get.adb:348
+0x51c0a3 Semantic_Versioning.Basic.At_Least at clic-subcommand-instance.adb:742
+0x528a27 Semantic_Versioning.Basic.At_Least at alr-commands.adb:492
+0x401761 Alr.Main at alr-main.adb:10
+0x404bd6 Main at b__alr-main.adb:2130
+0x401423 __tmainCRTStartup at ???
+0x40113b mainCRTStartup at ???
+[C:\Windows\System32\KERNEL32.DLL]
+0x7ffdb10f4cae
+[C:\Windows\SYSTEM32\ntdll.dll]
+0x7ffdb1b9edc9
+
+
+Warning: geste=1.1.0 successfully retrieved but its build failed.
+There are no dependencies.
+ERROR: Build ended with errors

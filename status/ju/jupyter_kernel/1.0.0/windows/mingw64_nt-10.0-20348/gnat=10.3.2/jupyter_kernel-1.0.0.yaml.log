@@ -1,0 +1,48 @@
+Test ran at 2025-01-20 13:03:36.819659+00:00
+
+SOLUTION:
+jupyter_kernel=1.0.0: Jupyter Kernel for Ada
+Origin: commit 8c987c134f1b92978aa4c4a528309685925f4bd9 from https://github.com/reznikmm/jupyter.git
+Available when: (case OS is Linux => True, Macos => True, others => False)
+Properties:
+   Author: Max Reznik
+   Description: Jupyter Kernel for Ada
+   GPR External: LIBRARY_TYPE := relocatable
+   License: BSD-3-Clause
+   Long_Description: # Jupyter Kernel for Ada
+
+To run this kernel with Jupyter Notebook:
+    alr get --build jupyter_kernel
+    cd jupyter_kernel*
+    ln -s ./alire/build/.objs .
+    PATH=$PATH:$PWD/alire/build/.objs/driver JUPYTER_PATH=$PWD jupyter-notebook --debug
+
+   Maintainer: Max Reznik <reznikmm@gmail.com>
+   Maintainers_Logins: reznikmm
+   Name: jupyter_kernel
+   Project_File: gnat/jupyter_ada_kernel.gpr
+   Project_File: gnat/jupyter_ada_driver.gpr
+   Tag: jupyter
+   Tag: notebook
+   Tag: kernel
+   Version: 1.0.0
+   Website: https://github.com/reznikmm/jupyter/
+Dependencies (direct):
+   matreshka_league*
+   spawn*
+   zeromq_ada*
+Dependencies (solution):
+   libzmq=4.3.4
+   make=4.4.1
+   matreshka_league=21.0.0
+   spawn=23.0.0
+   zeromq_ada=4.1.5
+Dependencies (graph):
+   jupyter_kernel=1.0.0    --> matreshka_league=21.0.0 (*)
+   jupyter_kernel=1.0.0    --> spawn=23.0.0 (*)           
+   jupyter_kernel=1.0.0    --> zeromq_ada=4.1.5 (*)       
+   matreshka_league=21.0.0 --> make=4.4.1 (*)             
+   zeromq_ada=4.1.5        --> libzmq=4.3.4 (*)           
+
+
+LOG:

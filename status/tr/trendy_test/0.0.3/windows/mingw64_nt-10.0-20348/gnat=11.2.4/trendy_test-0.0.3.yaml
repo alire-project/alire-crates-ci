@@ -1,0 +1,249 @@
+badge: false
+crate: trendy_test
+creation_timestamp: 1648574732.3978934
+distro: mingw64_nt-10.0-20348
+duration: 17.188000000000102
+gnat: 11.2.4
+last_attempt: 2025-01-17 01:17:59.151720+00:00
+log:
+- 'Test ran at 2025-01-17 01:17:59.151720+00:00
+
+
+  '
+- 'SOLUTION:
+
+  '
+- "trendy_test=0.0.3: Minimal Effort Ada Unit Testing Library\r\n"
+- "Origin: commit a0e147369f723969740eb25995cf22ba74282127 from https://github.com/pyjarrett/trendy_test.git\r\
+  \n"
+- "Properties:\r\n"
+- "   Author: Paul Jarrett\r\n"
+- "   Description: Minimal Effort Ada Unit Testing Library\r\n"
+- "   License: Apache-2.0\r\n"
+- "   Long_Description: # trendy_test\r\n"
+- "\r\n"
+- "Minimum Effort Ada Unit Testing Library\r\n"
+- "\r\n"
+- "[![Build Status](https://github.com/pyjarrett/trendy_test/actions/workflows/build.yml/badge.svg)](https://github.com/pyjarrett/trendy_test/actions)\r\
+  \n"
+- "\r\n"
+- "## Features\r\n"
+- "\r\n"
+- "- Minimum setup\r\n"
+- "- Parallelization of tests\r\n"
+- "- Randomization of test order to find dependencies between tests\r\n"
+- "- No generated code or scripts needed\r\n"
+- "\r\n"
+- "## Example\r\n"
+- "\r\n"
+- "```ada\r\n"
+- "with Ada.Text_IO;\r\n"
+- "with Trendy_Test;\r\n"
+- "with Trendy_Test.Assertions.Integer_Assertions;\r\n"
+- "with Trendy_Test.Reports;\r\n"
+- "\r\n"
+- "use Trendy_Test.Assertions;\r\n"
+- "use Trendy_Test.Assertions.Integer_Assertions;\r\n"
+- "\r\n"
+- "procedure My_Test_Main is\r\n"
+- "begin\r\n"
+- "    Trendy_Test.Register (My_Tests.All_Tests);\r\n"
+- "    Trendy_Test.Reports.Print_Basic_Report(Trendy_Test.Run);\r\n"
+- "end My_Test_Main;\r\n"
+- "\r\n"
+- "----------------------------------------------------------------\r\n"
+- "\r\n"
+- "with Trendy_Test;\r\n"
+- "package My_Tests is\r\n"
+- "    function All_Tests return Trendy_Test.Test_Group;\r\n"
+- "end Trendy_Command_Line_Tests;\r\n"
+- "\r\n"
+- "----------------------------------------------------------------\r\n"
+- "\r\n"
+- "package body My_Tests is\r\n"
+- "    procedure Test_Sample (T : in out Trendy_Test.Operation'Class) is\r\n"
+- "    begin\r\n"
+- "        -- Don't put anything above here you don't want run during listing/other\
+  \ ops.\r\n"
+- "        T.Register;\r\n"
+- "        Assert (T, Some_Expression);\r\n"
+- "    end Test_Sample;\r\n"
+- "\r\n"
+- "    procedure Test_Is_Disabled (T : in out Trendy_Test.Operation'Class) is\r\n"
+- "    begin\r\n"
+- "        T.Register(Disabled => True);  -- Disabled, don't run this test.\r\n"
+- "        Assert (T, Some_Expression);\r\n"
+- "    end Test_Sample;\r\n"
+- "\r\n"
+- "    procedure Test_Is_Not_Run_In_Parallel (T : in out Trendy_Test.Operation'Class)\
+  \ is\r\n"
+- "    begin\r\n"
+- "        T.Register(Parallelize => False);  -- There's some dependency, so don't\
+  \ run it in parallel.\r\n"
+- "        Assert (T, Some_Expression);\r\n"
+- "    end Test_Sample;\r\n"
+- "\r\n"
+- "    function All_Tests return Trendy_Test.Test_Group is\r\n"
+- "    begin\r\n"
+- "        return\r\n"
+- "            (Test_Sample'Access,\r\n"
+- "             Test_Is_Disabled'Access\r\n"
+- "            );\r\n"
+- "    end All_Tests;\r\n"
+- "end My_Tests;\r\n"
+- "```\r\n"
+- "\r\n"
+- "## Example Output\r\n"
+- "\r\n"
+- "```\r\n"
+- "D:\\dev\\ada\\trendy_command_line\\bin\\trendy_command_line_test_main\r\n"
+- "[ PASS ] shared_pointers_tests.test_multiple_oracles                          \
+  \  0.000105300\r\n"
+- "[ PASS ] shared_pointers_tests.test_single_oracle                             \
+  \  0.000052700\r\n"
+- "[ PASS ] trendy_command_line.context_free.tests.test_is_long_option           \
+  \  0.000002300\r\n"
+- "[ PASS ] trendy_command_line.context_free.tests.test_is_option_terminator     \
+  \  0.000007200\r\n"
+- "[ PASS ] trendy_command_line.context_free.tests.test_is_short_option          \
+  \  0.000005000\r\n"
+- "[ PASS ] trendy_command_line.context_free.tests.test_is_short_option_or_group \
+  \  0.000009200\r\n"
+- "[ PASS ] trendy_command_line_tests.flags.test_boolean_option_defaults         \
+  \  0.000149400\r\n"
+- "[ FAIL ] trendy_command_line_tests.flags.test_boolean_option_short_option_group\
+  \ 0.000185600\r\n"
+- "         Assertion Failed: (Condition false) at D:\\dev\\ada\\trendy_command_line\\\
+  src\\trendy_command_line_tests-flags.adb: 110[D:\\dev\\ada\\trendy_command_line\\\
+  bin\\trendy_command_line_test_main.exe]\r\n"
+- "0x453530 Trendy_Test.Report_Failure at trendy_test.adb:88\r\n"
+- "0x4535a4 Trendy_Test.Assert at trendy_test.adb:102\r\n"
+- "0x425338 Trendy_Command_Line_Tests.Flags.Test_Boolean_Option_Short_Option_Group\
+  \ at trendy_command_line_tests-flags.adb:110\r\n"
+- "0x451ff1 Trendy_Test.Run_Test at trendy_test.adb:237\r\n"
+- "0x452d4c Trendy_Test.Run.Parallel_Test_TaskTB at trendy_test.adb:277\r\n"
+- "0x4601a2 system__tasking__queuing__select_protected_entry_call at ???\r\n"
+- "[C:\\Windows\\System32\\KERNEL32.DLL]\r\n"
+- "0x7ffd7d1f7032\r\n"
+- "[C:\\Windows\\SYSTEM32\\ntdll.dll]\r\n"
+- "0x7ffd7e08264f\r\n"
+- "\r\n"
+- "[ FAIL ] trendy_command_line_tests.flags.test_boolean_option_short_options    \
+  \  0.001984800\r\n"
+- "         Assertion Failed: (Condition false) at D:\\dev\\ada\\trendy_command_line\\\
+  src\\trendy_command_line_tests-flags.adb: 93[D:\\dev\\ada\\trendy_command_line\\\
+  bin\\trendy_command_line_test_main.exe]\r\n"
+- "0x453530 Trendy_Test.Report_Failure at trendy_test.adb:88\r\n"
+- "0x4535a4 Trendy_Test.Assert at trendy_test.adb:102\r\n"
+- "0x425a43 Trendy_Command_Line_Tests.Flags.Test_Boolean_Option_Short_Options at trendy_command_line_tests-flags.adb:93\r\
+  \n"
+- "0x451ff1 Trendy_Test.Run_Test at trendy_test.adb:237\r\n"
+- "0x452d4c Trendy_Test.Run.Parallel_Test_TaskTB at trendy_test.adb:277\r\n"
+- "0x4601a2 system__tasking__queuing__select_protected_entry_call at ???\r\n"
+- "[C:\\Windows\\System32\\KERNEL32.DLL]\r\n"
+- "0x7ffd7d1f7032\r\n"
+- "[C:\\Windows\\SYSTEM32\\ntdll.dll]\r\n"
+- "0x7ffd7e08264f\r\n"
+- "\r\n"
+- "[ PASS ] trendy_command_line_tests.flags.test_boolean_option_toggles          \
+  \  0.000153600\r\n"
+- "[ PASS ] trendy_command_line_tests.flags.test_boolean_option_too_many_occurrences\r\
+  \n"
+- "                                                                              \
+  \  0.003517400\r\n"
+- "[ PASS ] trendy_command_line_tests.test_long_option_with_argument             \
+  \  0.000013000\r\n"
+- "[ PASS ] trendy_command_line_tests.test_one_operand                           \
+  \  0.000006700\r\n"
+- "[ PASS ] trendy_command_line_tests.test_short_option_with_argument            \
+  \  0.000193600\r\n"
+- "Results: Passed:  12 /  14\r\n"
+- "```\r\n"
+- "\r\n"
+- "\r\n"
+- "   Maintainer: Paul Jarrett <jarrett.paul.young@gmail.com>\r\n"
+- "   Maintainers_Logins: pyjarrett\r\n"
+- "   Name: trendy_test\r\n"
+- "   Project_File: trendy_test.gpr\r\n"
+- "   Tag: test\r\n"
+- "   Tag: unit-test\r\n"
+- "   Tag: unit\r\n"
+- "   Version: 0.0.3\r\n"
+- "   Website: https://github.com/pyjarrett/trendy_test\r\n"
+- '
+
+  '
+- '
+
+  LOG:
+
+  '
+- 'Note: Deploying trendy_test=0.0.3...
+
+  '
+- 'Note: Building trendy_test/trendy_test.gpr...
+
+  '
+- 'Setup
+
+  '
+- '   [mkdir]        object directory for project Trendy_Test
+
+  '
+- '   [mkdir]        library directory for project Trendy_Test
+
+  '
+- 'Compile
+
+  '
+- '   [Ada]          trendy_test.adb
+
+  '
+- '   [Ada]          trendy_test-reports.adb
+
+  '
+- '   [Ada]          trendy_test-generics.adb
+
+  '
+- '   [Ada]          trendy_test-assertions.adb
+
+  '
+- '   [Ada]          trendy_test-assertions-integer_assertions.ads
+
+  '
+- '   [Ada]          trendy_test-assertions-discrete.ads
+
+  '
+- '   [Ada]          trendy_locations.adb
+
+  '
+- 'Build Libraries
+
+  '
+- '   [gprlib]       Trendy_Test.lexch
+
+  '
+- '   [archive]      libTrendy_Test.a
+
+  '
+- '   [index]        libTrendy_Test.a
+
+  '
+- 'Build finished successfully in 4.82 seconds.
+
+  '
+- '
+
+  '
+- 'trendy_test=0.0.3 successfully retrieved and built.
+
+  '
+- 'There are no dependencies.
+
+  '
+- 'Found declared GPR file: trendy_test.gpr
+
+  '
+platform: windows
+status: success
+version: 0.0.3

@@ -1,0 +1,649 @@
+badge: false
+crate: encryption_utilities
+creation_timestamp: 1738715683.651198
+distro: darwin-23.6.0
+duration: 13.711981709000042
+gnat: 14.2.1
+last_attempt: 2025-02-05 00:39:32.398029+00:00
+log:
+- 'Test ran at 2025-02-05 00:39:32.397943+00:00
+
+
+  '
+- 'SOLUTION:
+
+  '
+- 'encryption_utilities=20220701.0.0: Utility programs for the encryption algorithms
+  included in the PragmARC
+
+  '
+- 'Origin: commit 1b883b9449a588f164e060cbc9ccd09c9595fa1c from https://github.com/bracke/Encryption-utilities.git
+
+  '
+- 'Properties:
+
+  '
+- '   Author: Jeff Carter
+
+  '
+- "   Build Switches: \n"
+- '   Description: Utility programs for the encryption algorithms included in the
+  PragmARC
+
+  '
+- '   Executable: tf_crypt
+
+  '
+- '   Executable: tf_test
+
+  '
+- '   Executable: tf_test_512
+
+  '
+- '   Executable: tf_test_1024
+
+  '
+- '   Executable: xcrypt
+
+  '
+- '   License: GPL-3.0-or-later
+
+  '
+- '   Long_Description: # Encryption utilities
+
+  '
+- '
+
+  '
+- 'The PragmAda Reusable Components (https://github.com/jrcarter/PragmARC) contain
+  implementations of the Threefish-256 (implemented directly from the specification
+  in Section 3.3 of the Skein paper V1.3 [https://www.schneier.com/skein.pdf]), Threefish-512,
+  Threefish-1024, and XOR encryption algorithms. Threefish-512 and Threefish-1024
+  are provided by Daniel Norte de Moraes (https://github.com/danieagle).
+
+  '
+- '
+
+  '
+- 'Test cases specifically for Threefish are at https://sites.google.com/site/bartoszmalkowski/threefish
+  and https://github.com/bmalkow/java-bc-threefish.
+
+  '
+- '
+
+  '
+- 'Tf_Test runs the test cases for Threefish-256 successfully (on a little-endian
+  machine). It also encrypts certain blocks and presents the encrypted blocks, and
+  shows that they decrypt correctly. Tf_Test uses PragmARC.Images from https://github.com/jrcarter/PragmARC.
+  Tf_Test_512 and Tf_Test_1024, provided by Daniel Norte de Moraes (https://github.com/danieagle),
+  do the same for Threefish-512 and Threefish-1024.
+
+  '
+- '
+
+  '
+- 'TF_Crypt is a command-line program for encrypting and decrypting files with Threefish-256.
+  TF_Crypt uses Password_Line. Files encrypted with TF_Crypt built with GNAT and running
+  on Linux are correctly decrypted by TF_Crypt build with ObjectAda and running on
+  Windows, and vice versa.
+
+  '
+- '
+
+  '
+- 'Xcrypt is a command-line program for encrypting and decrypting files with XOR.
+  It uses Password_Line. Since XOR is symmetrical, the same algorithm is used for
+  encrypting and decrypting. One can encrypt twice with multiple keys, and decrypt
+  with the keys in any order. This gives results equivalent to encrypting with a key
+  length of the least common multiple of the lengths of the keys.
+
+  '
+- '
+
+  '
+- 'Password_Line is a function for obtaining secret input from a user without echoing
+  it to the screen. It has been tested and works with GNAT on Linux and Windows and
+  ObjectAda 10.3 on Windows.
+
+  '
+- '
+
+  '
+- 'Tf_Test*, TF_Crypt, and Xcrypt are GPL-3; Password_Line is GMGPL.
+
+  '
+- '
+
+  '
+- '   Maintainer: Bent Bracke <bent@bracke.dk>
+
+  '
+- '   Maintainers_Logins: bracke
+
+  '
+- '   Name: encryption_utilities
+
+  '
+- '   Tag: threefish256
+
+  '
+- '   Tag: threefish512
+
+  '
+- '   Tag: threefish1024
+
+  '
+- '   Tag: xor
+
+  '
+- '   Version: 20220701
+
+  '
+- '   Website: https://github.com/bracke/Encryption-utilities
+
+  '
+- 'Dependencies (direct):
+
+  '
+- '   gnat<13.0 | >=13.3
+
+  '
+- '   pragmarc^20240323.0.0
+
+  '
+- 'Dependencies (solution):
+
+  '
+- '   gnat=14.2.1 (gnat_native)
+
+  '
+- '   pragmarc=20240323.0.0
+
+  '
+- 'Dependencies (graph):
+
+  '
+- '   encryption_utilities=20220701.0.0 --> gnat=14.2.1 (gnat_native) (<13.0 | >=13.3)
+
+  '
+- '   encryption_utilities=20220701.0.0 --> pragmarc=20240323.0.0 (^20240323.0.0)
+
+  '
+- '   pragmarc=20240323.0.0             --> gnat=14.2.1 (gnat_native) (<13.0 | >=13.3)
+
+  '
+- '
+
+  '
+- '
+
+  LOG:
+
+  '
+- 'Spawning: alr -d -n get --build encryption_utilities=20220701.0.0
+
+  '
+- 'Note: Deploying encryption_utilities=20220701.0.0...
+
+  '
+- 'Note: Deploying pragmarc=20240323.0.0...
+
+  '
+- 'Note: Building encryption_utilities=20220701.0.0/encryption_utilities.gpr...
+
+  '
+- 'Setup
+
+  '
+- '   [mkdir]        object directory for project PragmARC
+
+  '
+- '   [mkdir]        library directory for project PragmARC
+
+  '
+- '   [mkdir]        object directory for project Encryption_Utilities
+
+  '
+- '   [mkdir]        exec directory for project Encryption_Utilities
+
+  '
+- 'Compile
+
+  '
+- '   [Ada]          xcrypt.adb
+
+  '
+- '   [Ada]          tf_test.adb
+
+  '
+- '   [Ada]          tf_crypt.adb
+
+  '
+- '   [Ada]          tf_test_512.adb
+
+  '
+- '   [Ada]          tf_test_1024.adb
+
+  '
+- '   [Ada]          pragmarc_config.ads
+
+  '
+- '   [Ada]          pragmarc-matching-quick_string.adb
+
+  '
+- '   [Ada]          pragmarc-data_structures-queues-bounded-protection-blocking.ads
+
+  '
+- '   [Ada]          pragmarc-matching.ads
+
+  '
+- '   [Ada]          pragmarc-genetic_algorithm.adb
+
+  '
+- '   [Ada]          pragmarc-text_io.adb
+
+  '
+- '   [Ada]          pragmarc-data_structures-bags-unbounded-unprotected.adb
+
+  '
+- '   [Ada]          pragmarc-unbounded_numbers.ads
+
+  '
+- '   [Ada]          pragmarc-reflection.ads
+
+  '
+- '   [Ada]          pragmarc-data_structures-lists-bounded-protection.adb
+
+  '
+- '   [Ada]          pragmarc-ansi_tty_control.adb
+
+  '
+- '   [Ada]          pragmarc-encryption-threefish.adb
+
+  '
+- '   [Ada]          pragmarc-math.adb
+
+  '
+- '   [Ada]          pragmarc-comparisons.ads
+
+  '
+- '   [Ada]          pragmarc-encryption-threefish-block_256.adb
+
+  '
+- '   [Ada]          pragmarc-safety-pointers.adb
+
+  '
+- '   [Ada]          pragmarc-least_squares_fitting.adb
+
+  '
+- '   [Ada]          pragmarc-safety-semaphores.adb
+
+  '
+- '   [Ada]          pragmarc-conversions-vectors.adb
+
+  '
+- '   [Ada]          pragmarc-data_structures-queues-unbounded-unprotected.adb
+
+  '
+- '   [Ada]          pragmarc-matching-regular_expression.adb
+
+  '
+- '   [Ada]          pragmarc-data_structures-queues.ads
+
+  '
+- '   [Ada]          pragmarc-data_structures-queues-bounded-unprotected.adb
+
+  '
+- '   [Ada]          pragmarc-data_structures-skip_lists-unbounded.adb
+
+  '
+- '   [Ada]          pragmarc-data_structures-stacks-unbounded.ads
+
+  '
+- '   [Ada]          pragmarc-binary_semaphore_handler.adb
+
+  '
+- '   [Ada]          pragmarc-sorting-radix.adb
+
+  '
+- '   [Ada]          pragmarc-randomness-universal.adb
+
+  '
+- '   [Ada]          pragmarc-cards-decks.ads
+
+  '
+- '   [Ada]          pragmarc-wrapping.ads
+
+  '
+- '   [Ada]          pragmarc-data_structures-lists-unbounded-protection.adb
+
+  '
+- '   [Ada]          pragmarc-task_communication.ads
+
+  '
+- '   [Ada]          pragmarc-data_structures-lists-unbounded.ads
+
+  '
+- '   [Ada]          pragmarc-job_pools.adb
+
+  '
+- '   [Ada]          pragmarc-data_structures-sets.ads
+
+  '
+- '   [Ada]          pragmarc-data_structures.ads
+
+  '
+- '   [Ada]          pragmarc-conversions-unbounded_strings.ads
+
+  '
+- '   [Ada]          pragmarc-min_max.ads
+
+  '
+- '   [Ada]          pragmarc-word_input.adb
+
+  '
+- '   [Ada]          pragmarc-postfix_calculator.adb
+
+  '
+- '   [Ada]          pragmarc-line_fields.adb
+
+  '
+- '   [Ada]          pragmarc-data_structures-queues-unbounded-protection-non_blocking.adb
+
+  '
+- '   [Ada]          pragmarc-encryption-threefish-block_1024.adb
+
+  '
+- '   [Ada]          pragmarc-data_structures-lists-bounded.ads
+
+  '
+- '   [Ada]          pragmarc-encryption.ads
+
+  '
+- '   [Ada]          pragmarc-cards.ads
+
+  '
+- '   [Ada]          pragmarc-rem_nn_wrapper.adb
+
+  '
+- '   [Ada]          pragmarc-data_structures-queues-bounded.ads
+
+  '
+- '   [Ada]          pragmarc-three_way.adb
+
+  '
+- '   [Ada]          pragmarc-randomness-real_values.ads
+
+  '
+- '   [Ada]          pragmarc-randomness-combined.adb
+
+  '
+- '   [Ada]          pragmarc-data_structures-lists.ads
+
+  '
+- '   [Ada]          pragmarc-data_structures-queues-bounded-protection.ads
+
+  '
+- '   [Ada]          pragmarc-randomness.ads
+
+  '
+- '   [Ada]          pragmarc-cards-decks-us.adb
+
+  '
+- '   [Ada]          pragmarc-concurrent_pipeline.adb
+
+  '
+- '   [Ada]          pragmarc-data_structures-queues-unbounded.ads
+
+  '
+- '   [Ada]          pragmarc-date_handler.adb
+
+  '
+- '   [Ada]          pragmarc-data_structures-bags-unbounded.ads
+
+  '
+- '   [Ada]          pragmarc-unbounded_numbers-integers.adb
+
+  '
+- '   [Ada]          pragmarc-encryption-simple_xor.adb
+
+  '
+- '   [Ada]          pragmarc-task_communication-forwarders.adb
+
+  '
+- '   [Ada]          pragmarc-randomness-kiss.adb
+
+  '
+- '   [Ada]          pragmarc-randomness-real_ranges.adb
+
+  '
+- '   [Ada]          pragmarc-permutations.adb
+
+  '
+- '   [Ada]          pragmarc-randomness-isaac.adb
+
+  '
+- '   [Ada]          pragmarc-sorting-insertion.adb
+
+  '
+- '   [Ada]          pragmarc-randomness-u32_ranges.adb
+
+  '
+- '   [Ada]          pragmarc-protected_option.adb
+
+  '
+- '   [Ada]          pragmarc-safety-suspension_objects.adb
+
+  '
+- '   [Ada]          pragmarc-data_structures-queues-unbounded-protection-blocking.ads
+
+  '
+- '   [Ada]          pragmarc-sorting.ads
+
+  '
+- '   [Ada]          pragmarc-conversions.ads
+
+  '
+- '   [Ada]          pragmarc-b_strings.adb
+
+  '
+- '   [Ada]          pragmarc-data_structures-stacks.ads
+
+  '
+- '   [Ada]          pragmarc-unbounded_numbers-rationals.adb
+
+  '
+- '   [Ada]          pragmarc.ads
+
+  '
+- '   [Ada]          pragmarc-data_structures-bags-unbounded-protection.adb
+
+  '
+- '   [Ada]          pragmarc-persistent_skip_list_unbounded.adb
+
+  '
+- '   [Ada]          pragmarc-luhn_generation.adb
+
+  '
+- '   [Ada]          pragmarc-hash.adb
+
+  '
+- '   [Ada]          pragmarc-sorting-quick.adb
+
+  '
+- '   [Ada]          pragmarc-task_communication-transporters.adb
+
+  '
+- '   [Ada]          pragmarc-matching-character_regular_expression.adb
+
+  '
+- '   [Ada]          pragmarc-title_comparisons.adb
+
+  '
+- '   [Ada]          pragmarc-encryption-bifid.adb
+
+  '
+- '   [Ada]          pragmarc-data_structures-queues-unbounded-protection.ads
+
+  '
+- '   [Ada]          pragmarc-data_structures-bags.ads
+
+  '
+- '   [Ada]          pragmarc-data_structures-sets-discrete.adb
+
+  '
+- '   [Ada]          pragmarc-data_structures-stacks-unbounded-unprotected.adb
+
+  '
+- '   [Ada]          pragmarc-rational_postfix_calculator.adb
+
+  '
+- '   [Ada]          pragmarc-data_structures-skip_lists.ads
+
+  '
+- '   [Ada]          pragmarc-images-image.ads
+
+  '
+- '   [Ada]          compile_all.adb
+
+  '
+- '   [Ada]          pragmarc-menu_handler.adb
+
+  '
+- '   [Ada]          pragmarc-safety.ads
+
+  '
+- '   [Ada]          pragmarc-binary_searcher.adb
+
+  '
+- '   [Ada]          pragmarc-data_structures-stacks-unbounded-protection.adb
+
+  '
+- '   [Ada]          pragmarc-cards-decks-general.adb
+
+  '
+- '   [Ada]          pragmarc-cards-us.adb
+
+  '
+- '   [Ada]          pragmarc-data_structures-queues-bounded-protection-non_blocking.adb
+
+  '
+- '   [Ada]          pragmarc-encryption-threefish-block_512.adb
+
+  '
+- '   [Ada]          pragmarc-images.adb
+
+  '
+- 'pragmarc-matching-character_regular_expression.ads:31:04: warning: in instantiation
+  at pragmarc-matching-regular_expression.adb:30 [-gnatwv]
+
+  '
+- 'pragmarc-matching-character_regular_expression.ads:31:04: warning: aggregate not
+  fully initialized [-gnatwv]
+
+  '
+- '   [Ada]          pragmarc-sorting-heap.adb
+
+  '
+- '   [Ada]          pragmarc-task_communication-monitors.adb
+
+  '
+- '   [Ada]          pragmarc-randomness-threefry.adb
+
+  '
+- '   [Ada]          pragmarc-mixed_case.adb
+
+  '
+- '   [Ada]          pragmarc-hash_fast_variable_length.adb
+
+  '
+- '   [Ada]          password_line.adb
+
+  '
+- 'Build Libraries
+
+  '
+- '   [gprlib]       PragmARC.lexch
+
+  '
+- '   [archive]      libPragmARC.a
+
+  '
+- '   [index]        libPragmARC.a
+
+  '
+- 'Bind
+
+  '
+- '   [gprbind]      xcrypt.bexch
+
+  '
+- '   [gprbind]      tf_test.bexch
+
+  '
+- '   [gprbind]      tf_crypt.bexch
+
+  '
+- '   [Ada]          tf_crypt.ali
+
+  '
+- '   [Ada]          tf_test.ali
+
+  '
+- '   [Ada]          xcrypt.ali
+
+  '
+- '   [gprbind]      tf_test_512.bexch
+
+  '
+- '   [gprbind]      tf_test_1024.bexch
+
+  '
+- '   [Ada]          tf_test_512.ali
+
+  '
+- '   [Ada]          tf_test_1024.ali
+
+  '
+- 'Link
+
+  '
+- '   [link]         xcrypt.adb
+
+  '
+- '   [link]         tf_test.adb
+
+  '
+- '   [link]         tf_crypt.adb
+
+  '
+- '   [link]         tf_test_512.adb
+
+  '
+- '   [link]         tf_test_1024.adb
+
+  '
+- '
+
+  '
+- 'encryption_utilities=20220701.0.0 successfully retrieved and built.
+
+  '
+- 'Dependencies were solved as follows:
+
+  '
+- '
+
+  '
+- '   +b gnat     14.2.1       (new,gnat_native,binary)
+
+  '
+- '   +  pragmarc 20240323.0.0 (new)
+
+  '
+- 'Found declared GPR file: encryption_utilities.gpr
+
+  '
+platform: macos
+status: success
+version: 20220701.0.0

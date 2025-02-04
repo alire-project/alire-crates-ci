@@ -1,0 +1,117 @@
+Test ran at 2024-07-18 01:34:16.350889+00:00
+
+SOLUTION:
+matreshka_amf_dd=21.0.0: Diagram Definition (DD) specification support for AMF
+Origin: commit d9f26bf491a2bfd76c4396fd8f49459bc230423a from https://github.com/reznikmm/matreshka-alire
+Properties:
+   Author: Vadim Godunko
+   Description: Diagram Definition (DD) specification support for AMF
+   License: BSD-3-Clause
+   Maintainer: Vadim Godunko <vgodunko@gmail.com>
+   Maintainer: Maxim Reznik <reznikmm@gmail.com>
+   Maintainers_Logins: godunko
+   Maintainers_Logins: reznikmm
+   Name: matreshka_amf_dd
+   Project_File: build_matreshka_amf_dd.gpr
+   Tag: uml
+   Tag: meta
+   Tag: diagram
+   Version: 21.0.0
+   Website: https://github.com/godunko/matreshka
+Dependencies (direct):
+   matreshka_amf21.0.0
+   matreshka_league21.0.0
+Dependencies (solution):
+   gnat=12.2.1 (gnat_native) (installed)
+   make=3.81.0
+   matreshka_amf=21.0.0
+   matreshka_league=21.0.0
+   matreshka_xml=21.0.0
+Dependencies (graph):
+   matreshka_amf=21.0.0    --> matreshka_league=21.0.0 (21.0.0) 
+   matreshka_amf=21.0.0    --> matreshka_xml=21.0.0 (21.0.0)    
+   matreshka_amf_dd=21.0.0 --> matreshka_amf=21.0.0 (21.0.0)    
+   matreshka_amf_dd=21.0.0 --> matreshka_league=21.0.0 (21.0.0) 
+   matreshka_league=21.0.0 --> gnat=12.2.1 (gnat_native) (<2000)
+   matreshka_league=21.0.0 --> make=3.81.0 (*)                  
+   matreshka_xml=21.0.0    --> matreshka_league=21.0.0 (21.0.0) 
+
+
+LOG:
+Note: Deploying matreshka_amf_dd=21.0.0...
+Note: Deploying make=3.81.0...
+Note: Deploying matreshka_league=21.0.0...
+#=#=#                                                                          
+##O#-#                                                                         
+
+#########                                                                 13.6%
+######################                                                    31.5%
+###################################                                       49.9%
+################################################                          67.3%
+############################################################              83.6%
+######################################################################## 100.0%
+Note: Running post_fetch actions for matreshka_league=21.0.0...
+gnatmake -p -j0  -Pgnat/tools_configure.gpr
+Setup
+   [mkdir]        object directory for project Tools_Configure
+Compile
+   [Ada]          configure-driver.adb
+   [Ada]          configure.adb
+   [Ada]          configure-architecture.adb
+   [Ada]          configure-instantiate.adb
+   [Ada]          configure-internals.adb
+   [Ada]          configure-rtl_version.adb
+   [Ada]          configure-tests.ads
+   [Ada]          configure-tests-asis.adb
+   [Ada]          configure-tests-aws.adb
+   [Ada]          configure-tests-firebird.adb
+   [Ada]          configure-tests-gprbuild.adb
+   [Ada]          configure-tests-install.adb
+   [Ada]          configure-tests-installation_directories.adb
+   [Ada]          configure-tests-modules.ads
+   [Ada]          configure-tests-modules-amf.adb
+   [Ada]          configure-tests-mysql.adb
+   [Ada]          configure-tests-oci.adb
+   [Ada]          configure-tests-operating_system.adb
+   [Ada]          configure-tests-postgresql.adb
+   [Ada]          configure-tests-sqlite3.adb
+   [Ada]          configure-tests-valgrind.adb
+   [Ada]          configure-version.adb
+   [Ada]          configure-builder.adb
+   [Ada]          configure-abstract_tests.adb
+   [Ada]          configure-pkg_config.adb
+   [Ada]          configure-component_switches.adb
+Bind
+   [gprbind]      configure-driver.bexch
+   [Ada]          configure-driver.ali
+Link
+   [link]         configure-driver.adb
+-macosx_version_min has been renamed to -macos_version_min
+0  0x10088df43  __assert_rtn + 64
+1  0x10078ff43  ld::AtomPlacement::findAtom(unsigned char, unsigned long long, ld::AtomPlacement::AtomLoc const*&, long long&) const + 1411
+2  0x1007ac431  ld::InputFiles::SliceParser::parseObjectFile(mach_o::Header const*) const + 19745
+3  0x1007bcb71  ld::InputFiles::parseAllFiles(void (ld::AtomFile const*) block_pointer)::$_7::operator()(unsigned long, ld::FileInfo const&) const + 657
+4  0x7ff80305edef  _dispatch_client_callout2 + 8
+5  0x7ff803070547  _dispatch_apply_invoke3 + 431
+6  0x7ff80305edbc  _dispatch_client_callout + 8
+7  0x7ff80306004e  _dispatch_once_callout + 20
+8  0x7ff803070a9b  _dispatch_apply_invoke_and_wait + 278
+9  0x7ff80306fcf8  _dispatch_apply_with_attr_f + 1225
+10  0x7ff80306feaf  dispatch_apply + 45
+11  0x100855972  ld::AtomFileConsolidator::parseFiles(bool) + 370
+12  0x1007dcd67  main + 12263
+ld: Assertion failed: (resultIndex < sectData.atoms.size()), function findAtom, file Relocations.cpp, line 1336.
+collect2: error: ld returned 1 exit status
+gprbuild: link of configure-driver.adb failed
+gprbuild: failed command was: /users/runner/.config/alire/cache/dependencies/gnat_native_12.2.1_77267eb1/bin/gcc configure-driver.o b__configure-driver.o /Users/runner/work/alire-crates-ci/alire-crates-ci/test/4655596b-a6ec-42fe-bdd9-ac075696a2d2/matreshka_amf_dd_21.0.0_d9f26bf4/alire/cache/dependencies/matreshka_league_21.0.0_0c8f4d47/.objs/configure/configure.o /Users/runner/work/alire-crates-ci/alire-crates-ci/test/4655596b-a6ec-42fe-bdd9-ac075696a2d2/matreshka_amf_dd_21.0.0_d9f26bf4/alire/cache/dependencies/matreshka_league_21.0.0_0c8f4d47/.objs/configure/configure-component_switches.o /Users/runner/work/alire-crates-ci/alire-crates-ci/test/4655596b-a6ec-42fe-bdd9-ac075696a2d2/matreshka_amf_dd_21.0.0_d9f26bf4/alire/cache/dependencies/matreshka_league_21.0.0_0c8f4d47/.objs/configure/configure-instantiate.o /Users/runner/work/alire-crates-ci/alire-crates-ci/test/4655596b-a6ec-42fe-bdd9-ac075696a2d2/matreshka_amf_dd_21.0.0_d9f26bf4/alire/cache/dependencies/matreshka_league_21.0.0_0c8f4d47/.objs/configure/configure-internals.o /Users/runner/work/alire-crates-ci/alire-crates-ci/test/4655596b-a6ec-42fe-bdd9-ac075696a2d2/matreshka_amf_dd_21.0.0_d9f26bf4/alire/cache/dependencies/matreshka_league_21.0.0_0c8f4d47/.objs/configure/configure-abstract_tests.o /Users/runner/work/alire-crates-ci/alire-crates-ci/test/4655596b-a6ec-42fe-bdd9-ac075696a2d2/matreshka_amf_dd_21.0.0_d9f26bf4/alire/cache/dependencies/matreshka_league_21.0.0_0c8f4d47/.objs/configure/configure-builder.o /Users/runner/work/alire-crates-ci/alire-crates-ci/test/4655596b-a6ec-42fe-bdd9-ac075696a2d2/matreshka_amf_dd_21.0.0_d9f26bf4/alire/cache/dependencies/matreshka_league_21.0.0_0c8f4d47/.objs/configure/configure-architecture.o /Users/runner/work/alire-crates-ci/alire-crates-ci/test/4655596b-a6ec-42fe-bdd9-ac075696a2d2/matreshka_amf_dd_21.0.0_d9f26bf4/alire/cache/dependencies/matreshka_league_21.0.0_0c8f4d47/.objs/configure/configure-pkg_config.o /Users/runner/work/alire-crates-ci/alire-crates-ci/test/4655596b-a6ec-42fe-bdd9-ac075696a2d2/matreshka_amf_dd_21.0.0_d9f26bf4/alire/cache/dependencies/matreshka_league_21.0.0_0c8f4d47/.objs/configure/configure-rtl_version.o /Users/runner/work/alire-crates-ci/alire-crates-ci/test/4655596b-a6ec-42fe-bdd9-ac075696a2d2/matreshka_amf_dd_21.0.0_d9f26bf4/alire/cache/dependencies/matreshka_league_21.0.0_0c8f4d47/.objs/configure/configure-tests.o /Users/runner/work/alire-crates-ci/alire-crates-ci/test/4655596b-a6ec-42fe-bdd9-ac075696a2d2/matreshka_amf_dd_21.0.0_d9f26bf4/alire/cache/dependencies/matreshka_league_21.0.0_0c8f4d47/.objs/configure/configure-tests-asis.o /Users/runner/work/alire-crates-ci/alire-crates-ci/test/4655596b-a6ec-42fe-bdd9-ac075696a2d2/matreshka_amf_dd_21.0.0_d9f26bf4/alire/cache/dependencies/matreshka_league_21.0.0_0c8f4d47/.objs/configure/configure-tests-aws.o /Users/runner/work/alire-crates-ci/alire-crates-ci/test/4655596b-a6ec-42fe-bdd9-ac075696a2d2/matreshka_amf_dd_21.0.0_d9f26bf4/alire/cache/dependencies/matreshka_league_21.0.0_0c8f4d47/.objs/configure/configure-tests-firebird.o /Users/runner/work/alire-crates-ci/alire-crates-ci/test/4655596b-a6ec-42fe-bdd9-ac075696a2d2/matreshka_amf_dd_21.0.0_d9f26bf4/alire/cache/dependencies/matreshka_league_21.0.0_0c8f4d47/.objs/configure/configure-tests-gprbuild.o /Users/runner/work/alire-crates-ci/alire-crates-ci/test/4655596b-a6ec-42fe-bdd9-ac075696a2d2/matreshka_amf_dd_21.0.0_d9f26bf4/alire/cache/dependencies/matreshka_league_21.0.0_0c8f4d47/.objs/configure/configure-tests-install.o /Users/runner/work/alire-crates-ci/alire-crates-ci/test/4655596b-a6ec-42fe-bdd9-ac075696a2d2/matreshka_amf_dd_21.0.0_d9f26bf4/alire/cache/dependencies/matreshka_league_21.0.0_0c8f4d47/.objs/configure/configure-tests-installation_directories.o /Users/runner/work/alire-crates-ci/alire-crates-ci/test/4655596b-a6ec-42fe-bdd9-ac075696a2d2/matreshka_amf_dd_21.0.0_d9f26bf4/alire/cache/dependencies/matreshka_league_21.0.0_0c8f4d47/.objs/configure/configure-tests-modules.o /Users/runner/work/alire-crates-ci/alire-crates-ci/test/4655596b-a6ec-42fe-bdd9-ac075696a2d2/matreshka_amf_dd_21.0.0_d9f26bf4/alire/cache/dependencies/matreshka_league_21.0.0_0c8f4d47/.objs/configure/configure-tests-mysql.o /Users/runner/work/alire-crates-ci/alire-crates-ci/test/4655596b-a6ec-42fe-bdd9-ac075696a2d2/matreshka_amf_dd_21.0.0_d9f26bf4/alire/cache/dependencies/matreshka_league_21.0.0_0c8f4d47/.objs/configure/configure-tests-operating_system.o /Users/runner/work/alire-crates-ci/alire-crates-ci/test/4655596b-a6ec-42fe-bdd9-ac075696a2d2/matreshka_amf_dd_21.0.0_d9f26bf4/alire/cache/dependencies/matreshka_league_21.0.0_0c8f4d47/.objs/configure/configure-tests-modules-amf.o /Users/runner/work/alire-crates-ci/alire-crates-ci/test/4655596b-a6ec-42fe-bdd9-ac075696a2d2/matreshka_amf_dd_21.0.0_d9f26bf4/alire/cache/dependencies/matreshka_league_21.0.0_0c8f4d47/.objs/configure/configure-tests-oci.o /Users/runner/work/alire-crates-ci/alire-crates-ci/test/4655596b-a6ec-42fe-bdd9-ac075696a2d2/matreshka_amf_dd_21.0.0_d9f26bf4/alire/cache/dependencies/matreshka_league_21.0.0_0c8f4d47/.objs/configure/configure-tests-postgresql.o /Users/runner/work/alire-crates-ci/alire-crates-ci/test/4655596b-a6ec-42fe-bdd9-ac075696a2d2/matreshka_amf_dd_21.0.0_d9f26bf4/alire/cache/dependencies/matreshka_league_21.0.0_0c8f4d47/.objs/configure/configure-tests-sqlite3.o /Users/runner/work/alire-crates-ci/alire-crates-ci/test/4655596b-a6ec-42fe-bdd9-ac075696a2d2/matreshka_amf_dd_21.0.0_d9f26bf4/alire/cache/dependencies/matreshka_league_21.0.0_0c8f4d47/.objs/configure/configure-tests-valgrind.o /Users/runner/work/alire-crates-ci/alire-crates-ci/test/4655596b-a6ec-42fe-bdd9-ac075696a2d2/matreshka_amf_dd_21.0.0_d9f26bf4/alire/cache/dependencies/matreshka_league_21.0.0_0c8f4d47/.objs/configure/configure-version.o -L/Users/runner/work/alire-crates-ci/alire-crates-ci/test/4655596b-a6ec-42fe-bdd9-ac075696a2d2/matreshka_amf_dd_21.0.0_d9f26bf4/alire/cache/dependencies/matreshka_league_21.0.0_0c8f4d47/.objs/configure/ -L/Users/runner/work/alire-crates-ci/alire-crates-ci/test/4655596b-a6ec-42fe-bdd9-ac075696a2d2/matreshka_amf_dd_21.0.0_d9f26bf4/alire/cache/dependencies/matreshka_league_21.0.0_0c8f4d47/.objs/configure/ -L/users/runner/.config/alire/cache/dependencies/gnat_native_12.2.1_77267eb1/lib/gcc/x86_64-apple-darwin19.6.0/12.2.0/adalib/ /users/runner/.config/alire/cache/dependencies/gnat_native_12.2.1_77267eb1/lib/gcc/x86_64-apple-darwin19.6.0/12.2.0/adalib/libgnat.a -Wl,-rpath,@executable_path//.objs/configure -Wl,-rpath,@executable_path/../../../../../../../../../..//.config/alire/cache/dependencies/gnat_native_12.2.1_77267eb1/lib/gcc/x86_64-apple-darwin19.6.0/12.2.0/adalib -o /Users/runner/work/alire-crates-ci/alire-crates-ci/test/4655596b-a6ec-42fe-bdd9-ac075696a2d2/matreshka_amf_dd_21.0.0_d9f26bf4/alire/cache/dependencies/matreshka_league_21.0.0_0c8f4d47//configure
+make: *** [config] Error 5
+stderr: Command ["make", "reconfig"] exited with code 2
+stderr: ALIRE.CHECKED_ERROR
+stderr: Command ["make", "reconfig"] exited with code 2
+stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
+Load address: 0x1044e4000
+Call stack traceback locations:
+0x104dec415 0x104abfe83 0x104ac5729 0x104ac6909 0x104ac5d1b 0x104c37299 0x104c37fd4 0x104c4e873 0x104c9adc1 0x104c993c2 0x104c4e9b8 0x104c38346 0x1045541cf 0x10455901c 0x1045df05c 0x1045ea3b8 0x1044e5605 0x1044e8914
+
+stderr: A post-fetch action failed, re-run with -vv -d for details
+ERROR: A post-fetch action failed, re-run with -vv -d for details

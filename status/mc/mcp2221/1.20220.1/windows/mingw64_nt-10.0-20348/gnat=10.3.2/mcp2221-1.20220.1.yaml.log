@@ -1,0 +1,258 @@
+Test ran at 2022-08-15 00:47:41.623860+00:00
+
+SOLUTION:
+mcp2221=1.20220.1: MCP2221 USB Raw HID I/O Expander Library for GNAT Ada
+Origin: source archive mcp2221-1.20220.1.tbz2 at http://repo.munts.com/alire/mcp2221-1.20220.1.tbz2 with hashes sha256:af01ab3406c53ddb317ffef3ed510aec2f0cdbd3a8435d37004c0d1bb6d14422, sha512:4bb16b3cfce2e0bf88c8827281251ed64ae4edac24f02347406c8360cf4e7baaaf0623dda95d1eda87fdb93c1eed1baabe5c1553654d8b73a56140c7e2ae5c55
+Available when: (case OS is Linux => True, Windows => True, others => False)
+Properties:
+   case OS is
+      when Linux => Post_Fetch run: ${CRATE_DIR}/./sh -c sed -i 's/lhidapi/lhidapi-hidraw/g' src/objects/hid/hid-hidapi.ads
+      when Windows => Post_Fetch run: ${CRATE_DIR}/./sh -c mkdir -p ./bin && cp src/win64/*.dll ./bin && mkdir -p ./lib && cp src/win64/*.dll ./lib
+   Author: Philip Munts
+   Description: MCP2221 USB Raw HID I/O Expander Library for GNAT Ada
+   License: BSD-1-Clause
+   Maintainer: Philip Munts <phil@munts.net>
+   Maintainers_Logins: pmunts
+   Name: mcp2221
+   Project_File: mcp2221.gpr
+   Project_File: programs.gpr
+   Tag: embedded
+   Tag: linux
+   Tag: mcp2221
+   Tag: adc
+   Tag: dac
+   Tag: gpio
+   Tag: i2c
+   Tag: motor
+   Tag: pwm
+   Tag: sensor
+   Tag: serial
+   Tag: servo
+   Tag: spi
+   Tag: stepper
+   Version: 1.20220.1
+   Website: https://github.com/pmunts/libsimpleio
+Dependencies (direct):
+   case OS is
+      when Linux => libhidapi*
+   case OS is
+      when Linux => libusb~1.0
+
+
+LOG:
+Note: Deploying mcp2221=1.20220.1...
+#=#=#                                                                         
+
+###                                                                        5.0%
+##############                                                            19.5%
+#############################################################             85.2%
+######################################################################## 100.0%
+Note: Running post_fetch actions for mcp2221=1.20220.1...
+Note: Building mcp2221/mcp2221.gpr (1/2)...
+Setup
+   [mkdir]        object directory for project MCP2221
+Compile
+   [Ada]          hid-libusb.adb
+   [Ada]          hid-hidapi.adb
+   [Ada]          thermistor.adb
+   [Ada]          servo-pwm.ads
+   [Ada]          motor-servo.adb
+   [Ada]          motor-pwm.adb
+   [Ada]          gpio-pwm.adb
+   [Ada]          debug.adb
+   [Ada]          watchdog.ads
+   [Ada]          voltage.ads
+   [Ada]          truecolor.ads
+   [Ada]          temperature.ads
+   [Ada]          stepper.ads
+   [Ada]          servo.ads
+   [Ada]          servo-pwm_template.adb
+   [Ada]          resistance.ads
+   [Ada]          pwm.ads
+   [Ada]          pressure.ads
+   [Ada]          motor.ads
+   [Ada]          messaging.adb
+   [Ada]          messaging-text.ads
+   [Ada]          messaging-fixed.ads
+   [Ada]          message64.ads
+   [Ada]          magnetometer.ads
+   [Ada]          logging.ads
+   [Ada]          joystick.ads
+   [Ada]          io_interfaces.ads
+   [Ada]          i2c.adb
+   [Ada]          humidity.ads
+   [Ada]          hid.adb
+   [Ada]          gyroscope.ads
+   [Ada]          gpio.ads
+   [Ada]          dac.adb
+   [Ada]          angle.ads
+   [Ada]          analog.ads
+   [Ada]          adc.adb
+   [Ada]          accelerometer.ads
+   [Ada]          tmp102.adb
+   [Ada]          tlc1543.adb
+   [Ada]          th02.adb
+tlc1543.adb:101:26: warning: formal parameter "self" is not referenced
+   [Ada]          tcs3472.adb
+   [Ada]          pca9685.adb
+tcs3472.adb:34:03: warning: constant "AILTL" is not referenced
+tcs3472.adb:35:03: warning: constant "AILTH" is not referenced
+tcs3472.adb:36:03: warning: constant "AIHTL" is not referenced
+tcs3472.adb:37:03: warning: constant "AIHTH" is not referenced
+tcs3472.adb:38:03: warning: constant "PERS" is not referenced
+tcs3472.adb:40:03: warning: constant "CONTROL" is not referenced
+tcs3472.adb:41:03: warning: constant "ID" is not referenced
+tcs3472.adb:44:03: warning: constant "CDATAH" is not referenced
+tcs3472.adb:45:03: warning: constant "RDATAL" is not referenced
+tcs3472.adb:46:03: warning: constant "RDATAH" is not referenced
+tcs3472.adb:47:03: warning: constant "GDATAL" is not referenced
+tcs3472.adb:48:03: warning: constant "GDATAH" is not referenced
+tcs3472.adb:49:03: warning: constant "BDATAL" is not referenced
+tcs3472.adb:50:03: warning: constant "BDATAH" is not referenced
+tcs3472.adb:62:03: warning: constant "AIEN" is not referenced
+tcs3472.adb:66:03: warning: constant "POWERON" is not referenced
+tcs3472.adb:67:03: warning: constant "ACQUIRE" is not referenced
+   [Ada]          pca9685-pwm.adb
+   [Ada]          pca9685-gpio.adb
+   [Ada]          pca9534.adb
+   [Ada]          pca9534-gpio.adb
+   [Ada]          pca8574.adb
+   [Ada]          pca8574-gpio.adb
+   [Ada]          mpl3115a2.adb
+   [Ada]          mcp23017.adb
+   [Ada]          mcp23017-word.adb
+   [Ada]          mcp23017-gpio.adb
+   [Ada]          mcp23017-byte.adb
+   [Ada]          mcp2221.adb
+   [Ada]          mcp2221-libusb.adb
+   [Ada]          mcp2221-i2c.adb
+mcp2221.adb:87:23: warning: "resp" modified by call, but value might not be referenced
+   [Ada]          mcp2221-hidapi.adb
+   [Ada]          mcp2221-gpio.adb
+mcp2221-i2c.adb:61:30: warning: "respmsg" modified by call, but value overwritten at line 68
+mcp2221-i2c.adb:106:30: warning: "respmsg" modified by call, but value might not be referenced
+mcp2221-i2c.adb:147:30: warning: "respmsg" modified by call, but value overwritten at line 160
+mcp2221-i2c.adb:160:30: warning: "respmsg" modified by call, but value overwritten at line 167
+   [Ada]          mcp2221-adc.adb
+mcp2221-gpio.adb:130:27: warning: "resp" modified by call, but value might not be referenced
+   [Ada]          lsm9ds1.adb
+mcp2221-adc.adb:52:26: warning: formal parameter "Self" is not referenced
+   [Ada]          lps25h.adb
+lps25h.adb:63:03: warning: constant "WHO_AM_I" is not referenced
+lps25h.adb:69:03: warning: constant "INT_CFG" is not referenced
+lps25h.adb:70:03: warning: constant "INT_SOURCE" is not referenced
+lps25h.adb:71:03: warning: constant "STATUS_REG" is not referenced
+lps25h.adb:77:03: warning: constant "FIFO_CTRL" is not referenced
+lps25h.adb:78:03: warning: constant "FIFO_STATUS" is not referenced
+lps25h.adb:79:03: warning: constant "THS_P_L" is not referenced
+lps25h.adb:80:03: warning: constant "THS_P_H" is not referenced
+lps25h.adb:81:03: warning: constant "RPDS_L" is not referenced
+lps25h.adb:82:03: warning: constant "RPDS_H" is not referenced
+   [Ada]          htu21d.adb
+lsm9ds1.adb:63:03: warning: constant "WHO_AM_I" is not referenced
+lsm9ds1.adb:67:03: warning: constant "ORIENT_CFG_G" is not referenced
+lsm9ds1.adb:68:03: warning: constant "INT_GEN_SRC_G" is not referenced
+lsm9ds1.adb:70:03: warning: constant "OUT_TEMP_H" is not referenced
+lsm9ds1.adb:71:03: warning: constant "STATUS_REG_G" is not referenced
+lsm9ds1.adb:72:03: warning: constant "OUT_X_L_G" is not referenced
+lsm9ds1.adb:73:03: warning: constant "OUT_X_H_G" is not referenced
+lsm9ds1.adb:74:03: warning: constant "OUT_Y_L_G" is not referenced
+lsm9ds1.adb:75:03: warning: constant "OUT_Y_H_G" is not referenced
+lsm9ds1.adb:76:03: warning: constant "OUT_Z_L_G" is not referenced
+lsm9ds1.adb:77:03: warning: constant "OUT_Z_H_G" is not referenced
+lsm9ds1.adb:85:03: warning: constant "INT_GEN_SRC_XL" is not referenced
+lsm9ds1.adb:86:03: warning: constant "STATUS_REG_XL" is not referenced
+lsm9ds1.adb:88:03: warning: constant "OUT_X_H_XL" is not referenced
+lsm9ds1.adb:89:03: warning: constant "OUT_Y_L_XL" is not referenced
+lsm9ds1.adb:90:03: warning: constant "OUT_Y_H_XL" is not referenced
+lsm9ds1.adb:91:03: warning: constant "OUT_Z_L_XL" is not referenced
+lsm9ds1.adb:92:03: warning: constant "OUT_Z_H_XL" is not referenced
+lsm9ds1.adb:93:03: warning: constant "FIFO_CTRL" is not referenced
+lsm9ds1.adb:94:03: warning: constant "FIFO_SRC" is not referenced
+lsm9ds1.adb:106:03: warning: constant "OFFSET_X_REG_L_M" is not referenced
+lsm9ds1.adb:107:03: warning: constant "OFFSET_X_REG_H_M" is not referenced
+lsm9ds1.adb:108:03: warning: constant "OFFSET_Y_REG_L_M" is not referenced
+lsm9ds1.adb:109:03: warning: constant "OFFSET_Y_REG_H_M" is not referenced
+lsm9ds1.adb:110:03: warning: constant "OFFSET_Z_REG_L_M" is not referenced
+lsm9ds1.adb:111:03: warning: constant "OFFSET_Z_REG_H_M" is not referenced
+lsm9ds1.adb:112:03: warning: constant "WHO_AM_I_M" is not referenced
+lsm9ds1.adb:118:03: warning: constant "STATUS_REG_M" is not referenced
+lsm9ds1.adb:120:03: warning: constant "OUT_X_H_M" is not referenced
+lsm9ds1.adb:121:03: warning: constant "OUT_Y_L_M" is not referenced
+lsm9ds1.adb:122:03: warning: constant "OUT_Y_H_M" is not referenced
+lsm9ds1.adb:123:03: warning: constant "OUT_Z_L_M" is not referenced
+lsm9ds1.adb:124:03: warning: constant "OUT_Z_H_M" is not referenced
+lsm9ds1.adb:125:03: warning: constant "INT_CFG_M" is not referenced
+lsm9ds1.adb:126:03: warning: constant "INT_SRC_M" is not referenced
+lsm9ds1.adb:127:03: warning: constant "INT_THS_L" is not referenced
+lsm9ds1.adb:128:03: warning: constant "INT_THS_H" is not referenced
+lsm9ds1.adb:153:12: warning: function "ReadRegister" is not referenced
+lsm9ds1.adb:249:16: warning: formal parameter "Self" is not referenced
+   [Ada]          hts221.adb
+htu21d.adb:41:03: warning: named number "CMD_GET_CONFIG" is not referenced
+   [Ada]          hid-munts.ads
+hts221.adb:40:12: warning: function "ToUnsigned16" is not referenced
+hts221.adb:52:03: warning: constant "WHO_AM_I" is not referenced
+hts221.adb:57:03: warning: constant "STATUS_REG" is not referenced
+hts221.adb:59:03: warning: constant "HUMIDITY_OUT_H" is not referenced
+hts221.adb:61:03: warning: constant "TEMP_OUT_H" is not referenced
+hts221.adb:66:03: warning: constant "CALIB_4" is not referenced
+hts221.adb:69:03: warning: constant "CALIB_7" is not referenced
+hts221.adb:70:03: warning: constant "CALIB_8" is not referenced
+hts221.adb:71:03: warning: constant "CALIB_9" is not referenced
+hts221.adb:73:03: warning: constant "CALIB_B" is not referenced
+hts221.adb:75:03: warning: constant "CALIB_D" is not referenced
+hts221.adb:77:03: warning: constant "CALIB_F" is not referenced
+   [Ada]          hdc1080.adb
+   [Ada]          grove_temperature_humidity.ads
+   [Ada]          grove_temperature.adb
+   [Ada]          grove_tb6612.adb
+   [Ada]          grove_tb6612-stepper.adb
+   [Ada]          grove_tb6612-motor.adb
+grove_tb6612-stepper.adb:28:01: warning: "Stepper.Steps" is already use-visible through previous use_type_clause at grove_tb6612-stepper.ads:32
+   [Ada]          grove_adc.ads
+   [Ada]          cytron_md13s.adb
+   [Ada]          bmp280.adb
+   [Ada]          ads1015.adb
+bmp280.adb:34:03: warning: constant "REG_ID" is not referenced
+bmp280.adb:35:03: warning: constant "REG_RESET" is not referenced
+bmp280.adb:40:03: warning: constant "REG_PLSB" is not referenced
+bmp280.adb:41:03: warning: constant "REG_PXLSB" is not referenced
+bmp280.adb:42:03: warning: constant "REG_TMSB" is not referenced
+bmp280.adb:43:03: warning: constant "REG_TLSB" is not referenced
+bmp280.adb:44:03: warning: constant "REG_TXLSB" is not referenced
+   [Ada]          adc121c021.adb
+ads1015.adb:25:40: warning: literal "LowThreshold" is not referenced
+ads1015.adb:25:54: warning: literal "HighThreshold" is not referenced
+ads1015.adb:123:26: warning: formal parameter "Self" is not referenced
+   [Ada]          a4988.adb
+adc121c021.adb:35:03: warning: constant "AlertStatus" is not referenced
+adc121c021.adb:37:03: warning: constant "AlertLowLimit" is not referenced
+adc121c021.adb:38:03: warning: constant "AlertHighLimit" is not referenced
+adc121c021.adb:39:03: warning: constant "AlertHysteresis" is not referenced
+adc121c021.adb:40:03: warning: constant "LowestConversion" is not referenced
+adc121c021.adb:41:03: warning: constant "HighestConversion" is not referenced
+adc121c021.adb:49:12: warning: function "ReadRegister8" is not referenced
+adc121c021.adb:95:13: warning: procedure "WriteRegister16" is not referenced
+adc121c021.adb:129:26: warning: formal parameter "Self" is not referenced
+   [Ada]          errno.ads
+Build Libraries
+   [gprlib]       mcp2221.lexch
+   [archive]      libmcp2221.a
+   [index]        libmcp2221.a
+Note: Building mcp2221/programs.gpr (2/2)...
+Compile
+   [Ada]          test_query_hidapi.adb
+   [Ada]          test_query_libusb.adb
+Bind
+   [gprbind]      test_query_hidapi.bexch
+   [gprbind]      test_query_libusb.bexch
+   [Ada]          test_query_hidapi.ali
+   [Ada]          test_query_libusb.ali
+Link
+   [link]         test_query_hidapi.adb
+   [link]         test_query_libusb.adb
+Build finished successfully in 7.85 seconds.
+
+mcp2221=1.20220.1 successfully retrieved and built.
+There are no dependencies.

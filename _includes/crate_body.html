@@ -1,0 +1,26 @@
+<h2>{{ page.crate }}</h2>
+{% include badge_count.html crate=page.crate %}<br>
+{% include badges.html crate=page.crate %}
+
+<div style="margin-bottom: 0.5em"></div>
+<!-- Find all tests for the crate -->
+{% for test in site.data.tests %}
+    {%- if test.crate == page.crate -%}
+      {%- assign found = true -%}
+      <div class="header4">v{{test.version}} compiled with GNAT {{ test.gnat }} on {{ test.platform }} {{ test.distro }}</div>
+      <ul>
+        <li>Status: <div class="{{test.status}} inlined bolded">{{ test.status | upcase }}</div></li>
+        <li>Duration: {{ test.duration | round: 2 }}</li>
+        <li>Attempted: {{ test.last_attempt }}</li>
+        <li>
+          <a href="{{ "" | relative_url }}/status/{{ test.crate | slice: 0, 2 }}/{{ test.crate }}/{{ test.version }}/{{ test.platform }}/{{ test.distro }}/gnat={{ test.gnat }}/{{test.crate}}-{{test.version}}.yaml.log" target="_blank">
+            Log
+          </a>
+        </li>
+      </ul>
+    {% endif %}
+{% endfor %}
+
+{% if found != true %}
+No test runs found.
+{% endif %}

@@ -1,0 +1,56 @@
+name: CI with Distro compilers
+
+on:
+  pull_request:
+  schedule:
+    - cron: '44 */12 * * *'
+  workflow_dispatch: # Allow manual triggering
+
+jobs:
+
+  build:
+    name: ${{ matrix.tag }}
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        tag: # Those are our gnat:tag machines
+            - arch-rolling             # Test Arch compiler (closest to FSF?)
+            - centos-stream-fsf-latest # Test with unsupported package manager
+            - debian-stable            # Test current stable Debian compiler
+            - fedora-latest            # Test current Fedora compiler
+            - ubuntu-lts               # Test current LTS Ubuntu compiler
+
+    steps:
+    - name: Check out repository
+      uses: actions/checkout@v4
+
+    - name: Set up stable `alr`
+      uses: alire-project/setup-alire@v4
+      with:
+        toolchain: --disable-assistant
+        # We want to use the externally provided toolchain in the docker image
+
+    # For runs triggered by a pull request, we'll do only one crate test
+    - name: Decide short run
+      id : short-run
+      if: ${{ github.event_name == 'pull_request' }}
+      run: echo 'output=true' >> $GITHUB_OUTPUT
+      shell: bash
+
+    - name: Test releases in Docker
+      uses: mosteo-actions/docker-run@v1
+      with:
+        image: ghcr.io/alire-project/docker/gnat:${{ matrix.tag }}
+        command: scripts/run-tests.sh
+        params: >
+          -e BRANCH_NAME=${{ github.head_ref || github.ref_name }}
+          -e DISTRO=${{ matrix.tag }}
+          -e GITHUB_TOKEN=${{ secrets.GITHUB_TOKEN }}
+          -e GNAT_EXTERNAL=True
+          -e CI=True
+          -e BADGE=1
+          -e SHORT_RUN=${{ steps.short-run.outputs.output }}
+          -v ${{ github.workspace }}/alire_install/bin/alr:/usr/bin/alr

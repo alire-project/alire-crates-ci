@@ -1,0 +1,51 @@
+Test ran at 2024-03-28 12:24:37.685499+00:00
+
+SOLUTION:
+freetypeada=0.1.0: Thick binding to the FreeType library
+Origin: commit 4fd90f573dc83a9b23e462520a60eb6a8dd92878 from https://github.com/flyx/FreeTypeAda.git
+Properties:
+   Author: Felix Krause
+   Description: Thick binding to the FreeType library
+   case OS is
+      when Linux => GPR External: FreeType_Linker_Param := -lfreetype
+      when Macos => GPR External: FreeType_Linker_Param := -lfreetype
+      when Windows => GPR External: FreeType_Linker_Param := -lfreetype-6
+   License: MIT
+   Maintainer: Felix Krause <contact@flyx.org>
+   Maintainers_Logins: flyx
+   Name: freetypeada
+   Project_File: freetype.gpr
+   Tag: fonts
+   Tag: rendering
+   Version: 0.1.0
+   Website: https://github.com/flyx/FreeTypeAda
+Dependencies (direct):
+   case OS is
+      when Linux => libfreetype^2
+      when Windows => libfreetype^2
+
+
+LOG:
+Note: Deploying freetypeada=0.1.0...
+Note: Migrating lockfile from /Users/runner/work/alire-crates-ci/alire-crates-ci/test/28750144-0b27-4f5f-9023-0efe097f9b76/freetypeada_0.1.0_4fd90f57/alire.lock to /Users/runner/work/alire-crates-ci/alire-crates-ci/test/28750144-0b27-4f5f-9023-0efe097f9b76/freetypeada_0.1.0_4fd90f57/alire/alire.lock
+Note: Building freetypeada/freetype.gpr...
+Setup
+   [mkdir]        object directory for project FreeType
+   [mkdir]        library directory for project FreeType
+Compile
+   [ada]          ft-errors.adb
+   [ada]          ft-api-glyphs.ads
+   [ada]          ft.adb
+   [ada]          ft-faces.adb
+   [ada]          ft-api.ads
+   [ada]          ft-glyphs.adb
+   [ada]          ft-utilities.adb
+Build Libraries
+   [gprlib]       FreeTypeAda.lexch
+   [archive]      libFreeTypeAda.a
+   [index]        libFreeTypeAda.a
+Build finished successfully in 6.48 seconds.
+
+freetypeada=0.1.0 successfully retrieved and built.
+There are no dependencies.
+Found declared GPR file: freetype.gpr

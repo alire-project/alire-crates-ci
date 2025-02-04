@@ -1,0 +1,83 @@
+Test ran at 2025-02-02 00:41:47.743321+00:00
+
+SOLUTION:
+garlic=6.0.1: GNAT Library for Ada Distributed Environment (garlic)
+Origin: commit 90ef4b6f01c95df7e04c8f3e4c41c275f23acea9 from https://github.com/reznikmm/garlic.git
+Properties:
+   Author: AdaCore
+   Configuration: no modifiers
+   Description: GNAT Library for Ada Distributed Environment (garlic)
+   case OS is
+      when Linux => Environment: LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:${CRATE_ROOT}/.libs/relocatable
+      when Macos => Environment: DYLD_LIBRARY_PATH=${DYLD_LIBRARY_PATH}:${CRATE_ROOT}/.libs/relocatable
+      when Windows => Environment: PATH=${PATH}:${CRATE_ROOT}/.libs/relocatable
+   GPR Scenario: GARLIC_BUILD_MODE := dev | prod
+   License: GPL-2.0-or-later WITH GCC-exception-2.0
+   Maintainer: Max Reznik <reznikmm@gmail.com>
+   Maintainers_Logins: reznikmm
+   Name: garlic
+   Project_File: gnat/garlic.gpr
+   Tag: dsa
+   Tag: distributed
+   Tag: annex
+   Tag: network
+   Tag: glade
+   Version: 6.0.1
+   Website: https://github.com/reznikmm/garlic/wiki
+
+
+LOG:
+Note: Deploying garlic=6.0.1...
+Note: Building garlic/gnat/garlic.gpr...
+Setup
+   [mkdir]        object directory for project Garlic
+   [mkdir]        library directory for project Garlic
+Compile
+   [Ada]          s-garrem.adb
+   [Ada]          s-shasto.adb
+   [Ada]          s-rpstio.adb
+   [Ada]          s-rpcser.adb
+   [Ada]          s-rpc.adb
+   [Ada]          s-parint.adb
+   [Ada]          s-gptcse.adb
+   [Ada]          s-gprese.ads
+s-gptcse.adb:37:06: warning: unnecessary with of ancestor [-gnatwr]
+
+   compilation of s-gptcse.adb failed
+
+gprbuild: *** compilation phase failed
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "D:\a\alire-crates-ci\alire-crates-ci\test\b2311b1d-05c7-47dd-8bfe-c936ed596b6f\garlic_6.0.1_90ef4b6f\gnat/garlic.gpr"] exited with code 4
+ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "D:\a\alire-crates-ci\alire-crates-ci\test\b2311b1d-05c7-47dd-8bfe-c936ed596b6f\garlic_6.0.1_90ef4b6f\gnat/garlic.gpr"] exited with code 4
+stderr: ALIRE.CHECKED_ERROR
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "D:\a\alire-crates-ci\alire-crates-ci\test\b2311b1d-05c7-47dd-8bfe-c936ed596b6f\garlic_6.0.1_90ef4b6f\gnat/garlic.gpr"] exited with code 4
+stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
+[D:\a\alire-crates-ci\alire-crates-ci\alire_install\bin\alr.exe]
+0xdc98eb Semantic_Versioning.Basic.At_Least at alire.adb:251
+0xa63e32 Semantic_Versioning.Basic.At_Least at alire-os_lib-subprocess.adb:110
+0xc9b793 Semantic_Versioning.Basic.At_Least at alire-spawn.adb:21
+0xc9bee4 Semantic_Versioning.Basic.At_Least at alire-spawn.adb:41
+0xbfc3e0 Semantic_Versioning.Basic.At_Least at alire-roots.adb:140
+0xbfa8e7 Semantic_Versioning.Basic.At_Least at alire-roots.adb:171
+0xc17363 Semantic_Versioning.Basic.At_Least at alire-roots.adb:1364
+0xc62228 Semantic_Versioning.Basic.At_Least at alire-solutions.adb:1443
+0xc60e50 Semantic_Versioning.Basic.At_Least at alire-solutions.adb:1518
+0xc174a4 Semantic_Versioning.Basic.At_Least at alire-roots.adb:1368
+0xbfac57 Semantic_Versioning.Basic.At_Least at alire-roots.adb:196
+0x47726b Semantic_Versioning.Basic.At_Least at alr-commands-build.adb:58
+0x488aa6 Semantic_Versioning.Basic.At_Least at alr-commands-get.adb:187
+0x48d3cc Semantic_Versioning.Basic.At_Least at alr-commands-get.adb:348
+0x51c0a3 Semantic_Versioning.Basic.At_Least at clic-subcommand-instance.adb:742
+0x528a27 Semantic_Versioning.Basic.At_Least at alr-commands.adb:492
+0x401761 Alr.Main at alr-main.adb:10
+0x404bd6 Main at b__alr-main.adb:2130
+0x401423 __tmainCRTStartup at ???
+0x40113b mainCRTStartup at ???
+[C:\Windows\System32\KERNEL32.DLL]
+0x7ffd77cf4cae
+[C:\Windows\SYSTEM32\ntdll.dll]
+0x7ffd7939edc9
+
+
+Warning: garlic=6.0.1 successfully retrieved but its build failed.
+There are no dependencies.
+ERROR: Build ended with errors

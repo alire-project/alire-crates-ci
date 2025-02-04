@@ -1,0 +1,1537 @@
+badge: false
+crate: microbit_examples
+creation_timestamp: 1648585244.719288
+distro: mingw64_nt-10.0-20348
+duration: 129.42200000000003
+gnat: 11.2.4
+last_attempt: 2025-01-25 12:33:11.320583+00:00
+log:
+- 'Test ran at 2025-01-25 12:33:11.320583+00:00
+
+
+  '
+- 'SOLUTION:
+
+  '
+- "microbit_examples=0.1.0: Examples and tutorials for Ada on the BBC micro:bit\r\n"
+- "Origin: commit a926cc69faf2cb7805f5dff508b587f2ed7fc065 from https://github.com/Fabien-Chouteau/microbit_examples.git\r\
+  \n"
+- "Properties:\r\n"
+- "   Auto_Gpr_With: auto-gpr-with=false\r\n"
+- "   Description: Examples and tutorials for Ada on the BBC micro:bit\r\n"
+- "   GPR External: CORTEXM_BUILD_MODE := debug\r\n"
+- "   GPR External: CORTEXM_CONTRACTS := enabled\r\n"
+- "   GPR External: CORTEXM_RUNTIME_CHECKS := enabled\r\n"
+- "   GPR External: MICROBIT_BSP_BUILD_MODE := debug\r\n"
+- "   GPR External: MICROBIT_BSP_CONTRACTS := enabled\r\n"
+- "   GPR External: MICROBIT_BSP_RUNTIME_CHECKS := enabled\r\n"
+- "   GPR External: NRF5X_BUILD_MODE := debug\r\n"
+- "   GPR External: NRF5X_CONTRACTS := enabled\r\n"
+- "   GPR External: NRF5X_RUNTIME_CHECKS := enabled\r\n"
+- "   License: BSD-3-Clause\r\n"
+- "   Long_Description: # microbit_examples\r\n"
+- "\r\n"
+- "This crate is a snapshot of the micro:bit examples in [Ada Drivers\r\n"
+- "Library](https://github.com/AdaCore/Ada_Drivers_Library/tree/master/arch/ARM/cortex_m).\r\
+  \n"
+- "\r\n"
+- "Any bug report, issue, contribution must be adressed to the [Ada Drivers\r\n"
+- "Library](https://github.com/AdaCore/Ada_Drivers_Library/) repo.\r\n"
+- "\r\n"
+- "The Micro:Bit is a very small ARM Cortex-M0 board designed by the BBC for\r\n"
+- "computer education. It's fitted with a [Nordic\r\n"
+- "nRF51](https://www.nordicsemi.com/eng/Products/Bluetooth-low-energy/nRF51822)\r\
+  \n"
+- "Bluetooth enabled microcontroller and an embedded programmer. You can get it\r\n"
+- "at:\r\n"
+- "\r\n"
+- " - [Pimoroni (UK/EU)](https://shop.pimoroni.com/collections/micro-bit/products/microbit)\r\
+  \n"
+- " - [Kitronik (UK/EU)](https://www.kitronik.co.uk/5613-bbc-microbit-board-only.html)\r\
+  \n"
+- " - [ThePiHut (UK/EU)](https://thepihut.com/collections/microbit/products/micro-bit)\r\
+  \n"
+- " - [AdaFruit (US)](https://www.adafruit.com/products/3530)\r\n"
+- "\r\n"
+- "# How to setup the Ada development environment for the Micro:Bit\r\n"
+- "\r\n"
+- "GNAT Community now comes with micro:bit and pyOCD support built-in. So you only\r\
+  \n"
+- "need to download the ARM ELF and the native package from\r\n"
+- "[here](https://www.adacore.com/download)\r\n"
+- "\r\n"
+- "## pyOCD programmer\r\n"
+- "\r\n"
+- "The Micro:Bit comes with an embedded programming/debugging probe implementing\r\
+  \n"
+- "the\r\n"
+- "[CMSIS-DAP](https://docs.mbed.com/docs/mbed-os-handbook/en/latest/advanced/DAP/)\r\
+  \n"
+- "protocol defined by ARM.\r\n"
+- "\r\n"
+- "To use it on Linux, you might need privileges to access the USB ports without\r\
+  \n"
+- "which the flash program will say \"No connected boards\".\r\n"
+- "\r\n"
+- "On Ubuntu, you can do it by creating (as administrator) the file\r\n"
+- "/etc/udev/rules.d/mbed.rules and add the line:\r\n"
+- "```\r\n"
+- "SUBSYSTEM==\"usb\", ATTR{idVendor}==\"0d28\", ATTR{idProduct}==\"0204\", MODE=\"\
+  0666\"\r\n"
+- "```\r\n"
+- "then restarting the service by doing\r\n"
+- "\r\n"
+- "```shell\r\n"
+- "$ sudo udevadm trigger\r\n"
+- "```\r\n"
+- "\r\n"
+- "## Open one of example projects and build it\r\n"
+- "\r\n"
+- "Start GNAT Programming studio (GPS) with Alire and one micro:bit example\r\n"
+- "project:\r\n"
+- "\r\n"
+- " - `alr edit analog_in/analog_in.gpr`\r\n"
+- " - `alr edit follower/follower.gpr`\r\n"
+- " - `alr edit digital_in/digital_in.gpr`\r\n"
+- " - `alr edit accelerometer/accelerometer.gpr`\r\n"
+- " - `alr edit buttons/buttons.gpr`\r\n"
+- " - `alr edit BLE_beacon/BLE_beacon.gpr`\r\n"
+- " - `alr edit digital_out/digital_out.gpr`\r\n"
+- " - `alr edit servos/servos.gpr`\r\n"
+- " - `alr edit neopixel/neopixel.gpr`\r\n"
+- " - `alr edit text_scrolling/text_scrolling.gpr`\r\n"
+- " - `alr edit analog_out/analog_out.gpr`\r\n"
+- " - `alr edit music/music.gpr`\r\n"
+- "\r\n"
+- "Press F4 and then press Enter to build the project.\r\n"
+- "\r\n"
+- "## Program the board\r\n"
+- "\r\n"
+- "Plug your micro:bit board with a USB cable, and wait for the system to\r\n"
+- "recognize it. This can take a few seconds\r\n"
+- "\r\n"
+- "In the GPS toolbar, click on the \"flash to board\" button to program the\r\n"
+- "micro:bit.\r\n"
+- "\r\n"
+- "After a few seconds, you should see a text scrolling on the LED matrix.\r\n"
+- "\r\n"
+- "That's it, you are ready to hack the micro:bit with Ada!\r\n"
+- "\r\n"
+- "\r\n"
+- "   Maintainer: chouteau@adacore.com\r\n"
+- "   Maintainers_Logins: Fabien-Chouteau\r\n"
+- "   Name: microbit_examples\r\n"
+- "   Project_File: analog_in/analog_in.gpr\r\n"
+- "   Project_File: follower/follower.gpr\r\n"
+- "   Project_File: digital_in/digital_in.gpr\r\n"
+- "   Project_File: accelerometer/accelerometer.gpr\r\n"
+- "   Project_File: buttons/buttons.gpr\r\n"
+- "   Project_File: BLE_beacon/BLE_beacon.gpr\r\n"
+- "   Project_File: digital_out/digital_out.gpr\r\n"
+- "   Project_File: servos/servos.gpr\r\n"
+- "   Project_File: neopixel/neopixel.gpr\r\n"
+- "   Project_File: text_scrolling/text_scrolling.gpr\r\n"
+- "   Project_File: analog_out/analog_out.gpr\r\n"
+- "   Project_File: music/music.gpr\r\n"
+- "   Tag: embedded\r\n"
+- "   Tag: nostd\r\n"
+- "   Tag: microbit\r\n"
+- "   Tag: nrf51\r\n"
+- "   Version: 0.1.0\r\n"
+- "   Website: https://github.com/AdaCore/Ada_Drivers_Library/\r\n"
+- "Dependencies (direct):\r\n"
+- "   microbit_bsp~0.1.0\r\n"
+- "Dependencies (solution):\r\n"
+- "   adl_middleware=0.1.1\r\n"
+- "   cortex_m=0.2.0\r\n"
+- "   embedded_components=0.1.0\r\n"
+- "   gnat_arm_elf=11.2.4 (installed)\r\n"
+- "   hal=0.1.0\r\n"
+- "   microbit_bsp=0.1.0\r\n"
+- "   nrf5x_hal=0.1.0\r\n"
+- "Dependencies (graph):\r\n"
+- "   adl_middleware=0.1.1      --> hal=0.1.0 (^0.1.0)                \r\n"
+- "   cortex_m=0.2.0            --> hal=0.1.0 (^0.1.0)                \r\n"
+- "   embedded_components=0.1.0 --> adl_middleware=0.1.1 (^0.1.0)     \r\n"
+- "   embedded_components=0.1.0 --> hal=0.1.0 (^0.1.0)                \r\n"
+- "   microbit_bsp=0.1.0        --> embedded_components=0.1.0 (^0.1.0)\r\n"
+- "   microbit_bsp=0.1.0        --> hal=0.1.0 (^0.1.0)                \r\n"
+- "   microbit_bsp=0.1.0        --> nrf5x_hal=0.1.0 (^0.1.0)          \r\n"
+- "   microbit_examples=0.1.0   --> microbit_bsp=0.1.0 (~0.1.0)       \r\n"
+- "   nrf5x_hal=0.1.0           --> cortex_m=0.2.0 (~0.2.0)           \r\n"
+- "   nrf5x_hal=0.1.0           --> gnat_arm_elf=11.2.4 (^11.2)       \r\n"
+- "   nrf5x_hal=0.1.0           --> hal=0.1.0 (~0.1.0)                \r\n"
+- '
+
+  '
+- '
+
+  LOG:
+
+  '
+- 'Note: Deploying microbit_examples=0.1.0...
+
+  '
+- 'Note: Deploying gnat_arm_elf=11.2.4...
+
+  '
+- "#=#=#                                                                         \n"
+- "##O#-#                                                                        \n"
+- '
+
+  '
+- '                                                                           0.0%
+
+  '
+- '#                                                                          1.7%
+
+  '
+- '##                                                                         3.0%
+
+  '
+- '###                                                                        4.3%
+
+  '
+- '####                                                                       5.9%
+
+  '
+- '#####                                                                      8.3%
+
+  '
+- '######                                                                     9.0%
+
+  '
+- '#######                                                                   10.3%
+
+  '
+- '########                                                                  12.0%
+
+  '
+- '##########                                                                14.2%
+
+  '
+- '##########                                                                14.9%
+
+  '
+- '###########                                                               16.6%
+
+  '
+- '############                                                              18.0%
+
+  '
+- '##############                                                            20.1%
+
+  '
+- '##############                                                            20.7%
+
+  '
+- '################                                                          22.6%
+
+  '
+- '#################                                                         23.7%
+
+  '
+- '##################                                                        26.2%
+
+  '
+- '###################                                                       27.3%
+
+  '
+- '#####################                                                     29.6%
+
+  '
+- '#####################                                                     30.1%
+
+  '
+- '######################                                                    30.8%
+
+  '
+- '######################                                                    31.5%
+
+  '
+- '#######################                                                   32.6%
+
+  '
+- '########################                                                  34.6%
+
+  '
+- '#########################                                                 35.6%
+
+  '
+- '##########################                                                36.8%
+
+  '
+- '##########################                                                37.4%
+
+  '
+- '###########################                                               38.6%
+
+  '
+- '#############################                                             40.9%
+
+  '
+- '#############################                                             41.5%
+
+  '
+- '###############################                                           43.9%
+
+  '
+- '###############################                                           44.4%
+
+  '
+- '#################################                                         46.4%
+
+  '
+- '##################################                                        47.4%
+
+  '
+- '##################################                                        48.6%
+
+  '
+- '####################################                                      50.4%
+
+  '
+- '#####################################                                     52.8%
+
+  '
+- '######################################                                    53.5%
+
+  '
+- '########################################                                  55.8%
+
+  '
+- '########################################                                  56.3%
+
+  '
+- '#########################################                                 58.0%
+
+  '
+- '##########################################                                59.2%
+
+  '
+- '############################################                              61.1%
+
+  '
+- '############################################                              62.2%
+
+  '
+- '##############################################                            64.0%
+
+  '
+- '##############################################                            65.2%
+
+  '
+- '################################################                          67.6%
+
+  '
+- '#################################################                         68.1%
+
+  '
+- '##################################################                        69.8%
+
+  '
+- '###################################################                       71.1%
+
+  '
+- '####################################################                      72.4%
+
+  '
+- '####################################################                      72.4%
+
+  '
+- '#####################################################                     74.1%
+
+  '
+- '#######################################################                   76.5%
+
+  '
+- '#######################################################                   77.0%
+
+  '
+- '########################################################                  79.0%
+
+  '
+- '#########################################################                 80.0%
+
+  '
+- '###########################################################               81.9%
+
+  '
+- '###########################################################               83.0%
+
+  '
+- '############################################################              84.1%
+
+  '
+- '############################################################              84.1%
+
+  '
+- '#############################################################             85.8%
+
+  '
+- '#############################################################             86.0%
+
+  '
+- '###############################################################           88.4%
+
+  '
+- '###############################################################           88.9%
+
+  '
+- '#################################################################         91.2%
+
+  '
+- '##################################################################        91.8%
+
+  '
+- '###################################################################       93.6%
+
+  '
+- '####################################################################      94.8%
+
+  '
+- '#####################################################################     96.0%
+
+  '
+- '#####################################################################     96.0%
+
+  '
+- '######################################################################    97.2%
+
+  '
+- '######################################################################    97.7%
+
+  '
+- '######################################################################## 100.0%
+
+  '
+- 'Note: gnat_arm_elf=11.2.4 installed successfully.
+
+  '
+- 'Note: Deploying hal=0.1.0...
+
+  '
+- "#=#=#                                                                         \n"
+- "##O#-#                                                                        \n"
+- '
+
+  '
+- '######################################################################## 100.0%
+
+  '
+- 'Note: Deploying adl_middleware=0.1.1...
+
+  '
+- 'Note: Deploying cortex_m=0.2.0...
+
+  '
+- 'Note: Deploying embedded_components=0.1.0...
+
+  '
+- 'Note: Deploying nrf5x_hal=0.1.0...
+
+  '
+- 'Note: Deploying microbit_bsp=0.1.0...
+
+  '
+- 'Note: Building microbit_examples/analog_in/analog_in.gpr (1/12)...
+
+  '
+- 'Setup
+
+  '
+- '   [mkdir]        object directory for project HAL
+
+  '
+- '   [mkdir]        library directory for project HAL
+
+  '
+- '   [mkdir]        object directory for project Cortex_M0
+
+  '
+- '   [mkdir]        library directory for project Cortex_M0
+
+  '
+- '   [mkdir]        object directory for project NRF51
+
+  '
+- '   [mkdir]        library directory for project NRF51
+
+  '
+- '   [mkdir]        object directory for project Adl_Middleware
+
+  '
+- '   [mkdir]        library directory for project Adl_Middleware
+
+  '
+- '   [mkdir]        object directory for project Embedded_Components
+
+  '
+- '   [mkdir]        library directory for project Embedded_Components
+
+  '
+- '   [mkdir]        object directory for project Microbit_Bsp
+
+  '
+- '   [mkdir]        library directory for project Microbit_Bsp
+
+  '
+- '   [mkdir]        object directory for project Analog_In
+
+  '
+- 'Compile
+
+  '
+- '   [Ada]          main.adb
+
+  '
+- '   [Ada]          logging_with_priority.adb
+
+  '
+- '   [Ada]          logging_with_categories.adb
+
+  '
+- '   [Ada]          logging.adb
+
+  '
+- '   [Ada]          hex_dump.adb
+
+  '
+- '   [Ada]          file_block_drivers.adb
+
+  '
+- '   [Ada]          sdmmc_init.adb
+
+  '
+- '   [Ada]          neopixel.adb
+
+  '
+- '   [Ada]          monitor.ads
+
+  '
+- '   [Ada]          monitor-block_drivers.adb
+
+  '
+- '   [Ada]          pathname_manipulation.adb
+
+  '
+- '   [Ada]          partitions.adb
+
+  '
+- '   [Ada]          file_io.adb
+
+  '
+- '   [Ada]          filesystem.ads
+
+  '
+- '   [Ada]          filesystem-mbr.adb
+
+  '
+- '   [Ada]          filesystem-fat.adb
+
+  '
+- '   [Ada]          filesystem-fat-files.adb
+
+  '
+- '   [Ada]          filesystem-fat-directories.adb
+
+  '
+- '   [Ada]          command_line.adb
+
+  '
+- '   [Ada]          command_line-filesystem.adb
+
+  '
+- '   [Ada]          command_line-filesystem-touch.adb
+
+  '
+- '   [Ada]          command_line-filesystem-remove_directory.adb
+
+  '
+- '   [Ada]          command_line-filesystem-list_directory.adb
+
+  '
+- '   [Ada]          command_line-filesystem-cat.adb
+
+  '
+- '   [Ada]          bluetooth_low_energy.adb
+
+  '
+- '   [Ada]          bluetooth_low_energy-packets.adb
+
+  '
+- '   [Ada]          bluetooth_low_energy-beacon.adb
+
+  '
+- '   [Ada]          soft_drawing_bitmap.adb
+
+  '
+- '   [Ada]          memory_mapped_bitmap.adb
+
+  '
+- '   [Ada]          bitmap_file_output.adb
+
+  '
+- '   [Ada]          bitmap_color_conversion.adb
+
+  '
+- '   [Ada]          simple_synthesizer.adb
+
+  '
+- '   [Ada]          adl_config.ads
+
+  '
+- '   [Ada]          stmpe811.adb
+
+  '
+- '   [Ada]          ft6x06.adb
+
+  '
+- '   [Ada]          ft5336.adb
+
+  '
+- '   [Ada]          st7735r.adb
+
+  '
+- '   [Ada]          st7735r-ram_framebuffer.adb
+
+  '
+- '   [Ada]          ssd1306.adb
+
+  '
+- '   [Ada]          ssd1306-standard_resolutions.ads
+
+  '
+- '   [Ada]          pcd8544_reg.ads
+
+  '
+- '   [Ada]          pcd8544.adb
+
+  '
+- '   [Ada]          otm8009a.adb
+
+  '
+- '   [Ada]          ili9341_regs.ads
+
+  '
+- '   [Ada]          ili9341.adb
+
+  '
+- '   [Ada]          is31fl3731.adb
+
+  '
+- '   [Ada]          adafruit-charliewing.adb
+
+  '
+- '   [Ada]          vl53l0x.adb
+
+  '
+- '   [Ada]          adafruit-thermal_printer.adb
+
+  '
+- '   [Ada]          pmw3901.adb
+
+  '
+- '   [Ada]          mpu9250.adb
+
+  '
+- '   [Ada]          mma8653.adb
+
+  '
+- '   [Ada]          lis3dsh.adb
+
+  '
+- '   [Ada]          lis3dsh-spi.adb
+
+  '
+- '   [Ada]          l3gd20.adb
+
+  '
+- '   [Ada]          bosch_bno055.adb
+
+  '
+- '   [Ada]          bno055_i2c_io.adb
+
+  '
+- '   [Ada]          ak8963.adb
+
+  '
+- '   [Ada]          bbq10kbd.adb
+
+  '
+- '   [Ada]          stmpe1600.adb
+
+  '
+- '   [Ada]          mcp23x08.adb
+
+  '
+- '   [Ada]          mcp23x08-i2c.adb
+
+  '
+- '   [Ada]          mcp23008.ads
+
+  '
+- '   [Ada]          ht16k33.adb
+
+  '
+- '   [Ada]          adafruit-trellis.adb
+
+  '
+- '   [Ada]          ov7725.adb
+
+  '
+- '   [Ada]          ov2640.adb
+
+  '
+- '   [Ada]          bit_fields.adb
+
+  '
+- '   [Ada]          wm8994.adb
+
+  '
+- '   [Ada]          sgtl5000.adb
+
+  '
+- '   [Ada]          cs43l22.adb
+
+  '
+- '   [Ada]          adafruit.ads
+
+  '
+- '   [Ada]          cortex_m-nvic.adb
+
+  '
+- '   [Ada]          cortex_m-cache.adb
+
+  '
+- '   [Ada]          cortex_m_svd.ads
+
+  '
+- '   [Ada]          cortex_m_svd-systick.ads
+
+  '
+- '   [Ada]          cortex_m_svd-scb.ads
+
+  '
+- '   [Ada]          cortex_m_svd-nvic.ads
+
+  '
+- '   [Ada]          cortex_m_svd-dwt.ads
+
+  '
+- '   [Ada]          cortex_m_svd-debug.ads
+
+  '
+- '   [Ada]          semihosting.adb
+
+  '
+- '   [Ada]          semihosting-filesystem.adb
+
+  '
+- '   [Ada]          memory_barriers.adb
+
+  '
+- '   [Ada]          cortex_m.ads
+
+  '
+- '   [Ada]          cortex_m-systick.adb
+
+  '
+- '   [Ada]          cortex_m-dwt.adb
+
+  '
+- '   [Ada]          cortex_m-debug.adb
+
+  '
+- '   [Ada]          nrf_svd.ads
+
+  '
+- '   [Ada]          nrf_svd-wdt.ads
+
+  '
+- '   [Ada]          nrf_svd-uicr.ads
+
+  '
+- '   [Ada]          nrf_svd-uart.ads
+
+  '
+- '   [Ada]          nrf_svd-twi.ads
+
+  '
+- '   [Ada]          nrf_svd-timer.ads
+
+  '
+- '   [Ada]          nrf_svd-temp.ads
+
+  '
+- '   [Ada]          nrf_svd-spis.ads
+
+  '
+- '   [Ada]          nrf_svd-spim.ads
+
+  '
+- '   [Ada]          nrf_svd-spi.ads
+
+  '
+- '   [Ada]          nrf_svd-rtc.ads
+
+  '
+- '   [Ada]          nrf_svd-rng.ads
+
+  '
+- '   [Ada]          nrf_svd-radio.ads
+
+  '
+- '   [Ada]          nrf_svd-qdec.ads
+
+  '
+- '   [Ada]          nrf_svd-ppi.ads
+
+  '
+- '   [Ada]          nrf_svd-power.ads
+
+  '
+- '   [Ada]          nrf_svd-nvmc.ads
+
+  '
+- '   [Ada]          nrf_svd-mpu.ads
+
+  '
+- '   [Ada]          nrf_svd-lpcomp.ads
+
+  '
+- '   [Ada]          nrf_svd-gpiote.ads
+
+  '
+- '   [Ada]          nrf_svd-gpio.ads
+
+  '
+- '   [Ada]          nrf_svd-ficr.ads
+
+  '
+- '   [Ada]          nrf_svd-ecb.ads
+
+  '
+- '   [Ada]          nrf_svd-clock.ads
+
+  '
+- '   [Ada]          nrf_svd-ccm.ads
+
+  '
+- '   [Ada]          nrf_svd-amli.ads
+
+  '
+- '   [Ada]          nrf_svd-adc.ads
+
+  '
+- '   [Ada]          nrf_svd-aar.ads
+
+  '
+- '   [Ada]          nrf-ppi.adb
+
+  '
+- '   [Ada]          nrf-adc.adb
+
+  '
+- '   [Ada]          nrf.ads
+
+  '
+- '   [Ada]          nrf-uart.adb
+
+  '
+- '   [Ada]          nrf-twi.adb
+
+  '
+- '   [Ada]          nrf-timers.adb
+
+  '
+- '   [Ada]          nrf-temperature.adb
+
+  '
+- '   [Ada]          nrf-tasks.adb
+
+  '
+- '   [Ada]          nrf-spi_master.adb
+
+  '
+- '   [Ada]          nrf-rtc.adb
+
+  '
+- '   [Ada]          nrf-rng.adb
+
+  '
+- '   [Ada]          nrf-radio.adb
+
+  '
+- '   [Ada]          nrf-interrupts.adb
+
+  '
+- '   [Ada]          nrf-gpio.adb
+
+  '
+- '   [Ada]          nrf-gpio-tasks_and_events.adb
+
+  '
+- '   [Ada]          nrf-events.adb
+
+  '
+- '   [Ada]          nrf-clock.adb
+
+  '
+- '   [Ada]          nrf-device.ads
+
+  '
+- '   [Ada]          hal.ads
+
+  '
+- '   [Ada]          hal-uart.ads
+
+  '
+- '   [Ada]          hal-touch_panel.ads
+
+  '
+- '   [Ada]          hal-time.ads
+
+  '
+- '   [Ada]          hal-spi.ads
+
+  '
+- '   [Ada]          hal-sdmmc.adb
+
+  '
+- '   [Ada]          hal-real_time_clock.ads
+
+  '
+- '   [Ada]          hal-i2c.ads
+
+  '
+- '   [Ada]          hal-gpio.ads
+
+  '
+- '   [Ada]          hal-framebuffer.ads
+
+  '
+- '   [Ada]          hal-filesystem.ads
+
+  '
+- '   [Ada]          hal-dsi.ads
+
+  '
+- '   [Ada]          hal-block_drivers.ads
+
+  '
+- '   [Ada]          hal-bitmap.ads
+
+  '
+- '   [Ada]          hal-audio.ads
+
+  '
+- '   [Asm_CPP]      crt0.s
+
+  '
+- '   [Ada]          microbit_bsp.ads
+
+  '
+- '   [Ada]          microbit.ads
+
+  '
+- '   [Ada]          microbit-time.adb
+
+  '
+- '   [Ada]          microbit-spi.adb
+
+  '
+- '   [Ada]          microbit-servos.adb
+
+  '
+- 'microbit.ads:68:01: (style) multiple blank lines
+
+  '
+- '   [Ada]          microbit-music.adb
+
+  '
+- '   [Ada]          microbit-ios.adb
+
+  '
+- '   [Ada]          microbit-ios-neopixel.adb
+
+  '
+- '   [Ada]          microbit-i2c.adb
+
+  '
+- '   [Ada]          microbit-display.adb
+
+  '
+- '   [Ada]          microbit-display-symbols.adb
+
+  '
+- '   [Ada]          microbit-console.adb
+
+  '
+- '   [Ada]          microbit-buttons.adb
+
+  '
+- '   [Ada]          microbit-accelerometer.adb
+
+  '
+- 'microbit-display.adb:664:01: (style) multiple blank lines
+
+  '
+- 'microbit-console.adb:111:01: (style) blank line not allowed at end of file
+
+  '
+- 'Build Libraries
+
+  '
+- '   [gprlib]       hal.lexch
+
+  '
+- '   [gprlib]       cortex_m0.lexch
+
+  '
+- '   [archive]      libhal.a
+
+  '
+- '   [index]        libhal.a
+
+  '
+- '   [gprlib]       nrf51.lexch
+
+  '
+- '   [archive]      libcortex_m0.a
+
+  '
+- '   [index]        libcortex_m0.a
+
+  '
+- '   [gprlib]       Adl_Middleware.lexch
+
+  '
+- '   [gprlib]       Embedded_Components.lexch
+
+  '
+- '   [archive]      libnrf51.a
+
+  '
+- '   [archive]      libAdl_Middleware.a
+
+  '
+- '   [index]        libAdl_Middleware.a
+
+  '
+- '   [index]        libnrf51.a
+
+  '
+- '   [gprlib]       Microbit_Bsp.lexch
+
+  '
+- '   [archive]      libEmbedded_Components.a
+
+  '
+- '   [index]        libEmbedded_Components.a
+
+  '
+- '   [archive]      libMicrobit_Bsp.a
+
+  '
+- '   [index]        libMicrobit_Bsp.a
+
+  '
+- 'Bind
+
+  '
+- '   [gprbind]      main.bexch
+
+  '
+- '   [Ada]          main.ali
+
+  '
+- 'Link
+
+  '
+- '   [link]         main.adb
+
+  '
+- 'Memory region         Used Size  Region Size  %age Used
+
+  '
+- '           flash:       21212 B       256 KB      8.09%
+
+  '
+- '             ram:        3488 B        16 KB     21.29%
+
+  '
+- 'Note: Building microbit_examples/follower/follower.gpr (2/12)...
+
+  '
+- 'Setup
+
+  '
+- '   [mkdir]        object directory for project Follower
+
+  '
+- 'Compile
+
+  '
+- '   [Ada]          main.adb
+
+  '
+- '   [Ada]          hmi.adb
+
+  '
+- 'Bind
+
+  '
+- '   [gprbind]      main.bexch
+
+  '
+- '   [Ada]          main.ali
+
+  '
+- 'Link
+
+  '
+- '   [link]         main.adb
+
+  '
+- 'Memory region         Used Size  Region Size  %age Used
+
+  '
+- '           flash:       29904 B       256 KB     11.41%
+
+  '
+- '             ram:        3976 B        16 KB     24.27%
+
+  '
+- 'Note: Building microbit_examples/digital_in/digital_in.gpr (3/12)...
+
+  '
+- 'Setup
+
+  '
+- '   [mkdir]        object directory for project Digital_In
+
+  '
+- 'Compile
+
+  '
+- '   [Ada]          main.adb
+
+  '
+- 'Bind
+
+  '
+- '   [gprbind]      main.bexch
+
+  '
+- '   [Ada]          main.ali
+
+  '
+- 'Link
+
+  '
+- '   [link]         main.adb
+
+  '
+- 'Memory region         Used Size  Region Size  %age Used
+
+  '
+- '           flash:       21212 B       256 KB      8.09%
+
+  '
+- '             ram:        3488 B        16 KB     21.29%
+
+  '
+- 'Note: Building microbit_examples/accelerometer/accelerometer.gpr (4/12)...
+
+  '
+- 'Compile
+
+  '
+- '   [Ada]          main.adb
+
+  '
+- 'Bind
+
+  '
+- '   [gprbind]      main.bexch
+
+  '
+- '   [Ada]          main.ali
+
+  '
+- 'Link
+
+  '
+- '   [link]         main.adb
+
+  '
+- 'Memory region         Used Size  Region Size  %age Used
+
+  '
+- '           flash:       20600 B       256 KB      7.86%
+
+  '
+- '             ram:        3624 B        16 KB     22.12%
+
+  '
+- 'Note: Building microbit_examples/buttons/buttons.gpr (5/12)...
+
+  '
+- 'Compile
+
+  '
+- '   [Ada]          main.adb
+
+  '
+- 'Bind
+
+  '
+- '   [gprbind]      main.bexch
+
+  '
+- '   [Ada]          main.ali
+
+  '
+- 'Link
+
+  '
+- '   [link]         main.adb
+
+  '
+- 'Memory region         Used Size  Region Size  %age Used
+
+  '
+- '           flash:       18204 B       256 KB      6.94%
+
+  '
+- '             ram:        3664 B        16 KB     22.36%
+
+  '
+- 'Note: Building microbit_examples/BLE_beacon/BLE_beacon.gpr (6/12)...
+
+  '
+- 'Setup
+
+  '
+- '   [mkdir]        object directory for project BLE_Beacon
+
+  '
+- 'Compile
+
+  '
+- '   [Ada]          main.adb
+
+  '
+- 'main.adb:54:01: (style) blank line not allowed at end of file
+
+  '
+- '   [Ada]          beacon.adb
+
+  '
+- 'Bind
+
+  '
+- '   [gprbind]      main.bexch
+
+  '
+- '   [Ada]          main.ali
+
+  '
+- 'Link
+
+  '
+- '   [link]         main.adb
+
+  '
+- 'Memory region         Used Size  Region Size  %age Used
+
+  '
+- '           flash:       22532 B       256 KB      8.60%
+
+  '
+- '             ram:        3744 B        16 KB     22.85%
+
+  '
+- 'Note: Building microbit_examples/digital_out/digital_out.gpr (7/12)...
+
+  '
+- 'Compile
+
+  '
+- '   [Ada]          main.adb
+
+  '
+- 'Bind
+
+  '
+- '   [gprbind]      main.bexch
+
+  '
+- '   [Ada]          main.ali
+
+  '
+- 'Link
+
+  '
+- '   [link]         main.adb
+
+  '
+- 'Memory region         Used Size  Region Size  %age Used
+
+  '
+- '           flash:       23620 B       256 KB      9.01%
+
+  '
+- '             ram:        3544 B        16 KB     21.63%
+
+  '
+- 'Note: Building microbit_examples/servos/servos.gpr (8/12)...
+
+  '
+- 'Setup
+
+  '
+- '   [mkdir]        object directory for project Servos
+
+  '
+- 'Compile
+
+  '
+- '   [Ada]          main.adb
+
+  '
+- 'Bind
+
+  '
+- '   [gprbind]      main.bexch
+
+  '
+- '   [Ada]          main.ali
+
+  '
+- 'Link
+
+  '
+- '   [link]         main.adb
+
+  '
+- 'Memory region         Used Size  Region Size  %age Used
+
+  '
+- '           flash:       28228 B       256 KB     10.77%
+
+  '
+- '             ram:        3920 B        16 KB     23.93%
+
+  '
+- 'Note: Building microbit_examples/neopixel/neopixel.gpr (9/12)...
+
+  '
+- 'Setup
+
+  '
+- '   [mkdir]        object directory for project NeoPixel
+
+  '
+- 'Compile
+
+  '
+- '   [Ada]          main.adb
+
+  '
+- '   [Ada]          led_demo.adb
+
+  '
+- 'Bind
+
+  '
+- '   [gprbind]      main.bexch
+
+  '
+- '   [Ada]          main.ali
+
+  '
+- 'Link
+
+  '
+- '   [link]         main.adb
+
+  '
+- 'Memory region         Used Size  Region Size  %age Used
+
+  '
+- '           flash:       25160 B       256 KB      9.60%
+
+  '
+- '             ram:        3656 B        16 KB     22.31%
+
+  '
+- 'Note: Building microbit_examples/text_scrolling/text_scrolling.gpr (10/12)...
+
+  '
+- 'Compile
+
+  '
+- '   [Ada]          main.adb
+
+  '
+- 'Bind
+
+  '
+- '   [gprbind]      main.bexch
+
+  '
+- '   [Ada]          main.ali
+
+  '
+- 'Link
+
+  '
+- '   [link]         main.adb
+
+  '
+- 'Memory region         Used Size  Region Size  %age Used
+
+  '
+- '           flash:       17796 B       256 KB      6.79%
+
+  '
+- '             ram:        3600 B        16 KB     21.97%
+
+  '
+- 'Note: Building microbit_examples/analog_out/analog_out.gpr (11/12)...
+
+  '
+- 'Compile
+
+  '
+- '   [Ada]          main.adb
+
+  '
+- 'Bind
+
+  '
+- '   [gprbind]      main.bexch
+
+  '
+- '   [Ada]          main.ali
+
+  '
+- 'Link
+
+  '
+- '   [link]         main.adb
+
+  '
+- 'Memory region         Used Size  Region Size  %age Used
+
+  '
+- '           flash:       23620 B       256 KB      9.01%
+
+  '
+- '             ram:        3544 B        16 KB     21.63%
+
+  '
+- 'Note: Building microbit_examples/music/music.gpr (12/12)...
+
+  '
+- 'Setup
+
+  '
+- '   [mkdir]        object directory for project Music
+
+  '
+- 'Compile
+
+  '
+- '   [Ada]          main.adb
+
+  '
+- 'Bind
+
+  '
+- '   [gprbind]      main.bexch
+
+  '
+- '   [Ada]          main.ali
+
+  '
+- 'Link
+
+  '
+- '   [link]         main.adb
+
+  '
+- 'Memory region         Used Size  Region Size  %age Used
+
+  '
+- '           flash:       24508 B       256 KB      9.35%
+
+  '
+- '             ram:        3544 B        16 KB     21.63%
+
+  '
+- 'Build finished successfully in 13.95 seconds.
+
+  '
+- '
+
+  '
+- 'microbit_examples=0.1.0 successfully retrieved and built.
+
+  '
+- 'Dependencies were solved as follows:
+
+  '
+- '
+
+  '
+- "   +  adl_middleware      0.1.1  (new,indirect)          \n"
+- "   +  cortex_m            0.2.0  (new,indirect)          \n"
+- "   +  embedded_components 0.1.0  (new,indirect)          \n"
+- '   +i gnat_arm_elf        11.2.4 (new,installed,indirect)
+
+  '
+- "   +  hal                 0.1.0  (new,indirect)          \n"
+- "   +  microbit_bsp        0.1.0  (new)                   \n"
+- "   +  nrf5x_hal           0.1.0  (new,indirect)          \n"
+- 'Found declared GPR file: analog_in/analog_in.gpr
+
+  '
+- 'Found declared GPR file: follower/follower.gpr
+
+  '
+- 'Found declared GPR file: digital_in/digital_in.gpr
+
+  '
+- 'Found declared GPR file: accelerometer/accelerometer.gpr
+
+  '
+- 'Found declared GPR file: buttons/buttons.gpr
+
+  '
+- 'Found declared GPR file: BLE_beacon/BLE_beacon.gpr
+
+  '
+- 'Found declared GPR file: digital_out/digital_out.gpr
+
+  '
+- 'Found declared GPR file: servos/servos.gpr
+
+  '
+- 'Found declared GPR file: neopixel/neopixel.gpr
+
+  '
+- 'Found declared GPR file: text_scrolling/text_scrolling.gpr
+
+  '
+- 'Found declared GPR file: analog_out/analog_out.gpr
+
+  '
+- 'Found declared GPR file: music/music.gpr
+
+  '
+platform: windows
+status: success
+version: 0.1.0

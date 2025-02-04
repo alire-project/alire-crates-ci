@@ -1,0 +1,885 @@
+Test ran at 2025-02-05 12:50:46.557370+00:00
+
+SOLUTION:
+embedded_nrf52840=14.1.0: embedded runtime for the nRF52840 SoC
+Origin: source archive embedded-nrf52840-14.1.0.tar.gz at https://github.com/damaki/nrf52-runtimes/releases/download/v14.1.0/embedded-nrf52840-14.1.0.tar.gz with hashes sha256:d2b55469dd3e3945164ad671524c066f4286b496b39663a79b45a3d3cdf85977, sha512:d3e0d9df65d18b9c496ef34669d306ad73164cf8d145eefaa89931dc0ab0efd0135db993d049e117d16c54857fdb5600bcd31f1536c2dc260a6f6be2ff8e2a57
+Properties:
+   Author: AdaCore
+   Author: Daniel King
+   Config type: LFCLK_Src : Enum (Xtal, RC, Synth) default: 'Xtal'
+   Config type: Time_Base : Enum (RTC0, RTC1, RTC2) default: 'RTC2'
+   Config type: Use_Reset_Pin : Boolean default: 'true'
+   Config type: Use_SWO_Trace : Boolean default: 'true'
+   Configuration: no modifiers
+   Description: embedded runtime for the nRF52840 SoC
+   License: GPL-3.0-or-later WITH GCC-exception-3.1
+   Long_Description: ## Usage
+
+First edit your `alire.toml` file and add the following elements:
+ - Add `embedded_nrf52840` in the dependency list:
+   ```toml
+   [[depends-on]]
+   embedded_nrf52840 = "*"
+   ```
+
+Then edit your project file to add the following elements:
+ - "with" the run-time project file. With this, gprbuild will compile the run-time before your application
+   ```ada
+   with "runtime_build.gpr";
+   ```
+ - Specify the `Target` and `Runtime` attributes:
+   ```ada
+      for Target use runtime_build'Target;
+      for Runtime ("Ada") use runtime_build'Runtime ("Ada");
+   ```
+
+   Maintainer: Daniel King <damaki.gh@gmail.com>
+   Maintainers_Logins: damaki
+   Name: embedded_nrf52840
+   Project_File: runtime_build.gpr
+   Project_File: ravenscar_build.gpr
+   Tag: embedded
+   Tag: runtime
+   Version: 14.1.0
+   Website: https://github.com/damaki/nrf52-runtimes
+Dependencies (direct):
+   gnat_arm_elf^14
+Dependencies (solution):
+   gnat_arm_elf=14.2.1
+Dependencies (graph):
+   embedded_nrf52840=14.1.0 --> gnat_arm_elf=14.2.1 (^14)
+
+
+LOG:
+Spawning: alr -d -n get --build embedded_nrf52840=14.1.0
+Note: Deploying embedded_nrf52840=14.1.0...
+
+#=#=#                                                                          
+                                                                           1.1%
+##############################                                            42.4%
+###################################################################       93.4%
+######################################################################## 100.0%
+Note: Deploying gnat_arm_elf=14.2.1...
+
+#=#=#                                                                          
+                                                                           0.0%
+                                                                           0.9%
+                                                                           0.9%
+#                                                                          2.2%
+##                                                                         3.6%
+###                                                                        4.4%
+####                                                                       6.6%
+#####                                                                      7.4%
+#####                                                                      8.3%
+######                                                                     9.4%
+#######                                                                   10.8%
+########                                                                  11.2%
+########                                                                  11.8%
+########                                                                  11.8%
+#########                                                                 13.1%
+#########                                                                 13.1%
+#########                                                                 13.1%
+#########                                                                 13.1%
+#########                                                                 13.1%
+#########                                                                 13.2%
+#########                                                                 13.2%
+#########                                                                 13.2%
+#########                                                                 13.2%
+#########                                                                 13.2%
+#########                                                                 13.2%
+#########                                                                 13.2%
+#########                                                                 13.3%
+#########                                                                 13.3%
+#########                                                                 13.3%
+#########                                                                 13.3%
+#########                                                                 13.4%
+#########                                                                 13.4%
+#########                                                                 13.5%
+#########                                                                 13.6%
+#########                                                                 13.7%
+#########                                                                 13.8%
+##########                                                                14.0%
+##########                                                                14.2%
+##########                                                                14.4%
+##########                                                                14.8%
+##########                                                                15.1%
+###########                                                               15.3%
+############                                                              17.1%
+############                                                              17.5%
+############                                                              18.0%
+#############                                                             18.6%
+#############                                                             19.3%
+##############                                                            19.7%
+##############                                                            19.8%
+##############                                                            19.9%
+##############                                                            20.0%
+##############                                                            20.1%
+##############                                                            20.2%
+##############                                                            20.3%
+##############                                                            20.5%
+##############                                                            20.7%
+###############                                                           21.0%
+###############                                                           21.3%
+###############                                                           21.8%
+###############                                                           21.9%
+###############                                                           22.0%
+###############                                                           22.0%
+###############                                                           22.0%
+###############                                                           22.2%
+################                                                          22.4%
+################                                                          22.6%
+################                                                          22.9%
+################                                                          23.3%
+#################                                                         23.7%
+#################                                                         24.1%
+##################                                                        25.8%
+##################                                                        26.2%
+####################                                                      28.0%
+####################                                                      28.4%
+####################                                                      28.4%
+####################                                                      28.5%
+####################                                                      28.5%
+####################                                                      28.6%
+####################                                                      28.6%
+####################                                                      28.7%
+####################                                                      28.8%
+####################                                                      28.9%
+####################                                                      29.0%
+#####################                                                     29.2%
+#####################                                                     29.4%
+#####################                                                     29.7%
+#####################                                                     30.0%
+#####################                                                     30.4%
+######################                                                    30.6%
+######################                                                    30.6%
+######################                                                    30.6%
+######################                                                    30.6%
+######################                                                    30.6%
+######################                                                    30.6%
+######################                                                    30.7%
+######################                                                    30.7%
+######################                                                    30.7%
+######################                                                    30.8%
+######################                                                    30.8%
+######################                                                    30.9%
+######################                                                    30.9%
+######################                                                    31.0%
+######################                                                    31.1%
+######################                                                    31.3%
+######################                                                    31.4%
+######################                                                    31.7%
+######################                                                    31.9%
+#######################                                                   32.2%
+#######################                                                   32.7%
+#######################                                                   32.8%
+########################                                                  34.2%
+#########################                                                 35.0%
+##########################                                                36.6%
+##########################                                                37.1%
+##########################                                                37.2%
+##########################                                                37.2%
+##########################                                                37.2%
+##########################                                                37.2%
+##########################                                                37.3%
+##########################                                                37.3%
+##########################                                                37.4%
+##########################                                                37.4%
+###########################                                               37.5%
+###########################                                               37.6%
+###########################                                               37.7%
+###########################                                               37.9%
+###########################                                               38.1%
+###########################                                               38.3%
+###########################                                               38.6%
+############################                                              39.0%
+############################                                              39.3%
+#############################                                             40.7%
+#############################                                             41.5%
+###############################                                           43.8%
+################################                                          45.2%
+#################################                                         45.9%
+#################################                                         45.9%
+#################################                                         45.9%
+#################################                                         45.9%
+#################################                                         45.9%
+#################################                                         45.9%
+#################################                                         45.9%
+#################################                                         45.9%
+#################################                                         46.0%
+#################################                                         46.0%
+#################################                                         46.0%
+#################################                                         46.1%
+#################################                                         46.1%
+#################################                                         46.2%
+#################################                                         46.2%
+#################################                                         46.3%
+#################################                                         46.4%
+#################################                                         46.6%
+#################################                                         46.7%
+#################################                                         46.9%
+#################################                                         47.2%
+##################################                                        47.5%
+##################################                                        47.9%
+##################################                                        48.1%
+####################################                                      50.4%
+#####################################                                     52.4%
+#######################################                                   54.2%
+#######################################                                   54.6%
+########################################                                  56.8%
+#########################################                                 57.2%
+#########################################                                 57.7%
+#########################################                                 58.3%
+##########################################                                59.0%
+##########################################                                59.0%
+##########################################                                59.0%
+##########################################                                59.1%
+##########################################                                59.2%
+##########################################                                59.2%
+##########################################                                59.3%
+##########################################                                59.4%
+##########################################                                59.5%
+##########################################                                59.7%
+###########################################                               59.9%
+###########################################                               60.1%
+###########################################                               60.4%
+###########################################                               60.8%
+############################################                              61.2%
+#############################################                             62.6%
+#############################################                             63.3%
+#############################################                             63.8%
+#############################################                             63.8%
+##############################################                            64.4%
+##############################################                            65.3%
+###############################################                           65.6%
+################################################                          67.0%
+################################################                          67.7%
+################################################                          67.9%
+################################################                          68.1%
+#################################################                         68.3%
+#################################################                         68.6%
+#################################################                         68.9%
+#################################################                         69.4%
+##################################################                        69.9%
+###################################################                       71.2%
+###################################################                       72.1%
+####################################################                      73.0%
+####################################################                      73.0%
+####################################################                      73.5%
+#####################################################                     74.3%
+######################################################                    75.6%
+#######################################################                   76.5%
+########################################################                  78.2%
+########################################################                  79.0%
+#########################################################                 80.4%
+##########################################################                80.8%
+##########################################################                81.7%
+##########################################################                81.7%
+###########################################################               83.0%
+###########################################################               83.3%
+############################################################              83.6%
+############################################################              84.0%
+############################################################              84.5%
+#############################################################             85.1%
+#############################################################             85.1%
+#############################################################             85.4%
+#############################################################             86.1%
+##############################################################            86.1%
+##############################################################            87.4%
+################################################################          89.2%
+################################################################          89.7%
+################################################################          90.2%
+#################################################################         91.0%
+##################################################################        91.7%
+##################################################################        91.8%
+##################################################################        91.8%
+##################################################################        91.8%
+##################################################################        91.8%
+##################################################################        91.9%
+##################################################################        91.9%
+##################################################################        92.0%
+##################################################################        92.1%
+##################################################################        92.2%
+##################################################################        92.3%
+##################################################################        92.4%
+##################################################################        92.6%
+##################################################################        92.8%
+###################################################################       93.1%
+###################################################################       93.4%
+###################################################################       93.8%
+###################################################################       94.2%
+#####################################################################     95.8%
+#####################################################################     96.3%
+#####################################################################     97.1%
+######################################################################    97.4%
+######################################################################    98.3%
+######################################################################## 100.0%
+Note: gnat_arm_elf=14.2.1 installed successfully.
+Note: Building embedded_nrf52840=14.1.0/runtime_build.gpr (1/2)...
+Setup
+   [mkdir]        object directory for project Runtime_Build
+   [mkdir]        library directory for project Runtime_Build
+Compile
+   [C]            raise-gcc.c
+   [C]            newlib-bb.c
+   [C]            adaint-xi.c
+   [Asm_Cpp]      start-rom.s
+   [Asm_Cpp]      start-common.s
+   [Asm_Cpp]      breakpoint_handler-cortexm.s
+   [Ada]          unchdeal.ads
+   [Ada]          unchconv.ads
+   [Ada]          text_io.ads
+   [Ada]          system.ads
+   [Ada]          setup_board.adb
+   [Ada]          s-wwdwch.adb
+   [Ada]          s-wwdenu.adb
+   [Ada]          s-wwdcha.adb
+   [Ada]          s-widwch.adb
+   [Ada]          s-widuns.ads
+   [Ada]          s-widthu.adb
+   [Ada]          s-widthi.adb
+   [Ada]          s-widllu.ads
+   [Ada]          s-widlli.ads
+   [Ada]          s-widint.ads
+   [Ada]          s-widenu.adb
+   [Ada]          s-widcha.adb
+   [Ada]          s-widboo.adb
+   [Ada]          s-wchwts.adb
+   [Ada]          s-wchstw.adb
+   [Ada]          s-wchjis.adb
+   [Ada]          s-wchcon.adb
+   [Ada]          s-wchcnv.adb
+   [Ada]          s-vs_uns.ads
+   [Ada]          s-vs_llu.ads
+   [Ada]          s-vs_lli.ads
+   [Ada]          s-vs_int.ads
+   [Ada]          s-vercon.adb
+   [Ada]          s-vector.ads
+   [Ada]          s-veboop.adb
+   [Ada]          s-vauspe.adb
+   [Ada]          s-valwch.adb
+   [Ada]          s-valuti.adb
+   [Ada]          s-valuns.ads
+   [Ada]          s-valueu.adb
+   [Ada]          s-valuer.adb
+   [Ada]          s-valuen.adb
+   [Ada]          s-valuei.adb
+   [Ada]          s-valuef.adb
+   [Ada]          s-valued.adb
+   [Ada]          s-valspe.adb
+   [Ada]          s-valrea.adb
+   [Ada]          s-valllu.ads
+   [Ada]          s-vallli.ads
+   [Ada]          s-valllf.ads
+   [Ada]          s-vallfl.ads
+   [Ada]          s-valint.ads
+   [Ada]          s-valflt.ads
+   [Ada]          s-valcha.adb
+   [Ada]          s-valboo.adb
+   [Ada]          s-vaispe.adb
+   [Ada]          s-vafi64.ads
+   [Ada]          s-vafi32.ads
+   [Ada]          s-vaenu8.ads
+   [Ada]          s-vaen32.ads
+   [Ada]          s-vaen16.ads
+   [Ada]          s-vade64.ads
+   [Ada]          s-vade32.ads
+   [Ada]          s-utf_32.adb
+   [Ada]          s-unstyp.ads
+   [Ada]          s-trasym.adb
+   [Ada]          s-traent.adb
+   [Ada]          s-traceb.adb
+   [Ada]          s-textio.adb
+   [Ada]          s-tasloc.adb
+   [Ada]          s-string.adb
+   [Ada]          s-strhas.adb
+   [Ada]          s-stratt.adb
+   [Ada]          s-stposu.adb
+   [Ada]          s-stopoo.adb
+   [Ada]          s-stoele.adb
+   [Ada]          s-statxd.adb
+   [Ada]          s-stalib.adb
+   [Ada]          s-stache.adb
+   [Ada]          s-spsufi.adb
+   [Ada]          s-spcuop.adb
+   [Ada]          s-spark.ads
+   [Ada]          s-soflin.adb
+   [Ada]          s-shabig.ads
+   [Ada]          s-semiho.adb
+   [Ada]          s-secsta.adb
+   [Ada]          s-scaval.adb
+   [Ada]          s-rident.ads
+   [Ada]          s-retsta.ads
+   [Ada]          s-restri.adb
+   [Ada]          s-regexp.adb
+   [Ada]          s-ransee.adb
+   [Ada]          s-rannum.adb
+   [Ada]          s-putima.adb
+   [Ada]          s-powllf.ads
+   [Ada]          s-powlfl.ads
+   [Ada]          s-powflt.ads
+   [Ada]          s-poosiz.adb
+   [Ada]          s-pooloc.adb
+   [Ada]          s-pooglo.adb
+   [Ada]          s-parame.adb
+   [Ada]          s-pack63.adb
+   [Ada]          s-pack62.adb
+   [Ada]          s-pack61.adb
+   [Ada]          s-pack60.adb
+   [Ada]          s-pack59.adb
+   [Ada]          s-pack58.adb
+   [Ada]          s-pack57.adb
+   [Ada]          s-pack56.adb
+   [Ada]          s-pack55.adb
+   [Ada]          s-pack54.adb
+   [Ada]          s-pack53.adb
+   [Ada]          s-pack52.adb
+   [Ada]          s-pack51.adb
+   [Ada]          s-pack50.adb
+   [Ada]          s-pack49.adb
+   [Ada]          s-pack48.adb
+   [Ada]          s-pack47.adb
+   [Ada]          s-pack46.adb
+   [Ada]          s-pack45.adb
+   [Ada]          s-pack44.adb
+   [Ada]          s-pack43.adb
+   [Ada]          s-pack42.adb
+   [Ada]          s-pack41.adb
+   [Ada]          s-pack40.adb
+   [Ada]          s-pack39.adb
+   [Ada]          s-pack38.adb
+   [Ada]          s-pack37.adb
+   [Ada]          s-pack36.adb
+   [Ada]          s-pack35.adb
+   [Ada]          s-pack34.adb
+   [Ada]          s-pack33.adb
+   [Ada]          s-pack31.adb
+   [Ada]          s-pack30.adb
+   [Ada]          s-pack29.adb
+   [Ada]          s-pack28.adb
+   [Ada]          s-pack27.adb
+   [Ada]          s-pack26.adb
+   [Ada]          s-pack25.adb
+   [Ada]          s-pack24.adb
+   [Ada]          s-pack23.adb
+   [Ada]          s-pack22.adb
+   [Ada]          s-pack21.adb
+   [Ada]          s-pack20.adb
+   [Ada]          s-pack19.adb
+   [Ada]          s-pack18.adb
+   [Ada]          s-pack17.adb
+   [Ada]          s-pack15.adb
+   [Ada]          s-pack14.adb
+   [Ada]          s-pack13.adb
+   [Ada]          s-pack12.adb
+   [Ada]          s-pack11.adb
+   [Ada]          s-pack10.adb
+   [Ada]          s-pack09.adb
+   [Ada]          s-pack07.adb
+   [Ada]          s-pack06.adb
+   [Ada]          s-pack05.adb
+   [Ada]          s-pack03.adb
+   [Ada]          s-memory.adb
+   [Ada]          s-mastop.adb
+   [Ada]          s-mantis.adb
+   [Ada]          s-macres.adb
+   [Ada]          s-maccod.ads
+   [Ada]          s-lisisq.adb
+   [Ada]          s-lidosq.adb
+   [Ada]          s-libsin.adb
+   [Ada]          s-libpre.ads
+   [Ada]          s-libm.adb
+   [Ada]          s-libdou.adb
+   [Ada]          s-io.adb
+   [Ada]          s-init.adb
+   [Ada]          s-imgwiu.ads
+   [Ada]          s-imgwch.adb
+   [Ada]          s-imguti.adb
+   [Ada]          s-imguns.ads
+   [Ada]          s-imgrea.ads
+   [Ada]          s-imgllw.ads
+   [Ada]          s-imgllu.ads
+   [Ada]          s-imglli.ads
+   [Ada]          s-imgllf.ads
+   [Ada]          s-imgllb.ads
+   [Ada]          s-imglfl.ads
+   [Ada]          s-imgint.ads
+   [Ada]          s-imgflt.ads
+   [Ada]          s-imgcha.adb
+   [Ada]          s-imgboo.adb
+   [Ada]          s-imgbiu.ads
+   [Ada]          s-imfi64.ads
+   [Ada]          s-imfi32.ads
+   [Ada]          s-imenu8.ads
+   [Ada]          s-imen32.ads
+   [Ada]          s-imen16.ads
+   [Ada]          s-imde64.ads
+   [Ada]          s-imde32.ads
+   [Ada]          s-imagew.adb
+   [Ada]          s-imageu.adb
+   [Ada]          s-imager.adb
+   [Ada]          s-imagen.adb
+   [Ada]          s-imagei.adb
+   [Ada]          s-imagef.adb
+   [Ada]          s-imaged.adb
+   [Ada]          s-imageb.adb
+   [Ada]          s-htable.adb
+   [Ada]          s-geveop.adb
+   [Ada]          s-genbig.adb
+   [Ada]          s-gearop.adb
+   [Ada]          s-gcmain.adb
+   [Ada]          s-forrea.adb
+   [Ada]          s-fore_f.adb
+   [Ada]          s-fore_d.adb
+   [Ada]          s-fofi64.ads
+   [Ada]          s-fofi32.ads
+   [Ada]          s-fode64.ads
+   [Ada]          s-fode32.ads
+   [Ada]          s-flocon.adb
+   [Ada]          s-finroo.adb
+   [Ada]          s-finmas.adb
+   [Ada]          s-fatllf.ads
+   [Ada]          s-fatlfl.ads
+   [Ada]          s-fatgen.adb
+   [Ada]          s-fatflt.ads
+   [Ada]          s-expuns.ads
+   [Ada]          s-exponu.adb
+   [Ada]          s-expont.adb
+   [Ada]          s-exponr.adb
+   [Ada]          s-exponn.adb
+   [Ada]          s-expmod.adb
+   [Ada]          s-expllu.ads
+   [Ada]          s-explli.ads
+   [Ada]          s-expint.ads
+   [Ada]          s-exnlli.ads
+   [Ada]          s-exnllf.ads
+   [Ada]          s-exnlfl.ads
+   [Ada]          s-exnint.ads
+   [Ada]          s-exnflt.ads
+   [Ada]          s-exctab.adb
+   [Ada]          s-excmac.adb
+   [Ada]          s-except.adb
+   [Ada]          s-excdeb.adb
+   [Ada]          s-dourea.adb
+   [Ada]          s-crc32.adb
+   [Ada]          s-chepoo.ads
+   [Ada]          s-caun64.adb
+   [Ada]          s-caun32.adb
+   [Ada]          s-caun16.adb
+   [Ada]          s-casuti.adb
+   [Ada]          s-casi64.adb
+   [Ada]          s-casi32.adb
+   [Ada]          s-casi16.adb
+   [Ada]          s-carun8.adb
+   [Ada]          s-carsi8.adb
+   [Ada]          s-bytswa.ads
+   [Ada]          s-boarop.ads
+   [Ada]          s-bitops.adb
+   [Ada]          s-bbmcpa.ads
+   [Ada]          s-bbbopa.ads
+   [Ada]          s-bbarat.adb
+   [Ada]          s-bb.ads
+   [Ada]          s-atopri.adb
+   [Ada]          s-atocou.adb
+   [Ada]          s-atacco.adb
+   [Ada]          s-assert.adb
+   [Ada]          s-arit64.adb
+   [Ada]          s-arit32.adb
+   [Ada]          s-aridou.adb
+   [Ada]          s-addope.adb
+   [Ada]          s-addima.adb
+   [Ada]          machcode.ads
+   [Ada]          ioexcept.ads
+   [Ada]          interfac.ads
+   [Ada]          i-pacdec.adb
+   [Ada]          i-nrf52.ads
+   [Ada]          i-nrf52-uicr.ads
+   [Ada]          i-nrf52-temp.ads
+   [Ada]          i-nrf52-rtc.ads
+   [Ada]          i-nrf52-nvmc.ads
+   [Ada]          i-nrf52-gpio.ads
+   [Ada]          i-nrf52-ficr.ads
+   [Ada]          i-nrf52-clock.ads
+   [Ada]          i-nrf52-ccm.ads
+   [Ada]          i-fortra.adb
+   [Ada]          i-cstrin.adb
+   [Ada]          i-cpoint.adb
+   [Ada]          i-cobol.adb
+   [Ada]          i-cexten.ads
+   [Ada]          i-c.adb
+   [Ada]          gnat.ads
+   [Ada]          g-wistsp.ads
+   [Ada]          g-tasloc.ads
+   [Ada]          g-table.adb
+   [Ada]          g-strspl.ads
+   [Ada]          g-string.ads
+   [Ada]          g-souinf.ads
+   [Ada]          g-shshco.adb
+   [Ada]          g-shsh64.adb
+   [Ada]          g-shsh32.adb
+   [Ada]          g-sha512.ads
+   [Ada]          g-sha384.ads
+   [Ada]          g-sha256.ads
+   [Ada]          g-sha224.ads
+   [Ada]          g-sha1.adb
+   [Ada]          g-sestin.ads
+   [Ada]          g-sehash.adb
+   [Ada]          g-sehamd.adb
+   [Ada]          g-sechas.adb
+   [Ada]          g-regexp.ads
+   [Ada]          g-moreex.adb
+   [Ada]          g-md5.adb
+   [Ada]          g-io.adb
+   [Ada]          g-htable.adb
+   [Ada]          g-hesorg.adb
+   [Ada]          g-hesora.adb
+   [Ada]          g-heasor.adb
+   [Ada]          g-except.ads
+   [Ada]          g-dyntab.adb
+   [Ada]          g-debuti.adb
+   [Ada]          g-crc32.adb
+   [Ada]          g-comver.adb
+   [Ada]          g-casuti.adb
+   [Ada]          g-bytswa.adb
+   [Ada]          g-busorg.adb
+   [Ada]          g-busora.adb
+   [Ada]          g-bubsor.adb
+   [Ada]          g-arrspl.adb
+   [Ada]          ada.ads
+   [Ada]          a-zchuni.adb
+   [Ada]          a-zchhan.adb
+   [Ada]          a-zchara.ads
+   [Ada]          a-widcha.ads
+   [Ada]          a-wichun.adb
+   [Ada]          a-wichha.adb
+   [Ada]          a-undesu.adb
+   [Ada]          a-uncdea.ads
+   [Ada]          a-unccon.ads
+   [Ada]          a-textio.adb
+   [Ada]          a-tags.adb
+   [Ada]          a-szuzha.adb
+   [Ada]          a-szunau.adb
+   [Ada]          a-szmzco.ads
+   [Ada]          a-szfzha.ads
+   [Ada]          a-szbzha.adb
+   [Ada]          a-swuwha.adb
+   [Ada]          a-swunau.adb
+   [Ada]          a-swmwco.ads
+   [Ada]          a-swfwha.ads
+   [Ada]          a-swbwha.adb
+   [Ada]          a-sulcin.adb
+   [Ada]          a-suhcin.adb
+   [Ada]          a-suezst.adb
+   [Ada]          a-suewst.adb
+   [Ada]          a-suenst.adb
+   [Ada]          a-suenco.adb
+   [Ada]          a-suecin.adb
+   [Ada]          a-stzunb.adb
+   [Ada]          a-stzsup.adb
+   [Ada]          a-stzsea.adb
+   [Ada]          a-stzmap.adb
+   [Ada]          a-stzhas.adb
+   [Ada]          a-stzfix.adb
+   [Ada]          a-stzbou.adb
+   [Ada]          a-stwiun.adb
+   [Ada]          a-stwisu.adb
+   [Ada]          a-stwise.adb
+   [Ada]          a-stwima.adb
+   [Ada]          a-stwiha.adb
+   [Ada]          a-stwifi.adb
+   [Ada]          a-stwibo.adb
+   [Ada]          a-stuten.adb
+   [Ada]          a-stunha.adb
+   [Ada]          a-stunau.adb
+   [Ada]          a-sttebu.adb
+   [Ada]          a-strunb.adb
+   [Ada]          a-strsup.adb
+   [Ada]          a-strsea.adb
+   [Ada]          a-strmap.adb
+   [Ada]          a-string.ads
+   [Ada]          a-strhas.adb
+   [Ada]          a-strfix.adb
+   [Ada]          a-stream.adb
+   [Ada]          a-strbou.adb
+   [Ada]          a-storio.adb
+   [Ada]          a-stmaco.ads
+   [Ada]          a-stfiha.ads
+   [Ada]          a-stbuut.adb
+   [Ada]          a-stbuun.adb
+   [Ada]          a-stbubo.adb
+   [Ada]          a-stboha.adb
+   [Ada]          a-slcain.adb
+   [Ada]          a-shcain.adb
+   [Ada]          a-sflcin.ads
+   [Ada]          a-sfhcin.ads
+   [Ada]          a-sfecin.ads
+   [Ada]          a-secain.adb
+   [Ada]          a-sblcin.adb
+   [Ada]          a-sbhcin.adb
+   [Ada]          a-sbecin.adb
+   [Ada]          a-rbtgso.adb
+   [Ada]          a-rbtgbo.adb
+   [Ada]          a-rbtgbk.adb
+   [Ada]          a-nurear.ads
+   [Ada]          a-numeri.ads
+   [Ada]          a-numaux.ads
+   [Ada]          a-nuflra.adb
+   [Ada]          a-nuelfu.ads
+   [Ada]          a-nudira.adb
+   [Ada]          a-nucoty.ads
+   [Ada]          a-nucoar.ads
+   [Ada]          a-nubinu.ads
+   [Ada]          a-nselfu.ads
+   [Ada]          a-nscoty.ads
+   [Ada]          a-nscefu.ads
+   [Ada]          a-nlrear.ads
+   [Ada]          a-nllrar.ads
+   [Ada]          a-nllefu.ads
+   [Ada]          a-nllcty.ads
+   [Ada]          a-nllcef.ads
+   [Ada]          a-nllcar.ads
+   [Ada]          a-nlelfu.ads
+   [Ada]          a-nlcoty.ads
+   [Ada]          a-nlcoar.ads
+   [Ada]          a-nlcefu.ads
+   [Ada]          a-ngrear.adb
+   [Ada]          a-ngelfu.adb
+   [Ada]          a-ngcoty.adb
+   [Ada]          a-ngcoar.adb
+   [Ada]          a-ngcefu.adb
+   [Ada]          a-ncelfu.ads
+   [Ada]          a-nbnbre.adb
+   [Ada]          a-nbnbin.adb
+   [Ada]          a-nbnbig.adb
+   [Ada]          a-iteint.ads
+   [Ada]          a-ioexce.ads
+   [Ada]          a-finali.adb
+   [Ada]          a-exctra.adb
+   [Ada]          a-except.adb
+   [Ada]          a-elchha.adb
+   [Ada]          a-einuoc.adb
+   [Ada]          a-decima.adb
+   [Ada]          a-cwila9.ads
+   [Ada]          a-cwila1.ads
+   [Ada]          a-csquin.ads
+   [Ada]          a-crdlli.adb
+   [Ada]          a-crbtgo.adb
+   [Ada]          a-crbtgk.adb
+   [Ada]          a-crbltr.ads
+   [Ada]          a-costso.adb
+   [Ada]          a-coprnu.adb
+   [Ada]          a-coorse.adb
+   [Ada]          a-coormu.adb
+   [Ada]          a-coorma.adb
+   [Ada]          a-convec.adb
+   [Ada]          a-contai.ads
+   [Ada]          a-conhel.adb
+   [Ada]          a-comutr.adb
+   [Ada]          a-coinve.adb
+   [Ada]          a-coinho.adb
+   [Ada]          a-cohata.ads
+   [Ada]          a-cohase.adb
+   [Ada]          a-cohama.adb
+   [Ada]          a-cogeso.adb
+   [Ada]          a-cobove.adb
+   [Ada]          a-coboho.adb
+   [Ada]          a-ciorse.adb
+   [Ada]          a-ciormu.adb
+   [Ada]          a-ciorma.adb
+   [Ada]          a-cimutr.adb
+   [Ada]          a-cihase.adb
+   [Ada]          a-cihama.adb
+   [Ada]          a-cidlli.adb
+   [Ada]          a-chzla9.ads
+   [Ada]          a-chzla1.ads
+   [Ada]          a-chtgop.adb
+   [Ada]          a-chtgke.adb
+   [Ada]          a-chtgfo.adb
+   [Ada]          a-chtgfk.adb
+   [Ada]          a-chtgbo.adb
+   [Ada]          a-chtgbk.adb
+   [Ada]          a-chlat9.ads
+   [Ada]          a-chlat1.ads
+   [Ada]          a-charac.ads
+   [Ada]          a-chahan.adb
+   [Ada]          a-chacon.adb
+   [Ada]          a-cgcaso.adb
+   [Ada]          a-cgarso.adb
+   [Ada]          a-cgaaso.adb
+   [Ada]          a-cdlili.adb
+   [Ada]          a-cborse.adb
+   [Ada]          a-cborma.adb
+   [Ada]          a-cbmutr.adb
+   [Ada]          a-cbhase.adb
+   [Ada]          a-cbhama.adb
+   [Ada]          a-cbdlli.adb
+   [Ada]          a-calend.adb
+   [Ada]          a-calcon.adb
+   [Ada]          a-btgbso.adb
+   [Ada]          a-assert.adb
+   [Ada]          nrf52_runtime_config.ads
+   [Ada]          embedded_nrf52840_config.ads
+Build Libraries
+   [gprlib]       gnat.lexch
+   [archive]      libgnat.a
+   [index]        libgnat.a
+Note: Building embedded_nrf52840=14.1.0/ravenscar_build.gpr (2/2)...
+Compile
+   [Asm_Cpp]      handler.s
+   [Ada]          s-tposen.adb
+   [Ada]          s-tpobop.adb
+   [Ada]          s-tpobmu.adb
+   [Ada]          s-tpoben.adb
+   [Ada]          s-tasres.ads
+   [Ada]          s-tasque.adb
+   [Ada]          s-taspri.ads
+   [Ada]          s-taskin.adb
+   [Ada]          s-tasinf.adb
+   [Ada]          s-tasdeb.adb
+   [Ada]          s-tarest.adb
+   [Ada]          s-taprop.adb
+   [Ada]          s-taprob.adb
+   [Ada]          s-reldel.adb
+   [Ada]          s-osinte.ads
+   [Ada]          s-musplo.adb
+   [Ada]          s-multip.adb
+   [Ada]          s-mufalo.adb
+   [Ada]          s-interr.adb
+   [Ada]          s-btstch.adb
+   [Ada]          s-bcprmu.adb
+   [Ada]          s-bcpcst.adb
+   [Ada]          s-bbtime.adb
+   [Ada]          s-bbtiev.adb
+   [Ada]          s-bbthre.adb
+   [Ada]          s-bbthqu.adb
+   [Ada]          s-bbprot.adb
+   [Ada]          s-bbpara.ads
+   [Ada]          s-bbinte.adb
+   [Ada]          s-bbexti.adb
+   [Ada]          s-bbcpsp.ads
+   [Ada]          s-bbcppr.adb
+   [Ada]          s-bbbosu.adb
+   [Ada]          g-semaph.adb
+   [Ada]          g-boumai.ads
+   [Ada]          g-boubuf.adb
+   [Ada]          a-taster.adb
+   [Ada]          a-taside.adb
+   [Ada]          a-sytaco.adb
+   [Ada]          a-synbar.adb
+   [Ada]          a-rttiev.adb
+   [Ada]          a-retide.adb
+   [Ada]          a-reatim.adb
+   [Ada]          a-intnam.ads
+   [Ada]          a-interr.adb
+   [Ada]          a-extiin.adb
+   [Ada]          a-exetim.adb
+Build Libraries
+   [gprlib]       gnarl.lexch
+   [archive]      libgnarl.a
+   [index]        libgnarl.a
+
+embedded_nrf52840=14.1.0 successfully retrieved and built.
+Dependencies were solved as follows:
+
+   +b gnat_arm_elf 14.2.1 (new,binary)
+Found declared GPR file: runtime_build.gpr
+Found declared GPR file: ravenscar_build.gpr

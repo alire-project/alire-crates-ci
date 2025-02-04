@@ -1,0 +1,121 @@
+Test ran at 2025-02-05 01:30:51.254978+00:00
+
+SOLUTION:
+ado=2.4.1: Ada Database Objects (Core library)
+Origin: commit cf105198c23027ddf7d8111bf8094155c43a7709 from https://gitlab.com/stcarrez/ada-ado.git
+Properties:
+   Author: Stephane.Carrez@gmail.com
+   Configuration: no modifiers
+   Description: Ada Database Objects (Core library)
+   GPR Scenario: ADO_BUILD := distrib | debug | optimize | profile | coverage
+   GPR Scenario: ADO_LIBRARY_TYPE := relocatable | static | static-pic
+   License: Apache-2.0
+   Long_Description: [![Build Status](https://img.shields.io/endpoint?url=https://porion.vacs.fr/porion/api/v1/projects/ada-ado/badges/build.json)](https://porion.vacs.fr/porion/projects/view/ada-ado/summary)
+[![Test Status](https://img.shields.io/endpoint?url=https://porion.vacs.fr/porion/api/v1/projects/ada-ado/badges/tests.json)](https://porion.vacs.fr/porion/projects/view/ada-ado/xunits)
+[![Coverage](https://img.shields.io/endpoint?url=https://porion.vacs.fr/porion/api/v1/projects/ada-ado/badges/coverage.json)](https://porion.vacs.fr/porion/projects/view/ada-ado/summary)
+[![Documentation Status](https://readthedocs.org/projects/ada-ado/badge/?version=latest)](https://ada-ado.readthedocs.io/en/latest/?badge=latest)
+
+Ada Database Objects is an Ada05 library that provides
+object relational mapping to access a database in Ada05.
+The library supports Postgresql, MySQL, SQLite as databases.
+Most of the concepts developped for ADO come from the Java Hibernate ORM.
+
+The ORM uses an YAML, XML mapping file or an UML model, a code generator and a runtime library
+for the implementation.  It provides a database driver for [Postgresql](https://www.postgresql.org/),
+[MySQL](https://www.mysql.com/) and [SQLite](https://www.sqlite.org/).  The ORM helps your
+application by providing a mapping of your database tables directly in the target programming
+language: Ada05 in our case.  The development process is the following:
+
+  * You design your database model either using a UML tool or by writing a YAML or XML description,
+  * You generate the Ada05 mapping files by using the [Dynamo](https://github.com/stcarrez/dynamo) code generator,
+  * You generate the SQL database tables by using the same tool,
+  * You write your application on top of the generated code that gives you direct and simplified access to your database.
+
+![ADO Development model](https://github.com/stcarrez/ada-ado/wiki/images/ado-orm.png)
+
+You need at least one of these databases (or all of then).  The configure script will now
+fail if no supported database was found.  Check the [Database Drivers](#database-drivers)
+section to install them and run the configure again after the installation.
+
+# Documentation
+
+  * [Ada Database Objects Programmer's Guide](https://ada-ado.readthedocs.io/en/latest/)
+  * [Persistence with Ada Database Objects](https://fr.slideshare.net/StephaneCarrez1/persistence-with-ada-database-objects-ado) FOSDEM 2019
+
+
+   Maintainer: Stephane.Carrez@gmail.com
+   Maintainers_Logins: stcarrez
+   Name: ado
+   Project_File: ado.gpr
+   Tag: database
+   Tag: uml
+   Tag: sql
+   Version: 2.4.1
+   Website: https://gitlab.com/stcarrez/ada-ado
+Dependencies (direct):
+   utilada^2.6.0
+   utilada_xml^2.6.0
+Dependencies (solution):
+   gnat=14.2.1 (gnat_native)
+   utilada=2.8.0
+   utilada_xml=2.8.0
+   xmlada=25.0.0
+Dependencies (graph):
+   ado=2.4.1         --> utilada=2.8.0 (^2.6.0)
+   ado=2.4.1         --> utilada_xml=2.8.0 (^2.6.0)
+   utilada_xml=2.8.0 --> utilada=2.8.0 (^2.7.0)
+   utilada_xml=2.8.0 --> xmlada=25.0.0 (*)
+   xmlada=25.0.0     --> gnat=14.2.1 (gnat_native) (>=11)
+
+
+LOG:
+Spawning: alr -d -n get --build ado=2.4.1
+Note: Deploying ado=2.4.1...
+Note: Building ado=2.4.1/ado.gpr...
+Setup
+   [mkdir]        object directory for project Ado
+   [mkdir]        library directory for project Ado
+Compile
+   [Ada]          ado-model.adb
+   [Ada]          ado-parameters.adb
+   [Ada]          ado-sessions-entities.adb
+   [Ada]          ado-c.adb
+   [Ada]          ado-configs.adb
+   [Ada]          ado-statements-create.adb
+   [Ada]          ado-sessions-sources.adb
+   [Ada]          ado-schemas-entities.adb
+   [Ada]          ado-caches.adb
+   [Ada]          ado-utils.adb
+   [Ada]          ado-sessions-factory.adb
+   [Ada]          ado-queries-loaders.adb
+   [Ada]          ado-queries.adb
+   [Ada]          ado-utils-serialize.adb
+   [Ada]          ado-utils-streams.adb
+   [Ada]          ado-sequences.adb
+   [Ada]          ado-sql.adb
+   [Ada]          ado.adb
+   [Ada]          ado-statements.adb
+   [Ada]          ado-objects-cache.adb
+   [Ada]          ado-schemas.adb
+   [Ada]          ado-caches-discrete.adb
+   [Ada]          ado-datasets.adb
+   [Ada]          ado-sessions.adb
+   [Ada]          ado-dialects.adb
+   [Ada]          ado-audits.adb
+   [Ada]          ado-sequences-hilo.adb
+   [Ada]          ado-schemas-databases.adb
+   [Ada]          ado-connections.adb
+   [Ada]          ado-objects.adb
+Build Libraries
+   [gprlib]       ado.lexch
+   [archive]      libado.a
+   [index]        libado.a
+
+ado=2.4.1 successfully retrieved and built.
+Dependencies were solved as follows:
+
+   +b gnat        14.2.1 (new,gnat_native,indirect,binary)
+   +  utilada     2.8.0  (new)
+   +  utilada_xml 2.8.0  (new)
+   +  xmlada      25.0.0 (new,indirect)
+Found declared GPR file: ado.gpr
