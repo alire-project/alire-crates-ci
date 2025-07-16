@@ -1,0 +1,133 @@
+Test ran at 2025-09-15 12:41:46.626190+00:00
+
+SOLUTION:
+hmc5883=1.0.0: Driver for HMC5883L magnetic sensor
+Origin: commit acd90287298323b2dbd08a2f0551e2afa1e39cfa from https://github.com/reznikmm/hmc5883.git
+Properties:
+   Author: Max Reznik
+   Build Switches: 
+   Configuration: no modifiers
+   Description: Driver for HMC5883L magnetic sensor
+   License: Apache-2.0 WITH LLVM-exception
+   Maintainer: Max Reznik <reznikmm@gmail.com>
+   Maintainers_Logins: reznikmm
+   Name: hmc5883
+   Project_File: gnat/hmc5883.gpr
+   Tag: sensor
+   Tag: magnetometer
+   Tag: driver
+   Version: 1.0.0
+   Website: https://github.com/reznikmm/hmc5883
+Dependencies (direct):
+   gnat>=11 & <2000
+   hal~0.3.0
+Dependencies (solution):
+   gnat=11.2.4 (gnat_native)
+   hal=0.3.1
+Dependencies (graph):
+   hmc5883=1.0.0 --> gnat=11.2.4 (gnat_native) (>=11 & <2000)
+   hmc5883=1.0.0 --> hal=0.3.1 (~0.3.0)
+
+
+LOG:
+[alr test] Testing hmc5883=1.0.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get hmc5883=1.0.0
+Note: Deploying hmc5883=1.0.0...
+Note: Deploying hal=0.3.1...
+
+hmc5883=1.0.0 successfully retrieved.
+Dependencies were solved as follows:
+
+   +b gnat 11.2.4 (new,gnat_native,binary)
+   +  hal  0.3.1  (new)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building hmc5883=1.0.0/gnat/hmc5883.gpr...
+Setup
+   [mkdir]        object directory for project HAL
+   [mkdir]        library directory for project HAL
+   [mkdir]        object directory for project HMC5883
+   [mkdir]        library directory for project HMC5883
+Compile
+   [Ada]          hal.ads
+   [Ada]          hal-uart.ads
+   [Ada]          hal-touch_panel.ads
+   [Ada]          hal-time.ads
+   [Ada]          hal-spi.ads
+   [Ada]          hal-sdmmc.adb
+   [Ada]          hal-real_time_clock.ads
+   [Ada]          hal-i2c.ads
+   [Ada]          hal-gpio.ads
+   [Ada]          hal-framebuffer.ads
+   [Ada]          hal-flash.ads
+   [Ada]          hal-filesystem.ads
+   [Ada]          hal-dsi.ads
+   [Ada]          hal-block_drivers.ads
+   [Ada]          hal-bitmap.ads
+   [Ada]          hal-audio.ads
+   [Ada]          hmc5883-sensors.adb
+hmc5883.ads:16:11: aspect specification causes premature freezing of "Output_Data_Rate"
+
+   compilation of hmc5883-sensors.adb failed
+
+gprbuild: *** compilation phase failed
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "D:\a\alire-crates-ci\alire-crates-ci\test\cba5fe0b-b5e7-4e52-9bfe-0250a50f14ef\hmc5883_1.0.0_acd90287\gnat/hmc5883.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "D:\a\alire-crates-ci\alire-crates-ci\test\cba5fe0b-b5e7-4e52-9bfe-0250a50f14ef\hmc5883_1.0.0_acd90287\gnat/hmc5883.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+stderr: ALIRE.CHECKED_ERROR
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "D:\a\alire-crates-ci\alire-crates-ci\test\cba5fe0b-b5e7-4e52-9bfe-0250a50f14ef\hmc5883_1.0.0_acd90287\gnat/hmc5883.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
+[D:\a\alire-crates-ci\alire-crates-ci\alire_install\bin\alr.exe]
+0x7ff70678da2a Semantic_Versioning.Basic.Restrictions.First_Index at alire.adb:284
+0x7ff70638595b Semantic_Versioning.Basic.Restrictions.First_Index at alire-os_lib-subprocess.adb:111
+0x7ff70663cba1 Semantic_Versioning.Basic.Restrictions.First_Index at alire-spawn.adb:22
+0x7ff70663dd5d Semantic_Versioning.Basic.Restrictions.First_Index at alire-spawn.adb:68
+0x7ff706562d64 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:189
+0x7ff7065611da Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:255
+0x7ff70658912d Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2143
+0x7ff7065f82f9 Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1472
+0x7ff7065f7424 Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1555
+0x7ff70658922c Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2147
+0x7ff7065892fa Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2127
+0x7ff7065617a7 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:286
+0x7ff706561912 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:114
+0x7ff705cd3baa Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:145
+0x7ff705cd341e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:113
+0x7ff705cd35ba Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:54
+0x7ff705d85dea Semantic_Versioning.Basic.Restrictions.First_Index at clic-subcommand-instance.adb:749
+0x7ff705d92b0e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands.adb:632
+0x7ff705c616a0 Alr.Main at alr-main.adb:13
+0x7ff705c65270 Main at b__alr-main.adb:2454
+0x7ff705c6133e __tmainCRTStartup at ???
+0x7ff705c61144 mainCRTStartup at ???
+[C:\Windows\System32\KERNEL32.DLL]
+0x7ffc9eb1e8d5
+[C:\Windows\SYSTEM32\ntdll.dll]
+0x7ffc9f9bc34a
+
+stderr: ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED
+stderr: alire-roots.adb:202
+stderr: raised ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED : alire-roots.adb:202
+[D:\a\alire-crates-ci\alire-crates-ci\alire_install\bin\alr.exe]
+0x7ff70656313c Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:202
+0x7ff7065611da Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:255
+0x7ff70658912d Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2143
+0x7ff7065f82f9 Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1472
+0x7ff7065f7424 Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1555
+0x7ff70658922c Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2147
+0x7ff7065892fa Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2127
+0x7ff7065617a7 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:286
+0x7ff706561912 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:114
+0x7ff705cd3baa Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:145
+0x7ff705cd341e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:113
+0x7ff705cd35ba Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:54
+0x7ff705d85dea Semantic_Versioning.Basic.Restrictions.First_Index at clic-subcommand-instance.adb:749
+0x7ff705d92b0e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands.adb:632
+0x7ff705c616a0 Alr.Main at alr-main.adb:13
+0x7ff705c65270 Main at b__alr-main.adb:2454
+0x7ff705c6133e __tmainCRTStartup at ???
+0x7ff705c61144 mainCRTStartup at ???
+[C:\Windows\System32\KERNEL32.DLL]
+0x7ffc9eb1e8d5
+[C:\Windows\SYSTEM32\ntdll.dll]
+0x7ffc9f9bc34a
+
+ERROR: Compilation failed.

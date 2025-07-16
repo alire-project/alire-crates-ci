@@ -1,0 +1,135 @@
+Test ran at 2025-10-09 13:03:49.446937+00:00
+
+SOLUTION:
+bbqueue=1.0.0: DMA friendly lock-free BipBuffer
+Origin: commit f508818cae5c23e45864e19c618fe2b1dc7c6362 from https://github.com/Fabien-Chouteau/bbqueue-spark.git
+Properties:
+   Author: Fabien Chouteau
+   Build Switches: 
+   Description: DMA friendly lock-free BipBuffer
+   License: MIT
+   Long_Description: An Ada/SPARK proved implementation of James Munns'
+BBQueue (https://github.com/jamesmunns/bbqueue)
+   Maintainer: Fabien Chouteau <chouteau@adacore.com>
+   Maintainers_Logins: Fabien-Chouteau
+   Name: bbqueue
+   Tag: spark
+   Tag: nostd
+   Tag: embedded
+   Tag: lockfree
+   Tag: dma
+   Tag: bipbuffer
+   Version: 1.0.0
+   Website: https://github.com/Fabien-Chouteau/bbqueue-spark
+Dependencies (direct):
+   atomic^1.0.0
+   gnat>=10
+Dependencies (solution):
+   atomic=1.0.0
+   gnat=15.2.1 (gnat_external)
+Dependencies (graph):
+   bbqueue=1.0.0 --> atomic=1.0.0 (^1.0.0)
+   bbqueue=1.0.0 --> gnat=15.2.1 (gnat_external) (>=10)
+
+
+LOG:
+[alr test] Testing bbqueue=1.0.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get bbqueue=1.0.0
+Note: Deploying bbqueue=1.0.0...
+Note: Deploying atomic=1.0.0...
+
+bbqueue=1.0.0 successfully retrieved.
+Dependencies were solved as follows:
+
+   +  atomic 1.0.0  (new)
+   +b gnat   15.2.1 (new,gnat_external,executable in path)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Alire has selected automatically this toolchain:
+   gprbuild=25.0.1
+   gnat_native=15.2.1
+You can select a different toolchain at any time with `alr toolchain --select`
+Download will start now:
+Note: Deploying gprbuild=25.0.1...
+
+#=#=#                                                                          
+####                                                                       6.7%
+############                                                              17.2%
+################                                                          23.6%
+###################                                                       27.1%
+#####################                                                     30.3%
+#########################                                                 35.7%
+############################                                              39.8%
+##############################                                            42.2%
+################################                                          45.6%
+###################################                                       48.9%
+######################################                                    54.0%
+##########################################                                58.4%
+############################################                              62.3%
+################################################                          67.5%
+####################################################                      72.2%
+######################################################                    76.0%
+#######################################################                   76.5%
+########################################################                  78.0%
+###########################################################               82.1%
+###############################################################           87.7%
+##################################################################        92.1%
+#####################################################################     96.6%
+######################################################################## 100.0%
+Note: gprbuild=25.0.1 installed successfully.
+Note: Deploying gnat_native=15.2.1...
+
+#=#=#                                                                          
+#                                                                          2.8%
+#######                                                                    9.7%
+##########                                                                14.6%
+###########                                                               16.6%
+############                                                              17.7%
+#############                                                             18.4%
+################                                                          22.7%
+#####################                                                     29.9%
+##########################                                                37.0%
+###############################                                           44.3%
+#################################                                         46.7%
+#####################################                                     52.8%
+###########################################                               60.5%
+#################################################                         68.4%
+###################################################                       71.4%
+####################################################                      73.2%
+#######################################################                   77.0%
+############################################################              83.5%
+#################################################################         90.6%
+##################################################################        92.2%
+###################################################################       93.4%
+######################################################################## 100.0%
+Note: gnat_native=15.2.1 installed successfully.
+Note: Building bbqueue=1.0.0/bbqueue.gpr...
+Setup
+   [mkdir]        object directory for project Atomic
+   [mkdir]        library directory for project Atomic
+   [mkdir]        object directory for project Bbqueue
+   [mkdir]        library directory for project Bbqueue
+Compile
+   [Ada]          atomic.adb
+   [Ada]          atomic-unsigned.adb
+   [Ada]          atomic-signed.adb
+   [Ada]          atomic_config.ads
+   [Ada]          atomic-signed_16.ads
+   [Ada]          atomic-unsigned_8.ads
+   [Ada]          atomic-signed_8.ads
+   [Ada]          atomic-signed_32.ads
+   [Ada]          atomic-unsigned_16.ads
+   [Ada]          atomic-unsigned_32.ads
+   [Ada]          bbqueue_config.ads
+   [Ada]          bbqueue-buffers.adb
+   [Ada]          bbqueue.adb
+   [Ada]          bbqueue-buffers-framed.adb
+Build Libraries
+   [gprlib]       Atomic.lexch
+   [gprlib]       Bbqueue.lexch
+   [archive]      libAtomic.a
+   [index]        libAtomic.a
+   [archive]      libBbqueue.a
+   [index]        libBbqueue.a
+Success: Build finished successfully in 0.74 seconds.
+Found declared GPR file: bbqueue.gpr
+[alr test] Test completed SUCCESSFULLY

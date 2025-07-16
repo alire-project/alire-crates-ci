@@ -1,0 +1,75 @@
+Test ran at 2025-06-19 12:29:11.472617+00:00
+
+SOLUTION:
+audio_wavefiles=2.0.0: Ada Wavefile Library
+Origin: commit 8e1162c5b9dc604a835f60be6a78e8f9d3c85052 from https://github.com/Ada-Audio/audio_wavefiles.git
+Properties:
+   Author: Gustavo A. Hoffmann
+   Description: Ada Wavefile Library
+   License: MIT
+   Long_Description: # Ada Wavefile Library
+This crate contains Ada packages for wavefile I/O.
+
+   Maintainer: gusthoff@gusthoff.com
+   Maintainers_Logins: gusthoff
+   Name: audio_wavefiles
+   Project_File: audio_wavefiles.gpr
+   Tag: audio
+   Tag: riff
+   Tag: wavefiles
+   Version: 2.0.0
+   Website: https://github.com/Ada-Audio/audio_wavefiles
+Dependencies (direct):
+   audio_base^1.0
+Dependencies (solution):
+   audio_base=1.0.0
+Dependencies (graph):
+   audio_wavefiles=2.0.0 --> audio_base=1.0.0 (^1.0)
+
+
+LOG:
+Spawning: alr -d -n get --build audio_wavefiles=2.0.0
+Note: Deploying audio_wavefiles=2.0.0...
+Note: Deploying audio_base=1.0.0...
+Note: Building audio_wavefiles=2.0.0/audio_wavefiles.gpr...
+Setup
+   [mkdir]        object directory for project Audio_Base
+   [mkdir]        library directory for project Audio_Base
+   [mkdir]        object directory for project Audio_Wavefiles
+   [mkdir]        library directory for project Audio_Wavefiles
+Compile
+   [Ada]          audio-riff.ads
+   [Ada]          audio.ads
+   [Ada]          audio-riff-wav.ads
+   [Ada]          audio-riff-wav-guids.ads
+   [Ada]          audio-riff-wav-formats-report.adb
+   [Ada]          audio-wavefiles-read.adb
+   [Ada]          audio-wavefiles-write.adb
+   [Ada]          audio-wavefiles-generic_float_wav_io.adb
+   [Ada]          audio-wavefiles-generic_fixed_wav_io.adb
+   [Ada]          audio-wavefiles-report.adb
+   [Ada]          audio-wavefiles-internals.adb
+   [Ada]          audio-wavefiles-generic_direct_fixed_wav_io.adb
+   [Ada]          audio-wavefiles-generic_direct_float_wav_io.adb
+   [Ada]          audio-wavefiles-data_types-text_io.ads
+   [Ada]          audio-riff-wav-formats-standard_channel_configurations.adb
+audio-wavefiles-data_types.ads:71:33: error: digits value out of range, maximum is 15
+
+   compilation of audio-wavefiles-data_types-text_io.ads failed
+
+gprbuild: *** compilation phase failed
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/Users/runner/work/alire-crates-ci/alire-crates-ci/test/a448bebb-3613-42b8-b0ce-4a658d736348/audio_wavefiles_2.0.0_8e1162c5/audio_wavefiles.gpr"] exited with code 4
+ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/Users/runner/work/alire-crates-ci/alire-crates-ci/test/a448bebb-3613-42b8-b0ce-4a658d736348/audio_wavefiles_2.0.0_8e1162c5/audio_wavefiles.gpr"] exited with code 4
+stderr: ALIRE.CHECKED_ERROR
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/Users/runner/work/alire-crates-ci/alire-crates-ci/test/a448bebb-3613-42b8-b0ce-4a658d736348/audio_wavefiles_2.0.0_8e1162c5/audio_wavefiles.gpr"] exited with code 4
+stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
+Load address: 0x1005bc000
+Call stack traceback locations:
+0x1011ec6cc 0x1011ec72c 0x100fc17a8 0x100c293ec 0x100e9a03c 0x100e9a5b4 0x100de7834 0x100de6038 0x100e08508 0x100e68028 0x100e67458 0x100e085e4 0x100e086cc 0x100de653c 0x100de666c 0x10063b1a8 0x10063e564 0x10063e6e4 0x1006c6178 0x1006d0f5c 0x1005be018 0x1005c2bd8
+
+
+Warning: audio_wavefiles=2.0.0 successfully retrieved but its build failed.
+Dependencies were solved as follows:
+
+   + audio_base 1.0.0 (new)
+ERROR: Build ended with errors

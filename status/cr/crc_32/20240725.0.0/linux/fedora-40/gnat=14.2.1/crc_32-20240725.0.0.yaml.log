@@ -1,0 +1,112 @@
+Test ran at 2025-04-15 01:13:04.143444+00:00
+
+SOLUTION:
+crc_32=20240725.0.0: Cyclic Redundancy Check to verify data integrity (ISO 3309)
+Origin: commit 6197de2ca333b4730f75d5804cfdd6c881e9f1de from https://github.com/bracke/CRC-32.git
+Properties:
+   Author: Jeff Carter
+   Build Switches: 
+   Description: Cyclic Redundancy Check to verify data integrity (ISO 3309)
+   License: BSD-3-Clause
+   Long_Description: # CRC-32
+Cyclic Redundancy Check to verify data integrity (ISO 3309)
+
+Derived, with extensive modifications, from Zip.CRC_Crypto by Gautier de Montmollin.
+
+   Maintainer: Bent Bracke <bent@bracke.dk>
+   Maintainers_Logins: bracke
+   Name: crc_32
+   Tag: crc
+   Tag: iso3309
+   Tag: data
+   Tag: redundancy
+   Tag: verification
+   Version: 20240725.0.0
+   Website: https://github.com/bracke/CRC-32
+Dependencies (direct):
+   gnat<13.0 | >=13.3
+Dependencies (solution):
+   gnat=14.2.1 (gnat_external)
+Dependencies (graph):
+   crc_32=20240725.0.0 --> gnat=14.2.1 (gnat_external) (<13.0 | >=13.3)
+
+
+LOG:
+Spawning: alr -d -n get --build crc_32=20240725.0.0
+Note: Deploying crc_32=20240725.0.0...
+Note: Alire has selected automatically this toolchain:
+   gprbuild=22.0.1
+   gnat_native=14.2.1
+You can select a different toolchain at any time with `alr toolchain --select`
+Download will start now:
+Note: Deploying gprbuild=22.0.1...
+
+                                                                           0.1%
+#######################################                                   55.3%
+######################################################################## 100.0%
+Note: gprbuild=22.0.1 installed successfully.
+Note: Deploying gnat_native=14.2.1...
+
+                                                                           0.0%
+#####                                                                      7.3%
+###########                                                               16.2%
+################                                                          22.9%
+######################                                                    31.8%
+##############################                                            42.0%
+###################################                                       49.8%
+#######################################                                   54.6%
+############################################                              61.6%
+#################################################                         69.3%
+#######################################################                   76.9%
+##############################################################            86.1%
+#################################################################         91.2%
+######################################################################## 100.0%
+Note: gnat_native=14.2.1 installed successfully.
+Note: Building crc_32=20240725.0.0/crc_32.gpr...
+gprconfig: can't find a native toolchain for language 'ada'
+gprconfig: can't find a native toolchain for language 'ada'
+Setup
+   [mkdir]        object directory for project Crc_32
+   [mkdir]        library directory for project Crc_32
+crc_32.gpr:3:25: warning: libraries are not supported on this platform
+crc_32.gpr:2:09: no compiler for language "Ada", cannot compile "crc_32_config.ads"
+gprbuild: *** compilation phase failed
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/d2ac1d52-d39a-4e1b-97f2-303c30d81934/crc_32_20240725.0.0_6197de2c/crc_32.gpr"] exited with code 4
+ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/d2ac1d52-d39a-4e1b-97f2-303c30d81934/crc_32_20240725.0.0_6197de2c/crc_32.gpr"] exited with code 4
+stderr: ALIRE.CHECKED_ERROR
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/d2ac1d52-d39a-4e1b-97f2-303c30d81934/crc_32_20240725.0.0_6197de2c/crc_32.gpr"] exited with code 4
+stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
+[/usr/bin/alr]
+0xe16f5e Alire.Raise_Checked_Error at alire.adb:284
+0xa845be Alire.Os_Lib.Subprocess.Checked_Spawn at alire-os_lib-subprocess.adb:111
+0xcef7be Alire.Spawn.Command at alire-spawn.adb:21
+0xcefdde Alire.Spawn.Gprbuild at alire-spawn.adb:41
+0xc31d1f Alire.Roots.Build at alire-roots.adb:186
+0xc304da Alire.Roots.Build at alire-roots.adb:252
+0xc53d6f Alire.Roots.Traverse at alire-roots.adb:2075
+0xcba1fd Alire.Solutions.Traverse.Visit at alire-solutions.adb:1480
+0xcb9344 Alire.Solutions.Traverse at alire-solutions.adb:1563
+0xc53e62 Alire.Roots.Traverse at alire-roots.adb:2079
+0xc53f21 Alire.Roots.Traverse at alire-roots.adb:2059
+0xc30a46 Alire.Roots.Build at alire-roots.adb:283
+0xc30b2b Alire.Roots.Build at alire-roots.adb:111
+0x4a5e38 Alr.Commands.Get.Retrieve at alr-commands-get.adb:205
+0x4a94f3 Alr.Commands.Get.Execute at alr-commands-get.adb:378
+0x4a96a1 Alr.Commands.Get.Execute at alr-commands-get.adb:256
+0x533c96 Alr.Commands.Sub_Cmd.Execute at clic-subcommand-instance.adb:749
+0x53eff7 Alr.Commands.Execute at alr-commands.adb:561
+0x43953a Alr.Main at alr-main.adb:13
+0x43c1d3 Main at b__alr-main.adb:2299
+[/lib64/libc.so.6]
+0x7f3b64214086
+0x7f3b64214149
+[/usr/bin/alr]
+0x4393dc _start at ???
+0xfffffffffffffffe
+
+
+Warning: crc_32=20240725.0.0 successfully retrieved but its build failed.
+Dependencies were solved as follows:
+
+   +b gnat 14.2.1 (new,gnat_external,executable in path)
+ERROR: Build ended with errors

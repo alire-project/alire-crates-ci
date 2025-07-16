@@ -1,0 +1,153 @@
+Test ran at 2025-06-06 12:39:59.189780+00:00
+
+SOLUTION:
+uuids=1.0.0: Implementation of RFC 9562 Universally Unique IDentifiers (UUIDs)
+Origin: commit d5d6d70cab4d70e3e89bc9e04ff66ee90ac93924 from https://github.com/AJ-Ianozi/uuids.git
+Properties:
+   Author: AJ Ianozi
+   Description: Implementation of RFC 9562 Universally Unique IDentifiers (UUIDs)
+   License: MIT
+   Long_Description: This library is an attempt to implement UUIDs to the RFC 9562 standard located here: https://www.ietf.org/rfc/rfc9562.html
+
+As of this writing it can identify any UUID's version or variant and create any kind of UUID in the spec:
+* UUIDv1: Gregorian Timestamp with constant data
+* UUIDv3: MD5-hashed
+* UUIDv4: Randomly-generated
+* UUIDv5: SHA1-hashed
+* UUIDv6: Gregorian Timestamp with constant data with better database locality 
+* UUIDv7: UNIX Timestamp with random data, optimized for database locality
+* UUIDv8: Custom UUIDs
+
+All of my unit tests are passing, but am open to more tests plus additional validation on other platforms, especially big endian.
+
+Refer to the [UUIDs Readme](https://github.com/AJ-Ianozi/uuids) for full description.
+
+You can also read the [full API documentation](https://aj-ianozi.github.io/uuids/toc_index.html) which has been generated with [ROBODoc](https://github.com/gumpu/ROBODoc).
+
+
+   Maintainer: AJ Ianozi <aj@ianozi.com>
+   Maintainers_Logins: aj-ianozi
+   Name: uuids
+   Tag: uuid
+   Tag: guid
+   Version: 1.0.0
+   Website: https://github.com/AJ-Ianozi/uuids
+Dependencies (direct):
+   system_random^1.0.0
+Dependencies (solution):
+   system_random=1.0.0
+Dependencies (graph):
+   uuids=1.0.0 --> system_random=1.0.0 (^1.0.0)
+
+
+LOG:
+Spawning: alr -d -n get --build uuids=1.0.0
+Note: Deploying uuids=1.0.0...
+Note: Deploying system_random=1.0.0...
+Note: Building uuids=1.0.0/uuids.gpr...
+Setup
+   [mkdir]        object directory for project System_Random
+   [mkdir]        library directory for project System_Random
+   [mkdir]        object directory for project UUIDs
+   [mkdir]        library directory for project UUIDs
+Compile
+   [Ada]          system_random.adb
+   [Ada]          uuids_config.ads
+   [Ada]          uuids.adb
+   [Ada]          uuids-v8.adb
+uuids.adb:34:19: illegal character, replaced by "("
+uuids.adb:49:40: illegal character, replaced by "("
+uuids.adb:85:10: illegal character, replaced by "("
+uuids.adb:87:51: illegal character, replaced by ")"
+uuids.adb:101:17: target name is an Ada 2020 feature
+uuids.adb:101:17: unit must be compiled with -gnat2020 switch
+uuids.adb:174:13: illegal character, replaced by "("
+uuids.adb:175:33: illegal character, replaced by "("
+uuids.adb:176:33: illegal character, replaced by "("
+uuids.adb:177:33: illegal character, replaced by "("
+uuids.adb:179:33: illegal character, replaced by "("
+uuids.adb:180:33: illegal character, replaced by "("
+uuids.adb:182:33: illegal character, replaced by "("
+uuids.adb:183:33: illegal character, replaced by "("
+uuids.adb:185:33: illegal character, replaced by "("
+uuids.adb:186:33: illegal character, replaced by "("
+uuids.adb:188:33: illegal character, replaced by "("
+uuids.adb:189:33: illegal character, replaced by "("
+uuids.adb:190:33: illegal character, replaced by "("
+uuids.adb:191:33: illegal character, replaced by "("
+uuids.adb:192:33: illegal character, replaced by "("
+uuids.adb:193:33: illegal character, replaced by "("
+uuids.ads:520:28: illegal character, replaced by "("
+uuids.ads:585:29: illegal character, replaced by "("
+uuids.ads:603:36: illegal character, replaced by "("
+uuids.ads:604:36: illegal character, replaced by "("
+uuids.ads:607:47: illegal character, replaced by "("
+uuids.ads:610:75: illegal character, replaced by ")"
+uuids.ads:613:47: illegal character, replaced by "("
+uuids.ads:616:75: illegal character, replaced by ")"
+uuids.ads:619:47: illegal character, replaced by "("
+uuids.ads:622:75: illegal character, replaced by ")"
+uuids.ads:625:47: illegal character, replaced by "("
+uuids.ads:628:75: illegal character, replaced by ")"
+uuids.ads:629:39: illegal character, replaced by "("
+uuids.ads:632:73: illegal character, replaced by ")"
+uuids.ads:633:39: illegal character, replaced by "("
+uuids.ads:636:73: illegal character, replaced by ")"
+uuids.ads:637:39: illegal character, replaced by "("
+uuids.ads:640:73: illegal character, replaced by ")"
+uuids.ads:641:39: illegal character, replaced by "("
+uuids.ads:644:73: illegal character, replaced by ")"
+uuids.ads:645:39: illegal character, replaced by "("
+uuids.ads:648:73: illegal character, replaced by ")"
+uuids.ads:649:39: illegal character, replaced by "("
+uuids.ads:652:73: illegal character, replaced by ")"
+uuids.ads:653:39: illegal character, replaced by "("
+uuids.ads:656:73: illegal character, replaced by ")"
+uuids.ads:658:43: illegal character, replaced by "("
+uuids.ads:661:74: illegal character, replaced by ")"
+uuids.ads:663:43: illegal character, replaced by "("
+uuids.ads:666:74: illegal character, replaced by ")"
+
+   compilation of uuids-v8.adb failed
+   compilation of uuids.adb failed
+
+gprbuild: *** compilation phase failed
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "D:\a\alire-crates-ci\alire-crates-ci\test\2021cca1-bf7c-47cf-8bfc-27524ba3975e\uuids_1.0.0_d5d6d70c\uuids.gpr"] exited with code 4
+ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "D:\a\alire-crates-ci\alire-crates-ci\test\2021cca1-bf7c-47cf-8bfc-27524ba3975e\uuids_1.0.0_d5d6d70c\uuids.gpr"] exited with code 4
+stderr: ALIRE.CHECKED_ERROR
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "D:\a\alire-crates-ci\alire-crates-ci\test\2021cca1-bf7c-47cf-8bfc-27524ba3975e\uuids_1.0.0_d5d6d70c\uuids.gpr"] exited with code 4
+stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
+[D:\a\alire-crates-ci\alire-crates-ci\alire_install\bin\alr.exe]
+0x7ff74948b6aa Semantic_Versioning.Basic.Restrictions.First_Index at alire.adb:284
+0x7ff7490a62cb Semantic_Versioning.Basic.Restrictions.First_Index at alire-os_lib-subprocess.adb:111
+0x7ff749349ee1 Semantic_Versioning.Basic.Restrictions.First_Index at alire-spawn.adb:21
+0x7ff74934a5bf Semantic_Versioning.Basic.Restrictions.First_Index at alire-spawn.adb:41
+0x7ff74927e35c Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:186
+0x7ff74927c84a Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:252
+0x7ff7492a29c9 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2075
+0x7ff7493110ed Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1480
+0x7ff749310218 Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1563
+0x7ff7492a2ac8 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2079
+0x7ff7492a2b96 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2059
+0x7ff74927ce0e Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:283
+0x7ff74927cf0a Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:111
+0x7ff748a44f23 Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-get.adb:205
+0x7ff748a488df Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-get.adb:378
+0x7ff748a48a9a Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-get.adb:256
+0x7ff748ae1628 Semantic_Versioning.Basic.Restrictions.First_Index at clic-subcommand-instance.adb:749
+0x7ff748aedeeb Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands.adb:561
+0x7ff7489c16a0 Alr.Main at alr-main.adb:13
+0x7ff7489c4f2e Main at b__alr-main.adb:2306
+0x7ff7489c133e __tmainCRTStartup at ???
+0x7ff7489c1144 mainCRTStartup at ???
+[C:\Windows\System32\KERNEL32.DLL]
+0x7ff93a294cae
+[C:\Windows\SYSTEM32\ntdll.dll]
+0x7ff93b15edc9
+
+
+Warning: uuids=1.0.0 successfully retrieved but its build failed.
+Dependencies were solved as follows:
+
+   + system_random 1.0.0 (new)
+ERROR: Build ended with errors

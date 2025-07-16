@@ -1,0 +1,106 @@
+Test ran at 2024-08-15 00:32:12.309598+00:00
+
+SOLUTION:
+program_proofs_in_spark=0.1.1: Programs from the book Program Proofs in SPARK
+Origin: commit 37500dca9b643d1cd2f3711e1f97264923ea0baa from https://github.com/AdaCore/program_proofs_in_spark.git
+Properties:
+   Author: Yannick Moy
+   Description: Programs from the book Program Proofs in SPARK
+   License: Apache-2.0
+   Maintainer: Yannick Moy <moy@adacore.com>
+   Maintainers_Logins: yannickmoy
+   Name: program_proofs_in_spark
+   Project_File: ch5/ch5.gpr
+   Project_File: ch7/ch7.gpr
+   Project_File: ch12/ch12.gpr
+   Project_File: ch13/ch13.gpr
+   Project_File: ch15/ch15.gpr
+   Tag: spark
+   Version: 0.1.1
+   Website: https://github.com/AdaCore/program_proofs_in_spark
+Dependencies (direct):
+   gnat>=12 & <2000
+   gnatprove^12.1.1
+Dependencies (solution):
+   gnat=13.1.0 (gnat_native) (installed)
+   gnatprove=12.1.1 (installed)
+Dependencies (graph):
+   program_proofs_in_spark=0.1.1 --> gnat=13.1.0 (gnat_native) (>=12 & <2000)
+   program_proofs_in_spark=0.1.1 --> gnatprove=12.1.1 (^12.1.1)              
+
+
+LOG:
+Note: Deploying program_proofs_in_spark=0.1.1...
+Note: Deploying gnatprove=12.1.1...
+#=#=#                                                                          
+##O#-#                                                                         
+##O=#  #                                                                       
+
+                                                                           0.0%
+#                                                                          2.4%
+###                                                                        5.1%
+######                                                                     9.4%
+########                                                                  11.6%
+###########                                                               15.5%
+##############                                                            20.2%
+#################                                                         24.3%
+###################                                                       27.7%
+######################                                                    31.9%
+#########################                                                 35.8%
+#############################                                             40.3%
+#############################                                             41.4%
+###############################                                           43.2%
+#################################                                         45.9%
+#################################                                         46.3%
+###################################                                       49.2%
+#####################################                                     51.5%
+#######################################                                   54.9%
+##########################################                                58.7%
+##########################################                                58.9%
+############################################                              61.8%
+###############################################                           65.4%
+#################################################                         68.3%
+###################################################                       72.1%
+#####################################################                     75.0%
+#######################################################                   77.2%
+##########################################################                81.1%
+############################################################              84.6%
+###############################################################           88.0%
+##################################################################        91.8%
+####################################################################      95.6%
+#######################################################################   99.1%
+######################################################################## 100.0%
+Note: gnatprove=12.1.1 installed successfully.
+Note: Building program_proofs_in_spark/ch5/ch5.gpr (1/5)...
+Setup
+   [mkdir]        object directory for project Ch5
+Compile
+   [Ada]          test_abstract_syntax_trees.adb
+test_abstract_syntax_trees.adb:18:22: error: invalid prefix in selected component "Add"
+abstract_syntax_trees.ads:39:49: error: unmatched actual in instantiation of "Functional_Maps" declared at a-cofuma.ads:33
+abstract_syntax_trees.ads:40:31: error: "Map" not declared in "Environments"
+abstract_syntax_trees.ads:49:19: error: invalid prefix in selected component "Has_Key"
+abstract_syntax_trees.ads:49:49: error: invalid prefix in selected component "Get"
+abstract_syntax_trees.ads:49:72: error: type of "else" incompatible with that of "then" expression
+abstract_syntax_trees.ads:49:72: error: "else" expression has type universal integer
+a-cofuma.ads:36:07: error: This package has been moved to the SPARK library shipped with any SPARK release starting with version 23.
+
+   compilation of test_abstract_syntax_trees.adb failed
+
+gprbuild: *** compilation phase failed
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/Users/runner/work/alire-crates-ci/alire-crates-ci/test/14d136d1-ac0a-45d9-b651-736080575a58/program_proofs_in_spark_0.1.1_37500dca/ch5/ch5.gpr"] exited with code 4
+ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/Users/runner/work/alire-crates-ci/alire-crates-ci/test/14d136d1-ac0a-45d9-b651-736080575a58/program_proofs_in_spark_0.1.1_37500dca/ch5/ch5.gpr"] exited with code 4
+stderr: ALIRE.CHECKED_ERROR
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/Users/runner/work/alire-crates-ci/alire-crates-ci/test/14d136d1-ac0a-45d9-b651-736080575a58/program_proofs_in_spark_0.1.1_37500dca/ch5/ch5.gpr"] exited with code 4
+stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
+Load address: 0x102616000
+Call stack traceback locations:
+0x102f1e415 0x102bf1e83 0x102e04df9 0x102e05581 0x102d65ac3 0x102d63f99 0x102d80873 0x102dccdc1 0x102dcb81a 0x102d809b8 0x102d64349 0x1026759c1 0x102686578 0x10268b01c 0x10271105c 0x10271c3b8 0x102617605 0x10261a914
+
+
+Warning: program_proofs_in_spark=0.1.1 successfully retrieved but its build failed.
+Dependencies were solved as follows:
+
+   +i gnat      13.1.0 (new,installed,gnat_native)
+   +i gnatprove 12.1.1 (new,installed)            
+ERROR: Build ended with errors

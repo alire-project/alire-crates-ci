@@ -1,0 +1,146 @@
+Test ran at 2025-09-20 00:36:53.309134+00:00
+
+SOLUTION:
+adacl_aunit=7.0.0: Ada 2022 AUnit with readable asserts & paramerised test
+Origin: source archive adacl_aunit-7.0.0.tgz at https://sourceforge.net/projects/adacl/files/Alire/adacl_aunit-7.0.0.tgz with hashes sha256:4b06f31a213ba388117a0c31b6492ddebb2546966824c6e5a8c9b293877da813, sha512:abd9381fad4411b2a22224a7ff065ca04a6097f05fbe42401cc1b9a8653e09dfd0ca786818218666f24164c70b36776caea97b750b97d8af399256961ceb7413
+Properties:
+   Author: Martin Krischik <krischik@users.sourceforge.net>
+   Build Switches: 
+   Description: Ada 2022 AUnit with readable asserts & paramerised test
+   License: GPL-3.0-or-later
+   Long_Description: A versatile Ada 2022 testing library, enhancing AUnit with readable assertions and parameterised tests.
+
+## Features
+
+### AUnit-Compatible Assertions
+
+  - Generic support for access, array, discrete, floating-point, fixed-point, decimal, vector types, and files.
+  - **Readable Error Messages**: Assertions provide detailed feedback.
+
+Example for unbounded strings:
+
+```ada
+    procedure Equal
+       (Actual   : Ada.Strings.Unbounded.Unbounded_String;
+        Expected : String;
+        Name     : String;
+        Source   : String  := GNAT.Source_Info.File;
+        Line     : Natural := GNAT.Source_Info.Line)
+    is
+       use Ada.Strings.Unbounded;
+    begin
+       if not (Actual = Expected) then
+          Report_Assertion
+             (Message => "In string Â«" & Name & "Â» the " & Actual'Image & " is not equal to " & Expected'Image,
+              Source  => Source,
+              Line    => Line);
+       end if;
+    end Equal;
+```
+
+This yields clear, context-rich error messages, surpassing standard AUnit
+output.
+
+## Parameterised Tests
+
+Run the same test with varied inputs and expected values, boosting coverage
+efficiently.
+
+Example from hp41cx_tools:
+
+```ada
+overriding procedure Register_Tests (T : in out Test_Case) is
+   pragma Debug (AdaCL.Trace.Entering (In_Parameter => T.Name.all'Image));
+begin
+   T.Parameter.Register_Routine (T, Test_To_HP_Duration_01'Access, "WAKE_UP",      "2024-12-01 08:00:00",   [3, 9, 4, 2, 0, 2, 8, 8, 0, 0, 0], 3942028800.0);
+   T.Parameter.Register_Routine (T, Test_To_HP_Duration_01'Access, "^LBLTEST",     "2025-07-22 12:00:00",   [3, 9, 6, 2, 1, 7, 4, 4, 0, 0, 0], 3962174400.0);
+   T.Parameter.Register_Routine (T, Test_To_HP_Duration_01'Access, "TONE",         "2025-11-12 09:12:34",   [3, 9, 7, 1, 9, 2, 7, 5, 5, 4, 0], 3971927554.0);
+   T.Parameter.Register_Routine (T, Test_To_HP_Duration_01'Access, "FRACTION",     "2025-11-12 09:12:34.5", [3, 9, 7, 1, 9, 2, 7, 5, 5, 4, 5], 3971927554.5);
+   T.Parameter.Register_Routine (T, Test_To_HP_Duration_01'Access, "REPEAT24",     "24:00:00",              [0, 0, 0, 0, 0, 8, 6, 4, 0, 0, 0], 0000086400.0);
+   T.Parameter.Register_Routine (T, Test_To_HP_Duration_01'Access, "REPEAT'First", "0000:00:01.0",          [0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0], 0000000010.0);
+   T.Parameter.Register_Routine (T, Test_To_HP_Duration_01'Access, "REPEAT'Last",  "9999:59:59.9",          [0, 0, 3, 5, 9, 9, 9, 9, 9, 9, 9], 0035999999.9);
+   pragma Debug (AdaCL.Trace.Exiting);
+   return;
+end Register_Tests;
+```
+
+Registering tests multiple times with different data enhances test coverage
+without redundant code.
+
+Source: [SourceForge](https://sourceforge.net/p/adacl/git/ci/master/tree/adacl_aunit/test/src/)
+Documentation: [GNATdoc](https://adacl.sourceforge.net/gnatdoc/adacl_aunit_test/index.html)
+
+   Maintainer: Martin Krischik <krischik@users.sourceforge.net>
+   Maintainers_Logins: krischik
+   Name: adacl_aunit
+   Tag: library
+   Tag: aunit
+   Tag: assert
+   Tag: ada2022
+   Version: 7.0.0
+   Website: https://sourceforge.net/projects/adacl_aunit/
+Dependencies (direct):
+   adacl^7.0.0
+   aunit25.0.0
+Dependencies (solution):
+   adacl=7.0.0
+   aunit=25.0.0
+Dependencies (graph):
+   adacl=7.0.0       --> aunit=25.0.0 (25.0.0)
+   adacl_aunit=7.0.0 --> adacl=7.0.0 (^7.0.0)
+   adacl_aunit=7.0.0 --> aunit=25.0.0 (25.0.0)
+
+
+LOG:
+[alr test] Testing adacl_aunit=7.0.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get adacl_aunit=7.0.0
+Note: Deploying adacl_aunit=7.0.0...
+
+######################################################################## 100.0%
+######################################################################## 100.0%
+######################################################################## 100.0%
+######################################################################## 100.0%#=#=#                                                                          
+##=#=#                                                                         
+##=O#- #                                                                       
+
+######################################################################## 100.0%
+
+adacl_aunit=7.0.0 successfully retrieved.
+Dependencies were solved as follows:
+
+   + adacl 7.0.0  (new)
+   + aunit 25.0.0 (new)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building adacl_aunit=7.0.0/adacl_aunit.gpr...
+Setup
+   [mkdir]        object directory for project AdaCL_AUnit
+   [mkdir]        library directory for project AdaCL_AUnit
+Compile
+   [Ada]          adacl_aunit_config.ads
+   [Ada]          adacl-assert-vectors.adb
+   [Ada]          adacl-assert-decimal.adb
+   [Ada]          adacl-assert-pointer.adb
+   [Ada]          adacl-assert-fixed.adb
+   [Ada]          adacl-assert.adb
+   [Ada]          adacl-test_cases-parameters.adb
+/home/runner/work/alire-crates-ci/alire-crates-ci/test/f100dd50-03c7-4590-8ceb-ec3b9b1dbd9b/adacl_aunit_7.0.0_4b06f31a/src/adacl-assert-vectors.adb:31:07: warning: use clause for private type "Vector_Type" defined at adacl-assert-vectors.ads:39 has no effect [-gnatwu]
+   [Ada]          adacl-test_cases.ads
+   [Ada]          adacl-assert-discrete.adb
+   [Ada]          adacl-assert-indefinite_vectors.adb
+   [Ada]          adacl-assert-arrays.adb
+/home/runner/work/alire-crates-ci/alire-crates-ci/test/f100dd50-03c7-4590-8ceb-ec3b9b1dbd9b/adacl_aunit_7.0.0_4b06f31a/src/adacl-assert-indefinite_vectors.adb:31:07: warning: use clause for private type "Vector_Type" defined at adacl-assert-indefinite_vectors.ads:39 has no effect [-gnatwu]
+   [Ada]          adacl-trace-assert.ads
+   [Ada]          adacl-assert-float.adb
+Build Libraries
+   [gprlib]       aunit.lexch
+   [gprlib]       AdaCL.lexch
+   [archive]      libaunit.a
+   [index]        libaunit.a
+   [gprlib]       AdaCL_AUnit.lexch
+   [archive]      libAdaCL.a
+   [index]        libAdaCL.a
+   [archive]      libAdaCL_AUnit.a
+   [index]        libAdaCL_AUnit.a
+Success: Build finished successfully in 2.40 seconds.
+Found declared GPR file: adacl_aunit.gpr
+[alr test] Test completed SUCCESSFULLY

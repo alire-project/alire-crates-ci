@@ -1,0 +1,80 @@
+Test ran at 2025-07-05 12:48:11.479806+00:00
+
+SOLUTION:
+cgk=0.1.0: Computational Geometry Kernel
+Origin: commit 0b19efcd983adfdc704a9ed870f36f2efb5f40d3 from https://github.com/godunko/cgk.git
+Properties:
+   Author: Vadim Godunko
+   Config type: Float_Size : Enum (32, 64) default: '64'
+   Config type: SIMD : Enum (nosimd, gcc) default: 'gcc'
+   Configuration: no modifiers
+   Description: Computational Geometry Kernel
+   License: Apache-2.0 WITH LLVM-exception
+   Maintainer: Vadim Godunko <vgodunko@gmail.com>
+   Maintainers_Logins: godunko
+   Name: cgk
+   Project_File: gnat/cgk_primitives.gpr
+   Tag: computational
+   Tag: geometry
+   Version: 0.1.0
+   Website: https://github.com/godunko/cgk
+
+
+LOG:
+Spawning: alr -d -n get --build cgk=0.1.0
+Note: Deploying cgk=0.1.0...
+Note: Building cgk=0.1.0/gnat/cgk_primitives.gpr...
+Setup
+   [mkdir]        object directory for project CGK_Primitives
+Compile
+   [Ada]          cgk-primitives-vectors_3d.adb
+   [Ada]          cgk-primitives-triangulators_3d.adb
+   [Ada]          cgk-primitives-points_3d.adb
+   [Ada]          cgk-primitives-points_3d-containers.ads
+cgk-primitives-triangulators_3d.adb:77:12: target name is an Ada 2020 feature
+cgk-primitives-triangulators_3d.adb:77:12: unit must be compiled with -gnat2020 switch
+cgk-primitives-points_3d-containers.ads:9:08: warning: unrecognized pragma "ADA_2022"
+cgk-internals-generic_sequences.ads:24:24: aspect Aggregate is an Ada 2020 feature
+cgk-internals-generic_sequences.ads:24:24: unit must be compiled with -gnat2020 switch
+
+   compilation of cgk-primitives-points_3d-containers.ads failed
+   compilation of cgk-primitives-triangulators_3d.adb failed
+
+gprbuild: *** compilation phase failed
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "D:\a\alire-crates-ci\alire-crates-ci\test\2ae75653-3703-47cc-8cc9-862067546d19\cgk_0.1.0_0b19efcd\gnat/cgk_primitives.gpr"] exited with code 4
+ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "D:\a\alire-crates-ci\alire-crates-ci\test\2ae75653-3703-47cc-8cc9-862067546d19\cgk_0.1.0_0b19efcd\gnat/cgk_primitives.gpr"] exited with code 4
+stderr: ALIRE.CHECKED_ERROR
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "D:\a\alire-crates-ci\alire-crates-ci\test\2ae75653-3703-47cc-8cc9-862067546d19\cgk_0.1.0_0b19efcd\gnat/cgk_primitives.gpr"] exited with code 4
+stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
+[D:\a\alire-crates-ci\alire-crates-ci\alire_install\bin\alr.exe]
+0x7ff67bdbb6aa Semantic_Versioning.Basic.Restrictions.First_Index at alire.adb:284
+0x7ff67b9d62cb Semantic_Versioning.Basic.Restrictions.First_Index at alire-os_lib-subprocess.adb:111
+0x7ff67bc79ee1 Semantic_Versioning.Basic.Restrictions.First_Index at alire-spawn.adb:21
+0x7ff67bc7a5bf Semantic_Versioning.Basic.Restrictions.First_Index at alire-spawn.adb:41
+0x7ff67bbae35c Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:186
+0x7ff67bbac84a Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:252
+0x7ff67bbd29c9 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2075
+0x7ff67bc410ed Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1480
+0x7ff67bc40218 Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1563
+0x7ff67bbd2ac8 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2079
+0x7ff67bbd2b96 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2059
+0x7ff67bbace0e Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:283
+0x7ff67bbacf0a Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:111
+0x7ff67b374f23 Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-get.adb:205
+0x7ff67b3788df Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-get.adb:378
+0x7ff67b378a9a Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-get.adb:256
+0x7ff67b411628 Semantic_Versioning.Basic.Restrictions.First_Index at clic-subcommand-instance.adb:749
+0x7ff67b41deeb Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands.adb:561
+0x7ff67b2f16a0 Alr.Main at alr-main.adb:13
+0x7ff67b2f4f2e Main at b__alr-main.adb:2306
+0x7ff67b2f133e __tmainCRTStartup at ???
+0x7ff67b2f1144 mainCRTStartup at ???
+[C:\Windows\System32\KERNEL32.DLL]
+0x7ffe3bf64cae
+[C:\Windows\SYSTEM32\ntdll.dll]
+0x7ffe3c8fedc9
+
+
+Warning: cgk=0.1.0 successfully retrieved but its build failed.
+There are no dependencies.
+ERROR: Build ended with errors

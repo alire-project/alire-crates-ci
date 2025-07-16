@@ -1,0 +1,477 @@
+Test ran at 2025-07-08 13:25:06.621846+00:00
+
+SOLUTION:
+awa=2.5.0: Ada Web Application
+Origin: commit e34bd6db1a23d6f47214d7001b3c0ce55a7cf54f from https://github.com/stcarrez/ada-awa.git
+Available when: (case OS is Freebsd => True, Linux => True, Macos => False, Windows => False, others => False)
+Properties:
+   Post_Fetch run: sh ./alire-setup.sh (from ${CRATE_ROOT}/.)
+   Author: Stephane.Carrez@gmail.com
+   Description: Ada Web Application
+   Environment: DYNAMO_SEARCH_PATH=${CRATE_ROOT}/awa/plugins:${DYNAMO_SEARCH_PATH}
+   Environment: DYNAMO_UML_PATH=${CRATE_ROOT}/awa/uml:${DYNAMO_UML_PATH}
+   GPR Scenario: AWA_AWS_IMPL := none | 1 | 2 | 3 | 4
+   GPR Scenario: AWA_BUILD := distrib | debug | optimize | profile | coverage
+   GPR Scenario: AWA_LIBRARY_TYPE := relocatable | static | static-pic
+   GPR External: AWA_AWS_IMPL := 4
+   License: Apache-2.0
+   Long_Description: [![Build Status](https://img.shields.io/endpoint?url=https://porion.vacs.fr/porion/api/v1/projects/ada-util/badges/build.json)](https://porion.vacs.fr/porion/projects/view/ada-util/summary)
+[![Test Status](https://img.shields.io/endpoint?url=https://porion.vacs.fr/porion/api/v1/projects/ada-util/badges/tests.json)](https://porion.vacs.fr/porion/projects/view/ada-util/xunits)
+[![Coverage](https://img.shields.io/endpoint?url=https://porion.vacs.fr/porion/api/v1/projects/ada-util/badges/coverage.json)](https://porion.vacs.fr/porion/projects/view/ada-util/summary)
+[![Documentation Status](https://readthedocs.org/projects/ada-util/badge/?version=latest)](https://ada-util.readthedocs.io/en/latest/?badge=latest)
+
+Ada Web Application is a framework to build a Web Application in Ada 2012.
+The framework provides several ready to use and extendable modules that are common
+to many web application.  This includes the login, authentication, users, permissions,
+managing comments, tags, votes, documents, images.  It provides a complete blog,
+question and answers and a wiki module.
+
+AWA simplifies the Web Application development by taking care of user management with
+Google+, Facebook authentication and by providing the foundations on top of which you
+can construct your own application.  AWA provides a powerful permission management
+that gives flexibility to applications to grant access and protect your user's resources.
+
+![AWA Features](https://github.com/stcarrez/ada-awa/wiki/images/awa-features.png)
+
+# Documentation
+
+The Ada Web Application programmer's guide describes how to setup the framework,
+how you can setup and design your first web application with it,
+and it provides detailed description of AWA components:
+
+  * [Ada Web Application programmer's guide](https://ada-awa.readthedocs.io/en/latest/) [PDF](https://github.com/stcarrez/ada-awa/blob/master/awa/docs/awa-book.pdf)
+  * [Ada Database Objects Programmer's Guide](https://ada-ado.readthedocs.io/en/latest/)
+  * [Ada Security Programmer's Guide](https://ada-security.readthedocs.io/en/latest/)
+  * [Ada Utility Library Programmer's Guide](https://ada-util.readthedocs.io/en/latest/)
+
+
+   Maintainer: Stephane.Carrez@gmail.com
+   Maintainers_Logins: stcarrez
+   Name: awa
+   Project_File: .alire/awa_blogs.gpr
+   Project_File: .alire/awa.gpr
+   Project_File: .alire/awa_settings.gpr
+   Project_File: .alire/awa_wikis.gpr
+   Project_File: .alire/awa_changelogs.gpr
+   Project_File: .alire/awa_images.gpr
+   Project_File: .alire/awa_setup.gpr
+   Project_File: .alire/awa_workspaces.gpr
+   Project_File: .alire/awa_comments.gpr
+   Project_File: .alire/awa_jobs.gpr
+   Project_File: .alire/awa_storages.gpr
+   Project_File: .alire/awa_counters.gpr
+   Project_File: .alire/awa_mail.gpr
+   Project_File: .alire/awa_tags.gpr
+   Project_File: .alire/awa_countries.gpr
+   Project_File: .alire/awa_questions.gpr
+   Project_File: .alire/awa_votes.gpr
+   Tag: web
+   Tag: users
+   Tag: jobs
+   Tag: wiki
+   Tag: framework
+   Tag: storage
+   Tag: blog
+   Version: 2.5.0
+   Website: https://gitlab.com/stcarrez/ada-awa
+Dependencies (direct):
+   ado^2.4.0
+   aws~24.0
+   elada^1.8.6
+   keystoreada^1.4.0
+   security^1.5.0
+   serverfaces^1.6.0
+   servletada^1.7.0
+   utilada^2.6.0
+   utilada_xml^2.6.0
+   wikiada^1.4.1
+Dependencies (solution):
+   ado=2.4.1
+   aws=24.0.0
+   elada=1.8.7
+   gnat=14.2.1 (gnat_native)
+   gnatcoll=24.0.0
+   keystoreada=1.4.1
+   libgpr=24.0.0
+   make=4.4.1
+   openssl=3.2.4
+   security=1.5.1
+   serverfaces=1.6.1
+   servletada=1.7.1
+   utilada=2.8.0
+   utilada_xml=2.8.0
+   wikiada=1.4.2
+   xmlada=24.0.0
+Dependencies (graph):
+   ado=2.4.1         --> utilada=2.8.0 (^2.6.0)
+   ado=2.4.1         --> utilada_xml=2.8.0 (^2.6.0)
+   awa=2.5.0         --> ado=2.4.1 (^2.4.0)
+   awa=2.5.0         --> aws=24.0.0 (~24.0)
+   awa=2.5.0         --> elada=1.8.7 (^1.8.6)
+   awa=2.5.0         --> keystoreada=1.4.1 (^1.4.0)
+   awa=2.5.0         --> security=1.5.1 (^1.5.0)
+   awa=2.5.0         --> serverfaces=1.6.1 (^1.6.0)
+   awa=2.5.0         --> servletada=1.7.1 (^1.7.0)
+   awa=2.5.0         --> utilada=2.8.0 (^2.6.0)
+   awa=2.5.0         --> utilada_xml=2.8.0 (^2.6.0)
+   awa=2.5.0         --> wikiada=1.4.2 (^1.4.1)
+   aws=24.0.0        --> gnat=14.2.1 (gnat_native) (>=12)
+   aws=24.0.0        --> gnatcoll=24.0.0 (~24.0.0)
+   aws=24.0.0        --> make=4.4.1 (*)
+   aws=24.0.0        --> openssl=3.2.4 (*)
+   aws=24.0.0        --> xmlada=24.0.0 (~24.0.0)
+   elada=1.8.7       --> utilada=2.8.0 (^2.5.0)
+   gnatcoll=24.0.0   --> libgpr=24.0.0 (~24.0.0)
+   keystoreada=1.4.1 --> utilada=2.8.0 (^2.6.0)
+   libgpr=24.0.0     --> gnat=14.2.1 (gnat_native) (/=2020)
+   libgpr=24.0.0     --> xmlada=24.0.0 (~24.0.0)
+   security=1.5.1    --> utilada=2.8.0 (^2.6.0)
+   security=1.5.1    --> utilada_xml=2.8.0 (^2.6.0)
+   serverfaces=1.6.1 --> security=1.5.1 (^1.5.0)
+   serverfaces=1.6.1 --> servletada=1.7.1 (^1.7.0)
+   serverfaces=1.6.1 --> utilada=2.8.0 (^2.6.0)
+   servletada=1.7.1  --> elada=1.8.7 (^1.8.5)
+   servletada=1.7.1  --> security=1.5.1 (^1.5.0)
+   servletada=1.7.1  --> utilada=2.8.0 (^2.6.0)
+   utilada_xml=2.8.0 --> utilada=2.8.0 (^2.7.0)
+   utilada_xml=2.8.0 --> xmlada=24.0.0 (*)
+   wikiada=1.4.2     --> utilada=2.8.0 (^2.5.0)
+   xmlada=24.0.0     --> gnat=14.2.1 (gnat_native) (>=11)
+
+
+LOG:
+Spawning: alr -d -n get --build awa=2.5.0
+Note: Deploying awa=2.5.0...
+Note: Running post-fetch actions for awa=2.5.0...
+Note: Building awa=2.5.0/.alire/awa_blogs.gpr (1/17)...
+Setup
+   [mkdir]        object directory for project Awa
+   [mkdir]        library directory for project Awa
+   [mkdir]        object directory for project Awa_Workspaces
+   [mkdir]        exec directory for project Awa_Workspaces
+   [mkdir]        library directory for project Awa_Workspaces
+   [mkdir]        object directory for project Awa_Tags
+   [mkdir]        library directory for project Awa_Tags
+   [mkdir]        object directory for project Awa_Comments
+   [mkdir]        library directory for project Awa_Comments
+   [mkdir]        object directory for project Awa_Storages
+   [mkdir]        library directory for project Awa_Storages
+   [mkdir]        object directory for project Awa_Jobs
+   [mkdir]        library directory for project Awa_Jobs
+   [mkdir]        object directory for project Awa_Images
+   [mkdir]        library directory for project Awa_Images
+   [mkdir]        object directory for project Awa_Counters
+   [mkdir]        library directory for project Awa_Counters
+   [mkdir]        object directory for project Awa_Blogs
+   [mkdir]        library directory for project Awa_Blogs
+Compile
+   [Ada]          awa-counters-models.adb
+   [Ada]          awa-counters.adb
+   [Ada]          awa-counters-components.adb
+   [Ada]          awa-counters-definition.ads
+   [Ada]          awa-counters-modules.adb
+   [Ada]          awa-counters-beans.adb
+   [Ada]          awa-jobs-models.adb
+   [Ada]          awa-jobs.ads
+   [Ada]          awa-jobs-modules.adb
+   [Ada]          awa-jobs-beans.adb
+   [Ada]          awa-jobs-services.adb
+   [Ada]          awa-storages-models.adb
+   [Ada]          awa-storages-stores-files.adb
+   [Ada]          awa-storages-modules.adb
+   [Ada]          awa-storages.adb
+   [Ada]          awa-storages-stores.ads
+   [Ada]          awa-storages-servlets.adb
+   [Ada]          awa-storages-services.adb
+   [Ada]          awa-storages-beans.adb
+   [Ada]          awa-storages-stores-databases.adb
+   [Ada]          awa-images-models.adb
+   [Ada]          awa-images-modules.adb
+   [Ada]          awa-images.ads
+   [Ada]          awa-images-servlets.adb
+   [Ada]          awa-images-beans.adb
+   [Ada]          awa-comments-models.adb
+   [Ada]          awa-comments-beans.adb
+   [Ada]          awa-comments-modules.adb
+   [Ada]          awa-comments.ads
+   [Ada]          awa-tags-models.adb
+   [Ada]          awa-tags-beans.adb
+   [Ada]          awa-tags-components.adb
+   [Ada]          awa-tags-modules.adb
+   [Ada]          awa-tags.ads
+   [Ada]          awa-workspaces-models.adb
+   [Ada]          awa-workspaces-beans.adb
+   [Ada]          awa-workspaces.ads
+   [Ada]          awa-workspaces-modules.adb
+   [Ada]          awa-audits-models.adb
+   [Ada]          awa-permissions-models.adb
+   [Ada]          awa-users-models.adb
+   [Ada]          awa-oauth-models.adb
+   [Ada]          awa-events-models.adb
+   [Ada]          awa-commands-models.ads
+   [Ada]          awa-permissions-controllers.adb
+   [Ada]          awa-applications-configs.adb
+   [Ada]          awa-oauth.ads
+   [Ada]          awa-commands-start.adb
+   [Ada]          awa-users-servlets.adb
+   [Ada]          awa-events-queues-persistents.adb
+awa-users-servlets.adb:309:11: (style) bad casing of "URI" declared at line 306 [-gnatyr]
+awa-users-servlets.adb:314:31: (style) bad casing of "Change_Password_URI" declared at awa-users-servlets.ads:167 [-gnatyr]
+awa-users-servlets.adb:346:73: (style) bad casing of "Change_Password_URI" declared at awa-users-servlets.ads:167 [-gnatyr]
+   [Ada]          awa-audits.ads
+   [Ada]          awa-services-filters.adb
+   [Ada]          awa-events-dispatchers-actions.adb
+   [Ada]          awa-users-modules.adb
+   [Ada]          awa-oauth-services.ads
+   [Ada]          awa-commands-list.adb
+   [Ada]          awa-users.ads
+   [Ada]          awa-index_arrays.adb
+   [Ada]          awa.ads
+   [Ada]          awa-events-action_method.ads
+   [Ada]          awa-commands-user.adb
+   [Ada]          awa-helpers.adb
+   [Ada]          awa-users-beans.adb
+   [Ada]          awa-components.ads
+   [Ada]          awa-modules-reader.adb
+   [Ada]          awa-components-wikis.adb
+   [Ada]          awa-events-dispatchers.adb
+   [Ada]          awa-services-contexts.adb
+   [Ada]          awa-services.ads
+   [Ada]          awa-commands-migrate.adb
+   [Ada]          awa-permissions-beans.adb
+   [Ada]          awa-components-factory.adb
+   [Ada]          awa-oauth-filters.adb
+   [Ada]          awa-events-queues-observers.ads
+   [Ada]          awa-events-queues.adb
+   [Ada]          awa-applications.adb
+awa-commands-migrate.adb:78:58: (style) bad casing of "ADO" declared at ado.ads:14 [-gnatyr]
+awa-commands-migrate.adb:78:70: (style) bad casing of "MIGRATE_PATHS_CONFIG" declared at ado-configs.ads:28 [-gnatyr]
+awa-commands-migrate.adb:95:37: (style) bad casing of "N_INFO" declared at awa-commands.ads:148 [-gnatyr]
+   [Ada]          awa-converters.ads
+   [Ada]          awa-events-dispatchers-tasks.adb
+   [Ada]          awa-components-inputs.adb
+   [Ada]          awa-helpers-requests.adb
+   [Ada]          awa-converters-dates.adb
+   [Ada]          awa-helpers-selectors.adb
+   [Ada]          awa-commands-stop.adb
+   [Ada]          awa-events.adb
+   [Ada]          awa-commands.adb
+   [Ada]          awa-commands-drivers.adb
+   [Ada]          awa-audits-services.adb
+   [Ada]          awa-modules-beans.adb
+   [Ada]          awa-modules.adb
+   [Ada]          awa-applications-factory.adb
+awa-commands-drivers.adb:80:46: (style) bad casing of "URI" declared at awa-commands-drivers.ads:62 [-gnatyr]
+awa-commands-drivers.adb:81:19: (style) bad casing of "URI" declared at awa-commands-drivers.ads:62 [-gnatyr]
+awa-commands-drivers.adb:81:24: (style) bad casing of "URI" declared at awa-commands-drivers.ads:62 [-gnatyr]
+awa-commands-drivers.adb:82:61: (style) bad casing of "URI" declared at awa-commands-drivers.ads:62 [-gnatyr]
+awa-commands-drivers.adb:82:66: (style) bad casing of "URI" declared at awa-commands-drivers.ads:62 [-gnatyr]
+awa-commands-drivers.adb:82:83: (style) bad casing of "URI" declared at awa-commands-drivers.ads:62 [-gnatyr]
+   [Ada]          awa-modules-lifecycles.adb
+   [Ada]          awa-components-redirect.adb
+   [Ada]          awa-events-configs.adb
+   [Ada]          awa-events-queues-fifos.adb
+   [Ada]          awa-users-services.adb
+   [Ada]          awa-commands-info.adb
+   [Ada]          awa-permissions.adb
+   [Ada]          awa-events-configs-reader_config.adb
+   [Ada]          awa-users-principals.adb
+   [Ada]          awa-permissions-services.adb
+   [Ada]          awa-users-filters.adb
+awa-users-services.adb:454:61: (style) bad casing of "ADO" declared at ado.ads:14 [-gnatyr]
+awa-users-services.adb:935:53: (style) bad casing of "Status_Type" declared at awa-users-models.ads:87 [-gnatyr]
+awa-users-services.adb:958:19: (style) bad casing of "DB" declared at line 939 [-gnatyr]
+awa-users-services.ads:161:53: (style) bad casing of "Status_Type" declared at awa-users-models.ads:87 [-gnatyr]
+   [Ada]          awa-events-services.adb
+   [Ada]          awa-modules-get.adb
+   [Ada]          awa-events-queues-maps.ads
+   [Ada]          awa-blogs-models.adb
+   [Ada]          awa-blogs-beans.adb
+   [Ada]          awa-blogs-servlets.adb
+   [Ada]          awa-blogs-modules.adb
+   [Ada]          awa-blogs.ads
+awa-blogs-beans.adb:296:48: warning: aspect Unreferenced specified for "Result" [enabled by default]
+Build Libraries
+   [gprlib]       awa.lexch
+   [gprlib]       awa_workspaces.lexch
+   [archive]      libawa.a
+   [index]        libawa.a
+   [gprlib]       awa_tags.lexch
+   [gprlib]       awa_comments.lexch
+   [gprlib]       awa_storages.lexch
+   [archive]      libawa_workspaces.a
+   [archive]      libawa_tags.a
+   [archive]      libawa_comments.a
+   [index]        libawa_workspaces.a
+   [index]        libawa_comments.a
+   [index]        libawa_tags.a
+   [gprlib]       awa_jobs.lexch
+   [gprlib]       awa_images.lexch
+   [archive]      libawa_storages.a
+   [archive]      libawa_jobs.a
+   [index]        libawa_jobs.a
+   [index]        libawa_storages.a
+   [gprlib]       awa_counters.lexch
+   [gprlib]       awa_blogs.lexch
+   [archive]      libawa_images.a
+   [archive]      libawa_counters.a
+   [index]        libawa_images.a
+   [index]        libawa_counters.a
+   [archive]      libawa_blogs.a
+   [index]        libawa_blogs.a
+Note: Building awa=2.5.0/.alire/awa.gpr (2/17)...
+Note: Building awa=2.5.0/.alire/awa_settings.gpr (3/17)...
+Setup
+   [mkdir]        object directory for project Awa_Settings
+   [mkdir]        library directory for project Awa_Settings
+Compile
+   [Ada]          awa-settings-models.adb
+   [Ada]          awa-settings.adb
+   [Ada]          awa-settings-modules.adb
+Build Libraries
+   [gprlib]       awa_settings.lexch
+   [archive]      libawa_settings.a
+   [index]        libawa_settings.a
+Note: Building awa=2.5.0/.alire/awa_wikis.gpr (4/17)...
+Setup
+   [mkdir]        object directory for project Awa_Wikis
+   [mkdir]        library directory for project Awa_Wikis
+Compile
+   [Ada]          awa-wikis-models.adb
+   [Ada]          awa-wikis-beans.adb
+   [Ada]          awa-wikis-previews.adb
+   [Ada]          awa-wikis-servlets.adb
+   [Ada]          awa-wikis-modules.adb
+   [Ada]          awa-wikis.ads
+Build Libraries
+   [gprlib]       awa_wikis.lexch
+   [archive]      libawa_wikis.a
+   [index]        libawa_wikis.a
+Note: Building awa=2.5.0/.alire/awa_changelogs.gpr (5/17)...
+Setup
+   [mkdir]        object directory for project Awa_Changelogs
+   [mkdir]        library directory for project Awa_Changelogs
+Compile
+   [Ada]          awa-changelogs-models.adb
+   [Ada]          awa-changelogs-modules.adb
+   [Ada]          awa-changelogs.ads
+Build Libraries
+   [gprlib]       awa_changelogs.lexch
+   [archive]      libawa_changelogs.a
+   [index]        libawa_changelogs.a
+Note: Building awa=2.5.0/.alire/awa_images.gpr (6/17)...
+Note: Building awa=2.5.0/.alire/awa_setup.gpr (7/17)...
+Setup
+   [mkdir]        object directory for project Awa_Setup
+   [mkdir]        library directory for project Awa_Setup
+Compile
+   [Ada]          awa-commands-setup.adb
+   [Ada]          awa-setup.ads
+   [Ada]          awa-setup-applications.adb
+awa-setup-applications.adb:353:45: (style) bad casing of "UBO" declared at awa-setup-applications.ads:64 [-gnatyr]
+awa-setup-applications.adb:354:49: (style) bad casing of "UBO" declared at awa-setup-applications.ads:64 [-gnatyr]
+Build Libraries
+   [gprlib]       awa_setup.lexch
+   [archive]      libawa_setup.a
+   [index]        libawa_setup.a
+Note: Building awa=2.5.0/.alire/awa_workspaces.gpr (8/17)...
+Note: Building awa=2.5.0/.alire/awa_comments.gpr (9/17)...
+Note: Building awa=2.5.0/.alire/awa_jobs.gpr (10/17)...
+Note: Building awa=2.5.0/.alire/awa_storages.gpr (11/17)...
+Note: Building awa=2.5.0/.alire/awa_counters.gpr (12/17)...
+Note: Building awa=2.5.0/.alire/awa_mail.gpr (13/17)...
+Setup
+   [mkdir]        object directory for project Awa_Mail
+   [mkdir]        library directory for project Awa_Mail
+Compile
+   [Ada]          awa-mail-clients-aws_smtp.adb
+   [Ada]          awa-mail-components-factory.adb
+   [Ada]          awa-mail-components-recipients.adb
+   [Ada]          awa-mail-beans.adb
+   [Ada]          awa-mail-modules.adb
+   [Ada]          awa-mail.ads
+   [Ada]          awa-mail-clients-files.adb
+   [Ada]          awa-mail-components.adb
+   [Ada]          awa-mail-clients.adb
+   [Ada]          awa-mail-components-attachments.adb
+   [Ada]          awa-mail-components-messages.adb
+Build Libraries
+   [gprlib]       awa_mail.lexch
+   [archive]      libawa_mail.a
+   [index]        libawa_mail.a
+Note: Building awa=2.5.0/.alire/awa_tags.gpr (14/17)...
+Note: Building awa=2.5.0/.alire/awa_countries.gpr (15/17)...
+Setup
+   [mkdir]        object directory for project Awa_Countries
+   [mkdir]        library directory for project Awa_Countries
+Compile
+   [Ada]          awa-countries-models.adb
+   [Ada]          awa-countries.ads
+Build Libraries
+   [gprlib]       awa_countries.lexch
+   [archive]      libawa_countries.a
+   [index]        libawa_countries.a
+Note: Building awa=2.5.0/.alire/awa_questions.gpr (16/17)...
+Setup
+   [mkdir]        object directory for project Awa_Questions
+   [mkdir]        library directory for project Awa_Questions
+Compile
+   [Ada]          awa-questions-models.adb
+   [Ada]          awa-questions.ads
+   [Ada]          awa-questions-beans.adb
+   [Ada]          awa-questions-modules.adb
+awa-questions-beans.adb:178:19: (style) bad casing of "Is_Null" declared at ado-objects.ads:326 [-gnatyr]
+Build Libraries
+   [gprlib]       awa_questions.lexch
+   [archive]      libawa_questions.a
+   [index]        libawa_questions.a
+Note: Building awa=2.5.0/.alire/awa_votes.gpr (17/17)...
+Setup
+   [mkdir]        object directory for project Awa_Votes
+   [mkdir]        library directory for project Awa_Votes
+Compile
+   [Ada]          awa-votes-models.adb
+   [Ada]          awa-votes-beans.adb
+   [Ada]          awa-votes.ads
+   [Ada]          awa-votes-modules.adb
+Build Libraries
+   [gprlib]       awa_votes.lexch
+   [archive]      libawa_votes.a
+   [index]        libawa_votes.a
+
+awa=2.5.0 successfully retrieved and built.
+Dependencies were solved as follows:
+
+   +  ado         2.4.1  (new)
+   +  aws         24.0.0 (new)
+   +  elada       1.8.7  (new)
+   +b gnat        14.2.1 (new,gnat_native,indirect,binary)
+   +  gnatcoll    24.0.0 (new,indirect)
+   +  keystoreada 1.4.1  (new)
+   +  libgpr      24.0.0 (new,indirect)
+   +b make        4.4.1  (new,indirect,system package)
+   +b openssl     3.2.4  (new,indirect,system package)
+   +  security    1.5.1  (new)
+   +  serverfaces 1.6.1  (new)
+   +  servletada  1.7.1  (new)
+   +  utilada     2.8.0  (new)
+   +  utilada_xml 2.8.0  (new)
+   +  wikiada     1.4.2  (new)
+   +  xmlada      24.0.0 (new,indirect)
+Found declared GPR file: .alire/awa_blogs.gpr
+Found declared GPR file: .alire/awa.gpr
+Found declared GPR file: .alire/awa_settings.gpr
+Found declared GPR file: .alire/awa_wikis.gpr
+Found declared GPR file: .alire/awa_changelogs.gpr
+Found declared GPR file: .alire/awa_images.gpr
+Found declared GPR file: .alire/awa_setup.gpr
+Found declared GPR file: .alire/awa_workspaces.gpr
+Found declared GPR file: .alire/awa_comments.gpr
+Found declared GPR file: .alire/awa_jobs.gpr
+Found declared GPR file: .alire/awa_storages.gpr
+Found declared GPR file: .alire/awa_counters.gpr
+Found declared GPR file: .alire/awa_mail.gpr
+Found declared GPR file: .alire/awa_tags.gpr
+Found declared GPR file: .alire/awa_countries.gpr
+Found declared GPR file: .alire/awa_questions.gpr
+Found declared GPR file: .alire/awa_votes.gpr

@@ -1,0 +1,389 @@
+Test ran at 2025-10-21 00:47:41.043715+00:00
+
+SOLUTION:
+lml=0.1.0: Lightweight Markup Language conversions
+Origin: commit 34b9824dcf6cbe1c8d71bbff16539afa938ef48a from https://github.com/mosteo/lml_ada.git
+Properties:
+   Test run: alr run (from ${CRATE_ROOT}/test)
+   Author: Alejandro R. Mosteo
+   Description: Lightweight Markup Language conversions
+   License: MIT OR Apache-2.0 WITH LLVM-exception
+   Maintainer: Alejandro R. Mosteo <alejandro@mosteo.com>
+   Maintainers_Logins: mosteo
+   Name: lml
+   Tag: markup
+   Tag: language
+   Tag: conversion
+   Tag: json
+   Tag: yaml
+   Tag: toml
+   Version: 0.1.0
+   Website: 
+Dependencies (direct):
+   ada_toml~0.4.0
+   json^6.0.0
+   yeison_12~0.2.0
+Dependencies (solution):
+   ada_toml=0.4.0
+   json=6.0.0
+   yeison_12=0.2.0
+Dependencies (graph):
+   lml=0.1.0 --> ada_toml=0.4.0 (~0.4.0)
+   lml=0.1.0 --> json=6.0.0 (^6.0.0)
+   lml=0.1.0 --> yeison_12=0.2.0 (~0.2.0)
+
+
+LOG:
+Note: Synchronizing workspace...
+Dependencies automatically updated as follows:
+
+   +  ada_toml  0.4.0 (new,indirect)
+   +  json      6.0.0 (new,indirect)
+   +. lml       0.1.0 (new,path=..)
+   +  yeison_12 0.2.0 (new,indirect)
+
+Note: Building test=0.1.0-dev/test.gpr...
+Setup
+   [mkdir]        object directory for project Ada_TOML
+   [mkdir]        library directory for project Ada_TOML
+   [mkdir]        object directory for project JSON
+   [mkdir]        library directory for project JSON
+   [mkdir]        object directory for project Yeison_12
+   [mkdir]        library directory for project Yeison_12
+   [mkdir]        object directory for project Lml
+   [mkdir]        library directory for project Lml
+   [mkdir]        object directory for project Test
+   [mkdir]        exec directory for project Test
+Compile
+   [Ada]          test.adb
+   [Ada]          yeison_12_config.ads
+   [Ada]          yeison_12.adb
+   [Ada]          yeison_generic.adb
+   [Ada]          yeison_generic-operators.adb
+   [Ada]          yeison_utils.adb
+   [Ada]          json-parsers.adb
+   [Ada]          json-streams.adb
+   [Ada]          json-tokenizers.adb
+   [Ada]          json-types.adb
+   [Ada]          json.ads
+   [Ada]          toml-generic_parse.adb
+   [Ada]          toml-generic_dump.adb
+   [Ada]          toml-file_io.adb
+   [Ada]          toml.adb
+   [Ada]          lml_config.ads
+   [Ada]          lml-output-toml.adb
+   [Ada]          lml-output-factory.adb
+   [Ada]          lml-output.adb
+   [Ada]          lml-output-json-export.ads
+   [Ada]          lml-input-toml.adb
+   [Ada]          lml-output-yeison.adb
+   [Ada]          lml-output-yaml.adb
+   [Ada]          lml-input.ads
+   [Ada]          lml-conversions.adb
+   [Ada]          lml-conversions-toml_json.adb
+   [Ada]          lml-input-json.adb
+   [Ada]          lml.adb
+   [Ada]          lml-output-json.adb
+Build Libraries
+   [gprlib]       ada_toml.lexch
+   [gprlib]       json-ada.lexch
+   [gprlib]       Yeison_12.lexch
+   [gprlib]       Lml.lexch
+   [archive]      libjson-ada.a
+   [archive]      libada_toml.a
+   [archive]      libYeison_12.a
+   [index]        libjson-ada.a
+   [index]        libYeison_12.a
+   [index]        libada_toml.a
+   [archive]      libLml.a
+   [index]        libLml.a
+Bind
+   [gprbind]      test.bexch
+   [Ada]          test.ali
+Link
+   [link]         test.adb
+Success: Build finished successfully in 10.74 seconds.
+OUTPUT FORMAT: JSON
+*** string in anon table ***
+{
+  "key": "Stand-alone string"
+}
+*** table within table ***
+{
+  "table": {
+    "key": "Stand-alone string"
+  }
+}
+*** anon table ***
+{
+  "key1": "val1",
+  "key2": "val2"
+}
+*** doubly-nested table ***
+{
+  "parent": {
+    "child": {
+      "key": "Stand-alone string"
+    }
+  }
+}
+*** array within table ***
+{
+  "vector": [
+    "item1",
+    "item2"
+  ]
+}
+*** array of tables ***
+{
+  "vector": [
+    {
+      "key1": "val1",
+      "key2": "val2"
+    },
+    {
+      "key1": "val1",
+      "key2": "val2"
+    }
+  ]
+}
+*** array within table ***
+{
+  "table": {
+    "vector": [
+      "item1",
+      "item2"
+    ]
+  }
+}
+*** yeison to text ***
+{
+  "key": "val"
+}
+*** array of arrays within table ***
+{
+  "vec": [
+    [
+      " 1",
+      " 2"
+    ],
+    [
+      " 2",
+      " 3"
+    ]
+  ]
+}
+*** array of arrays of arrays of maps within table ***
+{
+  "vec": [
+    [
+      [
+        {
+          "key1": "a",
+          "key2": "b"
+        }
+      ],
+      [
+        {
+          "key1": "b",
+          "key2": "c"
+        }
+      ]
+    ],
+    [
+      [
+        {
+          "key1": "a",
+          "key2": "b"
+        }
+      ],
+      [
+        {
+          "key1": "b",
+          "key2": "c"
+        }
+      ]
+    ]
+  ]
+}
+*** table within anon array ***
+[
+  {
+    "key1": "val1",
+    "key2": "val2"
+  }
+]
+*** stand-alone string ***
+"stand-alone string"
+*** empty anon vec ***
+[]
+*** empty vector within table ***
+{
+  "vec": []
+}
+OUTPUT FORMAT: TOML
+*** string in anon table ***
+key = "Stand-alone string"
+
+*** table within table ***
+[table]
+key = "Stand-alone string"
+
+*** anon table ***
+key1 = "val1"
+key2 = "val2"
+
+*** doubly-nested table ***
+[parent]
+[parent.child]
+key = "Stand-alone string"
+
+*** array within table ***
+vector = [
+"item1",
+"item2",
+]
+
+*** array of tables ***
+[[vector]]
+key1 = "val1"
+key2 = "val2"
+[[vector]]
+key1 = "val1"
+key2 = "val2"
+
+*** array within table ***
+[table]
+vector = [
+"item1",
+"item2",
+]
+
+*** yeison to text ***
+key = "val"
+
+*** array of arrays within table ***
+vec = [
+[
+" 1",
+" 2",
+],
+[
+" 2",
+" 3",
+],
+]
+
+*** array of arrays of arrays of maps within table ***
+vec = [
+[
+[
+{"key1" = "a", "key2" = "b"},
+],
+[
+{"key1" = "b", "key2" = "c"},
+],
+],
+[
+[
+{"key1" = "a", "key2" = "b"},
+],
+[
+{"key1" = "b", "key2" = "c"},
+],
+],
+]
+
+OUTPUT FORMAT: YAML
+*** string in anon table ***
+"key": "Stand-alone string"
+*** table within table ***
+"table":
+  "key": "Stand-alone string"
+*** anon table ***
+"key1": "val1"
+"key2": "val2"
+*** doubly-nested table ***
+"parent":
+  "child":
+    "key": "Stand-alone string"
+*** array within table ***
+"vector":
+  - "item1"
+  - "item2"
+*** array of tables ***
+"vector":
+  - "key1": "val1"
+    "key2": "val2"
+  - "key1": "val1"
+    "key2": "val2"
+*** array within table ***
+"table":
+  "vector":
+    - "item1"
+    - "item2"
+*** yeison to text ***
+"key": "val"
+*** array of arrays within table ***
+"vec":
+  - - " 1"
+    - " 2"
+  - - " 2"
+    - " 3"
+*** array of arrays of arrays of maps within table ***
+"vec":
+  - - - "key1": "a"
+        "key2": "b"
+    - - "key1": "b"
+        "key2": "c"
+  - - - "key1": "a"
+        "key2": "b"
+    - - "key1": "b"
+        "key2": "c"
+*** array of arrays of arrays of maps within table ***
+"vec":
+  - 
+    - 
+      - 
+        "key1": "a"
+        "key2": "b"
+    - 
+      - 
+        "key1": "b"
+        "key2": "c"
+  - 
+    - 
+      - 
+        "key1": "a"
+        "key2": "b"
+    - 
+      - 
+        "key1": "b"
+        "key2": "c"
+*** table within anon array ***
+- "key1": "val1"
+  "key2": "val2"
+*** stand-alone string ***
+"stand-alone string"
+*** empty anon vec ***
+
+*** empty vector within table ***
+"vec":
+TOML -> JSON: [
+  "some string",
+  {
+    "key": "val"
+  }
+]
+JSON -> YSON: [
+   vec => [
+      1,
+      2,
+      3
+   ],
+   key => val,
+   map => [
+      k => v
+   ]
+]
+[alr test] Test completed SUCCESSFULLY

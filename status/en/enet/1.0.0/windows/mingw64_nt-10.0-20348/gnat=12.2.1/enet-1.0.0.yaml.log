@@ -1,0 +1,92 @@
+Test ran at 2025-09-27 12:30:41.579201+00:00
+
+SOLUTION:
+enet=1.0.0: Ada Embedded Network Stack
+Origin: commit 54410889ed52e79ce7309d87c10b875e67437e51 from https://github.com/stcarrez/ada-enet.git
+Properties:
+   Author: Stephane Carrez
+   Config type: Default_Random : Enum (discrete, null) default: 'discrete'
+   Configuration: no modifiers
+   Description: Ada Embedded Network Stack
+   License: Apache-2.0
+   Maintainer: Stephane Carrez <Stephane.Carrez@gmail.com>
+   Maintainer: Max Reznik <reznikmm@gmail.com>
+   Maintainers_Logins: stcarrez
+   Maintainers_Logins: reznikmm
+   Name: enet
+   Project_File: gnat/enet.gpr
+   Tag: network
+   Tag: ip
+   Tag: ipv4
+   Tag: icmp
+   Tag: udp
+   Tag: arp
+   Tag: dns
+   Tag: dhcp
+   Tag: ntp
+   Version: 1.0.0
+   Website: https://github.com/stcarrez/ada-enet
+
+
+LOG:
+[alr test] Testing enet=1.0.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get enet=1.0.0
+Note: Deploying enet=1.0.0...
+
+enet=1.0.0 successfully retrieved.
+There are no dependencies.
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building enet=1.0.0/gnat/enet.gpr...
+Setup
+   [mkdir]        object directory for project Enet
+   [mkdir]        library directory for project Enet
+Compile
+   [Ada]          net-uint32_randoms.ads
+   [Ada]          net.adb
+   [Ada]          net-utils.adb
+   [Ada]          net-sockets.ads
+   [Ada]          net-sockets-udp.adb
+   [Ada]          net-protos.ads
+   [Ada]          net-protos-ipv4.adb
+   [Ada]          net-protos-icmp.adb
+   [Ada]          net-protos-dispatchers.adb
+   [Ada]          net-protos-arp.adb
+   [Ada]          net-ntp.adb
+   [Ada]          net-interfaces.adb
+   [Ada]          net-headers.adb
+   [Ada]          net-generic_receiver.adb
+   [Ada]          net-dns.adb
+   [Ada]          net-dhcp.adb
+   [Ada]          net-buffers.adb
+net-buffers.adb:41:04: warning: possible aliasing problem for type "Ether_Header_Access" [enabled by default]
+net-buffers.adb:41:04: warning: use -fno-strict-aliasing switch for references [enabled by default]
+net-buffers.adb:41:04: warning: or use "pragma No_Strict_Aliasing (Ether_Header_Access);" [enabled by default]
+net-buffers.adb:45:04: warning: possible aliasing problem for type "Arp_Packet_Access" [enabled by default]
+net-buffers.adb:45:04: warning: use -fno-strict-aliasing switch for references [enabled by default]
+net-buffers.adb:45:04: warning: or use "pragma No_Strict_Aliasing (Arp_Packet_Access);" [enabled by default]
+net-buffers.adb:49:04: warning: possible aliasing problem for type "IP_Header_Access" [enabled by default]
+net-buffers.adb:49:04: warning: use -fno-strict-aliasing switch for references [enabled by default]
+net-buffers.adb:49:04: warning: or use "pragma No_Strict_Aliasing (IP_Header_Access);" [enabled by default]
+net-buffers.adb:53:04: warning: possible aliasing problem for type "UDP_Header_Access" [enabled by default]
+net-buffers.adb:53:04: warning: use -fno-strict-aliasing switch for references [enabled by default]
+net-buffers.adb:53:04: warning: or use "pragma No_Strict_Aliasing (UDP_Header_Access);" [enabled by default]
+net-buffers.adb:57:04: warning: possible aliasing problem for type "TCP_Header_Access" [enabled by default]
+net-buffers.adb:57:04: warning: use -fno-strict-aliasing switch for references [enabled by default]
+net-buffers.adb:57:04: warning: or use "pragma No_Strict_Aliasing (TCP_Header_Access);" [enabled by default]
+net-buffers.adb:61:04: warning: possible aliasing problem for type "IGMP_Header_Access" [enabled by default]
+net-buffers.adb:61:04: warning: use -fno-strict-aliasing switch for references [enabled by default]
+net-buffers.adb:61:04: warning: or use "pragma No_Strict_Aliasing (IGMP_Header_Access);" [enabled by default]
+net-buffers.adb:65:04: warning: possible aliasing problem for type "ICMP_Header_Access" [enabled by default]
+net-buffers.adb:65:04: warning: use -fno-strict-aliasing switch for references [enabled by default]
+net-buffers.adb:65:04: warning: or use "pragma No_Strict_Aliasing (ICMP_Header_Access);" [enabled by default]
+net-buffers.adb:69:04: warning: possible aliasing problem for type "DHCP_Header_Access" [enabled by default]
+net-buffers.adb:69:04: warning: use -fno-strict-aliasing switch for references [enabled by default]
+net-buffers.adb:69:04: warning: or use "pragma No_Strict_Aliasing (DHCP_Header_Access);" [enabled by default]
+net-dhcp.adb:391:33: warning: "Msg_Type" may be referenced before it has a value [enabled by default]
+Build Libraries
+   [gprlib]       Enet.lexch
+   [archive]      libEnet.a
+   [index]        libEnet.a
+Success: Build finished successfully in 2.43 seconds.
+Found declared GPR file: gnat/enet.gpr
+[alr test] Test completed SUCCESSFULLY

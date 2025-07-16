@@ -1,0 +1,120 @@
+Test ran at 2025-11-02 01:18:29.496430+00:00
+
+SOLUTION:
+gnatcoll_readline=25.0.0: GNAT Components Collection - readline binding
+Origin: source archive gnatcoll-bindings-25.0.0.zip at https://github.com/adacore/gnatcoll-bindings/archive/v25.0.0/gnatcoll-bindings-25.0.0.zip with hash sha512:0848cc59092c9ef66645f113762beb049554fa58371e062a90a2a432e6a1d6d08c8f3f162b1de1033d77fb62c0f85257fe96abb8129feef67967f6eb6b52f1ce
+Properties:
+   Author: AdaCore
+   Configuration: no modifiers
+   Description: GNAT Components Collection - readline binding
+   GPR Scenario: GNATCOLL_BUILD_MODE := DEBUG | PROD
+   GPR Scenario: LIBRARY_TYPE := static | relocatable | static-pic
+   License: GPL-3.0-or-later WITH GCC-exception-3.1
+   Maintainer: chouteau@adacore.com
+   Maintainers_Logins: Fabien-Chouteau
+   Name: gnatcoll_readline
+   Project_File: readline/gnatcoll_readline.gpr
+   Tag: gnatcoll
+   Tag: bindings
+   Tag: readline
+   Tag: cli
+   Version: 25.0.0
+   Website: https://github.com/adacore/gnatcoll-bindings
+Dependencies (direct):
+   gnatcoll~25.0.0
+   libreadline*
+Dependencies (solution):
+   gnat=15.2.1 (gnat_native)
+   gnatcoll=25.0.0
+   libgpr=25.0.0
+   libreadline=8.2.0
+   xmlada=25.0.0
+Dependencies (graph):
+   gnatcoll=25.0.0          --> gnat=15.2.1 (gnat_native) (>=13)
+   gnatcoll=25.0.0          --> libgpr=25.0.0 (~25.0.0)
+   gnatcoll_readline=25.0.0 --> gnatcoll=25.0.0 (~25.0.0)
+   gnatcoll_readline=25.0.0 --> libreadline=8.2.0 (*)
+   libgpr=25.0.0            --> gnat=15.2.1 (gnat_native) (/=2020)
+   libgpr=25.0.0            --> xmlada=25.0.0 (~25.0.0)
+   xmlada=25.0.0            --> gnat=15.2.1 (gnat_native) (>=11)
+
+
+LOG:
+[alr test] Testing gnatcoll_readline=25.0.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get gnatcoll_readline=25.0.0
+Note: Deploying gnatcoll_readline=25.0.0...
+
+#=#=#                                                                          
+##O#-#                                                                         
+Note: Deploying libreadline=8.2.0...
+The system package 'libreadline-dev' is about to be installed.
+This action might require admin privileges and impact your system installation.
+Do you want Alire to install this system package?
+Using default: Yes
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+debconf: unable to initialize frontend: Readline
+debconf: (This frontend requires a controlling tty.)
+debconf: falling back to frontend: Teletype
+debconf: unable to initialize frontend: Teletype
+debconf: (This frontend requires a controlling tty.)
+debconf: falling back to frontend: Noninteractive
+Selecting previously unselected package libncurses6:amd64.
+(Reading database ... 
+(Reading database ... 5%
+(Reading database ... 10%
+(Reading database ... 15%
+(Reading database ... 20%
+(Reading database ... 25%
+(Reading database ... 30%
+(Reading database ... 35%
+(Reading database ... 40%
+(Reading database ... 45%
+(Reading database ... 50%
+(Reading database ... 55%
+(Reading database ... 60%
+(Reading database ... 65%
+(Reading database ... 70%
+(Reading database ... 75%
+(Reading database ... 80%
+(Reading database ... 85%
+(Reading database ... 90%
+(Reading database ... 95%
+(Reading database ... 100%
+(Reading database ... 31050 files and directories currently installed.)
+Preparing to unpack .../libncurses6_6.5+20250216-2_amd64.deb ...
+Unpacking libncurses6:amd64 (6.5+20250216-2) ...
+Selecting previously unselected package libncurses-dev:amd64.
+Preparing to unpack .../libncurses-dev_6.5+20250216-2_amd64.deb ...
+Unpacking libncurses-dev:amd64 (6.5+20250216-2) ...
+Selecting previously unselected package libreadline-dev:amd64.
+Preparing to unpack .../libreadline-dev_8.2-6_amd64.deb ...
+Unpacking libreadline-dev:amd64 (8.2-6) ...
+Setting up libncurses6:amd64 (6.5+20250216-2) ...
+Setting up libncurses-dev:amd64 (6.5+20250216-2) ...
+Setting up libreadline-dev:amd64 (8.2-6) ...
+Processing triggers for libc-bin (2.41-12) ...
+
+gnatcoll_readline=25.0.0 successfully retrieved.
+Dependencies were solved as follows:
+
+   +b gnat        15.2.1 (new,gnat_native,indirect,binary)
+   +  gnatcoll    25.0.0 (new)
+   +  libgpr      25.0.0 (new,indirect)
+   +b libreadline 8.2.0  (new,system package)
+   +  xmlada      25.0.0 (new,indirect)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building gnatcoll_readline=25.0.0/readline/gnatcoll_readline.gpr...
+Setup
+   [mkdir]        object directory for project GnatColl_Readline
+   [mkdir]        library directory for project GnatColl_Readline
+Compile
+   [Ada]          gnatcoll-readline.adb
+Build Libraries
+   [gprlib]       gnatcoll_readline.lexch
+   [archive]      libgnatcoll_readline.a
+   [index]        libgnatcoll_readline.a
+Success: Build finished successfully in 0.54 seconds.
+Found declared GPR file: readline/gnatcoll_readline.gpr
+[alr test] Test completed SUCCESSFULLY

@@ -1,0 +1,118 @@
+Test ran at 2025-07-10 01:01:31.541118+00:00
+
+SOLUTION:
+templates_parser=25.0.0: Templates Parser: File generation from templates in Ada
+Origin: source archive templates-parser-25.0.0.zip at https://github.com/adacore/templates-parser/archive/v25.0.0/templates-parser-25.0.0.zip with hash sha512:ad33f51f88b9d2d603fa6efe16d75685d511e4b2742965972835c388e438dc0792b76377ef45e1e959dd174da395aa5ed1349bfc4c4016bcf8f57dc1b2b26d09
+Properties:
+   Post_Fetch run: cp config/tp_xmlada_installed.gpr tp_xmlada.gpr (from ${CRATE_ROOT}/.)
+   Author: AdaCore
+   Configuration: no modifiers
+   Description: Templates Parser: File generation from templates in Ada
+   Environment: ADAFLAGS=-gnaty-d
+   GPR Scenario: LIBRARY_TYPE := static | relocatable
+   GPR Scenario: PRJ_BUILD := Debug | Release
+   GPR Scenario: PRJ_TARGET := Windows | macOS | Linux | FreeBSD | UNIX
+   GPR Scenario: TP_TASKING := No_Tasking | Standard_Tasking
+   GPR Scenario: TP_XMLADA := Installed | Disabled
+   GPR External: PRJ_BUILD := Release
+   GPR External: TP_XMLADA := Installed
+   case OS is
+      when Linux => GPR External: PRJ_TARGET := Linux
+      when Macos => GPR External: PRJ_TARGET := macOS
+      when Windows => GPR External: PRJ_TARGET := Windows
+   License: GPL-3.0-or-later WITH GCC-exception-3.1
+   Maintainer: chouteau@adacore.com
+   Maintainers_Logins: Fabien-Chouteau
+   Name: templates_parser
+   Project_File: templates_parser.gpr
+   Version: 25.0.0
+   Website: https://github.com/AdaCore/templates-parser
+Dependencies (direct):
+   xmlada~25.0.0
+Dependencies (solution):
+   gnat=11.2.4 (gnat_native)
+   xmlada=25.0.0
+Dependencies (graph):
+   templates_parser=25.0.0 --> xmlada=25.0.0 (~25.0.0)
+   xmlada=25.0.0           --> gnat=11.2.4 (gnat_native) (>=11)
+
+
+LOG:
+Spawning: alr -d -n get --build templates_parser=25.0.0
+Note: Deploying templates_parser=25.0.0...
+#=#=#                                                                          
+##O#-#                                                                         
+Note: Running post-fetch actions for templates_parser=25.0.0...
+Note: Building templates_parser=25.0.0/templates_parser.gpr...
+Setup
+   [mkdir]        object directory for project Templates_Parser
+   [mkdir]        library directory for project Templates_Parser
+Compile
+   [Ada]          dom-core-texts.adb
+   [Ada]          dom-core-cdata_sections.ads
+   [Ada]          dom-core.adb
+   [Ada]          dom-core-comments.ads
+   [Ada]          dom-readers.adb
+   [Ada]          dom-core-attrs.adb
+   [Ada]          dom-core-elements.adb
+   [Ada]          dom-core-nodes.adb
+   [Ada]          dom-core-notations.adb
+   [Ada]          dom-core-document_fragments.ads
+   [Ada]          dom-core-documents.adb
+   [Ada]          dom-core-character_datas.adb
+   [Ada]          dom-core-document_types.adb
+   [Ada]          dom.ads
+   [Ada]          dom-core-entity_references.ads
+   [Ada]          dom-core-processing_instructions.ads
+   [Ada]          templates_parser-xml.adb
+   [Ada]          templates_parser-debug.adb
+   [Ada]          templates_parser-query.adb
+gnat1: invalid switch: -gnat2022
+gnat1: invalid switch: -gnat2022
+gnat1: invalid switch: -gnat2022
+
+   compilation of templates_parser-query.adb failed
+   compilation of templates_parser-debug.adb failed
+   compilation of templates_parser-xml.adb failed
+
+gprbuild: *** compilation phase failed
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/fc8de8f4-1b41-45a2-ba8a-a48b337a0f34/templates_parser_25.0.0_ad33f51f/templates_parser.gpr"] exited with code 4
+ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/fc8de8f4-1b41-45a2-ba8a-a48b337a0f34/templates_parser_25.0.0_ad33f51f/templates_parser.gpr"] exited with code 4
+stderr: ALIRE.CHECKED_ERROR
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/fc8de8f4-1b41-45a2-ba8a-a48b337a0f34/templates_parser_25.0.0_ad33f51f/templates_parser.gpr"] exited with code 4
+stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
+[/home/runner/work/alire-crates-ci/alire-crates-ci/alire_install/bin/alr]
+0xe16f5e Alire.Raise_Checked_Error at alire.adb:284
+0xa845be Alire.Os_Lib.Subprocess.Checked_Spawn at alire-os_lib-subprocess.adb:111
+0xcef7be Alire.Spawn.Command at alire-spawn.adb:21
+0xcefdde Alire.Spawn.Gprbuild at alire-spawn.adb:41
+0xc31d1f Alire.Roots.Build at alire-roots.adb:186
+0xc304da Alire.Roots.Build at alire-roots.adb:252
+0xc53d6f Alire.Roots.Traverse at alire-roots.adb:2075
+0xcba1fd Alire.Solutions.Traverse.Visit at alire-solutions.adb:1480
+0xcb9344 Alire.Solutions.Traverse at alire-solutions.adb:1563
+0xc53e62 Alire.Roots.Traverse at alire-roots.adb:2079
+0xc53f21 Alire.Roots.Traverse at alire-roots.adb:2059
+0xc30a46 Alire.Roots.Build at alire-roots.adb:283
+0xc30b2b Alire.Roots.Build at alire-roots.adb:111
+0x4a5e38 Alr.Commands.Get.Retrieve at alr-commands-get.adb:205
+0x4a94f3 Alr.Commands.Get.Execute at alr-commands-get.adb:378
+0x4a96a1 Alr.Commands.Get.Execute at alr-commands-get.adb:256
+0x533c96 Alr.Commands.Sub_Cmd.Execute at clic-subcommand-instance.adb:749
+0x53eff7 Alr.Commands.Execute at alr-commands.adb:561
+0x43953a Alr.Main at alr-main.adb:13
+0x43c1d3 Main at b__alr-main.adb:2299
+[/lib/x86_64-linux-gnu/libc.so.6]
+0x7f884b02a1c8
+0x7f884b02a289
+[/home/runner/work/alire-crates-ci/alire-crates-ci/alire_install/bin/alr]
+0x4393dc _start at ???
+0xfffffffffffffffe
+
+
+Warning: templates_parser=25.0.0 successfully retrieved but its build failed.
+Dependencies were solved as follows:
+
+   +b gnat   11.2.4 (new,gnat_native,indirect,binary)
+   +  xmlada 25.0.0 (new)
+ERROR: Build ended with errors

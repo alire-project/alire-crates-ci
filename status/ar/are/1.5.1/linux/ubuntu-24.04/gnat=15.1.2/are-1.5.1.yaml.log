@@ -1,0 +1,172 @@
+Test ran at 2025-09-01 01:32:17.970585+00:00
+
+SOLUTION:
+are=1.5.1: Advanced Resource Embedder
+Origin: commit a029ed06a8227b51b79253c1cb49b26d83c7c262 from https://gitlab.com/stcarrez/resource-embedder.git
+Available when: (case OS is Linux => True, Macos => True, Windows => True, others => False)
+Properties:
+   Author: Stephane.Carrez@gmail.com
+   Configuration: no modifiers
+   Description: Advanced Resource Embedder
+   Environment: MANPATH=${CRATE_ROOT}/man:${MANPATH}
+   Environment: PATH=${CRATE_ROOT}/bin:${PATH}
+   Executable: are
+   GPR Scenario: ARE_BUILD := distrib | debug | optimize | profile | coverage
+   GPR Scenario: ARE_SWITCH := NO_CALLBACK | HAS_CALLBACK
+   GPR Scenario: UTIL_OS := win32 | win64 | linux32 | linux64 | macos64 | netbsd32 | netbsd64 | freebsd32 | freebsd64
+   GPR External: ARE_BUILD := distrib
+   GPR External: ARE_SWITCH := HAS_CALLBACK
+   case OS is
+      when Linux => (case Word_Size is Bits_32 => GPR External: UTIL_OS := linux32, Bits_64 => GPR External: UTIL_OS := linux64)
+      when Macos => GPR External: UTIL_OS := macos64
+      when Windows => (case Word_Size is Bits_32 => GPR External: UTIL_OS := win32, Bits_64 => GPR External: UTIL_OS := win64)
+   License: Apache-2.0
+   Long_Description: [![Build Status](https://img.shields.io/endpoint?url=https://porion.vacs.fr/porion/api/v1/projects/resource-embedder/badges/build.json)](https://porion.vacs.fr/porion/projects/view/resource-embedder)
+[![Test Status](https://img.shields.io/endpoint?url=https://porion.vacs.fr/porion/api/v1/projects/resource-embedder/badges/tests.json)](https://porion.vacs.fr/porion/projects/view/resource-embedder)
+[![Coverage](https://img.shields.io/endpoint?url=https://porion.vacs.fr/porion/api/v1/projects/resource-embedder/badges/coverage.json)](https://porion.vacs.fr/porion/projects/view/resource-embedder)
+[![Documentation Status](https://readthedocs.org/projects/resource-embedder/badge/?version=latest)](https://resource-embedder.readthedocs.io/en/latest/?badge=latest)
+
+The resource embedder allows to embed files in binaries by producing C, Ada or Go source
+files that contain the original files.
+
+To generate a `config.ads` and `config.adb` Ada package with the resources, you may use:
+
+```
+are --lang=Ada -o src --resource=config --name-access --fileset='**/*.conf' config
+```
+
+Complex resource integrations are best described with and XML and are generated with:
+
+```
+are --lang=Ada -o src --rule=package.xml --name-access .
+```
+
+For Ada, it generates the following package declaration with the `Get_Content` function
+that gives access to the files.  The Ada body contains the content of each embedded file.
+
+```Ada
+package Config is
+  function Get_Content (Name : in String)
+    return access constant String;
+end Config;
+```
+
+
+   Maintainer: Stephane.Carrez@gmail.com
+   Maintainers_Logins: stcarrez
+   Name: are
+   Project_File: are_tool.gpr
+   Tag: resource
+   Tag: embedder
+   Tag: generator
+   Version: 1.5.1
+   Website: https://gitlab.com/stcarrez/resource-embedder
+Dependencies (direct):
+   elada^1.8.6
+   utilada^2.6.0
+   xmlada^23.0.0
+Dependencies (solution):
+   elada=1.8.8
+   gnat=15.1.2 (gnat_native)
+   utilada=2.8.1
+   xmlada=23.0.0
+Dependencies (graph):
+   are=1.5.1     --> elada=1.8.8 (^1.8.6)
+   are=1.5.1     --> utilada=2.8.1 (^2.6.0)
+   are=1.5.1     --> xmlada=23.0.0 (^23.0.0)
+   elada=1.8.8   --> utilada=2.8.1 (^2.8.0)
+   xmlada=23.0.0 --> gnat=15.1.2 (gnat_native) (>=11)
+
+
+LOG:
+[alr test] Testing are=1.5.1
+[alr test] Spawning retrieval for remote crate: alr -d -n get are=1.5.1
+Note: Deploying are=1.5.1...
+
+are=1.5.1 successfully retrieved.
+Dependencies were solved as follows:
+
+   +  elada   1.8.8  (new)
+   +b gnat    15.1.2 (new,gnat_native,indirect,binary)
+   +  utilada 2.8.1  (new)
+   +  xmlada  23.0.0 (new)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building are=1.5.1/are_tool.gpr...
+Setup
+   [mkdir]        object directory for project ElAda
+   [mkdir]        library directory for project ElAda
+   [mkdir]        object directory for project Are_Tool
+   [mkdir]        exec directory for project Are_Tool
+Compile
+   [Ada]          are-main.adb
+   [Ada]          el-objects.ads
+   [Ada]          el-methods-func_string.ads
+   [Ada]          el.ads
+   [Ada]          el-contexts.ads
+   [Ada]          el-expressions-nodes.adb
+   [Ada]          el-utils.adb
+   [Ada]          el-expressions.adb
+   [Ada]          el-contexts-default.adb
+   [Ada]          el-methods.ads
+   [Ada]          el-functions-namespaces.adb
+   [Ada]          el-contexts-properties.adb
+   [Ada]          el-beans.adb
+   [Ada]          el-methods-func_1.adb
+   [Ada]          el-variables-default.adb
+   [Ada]          el-methods-proc_1.adb
+   [Ada]          el-expressions-parser.adb
+   [Ada]          el-methods-proc_2.adb
+   [Ada]          el-contexts-tls.adb
+   [Ada]          el-methods-func_unbounded.ads
+   [Ada]          el-methods-proc_in.adb
+   [Ada]          el-variables.ads
+   [Ada]          el-functions.adb
+   [Ada]          el-functions-default.adb
+   [Ada]          are.adb
+   [Ada]          are-generator.adb
+   [Ada]          are-generator-ada2012.adb
+   [Ada]          are-generator-c.adb
+   [Ada]          are-generator-go.adb
+are-generator-go.adb:226:52: warning: reference to obsolescent entity "To_Unix_Time" declared at a-calcon.ads:130 [-gnatwj]
+are-generator-go.adb:226:52: warning: This function may be removed in a future version [-gnatwj]
+are-generator-go.adb:226:52: warning: call to obsolescent function "To_Unix_Time" declared at a-calcon.ads:130 [-gnatwj]
+are-generator-go.adb:226:52: warning: This function may be removed in a future version [-gnatwj]
+   [Ada]          are-installer.adb
+are-generator-c.adb:627:58: warning: reference to obsolescent entity "To_Unix_Time" declared at a-calcon.ads:130 [-gnatwj]
+are-generator-c.adb:627:58: warning: This function may be removed in a future version [-gnatwj]
+are-generator-c.adb:627:58: warning: call to obsolescent function "To_Unix_Time" declared at a-calcon.ads:130 [-gnatwj]
+are-generator-c.adb:627:58: warning: This function may be removed in a future version [-gnatwj]
+are-generator-ada2012.adb:998:55: warning: reference to obsolescent entity "To_Unix_Time" declared at a-calcon.ads:130 [-gnatwj]
+are-generator-ada2012.adb:998:55: warning: This function may be removed in a future version [-gnatwj]
+are-generator-ada2012.adb:998:55: warning: call to obsolescent function "To_Unix_Time" declared at a-calcon.ads:130 [-gnatwj]
+are-generator-ada2012.adb:998:55: warning: This function may be removed in a future version [-gnatwj]
+   [Ada]          are-installer-bundles.adb
+   [Ada]          are-installer-concat.adb
+   [Ada]          are-installer-copies.adb
+   [Ada]          are-installer-exec.adb
+   [Ada]          are-installer-merges.adb
+   [Ada]          are-utils.adb
+Build Libraries
+   [gprlib]       elada.lexch
+   [gprlib]       xmlada_unicode.lexch
+   [gprlib]       xmlada_input_sources.lexch
+   [archive]      libelada.a
+   [index]        libelada.a
+   [archive]      libxmlada_unicode.a
+   [index]        libxmlada_unicode.a
+   [gprlib]       xmlada_sax.lexch
+   [archive]      libxmlada_input_sources.a
+   [index]        libxmlada_input_sources.a
+   [gprlib]       xmlada_dom.lexch
+   [archive]      libxmlada_sax.a
+   [index]        libxmlada_sax.a
+   [archive]      libxmlada_dom.a
+   [index]        libxmlada_dom.a
+Bind
+   [gprbind]      are-main.bexch
+   [Ada]          are-main.ali
+Link
+   [link]         are-main.adb
+Success: Build finished successfully in 19.44 seconds.
+Found declared GPR file: are_tool.gpr
+[alr test] Test completed SUCCESSFULLY

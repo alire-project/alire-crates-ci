@@ -1,0 +1,113 @@
+Test ran at 2024-10-18 00:56:33.760609+00:00
+
+SOLUTION:
+program_proofs_in_spark=0.1.1: Programs from the book Program Proofs in SPARK
+Origin: commit 37500dca9b643d1cd2f3711e1f97264923ea0baa from https://github.com/AdaCore/program_proofs_in_spark.git
+Properties:
+   Author: Yannick Moy
+   Description: Programs from the book Program Proofs in SPARK
+   License: Apache-2.0
+   Maintainer: Yannick Moy <moy@adacore.com>
+   Maintainers_Logins: yannickmoy
+   Name: program_proofs_in_spark
+   Project_File: ch5/ch5.gpr
+   Project_File: ch7/ch7.gpr
+   Project_File: ch12/ch12.gpr
+   Project_File: ch13/ch13.gpr
+   Project_File: ch15/ch15.gpr
+   Tag: spark
+   Version: 0.1.1
+   Website: https://github.com/AdaCore/program_proofs_in_spark
+Dependencies (direct):
+   gnat>=12 & <2000
+   gnatprove^12.1.1
+Dependencies (solution):
+   gnat=13.1.0 (gnat_native) (installed)
+   gnatprove=12.1.1 (installed)
+Dependencies (graph):
+   program_proofs_in_spark=0.1.1 --> gnat=13.1.0 (gnat_native) (>=12 & <2000)
+   program_proofs_in_spark=0.1.1 --> gnatprove=12.1.1 (^12.1.1)              
+
+
+LOG:
+Note: Deploying program_proofs_in_spark=0.1.1...
+Note: Deploying gnatprove=12.1.1...
+#=#=#                                                                         
+
+                                                                           0.0%
+                                                                           0.6%
+#                                                                          1.9%
+###                                                                        5.0%
+#######                                                                   10.4%
+#########                                                                 12.9%
+###########                                                               16.1%
+#################                                                         24.7%
+######################                                                    31.1%
+##########################                                                37.3%
+##############################                                            42.9%
+#################################                                         47.0%
+########################################                                  55.9%
+################################################                          66.7%
+###################################################                       72.1%
+#########################################################                 79.6%
+#############################################################             86.0%
+################################################################          90.1%
+#################################################################         90.4%
+##################################################################        91.8%
+######################################################################## 100.0%
+Note: gnatprove=12.1.1 installed successfully.
+Note: Building program_proofs_in_spark/ch5/ch5.gpr (1/5)...
+Setup
+   [mkdir]        object directory for project Ch5
+Compile
+   [Ada]          test_abstract_syntax_trees.adb
+test_abstract_syntax_trees.adb:18:22: error: invalid prefix in selected component "Add"
+abstract_syntax_trees.ads:39:49: error: unmatched actual in instantiation of "Functional_Maps" declared at a-cofuma.ads:33
+abstract_syntax_trees.ads:40:31: error: "Map" not declared in "Environments"
+abstract_syntax_trees.ads:49:19: error: invalid prefix in selected component "Has_Key"
+abstract_syntax_trees.ads:49:49: error: invalid prefix in selected component "Get"
+abstract_syntax_trees.ads:49:72: error: type of "else" incompatible with that of "then" expression
+abstract_syntax_trees.ads:49:72: error: "else" expression has type universal integer
+a-cofuma.ads:36:07: error: This package has been moved to the SPARK library shipped with any SPARK release starting with version 23.
+
+   compilation of test_abstract_syntax_trees.adb failed
+
+gprbuild: *** compilation phase failed
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/2516fe45-809d-4ae5-ac02-8f91d7e6eea2/program_proofs_in_spark_0.1.1_37500dca/ch5/ch5.gpr"] exited with code 4
+ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/2516fe45-809d-4ae5-ac02-8f91d7e6eea2/program_proofs_in_spark_0.1.1_37500dca/ch5/ch5.gpr"] exited with code 4
+stderr: ALIRE.CHECKED_ERROR
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/2516fe45-809d-4ae5-ac02-8f91d7e6eea2/program_proofs_in_spark_0.1.1_37500dca/ch5/ch5.gpr"] exited with code 4
+stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
+[/home/runner/work/alire-crates-ci/alire-crates-ci/alire_install/bin/alr]
+0xd7ada2 Alire.Raise_Checked_Error at alire.adb:251
+0xa423cf Alire.Os_Lib.Subprocess.Checked_Spawn at alire-os_lib-subprocess.adb:110
+0xc5cdee Alire.Spawn.Command at alire-spawn.adb:21
+0xc5d51c Alire.Spawn.Gprbuild at alire-spawn.adb:41
+0xbc1550 Alire.Roots.Build.Build_Single_Release.Call_Gprbuild at alire-roots.adb:140
+0xbbfbaf Alire.Roots.Build.Build_Single_Release at alire-roots.adb:171
+0xbdb95e Alire.Roots.Traverse.Traverse_Wrap at alire-roots.adb:1364
+0xc25a8b Alire.Solutions.Traverse.Visit at alire-solutions.adb:1443
+0xc246a2 Alire.Solutions.Traverse at alire-solutions.adb:1518
+0xbdbaac Alire.Roots.Traverse at alire-roots.adb:1368
+0xbbff40 Alire.Roots.Build at alire-roots.adb:196
+0x4a0334 Alr.Commands.Build.Execute at alr-commands-build.adb:58
+0x4b065a Alr.Commands.Get.Retrieve at alr-commands-get.adb:187
+0x4b4e77 Alr.Commands.Get.Execute at alr-commands-get.adb:348
+0x53bb7e Alr.Commands.Sub_Cmd.Execute at clic-subcommand-instance.adb:742
+0x54756f Alr.Commands.Execute at alr-commands.adb:492
+0x43cb1a Alr.Main at alr-main.adb:10
+0x43f3e7 Main at b__alr-main.adb:2132
+[/lib/x86_64-linux-gnu/libc.so.6]
+0x7f92c5029d8e
+0x7f92c5029e3e
+[/home/runner/work/alire-crates-ci/alire-crates-ci/alire_install/bin/alr]
+0x43c9f8 _start at ???
+0xfffffffffffffffe
+
+
+Warning: program_proofs_in_spark=0.1.1 successfully retrieved but its build failed.
+Dependencies were solved as follows:
+
+   +i gnat      13.1.0 (new,installed,gnat_native)
+   +i gnatprove 12.1.1 (new,installed)            
+ERROR: Build ended with errors

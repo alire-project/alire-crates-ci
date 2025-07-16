@@ -1,0 +1,7 @@
+<div class="img-responsive">
+    <a href="{{ "" | relative_url }}/status/{{ test.crate | slice: 0, 2 }}/{{ test.crate }}/{{ test.version }}/{{ test.platform }}/{{ test.distro }}/gnat={{ test.gnat }}/{{page.crate}}-{{test.version}}.yaml.log">
+      {% assign label = test.distro | replace: "-", " " | append: "｜gnat " | append: test.gnat %}
+      <img src="https://img.shields.io/static/v1?label={{label | url_encode}}&message={{test.status | replace: "-", " "}}&color={{test.badge_color}}"
+        title="Badge: {{test.distro}} {{test.gnat}} {{test.status}}">
+    </a>
+</div>

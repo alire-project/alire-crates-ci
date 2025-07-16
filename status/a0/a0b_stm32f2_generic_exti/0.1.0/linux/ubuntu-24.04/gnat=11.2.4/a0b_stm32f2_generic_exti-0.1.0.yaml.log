@@ -1,0 +1,73 @@
+Test ran at 2025-07-29 12:39:13.923975+00:00
+
+SOLUTION:
+a0b_stm32f2_generic_exti=0.1.0: A0B: STM32F2+ Generic EXTI
+Origin: commit 462715064e668a486d4ee4b09819f6f33709941b from https://github.com/godunko/a0b-stm32f2-generic_exti.git
+Properties:
+   Test run: alr build (from ${CRATE_ROOT}/selftest)
+   Author: Vadim Godunko
+   Configuration: no modifiers
+   Description: A0B: STM32F2+ Generic EXTI
+   License: Apache-2.0 WITH LLVM-exception
+   Maintainer: Vadim Godunko <vgodunko@gmail.com>
+   Maintainers_Logins: godunko
+   Name: a0b_stm32f2_generic_exti
+   Project_File: gnat/a0b_stm32f2_generic_exti.gpr
+   Tag: a0b
+   Tag: embedded
+   Tag: stm32
+   Tag: exti
+   Version: 0.1.0
+   Website: https://github.com/godunko/a0b-stm32f2-generic_exti
+Dependencies (direct):
+   a0b_exti*
+   a0b_stm32f2_generic_gpio*
+Dependencies (solution):
+   a0b_base=0.4.0
+   a0b_callbacks=0.2.0
+   a0b_exti=0.1.0
+   a0b_gpio=0.1.0
+   a0b_stm32f2_generic_gpio=0.1.0
+Dependencies (graph):
+   a0b_callbacks=0.2.0            --> a0b_base=0.4.0 (*)
+   a0b_exti=0.1.0                 --> a0b_base=0.4.0 (*)
+   a0b_exti=0.1.0                 --> a0b_callbacks=0.2.0 (*)
+   a0b_gpio=0.1.0                 --> a0b_base=0.4.0 (*)
+   a0b_stm32f2_generic_exti=0.1.0 --> a0b_exti=0.1.0 (*)
+   a0b_stm32f2_generic_exti=0.1.0 --> a0b_stm32f2_generic_gpio=0.1.0 (*)
+   a0b_stm32f2_generic_gpio=0.1.0 --> a0b_gpio=0.1.0 (*)
+
+
+LOG:
+Note: Synchronizing workspace...
+Dependencies automatically updated as follows:
+
+   +  a0b_base                 0.4.0  (new,indirect)
+   +  a0b_callbacks            0.2.0  (new,indirect)
+   +  a0b_exti                 0.1.0  (new,indirect)
+   +  a0b_gpio                 0.1.0  (new,indirect)
+   +. a0b_stm32f2_generic_exti 0.1.0  (new,path=..)
+   +  a0b_stm32f2_generic_gpio 0.1.0  (new,indirect)
+   +b gnat_arm_elf             11.2.4 (new,binary)
+
+Note: Building a0b_stm32f2_generic_exti_selftest=0.1.0-dev/a0b_stm32f2_generic_exti_selftest.gpr...
+kb: warning: can't find a toolchain for the following configuration: language 'Ada', target 'arm-eabi', runtime 'light-cortex-m3'
+Setup
+   [mkdir]        object directory for project A0B_Base
+   [mkdir]        library directory for project A0B_Base
+   [mkdir]        object directory for project A0B_Callbacks
+   [mkdir]        object directory for project A0B_EXTI
+   [mkdir]        object directory for project A0B_GPIO
+   [mkdir]        object directory for project A0B_STM32F2_Generic_GPIO
+   [mkdir]        library directory for project A0B_STM32F2_Generic_GPIO
+   [mkdir]        object directory for project A0B_STM32F2_Generic_EXTI
+   [mkdir]        library directory for project A0B_STM32F2_Generic_EXTI
+a0b_stm32f2_generic_exti_selftest.gpr:9:09: warning: there are no sources of language "Ada" in this project
+a0b_stm32f2_generic_exti.gpr:14:25: warning: libraries are not supported on this platform
+a0b_base.gpr:11:25: warning: libraries are not supported on this platform
+a0b_stm32f2_generic_gpio.gpr:13:25: warning: libraries are not supported on this platform
+a0b_gpio.gpr:11:09: no compiler for language "Ada", cannot compile "a0b-gpio.ads"
+gprbuild: *** compilation phase failed
+ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/0eb142cc-e399-4a46-a686-6cc9c99397c0/a0b_stm32f2_generic_exti_0.1.0_46271506/selftest/a0b_stm32f2_generic_exti_selftest.gpr"] exited with code 7
+ERROR: Compilation failed.
+[alr test] Test action exited with error code 1

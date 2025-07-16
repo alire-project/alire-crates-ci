@@ -1,0 +1,80 @@
+Test ran at 2025-11-01 01:31:07.904962+00:00
+
+SOLUTION:
+printer_toolkit=0.3.0: Printer toolkit to write reports
+Origin: commit 0ea56e5abd8557e3b4a35f4c3a09bf66bbdc4b15 from https://gitlab.com/stcarrez/printer-toolkit.git
+Properties:
+   Author: Stephane.Carrez@gmail.com
+   Configuration: no modifiers
+   Description: Printer toolkit to write reports
+   GPR Scenario: PT_BUILD := distrib | debug | optimize | profile | coverage
+   GPR Scenario: PT_LIBRARY_TYPE := relocatable | static | static-pic
+   License: Apache-2.0
+   Long_Description: Printer toolkit provides support to write reports on console or to produce SVG files with almost
+the same Ada code.  It can display simple bar charts as well as images on the console.
+
+The core library is provided by `printer_toolkit` and the SVG support implemented by the `printer_toolkit_svg`.
+Run one of the following Alire commands or both:
+
+```
+alr with printer_toolkit
+alr with printer_toolkit_svg
+```
+
+   Maintainer: Stephane.Carrez@gmail.com
+   Maintainers_Logins: stcarrez
+   Name: printer_toolkit
+   Tag: reports
+   Tag: console
+   Tag: charts
+   Version: 0.3.0
+   Website: https://gitlab.com/stcarrez/printer-toolkit
+Dependencies (direct):
+   ansiada^1.0.0
+Dependencies (solution):
+   ansiada=1.1.0
+Dependencies (graph):
+   printer_toolkit=0.3.0 --> ansiada=1.1.0 (^1.0.0)
+
+
+LOG:
+[alr test] Testing printer_toolkit=0.3.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get printer_toolkit=0.3.0
+Note: Deploying printer_toolkit=0.3.0...
+Note: Deploying ansiada=1.1.0...
+
+printer_toolkit=0.3.0 successfully retrieved.
+Dependencies were solved as follows:
+
+   + ansiada 1.1.0 (new)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building printer_toolkit=0.3.0/printer_toolkit.gpr...
+Setup
+   [mkdir]        object directory for project Ansiada
+   [mkdir]        library directory for project Ansiada
+   [mkdir]        object directory for project Printer_Toolkit
+   [mkdir]        library directory for project Printer_Toolkit
+Compile
+   [Ada]          ansiada_config.ads
+   [Ada]          ansiada.ads
+   [C]            terminal.c
+   [Ada]          pt-texts.adb
+   [Ada]          pt.adb
+   [Ada]          pt-charts.adb
+   [Ada]          pt-drivers-images-kitty.adb
+   [Ada]          pt-drivers.ads
+   [Ada]          pt-charts-barcharts.adb
+   [Ada]          pt-drivers-images.adb
+   [Ada]          pt-drivers-texts.adb
+   [Ada]          pt-drivers-texts-gnat_io.adb
+   [Ada]          pt-colors.adb
+Build Libraries
+   [gprlib]       Ansiada.lexch
+   [gprlib]       printer_toolkit.lexch
+   [archive]      libAnsiada.a
+   [index]        libAnsiada.a
+   [archive]      libprinter_toolkit.a
+   [index]        libprinter_toolkit.a
+Success: Build finished successfully in 1.58 seconds.
+Found declared GPR file: printer_toolkit.gpr
+[alr test] Test completed SUCCESSFULLY

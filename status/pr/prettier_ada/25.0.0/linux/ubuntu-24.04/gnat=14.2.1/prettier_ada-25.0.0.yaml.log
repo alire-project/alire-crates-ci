@@ -1,0 +1,73 @@
+Test ran at 2025-09-04 00:55:54.153965+00:00
+
+SOLUTION:
+prettier_ada=25.0.0: Port of the Prettier formatter to Ada
+Origin: source archive prettier-ada-25.0.0.zip at https://github.com/adacore/prettier-ada/archive/v25.0.0/prettier-ada-25.0.0.zip with hash sha512:a67a33379f5fcc6ab619cf9f69ac80f41fe661ac8ab37f92ced2659d119b7cadbc1309a931e0b3dbf9dccb533a691fa9e3fc0357b8b5d6d3865469e530c2d381
+Properties:
+   Author: AdaCore
+   Configuration: no modifiers
+   Description: Port of the Prettier formatter to Ada
+   License: Apache-2.0 WITH LLVM-exception
+   Maintainer: chouteau@adacore.com
+   Maintainers_Logins: Fabien-Chouteau
+   Name: prettier_ada
+   Tag: format
+   Tag: formatter
+   Version: 25.0.0
+Dependencies (direct):
+   gnatcoll^25
+   vss^25
+Dependencies (solution):
+   gnat=14.2.1 (gnat_native)
+   gnatcoll=25.0.0
+   libgpr=25.0.0
+   vss=25.0.0
+   xmlada=25.0.0
+Dependencies (graph):
+   gnatcoll=25.0.0     --> gnat=14.2.1 (gnat_native) (>=13)
+   gnatcoll=25.0.0     --> libgpr=25.0.0 (~25.0.0)
+   libgpr=25.0.0       --> gnat=14.2.1 (gnat_native) (/=2020)
+   libgpr=25.0.0       --> xmlada=25.0.0 (~25.0.0)
+   prettier_ada=25.0.0 --> gnatcoll=25.0.0 (^25)
+   prettier_ada=25.0.0 --> vss=25.0.0 (^25)
+   vss=25.0.0          --> gnat=14.2.1 (gnat_native) (>=11 & <2000)
+   xmlada=25.0.0       --> gnat=14.2.1 (gnat_native) (>=11)
+
+
+LOG:
+[alr test] Testing prettier_ada=25.0.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get prettier_ada=25.0.0
+Note: Deploying prettier_ada=25.0.0...
+#=#=#                                                                          
+##O#-#                                                                         
+
+prettier_ada=25.0.0 successfully retrieved.
+Dependencies were solved as follows:
+
+   +b gnat     14.2.1 (new,gnat_native,indirect,binary)
+   +  gnatcoll 25.0.0 (new)
+   +  libgpr   25.0.0 (new,indirect)
+   +  vss      25.0.0 (new)
+   +  xmlada   25.0.0 (new,indirect)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building prettier_ada=25.0.0/prettier_ada.gpr...
+Setup
+   [mkdir]        object directory for project Prettier_Ada
+   [mkdir]        library directory for project Prettier_Ada
+Compile
+   [Ada]          prettier_ada-documents-builders.adb
+   [Ada]          prettier_ada.ads
+   [Ada]          prettier_ada-document_vector_vectors.ads
+   [Ada]          prettier_ada-documents-implementation.adb
+   [Ada]          prettier_ada-generic_formatters.adb
+   [Ada]          prettier_ada-documents-json.adb
+   [Ada]          prettier_ada-document_vectors.ads
+   [Ada]          prettier_ada-documents.adb
+   [Ada]          prettier_ada-optionals.ads
+Build Libraries
+   [gprlib]       prettier_ada.lexch
+   [archive]      libprettier_ada.a
+   [index]        libprettier_ada.a
+Success: Build finished successfully in 15.00 seconds.
+Found declared GPR file: prettier_ada.gpr
+[alr test] Test completed SUCCESSFULLY

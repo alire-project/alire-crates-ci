@@ -1,0 +1,401 @@
+Test ran at 2025-08-19 00:51:24.475020+00:00
+
+SOLUTION:
+sdlada=2.5.20: Ada 2012 SDL 2.x bindings.
+Origin: commit cd53c280e95697ad7f1b2151f1bad68742a0e7b8 from https://github.com/Lucretia/sdlada.git
+Properties:
+   Pre_Build run: make -C ./build/gnat tools (from ${CRATE_ROOT}/.)
+   Author: Luke A. Guest
+   Description: Ada 2012 SDL 2.x bindings.
+   case Distribution is
+      when Msys2 => Environment: C_INCLUDE_PATH=${C_INCLUDE_PATH}:${DISTRIB_ROOT}/mingw64/include/SDL2
+   GPR Scenario: SDL_MODE := debug | release
+   GPR Scenario: SDL_PLATFORM := linux | bsd | windows | macosx | macos_homebrew | macos_ports | ios | android
+   case OS is
+      when Linux => GPR External: SDL_PLATFORM := linux
+      when Macos => GPR External: SDL_PLATFORM := macosx
+      when Windows => GPR External: SDL_PLATFORM := windows
+   License: Zlib
+   Maintainer: Luke A. Guest <laguest@archeia.com>
+   Maintainers_Logins: Lucretia
+   Name: sdlada
+   Project_File: build/gnat/sdlada.gpr
+   Tag: gamedev
+   Tag: games
+   Tag: portable
+   Tag: cross-platform
+   Version: 2.5.20
+   Website: https://github.com/Lucretia/sdlada
+Dependencies (direct):
+   libsdl2^2.0.0
+   libsdl2_image^2.0.0
+   libsdl2_mixer^2.0.0
+   libsdl2_ttf^2.0.0
+   make*
+Dependencies (solution):
+   libsdl2=2.32.8
+   libsdl2_image=2.8.8
+   libsdl2_mixer=2.8.1
+   libsdl2_ttf=2.24.0
+   make=4.4.1
+Dependencies (graph):
+   sdlada=2.5.20 --> libsdl2=2.32.8 (^2.0.0)
+   sdlada=2.5.20 --> libsdl2_image=2.8.8 (^2.0.0)
+   sdlada=2.5.20 --> libsdl2_mixer=2.8.1 (^2.0.0)
+   sdlada=2.5.20 --> libsdl2_ttf=2.24.0 (^2.0.0)
+   sdlada=2.5.20 --> make=4.4.1 (*)
+
+
+LOG:
+[alr test] Testing sdlada=2.5.20
+[alr test] Spawning retrieval for remote crate: alr -d -n get sdlada=2.5.20
+Note: Deploying sdlada=2.5.20...
+Note: Deploying libsdl2=2.32.8...
+The system package 'sdl2' is about to be installed.
+This action might require admin privileges and impact your system installation.
+Do you want Alire to install this system package?
+Using default: Yes
+[32m==>[0m [1mFetching downloads for: [32msdl2[39m[0m
+[34m==>[0m [1mDownloading https://ghcr.io/v2/homebrew/core/sdl2/manifests/2.32.8[0m
+[32m==>[0m [1mFetching [32msdl2[39m[0m
+[34m==>[0m [1mDownloading https://ghcr.io/v2/homebrew/core/sdl2/blobs/sha256:ccce09ed346668bd6c1e990be37c9b84ab93824211bc6e407f856adaff20a885[0m
+[34m==>[0m [1mPouring sdl2--2.32.8.arm64_sequoia.bottle.tar.gz[0m
+🍺  /opt/homebrew/Cellar/sdl2/2.32.8: 94 files, 6.4MB
+[34m==>[0m [1mNo outdated dependents to upgrade![0m
+Note: Deploying libsdl2_image=2.8.8...
+The system package 'sdl2_image' is about to be installed.
+This action might require admin privileges and impact your system installation.
+Do you want Alire to install this system package?
+Using default: Yes
+[32m==>[0m [1mFetching downloads for: [32msdl2_image[39m[0m
+[34m==>[0m [1mDownloading https://ghcr.io/v2/homebrew/core/sdl2_image/manifests/2.8.8[0m
+[32m==>[0m [1mFetching dependencies for sdl2_image: [32mhighway[39m, [32mimath[39m, [32mlibdeflate[39m, [32mopenexr[39m, [32mwebp[39m, [32mjpeg-xl[39m, [32mlibvmaf[39m, [32maom[39m and [32mlibavif[39m[0m
+[34m==>[0m [1mDownloading https://ghcr.io/v2/homebrew/core/highway/manifests/1.2.0[0m
+[32m==>[0m [1mFetching [32mhighway[39m[0m
+[34m==>[0m [1mDownloading https://ghcr.io/v2/homebrew/core/highway/blobs/sha256:8a3327629482279fdff46b5bf3324cb6379a975b271d1ecc4a901a3cdb7e7f5a[0m
+[34m==>[0m [1mDownloading https://ghcr.io/v2/homebrew/core/imath/manifests/3.1.12[0m
+[32m==>[0m [1mFetching [32mimath[39m[0m
+[34m==>[0m [1mDownloading https://ghcr.io/v2/homebrew/core/imath/blobs/sha256:946c5c0541452ef3285cc49eb495c476b083203d3c0edab493045cb2e665fd31[0m
+[34m==>[0m [1mDownloading https://ghcr.io/v2/homebrew/core/libdeflate/manifests/1.24[0m
+[32m==>[0m [1mFetching [32mlibdeflate[39m[0m
+[34m==>[0m [1mDownloading https://ghcr.io/v2/homebrew/core/libdeflate/blobs/sha256:187850054c03e9417b2234ab30efa87b93a029b31e28fcb95b169579217ad333[0m
+[34m==>[0m [1mDownloading https://ghcr.io/v2/homebrew/core/openexr/manifests/3.3.5[0m
+[32m==>[0m [1mFetching [32mopenexr[39m[0m
+[34m==>[0m [1mDownloading https://ghcr.io/v2/homebrew/core/openexr/blobs/sha256:f12f6e8a339ab66b6269da2b6376d49fec5a8b5bdeae7c0ebe89cd2b0b5a69a1[0m
+[34m==>[0m [1mDownloading https://ghcr.io/v2/homebrew/core/webp/manifests/1.6.0[0m
+[32m==>[0m [1mFetching [32mwebp[39m[0m
+[34m==>[0m [1mDownloading https://ghcr.io/v2/homebrew/core/webp/blobs/sha256:ad74e4538a799bc21e85fb2899c2267f7b6c8761212d195ec3cb3583062ad19e[0m
+[34m==>[0m [1mDownloading https://ghcr.io/v2/homebrew/core/jpeg-xl/manifests/0.11.1_1[0m
+[32m==>[0m [1mFetching [32mjpeg-xl[39m[0m
+[34m==>[0m [1mDownloading https://ghcr.io/v2/homebrew/core/jpeg-xl/blobs/sha256:c3aceba825400a7d64dbd95d622ce59f0414e54cdedb792afc51d9278dae65b6[0m
+[34m==>[0m [1mDownloading https://ghcr.io/v2/homebrew/core/libvmaf/manifests/3.0.0-1[0m
+[32m==>[0m [1mFetching [32mlibvmaf[39m[0m
+[34m==>[0m [1mDownloading https://ghcr.io/v2/homebrew/core/libvmaf/blobs/sha256:0809635a529d0e53e927cb9834225210096c625b10ab7eb1211cadf63a1016c5[0m
+[34m==>[0m [1mDownloading https://ghcr.io/v2/homebrew/core/aom/manifests/3.12.1[0m
+[32m==>[0m [1mFetching [32maom[39m[0m
+[34m==>[0m [1mDownloading https://ghcr.io/v2/homebrew/core/aom/blobs/sha256:7187a5accf9da7614d96b6fb07df1c0b144cfb096d920e9936fa78b6fba18c4a[0m
+[34m==>[0m [1mDownloading https://ghcr.io/v2/homebrew/core/libavif/manifests/1.3.0[0m
+[32m==>[0m [1mFetching [32mlibavif[39m[0m
+[34m==>[0m [1mDownloading https://ghcr.io/v2/homebrew/core/libavif/blobs/sha256:79ac7837d5f965f0df486a3551aa4efbc0472f9a8a4c89f4748f6c423044c51e[0m
+[32m==>[0m [1mFetching [32msdl2_image[39m[0m
+[34m==>[0m [1mDownloading https://ghcr.io/v2/homebrew/core/sdl2_image/blobs/sha256:ce895628c0e84843740799c0001d8097cc5bb424edb45f150ee10d33d9031288[0m
+[32m==>[0m [1mInstalling dependencies for sdl2_image: [32mhighway[39m, [32mimath[39m, [32mlibdeflate[39m, [32mopenexr[39m, [32mwebp[39m, [32mjpeg-xl[39m, [32mlibvmaf[39m, [32maom[39m and [32mlibavif[39m[0m
+[32m==>[0m [1mInstalling sdl2_image dependency: [32mhighway[39m[0m
+[34m==>[0m [1mDownloading https://ghcr.io/v2/homebrew/core/highway/manifests/1.2.0[0m
+Already downloaded: /Users/runner/Library/Caches/Homebrew/downloads/8cb1608f21fba449c4e34b0a4912e3d73b6f2fa2577c916720799b5057207452--highway-1.2.0.bottle_manifest.json
+[34m==>[0m [1mPouring highway--1.2.0.arm64_sequoia.bottle.tar.gz[0m
+🍺  /opt/homebrew/Cellar/highway/1.2.0: 75 files, 4.6MB
+[32m==>[0m [1mInstalling sdl2_image dependency: [32mimath[39m[0m
+[34m==>[0m [1mDownloading https://ghcr.io/v2/homebrew/core/imath/manifests/3.1.12[0m
+Already downloaded: /Users/runner/Library/Caches/Homebrew/downloads/6afdf93c912565e828ad2386867db9e96b58441f29b901492560bcde9e8a22ad--imath-3.1.12.bottle_manifest.json
+[34m==>[0m [1mPouring imath--3.1.12.arm64_sequoia.bottle.tar.gz[0m
+🍺  /opt/homebrew/Cellar/imath/3.1.12: 50 files, 947.2KB
+[32m==>[0m [1mInstalling sdl2_image dependency: [32mlibdeflate[39m[0m
+[34m==>[0m [1mDownloading https://ghcr.io/v2/homebrew/core/libdeflate/manifests/1.24[0m
+Already downloaded: /Users/runner/Library/Caches/Homebrew/downloads/f25944af7be6e49fb1ab535f6d86ab11b6414cd8d6fca2fec1817aff2268c451--libdeflate-1.24.bottle_manifest.json
+[34m==>[0m [1mPouring libdeflate--1.24.arm64_sequoia.bottle.tar.gz[0m
+🍺  /opt/homebrew/Cellar/libdeflate/1.24: 17 files, 328.4KB
+[32m==>[0m [1mInstalling sdl2_image dependency: [32mopenexr[39m[0m
+[34m==>[0m [1mDownloading https://ghcr.io/v2/homebrew/core/openexr/manifests/3.3.5[0m
+Already downloaded: /Users/runner/Library/Caches/Homebrew/downloads/2b44e6cfa78e6adc5149d49daf94adf0e64e6adca9986a30a12182b029bbeaf0--openexr-3.3.5.bottle_manifest.json
+[34m==>[0m [1mPouring openexr--3.3.5.arm64_sequoia.bottle.tar.gz[0m
+🍺  /opt/homebrew/Cellar/openexr/3.3.5: 210 files, 4.8MB
+[32m==>[0m [1mInstalling sdl2_image dependency: [32mwebp[39m[0m
+[34m==>[0m [1mDownloading https://ghcr.io/v2/homebrew/core/webp/manifests/1.6.0[0m
+Already downloaded: /Users/runner/Library/Caches/Homebrew/downloads/6d50144a54dd109a0f6913c45cc66069274170ed1419872359bd0434856603fc--webp-1.6.0.bottle_manifest.json
+[34m==>[0m [1mPouring webp--1.6.0.arm64_sequoia.bottle.tar.gz[0m
+🍺  /opt/homebrew/Cellar/webp/1.6.0: 64 files, 2.5MB
+[32m==>[0m [1mInstalling sdl2_image dependency: [32mjpeg-xl[39m[0m
+[34m==>[0m [1mDownloading https://ghcr.io/v2/homebrew/core/jpeg-xl/manifests/0.11.1_1[0m
+Already downloaded: /Users/runner/Library/Caches/Homebrew/downloads/b1bbb94dec31282c134f452621e3141e9a5127fa90e51ac8d0103430f9b50eb7--jpeg-xl-0.11.1_1.bottle_manifest.json
+[34m==>[0m [1mPouring jpeg-xl--0.11.1_1.arm64_sequoia.bottle.tar.gz[0m
+🍺  /opt/homebrew/Cellar/jpeg-xl/0.11.1_1: 64 files, 35MB
+[32m==>[0m [1mInstalling sdl2_image dependency: [32mlibvmaf[39m[0m
+[34m==>[0m [1mDownloading https://ghcr.io/v2/homebrew/core/libvmaf/manifests/3.0.0-1[0m
+Already downloaded: /Users/runner/Library/Caches/Homebrew/downloads/3e1a82ebf20a6bd20eace7c0c56b52b096c4fa892466fa0a9e7be486389e0974--libvmaf-3.0.0-1.bottle_manifest.json
+[34m==>[0m [1mPouring libvmaf--3.0.0.arm64_sequoia.bottle.1.tar.gz[0m
+🍺  /opt/homebrew/Cellar/libvmaf/3.0.0: 235 files, 7.2MB
+[32m==>[0m [1mInstalling sdl2_image dependency: [32maom[39m[0m
+[34m==>[0m [1mDownloading https://ghcr.io/v2/homebrew/core/aom/manifests/3.12.1[0m
+Already downloaded: /Users/runner/Library/Caches/Homebrew/downloads/76daa5795424903e05b46ebd6f7e1d663f893f695dec830c798089c7ffb60f39--aom-3.12.1.bottle_manifest.json
+[34m==>[0m [1mPouring aom--3.12.1.arm64_sequoia.bottle.tar.gz[0m
+🍺  /opt/homebrew/Cellar/aom/3.12.1: 24 files, 9.8MB
+[32m==>[0m [1mInstalling sdl2_image dependency: [32mlibavif[39m[0m
+[34m==>[0m [1mDownloading https://ghcr.io/v2/homebrew/core/libavif/manifests/1.3.0[0m
+Already downloaded: /Users/runner/Library/Caches/Homebrew/downloads/b348d1f41a7bdb0c137f1c665651126f606eea340d8a8f08a38ed5bf401f1c33--libavif-1.3.0.bottle_manifest.json
+[34m==>[0m [1mPouring libavif--1.3.0.arm64_sequoia.bottle.tar.gz[0m
+🍺  /opt/homebrew/Cellar/libavif/1.3.0: 22 files, 993.2KB
+[32m==>[0m [1mInstalling [32msdl2_image[39m[0m
+[34m==>[0m [1mPouring sdl2_image--2.8.8.arm64_sequoia.bottle.tar.gz[0m
+🍺  /opt/homebrew/Cellar/sdl2_image/2.8.8: 15 files, 411.0KB
+[34m==>[0m [1mNo outdated dependents to upgrade![0m
+Note: Deploying libsdl2_mixer=2.8.1...
+The system package 'sdl2_mixer' is about to be installed.
+This action might require admin privileges and impact your system installation.
+Do you want Alire to install this system package?
+Using default: Yes
+[32m==>[0m [1mFetching downloads for: [32msdl2_mixer[39m[0m
+[34m==>[0m [1mDownloading https://ghcr.io/v2/homebrew/core/sdl2_mixer/manifests/2.8.1_1[0m
+[32m==>[0m [1mFetching dependencies for sdl2_mixer: [32mlibogg[39m, [32mflac[39m, [32mlame[39m, [32mlibvorbis[39m, [32mmpg123[39m, [32mopus[39m, [32mlibsndfile[39m, [32mportaudio[39m, [32mfluid-synth[39m, [32mgame-music-emu[39m, [32mlibxmp[39m, [32mopusfile[39m and [32mwavpack[39m[0m
+[34m==>[0m [1mDownloading https://ghcr.io/v2/homebrew/core/libogg/manifests/1.3.6[0m
+[32m==>[0m [1mFetching [32mlibogg[39m[0m
+[34m==>[0m [1mDownloading https://ghcr.io/v2/homebrew/core/libogg/blobs/sha256:2423ff6b931f0393cd314052a7328a61fdd6f1d8519b65c4dff5ab560f82c52d[0m
+[34m==>[0m [1mDownloading https://ghcr.io/v2/homebrew/core/flac/manifests/1.5.0[0m
+[32m==>[0m [1mFetching [32mflac[39m[0m
+[34m==>[0m [1mDownloading https://ghcr.io/v2/homebrew/core/flac/blobs/sha256:c9698bcebe8e99ab84adf49a347cad5a9f122c45b80622a9fe2acbaeab902545[0m
+[34m==>[0m [1mDownloading https://ghcr.io/v2/homebrew/core/lame/manifests/3.100[0m
+[32m==>[0m [1mFetching [32mlame[39m[0m
+[34m==>[0m [1mDownloading https://ghcr.io/v2/homebrew/core/lame/blobs/sha256:0ae0dcb09c908b80ffbdb1bb168674e5190d6b9ae006d5282b7ab4f06eac9f36[0m
+[34m==>[0m [1mDownloading https://ghcr.io/v2/homebrew/core/libvorbis/manifests/1.3.7-1[0m
+[32m==>[0m [1mFetching [32mlibvorbis[39m[0m
+[34m==>[0m [1mDownloading https://ghcr.io/v2/homebrew/core/libvorbis/blobs/sha256:c28d1e0b461a4cf6f5aee72e664ac6f5f6f3efaab44f15b91924f08474cfafe1[0m
+[34m==>[0m [1mDownloading https://ghcr.io/v2/homebrew/core/mpg123/manifests/1.33.2[0m
+[32m==>[0m [1mFetching [32mmpg123[39m[0m
+[34m==>[0m [1mDownloading https://ghcr.io/v2/homebrew/core/mpg123/blobs/sha256:ef311cff7f895e6d9833813db551278279d5c9c7ce37635e3fe441c5c8d64928[0m
+[34m==>[0m [1mDownloading https://ghcr.io/v2/homebrew/core/opus/manifests/1.5.2[0m
+[32m==>[0m [1mFetching [32mopus[39m[0m
+[34m==>[0m [1mDownloading https://ghcr.io/v2/homebrew/core/opus/blobs/sha256:564c0c7f19ac41ed22baabf7c1bf2e172f81bad60ec211d03bda8eeb42ce2f1a[0m
+[34m==>[0m [1mDownloading https://ghcr.io/v2/homebrew/core/libsndfile/manifests/1.2.2_1[0m
+[32m==>[0m [1mFetching [32mlibsndfile[39m[0m
+[34m==>[0m [1mDownloading https://ghcr.io/v2/homebrew/core/libsndfile/blobs/sha256:2d6a8173ef41359c3da4c78a5d5eb402846e480c509b868f671b80a17726f9c4[0m
+[34m==>[0m [1mDownloading https://ghcr.io/v2/homebrew/core/portaudio/manifests/19.7.0-1[0m
+[32m==>[0m [1mFetching [32mportaudio[39m[0m
+[34m==>[0m [1mDownloading https://ghcr.io/v2/homebrew/core/portaudio/blobs/sha256:8ad9f1c15a4bc9c05a9dd184b53b8f5f5d13a2458a70535bfb01e54ce4f8b4bd[0m
+[34m==>[0m [1mDownloading https://ghcr.io/v2/homebrew/core/fluid-synth/manifests/2.4.7[0m
+[32m==>[0m [1mFetching [32mfluid-synth[39m[0m
+[34m==>[0m [1mDownloading https://ghcr.io/v2/homebrew/core/fluid-synth/blobs/sha256:ccd2b09c6039ae97cf8339695c05f9bbbcc71eefd5592d8a14645331eaa76a46[0m
+[34m==>[0m [1mDownloading https://ghcr.io/v2/homebrew/core/game-music-emu/manifests/0.6.4[0m
+[32m==>[0m [1mFetching [32mgame-music-emu[39m[0m
+[34m==>[0m [1mDownloading https://ghcr.io/v2/homebrew/core/game-music-emu/blobs/sha256:660ece50d8af5ffbff406371638895522a4ea69d411b1258eb8fdba0a4196adb[0m
+[34m==>[0m [1mDownloading https://ghcr.io/v2/homebrew/core/libxmp/manifests/4.6.3[0m
+[32m==>[0m [1mFetching [32mlibxmp[39m[0m
+[34m==>[0m [1mDownloading https://ghcr.io/v2/homebrew/core/libxmp/blobs/sha256:746c3d92562469f5200fe2bb32f18f43c7bac6416e4e6cfa4ceb825d10ee13c8[0m
+[34m==>[0m [1mDownloading https://ghcr.io/v2/homebrew/core/opusfile/manifests/0.12_1[0m
+[32m==>[0m [1mFetching [32mopusfile[39m[0m
+[34m==>[0m [1mDownloading https://ghcr.io/v2/homebrew/core/opusfile/blobs/sha256:ad3b05a6931361ed1be9fd61d7c378d149071cf50bf0e7741df0799da481849a[0m
+[34m==>[0m [1mDownloading https://ghcr.io/v2/homebrew/core/wavpack/manifests/5.8.1[0m
+[32m==>[0m [1mFetching [32mwavpack[39m[0m
+[34m==>[0m [1mDownloading https://ghcr.io/v2/homebrew/core/wavpack/blobs/sha256:7a3c71972558779ba65c5333c17b5032577623b5695465cd0fc3fa62b43fe9d4[0m
+[32m==>[0m [1mFetching [32msdl2_mixer[39m[0m
+[34m==>[0m [1mDownloading https://ghcr.io/v2/homebrew/core/sdl2_mixer/blobs/sha256:1c7c1592895fc8bc86a246445698cd3258f835e319a4017d596ae8d67966d605[0m
+[32m==>[0m [1mInstalling dependencies for sdl2_mixer: [32mlibogg[39m, [32mflac[39m, [32mlame[39m, [32mlibvorbis[39m, [32mmpg123[39m, [32mopus[39m, [32mlibsndfile[39m, [32mportaudio[39m, [32mfluid-synth[39m, [32mgame-music-emu[39m, [32mlibxmp[39m, [32mopusfile[39m and [32mwavpack[39m[0m
+[32m==>[0m [1mInstalling sdl2_mixer dependency: [32mlibogg[39m[0m
+[34m==>[0m [1mDownloading https://ghcr.io/v2/homebrew/core/libogg/manifests/1.3.6[0m
+Already downloaded: /Users/runner/Library/Caches/Homebrew/downloads/2771c95e2ec94043bd81d507b7f5068b581ad45cd1d3529739b5fd47a5031fe8--libogg-1.3.6.bottle_manifest.json
+[34m==>[0m [1mPouring libogg--1.3.6.arm64_sequoia.bottle.tar.gz[0m
+🍺  /opt/homebrew/Cellar/libogg/1.3.6: 103 files, 538.2KB
+[32m==>[0m [1mInstalling sdl2_mixer dependency: [32mflac[39m[0m
+[34m==>[0m [1mDownloading https://ghcr.io/v2/homebrew/core/flac/manifests/1.5.0[0m
+Already downloaded: /Users/runner/Library/Caches/Homebrew/downloads/089760ef9c022b15fbe3b3eaf6297c3ced28db6633ea0c868a569ae651efb325--flac-1.5.0.bottle_manifest.json
+[34m==>[0m [1mPouring flac--1.5.0.arm64_sequoia.bottle.tar.gz[0m
+🍺  /opt/homebrew/Cellar/flac/1.5.0: 40 files, 1.9MB
+[32m==>[0m [1mInstalling sdl2_mixer dependency: [32mlame[39m[0m
+[34m==>[0m [1mDownloading https://ghcr.io/v2/homebrew/core/lame/manifests/3.100[0m
+Already downloaded: /Users/runner/Library/Caches/Homebrew/downloads/31e57f3a54d6908e2c153f5eb435715208f3bd9db71e16470b553d72e051b269--lame-3.100.bottle_manifest.json
+[34m==>[0m [1mPouring lame--3.100.arm64_sequoia.bottle.tar.gz[0m
+🍺  /opt/homebrew/Cellar/lame/3.100: 28 files, 2.2MB
+[32m==>[0m [1mInstalling sdl2_mixer dependency: [32mlibvorbis[39m[0m
+[34m==>[0m [1mDownloading https://ghcr.io/v2/homebrew/core/libvorbis/manifests/1.3.7-1[0m
+Already downloaded: /Users/runner/Library/Caches/Homebrew/downloads/68d211b8805a2fab148645c2ac8e43495e576876d6f50f0c4af5ea890730b7ea--libvorbis-1.3.7-1.bottle_manifest.json
+[34m==>[0m [1mPouring libvorbis--1.3.7.arm64_sequoia.bottle.1.tar.gz[0m
+🍺  /opt/homebrew/Cellar/libvorbis/1.3.7: 158 files, 2.4MB
+[32m==>[0m [1mInstalling sdl2_mixer dependency: [32mmpg123[39m[0m
+[34m==>[0m [1mDownloading https://ghcr.io/v2/homebrew/core/mpg123/manifests/1.33.2[0m
+Already downloaded: /Users/runner/Library/Caches/Homebrew/downloads/a55086cc563ed9c00774ac1ec06e3d55923e6994eddd17574246773c9be897c5--mpg123-1.33.2.bottle_manifest.json
+[34m==>[0m [1mPouring mpg123--1.33.2.arm64_sequoia.bottle.tar.gz[0m
+🍺  /opt/homebrew/Cellar/mpg123/1.33.2: 34 files, 2.0MB
+[32m==>[0m [1mInstalling sdl2_mixer dependency: [32mopus[39m[0m
+[34m==>[0m [1mDownloading https://ghcr.io/v2/homebrew/core/opus/manifests/1.5.2[0m
+Already downloaded: /Users/runner/Library/Caches/Homebrew/downloads/ab70a7e8383f42047a27c0638675dbd9c3229997a01eed45d76f174664a4b607--opus-1.5.2.bottle_manifest.json
+[34m==>[0m [1mPouring opus--1.5.2.arm64_sequoia.bottle.tar.gz[0m
+🍺  /opt/homebrew/Cellar/opus/1.5.2: 16 files, 1MB
+[32m==>[0m [1mInstalling sdl2_mixer dependency: [32mlibsndfile[39m[0m
+[34m==>[0m [1mDownloading https://ghcr.io/v2/homebrew/core/libsndfile/manifests/1.2.2_1[0m
+Already downloaded: /Users/runner/Library/Caches/Homebrew/downloads/2e97439a3a58c856a00043feceb29f382febc8542b8a0c0a31aa202b2c93ea08--libsndfile-1.2.2_1.bottle_manifest.json
+[34m==>[0m [1mPouring libsndfile--1.2.2_1.arm64_sequoia.bottle.tar.gz[0m
+🍺  /opt/homebrew/Cellar/libsndfile/1.2.2_1: 55 files, 1.8MB
+[32m==>[0m [1mInstalling sdl2_mixer dependency: [32mportaudio[39m[0m
+[34m==>[0m [1mDownloading https://ghcr.io/v2/homebrew/core/portaudio/manifests/19.7.0-1[0m
+Already downloaded: /Users/runner/Library/Caches/Homebrew/downloads/2ba32ec74d5080567eae3412994e5c8bc39afcd1dacfe3a0d347d210e47c5f7e--portaudio-19.7.0-1.bottle_manifest.json
+[34m==>[0m [1mPouring portaudio--19.7.0.arm64_sequoia.bottle.1.tar.gz[0m
+🍺  /opt/homebrew/Cellar/portaudio/19.7.0: 34 files, 546.0KB
+[32m==>[0m [1mInstalling sdl2_mixer dependency: [32mfluid-synth[39m[0m
+[34m==>[0m [1mDownloading https://ghcr.io/v2/homebrew/core/fluid-synth/manifests/2.4.7[0m
+Already downloaded: /Users/runner/Library/Caches/Homebrew/downloads/d395d3093c332c6478203a915d109e4040357187560c2d0a3d7ca5bfc35c1cfd--fluid-synth-2.4.7.bottle_manifest.json
+[34m==>[0m [1mPouring fluid-synth--2.4.7.arm64_sequoia.bottle.tar.gz[0m
+🍺  /opt/homebrew/Cellar/fluid-synth/2.4.7: 43 files, 2.9MB
+[32m==>[0m [1mInstalling sdl2_mixer dependency: [32mgame-music-emu[39m[0m
+[34m==>[0m [1mDownloading https://ghcr.io/v2/homebrew/core/game-music-emu/manifests/0.6.4[0m
+Already downloaded: /Users/runner/Library/Caches/Homebrew/downloads/1056ccc9eb75fcfed66757032ed05783f67051359db0a924fbae8e0a0c89e01a--game-music-emu-0.6.4.bottle_manifest.json
+[34m==>[0m [1mPouring game-music-emu--0.6.4.arm64_sequoia.bottle.tar.gz[0m
+🍺  /opt/homebrew/Cellar/game-music-emu/0.6.4: 13 files, 762.3KB
+[32m==>[0m [1mInstalling sdl2_mixer dependency: [32mlibxmp[39m[0m
+[34m==>[0m [1mDownloading https://ghcr.io/v2/homebrew/core/libxmp/manifests/4.6.3[0m
+Already downloaded: /Users/runner/Library/Caches/Homebrew/downloads/c267ced3feb07ae0586ef1a26f17345b36e5417b375f4b8f24af62c7b90abace--libxmp-4.6.3.bottle_manifest.json
+[34m==>[0m [1mPouring libxmp--4.6.3.arm64_sequoia.bottle.tar.gz[0m
+🍺  /opt/homebrew/Cellar/libxmp/4.6.3: 15 files, 1.1MB
+[32m==>[0m [1mInstalling sdl2_mixer dependency: [32mopusfile[39m[0m
+[34m==>[0m [1mDownloading https://ghcr.io/v2/homebrew/core/opusfile/manifests/0.12_1[0m
+Already downloaded: /Users/runner/Library/Caches/Homebrew/downloads/925bc6092c568bdec41e7c000aa7409fe98bb4129ee54cd512dc12ab2d3d8424--opusfile-0.12_1.bottle_manifest.json
+[34m==>[0m [1mPouring opusfile--0.12_1.arm64_sequoia.bottle.tar.gz[0m
+🍺  /opt/homebrew/Cellar/opusfile/0.12_1: 18 files, 349.8KB
+[32m==>[0m [1mInstalling sdl2_mixer dependency: [32mwavpack[39m[0m
+[34m==>[0m [1mDownloading https://ghcr.io/v2/homebrew/core/wavpack/manifests/5.8.1[0m
+Already downloaded: /Users/runner/Library/Caches/Homebrew/downloads/f212fb58fdbfa84f6ae064506af337afe74bd857794d1bef827de8eed3f0f8a7--wavpack-5.8.1.bottle_manifest.json
+[34m==>[0m [1mPouring wavpack--5.8.1.arm64_sequoia.bottle.tar.gz[0m
+🍺  /opt/homebrew/Cellar/wavpack/5.8.1: 26 files, 1.1MB
+[32m==>[0m [1mInstalling [32msdl2_mixer[39m[0m
+[34m==>[0m [1mPouring sdl2_mixer--2.8.1_1.arm64_sequoia.bottle.tar.gz[0m
+🍺  /opt/homebrew/Cellar/sdl2_mixer/2.8.1_1: 25 files, 554.4KB
+[34m==>[0m [1mNo outdated dependents to upgrade![0m
+Note: Deploying libsdl2_ttf=2.24.0...
+The system package 'sdl2_ttf' is about to be installed.
+This action might require admin privileges and impact your system installation.
+Do you want Alire to install this system package?
+Using default: Yes
+[32m==>[0m [1mFetching downloads for: [32msdl2_ttf[39m[0m
+[34m==>[0m [1mDownloading https://ghcr.io/v2/homebrew/core/sdl2_ttf/manifests/2.24.0[0m
+[32m==>[0m [1mFetching [32msdl2_ttf[39m[0m
+[34m==>[0m [1mDownloading https://ghcr.io/v2/homebrew/core/sdl2_ttf/blobs/sha256:15e7d2771f3011e7acc050c32642eb312e96b51596300562a9f6395669608779[0m
+[34m==>[0m [1mPouring sdl2_ttf--2.24.0.arm64_sequoia.bottle.tar.gz[0m
+🍺  /opt/homebrew/Cellar/sdl2_ttf/2.24.0: 13 files, 281.4KB
+[34m==>[0m [1mNo outdated dependents to upgrade![0m
+Note: Deploying make=4.4.1...
+The system package 'make' is about to be installed.
+This action might require admin privileges and impact your system installation.
+Do you want Alire to install this system package?
+Using default: Yes
+[32m==>[0m [1mFetching downloads for: [32mmake[39m[0m
+[34m==>[0m [1mDownloading https://ghcr.io/v2/homebrew/core/make/manifests/4.4.1-1[0m
+[32m==>[0m [1mFetching [32mmake[39m[0m
+[34m==>[0m [1mDownloading https://ghcr.io/v2/homebrew/core/make/blobs/sha256:f361639a5ec1a9355e12f985c511dd6631b6790452a52057032a3a07a690ca4e[0m
+[34m==>[0m [1mPouring make--4.4.1.arm64_sequoia.bottle.1.tar.gz[0m
+[34m==>[0m [1mCaveats[0m
+GNU "make" has been installed as "gmake".
+If you need to use it as "make", you can add a "gnubin" directory
+to your PATH from your bashrc like:
+
+    PATH="/opt/homebrew/opt/make/libexec/gnubin:$PATH"
+[34m==>[0m [1mSummary[0m
+🍺  /opt/homebrew/Cellar/make/4.4.1: 17 files, 1.3MB
+[34m==>[0m [1mNo outdated dependents to upgrade![0m
+
+sdlada=2.5.20 successfully retrieved.
+Dependencies were solved as follows:
+
+   +b libsdl2       2.32.8 (new,system package)
+   +b libsdl2_image 2.8.8  (new,system package)
+   +b libsdl2_mixer 2.8.1  (new,system package)
+   +b libsdl2_ttf   2.24.0 (new,system package)
+   +b make          4.4.1  (new,system package)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Running pre-build actions for sdlada=2.5.20...
+mkdir -p gen/src/
+gprbuild -p -gnat2012 -XSDL_MODE=debug -XSDL_PLATFORM=macosx \
+		-Ptools.gpr
+Setup
+   [mkdir]        object directory for project Tools
+Compile
+   [Ada]          gen_keyboard.adb
+   [Ada]          scancodes.ads
+   [Ada]          utils.adb
+Bind
+   [gprbind]      gen_keyboard.bexch
+   [Ada]          gen_keyboard.ali
+Link
+   [link]         gen_keyboard.adb
+./gen/debug/tools/gen_keyboard > gen/src/sdl-events-keyboards.ads
+Note: Building sdlada=2.5.20/build/gnat/sdlada.gpr...
+Setup
+   [mkdir]        object directory for project SDLAda
+Compile
+   [C]            version_ttf.c
+   [C]            version_images.c
+   [C]            version.c
+   [Ada]          sdl-ttfs.adb
+   [Ada]          sdl-ttfs-versions.adb
+   [Ada]          sdl-ttfs-makers.adb
+   [Ada]          sdl-images-versions.adb
+   [Ada]          sdl-images.adb
+   [Ada]          sdl-images-io.adb
+   [Ada]          sdl-video-windows-makers.adb
+   [Ada]          sdl-video.adb
+   [Ada]          sdl-video-textures.adb
+   [Ada]          sdl-video-rectangles.adb
+   [Ada]          sdl-video-palettes.adb
+   [Ada]          sdl-video-pixel_formats.adb
+   [Ada]          sdl-video-surfaces-makers.adb
+   [Ada]          sdl-video-windows.adb
+   [Ada]          sdl-video-textures-makers.adb
+   [Ada]          sdl-video-windows-manager.adb
+   [Ada]          sdl-video-renderers-makers.adb
+   [Ada]          sdl-video-displays.adb
+   [Ada]          sdl-video-gl.adb
+   [Ada]          sdl-video-pixels.ads
+   [Ada]          sdl-video-surfaces.adb
+   [Ada]          sdl-video-renderers.adb
+   [Ada]          sdl-rwops-streams.adb
+   [Ada]          sdl-rwops.adb
+   [Ada]          sdl-inputs-joysticks.adb
+   [Ada]          sdl-inputs-joysticks-game_controllers-makers.adb
+sdl-inputs-joysticks.adb:69:04: (style) missing "overriding" indicator in body of "=" [-gnatyO]
+sdl-inputs-joysticks.ads:56:04: (style) missing "overriding" indicator in declaration of "=" [-gnatyO]
+sdl-inputs-joysticks.ads:56:13: warning: missing overriding indicator for "=" [enabled by default]
+   [Ada]          sdl-inputs.ads
+   [Ada]          sdl-inputs-mice.adb
+   [Ada]          sdl-inputs-mice-cursors.adb
+   [Ada]          sdl-inputs-keyboards.adb
+   [Ada]          sdl-inputs-joysticks-makers.adb
+   [Ada]          sdl-inputs-joysticks-game_controllers.adb
+   [Ada]          sdl-events.ads
+   [Ada]          sdl-events-windows.ads
+   [Ada]          sdl-events-keyboards.adb
+   [Ada]          sdl-events-controllers.ads
+   [Ada]          sdl-events-joysticks.adb
+   [Ada]          sdl-events-touches.ads
+   [Ada]          sdl-events-joysticks-game_controllers.adb
+   [Ada]          sdl-events-files.ads
+   [Ada]          sdl-events-events.adb
+   [Ada]          sdl-events-mice.ads
+   [Ada]          sdl-audio-sample_formats.ads
+   [Ada]          sdl-audio.adb
+   [Ada]          sdl-audio-devices.adb
+   [Ada]          sdl-versions.adb
+   [Ada]          sdl-error.adb
+   [Ada]          sdl-libraries.adb
+   [Ada]          sdl-c_pointers.ads
+   [Ada]          sdl-platform.adb
+   [Ada]          sdl.adb
+   [Ada]          sdl-timers.ads
+   [Ada]          sdl-cpus.adb
+   [Ada]          sdl-clipboard.adb
+   [Ada]          sdl-log.adb
+   [Ada]          sdl-power.adb
+   [Ada]          sdl-hints.adb
+Build Libraries
+   [gprlib]       sdlada.lexch
+   [archive]      libsdlada.a
+   [index]        libsdlada.a
+Success: Build finished successfully in 6.93 seconds.
+Found declared GPR file: build/gnat/sdlada.gpr
+[alr test] Test completed SUCCESSFULLY

@@ -1,0 +1,88 @@
+Test ran at 2025-09-29 12:34:35.920882+00:00
+
+SOLUTION:
+axmpp=1.0.0: XMPP client library in Ada
+Origin: commit 9133a13efb7d453dcda7ca0a952e056a0a87c73b from https://github.com/coopht/axmpp.git
+Properties:
+   Author: Alexander Basov
+   Author: Vadim Godunko
+   Description: XMPP client library in Ada
+   License: BSD-3-Clause
+   Maintainer: Alexander Basov <coopht@gmail.com>
+   Maintainer: Max Reznik <reznikmm@gmail.com>
+   Maintainers_Logins: coopht
+   Maintainers_Logins: reznikmm
+   Name: axmpp
+   Project_File: gnat/axmpp.gpr
+   Tag: xmpp
+   Tag: jabber
+   Tag: messaging
+   Version: 1.0.0
+   Website: https://github.com/coopht/axmpp
+Dependencies (direct):
+   libgnutls*
+   matreshka_league*
+Dependencies (solution):
+   libgnutls=3.8.3
+   make=4.3.0
+   matreshka_league=21.0.0
+Dependencies (graph):
+   axmpp=1.0.0             --> libgnutls=3.8.3 (*)
+   axmpp=1.0.0             --> matreshka_league=21.0.0 (*)
+   matreshka_league=21.0.0 --> make=4.3.0 (*)
+
+
+LOG:
+[alr test] Testing axmpp=1.0.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get axmpp=1.0.0
+Note: Deploying axmpp=1.0.0...
+
+axmpp=1.0.0 successfully retrieved.
+Dependencies were solved as follows:
+
+   +b libgnutls        3.8.3  (new,system package)
+   +b make             4.3.0  (new,indirect,system package)
+   +  matreshka_league 21.0.0 (new)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building axmpp=1.0.0/gnat/axmpp.gpr...
+Setup
+   [mkdir]        object directory for project Agnutls
+   [mkdir]        library directory for project Agnutls
+Compile
+   [Ada]          gnutls.adb
+   [Ada]          xmpp.ads
+   [Ada]          xmpp-messages.adb
+   [Ada]          xmpp-iqs.adb
+   [Ada]          xmpp-null_objects.adb
+   [Ada]          xmpp-iq_sessions.adb
+   [Ada]          xmpp-versions.adb
+   [Ada]          xmpp-services_features.adb
+   [Ada]          xmpp-idle_tasks.adb
+   [Ada]          xmpp-objects.ads
+   [Ada]          xml-sax-input_sources-streams-sockets-debug.adb
+   [Ada]          xmpp-mucs.adb
+   [Ada]          xmpp-roster_items.adb
+   [Ada]          xmpp-services.adb
+   [Ada]          xmpp-stream_handlers.ads
+   [Ada]          xmpp-base64.adb
+   [Ada]          xmpp-logger.adb
+   [Ada]          xmpp-raw_handlers.ads
+   [Ada]          xmpp-presences.adb
+   [Ada]          xmpp-binds.adb
+   [Ada]          xmpp-networks.adb
+   [Ada]          xmpp-stream_features.adb
+   [Ada]          xmpp-streams.adb
+   [Ada]          xml-sax-input_sources-streams-tls_sockets.adb
+   [Ada]          xmpp-challenges.adb
+   [Ada]          xmpp-services_identities.adb
+   [Ada]          xmpp-utils.adb
+   [Ada]          xmpp-sessions.adb
+   [Ada]          xmpp-rosters.adb
+Build Libraries
+   [gprlib]       agnutls.lexch
+   [gprlib]       axmpp.lexch
+   [link library] libagnutls.so
+   [link library] libaxmpp.so
+Success: Build finished successfully in 4.43 seconds.
+Found declared GPR file: gnat/axmpp.gpr
+[alr test] Test completed SUCCESSFULLY

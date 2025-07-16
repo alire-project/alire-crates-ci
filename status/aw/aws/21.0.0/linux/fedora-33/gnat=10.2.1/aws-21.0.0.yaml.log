@@ -1,0 +1,553 @@
+Test ran at 2022-09-24 13:06:10.796892+00:00
+
+SOLUTION:
+aws=21.0.0: Ada Web Server
+Origin: source archive aws-21.0.0.zip at https://github.com/AdaCore/aws/releases/download/v21.0.0/aws-21.0.0.zip with hash sha512:57fddf8f59e39a08822ae2d0640ade3e3e3e9a7c76c06007c7df5a07e3b59cc7c9be001bfaeb10d64db924f343688f6a72deba175315d4d02d913c307070a635
+Properties:
+   Post_Fetch run: ${CRATE_DIR}/./make setup build install ZLIB=false DEMOS=false LAL=false XMLADA=false prefix=install_dir PRJ_BUILD=Release
+   Author: AdaCore
+   Description: Ada Web Server
+   GPR Scenario: LIBRARY_TYPE := static | relocatable
+   GPR Scenario: PRJ_BUILD := Debug | Release
+   GPR Scenario: PRJ_SOCKLIB := gnat | ipv6 | ipv4
+   GPR Scenario: PRJ_TARGET := Windows_NT | UNIX | Darwin | vxworks | freebsd
+   case OS is
+      when Linux => (GPR External: PRJ_TARGET := UNIX and GPR External: SOCKET := openssl and GPR External: TARGET := x86_64-linux-gnu)
+      when Macos => (GPR External: PRJ_TARGET := Darwin and GPR External: SOCKET := openssl)
+      when Windows => GPR External: PRJ_TARGET := Windows_NT
+   GPR External: PRJ_LAL := Disabled
+   License: GPL-3.0-only WITH GCC-exception-3.1
+   Maintainer: chouteau@adacore.com
+   Maintainers_Logins: Fabien-Chouteau
+   Name: aws
+   Project_File: install_dir/share/gpr/aws.gpr
+   Tag: aws
+   Tag: web
+   Tag: server
+   Tag: http
+   Tag: https
+   Tag: soap
+   Tag: wsdl
+   Tag: ssl
+   Version: 21.0.0
+   Website: https://github.com/adacore/aws
+Dependencies (direct):
+   gnat>=9
+   make*
+   openssl*
+   xmlada~21.0.0
+Dependencies (solution):
+   gnat=10.2.1 (gnat_external) (installed)
+   make=4.3.0
+   openssl=1.1.1
+   xmlada=21.0.0
+Dependencies (graph):
+   aws=21.0.0 --> gnat=10.2.1 (gnat_external) (>=9)
+   aws=21.0.0 --> make=4.3.0 (*)                   
+   aws=21.0.0 --> openssl=1.1.1 (*)                
+   aws=21.0.0 --> xmlada=21.0.0 (~21.0.0)          
+
+
+LOG:
+Note: Deploying aws=21.0.0...
+#=#=#                                                                         
+
+                                                                           0.2%
+######################################################################## 100.0%
+Note: Deploying make=4.3.0...
+Note: Deploying openssl=1.1.1...
+The system package 'libssl-dev' is about to be installed.
+This action might require admin privileges and impact your system installation.
+Do you want Alire to install this system package?
+Using default: Yes
+debconf: delaying package configuration, since apt-utils is not installed
+(Reading database ... 
+(Reading database ... 5%
+(Reading database ... 10%
+(Reading database ... 15%
+(Reading database ... 20%
+(Reading database ... 25%
+(Reading database ... 30%
+(Reading database ... 35%
+(Reading database ... 40%
+(Reading database ... 45%
+(Reading database ... 50%
+(Reading database ... 55%
+(Reading database ... 60%
+(Reading database ... 65%
+(Reading database ... 70%
+(Reading database ... 75%
+(Reading database ... 80%
+(Reading database ... 85%
+(Reading database ... 90%
+(Reading database ... 95%
+(Reading database ... 100%
+(Reading database ... 22419 files and directories currently installed.)
+Preparing to unpack .../libssl1.1_1.1.1n-0+deb11u3_amd64.deb ...
+Unpacking libssl1.1:amd64 (1.1.1n-0+deb11u3) over (1.1.1k-1+deb11u1) ...
+Setting up libssl1.1:amd64 (1.1.1n-0+deb11u3) ...
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+Selecting previously unselected package libssl-dev:amd64.
+(Reading database ... 
+(Reading database ... 5%
+(Reading database ... 10%
+(Reading database ... 15%
+(Reading database ... 20%
+(Reading database ... 25%
+(Reading database ... 30%
+(Reading database ... 35%
+(Reading database ... 40%
+(Reading database ... 45%
+(Reading database ... 50%
+(Reading database ... 55%
+(Reading database ... 60%
+(Reading database ... 65%
+(Reading database ... 70%
+(Reading database ... 75%
+(Reading database ... 80%
+(Reading database ... 85%
+(Reading database ... 90%
+(Reading database ... 95%
+(Reading database ... 100%
+(Reading database ... 22419 files and directories currently installed.)
+Preparing to unpack .../libssl-dev_1.1.1n-0+deb11u3_amd64.deb ...
+Unpacking libssl-dev:amd64 (1.1.1n-0+deb11u3) ...
+Setting up libssl-dev:amd64 (1.1.1n-0+deb11u3) ...
+Processing triggers for libc-bin (2.31-13) ...
+Note: Deploying xmlada=21.0.0...
+#=#=#                                                                         
+##O#-#                                                                        
+##=O#- #                                                                      
+Note: Running post_fetch actions for xmlada=21.0.0...
+checking build system type... x86_64-unknown-linux-gnu
+checking host system type... x86_64-unknown-linux-gnu
+checking target system type... x86_64-unknown-linux-gnu
+checking whether gnat can build shared libs... yes
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether ln -s works... yes
+configure: creating ./config.status
+config.status: creating xmlada_shared.gpr
+config.status: creating Makefile
+config.status: creating tests/dom/default.gpr
+Note: Running post_fetch actions for aws=21.0.0...
+make[1]: Entering directory '/home/runner/work/alire-crates-ci/alire-crates-ci/test/ca738b3f-0432-4315-af72-b68b9bf14cfd/aws_21.0.0_57fddf8f/config'
+Bind
+   [gprbind]      xoscons.bexch
+   [Ada]          xoscons.ali
+Link
+   [link]         xoscons.adb
+Setup OS specific definitions
+make[1]: Leaving directory '/home/runner/work/alire-crates-ci/alire-crates-ci/test/ca738b3f-0432-4315-af72-b68b9bf14cfd/aws_21.0.0_57fddf8f/config'
+make[1]: Entering directory '/home/runner/work/alire-crates-ci/alire-crates-ci/test/ca738b3f-0432-4315-af72-b68b9bf14cfd/aws_21.0.0_57fddf8f/regtests'
+Can not generate system tags. The test are disabled
+make[1]: Leaving directory '/home/runner/work/alire-crates-ci/alire-crates-ci/test/ca738b3f-0432-4315-af72-b68b9bf14cfd/aws_21.0.0_57fddf8f/regtests'
+make[1]: Entering directory '/home/runner/work/alire-crates-ci/alire-crates-ci/test/ca738b3f-0432-4315-af72-b68b9bf14cfd/aws_21.0.0_57fddf8f/demos'
+make[1]: Nothing to be done for 'setup'.
+make[1]: Leaving directory '/home/runner/work/alire-crates-ci/alire-crates-ci/test/ca738b3f-0432-4315-af72-b68b9bf14cfd/aws_21.0.0_57fddf8f/demos'
+make[1]: Entering directory '/home/runner/work/alire-crates-ci/alire-crates-ci/test/ca738b3f-0432-4315-af72-b68b9bf14cfd/aws_21.0.0_57fddf8f/templates_parser'
+make[1]: Leaving directory '/home/runner/work/alire-crates-ci/alire-crates-ci/test/ca738b3f-0432-4315-af72-b68b9bf14cfd/aws_21.0.0_57fddf8f/templates_parser'
+make[1]: Entering directory '/home/runner/work/alire-crates-ci/alire-crates-ci/test/ca738b3f-0432-4315-af72-b68b9bf14cfd/aws_21.0.0_57fddf8f/templates_parser'
+make[1]: Leaving directory '/home/runner/work/alire-crates-ci/alire-crates-ci/test/ca738b3f-0432-4315-af72-b68b9bf14cfd/aws_21.0.0_57fddf8f/templates_parser'
+Setup
+   [mkdir]        object directory for project Zlib
+   [mkdir]        library directory for project Zlib
+   [mkdir]        object directory for project Include
+   [mkdir]        library directory for project Include
+   [mkdir]        object directory for project SSL
+   [mkdir]        library directory for project SSL
+   [mkdir]        object directory for project Src
+   [mkdir]        library directory for project Src
+   [mkdir]        library directory for project AWS
+   [mkdir]        object directory for project Tools
+   [mkdir]        exec directory for project Tools
+Compile
+   [Ada]          awsres.adb
+   [Ada]          aws_password.adb
+   [Ada]          templates2ada.adb
+   [Ada]          webxref.adb
+   [Ada]          templatespp.adb
+   [Ada]          zlib.adb
+   [Ada]          zlib-thin.adb
+   [Ada]          zlib-streams.adb
+   [Ada]          memory_streams.adb
+   [Ada]          aws-os_lib.ads
+   [Ada]          templates_parser-utils.adb
+   [Ada]          templates_parser-debug.adb
+   [Ada]          templates_parser.adb
+   [Ada]          templates_parser-query.adb
+   [Ada]          aws-smtp.adb
+   [Ada]          aws-communication-server.adb
+   [Ada]          aws-services-dispatchers.ads
+   [Ada]          aws-services-callbacks.adb
+   [Ada]          aws-smtp-authentication-plain.adb
+   [Ada]          aws-server-push.adb
+   [Ada]          aws-services-web_block-context.adb
+   [Ada]          aws-services-dispatchers-transient_pages.adb
+   [Ada]          aws-services-dispatchers-virtual_host.adb
+   [Ada]          aws-communication-client.adb
+   [Ada]          aws-pop.adb
+   [Ada]          aws-smtp-authentication.ads
+   [Ada]          aws-services-split_pages-shared.adb
+   [Ada]          aws-communication.adb
+   [Ada]          aws-services-web_mail.adb
+   [Ada]          aws-net-stream_io.adb
+   [Ada]          aws-smtp-messages.adb
+   [Ada]          aws-services-web_block.ads
+   [Ada]          aws-resources-streams-pipe.adb
+   [Ada]          aws-services-page_server.adb
+   [Ada]          aws-services-split_pages-alpha.adb
+   [Ada]          aws-services-directory.adb
+   [Ada]          aws-cookie.adb
+   [Ada]          aws-services-dispatchers-method.adb
+   [Ada]          aws-smtp-client.adb
+   [Ada]          aws-services-dispatchers-linker.adb
+   [Ada]          aws-smtp-server.adb
+   [Ada]          aws-services-dispatchers-uri.adb
+   [Ada]          aws-client-hotplug.adb
+   [Ada]          aws-services-split_pages.adb
+   [Ada]          aws-net-log-callbacks.adb
+   [Ada]          aws-net-sets.ads
+   [Ada]          aws-services-download.adb
+   [Ada]          aws-smtp-messages-set.adb
+   [Ada]          aws-services-split_pages-uniform-alpha.adb
+   [Ada]          aws-services-split_pages-alpha-bounded.adb
+   [Ada]          aws-status-translate_table.adb
+   [Ada]          aws-services-dispatchers-timer.adb
+   [Ada]          aws-services-web_block-registry.adb
+   [Ada]          aws-server-hotplug.adb
+   [Ada]          aws-services-split_pages-uniform-overlapping.adb
+   [Ada]          aws-services-split_pages-uniform.adb
+   [Ada]          aws-resources-streams-zlib.adb
+   [Ada]          aws-services.ads
+   [Ada]          aws-status-set.adb
+   [Ada]          aws-resources-embedded.adb
+   [Ada]          aws-net-websocket-registry-utils.adb
+   [Ada]          aws-url-raise_url_error.adb
+   [Ada]          aws-server-status.adb
+   [Ada]          aws-translator.adb
+   [Ada]          aws-net-generic_sets.adb
+   [Ada]          aws-net-acceptors.adb
+   [Ada]          aws-server-http_utils.adb
+   [Ada]          aws-default.ads
+   [Ada]          aws.ads
+   [Ada]          aws-config.adb
+   [Ada]          aws-net-poll_events.adb
+   [Ada]          aws-net.adb
+   [Ada]          aws-parameters.adb
+   [Ada]          aws-services-transient_pages.adb
+   [Ada]          aws-containers-string_vectors.ads
+   [Ada]          aws-net-buffered.adb
+   [Ada]          aws-resources-streams-disk.adb
+   [Ada]          aws-hotplug.adb
+   [Ada]          aws-digest.adb
+   [Ada]          aws-resources-streams-memory-zlib.adb
+   [Ada]          aws-server-get_status.adb
+   [Ada]          aws-net-websocket-protocol-draft76.adb
+   [Ada]          aws-services-transient_pages-control.adb
+   [Ada]          aws-utils.adb
+   [Ada]          aws-net-websocket-protocol-rfc6455.adb
+   [Ada]          aws-resources.adb
+   [Ada]          aws-templates.ads
+   [Ada]          aws-utils-streams.adb
+   [Ada]          aws-resources-streams-disk-once.adb
+   [Ada]          aws-headers-set.adb
+   [Ada]          aws-config-set.adb
+   [Ada]          aws-response.adb
+   [Ada]          aws-messages.adb
+   [Ada]          aws-resources-files.adb
+   [Ada]          aws-response-set.adb
+   [Ada]          aws-net-ssl-rsa_dh_generators.adb
+   [Ada]          aws-client.adb
+   [Ada]          aws-status.adb
+   [Ada]          aws-config-ini.adb
+   [Ada]          aws-resources-streams-memory.adb
+   [Ada]          aws-url.adb
+   [Ada]          aws-config-utils.adb
+   [Ada]          aws-net-ssl-certificate.adb
+   [Ada]          aws-session-control.adb
+   [Ada]          aws-parameters-set.adb
+   [Ada]          aws-headers.adb
+   [Ada]          aws-net-websocket-handshake_error.adb
+   [Ada]          aws-url-set.adb
+   [Ada]          aws-net-log.adb
+   [Ada]          aws-headers-values.adb
+   [Ada]          aws-containers-tables-set.ads
+   [Ada]          aws-containers-key_value.ads
+   [Ada]          aws-client-http_utils.adb
+   [Ada]          aws-net-memory.adb
+   [Ada]          aws-mime.adb
+   [Ada]          aws-attachments.adb
+   [Ada]          aws-resources-streams.adb
+   [Ada]          aws-net-websocket-registry-control.adb
+   [Ada]          aws-server-log.adb
+   [Ada]          aws-dispatchers.adb
+   [Ada]          aws-session.adb
+   [Ada]          aws-net-websocket-protocol.ads
+   [Ada]          aws-containers-tables.adb
+   [Ada]          aws-net-websocket.adb
+   [Ada]          aws-containers.ads
+   [Ada]          aws-dispatchers-callback.adb
+   [Ada]          aws-log.adb
+   [Ada]          aws-server.adb
+   [Ada]          aws-net-websocket-registry.adb
+   [Ada]          aws-containers-memory_streams.ads
+   [Ada]          aws-exceptions.ads
+   [Ada]          aws-status-translate_set.adb
+   [Ada]          aws-hotplug-get_status.adb
+   [Ada]          aws-net-poll_events-g_poll.adb
+   [Ada]          templates_parser-input__aws.adb
+   [Ada]          templates_parser_tasking__standard_tasking.adb
+   [Ada]          aws-net-std__gnat.adb
+   [Ada]          aws-net-ssl__dummy.adb
+   [Ada]          aws-net-ssl-certificate-impl__dummy.adb
+   [Ada]          templates_parser-configuration__aws.ads
+   [Ada]          ssl.ads
+   [Ada]          ssl-thin__dummy.ads
+   [C]            crc32.c
+   [C]            adler32.c
+   [C]            uncompr.c
+   [C]            zutil.c
+   [C]            infback.c
+   [C]            inftrees.c
+   [C]            trees.c
+   [C]            gzclose.c
+   [C]            compress.c
+   [C]            gzlib.c
+   [C]            gzread.c
+   [C]            inflate.c
+   [C]            inffast.c
+   [C]            gzwrite.c
+   [C]            deflate.c
+Build Libraries
+   [gprlib]       z.lexch
+   [gprlib]       aws_ssl.lexch
+   [gprlib]       aws.lexch
+   [archive]      libz.a
+   [archive]      libaws_ssl.a
+   [index]        libz.a
+   [index]        libaws_ssl.a
+   [archive]      libaws.a
+   [index]        libaws.a
+Bind
+   [gprbind]      awsres.bexch
+   [gprbind]      aws_password.bexch
+   [Ada]          awsres.ali
+   [Ada]          aws_password.ali
+   [gprbind]      templates2ada.bexch
+   [Ada]          templates2ada.ali
+   [gprbind]      webxref.bexch
+   [Ada]          webxref.ali
+   [gprbind]      templatespp.bexch
+   [Ada]          templatespp.ali
+Link
+   [link]         awsres.adb
+   [link]         aws_password.adb
+   [link]         templates2ada.adb
+   [link]         webxref.adb
+   [link]         templatespp.adb
+Setup
+   [mkdir]        object directory for project Zlib
+   [mkdir]        library directory for project Zlib
+   [mkdir]        object directory for project Include
+   [mkdir]        library directory for project Include
+   [mkdir]        object directory for project SSL
+   [mkdir]        library directory for project SSL
+   [mkdir]        object directory for project Src
+   [mkdir]        library directory for project Src
+   [mkdir]        library directory for project AWS
+Compile
+   [Ada]          zlib.adb
+   [Ada]          zlib-thin.adb
+   [Ada]          zlib-streams.adb
+   [Ada]          memory_streams.adb
+   [Ada]          aws-os_lib.ads
+   [Ada]          templates_parser-utils.adb
+   [Ada]          templates_parser-debug.adb
+   [Ada]          templates_parser.adb
+   [Ada]          templates_parser-query.adb
+   [Ada]          aws-smtp.adb
+   [Ada]          aws-communication-server.adb
+   [Ada]          aws-services-dispatchers.ads
+   [Ada]          aws-services-callbacks.adb
+   [Ada]          aws-smtp-authentication-plain.adb
+   [Ada]          aws-server-push.adb
+   [Ada]          aws-services-web_block-context.adb
+   [Ada]          aws-services-dispatchers-transient_pages.adb
+   [Ada]          aws-services-dispatchers-virtual_host.adb
+   [Ada]          aws-communication-client.adb
+   [Ada]          aws-pop.adb
+   [Ada]          aws-smtp-authentication.ads
+   [Ada]          aws-services-split_pages-shared.adb
+   [Ada]          aws-communication.adb
+   [Ada]          aws-services-web_mail.adb
+   [Ada]          aws-net-stream_io.adb
+   [Ada]          aws-smtp-messages.adb
+   [Ada]          aws-services-web_block.ads
+   [Ada]          aws-resources-streams-pipe.adb
+   [Ada]          aws-services-page_server.adb
+   [Ada]          aws-services-split_pages-alpha.adb
+   [Ada]          aws-services-directory.adb
+   [Ada]          aws-cookie.adb
+   [Ada]          aws-services-dispatchers-method.adb
+   [Ada]          aws-smtp-client.adb
+   [Ada]          aws-services-dispatchers-linker.adb
+   [Ada]          aws-smtp-server.adb
+   [Ada]          aws-services-dispatchers-uri.adb
+   [Ada]          aws-client-hotplug.adb
+   [Ada]          aws-services-split_pages.adb
+   [Ada]          aws-net-log-callbacks.adb
+   [Ada]          aws-net-sets.ads
+   [Ada]          aws-services-download.adb
+   [Ada]          aws-smtp-messages-set.adb
+   [Ada]          aws-services-split_pages-uniform-alpha.adb
+   [Ada]          aws-services-split_pages-alpha-bounded.adb
+   [Ada]          aws-status-translate_table.adb
+   [Ada]          aws-services-dispatchers-timer.adb
+   [Ada]          aws-services-web_block-registry.adb
+   [Ada]          aws-server-hotplug.adb
+   [Ada]          aws-services-split_pages-uniform-overlapping.adb
+   [Ada]          aws-services-split_pages-uniform.adb
+   [Ada]          aws-resources-streams-zlib.adb
+   [Ada]          aws-services.ads
+   [Ada]          aws-status-set.adb
+   [Ada]          aws-resources-embedded.adb
+   [Ada]          aws-net-websocket-registry-utils.adb
+   [Ada]          aws-url-raise_url_error.adb
+   [Ada]          aws-server-status.adb
+   [Ada]          aws-translator.adb
+   [Ada]          aws-net-generic_sets.adb
+   [Ada]          aws-net-acceptors.adb
+   [Ada]          aws-server-http_utils.adb
+   [Ada]          aws-default.ads
+   [Ada]          aws.ads
+   [Ada]          aws-config.adb
+   [Ada]          aws-net-poll_events.adb
+   [Ada]          aws-net.adb
+   [Ada]          aws-parameters.adb
+   [Ada]          aws-services-transient_pages.adb
+   [Ada]          aws-containers-string_vectors.ads
+   [Ada]          aws-net-buffered.adb
+   [Ada]          aws-resources-streams-disk.adb
+   [Ada]          aws-hotplug.adb
+   [Ada]          aws-digest.adb
+   [Ada]          aws-resources-streams-memory-zlib.adb
+   [Ada]          aws-server-get_status.adb
+   [Ada]          aws-net-websocket-protocol-draft76.adb
+   [Ada]          aws-services-transient_pages-control.adb
+   [Ada]          aws-utils.adb
+   [Ada]          aws-net-websocket-protocol-rfc6455.adb
+   [Ada]          aws-resources.adb
+   [Ada]          aws-templates.ads
+   [Ada]          aws-utils-streams.adb
+   [Ada]          aws-resources-streams-disk-once.adb
+   [Ada]          aws-headers-set.adb
+   [Ada]          aws-config-set.adb
+   [Ada]          aws-response.adb
+   [Ada]          aws-messages.adb
+   [Ada]          aws-resources-files.adb
+   [Ada]          aws-response-set.adb
+   [Ada]          aws-net-ssl-rsa_dh_generators.adb
+   [Ada]          aws-client.adb
+   [Ada]          aws-status.adb
+   [Ada]          aws-config-ini.adb
+   [Ada]          aws-resources-streams-memory.adb
+   [Ada]          aws-url.adb
+   [Ada]          aws-config-utils.adb
+   [Ada]          aws-net-ssl-certificate.adb
+   [Ada]          aws-session-control.adb
+   [Ada]          aws-parameters-set.adb
+   [Ada]          aws-headers.adb
+   [Ada]          aws-net-websocket-handshake_error.adb
+   [Ada]          aws-url-set.adb
+   [Ada]          aws-net-log.adb
+   [Ada]          aws-headers-values.adb
+   [Ada]          aws-containers-tables-set.ads
+   [Ada]          aws-containers-key_value.ads
+   [Ada]          aws-client-http_utils.adb
+   [Ada]          aws-net-memory.adb
+   [Ada]          aws-mime.adb
+   [Ada]          aws-attachments.adb
+   [Ada]          aws-resources-streams.adb
+   [Ada]          aws-net-websocket-registry-control.adb
+   [Ada]          aws-server-log.adb
+   [Ada]          aws-dispatchers.adb
+   [Ada]          aws-session.adb
+   [Ada]          aws-net-websocket-protocol.ads
+   [Ada]          aws-containers-tables.adb
+   [Ada]          aws-net-websocket.adb
+   [Ada]          aws-containers.ads
+   [Ada]          aws-dispatchers-callback.adb
+   [Ada]          aws-log.adb
+   [Ada]          aws-server.adb
+   [Ada]          aws-net-websocket-registry.adb
+   [Ada]          aws-containers-memory_streams.ads
+   [Ada]          aws-exceptions.ads
+   [Ada]          aws-status-translate_set.adb
+   [Ada]          aws-hotplug-get_status.adb
+   [Ada]          aws-net-poll_events-g_poll.adb
+   [Ada]          templates_parser-input__aws.adb
+   [Ada]          templates_parser_tasking__standard_tasking.adb
+   [Ada]          aws-net-std__gnat.adb
+   [Ada]          aws-net-ssl__dummy.adb
+   [Ada]          aws-net-ssl-certificate-impl__dummy.adb
+   [Ada]          templates_parser-configuration__aws.ads
+   [Ada]          ssl.ads
+   [Ada]          ssl-thin__dummy.ads
+   [C]            crc32.c
+   [C]            adler32.c
+   [C]            uncompr.c
+   [C]            zutil.c
+   [C]            infback.c
+   [C]            inftrees.c
+   [C]            trees.c
+   [C]            gzclose.c
+   [C]            compress.c
+   [C]            gzlib.c
+   [C]            gzread.c
+   [C]            inflate.c
+   [C]            inffast.c
+   [C]            gzwrite.c
+   [C]            deflate.c
+Build Libraries
+   [gprlib]       z.lexch
+   [gprlib]       aws_ssl.lexch
+   [gprlib]       aws.lexch
+   [link library] libz.so
+   [link library] libaws_ssl.so
+   [link library] libaws.so
+Setup
+   [mkdir]        object directory for project GPS_Support
+   [mkdir]        exec directory for project GPS_Support
+Compile
+   [Ada]          gen_gps_ref.adb
+Bind
+   [gprbind]      gen_gps_ref.bexch
+   [Ada]          gen_gps_ref.ali
+Link
+   [link]         gen_gps_ref.adb
+make[1]: Entering directory '/home/runner/work/alire-crates-ci/alire-crates-ci/test/ca738b3f-0432-4315-af72-b68b9bf14cfd/aws_21.0.0_57fddf8f/gps'
+make[1]: Leaving directory '/home/runner/work/alire-crates-ci/alire-crates-ci/test/ca738b3f-0432-4315-af72-b68b9bf14cfd/aws_21.0.0_57fddf8f/gps'
+Install project AWS - static
+warning: file does not exist '/home/runner/work/alire-crates-ci/alire-crates-ci/test/ca738b3f-0432-4315-af72-b68b9bf14cfd/aws_21.0.0_57fddf8f/templates_parser/docs/build/latex/*.pdf'
+warning: file does not exist '/home/runner/work/alire-crates-ci/alire-crates-ci/test/ca738b3f-0432-4315-af72-b68b9bf14cfd/aws_21.0.0_57fddf8f/templates_parser/docs/build/html'
+warning: file does not exist '/home/runner/work/alire-crates-ci/alire-crates-ci/test/ca738b3f-0432-4315-af72-b68b9bf14cfd/aws_21.0.0_57fddf8f/docs/build/latex/*.pdf'
+warning: file does not exist '/home/runner/work/alire-crates-ci/alire-crates-ci/test/ca738b3f-0432-4315-af72-b68b9bf14cfd/aws_21.0.0_57fddf8f/docs/build/html'
+Install project Tools - static
+Install project AWS - relocatable
+warning: file does not exist '/home/runner/work/alire-crates-ci/alire-crates-ci/test/ca738b3f-0432-4315-af72-b68b9bf14cfd/aws_21.0.0_57fddf8f/templates_parser/docs/build/latex/*.pdf'
+warning: file does not exist '/home/runner/work/alire-crates-ci/alire-crates-ci/test/ca738b3f-0432-4315-af72-b68b9bf14cfd/aws_21.0.0_57fddf8f/templates_parser/docs/build/html'
+warning: file does not exist '/home/runner/work/alire-crates-ci/alire-crates-ci/test/ca738b3f-0432-4315-af72-b68b9bf14cfd/aws_21.0.0_57fddf8f/docs/build/latex/*.pdf'
+warning: file does not exist '/home/runner/work/alire-crates-ci/alire-crates-ci/test/ca738b3f-0432-4315-af72-b68b9bf14cfd/aws_21.0.0_57fddf8f/docs/build/html'
+Note: Building aws/install_dir/share/gpr/aws.gpr...
+Build finished successfully in 0.29 seconds.
+
+aws=21.0.0 successfully retrieved and built.
+Dependencies were solved as follows:
+
+   +i gnat    10.2.1 (new,installed,gnat_external)
+   +  make    4.3.0  (new)                        
+   +  openssl 1.1.1  (new)                        
+   +  xmlada  21.0.0 (new)                        
+Found declared GPR file: install_dir/share/gpr/aws.gpr

@@ -1,0 +1,1244 @@
+badge: false
+crate: light_stm32g0xx
+creation_timestamp: 1753405899.7903972
+distro: arch-20250601.0.358000
+duration: 7.70202070099981
+gnat: 15.2.1
+last_attempt: 2025-10-23 00:52:56.706129+00:00
+log:
+- 'Test ran at 2025-10-23 00:52:56.706101+00:00
+
+
+  '
+- 'SOLUTION:
+
+  '
+- 'light_stm32g0xx=15.0.0: light runtime for the STM32G0xx SoC
+
+  '
+- 'Origin: source archive light-stm32g0xx-15.0.0.tar.gz at https://github.com/damaki/stm32g0xx-runtimes/releases/download/v15.0.0/light-stm32g0xx-15.0.0.tar.gz
+  with hashes sha256:2fafbd87a9876db0558a6dd908f2474364bb7dd56563b2ce0f98447693999e17,
+  sha512:f4165c100a69ef633a1d140057fba24e8bb7a8a5267f5806105aa4a704de400631f1735c3e2c56268086b328f0ecea23a18e2d04a0f4280e721281e31f82bccb
+
+  '
+- 'Properties:
+
+  '
+- '   Author: AdaCore
+
+  '
+- '   Author: Daniel King
+
+  '
+- '   Config type: AHB_Pre : Enum (DIV1, DIV2, DIV4, DIV8, DIV16, DIV64, DIV128, DIV256,
+  DIV512) default: ''DIV1''
+
+  '
+- '   Config type: APB_Pre : Enum (DIV1, DIV2, DIV4, DIV8, DIV16) default: ''DIV1''
+
+  '
+- '   Config type: HSE_Bypass : Boolean default: ''false''
+
+  '
+- '   Config type: HSE_Clock_Frequency : Integer range 1 .. 48000000 default: ''8000000''
+
+  '
+- '   Config type: HSI_Div : Enum (DIV1, DIV2, DIV4, DIV8, DIV16, DIV32, DIV64, DIV128)
+  default: ''DIV1''
+
+  '
+- '   Config type: Interrupt_Secondary_Stack_Size : Integer range 1 .. 9223372036854775807
+  default: ''128''
+
+  '
+- '   Config type: Interrupt_Stack_Size : Integer range 1 .. 9223372036854775807 default:
+  ''1024''
+
+  '
+- '   Config type: LSE_Bypass : Boolean default: ''false''
+
+  '
+- '   Config type: LSE_Enabled : Boolean default: ''false''
+
+  '
+- '   Config type: LSI_Enabled : Boolean default: ''true''
+
+  '
+- '   Config type: MCU_Flash_Memory_Size : String default: ''B''
+
+  '
+- '   Config type: MCU_Sub_Family : Enum (G030, G031, G041, G050, G051, G061, G070,
+  G071, G081, G0B0, G0B1, G0C1) default: ''G0B1''
+
+  '
+- '   Config type: PLL_M_Div : Integer range 1 .. 8 default: ''2''
+
+  '
+- '   Config type: PLL_N_Mul : Integer range 8 .. 86 default: ''16''
+
+  '
+- '   Config type: PLL_P_Div : Integer range 2 .. 32 default: ''2''
+
+  '
+- '   Config type: PLL_P_Enable : Boolean default: ''true''
+
+  '
+- '   Config type: PLL_Q_Div : Integer range 2 .. 8 default: ''2''
+
+  '
+- '   Config type: PLL_Q_Enable : Boolean default: ''true''
+
+  '
+- '   Config type: PLL_R_Div : Integer range 2 .. 8 default: ''2''
+
+  '
+- '   Config type: PLL_Src : Enum (HSE, HSI16) default: ''HSI16''
+
+  '
+- '   Config type: RAM_Parity_Check : Enum (Disabled, Enabled) default: ''Disabled''
+
+  '
+- '   Config type: SYSCLK_Src : Enum (LSE, LSI, HSE, PLLRCLK, HSISYS) default: ''PLLRCLK''
+
+  '
+- '   Configuration: no modifiers
+
+  '
+- '   Description: light runtime for the STM32G0xx SoC
+
+  '
+- '   License: GPL-3.0-or-later WITH GCC-exception-3.1
+
+  '
+- '   Long_Description: ## Usage
+
+  '
+- '
+
+  '
+- 'First edit your `alire.toml` file and add the following elements:
+
+  '
+- ' - Add `light_stm32g0xx` in the dependency list:
+
+  '
+- '   ```toml
+
+  '
+- '   [[depends-on]]
+
+  '
+- '   light_stm32g0xx = "*"
+
+  '
+- '   ```
+
+  '
+- ' - if applicable, apply any runtime configuration variables (see below).
+
+  '
+- '
+
+  '
+- 'Then edit your project file to add the following elements:
+
+  '
+- ' - "with" the run-time project file. With this, gprbuild will compile the run-time
+  before your application
+
+  '
+- '   ```ada
+
+  '
+- '   with "runtime_build.gpr";
+
+  '
+- '   ```
+
+  '
+- ' - Specify the `Target` and `Runtime` attributes:
+
+  '
+- '   ```ada
+
+  '
+- '      for Target use runtime_build''Target;
+
+  '
+- '      for Runtime ("Ada") use runtime_build''Runtime ("Ada");
+
+  '
+- '   ```
+
+  '
+- ' - specify the `Linker` switches:
+
+  '
+- '   ```ada
+
+  '
+- '   package Linker is
+
+  '
+- '     for Switches ("Ada") use Runtime_Build.Linker_Switches;
+
+  '
+- '   end Linker;
+
+  '
+- '   ```
+
+  '
+- '
+
+  '
+- 'The runtime is configurable via Alire crate configuration variables.
+
+  '
+- 'See the project website for full details of the available options.
+
+  '
+- '
+
+  '
+- 'By default, the runtime is configured for the STM32G0B1RE. If your board has
+
+  '
+- 'a different MCU, then you will need to specify which MCU you are using via
+
+  '
+- 'the crate configuration. For example, to configure the runtime for the
+
+  '
+- 'STM32G031J4, add the following to your `alire.toml`:
+
+  '
+- '```toml
+
+  '
+- '[configuration.values]
+
+  '
+- 'light_stm32g0xx.MCU_Sub_Family        = "G031"
+
+  '
+- 'light_stm32g0xx.MCU_Flash_Memory_Size = "4"
+
+  '
+- '```
+
+  '
+- '
+
+  '
+- 'By default, the runtime configures the clock tree for a 64 MHz system clock
+
+  '
+- 'from the high-speed internal (HSI) oscillator. If you want a different clock
+
+  '
+- 'configuration, then use the crate configuration variables to specify the
+
+  '
+- 'configuration you wish to use. For example, to configure the runtime to
+
+  '
+- 'generate a 64 MHz system clock from a 24 MHz HSE crystal oscillator:
+
+  '
+- '```toml
+
+  '
+- '[configuration.values]
+
+  '
+- '# Configure a 24 MHz HSE crystal oscillator
+
+  '
+- 'light_tasking_stm32g0xx.HSE_Clock_Frequency = 24000000
+
+  '
+- 'light_tasking_stm32g0xx.HSE_Bypass = false
+
+  '
+- '
+
+  '
+- '# Select PLLRCLK as the SYSCLK source
+
+  '
+- 'light_tasking_stm32g0xx.SYSCLK_Src = "PLLRCLK"
+
+  '
+- '
+
+  '
+- '# Configure the PLL VCO to run at 128 MHz from the 24 MHz HSE (fVCO = fHSE * (N/M))
+
+  '
+- 'light_tasking_stm32g0xx.PLL_Src = "HSE"
+
+  '
+- 'light_tasking_stm32g0xx.PLL_N_Mul = 10
+
+  '
+- 'light_tasking_stm32g0xx.PLL_M_Div = 2
+
+  '
+- '
+
+  '
+- '# Configure the PLLRCLK to run at 64 MHz from the 128 MHz VCO.
+
+  '
+- 'light_tasking_stm32g0xx.PLL_R_Div = 2
+
+  '
+- '
+
+  '
+- '# Configure the AHB an APB to also run at 64 MHz
+
+  '
+- 'light_tasking_stm32g0xx.AHB_Pre = "DIV1"
+
+  '
+- 'light_tasking_stm32g0xx.APB_Pre = "DIV1"
+
+  '
+- '```
+
+  '
+- '
+
+  '
+- 'The runtime will generate a compile time error when an invalid PLL configuration
+
+  '
+- 'is set.
+
+  '
+- '
+
+  '
+- 'By default the PLL''s Q and P clocks are enabled. If you don''t need them, then
+  you
+
+  '
+- 'can disable them via the crate configuration:
+
+  '
+- '```toml
+
+  '
+- '[configuration.values]
+
+  '
+- 'light_stm32g0xx.PLL_Q_Enable = false
+
+  '
+- 'light_stm32g0xx.PLL_P_Enable = false
+
+  '
+- '```
+
+  '
+- '
+
+  '
+- 'The runtime will enable the PLL only when either `PLL_Q_Enable` or `PLL_P_Enable`
+
+  '
+- 'is `true`, or when `SYSCLK_Src = "PLLRCLK"`.
+
+  '
+- '
+
+  '
+- 'The interrupt stack sizes are also configurable:
+
+  '
+- '```toml
+
+  '
+- '[configuration.values]
+
+  '
+- 'light_stm32g0xx.Interrupt_Stack_Size = 1024
+
+  '
+- 'light_stm32g0xx.Interrupt_Secondary_Stack_Size = 128
+
+  '
+- '```
+
+  '
+- '
+
+  '
+- '   Maintainer: Daniel King <damaki.gh@gmail.com>
+
+  '
+- '   Maintainers_Logins: damaki
+
+  '
+- '   Name: light_stm32g0xx
+
+  '
+- '   Project_File: runtime_build.gpr
+
+  '
+- '   Tag: embedded
+
+  '
+- '   Tag: runtime
+
+  '
+- '   Tag: stm32g0
+
+  '
+- '   Version: 15.0.0
+
+  '
+- '   Website: https://github.com/damaki/stm32g0xx-runtimes
+
+  '
+- 'Dependencies (direct):
+
+  '
+- '   gnat_arm_elf^15
+
+  '
+- 'Dependencies (solution):
+
+  '
+- '   gnat_arm_elf=15.2.1
+
+  '
+- 'Dependencies (graph):
+
+  '
+- '   light_stm32g0xx=15.0.0 --> gnat_arm_elf=15.2.1 (^15)
+
+  '
+- '
+
+  '
+- '
+
+  LOG:
+
+  '
+- '[alr test] Testing light_stm32g0xx=15.0.0
+
+  '
+- '[alr test] Spawning retrieval for remote crate: alr -d -n get light_stm32g0xx=15.0.0
+
+  '
+- 'Note: Deploying light_stm32g0xx=15.0.0...
+
+  '
+- "#=#=#                                                                         \
+  \ \n"
+- '
+
+  '
+- '##                                                                         3.2%
+
+  '
+- '######################################################################## 100.0%
+
+  '
+- '
+
+  '
+- 'light_stm32g0xx=15.0.0 successfully retrieved.
+
+  '
+- 'Dependencies were solved as follows:
+
+  '
+- '
+
+  '
+- '   +b gnat_arm_elf 15.2.1 (new,binary)
+
+  '
+- '[alr test] Spawning default test for remote crate: alr -d -n build --release --
+  -cargs:Ada -gnatwn
+
+  '
+- 'Note: Building light_stm32g0xx=15.0.0/runtime_build.gpr...
+
+  '
+- 'Setup
+
+  '
+- '   [mkdir]        object directory for project Runtime_Build
+
+  '
+- '   [mkdir]        library directory for project Runtime_Build
+
+  '
+- 'Compile
+
+  '
+- '   [Asm_Cpp]      start-rom.S
+
+  '
+- '   [Asm_Cpp]      start-ram.S
+
+  '
+- '   [Asm_Cpp]      breakpoint_handler-cortexm.S
+
+  '
+- '   [Asm_Cpp]      handler.S
+
+  '
+- '   [Ada]          a-nbnbig.adb
+
+  '
+- '   [Ada]          s-valrea.adb
+
+  '
+- '   [Ada]          a-ngelfu.adb
+
+  '
+- '   [Ada]          s-atocou.adb
+
+  '
+- '   [Ada]          g-sestin.ads
+
+  '
+- '   [Ada]          s-casi16.adb
+
+  '
+- '   [Ada]          s-pack20.adb
+
+  '
+- '   [Ada]          s-pack53.adb
+
+  '
+- '   [Ada]          s-valueu.adb
+
+  '
+- '   [Ada]          g-debuti.adb
+
+  '
+- '   [Ada]          s-fatgen.adb
+
+  '
+- '   [Ada]          s-imgllf.ads
+
+  '
+- '   [Ada]          s-imen32.ads
+
+  '
+- '   [Ada]          i-cstrin.adb
+
+  '
+- '   [Ada]          s-flocon.adb
+
+  '
+- '   [Ada]          s-vs_lli.ads
+
+  '
+- '   [Ada]          unchdeal.ads
+
+  '
+- '   [Ada]          s-bbmcpa.ads
+
+  '
+- '   [Ada]          s-stache.adb
+
+  '
+- '   [Ada]          s-imenu8.ads
+
+  '
+- '   [Ada]          a-textio.adb
+
+  '
+- '   [Ada]          s-pack60.adb
+
+  '
+- '   [Ada]          s-stoele.adb
+
+  '
+- '   [Ada]          s-maccod.ads
+
+  '
+- '   [Ada]          s-valllf.ads
+
+  '
+- '   [Ada]          s-valuer.adb
+
+  '
+- '   [Ada]          s-valuns.ads
+
+  '
+- '   [Ada]          s-valuen.adb
+
+  '
+- '   [Ada]          s-vade64.ads
+
+  '
+- '   [Ada]          s-pack57.adb
+
+  '
+- '   [Ada]          a-charac.ads
+
+  '
+- '   [Ada]          s-caun64.adb
+
+  '
+- '   [Ada]          s-pack44.adb
+
+  '
+- '   [Ada]          s-imgint.ads
+
+  '
+- '   [Ada]          s-imde64.ads
+
+  '
+- '   [Ada]          s-pack58.adb
+
+  '
+- '   [Ada]          s-vafi32.ads
+
+  '
+- '   [Ada]          s-imguns.ads
+
+  '
+- '   [Ada]          s-carun8.adb
+
+  '
+- '   [Ada]          s-pack30.adb
+
+  '
+- '   [Ada]          s-imfi32.ads
+
+  '
+- '   [Ada]          s-pack33.adb
+
+  '
+- '   [Ada]          s-imager.adb
+
+  '
+- '   [Ada]          s-pack14.adb
+
+  '
+- '   [Ada]          s-carsi8.adb
+
+  '
+- '   [Ada]          s-imagei.adb
+
+  '
+- '   [Ada]          setup_pll.adb
+
+  '
+- '   [Ada]          s-pack19.adb
+
+  '
+- '   [Ada]          i-stm32-rcc.ads
+
+  '
+- '   [Ada]          s-pack54.adb
+
+  '
+- '   [Ada]          a-assert.adb
+
+  '
+- '   [Ada]          s-imageu.adb
+
+  '
+- '   [Ada]          s-powllf.ads
+
+  '
+- '   [Ada]          s-imgcha.adb
+
+  '
+- '   [Ada]          s-widllu.ads
+
+  '
+- '   [Ada]          s-pack39.adb
+
+  '
+- '   [Ada]          s-pack28.adb
+
+  '
+- '   [Ada]          s-memory.adb
+
+  '
+- '   [Ada]          s-pack22.adb
+
+  '
+- '   [Ada]          s-valuei.adb
+
+  '
+- '   [Ada]          a-elchha.adb
+
+  '
+- '   [Ada]          a-chlat1.ads
+
+  '
+- '   [Ada]          s-exponu.adb
+
+  '
+- '   [Ada]          s-pack43.adb
+
+  '
+- '   [Ada]          s-valboo.adb
+
+  '
+- '   [Ada]          s-vafi64.ads
+
+  '
+- '   [Ada]          s-pack31.adb
+
+  '
+- '   [Ada]          s-pack55.adb
+
+  '
+- '   [Ada]          s-pack18.adb
+
+  '
+- '   [Ada]          s-pack05.adb
+
+  '
+- '   [Ada]          s-pack36.adb
+
+  '
+- '   [Ada]          s-exponr.adb
+
+  '
+- '   [Ada]          s-libpre.ads
+
+  '
+- '   [Ada]          i-stm32.ads
+
+  '
+- '   [Ada]          s-powlfl.ads
+
+  '
+- '   [Ada]          s-textio.adb
+
+  '
+- '   [Ada]          s-pack38.adb
+
+  '
+- '   [Ada]          s-fatllf.ads
+
+  '
+- '   [Ada]          s-pack07.adb
+
+  '
+- '   [Ada]          s-pack51.adb
+
+  '
+- '   [Ada]          s-valflt.ads
+
+  '
+- '   [Ada]          a-uncdea.ads
+
+  '
+- '   [Ada]          s-secsta.adb
+
+  '
+- '   [Ada]          s-valspe.adb
+
+  '
+- '   [Ada]          s-bitops.adb
+
+  '
+- '   [Ada]          s-lisisq.adb
+
+  '
+- '   [Ada]          i-cexten.ads
+
+  '
+- '   [Ada]          s-arit32.adb
+
+  '
+- '   [Ada]          s-imgllu.ads
+
+  '
+- '   [Ada]          s-vade32.ads
+
+  '
+- '   [Ada]          s-vauspe.adb
+
+  '
+- '   [Ada]          s-vaispe.adb
+
+  '
+- '   [Ada]          s-widint.ads
+
+  '
+- '   [Ada]          i-c.adb
+
+  '
+- '   [Ada]          s-pack59.adb
+
+  '
+- '   [Ada]          s-memset.adb
+
+  '
+- '   [Ada]          s-valued.adb
+
+  '
+- '   [Ada]          a-nselfu.ads
+
+  '
+- '   [Ada]          s-retsta.ads
+
+  '
+- '   [Ada]          s-libm.adb
+
+  '
+- '   [Ada]          s-pack26.adb
+
+  '
+- '   [Ada]          s-widlli.ads
+
+  '
+- '   [Ada]          s-pack45.adb
+
+  '
+- '   [Ada]          s-bbpara.ads
+
+  '
+- '   [Ada]          s-libdou.adb
+
+  '
+- '   [Ada]          s-pack61.adb
+
+  '
+- '   [Ada]          s-imgboo.adb
+
+  '
+- '   [Ada]          g-io.adb
+
+  '
+- '   [Ada]          s-spcuop.adb
+
+  '
+- '   [Ada]          s-imgflt.ads
+
+  '
+- '   [Ada]          gnat.ads
+
+  '
+- '   [Ada]          s-imagen.adb
+
+  '
+- '   [Ada]          s-imglfl.ads
+
+  '
+- '   [Ada]          s-exponn.adb
+
+  '
+- '   [Ada]          s-vaenu8.ads
+
+  '
+- '   [Ada]          s-valcha.adb
+
+  '
+- '   [Ada]          s-imen16.ads
+
+  '
+- '   [Ada]          s-aridou.adb
+
+  '
+- '   [Ada]          s-imglli.ads
+
+  '
+- '   [Ada]          s-atopri.adb
+
+  '
+- '   [Ada]          s-pack62.adb
+
+  '
+- '   [Ada]          s-spark.ads
+
+  '
+- '   [Ada]          s-pack34.adb
+
+  '
+- '   [Ada]          unchconv.ads
+
+  '
+- '   [Ada]          s-veboop.adb
+
+  '
+- '   [Ada]          s-pack11.adb
+
+  '
+- '   [Ada]          a-nllefu.ads
+
+  '
+- '   [Ada]          s-casuti.adb
+
+  '
+- '   [Ada]          s-widthi.adb
+
+  '
+- '   [Ada]          s-fatflt.ads
+
+  '
+- '   [Ada]          s-imaged.adb
+
+  '
+- '   [Ada]          s-lidosq.adb
+
+  '
+- '   [Ada]          s-memcom.adb
+
+  '
+- '   [Ada]          s-pack25.adb
+
+  '
+- '   [Ada]          s-pack09.adb
+
+  '
+- '   [Ada]          s-imgllw.ads
+
+  '
+- '   [Ada]          a-strfix.adb
+
+  '
+- '   [Ada]          s-pack35.adb
+
+  '
+- '   [Ada]          s-imguti.adb
+
+  '
+- '   [Ada]          s-memtyp.ads
+
+  '
+- '   [Ada]          s-expllu.ads
+
+  '
+- '   [Ada]          a-numaux.ads
+
+  '
+- '   [Ada]          s-pack17.adb
+
+  '
+- '   [Ada]          s-memcop.adb
+
+  '
+- '   [Ada]          s-exnflt.ads
+
+  '
+- '   [Ada]          s-vs_uns.ads
+
+  '
+- '   [Ada]          s-exnllf.ads
+
+  '
+- '   [Ada]          a-strmap.adb
+
+  '
+- '   [Ada]          s-imde32.ads
+
+  '
+- '   [Ada]          s-bytswa.ads
+
+  '
+- '   [Ada]          s-semiho.adb
+
+  '
+- '   [Ada]          s-pack42.adb
+
+  '
+- '   [Ada]          s-atacco.adb
+
+  '
+- '   [Ada]          a-nuelfu.ads
+
+  '
+- '   [Ada]          s-vallli.ads
+
+  '
+- '   [Ada]          system.ads
+
+  '
+- '   [Ada]          machcode.ads
+
+  '
+- '   [Ada]          s-assert.adb
+
+  '
+- '   [Ada]          a-strsup.adb
+
+  '
+- '   [Ada]          s-pack10.adb
+
+  '
+- '   [Ada]          s-caun32.adb
+
+  '
+- '   [Ada]          s-widthu.adb
+
+  '
+- '   [Ada]          i-cpoint.adb
+
+  '
+- '   [Ada]          s-unstyp.ads
+
+  '
+- '   [Ada]          a-tags.adb
+
+  '
+- '   [Ada]          s-arit64.adb
+
+  '
+- '   [Ada]          s-pack13.adb
+
+  '
+- '   [Ada]          a-chahan.adb
+
+  '
+- '   [Ada]          a-nlelfu.ads
+
+  '
+- '   [Ada]          s-powflt.ads
+
+  '
+- '   [Ada]          a-strbou.adb
+
+  '
+- '   [Ada]          s-valuef.adb
+
+  '
+- '   [Ada]          s-pack29.adb
+
+  '
+- '   [Ada]          text_io.ads
+
+  '
+- '   [Ada]          s-expuns.ads
+
+  '
+- '   [Ada]          s-pack46.adb
+
+  '
+- '   [Ada]          s-valllu.ads
+
+  '
+- '   [Ada]          s-macres.adb
+
+  '
+- '   [Ada]          s-widuns.ads
+
+  '
+- '   [Ada]          s-imfi64.ads
+
+  '
+- '   [Ada]          s-libsin.adb
+
+  '
+- '   [Ada]          s-pack21.adb
+
+  '
+- '   [Ada]          s-gcmain.adb
+
+  '
+- '   [Ada]          s-vaen32.ads
+
+  '
+- '   [Ada]          s-valint.ads
+
+  '
+- '   [Ada]          s-geveop.adb
+
+  '
+- '   [Ada]          s-addope.adb
+
+  '
+- '   [Ada]          a-stmaco.ads
+
+  '
+- '   [Ada]          s-pack47.adb
+
+  '
+- '   [Ada]          s-pack12.adb
+
+  '
+- '   [Ada]          s-pack23.adb
+
+  '
+- '   [Ada]          s-vaen16.ads
+
+  '
+- '   [Ada]          s-pack06.adb
+
+  '
+- '   [Ada]          s-casi32.adb
+
+  '
+- '   [Ada]          s-imgwiu.ads
+
+  '
+- '   [Ada]          s-parame.ads
+
+  '
+- '   [Ada]          s-vallfl.ads
+
+  '
+- '   [Ada]          s-expmod.adb
+
+  '
+- '   [Ada]          s-vs_int.ads
+
+  '
+- '   [Ada]          a-except.adb
+
+  '
+- '   [Ada]          s-bbarat.adb
+
+  '
+- '   [Ada]          s-explli.ads
+
+  '
+- '   [Ada]          s-pack49.adb
+
+  '
+- '   [Ada]          s-expont.adb
+
+  '
+- '   [Ada]          s-valuti.adb
+
+  '
+- '   [Ada]          s-pack15.adb
+
+  '
+- '   [Ada]          s-vs_llu.ads
+
+  '
+- '   [Ada]          a-numeri.ads
+
+  '
+- '   [Ada]          s-pack03.adb
+
+  '
+- '   [Ada]          s-exnlfl.ads
+
+  '
+- '   [Ada]          s-imagew.adb
+
+  '
+- '   [Ada]          s-pack52.adb
+
+  '
+- '   [Ada]          s-vector.ads
+
+  '
+- '   [Ada]          s-exnlli.ads
+
+  '
+- '   [Ada]          s-pack63.adb
+
+  '
+- '   [Ada]          a-string.ads
+
+  '
+- '   [Ada]          s-sssita.adb
+
+  '
+- '   [Ada]          i-stm32-flash.ads
+
+  '
+- '   [Ada]          s-pack27.adb
+
+  '
+- '   [Ada]          ada.ads
+
+  '
+- '   [Ada]          interfac.ads
+
+  '
+- '   [Ada]          a-strsea.adb
+
+  '
+- '   [Ada]          s-imagef.adb
+
+  '
+- '   [Ada]          s-bbbopa.ads
+
+  '
+- '   [Ada]          s-pack37.adb
+
+  '
+- '   [Ada]          s-expint.ads
+
+  '
+- '   [Ada]          a-unccon.ads
+
+  '
+- '   [Ada]          s-casi64.adb
+
+  '
+- '   [Ada]          s-fatlfl.ads
+
+  '
+- '   [Ada]          s-boarop.ads
+
+  '
+- '   [Ada]          s-pack50.adb
+
+  '
+- '   [Ada]          a-nubinu.ads
+
+  '
+- '   [Ada]          g-souinf.ads
+
+  '
+- '   [Ada]          s-dourea.adb
+
+  '
+- '   [Ada]          s-memmov.adb
+
+  '
+- '   [Ada]          s-bb.ads
+
+  '
+- '   [Ada]          s-pack41.adb
+
+  '
+- '   [Ada]          s-exnint.ads
+
+  '
+- '   [Ada]          s-caun16.adb
+
+  '
+- '   [Ada]          stm32g0xx_runtime_config.ads
+
+  '
+- '   [Ada]          light_stm32g0xx_config.ads
+
+  '
+- 'Build Libraries
+
+  '
+- '   [gprlib]       gnat.lexch
+
+  '
+- '   [archive]      libgnat.a
+
+  '
+- '   [index]        libgnat.a
+
+  '
+- 'Success: Build finished successfully in 6.84 seconds.
+
+  '
+- 'Found declared GPR file: runtime_build.gpr
+
+  '
+- '[alr test] Test completed SUCCESSFULLY
+
+  '
+platform: linux
+status: success
+version: 15.0.0

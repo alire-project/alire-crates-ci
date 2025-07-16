@@ -1,0 +1,94 @@
+Test ran at 2025-10-16 01:25:08.340574+00:00
+
+SOLUTION:
+elada=1.8.8: Expression Language Library (JSR245)
+Origin: commit 4da951462a1b381ef23fe156b8c2273d4745c0b2 from https://gitlab.com/stcarrez/ada-el.git
+Properties:
+   Author: Stephane.Carrez@gmail.com
+   Configuration: no modifiers
+   Description: Expression Language Library (JSR245)
+   GPR Scenario: EL_BUILD := distrib | debug | optimize | profile | coverage
+   GPR Scenario: EL_LIBRARY_TYPE := relocatable | static | static-pic
+   License: Apache-2.0
+   Long_Description: [![Build Status](https://img.shields.io/endpoint?url=https://porion.vacs.fr/porion/api/v1/projects/ada-el/badges/build.json)](https://porion.vacs.fr/porion/projects/view/ada-el/summary)
+[![Test Status](https://img.shields.io/endpoint?url=https://porion.vacs.fr/porion/api/v1/projects/ada-el/badges/tests.json)](https://porion.vacs.fr/porion/projects/view/ada-el/xunits)
+[![Coverage](https://img.shields.io/endpoint?url=https://porion.vacs.fr/porion/api/v1/projects/ada-el/badges/coverage.json)](https://porion.vacs.fr/porion/projects/view/ada-el/summary)
+
+This Ada05 library provides the support for a simple Expression Language
+close to the Java Unified Expression Language (EL).
+
+The API provided by the EL library is inspired from the Java
+Unified Expression Language shared by the JSP 2.1 and JSF 1.2 technologies.
+See Expression Language specification in JSR245
+(https://jcp.org/en/jsr/summary?id=245)
+
+The EL expression is intensively used in web development applications built
+on top of various Java technologies but also on top of
+[Ada Web Application](https://gitlab.com/stcarrez/ada-awa)
+and [Ada Server Faces](https://gitlab.com/stcarrez/ada-asf).
+
+
+
+   Maintainer: Stephane.Carrez@gmail.com
+   Maintainers_Logins: stcarrez
+   Name: elada
+   Project_File: elada.gpr
+   Tag: web
+   Tag: expression
+   Tag: expander
+   Tag: parser
+   Version: 1.8.8
+   Website: https://gitlab.com/stcarrez/ada-el
+Dependencies (direct):
+   utilada^2.8.0
+Dependencies (solution):
+   utilada=2.8.1
+Dependencies (graph):
+   elada=1.8.8 --> utilada=2.8.1 (^2.8.0)
+
+
+LOG:
+[alr test] Testing elada=1.8.8
+[alr test] Spawning retrieval for remote crate: alr -d -n get elada=1.8.8
+Note: Deploying elada=1.8.8...
+
+elada=1.8.8 successfully retrieved.
+Dependencies were solved as follows:
+
+   + utilada 2.8.1 (new)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building elada=1.8.8/elada.gpr...
+Setup
+   [mkdir]        object directory for project ElAda
+   [mkdir]        library directory for project ElAda
+Compile
+   [Ada]          el-functions-default.adb
+   [Ada]          el.ads
+   [Ada]          el-utils.adb
+   [Ada]          el-functions.adb
+   [Ada]          el-methods-func_1.adb
+   [Ada]          el-contexts.ads
+   [Ada]          el-expressions-parser.adb
+   [Ada]          el-contexts-tls.adb
+   [Ada]          el-contexts-properties.adb
+   [Ada]          el-expressions-nodes.adb
+   [Ada]          el-methods-proc_in.adb
+   [Ada]          el-variables-default.adb
+   [Ada]          el-methods-proc_2.adb
+   [Ada]          el-beans.adb
+   [Ada]          el-methods-func_unbounded.ads
+   [Ada]          el-objects.ads
+   [Ada]          el-variables.ads
+   [Ada]          el-methods-func_string.ads
+   [Ada]          el-methods.ads
+   [Ada]          el-contexts-default.adb
+   [Ada]          el-expressions.adb
+   [Ada]          el-methods-proc_1.adb
+   [Ada]          el-functions-namespaces.adb
+Build Libraries
+   [gprlib]       elada.lexch
+   [archive]      libelada.a
+   [index]        libelada.a
+Success: Build finished successfully in 3.33 seconds.
+Found declared GPR file: elada.gpr
+[alr test] Test completed SUCCESSFULLY

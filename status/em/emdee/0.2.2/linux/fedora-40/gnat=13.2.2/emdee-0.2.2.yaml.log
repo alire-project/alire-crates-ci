@@ -1,0 +1,98 @@
+Test ran at 2025-08-03 12:28:12.097851+00:00
+
+SOLUTION:
+emdee=0.2.2: Performance assistant for Musical Directors
+Origin: commit 7595615548df2f8427b3bdd27288f95c4d21d86a from https://github.com/SMerrony/emdee.git
+Available when: (case OS is Linux => True, Macos => False, Windows => True, others => False)
+Properties:
+   Author: Stephen Merrony
+   Build Switches: 
+   Description: Performance assistant for Musical Directors
+   Executable: emdee
+   License: GPL-3.0-or-later
+   Long_Description: # Overview 
+
+`eMDee` is a live performance and rehearsal assistant for musical directors which removes the need to have folders of tracks and command-line windows open in order to play backing tracks for performance groups such as singers, choirs, and theatre-groups.
+
+The MD can plan in advance the order of performance; later, `eMDee` will facilitate the playing of each track in the specfied order during the performance.
+
+Additional controls may be added to specific tracks such as changing the volume level.
+
+   Maintainer: Stephen Merrony <merrony@gmail.com>
+   Maintainers_Logins: SMerrony
+   Name: emdee
+   Tag: performance
+   Tag: theatre
+   Tag: midi
+   Tag: mp3
+   Tag: soundtrack
+   Tag: player
+   Tag: wav
+   Tag: flac
+   Tag: ogg
+   Tag: music
+   Tag: ffplay
+   Tag: aplaymidi
+   Tag: playsmf
+   Version: 0.2.2
+   Website: https://github.com/SMerrony/emdee
+Dependencies (direct):
+   case OS is
+      when Windows => win32ada^23.0.0
+   ada_toml~0.4.0
+   gnat^13.0
+   gtkada^24.0.0
+Dependencies (solution):
+   ada_toml=0.4.0
+   gnat=13.2.2 (gnat_native)
+   gtkada=24.0.1
+   libgtk3=3.24.41
+   make=4.3.0
+   pkg_config=1.8.1
+Dependencies (graph):
+   emdee=0.2.2   --> ada_toml=0.4.0 (~0.4.0)
+   emdee=0.2.2   --> gnat=13.2.2 (gnat_native) (^13.0)
+   emdee=0.2.2   --> gtkada=24.0.1 (^24.0.0)
+   gtkada=24.0.1 --> libgtk3=3.24.41 (>=3.24.24)
+   gtkada=24.0.1 --> make=4.3.0 (*)
+   gtkada=24.0.1 --> pkg_config=1.8.1 (*)
+
+
+LOG:
+[alr test] Testing emdee=0.2.2
+[alr test] Spawning retrieval for remote crate: alr -d -n get emdee=0.2.2
+Note: Deploying emdee=0.2.2...
+
+emdee=0.2.2 successfully retrieved.
+Dependencies were solved as follows:
+
+   +  ada_toml   0.4.0   (new)
+   +b gnat       13.2.2  (new,gnat_native,binary)
+   +  gtkada     24.0.1  (new)
+   +b libgtk3    3.24.41 (new,indirect,system package)
+   +b make       4.3.0   (new,indirect,system package)
+   +b pkg_config 1.8.1   (new,indirect,system package)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building emdee=0.2.2/emdee.gpr...
+Setup
+   [mkdir]        object directory for project Emdee
+   [mkdir]        exec directory for project Emdee
+Compile
+   [Ada]          emdee.adb
+   [Ada]          gui.adb
+   [Ada]          embedded.adb
+   [Ada]          gui-live_controls.adb
+   [Ada]          gui-menu.adb
+   [Ada]          gui-tracks.adb
+   [Ada]          players.adb
+   [Ada]          session.adb
+   [Ada]          track.adb
+   [Ada]          midi_files.adb
+Bind
+   [gprbind]      emdee.bexch
+   [Ada]          emdee.ali
+Link
+   [link]         emdee.adb
+Success: Build finished successfully in 8.84 seconds.
+Found declared GPR file: emdee.gpr
+[alr test] Test completed SUCCESSFULLY

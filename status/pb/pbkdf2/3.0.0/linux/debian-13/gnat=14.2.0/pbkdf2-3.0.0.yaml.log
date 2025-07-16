@@ -1,0 +1,67 @@
+Test ran at 2025-09-04 13:10:43.191713+00:00
+
+SOLUTION:
+pbkdf2=3.0.0: PBKDF2 implemented in Ada
+Origin: commit 67518be3704968c2f9cb61794f341355d3397d7d from https://github.com/AntonMeep/pbkdf2.git
+Properties:
+   Author: Anton Fediushin
+   Description: PBKDF2 implemented in Ada
+   License: ISC
+   Maintainer: Anton Fediushin <imantonmeep@gmail.com>
+   Maintainers_Logins: AntonMeep
+   Name: pbkdf2
+   Tag: cryptography
+   Tag: security
+   Tag: pbkdf2
+   Version: 3.0.0
+   Website: https://github.com/AntonMeep/pbkdf2
+Dependencies (direct):
+   hmac^2.0.0
+   sha1^2.0.0
+   sha2^2.0.0
+Dependencies (solution):
+   hmac=2.0.0
+   sha1=2.0.0
+   sha2=2.0.0
+Dependencies (graph):
+   hmac=2.0.0   --> sha1=2.0.0 (^2.0.0)
+   hmac=2.0.0   --> sha2=2.0.0 (^2.0.0)
+   pbkdf2=3.0.0 --> hmac=2.0.0 (^2.0.0)
+   pbkdf2=3.0.0 --> sha1=2.0.0 (^2.0.0)
+   pbkdf2=3.0.0 --> sha2=2.0.0 (^2.0.0)
+
+
+LOG:
+[alr test] Testing pbkdf2=3.0.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get pbkdf2=3.0.0
+Note: Deploying pbkdf2=3.0.0...
+Note: Deploying hmac=2.0.0...
+
+pbkdf2=3.0.0 successfully retrieved.
+Dependencies were solved as follows:
+
+   + hmac 2.0.0 (new)
+   + sha1 2.0.0 (new)
+   + sha2 2.0.0 (new)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building pbkdf2=3.0.0/pbkdf2.gpr...
+Setup
+   [mkdir]        object directory for project HMAC
+   [mkdir]        library directory for project HMAC
+   [mkdir]        object directory for project Pbkdf2
+   [mkdir]        library directory for project Pbkdf2
+Compile
+   [Ada]          hmac.ads
+   [Ada]          hmac_generic.adb
+   [Ada]          pbkdf2_generic.adb
+   [Ada]          pbkdf2.ads
+Build Libraries
+   [gprlib]       hmac.lexch
+   [gprlib]       pbkdf2.lexch
+   [archive]      libhmac.a
+   [index]        libhmac.a
+   [archive]      libpbkdf2.a
+   [index]        libpbkdf2.a
+Success: Build finished successfully in 0.75 seconds.
+Found declared GPR file: pbkdf2.gpr
+[alr test] Test completed SUCCESSFULLY

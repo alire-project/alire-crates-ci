@@ -1,0 +1,2156 @@
+badge: false
+crate: embedded_stm32g4xx
+creation_timestamp: 1756948189.5252657
+distro: arch-20250824.0.410029
+duration: 23.62900208499991
+gnat: 15.1.2
+last_attempt: 2025-09-06 00:46:37.880733+00:00
+log:
+- 'Test ran at 2025-09-06 00:46:37.880713+00:00
+
+
+  '
+- 'SOLUTION:
+
+  '
+- 'embedded_stm32g4xx=15.0.0: embedded runtime for the STM32G4xx SoC
+
+  '
+- 'Origin: source archive embedded-stm32g4xx-15.0.0.tar.gz at https://github.com/damaki/stm32g4xx-runtimes/releases/download/v15.0.0/embedded-stm32g4xx-15.0.0.tar.gz
+  with hashes sha256:f139bd19c248bf8b9153a74881da06c2d79f0263cdb841fbac80ce2e24c2cc4f,
+  sha512:7e3f0237d38bf9e6f5bf09951933a7efe04c28a5cde9ce1806e4d5247cee6a71c937d9c04309da1b5569c1f2c17534349154712f037ef512f10e92f33d6f1f10
+
+  '
+- 'Properties:
+
+  '
+- '   Author: AdaCore
+
+  '
+- '   Author: Daniel King
+
+  '
+- '   Config type: AHB_Pre : Enum (DIV1, DIV2, DIV4, DIV8, DIV16, DIV64, DIV128, DIV256,
+  DIV512) default: ''DIV1''
+
+  '
+- '   Config type: APB1_Pre : Enum (DIV1, DIV2, DIV4, DIV8, DIV16) default: ''DIV1''
+
+  '
+- '   Config type: APB2_Pre : Enum (DIV1, DIV2, DIV4, DIV8, DIV16) default: ''DIV1''
+
+  '
+- '   Config type: HSE_Bypass : Boolean default: ''false''
+
+  '
+- '   Config type: HSE_Clock_Frequency : Integer range 4000000 .. 48000000 default:
+  ''24000000''
+
+  '
+- '   Config type: Interrupt_Secondary_Stack_Size : Integer range 1 .. 9223372036854775807
+  default: ''128''
+
+  '
+- '   Config type: Interrupt_Stack_Size : Integer range 1 .. 9223372036854775807 default:
+  ''1024''
+
+  '
+- '   Config type: LSE_Bypass : Boolean default: ''false''
+
+  '
+- '   Config type: LSE_Enabled : Boolean default: ''false''
+
+  '
+- '   Config type: LSI_Enabled : Boolean default: ''true''
+
+  '
+- '   Config type: MCU_Flash_Memory_Size : String default: ''E''
+
+  '
+- '   Config type: MCU_Sub_Family : Enum (G431, G441, G491, G4A1, G473, G483, G474,
+  G484) default: ''G474''
+
+  '
+- '   Config type: PLL_M_Div : Integer range 1 .. 16 default: ''4''
+
+  '
+- '   Config type: PLL_N_Mul : Integer range 8 .. 127 default: ''85''
+
+  '
+- '   Config type: PLL_P_Div : Integer range 2 .. 31 default: ''2''
+
+  '
+- '   Config type: PLL_P_Enable : Boolean default: ''true''
+
+  '
+- '   Config type: PLL_Q_Div : Enum (DIV2, DIV4, DIV6, DIV8) default: ''DIV2''
+
+  '
+- '   Config type: PLL_Q_Enable : Boolean default: ''true''
+
+  '
+- '   Config type: PLL_R_Div : Enum (DIV2, DIV4, DIV6, DIV8) default: ''DIV2''
+
+  '
+- '   Config type: PLL_Src : Enum (HSE, HSI16) default: ''HSI16''
+
+  '
+- '   Config type: SYSCLK_Src : Enum (HSI16, HSE, PLLRCLK) default: ''PLLRCLK''
+
+  '
+- '   Configuration: no modifiers
+
+  '
+- '   Description: embedded runtime for the STM32G4xx SoC
+
+  '
+- '   License: GPL-3.0-or-later WITH GCC-exception-3.1
+
+  '
+- '   Long_Description: ## Usage
+
+  '
+- '
+
+  '
+- 'First edit your `alire.toml` file and add the following elements:
+
+  '
+- ' - Add `embedded_stm32g4xx` in the dependency list:
+
+  '
+- '   ```toml
+
+  '
+- '   [[depends-on]]
+
+  '
+- '   embedded_stm32g4xx = "*"
+
+  '
+- '   ```
+
+  '
+- ' - if applicable, apply any runtime configuration variables (see below).
+
+  '
+- '
+
+  '
+- 'Then edit your project file to add the following elements:
+
+  '
+- ' - "with" the run-time project file. With this, gprbuild will compile the run-time
+  before your application
+
+  '
+- '   ```ada
+
+  '
+- '   with "runtime_build.gpr";
+
+  '
+- '   ```
+
+  '
+- ' - Specify the `Target` and `Runtime` attributes:
+
+  '
+- '   ```ada
+
+  '
+- '      for Target use runtime_build''Target;
+
+  '
+- '      for Runtime ("Ada") use runtime_build''Runtime ("Ada");
+
+  '
+- '   ```
+
+  '
+- ' - specify the `Linker` switches:
+
+  '
+- '   ```ada
+
+  '
+- '   package Linker is
+
+  '
+- '     for Switches ("Ada") use Runtime_Build.Linker_Switches;
+
+  '
+- '   end Linker;
+
+  '
+- '   ```
+
+  '
+- '
+
+  '
+- 'The runtime is configurable via Alire crate configuration variables.
+
+  '
+- 'See the project website for full details of the available options.
+
+  '
+- '
+
+  '
+- 'By default, the runtime is configured for the STM32G474RE. If you are using
+
+  '
+- 'a different MCU, then you will need to configure the runtime by adding the
+
+  '
+- 'following to your `alire.toml`. For example, to configure the runtime for the
+
+  '
+- 'STM32G431K6:
+
+  '
+- '```toml
+
+  '
+- '[configuration.values]
+
+  '
+- 'embedded_stm32g4xx.MCU_Sub_Family        = "G431"
+
+  '
+- 'embedded_stm32g4xx.MCU_Flash_Memory_Size = "6"
+
+  '
+- '```
+
+  '
+- '
+
+  '
+- 'By default, the runtime configures the clock tree for a 170 MHz system clock
+
+  '
+- 'from the high-speed internal (HSI) oscillator. If you want a different clock
+
+  '
+- 'configuration, then use the crate configuration variables to specify the
+
+  '
+- 'configuration you wish to use. For example, to configure the runtime to
+
+  '
+- 'generate a 170 MHz system clock from a 24 MHz HSE crystal oscillator:
+
+  '
+- '```toml
+
+  '
+- '[configuration.values]
+
+  '
+- '# Configure a 24 MHz HSE crystal oscillator
+
+  '
+- 'embedded_stm32g4xx.HSE_Clock_Frequency = 24000000
+
+  '
+- 'embedded_stm32g4xx.HSE_Bypass = false
+
+  '
+- '
+
+  '
+- '# Select PLLRCLK as the SYSCLK source
+
+  '
+- 'embedded_stm32g4xx.SYSCLK_Src = "PLLRCLK"
+
+  '
+- '
+
+  '
+- '# Configure the PLL VCO to run at 340 MHz from the 24 MHz HSE (fVCO = fHSE * (N/M))
+
+  '
+- 'embedded_stm32g4xx.PLL_Src = "HSE"
+
+  '
+- 'embedded_stm32g4xx.PLL_N_Mul = 85
+
+  '
+- 'embedded_stm32g4xx.PLL_M_Div = 6
+
+  '
+- '
+
+  '
+- '# Configure the PLLRCLK to run at 170 MHz from the 340 MHz VCO.
+
+  '
+- 'embedded_stm32g4xx.PLL_R_Div = 2
+
+  '
+- '
+
+  '
+- '# Configure the AHB and APB to also run at 170 MHz
+
+  '
+- 'embedded_stm32g4xx.AHB_Pre  = "DIV1"
+
+  '
+- 'embedded_stm32g4xx.APB1_Pre = "DIV1"
+
+  '
+- 'embedded_stm32g4xx.APB2_Pre = "DIV1"
+
+  '
+- '```
+
+  '
+- '
+
+  '
+- 'The runtime will generate a compile time error when an invalid PLL configuration
+
+  '
+- 'is set.
+
+  '
+- '
+
+  '
+- 'By default the PLL''s Q and P clocks are enabled. If you don''t need them, then
+  you
+
+  '
+- 'can disable them via the crate configuration:
+
+  '
+- '```toml
+
+  '
+- '[configuration.values]
+
+  '
+- 'embedded_stm32g4xx.PLL_Q_Enable = false
+
+  '
+- 'embedded_stm32g4xx.PLL_P_Enable = false
+
+  '
+- '```
+
+  '
+- '
+
+  '
+- 'The runtime will enable the PLL only when either `PLL_Q_Enable` or `PLL_P_Enable`
+
+  '
+- 'is `true`, or when `SYSCLK_Src = "PLLRCLK"`.
+
+  '
+- '
+
+  '
+- 'The interrupt stack sizes are also configurable:
+
+  '
+- '```toml
+
+  '
+- '[configuration.values]
+
+  '
+- 'embedded_stm32g4xx.Interrupt_Stack_Size = 1024
+
+  '
+- 'embedded_stm32g4xx.Interrupt_Secondary_Stack_Size = 128
+
+  '
+- '```
+
+  '
+- '
+
+  '
+- '   Maintainer: Daniel King <damaki.gh@gmail.com>
+
+  '
+- '   Maintainers_Logins: damaki
+
+  '
+- '   Name: embedded_stm32g4xx
+
+  '
+- '   Project_File: runtime_build.gpr
+
+  '
+- '   Project_File: ravenscar_build.gpr
+
+  '
+- '   Tag: embedded
+
+  '
+- '   Tag: runtime
+
+  '
+- '   Tag: stm32g4
+
+  '
+- '   Version: 15.0.0
+
+  '
+- '   Website: https://github.com/damaki/stm32g4xx-runtimes
+
+  '
+- 'Dependencies (direct):
+
+  '
+- '   gnat_arm_elf^15
+
+  '
+- 'Dependencies (solution):
+
+  '
+- '   gnat_arm_elf=15.1.2
+
+  '
+- 'Dependencies (graph):
+
+  '
+- '   embedded_stm32g4xx=15.0.0 --> gnat_arm_elf=15.1.2 (^15)
+
+  '
+- '
+
+  '
+- '
+
+  LOG:
+
+  '
+- '[alr test] Testing embedded_stm32g4xx=15.0.0
+
+  '
+- '[alr test] Spawning retrieval for remote crate: alr -d -n get embedded_stm32g4xx=15.0.0
+
+  '
+- 'Note: Deploying embedded_stm32g4xx=15.0.0...
+
+  '
+- "#=#=#                                                                         \
+  \ \n"
+- '
+
+  '
+- '######################################################################## 100.0%
+
+  '
+- '
+
+  '
+- 'embedded_stm32g4xx=15.0.0 successfully retrieved.
+
+  '
+- 'Dependencies were solved as follows:
+
+  '
+- '
+
+  '
+- '   +b gnat_arm_elf 15.1.2 (new,binary)
+
+  '
+- '[alr test] Spawning default test for remote crate: alr -d -n build --release --
+  -cargs:Ada -gnatwn
+
+  '
+- 'Note: Building embedded_stm32g4xx=15.0.0/runtime_build.gpr (1/2)...
+
+  '
+- 'Setup
+
+  '
+- '   [mkdir]        object directory for project Runtime_Build
+
+  '
+- '   [mkdir]        library directory for project Runtime_Build
+
+  '
+- 'Compile
+
+  '
+- '   [C]            adaint-xi.c
+
+  '
+- '   [C]            newlib-bb.c
+
+  '
+- '   [C]            raise-gcc.c
+
+  '
+- '   [Asm_Cpp]      start-ram.S
+
+  '
+- '   [Asm_Cpp]      start-rom.S
+
+  '
+- '   [Asm_Cpp]      breakpoint_handler-cortexm.S
+
+  '
+- '   [Asm_Cpp]      handler.S
+
+  '
+- '   [Asm_Cpp]      start-common.S
+
+  '
+- '   [Ada]          s-addope.adb
+
+  '
+- '   [Ada]          g-string.ads
+
+  '
+- '   [Ada]          s-parame.adb
+
+  '
+- '   [Ada]          a-nurear.ads
+
+  '
+- '   [Ada]          s-poosiz.adb
+
+  '
+- '   [Ada]          s-expmod.adb
+
+  '
+- '   [Ada]          a-nuelfu.ads
+
+  '
+- '   [Ada]          s-valuti.adb
+
+  '
+- '   [Ada]          a-szmzco.ads
+
+  '
+- '   [Ada]          s-pack61.adb
+
+  '
+- '   [Ada]          s-widlli.ads
+
+  '
+- '   [Ada]          s-pack26.adb
+
+  '
+- '   [Ada]          a-chahan.adb
+
+  '
+- '   [Ada]          s-spsufi.adb
+
+  '
+- '   [Ada]          s-excmac.adb
+
+  '
+- '   [Ada]          s-valueu.adb
+
+  '
+- '   [Ada]          s-pack15.adb
+
+  '
+- '   [Ada]          a-sbecin.adb
+
+  '
+- '   [Ada]          i-stm32-rcc.ads
+
+  '
+- '   [Ada]          s-wchcnv.adb
+
+  '
+- '   [Ada]          s-fatlfl.ads
+
+  '
+- '   [Ada]          g-md5.adb
+
+  '
+- '   [Ada]          a-iteint.ads
+
+  '
+- '   [Ada]          s-valuef.adb
+
+  '
+- '   [Ada]          interfac.ads
+
+  '
+- '   [Ada]          system.ads
+
+  '
+- '   [Ada]          a-strunb.adb
+
+  '
+- '   [Ada]          s-exponr.adb
+
+  '
+- '   [Ada]          s-libpre.ads
+
+  '
+- '   [Ada]          s-wchjis.adb
+
+  '
+- '   [Ada]          s-mantis.adb
+
+  '
+- '   [Ada]          s-imgwiu.ads
+
+  '
+- '   [Ada]          g-shsh64.adb
+
+  '
+- '   [Ada]          s-atocou.adb
+
+  '
+- '   [Ada]          a-nlelfu.ads
+
+  '
+- '   [Ada]          s-boarop.ads
+
+  '
+- '   [Ada]          a-wichun.adb
+
+  '
+- '   [Ada]          s-utf_32.adb
+
+  '
+- '   [Ada]          g-cppstd.adb
+
+  '
+- '   [Ada]          s-string.adb
+
+  '
+- '   [Ada]          a-chacon.adb
+
+  '
+- '   [Ada]          s-pack21.adb
+
+  '
+- '   [Ada]          s-vafi64.ads
+
+  '
+- '   [Ada]          s-valrea.adb
+
+  '
+- '   [Ada]          s-statxd.adb
+
+  '
+- '   [Ada]          s-io.adb
+
+  '
+- '   [Ada]          s-pack12.adb
+
+  '
+- '   [Ada]          a-coboho.adb
+
+  '
+- '   [Ada]          s-vs_int.ads
+
+  '
+- '   [Ada]          a-undesu.adb
+
+  '
+- '   [Ada]          s-pack60.adb
+
+  '
+- '   [Ada]          s-exponu.adb
+
+  '
+- '   [Ada]          s-pack55.adb
+
+  '
+- '   [Ada]          a-stbuun.adb
+
+  '
+- '   [Ada]          s-exnflt.ads
+
+  '
+- '   [Ada]          a-suenst.adb
+
+  '
+- '   [Ada]          g-hesora.adb
+
+  '
+- '   [Ada]          s-widcha.adb
+
+  '
+- '   [Ada]          s-oslock.ads
+
+  '
+- '   [Ada]          a-sflcin.ads
+
+  '
+- '   [Ada]          s-vs_uns.ads
+
+  '
+- '   [Ada]          a-except.adb
+
+  '
+- '   [Ada]          s-finroo.adb
+
+  '
+- '   [Ada]          s-pack59.adb
+
+  '
+- '   [Ada]          g-moreex.adb
+
+  '
+- '   [Ada]          g-sehash.adb
+
+  '
+- '   [Ada]          s-caun64.adb
+
+  '
+- '   [Ada]          a-cimutr.adb
+
+  '
+- '   [Ada]          a-strbou.adb
+
+  '
+- '   [Ada]          a-costso.adb
+
+  '
+- '   [Ada]          s-crc32.adb
+
+  '
+- '   [Ada]          a-slcain.adb
+
+  '
+- '   [Ada]          g-casuti.adb
+
+  '
+- '   [Ada]          a-nuflra.adb
+
+  '
+- '   [Ada]          a-cborma.adb
+
+  '
+- '   [Ada]          a-string.ads
+
+  '
+- '   [Ada]          g-sha256.ads
+
+  '
+- '   [Ada]          a-suenco.adb
+
+  '
+- '   [Ada]          a-nlrear.ads
+
+  '
+- '   [Ada]          s-pooloc.adb
+
+  '
+- '   [Ada]          s-pack57.adb
+
+  '
+- '   [Ada]          s-vallfl.ads
+
+  '
+- '   [Ada]          a-assert.adb
+
+  '
+- '   [Ada]          s-wchwts.adb
+
+  '
+- '   [Ada]          a-cwila1.ads
+
+  '
+- '   [Ada]          a-zchhan.adb
+
+  '
+- '   [Ada]          s-pack34.adb
+
+  '
+- '   [Ada]          g-io.adb
+
+  '
+- '   [Ada]          s-mastop.adb
+
+  '
+- '   [Ada]          a-stzmap.adb
+
+  '
+- '   [Ada]          a-csquin.ads
+
+  '
+- '   [Ada]          g-souinf.ads
+
+  '
+- '   [Ada]          a-suecin.adb
+
+  '
+- '   [Ada]          s-widuns.ads
+
+  '
+- '   [Ada]          s-pack50.adb
+
+  '
+- '   [Ada]          a-strhas.adb
+
+  '
+- '   [Ada]          a-chzla9.ads
+
+  '
+- '   [Ada]          a-stzsup.adb
+
+  '
+- '   [Ada]          s-pack33.adb
+
+  '
+- '   [Ada]          a-nbnbin.adb
+
+  '
+- '   [Ada]          s-rident.ads
+
+  '
+- '   [Ada]          a-cbhama.adb
+
+  '
+- '   [Ada]          s-fofi32.ads
+
+  '
+- '   [Ada]          a-coinve.adb
+
+  '
+- '   [Ada]          a-nlcoar.ads
+
+  '
+- '   [Ada]          s-strhas.adb
+
+  '
+- '   [Ada]          s-arit64.adb
+
+  '
+- '   [Ada]          a-cdlili.adb
+
+  '
+- '   [Ada]          s-wchstw.adb
+
+  '
+- '   [Ada]          a-sfhcin.ads
+
+  '
+- '   [Ada]          s-textio.adb
+
+  '
+- '   [Ada]          s-pack20.adb
+
+  '
+- '   [Ada]          a-szunau.adb
+
+  '
+- '   [Ada]          s-pack53.adb
+
+  '
+- '   [Ada]          a-btgbso.adb
+
+  '
+- '   [Ada]          s-vade64.ads
+
+  '
+- '   [Ada]          a-numeri.ads
+
+  '
+- '   [Ada]          g-busorg.adb
+
+  '
+- '   [Ada]          s-pack28.adb
+
+  '
+- '   [Ada]          s-pack43.adb
+
+  '
+- '   [Ada]          i-cstrin.adb
+
+  '
+- '   [Ada]          s-vs_llu.ads
+
+  '
+- '   [Ada]          s-valboo.adb
+
+  '
+- '   [Ada]          s-pack44.adb
+
+  '
+- '   [Ada]          s-putima.adb
+
+  '
+- '   [Ada]          s-imgllu.ads
+
+  '
+- '   [Ada]          s-pack05.adb
+
+  '
+- '   [Ada]          a-nllcef.ads
+
+  '
+- '   [Ada]          s-imaged.adb
+
+  '
+- '   [Ada]          s-expont.adb
+
+  '
+- '   [Ada]          s-carun8.adb
+
+  '
+- '   [Ada]          s-gearop.adb
+
+  '
+- '   [Ada]          a-chlat1.ads
+
+  '
+- '   [Ada]          a-stzhas.adb
+
+  '
+- '   [Ada]          g-busora.adb
+
+  '
+- '   [Ada]          s-bbbopa.ads
+
+  '
+- '   [Ada]          a-szuzha.adb
+
+  '
+- '   [Ada]          a-sfecin.ads
+
+  '
+- '   [Ada]          a-stuten.adb
+
+  '
+- '   [Ada]          s-powllf.ads
+
+  '
+- '   [Ada]          a-cgaaso.adb
+
+  '
+- '   [Ada]          a-crdlli.adb
+
+  '
+- '   [Ada]          s-libsin.adb
+
+  '
+- '   [Ada]          g-except.ads
+
+  '
+- '   [Ada]          a-crbtgk.adb
+
+  '
+- '   [Ada]          s-pack25.adb
+
+  '
+- '   [Ada]          s-casi16.adb
+
+  '
+- '   [Ada]          s-imfi64.ads
+
+  '
+- '   [Ada]          a-conhel.adb
+
+  '
+- '   [Ada]          s-imde32.ads
+
+  '
+- '   [Ada]          s-assert.adb
+
+  '
+- '   [Ada]          a-finali.adb
+
+  '
+- '   [Ada]          a-suhcin.adb
+
+  '
+- '   [Ada]          g-sehamd.adb
+
+  '
+- '   [Ada]          s-traent.adb
+
+  '
+- '   [Ada]          s-genbig.adb
+
+  '
+- '   [Ada]          a-chzla1.ads
+
+  '
+- '   [Ada]          a-stunha.adb
+
+  '
+- '   [Ada]          a-stunau.adb
+
+  '
+- '   [Ada]          g-sha224.ads
+
+  '
+- '   [Ada]          s-imagef.adb
+
+  '
+- '   [Ada]          s-vaen32.ads
+
+  '
+- '   [Ada]          s-pack17.adb
+
+  '
+- '   [Ada]          s-vade32.ads
+
+  '
+- '   [Ada]          a-strfix.adb
+
+  '
+- '   [Ada]          i-cpoint.adb
+
+  '
+- '   [Ada]          a-rbtgso.adb
+
+  '
+- '   [Ada]          s-atacco.adb
+
+  '
+- '   [Ada]          s-pack22.adb
+
+  '
+- '   [Ada]          g-heasor.adb
+
+  '
+- '   [Ada]          a-cwila9.ads
+
+  '
+- '   [Ada]          s-expint.ads
+
+  '
+- '   [Ada]          s-regexp.adb
+
+  '
+- '   [Ada]          a-stwifi.adb
+
+  '
+- '   [Ada]          a-calend.adb
+
+  '
+- '   [Ada]          s-pooglo.adb
+
+  '
+- '   [Ada]          a-stwisu.adb
+
+  '
+- '   [Ada]          s-atopri.adb
+
+  '
+- '   [Ada]          a-ngcoty.adb
+
+  '
+- '   [Ada]          a-swbwha.adb
+
+  '
+- '   [Ada]          s-vercon.adb
+
+  '
+- '   [Ada]          s-veboop.adb
+
+  '
+- '   [Ada]          s-stoele.adb
+
+  '
+- '   [Ada]          s-stache.adb
+
+  '
+- '   [Ada]          s-exponn.adb
+
+  '
+- '   [Ada]          s-chepoo.ads
+
+  '
+- '   [Ada]          a-nllcty.ads
+
+  '
+- '   [Ada]          s-casuti.adb
+
+  '
+- '   [Ada]          s-explli.ads
+
+  '
+- '   [Ada]          s-vafi32.ads
+
+  '
+- '   [Ada]          a-secain.adb
+
+  '
+- '   [Ada]          s-valllf.ads
+
+  '
+- '   [Ada]          s-pack63.adb
+
+  '
+- '   [Ada]          a-strmap.adb
+
+  '
+- '   [Ada]          s-semiho.adb
+
+  '
+- '   [Ada]          s-tasloc.adb
+
+  '
+- '   [Ada]          a-storio.adb
+
+  '
+- '   [Ada]          a-chlat9.ads
+
+  '
+- '   [Ada]          a-coinho.adb
+
+  '
+- '   [Ada]          s-ransee.adb
+
+  '
+- '   [Ada]          s-pack14.adb
+
+  '
+- '   [Ada]          a-szfzha.ads
+
+  '
+- '   [Ada]          a-stbuut.adb
+
+  '
+- '   [Ada]          s-stopoo.adb
+
+  '
+- '   [Ada]          a-stbubo.adb
+
+  '
+- '   [Ada]          s-except.adb
+
+  '
+- '   [Ada]          s-valwch.adb
+
+  '
+- '   [Ada]          a-nllcar.ads
+
+  '
+- '   [Ada]          a-cihama.adb
+
+  '
+- '   [Ada]          s-valint.ads
+
+  '
+- '   [Ada]          s-scaval.adb
+
+  '
+- '   [Ada]          s-imglli.ads
+
+  '
+- '   [Ada]          a-unccon.ads
+
+  '
+- '   [Ada]          a-stream.adb
+
+  '
+- '   [Ada]          s-aridou.adb
+
+  '
+- '   [Ada]          i-stm32-flash.ads
+
+  '
+- '   [Ada]          a-cgcaso.adb
+
+  '
+- '   [Ada]          a-stzfix.adb
+
+  '
+- '   [Ada]          g-sechas.adb
+
+  '
+- '   [Ada]          a-coorse.adb
+
+  '
+- '   [Ada]          a-chtgop.adb
+
+  '
+- '   [Ada]          i-cexten.ads
+
+  '
+- '   [Ada]          s-geveop.adb
+
+  '
+- '   [Ada]          s-imen32.ads
+
+  '
+- '   [Ada]          s-pack29.adb
+
+  '
+- '   [Ada]          a-ngrear.adb
+
+  '
+- '   [Ada]          s-fofi64.ads
+
+  '
+- '   [Ada]          s-widthu.adb
+
+  '
+- '   [Ada]          s-libdou.adb
+
+  '
+- '   [Ada]          a-swunau.adb
+
+  '
+- '   [Ada]          a-nllefu.ads
+
+  '
+- '   [Ada]          a-ciorse.adb
+
+  '
+- '   [Ada]          g-bytswa.adb
+
+  '
+- '   [Ada]          s-fode32.ads
+
+  '
+- '   [Ada]          s-htable.adb
+
+  '
+- '   [Ada]          s-vaenu8.ads
+
+  '
+- '   [Ada]          s-fore_d.adb
+
+  '
+- '   [Ada]          s-valflt.ads
+
+  '
+- '   [Ada]          s-excdeb.adb
+
+  '
+- '   [Ada]          g-dyntab.adb
+
+  '
+- '   [Ada]          s-exctab.adb
+
+  '
+- '   [Ada]          s-finpri.adb
+
+  '
+- '   [Ada]          g-wistsp.ads
+
+  '
+- '   [Ada]          s-imgboo.adb
+
+  '
+- '   [Ada]          s-vauspe.adb
+
+  '
+- '   [Ada]          i-stm32.ads
+
+  '
+- '   [Ada]          s-spark.ads
+
+  '
+- '   [Ada]          a-ioexce.ads
+
+  '
+- '   [Ada]          s-imad64.ads
+
+  '
+- '   [Ada]          g-comver.adb
+
+  '
+- '   [Ada]          s-exnlfl.ads
+
+  '
+- '   [Ada]          g-sha512.ads
+
+  '
+- '   [Ada]          a-numaux.ads
+
+  '
+- '   [Ada]          s-fode64.ads
+
+  '
+- '   [Ada]          g-shsh32.adb
+
+  '
+- '   [Ada]          s-pack51.adb
+
+  '
+- '   [Ada]          s-imde64.ads
+
+  '
+- '   [Ada]          g-cstyin.adb
+
+  '
+- '   [Ada]          g-table.adb
+
+  '
+- '   [Ada]          s-caun32.adb
+
+  '
+- '   [Ada]          s-imfi32.ads
+
+  '
+- '   [Ada]          s-pack39.adb
+
+  '
+- '   [Ada]          s-maccod.ads
+
+  '
+- '   [Ada]          machcode.ads
+
+  '
+- '   [Ada]          s-retsta.ads
+
+  '
+- '   [Ada]          a-cidlli.adb
+
+  '
+- '   [Ada]          s-vector.ads
+
+  '
+- '   [Ada]          s-expuns.ads
+
+  '
+- '   [Ada]          s-pack27.adb
+
+  '
+- '   [Ada]          a-cogeso.adb
+
+  '
+- '   [Ada]          s-carsi8.adb
+
+  '
+- '   [Ada]          ada.ads
+
+  '
+- '   [Ada]          a-convec.adb
+
+  '
+- '   [Ada]          a-chtgbo.adb
+
+  '
+- '   [Ada]          i-pacdec.adb
+
+  '
+- '   [Ada]          unchdeal.ads
+
+  '
+- '   [Ada]          g-arrspl.adb
+
+  '
+- '   [Ada]          s-imad32.ads
+
+  '
+- '   [Ada]          s-imageu.adb
+
+  '
+- '   [Ada]          a-wichha.adb
+
+  '
+- '   [Ada]          a-einuoc.adb
+
+  '
+- '   [Ada]          a-contai.ads
+
+  '
+- '   [Ada]          a-cohase.adb
+
+  '
+- '   [Ada]          a-crbtgo.adb
+
+  '
+- '   [Ada]          s-gcmain.adb
+
+  '
+- '   [Ada]          a-nbnbre.adb
+
+  '
+- '   [Ada]          a-nubinu.ads
+
+  '
+- '   [Ada]          s-widllu.ads
+
+  '
+- '   [Ada]          s-pack10.adb
+
+  '
+- '   [Ada]          a-suezst.adb
+
+  '
+- '   [Ada]          a-nscoty.ads
+
+  '
+- '   [Ada]          a-rbtgbo.adb
+
+  '
+- '   [Ada]          a-cbhase.adb
+
+  '
+- '   [Ada]          a-nudira.adb
+
+  '
+- '   [Ada]          a-stwibo.adb
+
+  '
+- '   [Ada]          s-exnllf.ads
+
+  '
+- '   [Ada]          a-nlcoty.ads
+
+  '
+- '   [Ada]          g-strspl.ads
+
+  '
+- '   [Ada]          s-imgwch.adb
+
+  '
+- '   [Ada]          s-powlfl.ads
+
+  '
+- '   [Ada]          a-decima.adb
+
+  '
+- '   [Ada]          s-wwdcha.adb
+
+  '
+- '   [Ada]          i-stm32-pwr.ads
+
+  '
+- '   [Ada]          a-stmaco.ads
+
+  '
+- '   [Ada]          s-bytswa.ads
+
+  '
+- '   [Ada]          s-imenu8.ads
+
+  '
+- '   [Ada]          a-nucoar.ads
+
+  '
+- '   [Ada]          g-bubsor.adb
+
+  '
+- '   [Ada]          s-imagea.adb
+
+  '
+- '   [Ada]          s-pack30.adb
+
+  '
+- '   [Ada]          a-ciorma.adb
+
+  '
+- '   [Ada]          a-textio.adb
+
+  '
+- '   [Ada]          a-stwima.adb
+
+  '
+- '   [Ada]          s-imguti.adb
+
+  '
+- '   [Ada]          a-coorma.adb
+
+  '
+- '   [Ada]          s-imglfl.ads
+
+  '
+- '   [Ada]          s-pack23.adb
+
+  '
+- '   [Ada]          a-ngcefu.adb
+
+  '
+- '   [Ada]          s-valuns.ads
+
+  '
+- '   [Ada]          g-regexp.ads
+
+  '
+- '   [Ada]          a-nscefu.ads
+
+  '
+- '   [Ada]          s-bbarat.adb
+
+  '
+- '   [Ada]          s-imguns.ads
+
+  '
+- '   [Ada]          a-stfiha.ads
+
+  '
+- '   [Ada]          s-imen16.ads
+
+  '
+- '   [Ada]          s-vaen16.ads
+
+  '
+- '   [Ada]          setup_pll.adb
+
+  '
+- '   [Ada]          s-pack38.adb
+
+  '
+- '   [Ada]          g-shshco.adb
+
+  '
+- '   [Ada]          i-fortra.adb
+
+  '
+- '   [Ada]          s-valuer.adb
+
+  '
+- '   [Ada]          s-valued.adb
+
+  '
+- '   [Ada]          s-fatgen.adb
+
+  '
+- '   [Ada]          s-pack52.adb
+
+  '
+- '   [Ada]          a-strsup.adb
+
+  '
+- '   [Ada]          s-pack09.adb
+
+  '
+- '   [Ada]          s-libm.adb
+
+  '
+- '   [Ada]          a-sulcin.adb
+
+  '
+- '   [Ada]          s-pack11.adb
+
+  '
+- '   [Ada]          s-traceb.adb
+
+  '
+- '   [Ada]          a-ngcoar.adb
+
+  '
+- '   [Ada]          s-imager.adb
+
+  '
+- '   [Ada]          g-sha384.ads
+
+  '
+- '   [Ada]          s-forrea.adb
+
+  '
+- '   [Ada]          a-stwiun.adb
+
+  '
+- '   [Ada]          a-szbzha.adb
+
+  '
+- '   [Ada]          a-cgarso.adb
+
+  '
+- '   [Ada]          a-strsea.adb
+
+  '
+- '   [Ada]          s-pack18.adb
+
+  '
+- '   [Ada]          s-exnint.ads
+
+  '
+- '   [Ada]          a-sttebu.adb
+
+  '
+- '   [Ada]          a-stzsea.adb
+
+  '
+- '   [Ada]          s-stratt.adb
+
+  '
+- '   [Ada]          s-imgllf.ads
+
+  '
+- '   [Ada]          s-widint.ads
+
+  '
+- '   [Ada]          unchconv.ads
+
+  '
+- '   [Ada]          s-pack49.adb
+
+  '
+- '   [Ada]          a-shcain.adb
+
+  '
+- '   [Ada]          a-cborse.adb
+
+  '
+- '   [Ada]          s-exnlli.ads
+
+  '
+- '   [Ada]          s-widwch.adb
+
+  '
+- '   [Ada]          a-tags.adb
+
+  '
+- '   [Ada]          s-spcuop.adb
+
+  '
+- '   [Ada]          s-wwdwch.adb
+
+  '
+- '   [Ada]          s-shabig.ads
+
+  '
+- '   [Ada]          s-rannum.adb
+
+  '
+- '   [Ada]          s-pack06.adb
+
+  '
+- '   [Ada]          a-stzbou.adb
+
+  '
+- '   [Ada]          g-hesorg.adb
+
+  '
+- '   [Ada]          s-trasym.adb
+
+  '
+- '   [Ada]          s-bitops.adb
+
+  '
+- '   [Ada]          s-pack45.adb
+
+  '
+- '   [Ada]          s-pack36.adb
+
+  '
+- '   [Ada]          a-swfwha.ads
+
+  '
+- '   [Ada]          a-chtgke.adb
+
+  '
+- '   [Ada]          a-stwiha.adb
+
+  '
+- '   [Ada]          g-cppexc.adb
+
+  '
+- '   [Ada]          s-flocon.adb
+
+  '
+- '   [Ada]          a-charac.ads
+
+  '
+- '   [Ada]          s-valuen.adb
+
+  '
+- '   [Ada]          a-ncelfu.ads
+
+  '
+- '   [Ada]          s-wchcon.adb
+
+  '
+- '   [Ada]          a-nselfu.ads
+
+  '
+- '   [Ada]          s-fatllf.ads
+
+  '
+- '   [Ada]          a-chtgbk.adb
+
+  '
+- '   [Ada]          s-restri.adb
+
+  '
+- '   [Ada]          s-imagei.adb
+
+  '
+- '   [Ada]          a-sblcin.adb
+
+  '
+- '   [Ada]          a-elchha.adb
+
+  '
+- '   [Ada]          s-soflin.adb
+
+  '
+- '   [Ada]          s-pack35.adb
+
+  '
+- '   [Ada]          s-powflt.ads
+
+  '
+- '   [Ada]          s-imgflt.ads
+
+  '
+- '   [Ada]          s-pack07.adb
+
+  '
+- '   [Ada]          s-macres.adb
+
+  '
+- '   [Ada]          a-zchuni.adb
+
+  '
+- '   [Ada]          s-init.adb
+
+  '
+- '   [Ada]          s-vs_lli.ads
+
+  '
+- '   [Ada]          a-nbnbig.adb
+
+  '
+- '   [Ada]          a-calcon.adb
+
+  '
+- '   [Ada]          g-sha1.adb
+
+  '
+- '   [Ada]          a-cihase.adb
+
+  '
+- '   [Ada]          s-pack54.adb
+
+  '
+- '   [Ada]          s-pack41.adb
+
+  '
+- '   [Ada]          a-comutr.adb
+
+  '
+- '   [Ada]          a-suewst.adb
+
+  '
+- '   [Ada]          s-stposu.adb
+
+  '
+- '   [Ada]          a-nllrar.ads
+
+  '
+- '   [Ada]          s-imagew.adb
+
+  '
+- '   [Ada]          s-valspe.adb
+
+  '
+- '   [Ada]          s-pack31.adb
+
+  '
+- '   [Ada]          a-cbdlli.adb
+
+  '
+- '   [Ada]          g-sestin.ads
+
+  '
+- '   [Ada]          s-pack42.adb
+
+  '
+- '   [Ada]          a-cobove.adb
+
+  '
+- '   [Ada]          s-widenu.adb
+
+  '
+- '   [Ada]          s-pack46.adb
+
+  '
+- '   [Ada]          s-addima.adb
+
+  '
+- '   [Ada]          s-valcha.adb
+
+  '
+- '   [Ada]          a-rbtgbk.adb
+
+  '
+- '   [Ada]          a-stwise.adb
+
+  '
+- '   [Ada]          a-cohata.ads
+
+  '
+- '   [Ada]          gnat.ads
+
+  '
+- '   [Ada]          s-bb.ads
+
+  '
+- '   [Ada]          a-nucoty.ads
+
+  '
+- '   [Ada]          s-valllu.ads
+
+  '
+- '   [Ada]          a-ngelfu.adb
+
+  '
+- '   [Ada]          s-pack19.adb
+
+  '
+- '   [Ada]          i-c.adb
+
+  '
+- '   [Ada]          s-stalib.adb
+
+  '
+- '   [Ada]          g-cpp.ads
+
+  '
+- '   [Ada]          ioexcept.ads
+
+  '
+- '   [Ada]          s-pack13.adb
+
+  '
+- '   [Ada]          a-exctra.adb
+
+  '
+- '   [Ada]          i-cobol.adb
+
+  '
+- '   [Ada]          s-imgcha.adb
+
+  '
+- '   [Ada]          a-swmwco.ads
+
+  '
+- '   [Ada]          a-stboha.adb
+
+  '
+- '   [Ada]          s-bbmcpa.ads
+
+  '
+- '   [Ada]          s-pack37.adb
+
+  '
+- '   [Ada]          s-vaispe.adb
+
+  '
+- '   [Ada]          s-caun16.adb
+
+  '
+- '   [Ada]          a-widcha.ads
+
+  '
+- '   [Ada]          a-swuwha.adb
+
+  '
+- '   [Ada]          s-unstyp.ads
+
+  '
+- '   [Ada]          s-widboo.adb
+
+  '
+- '   [Ada]          s-casi64.adb
+
+  '
+- '   [Ada]          a-coprnu.adb
+
+  '
+- '   [Ada]          s-pack62.adb
+
+  '
+- '   [Ada]          g-crc32.adb
+
+  '
+- '   [Ada]          s-pack47.adb
+
+  '
+- '   [Ada]          s-pack03.adb
+
+  '
+- '   [Ada]          s-arit32.adb
+
+  '
+- '   [Ada]          a-sbhcin.adb
+
+  '
+- '   [Ada]          s-dourea.adb
+
+  '
+- '   [Ada]          s-imagen.adb
+
+  '
+- '   [Ada]          s-casi32.adb
+
+  '
+- '   [Ada]          s-widthi.adb
+
+  '
+- '   [Ada]          a-cbmutr.adb
+
+  '
+- '   [Ada]          g-debuti.adb
+
+  '
+- '   [Ada]          a-stzunb.adb
+
+  '
+- '   [Ada]          s-pack58.adb
+
+  '
+- '   [Ada]          s-lisisq.adb
+
+  '
+- '   [Ada]          s-memory.adb
+
+  '
+- '   [Ada]          g-tasloc.ads
+
+  '
+- '   [Ada]          a-crbltr.ads
+
+  '
+- '   [Ada]          a-zchara.ads
+
+  '
+- '   [Ada]          s-bbpara.ads
+
+  '
+- '   [Ada]          s-vallli.ads
+
+  '
+- '   [Ada]          g-htable.adb
+
+  '
+- '   [Ada]          s-wwdenu.adb
+
+  '
+- '   [Ada]          s-fatflt.ads
+
+  '
+- '   [Ada]          a-uncdea.ads
+
+  '
+- '   [Ada]          a-nlcefu.ads
+
+  '
+- '   [Ada]          s-fore_f.adb
+
+  '
+- '   [Ada]          s-valuei.adb
+
+  '
+- '   [Ada]          s-expllu.ads
+
+  '
+- '   [Ada]          a-cohama.adb
+
+  '
+- '   [Ada]          a-ciormu.adb
+
+  '
+- '   [Ada]          s-secsta.adb
+
+  '
+- '   [Ada]          s-imgllw.ads
+
+  '
+- '   [Ada]          text_io.ads
+
+  '
+- '   [Ada]          s-lidosq.adb
+
+  '
+- '   [Ada]          a-coormu.adb
+
+  '
+- '   [Ada]          s-imgint.ads
+
+  '
+- '   [Ada]          embedded_stm32g4xx_config.ads
+
+  '
+- '   [Ada]          stm32g4xx_runtime_config.ads
+
+  '
+- 'Build Libraries
+
+  '
+- '   [gprlib]       gnat.lexch
+
+  '
+- '   [archive]      libgnat.a
+
+  '
+- '   [index]        libgnat.a
+
+  '
+- 'Note: Building embedded_stm32g4xx=15.0.0/ravenscar_build.gpr (2/2)...
+
+  '
+- 'Compile
+
+  '
+- '   [Ada]          g-boubuf.adb
+
+  '
+- '   [Ada]          a-retide.adb
+
+  '
+- '   [Ada]          s-bbexti.adb
+
+  '
+- '   [Ada]          s-reldel.adb
+
+  '
+- '   [Ada]          s-btstch.adb
+
+  '
+- '   [Ada]          s-tasdeb.adb
+
+  '
+- '   [Ada]          s-interr.adb
+
+  '
+- '   [Ada]          s-bcpcst.adb
+
+  '
+- '   [Ada]          s-bbthqu.adb
+
+  '
+- '   [Ada]          s-bbcppr.adb
+
+  '
+- '   [Ada]          s-tasinf.adb
+
+  '
+- '   [Ada]          a-sytaco.adb
+
+  '
+- '   [Ada]          s-bbprot.adb
+
+  '
+- '   [Ada]          a-taster.adb
+
+  '
+- '   [Ada]          s-tasque.adb
+
+  '
+- '   [Ada]          s-taprob.adb
+
+  '
+- '   [Ada]          a-rttiev.adb
+
+  '
+- '   [Ada]          s-bbbosu.adb
+
+  '
+- '   [Ada]          s-musplo.adb
+
+  '
+- '   [Ada]          s-taskin.adb
+
+  '
+- '   [Ada]          a-synbar.adb
+
+  '
+- '   [Ada]          s-taprop.adb
+
+  '
+- '   [Ada]          s-bcprmu.adb
+
+  '
+- '   [Ada]          s-tposen.adb
+
+  '
+- '   [Ada]          s-bbtiev.adb
+
+  '
+- '   [Ada]          s-tpobmu.adb
+
+  '
+- '   [Ada]          s-mufalo.adb
+
+  '
+- '   [Ada]          s-bbinte.adb
+
+  '
+- '   [Ada]          s-tarest.adb
+
+  '
+- '   [Ada]          s-bbthre.adb
+
+  '
+- '   [Ada]          s-bbtime.adb
+
+  '
+- '   [Ada]          a-taside.adb
+
+  '
+- '   [Ada]          s-tpobop.adb
+
+  '
+- '   [Ada]          s-tasres.ads
+
+  '
+- '   [Ada]          s-multip.adb
+
+  '
+- '   [Ada]          g-boumai.ads
+
+  '
+- '   [Ada]          a-exetim.adb
+
+  '
+- '   [Ada]          s-osinte.ads
+
+  '
+- '   [Ada]          s-bbcpsp.ads
+
+  '
+- '   [Ada]          s-putaim.adb
+
+  '
+- '   [Ada]          g-semaph.adb
+
+  '
+- '   [Ada]          a-reatim.adb
+
+  '
+- '   [Ada]          s-taspri.ads
+
+  '
+- '   [Ada]          a-extiin.adb
+
+  '
+- '   [Ada]          a-interr.adb
+
+  '
+- '   [Ada]          s-tpoben.adb
+
+  '
+- '   [Ada]          a-intnam-G474.ads
+
+  '
+- 'Build Libraries
+
+  '
+- '   [gprlib]       gnarl.lexch
+
+  '
+- '   [archive]      libgnarl.a
+
+  '
+- '   [index]        libgnarl.a
+
+  '
+- 'Success: Build finished successfully in 22.95 seconds.
+
+  '
+- 'Found declared GPR file: runtime_build.gpr
+
+  '
+- 'Found declared GPR file: ravenscar_build.gpr
+
+  '
+- '[alr test] Test completed SUCCESSFULLY
+
+  '
+platform: linux
+status: success
+version: 15.0.0

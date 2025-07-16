@@ -1,0 +1,802 @@
+Test ran at 2024-05-23 01:16:53.500071+00:00
+
+SOLUTION:
+serverfaces=1.6.0: Web Server Faces JSR 252, JSR 314 and JSR 344
+Origin: commit 86adb1940c453209c20eac5e16bfa613826c8038 from https://gitlab.com/stcarrez/ada-asf.git
+Properties:
+   Author: Stephane.Carrez@gmail.com
+   Configuration: no modifiers
+   Description: Web Server Faces JSR 252, JSR 314 and JSR 344
+   Environment: DYNAMO_BUNDLE_PATH=${CRATE_ROOT}/bundles:${DYNAMO_BUNDLE_PATH}
+   GPR Scenario: ASF_BUILD := distrib | debug | optimize | profile | coverage
+   GPR Scenario: ASF_LIBRARY_TYPE := relocatable | static | static-pic
+   License: Apache-2.0
+   Long_Description: [![Build Status](https://img.shields.io/endpoint?url=https://porion.vacs.fr/porion/api/v1/projects/ada-asf/badges/build.json)](https://porion.vacs.fr/porion/projects/view/ada-asf/summary)
+[![Test Status](https://img.shields.io/endpoint?url=https://porion.vacs.fr/porion/api/v1/projects/ada-asf/badges/tests.json)](https://porion.vacs.fr/porion/projects/view/ada-asf/xunits)
+[![Coverage](https://img.shields.io/endpoint?url=https://porion.vacs.fr/porion/api/v1/projects/ada-asf/badges/coverage.json)](https://porion.vacs.fr/porion/projects/view/ada-asf/summary)
+[![Documentation Status](https://readthedocs.org/projects/ada-asf/badge/?version=latest)](https://ada-asf.readthedocs.io/en/latest/?badge=latest)
+
+Ada Servlet allows to create web applications using the same pattern
+as the Java Servlet (See JSR 154, JSR 315). 
+
+The Ada Servlet library is used by the [Ada Server Faces](https://github.com/stcarrez/ada-asf)
+framework and [Ada Web Application](https://github.com/stcarrez/ada-awa)
+to provide server web requests.
+
+# Documentation
+
+* [Ada Server Faces Programmer's Guide](https://ada-asf.readthedocs.io/en/latest/) [PDF](https://gitlab.com/stcarrez/ada-asf/blob/master/docs/asf-book.pdf)
+
+
+   Maintainer: Stephane.Carrez@gmail.com
+   Maintainers_Logins: stcarrez
+   Name: serverfaces
+   Project_File: .alire/asf.gpr
+   Tag: web
+   Tag: servlet
+   Tag: http
+   Tag: json
+   Version: 1.6.0
+   Website: https://gitlab.com/stcarrez/ada-asf
+Dependencies (direct):
+   security^1.5.0
+   servletada^1.7.0
+   utilada^2.6.0
+Dependencies (solution):
+   elada=1.8.6
+   gnat=13.2.1 (gnat_external) (installed)
+   security=1.5.0
+   servletada=1.7.0
+   utilada=2.6.0
+   utilada_xml=2.6.0
+   xmlada=24.0.0
+Dependencies (graph):
+   elada=1.8.6       --> utilada=2.6.0 (^2.5.0)            
+   security=1.5.0    --> utilada=2.6.0 (^2.6.0)            
+   security=1.5.0    --> utilada_xml=2.6.0 (^2.6.0)        
+   serverfaces=1.6.0 --> security=1.5.0 (^1.5.0)           
+   serverfaces=1.6.0 --> servletada=1.7.0 (^1.7.0)         
+   serverfaces=1.6.0 --> utilada=2.6.0 (^2.6.0)            
+   servletada=1.7.0  --> elada=1.8.6 (^1.8.5)              
+   servletada=1.7.0  --> security=1.5.0 (^1.5.0)           
+   servletada=1.7.0  --> utilada=2.6.0 (^2.6.0)            
+   utilada_xml=2.6.0 --> utilada=2.6.0 (^2.6.0)            
+   utilada_xml=2.6.0 --> xmlada=24.0.0 (*)                 
+   xmlada=24.0.0     --> gnat=13.2.1 (gnat_external) (>=11)
+
+
+LOG:
+Note: Deploying serverfaces=1.6.0...
+Note: Deploying utilada=2.6.0...
+Note: Deploying xmlada=24.0.0...
+#=#=#                                                                         
+##O#-#                                                                        
+##O=#  #                                                                      
+#-#O=#  #                                                                     
+Note: Running post_fetch actions for xmlada=24.0.0...
+checking build system type... x86_64-pc-linux-gnu
+checking host system type... x86_64-pc-linux-gnu
+checking target system type... x86_64-pc-linux-gnu
+checking whether gnat can build shared libs... yes
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether ln -s works... yes
+configure: creating ./config.status
+config.status: creating xmlada_shared.gpr
+config.status: creating Makefile
+config.status: creating tests/dom/default.gpr
+Note: Deploying elada=1.8.6...
+Note: Deploying utilada_xml=2.6.0...
+Note: Deploying security=1.5.0...
+Note: Deploying servletada=1.7.0...
+Note: Building serverfaces/.alire/asf.gpr...
+Setup
+   [mkdir]        object directory for project UtilAda_Core
+   [mkdir]        library directory for project UtilAda_Core
+   [mkdir]        object directory for project UtilAda_Sys
+   [mkdir]        library directory for project UtilAda_Sys
+   [mkdir]        object directory for project ElAda
+   [mkdir]        library directory for project ElAda
+   [mkdir]        object directory for project XmlAda_Sax
+   [mkdir]        library directory for project XmlAda_Sax
+   [mkdir]        object directory for project UtilAda_Xml
+   [mkdir]        library directory for project UtilAda_Xml
+   [mkdir]        object directory for project Security
+   [mkdir]        library directory for project Security
+   [mkdir]        object directory for project ServletAda
+   [mkdir]        library directory for project ServletAda
+   [mkdir]        object directory for project Asf
+   [mkdir]        library directory for project Asf
+Compile
+   [Ada]          servlet-responses-mockup.adb
+   [Ada]          servlet-parts.adb
+   [Ada]          servlet-sessions-factory.adb
+   [Ada]          servlet-core-configs.adb
+   [Ada]          servlet-rest-operation.adb
+   [Ada]          servlet-responses.adb
+   [Ada]          servlet-core.adb
+   [Ada]          servlet-security-servlets.adb
+   [Ada]          servlet-resolvers.adb
+   [Ada]          servlet-server.adb
+   [Ada]          servlet-streams.adb
+   [Ada]          servlet-streams-raw.adb
+   [Ada]          servlet-sessions.adb
+   [Ada]          servlet.ads
+   [Ada]          servlet-core-measures.adb
+   [Ada]          servlet-routes-servlets.adb
+   [Ada]          servlet-requests-mockup.adb
+   [Ada]          servlet-routes-servlets-rest.ads
+   [Ada]          servlet-requests.adb
+   [Ada]          servlet-parts-mockup.adb
+   [Ada]          servlet-core-files.adb
+   [Ada]          servlet-security-filters-oauth.adb
+   [Ada]          servlet-security-filters.adb
+   [Ada]          servlet-principals.ads
+   [Ada]          servlet-cookies.ads
+   [Ada]          servlet-security.ads
+   [Ada]          servlet-filters-dump.adb
+   [Ada]          servlet-streams-json.adb
+   [Ada]          servlet-core-mappers.adb
+   [Ada]          servlet-routes.adb
+   [Ada]          servlet-rest.adb
+   [Ada]          servlet-filters.ads
+   [Ada]          servlet-filters-cache_control.adb
+   [Ada]          servlet-streams-xml.adb
+   [Ada]          servlet-core-rest.adb
+   [Ada]          servlet-rest-definition.adb
+   [Ada]          servlet-responses-tools.adb
+   [Ada]          servlet-security-oauth.adb
+   [Ada]          servlet-requests-tools.adb
+   [Ada]          input_sources-strings.adb
+   [Ada]          input_sources-socket.adb
+   [Ada]          input_sources.adb
+   [Ada]          input_sources-http.adb
+   [Ada]          input_sources-file.adb
+   [Ada]          unicode-names-meroitic_cursive.ads
+   [Ada]          unicode-names-khmer.ads
+   [Ada]          unicode-names-combining_diacritical_ext.ads
+   [Ada]          unicode-names-cyrillic_extended_b.ads
+   [Ada]          unicode-names-balinese.ads
+   [Ada]          unicode-names-tirhuta.ads
+   [Ada]          unicode-names-lao.ads
+   [Ada]          unicode-names-super_and_sub_scripts.ads
+   [Ada]          unicode-names-phaistos_disc.ads
+   [Ada]          unicode-names-gothic.ads
+   [Ada]          unicode-names-sundanese.ads
+   [Ada]          unicode-names-mathematical_operators.ads
+   [Ada]          unicode-names-rejang.ads
+   [Ada]          unicode.adb
+   [Ada]          unicode-names-duployan.ads
+   [Ada]          unicode-names-phags_pa.ads
+   [Ada]          unicode-names-cjk_compatibility_forms.ads
+   [Ada]          unicode-names-ipa_extensions.ads
+   [Ada]          unicode-names-lycian.ads
+   [Ada]          unicode-names-hanunoo.ads
+   [Ada]          unicode-names-old_permic.ads
+   [Ada]          unicode-names-early_dynastic_cuneiform.ads
+   [Ada]          unicode-names-saurashtra.ads
+   [Ada]          unicode-names-mongolian.ads
+   [Ada]          unicode-names-kaithi.ads
+   [Ada]          unicode-names-tai_tham.ads
+   [Ada]          unicode-names-ethiopic.ads
+   [Ada]          unicode-names-braille_patterns.ads
+   [Ada]          unicode-names-meroitic_hieroglyphs.ads
+   [Ada]          unicode-names-coptic_epact_numbers.ads
+   [Ada]          unicode-names-inscriptional_parthian.ads
+   [Ada]          unicode-names-mro.ads
+   [Ada]          unicode-names-elbasan.ads
+   [Ada]          unicode-names-geometric_shapes_extended.ads
+   [Ada]          unicode-names-ethiopic_supplement.ads
+   [Ada]          unicode-names-shavian.ads
+   [Ada]          unicode-names-chakma.ads
+   [Ada]          unicode-names-javanese.ads
+   [Ada]          unicode-names-miscellaneous_technical.ads
+   [Ada]          unicode-names-optical_chars_recognition.ads
+   [Ada]          unicode-names-latin_1_supplement.ads
+   [Ada]          unicode-names-georgian_supplement.ads
+   [Ada]          unicode-names-box_drawing.ads
+   [Ada]          unicode-names-mahjong_tiles.ads
+   [Ada]          unicode-names-sup_math_operators.ads
+   [Ada]          unicode-names-modi.ads
+   [Ada]          unicode-names-kannada.ads
+   [Ada]          unicode-names-cyrillic_extended_a.ads
+   [Ada]          unicode-names-letterlike_symbols.ads
+   [Ada]          unicode-names-arabic_supplement.ads
+   [Ada]          unicode-names-phonetic_extensions.ads
+   [Ada]          unicode-names-byzantine_musical_symbols.ads
+   [Ada]          unicode-encodings.adb
+   [Ada]          unicode-names-tagbanwa.ads
+   [Ada]          unicode-names-number_forms.ads
+   [Ada]          unicode-names-katakana_phonetic_ext.ads
+   [Ada]          unicode-names-ogham.ads
+   [Ada]          unicode-ccs-windows_1252.adb
+   [Ada]          unicode-names-sup_symbols_pictographs.ads
+   [Ada]          unicode-names-khmer_symbols.ads
+   [Ada]          unicode-names-cjk_radicals_supplement.ads
+   [Ada]          unicode-names-sinhala_archaic_numbers.ads
+   [Ada]          unicode-names-vai.ads
+   [Ada]          unicode-names-caucasian_albanian.ads
+   [Ada]          unicode-names-supplemental_arrows_a.ads
+   [Ada]          unicode-names-math_alphanumeric_symb.ads
+   [Ada]          unicode-names-ugaritic.ads
+   [Ada]          unicode-names-bengali.ads
+   [Ada]          unicode-names-spacing_modifier_letters.ads
+   [Ada]          unicode-names-arabic.ads
+   [Ada]          unicode-names-ahom.ads
+   [Ada]          unicode-names-greek_and_coptic.ads
+   [Ada]          unicode-names-syriac.ads
+   [Ada]          unicode-names-common_indic_number_forms.ads
+   [Ada]          unicode-names-combining_half_marks.ads
+   [Ada]          unicode-names-cherokee.ads
+   [Ada]          unicode-names-myanmar.ads
+   [Ada]          unicode-names-control_pictures.ads
+   [Ada]          unicode-names-miscellaneous_symbols.ads
+   [Ada]          unicode-names-old_south_arabian.ads
+   [Ada]          unicode-names-cham.ads
+   [Ada]          unicode-names-ancient_greek_music.ads
+   [Ada]          unicode-names-buhid.ads
+   [Ada]          unicode-names-telugu.ads
+   [Ada]          unicode-names-cyrillic_supplement.ads
+   [Ada]          unicode-names-vedic_extensions.ads
+   [Ada]          unicode-names-combining_diacritical_sym.ads
+   [Ada]          unicode-names-half_full_width_forms.ads
+   [Ada]          unicode-names-sundanese_supplement.ads
+   [Ada]          unicode-names-tags.ads
+   [Ada]          unicode-names-lydian.ads
+   [Ada]          unicode-names-bopomofo.ads
+   [Ada]          unicode-names-tifinagh.ads
+   [Ada]          unicode-names-hatran.ads
+   [Ada]          unicode-names-arabic_extended_a.ads
+   [Ada]          unicode-names-kanbun.ads
+   [Ada]          unicode-names-vertical_forms.ads
+   [Ada]          unicode-names-oriya.ads
+   [Ada]          unicode-names-tibetan.ads
+   [Ada]          unicode-names-gurmukhi.ads
+   [Ada]          unicode-names-cjk_compat_ideo_sup.ads
+   [Ada]          unicode-names-linear_b_syllabary.ads
+   [Ada]          unicode-names-bamum_supplement.ads
+   [Ada]          unicode-names-cuneiform.ads
+   [Ada]          unicode-names-emoticons.ads
+   [Ada]          unicode-ccs-iso_8859_2.adb
+   [Ada]          unicode-names-alpha_presentation_forms.ads
+   [Ada]          unicode-ces-utf8.adb
+   [Ada]          unicode-names-phonetic_ext_sup.ads
+   [Ada]          unicode-names-enclosed_ideographic_sup.ads
+   [Ada]          unicode-names-tai_viet.ads
+   [Ada]          unicode-names-combining_diacritical_sup.ads
+   [Ada]          unicode-names-supplemental_arrows_c.ads
+   [Ada]          unicode-names-syloti_nagri.ads
+   [Ada]          unicode-names-cuneiform_num_punctuation.ads
+   [Ada]          unicode-names-tamil.ads
+   [Ada]          unicode-names-alchemical_symbols.ads
+   [Ada]          unicode-names-ornamental_dingbats.ads
+   [Ada]          unicode-names-arabic_present_formsa.ads
+   [Ada]          unicode-names-misc_math_symbols_a.ads
+   [Ada]          unicode-names-supplemental_punctuation.ads
+   [Ada]          unicode-names-playing_cards.ads
+   [Ada]          unicode-names-tai_xuan_jing_symbols.ads
+   [Ada]          unicode-names-linear_b_ideograms.ads
+   [Ada]          unicode-names.ads
+   [Ada]          unicode-names-pau_cin_hau.ads
+   [Ada]          unicode-names-anatolian_hieroglyphs.ads
+   [Ada]          unicode-names-ideograph_descr_chars.ads
+   [Ada]          unicode-names-greek_extended.ads
+   [Ada]          unicode-names-modifier_tone_letters.ads
+   [Ada]          unicode-names-hiragana.ads
+   [Ada]          unicode-ccs-iso_8859_1.adb
+   [Ada]          unicode-ccs.adb
+   [Ada]          unicode-names-dingbats.ads
+   [Ada]          unicode-names-hangul_jamo.ads
+   [Ada]          unicode-names-arabic_present_formsb.ads
+   [Ada]          unicode-names-bassa_vah.ads
+   [Ada]          unicode-names-glagolitic.ads
+   [Ada]          unicode-names-meetei_mayek.ads
+   [Ada]          unicode-names-devanagari_extended.ads
+   [Ada]          unicode-names-nabataean.ads
+   [Ada]          unicode-names-brahmi.ads
+   [Ada]          unicode-names-general_punctuation.ads
+   [Ada]          unicode-names-malayalam.ads
+   [Ada]          unicode-names-cjk_compatibility.ads
+   [Ada]          unicode-names-old_turkic.ads
+   [Ada]          unicode-names-domino_tiles.ads
+   [Ada]          unicode-names-manichaean.ads
+   [Ada]          unicode-ces-basic_8bit.adb
+   [Ada]          unicode-names-combining_diacritical.ads
+   [Ada]          unicode-names-kayah_li.ads
+   [Ada]          unicode-names-small_form_variants.ads
+   [Ada]          unicode-names-ol_chiki.ads
+   [Ada]          unicode-names-limbu.ads
+   [Ada]          unicode-names-deseret.ads
+   [Ada]          unicode-names-canadian_aboriginal.ads
+   [Ada]          unicode-names-palmyrene.ads
+   [Ada]          unicode-names-armenian.ads
+   [Ada]          unicode-names-egyptian_hieroglyphs.ads
+   [Ada]          unicode-ces-utf16.adb
+   [Ada]          unicode-names-latin_extended_a.ads
+   [Ada]          unicode-ces.adb
+   [Ada]          unicode-names-cjk_strokes.ads
+   [Ada]          unicode-names-warang_citi.ads
+   [Ada]          unicode-names-transport_and_map_symbols.ads
+   [Ada]          unicode-names-georgian.ads
+   [Ada]          unicode-names-specials.ads
+   [Ada]          unicode-names-latin_extended_b.ads
+   [Ada]          unicode-names-hebrew.ads
+   [Ada]          unicode-names-counting_rod_numerals.ads
+   [Ada]          unicode-names-old_persian.ads
+   [Ada]          unicode-names-ancient_symbols.ads
+   [Ada]          unicode-names-basic_latin.ads
+   [Ada]          unicode-names-yi_syllables.ads
+   [Ada]          unicode-names-nko.ads
+   [Ada]          unicode-ccs-windows_1251.adb
+   [Ada]          unicode-names-latin_extended_e.ads
+   [Ada]          unicode-names-variation_selectors.ads
+   [Ada]          unicode-names-cyrillic.ads
+   [Ada]          unicode-names-takri.ads
+   [Ada]          unicode-names-katakana.ads
+   [Ada]          unicode-names-buginese.ads
+   [Ada]          unicode-names-khudawadi.ads
+   [Ada]          unicode-names-old_italic.ads
+   [Ada]          unicode-names-bopomofo_extended.ads
+   [Ada]          unicode-names-shorthand_format_controls.ads
+   [Ada]          unicode-names-latin_extended_c.ads
+   [Ada]          unicode-names-supplemental_arrows_b.ads
+   [Ada]          unicode-names-meetei_mayek_extensions.ads
+   [Ada]          unicode-ccs-iso_8859_4.adb
+   [Ada]          unicode-names-old_north_arabian.ads
+   [Ada]          unicode-names-ancient_greek_numbers.ads
+   [Ada]          unicode-names-kharoshthi.ads
+   [Ada]          unicode-names-linear_a.ads
+   [Ada]          unicode-names-imperial_aramaic.ads
+   [Ada]          unicode-names-latin_extended_d.ads
+   [Ada]          unicode-names-latin_extended_additional.ads
+   [Ada]          unicode-names-arabic_math_alpha_symb.ads
+   [Ada]          unicode-names-avestan.ads
+   [Ada]          unicode-names-bamum.ads
+   [Ada]          unicode-names-block_elements.ads
+   [Ada]          unicode-names-myanmar_extended_b.ads
+   [Ada]          unicode-names-thai.ads
+   [Ada]          unicode-names-tagalog.ads
+   [Ada]          unicode-names-yijing_hexagram_symbols.ads
+   [Ada]          unicode-names-multani.ads
+   [Ada]          unicode-names-enclosed_alphanum_sup.ads
+   [Ada]          unicode-names-sutton_signwriting.ads
+   [Ada]          unicode-names-pahawh_hmong.ads
+   [Ada]          unicode-names-currency_symbols.ads
+   [Ada]          unicode-names-thaana.ads
+   [Ada]          unicode-names-rumi_numeral_symbols.ads
+   [Ada]          unicode-names-misc_symbols_pictographs.ads
+   [Ada]          unicode-names-runic.ads
+   [Ada]          unicode-names-new_tai_lue.ads
+   [Ada]          unicode-names-carian.ads
+   [Ada]          unicode-ccs-iso_8859_3.adb
+   [Ada]          unicode-names-cypriot_syllabary.ads
+   [Ada]          unicode-names-miao.ads
+   [Ada]          unicode-names-gujarati.ads
+   [Ada]          unicode-names-osmanya.ads
+   [Ada]          unicode-names-mende_kikakui.ads
+   [Ada]          unicode-ccs-iso_8859_15.adb
+   [Ada]          unicode-names-old_hungarian.ads
+   [Ada]          unicode-names-mandaic.ads
+   [Ada]          unicode-names-myanmar_extended_a.ads
+   [Ada]          unicode-names-psalter_pahlavi.ads
+   [Ada]          unicode-names-siddham.ads
+   [Ada]          unicode-names-cjk_symbols_and_punct.ads
+   [Ada]          unicode-names-cjk_letters_months.ads
+   [Ada]          unicode-names-hangul_jamo_extended_b.ads
+   [Ada]          unicode-names-cherokee_supplement.ads
+   [Ada]          unicode-names-lisu.ads
+   [Ada]          unicode-names-yi_radicals.ads
+   [Ada]          unicode-names-grantha.ads
+   [Ada]          unicode-names-enclosed_alphanumerics.ads
+   [Ada]          unicode-names-ethiopic_extended.ads
+   [Ada]          unicode-names-khojki.ads
+   [Ada]          unicode-names-samaritan.ads
+   [Ada]          unicode-names-hangul_jamo_extended_a.ads
+   [Ada]          unicode-names-ethiopic_extended_a.ads
+   [Ada]          unicode-names-geometric_shapes.ads
+   [Ada]          unicode-names-sharada.ads
+   [Ada]          unicode-names-arrows.ads
+   [Ada]          unicode-names-canadian_aboriginal_ext.ads
+   [Ada]          unicode-names-hangul_compatibility_jamo.ads
+   [Ada]          unicode-names-phoenician.ads
+   [Ada]          unicode-names-misc_math_symbols_b.ads
+   [Ada]          unicode-names-tai_le.ads
+   [Ada]          unicode-names-sinhala.ads
+   [Ada]          unicode-names-misc_symbols_and_arrows.ads
+   [Ada]          unicode-names-devanagari.ads
+   [Ada]          unicode-names-lepcha.ads
+   [Ada]          unicode-names-sora_sompeng.ads
+   [Ada]          unicode-names-inscriptional_pahlavi.ads
+   [Ada]          unicode-names-cjk_compat_ideographs.ads
+   [Ada]          unicode-names-musical_symbols.ads
+   [Ada]          unicode-ces-utf32.adb
+   [Ada]          unicode-names-batak.ads
+   [Ada]          unicode-names-kana_supplement.ads
+   [Ada]          unicode-names-kangxi_radicals.ads
+   [Ada]          unicode-names-coptic.ads
+   [Ada]          unicode-names-mahajani.ads
+   [Ada]          unicode-names-variation_selectors_sup.ads
+   [Ada]          unicode-names-aegean_numbers.ads
+   [Ada]          sax-htable.adb
+   [Ada]          sax-models.adb
+   [Ada]          sax-symbols.adb
+   [Ada]          sax-readers.adb
+   [Ada]          sax-encodings.ads
+   [Ada]          sax-exceptions.adb
+   [Ada]          sax-utils.adb
+   [Ada]          sax-attributes.adb
+   [Ada]          sax.ads
+   [Ada]          sax-state_machines.adb
+   [Ada]          sax-locators.adb
+   [Ada]          sax-pointers.adb
+   [Ada]          util-serialize-io-xml.adb
+   [Ada]          security-contexts.adb
+   [Ada]          security-oauth-clients.adb
+   [Ada]          security-oauth.adb
+   [Ada]          security-auth-oauth-github.adb
+   [Ada]          security-auth-openid.adb
+   [Ada]          security-permissions.adb
+   [Ada]          security-auth-oauth-facebook.adb
+   [Ada]          security-controllers-roles.adb
+   [Ada]          security-random.adb
+   [Ada]          security-auth-oauth-yahoo.adb
+   [Ada]          security-auth.adb
+   [Ada]          security-policies.adb
+   [Ada]          security-policies-urls.adb
+   [Ada]          security-oauth-file_registry.adb
+   [Ada]          security-auth-oauth.adb
+   [Ada]          security-policies-roles.adb
+   [Ada]          security-controllers.ads
+   [Ada]          security-oauth-servers.adb
+   [Ada]          security-oauth-jwt.adb
+   [Ada]          security-auth-oauth-googleplus.adb
+   [Ada]          security-controllers-urls.adb
+   [Ada]          security.ads
+   [Ada]          el-contexts-tls.adb
+   [Ada]          el-utils.adb
+   [Ada]          el-methods-func_string.ads
+   [Ada]          el-expressions-parser.adb
+   [Ada]          el-functions-namespaces.adb
+   [Ada]          el-contexts-properties.adb
+   [Ada]          el-expressions.adb
+   [Ada]          el-expressions-nodes.adb
+   [Ada]          el-methods-proc_1.adb
+   [Ada]          el-beans.adb
+   [Ada]          el-methods-func_1.adb
+   [Ada]          el-functions-default.adb
+   [Ada]          el-methods.ads
+   [Ada]          el-methods-proc_2.adb
+   [Ada]          el-methods-proc_in.adb
+   [Ada]          el-functions.adb
+   [Ada]          el-variables-default.adb
+   [Ada]          el-methods-func_unbounded.ads
+   [Ada]          el-contexts.ads
+   [Ada]          el-objects.ads
+   [Ada]          el-variables.ads
+   [Ada]          el.ads
+   [Ada]          el-contexts-default.adb
+   [Ada]          util-systems-types.ads
+   [Ada]          util-systems-constants.ads
+   [Ada]          util-systems-os.ads
+   [Ada]          util-systems-io.adb
+   [Ada]          util-properties-basic.adb
+   [Ada]          util-properties-bundles.adb
+   [Ada]          util-properties-discrete.adb
+   [Ada]          util-properties.adb
+   [Ada]          util-log-appenders-formatter.adb
+   [Ada]          util-log-appenders-files.adb
+   [Ada]          util-log-appenders.adb
+   [Ada]          util-log-appenders-consoles.adb
+   [Ada]          util-log-loggers.adb
+   [Ada]          util-log-locations.adb
+   [Ada]          util-log-appenders-rolling_files.adb
+   [Ada]          util-log-appenders-factories.adb
+   [Ada]          util-log.adb
+   [Ada]          util-files-rolling.adb
+   [Ada]          util-files.adb
+   [Ada]          util-events-timers.adb
+   [Ada]          util-events-channels.adb
+   [Ada]          util-events.adb
+   [Ada]          util-dates-rfc7231.adb
+   [Ada]          util-dates-formats.adb
+   [Ada]          util-dates-simple_format.adb
+   [Ada]          util-dates-iso8601.adb
+   [Ada]          util-dates.adb
+   [Ada]          util-commands.adb
+   [Ada]          util-commands-drivers.adb
+   [Ada]          util-commands-text_io.ads
+   [Ada]          util-commands-parsers-gnat_parser.adb
+   [Ada]          util-commands-consoles.adb
+   [Ada]          util-commands-parsers.adb
+   [Ada]          util-commands-consoles-text.adb
+   [Ada]          util-commands-raw_io.ads
+   [Ada]          util-beans-basic-ranges.adb
+   [Ada]          util-beans-lists.ads
+   [Ada]          util-beans-objects-iterators.adb
+   [Ada]          util-beans-objects-datasets.adb
+   [Ada]          util-beans-objects-enums.adb
+   [Ada]          util-beans-objects-vectors.adb
+   [Ada]          util-beans-objects.adb
+   [Ada]          util-beans-objects-hash.adb
+   [Ada]          util-beans-objects-pairs.adb
+   [Ada]          util-beans-methods.ads
+   [Ada]          util-beans-factory.adb
+   [Ada]          util-beans.ads
+   [Ada]          util-beans-objects-maps.adb
+   [Ada]          util-beans-objects-to_access.adb
+   [Ada]          util-beans-ranges.ads
+   [Ada]          util-beans-objects-records.adb
+   [Ada]          util-beans-lists-strings.adb
+   [Ada]          util-beans-objects-time.adb
+   [Ada]          util-beans-basic.ads
+   [Ada]          util-beans-objects-lists.adb
+   [Ada]          util-beans-basic-lists.adb
+   [Ada]          util-systems.ads
+   [Ada]          util-texts-builders.adb
+   [Ada]          util-texts-formats.adb
+   [Ada]          util-texts.ads
+   [Ada]          util-texts-tokenizers.adb
+   [Ada]          util-texts-transforms.adb
+   [Ada]          util-strings-formats.adb
+   [Ada]          util-strings-transforms.adb
+   [Ada]          util-strings-sets.ads
+   [Ada]          util-strings-maps_incensitive.ads
+   [Ada]          util-strings-tokenizers.ads
+   [Ada]          util-strings-builders.ads
+   [Ada]          util-strings-vectors.ads
+   [Ada]          util-strings.adb
+   [Ada]          util-strings-builders-transforms.ads
+   [Ada]          util-strings-maps.ads
+   [Ada]          util-listeners-observers.adb
+   [Ada]          util-listeners-lifecycles.adb
+   [Ada]          util-listeners.ads
+   [Ada]          util-concurrent-counters.adb
+   [Ada]          util-concurrent-arrays.adb
+   [Ada]          util-concurrent-fifos.adb
+   [Ada]          util-concurrent-sequence_queues.adb
+   [Ada]          util-concurrent-locks.adb
+   [Ada]          util-concurrent.ads
+   [Ada]          util-concurrent-pools.adb
+   [Ada]          util-concurrent-copies.adb
+   [Ada]          util-stacks.adb
+   [Ada]          util-algorithms.ads
+   [Ada]          util-blobs.adb
+   [Ada]          util.ads
+   [Ada]          util-executors.adb
+   [Ada]          util-refs.adb
+   [Ada]          util-locales.adb
+   [Ada]          util-nullables.ads
+   [Ada]          util-processes-os.adb
+   [Ada]          util-streams-raw.adb
+   [Ada]          util-systems-dlls.adb
+   [Ada]          util-processes-tools.adb
+   [Ada]          util-processes.adb
+   [Ada]          util-http-headers.adb
+   [Ada]          util-http.adb
+   [Ada]          util-http-mimes.adb
+   [Ada]          util-http-rest.adb
+   [Ada]          util-http-tools.adb
+   [Ada]          util-http-clients-mockups.adb
+   [Ada]          util-http-rest-rest_get_vector.adb
+   [Ada]          util-http-cookies.adb
+   [Ada]          util-mail.adb
+   [Ada]          util-http-parts.adb
+   [Ada]          util-http-mockups.adb
+   [Ada]          util-http-clients.adb
+   [Ada]          util-encoders-quoted_printable.adb
+   [Ada]          util-encoders-kdf.ads
+   [Ada]          util-encoders.adb
+   [Ada]          util-encoders-aes.adb
+   [Ada]          util-encoders-base64.adb
+   [Ada]          util-encoders-ecc.adb
+   [Ada]          util-encoders-hmac.ads
+   [Ada]          util-encoders-hmac-hotp.adb
+   [Ada]          util-encoders-sha256.adb
+   [Ada]          util-encoders-base16.adb
+   [Ada]          util-encoders-base32.adb
+   [Ada]          util-encoders-hmac-sha1.adb
+   [Ada]          util-encoders-kdf-pbkdf2_hmac_sha256.ads
+   [Ada]          util-encoders-uri.adb
+   [Ada]          util-encoders-hmac-sha256.adb
+   [Ada]          util-encoders-kdf-pbkdf2.adb
+   [Ada]          util-encoders-sha1.adb
+   [Ada]          util-measures.adb
+   [Ada]          util-streams-base64.ads
+   [Ada]          util-streams-base16.ads
+   [Ada]          util-streams-buffered-encoders.adb
+   [Ada]          util-streams-texts.adb
+   [Ada]          util-streams-buffered-parts.adb
+   [Ada]          util-streams-texts-tr.ads
+   [Ada]          util-streams-buffered.adb
+   [Ada]          util-streams-aes.adb
+   [Ada]          util-streams-pipes.adb
+   [Ada]          util-streams-sockets.adb
+   [Ada]          util-streams.adb
+   [Ada]          util-streams-texts-wtr.ads
+   [Ada]          util-streams-files.adb
+   [Ada]          util-serialize.ads
+   [Ada]          util-serialize-tools.adb
+   [Ada]          util-serialize-contexts.adb
+   [Ada]          util-serialize-io-csv.adb
+   [Ada]          util-beans-objects-readers.adb
+   [Ada]          util-serialize-mappers-record_mapper.adb
+   [Ada]          util-properties-form.adb
+   [Ada]          util-serialize-io.adb
+   [Ada]          util-properties-json.adb
+   [Ada]          util-serialize-io-form.adb
+   [Ada]          util-serialize-mappers.adb
+   [Ada]          util-serialize-mappers-vector_mapper.adb
+   [Ada]          util-serialize-io-json.adb
+   [Ada]          asf-components-utils-scrollers.adb
+   [Ada]          asf-components-html-forms.adb
+   [Ada]          asf-views.adb
+   [Ada]          asf-models.ads
+   [Ada]          asf-navigations-mappers.adb
+   [Ada]          asf-components-root.adb
+   [Ada]          asf-components-ajax-factory.adb
+   [Ada]          asf-contexts-exceptions-iterator.adb
+   [Ada]          asf-components.ads
+   [Ada]          asf-contexts.ads
+   [Ada]          asf-beans-injections.adb
+   [Ada]          asf-views-nodes-facelets.adb
+   [Ada]          asf-events.ads
+   [Ada]          asf-events-faces-actions.adb
+   [Ada]          asf-events-modules.adb
+   [Ada]          asf-views-nodes-jsf.adb
+   [Ada]          asf-events-faces.adb
+   [Ada]          asf-converters.ads
+   [Ada]          asf-converters-dates.adb
+   [Ada]          asf-components-html-messages.adb
+   [Ada]          asf-views-nodes.adb
+   [Ada]          asf-components-utils.adb
+   [Ada]          asf-streams.ads
+   [Ada]          asf-beans-resolvers.adb
+   [Ada]          asf-lifecycles-restore.adb
+   [Ada]          asf-beans-headers.adb
+   [Ada]          asf-components-base.adb
+   [Ada]          asf-applications-messages-factory.adb
+   [Ada]          asf-components-html-pages.adb
+   [Ada]          asf-components-widgets-panels.adb
+   [Ada]          asf-lifecycles-default.adb
+   [Ada]          asf-contexts-writer-string.adb
+   [Ada]          asf-components-html-panels.adb
+   [Ada]          asf-applications-messages-utils.adb
+   [Ada]          asf-contexts-faces.adb
+   [Ada]          asf-components-widgets-tabs.adb
+   [Ada]          asf-components-html-links.adb
+   [Ada]          asf-parts-upload_method.ads
+   [Ada]          asf-parts.ads
+   [Ada]          asf-components-widgets-factory.adb
+   [Ada]          asf-responses.ads
+   [Ada]          asf-servlets-measures.ads
+   [Ada]          asf-helpers-beans.adb
+   [Ada]          asf-components-html.adb
+   [Ada]          asf-components-widgets.ads
+   [Ada]          asf-events-exceptions.adb
+   [Ada]          asf-views-nodes-reader.adb
+   [Ada]          asf-components-utils-factory.adb
+   [Ada]          asf-contexts-flash.adb
+   [Ada]          asf-servlets-faces-mappers.adb
+   [Ada]          asf-beans-mappers.adb
+   [Ada]          asf-navigations-render.adb
+   [Ada]          asf-beans-flash.adb
+   [Ada]          asf-events-phases.ads
+   [Ada]          asf-factory.adb
+   [Ada]          asf-components-ajax.ads
+   [Ada]          asf-servlets-ajax.adb
+   [Ada]          asf-contexts-writer.adb
+   [Ada]          asf-applications-messages-vectors.ads
+   [Ada]          asf-applications-views.adb
+   [Ada]          asf-applications-main-configs.adb
+   [Ada]          asf-servlets.ads
+   [Ada]          asf-lifecycles-update.adb
+   [Ada]          asf-requests.ads
+   [Ada]          asf-components-widgets-likes.adb
+   [Ada]          asf-components-utils-beans.adb
+   [Ada]          asf-server.ads
+   [Ada]          asf-components-html-text.adb
+   [Ada]          asf-security.adb
+   [Ada]          asf-components-utils-files.adb
+   [Ada]          asf-servlets-faces.adb
+   [Ada]          asf-beans-requests.adb
+   [Ada]          asf-lifecycles-response.adb
+   [Ada]          asf-routes-servlets.adb
+   [Ada]          asf-components-holders.ads
+   [Ada]          asf-clients.ads
+   [Ada]          asf-converters-sizes.adb
+   [Ada]          asf-beans-params.adb
+   [Ada]          asf-components-ajax-includes.adb
+   [Ada]          asf-filters.ads
+   [Ada]          asf-routes-servlets-faces.ads
+   [Ada]          asf-components-widgets-inputs.adb
+   [Ada]          asf-principals.ads
+   [Ada]          asf-components-widgets-gravatars.adb
+   [Ada]          asf-applications-messages.adb
+   [Ada]          asf.ads
+   [Ada]          asf-contexts-exceptions.adb
+   [Ada]          asf-models-selects.adb
+   [Ada]          asf-beans-globals.adb
+   [Ada]          asf-components-html-lists.adb
+   [Ada]          asf-navigations-redirect.adb
+   [Ada]          asf-components-widgets-selects.adb
+   [Ada]          asf-validators-texts.adb
+   [Ada]          asf-locales.adb
+   [Ada]          asf-utils.adb
+   [Ada]          asf-views-nodes-core.adb
+   [Ada]          asf-security-filters-oauth.ads
+   [Ada]          asf-cookies.ads
+   [Ada]          asf-components-core-views.adb
+   [Ada]          asf-components-core-factory.adb
+   [Ada]          asf-validators-numbers.adb
+   [Ada]          asf-components-utils-escapes.adb
+   [Ada]          asf-lifecycles.adb
+   [Ada]          asf-applications.adb
+   [Ada]          asf-components-utils-scripts.adb
+   [Ada]          asf-lifecycles-invoke.adb
+   [Ada]          asf-converters-numbers.adb
+   [Ada]          asf-components-widgets-progress.adb
+   [Ada]          asf-servlets-files.ads
+   [Ada]          asf-sessions.ads
+   [Ada]          asf-beans.adb
+   [Ada]          asf-applications-main.adb
+   [Ada]          asf-helpers.ads
+   [Ada]          asf-components-utils-flush.adb
+   [Ada]          asf-security-filters.ads
+   [Ada]          asf-navigations.adb
+   [Ada]          asf-validators.ads
+   [Ada]          asf-views-facelets.adb
+   [Ada]          asf-routes.ads
+   [Ada]          asf-components-html-factory.adb
+   [Ada]          asf-components-html-selects.adb
+   [Ada]          asf-lifecycles-apply.adb
+   [Ada]          asf-contexts-facelets.adb
+   [Ada]          asf-views-nodes-factory.adb
+   [Ada]          asf-security-servlets.ads
+   [Ada]          asf-components-core.adb
+   [Ada]          asf-lifecycles-validation.adb
+Build Libraries
+   [gprlib]       utilada_core.lexch
+   [gprlib]       utilada_base.lexch
+   [archive]      libutilada_core.a
+   [index]        libutilada_core.a
+   [gprlib]       utilada_sys.lexch
+   [archive]      libutilada_base.a
+   [index]        libutilada_base.a
+   [gprlib]       elada.lexch
+   [archive]      libutilada_sys.a
+   [archive]      libelada.a
+   [gprlib]       xmlada_unicode.lexch
+   [gprlib]       xmlada_input_sources.lexch
+   [archive]      libxmlada_unicode.a
+   [index]        libelada.a
+   [index]        libutilada_sys.a
+   [index]        libxmlada_unicode.a
+   [gprlib]       xmlada_sax.lexch
+   [archive]      libxmlada_input_sources.a
+   [index]        libxmlada_input_sources.a
+   [gprlib]       utilada_xml.lexch
+   [archive]      libxmlada_sax.a
+   [index]        libxmlada_sax.a
+   [gprlib]       security.lexch
+   [archive]      libutilada_xml.a
+   [index]        libutilada_xml.a
+   [gprlib]       servletada.lexch
+   [archive]      libsecurity.a
+   [index]        libsecurity.a
+   [gprlib]       asf.lexch
+   [archive]      libservletada.a
+   [index]        libservletada.a
+   [archive]      libasf.a
+   [index]        libasf.a
+Build finished successfully in 43.62 seconds.
+
+serverfaces=1.6.0 successfully retrieved and built.
+Dependencies were solved as follows:
+
+   +  elada       1.8.6  (new,indirect)                        
+   +i gnat        13.2.1 (new,installed,gnat_external,indirect)
+   +  security    1.5.0  (new)                                 
+   +  servletada  1.7.0  (new)                                 
+   +  utilada     2.6.0  (new)                                 
+   +  utilada_xml 2.6.0  (new,indirect)                        
+   +  xmlada      24.0.0 (new,indirect)                        
+Found declared GPR file: .alire/asf.gpr

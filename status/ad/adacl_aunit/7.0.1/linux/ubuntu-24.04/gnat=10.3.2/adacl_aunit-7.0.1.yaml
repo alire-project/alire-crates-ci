@@ -1,0 +1,684 @@
+badge: false
+crate: adacl_aunit
+creation_timestamp: 1759839752.390643
+distro: ubuntu-24.04
+duration: 4.297095667000008
+gnat: 10.3.2
+last_attempt: 2025-10-09 12:26:24.630602+00:00
+log:
+- 'Test ran at 2025-10-09 12:26:24.630579+00:00
+
+
+  '
+- 'SOLUTION:
+
+  '
+- 'adacl_aunit=7.0.1: Ada 2022 AUnit with readable asserts & paramerised test
+
+  '
+- 'Origin: source archive adacl_aunit-7.0.1.tgz at https://sourceforge.net/projects/adacl/files/Alire/adacl_aunit-7.0.1.tgz
+  with hashes sha256:ebfefd3e7f69834409b1f2215dcede0772feaad9f41c477c4fde55cf17eede26,
+  sha512:db9a7cc4ffb7e773e074466fd65cd2520d9f9b6164fe5b016feaa6410e3a610363871297caf8bde90fa3cce9848daa0f44eec7c321cd5a5e02970bf9123241d5
+
+  '
+- 'Properties:
+
+  '
+- '   Author: Martin Krischik <krischik@users.sourceforge.net>
+
+  '
+- "   Build Switches: \n"
+- '   Description: Ada 2022 AUnit with readable asserts & paramerised test
+
+  '
+- '   License: GPL-3.0-or-later
+
+  '
+- '   Long_Description: A versatile Ada 2022 testing library, enhancing AUnit with
+  readable assertions and parameterised tests.
+
+  '
+- '
+
+  '
+- '## Features
+
+  '
+- '
+
+  '
+- '### AUnit-Compatible Assertions
+
+  '
+- '
+
+  '
+- '  - Generic support for access, array, discrete, floating-point, fixed-point, decimal,
+  vector types, and files.
+
+  '
+- '  - **Readable Error Messages**: Assertions provide detailed feedback.
+
+  '
+- '
+
+  '
+- 'Example for unbounded strings:
+
+  '
+- '
+
+  '
+- '```ada
+
+  '
+- '    procedure Equal
+
+  '
+- '       (Actual   : Ada.Strings.Unbounded.Unbounded_String;
+
+  '
+- '        Expected : String;
+
+  '
+- '        Name     : String;
+
+  '
+- '        Source   : String  := GNAT.Source_Info.File;
+
+  '
+- '        Line     : Natural := GNAT.Source_Info.Line)
+
+  '
+- '    is
+
+  '
+- '       use Ada.Strings.Unbounded;
+
+  '
+- '    begin
+
+  '
+- '       if not (Actual = Expected) then
+
+  '
+- '          Report_Assertion
+
+  '
+- "             (Message => \"In string \xAB\" & Name & \"\xBB the \" & Actual'Image\
+  \ & \" is not equal to \" & Expected'Image,\n"
+- '              Source  => Source,
+
+  '
+- '              Line    => Line);
+
+  '
+- '       end if;
+
+  '
+- '    end Equal;
+
+  '
+- '```
+
+  '
+- '
+
+  '
+- 'This yields clear, context-rich error messages, surpassing standard AUnit
+
+  '
+- 'output.
+
+  '
+- '
+
+  '
+- '## Parameterised Tests
+
+  '
+- '
+
+  '
+- 'Run the same test with varied inputs and expected values, boosting coverage
+
+  '
+- 'efficiently.
+
+  '
+- '
+
+  '
+- 'Example from hp41cx_tools:
+
+  '
+- '
+
+  '
+- '```ada
+
+  '
+- 'overriding procedure Register_Tests (T : in out Test_Case) is
+
+  '
+- '   pragma Debug (AdaCL.Trace.Entering (In_Parameter => T.Name.all''Image));
+
+  '
+- 'begin
+
+  '
+- '   T.Parameter.Register_Routine (T, Test_To_HP_Duration_01''Access, "WAKE_UP",      "2024-12-01
+  08:00:00",   [3, 9, 4, 2, 0, 2, 8, 8, 0, 0, 0], 3942028800.0);
+
+  '
+- '   T.Parameter.Register_Routine (T, Test_To_HP_Duration_01''Access, "^LBLTEST",     "2025-07-22
+  12:00:00",   [3, 9, 6, 2, 1, 7, 4, 4, 0, 0, 0], 3962174400.0);
+
+  '
+- '   T.Parameter.Register_Routine (T, Test_To_HP_Duration_01''Access, "TONE",         "2025-11-12
+  09:12:34",   [3, 9, 7, 1, 9, 2, 7, 5, 5, 4, 0], 3971927554.0);
+
+  '
+- '   T.Parameter.Register_Routine (T, Test_To_HP_Duration_01''Access, "FRACTION",     "2025-11-12
+  09:12:34.5", [3, 9, 7, 1, 9, 2, 7, 5, 5, 4, 5], 3971927554.5);
+
+  '
+- '   T.Parameter.Register_Routine (T, Test_To_HP_Duration_01''Access, "REPEAT24",     "24:00:00",              [0,
+  0, 0, 0, 0, 8, 6, 4, 0, 0, 0], 0000086400.0);
+
+  '
+- '   T.Parameter.Register_Routine (T, Test_To_HP_Duration_01''Access, "REPEAT''First",
+  "0000:00:01.0",          [0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0], 0000000010.0);
+
+  '
+- '   T.Parameter.Register_Routine (T, Test_To_HP_Duration_01''Access, "REPEAT''Last",  "9999:59:59.9",          [0,
+  0, 3, 5, 9, 9, 9, 9, 9, 9, 9], 0035999999.9);
+
+  '
+- '   pragma Debug (AdaCL.Trace.Exiting);
+
+  '
+- '   return;
+
+  '
+- 'end Register_Tests;
+
+  '
+- '```
+
+  '
+- '
+
+  '
+- 'Registering tests multiple times with different data enhances test coverage
+
+  '
+- 'without redundant code.
+
+  '
+- '
+
+  '
+- 'Source: [SourceForge](https://sourceforge.net/p/adacl/git/ci/master/tree/adacl_aunit/test/src/)
+
+  '
+- 'Documentation: [GNATdoc](https://adacl.sourceforge.net/gnatdoc/adacl_aunit_test/index.html)
+
+  '
+- '
+
+  '
+- '   Maintainer: Martin Krischik <krischik@users.sourceforge.net>
+
+  '
+- '   Maintainers_Logins: krischik
+
+  '
+- '   Name: adacl_aunit
+
+  '
+- '   Tag: library
+
+  '
+- '   Tag: aunit
+
+  '
+- '   Tag: assert
+
+  '
+- '   Tag: ada2022
+
+  '
+- '   Version: 7.0.1
+
+  '
+- '   Website: https://sourceforge.net/projects/adacl_aunit/
+
+  '
+- 'Dependencies (direct):
+
+  '
+- '   adacl^7.0.0
+
+  '
+- '   aunit25.0.0
+
+  '
+- 'Dependencies (solution):
+
+  '
+- '   adacl=7.0.1
+
+  '
+- '   aunit=25.0.0
+
+  '
+- 'Dependencies (graph):
+
+  '
+- '   adacl_aunit=7.0.1 --> adacl=7.0.1 (^7.0.0)
+
+  '
+- '   adacl_aunit=7.0.1 --> aunit=25.0.0 (25.0.0)
+
+  '
+- '
+
+  '
+- '
+
+  LOG:
+
+  '
+- '[alr test] Testing adacl_aunit=7.0.1
+
+  '
+- '[alr test] Spawning retrieval for remote crate: alr -d -n get adacl_aunit=7.0.1
+
+  '
+- 'Note: Deploying adacl_aunit=7.0.1...
+
+  '
+- "#=#=#                                                                         \
+  \ \n"
+- "##O#-#                                                                        \
+  \ \n"
+- '
+
+  '
+- '######################################################################## 100.0%
+
+  '
+- '######################################################################## 100.0%
+
+  '
+- '######################################################################## 100.0%
+
+  '
+- "######################################################################## 100.0%##O=#\
+  \  #                                                                       \n"
+- '
+
+  '
+- '######################################                                    54.0%
+
+  '
+- '######################################################################## 100.0%
+
+  '
+- 'Note: Deploying adacl=7.0.1...
+
+  '
+- '
+
+  '
+- '######################################################################## 100.0%
+
+  '
+- '######################################################################## 100.0%
+
+  '
+- '######################################################################## 100.0%
+
+  '
+- '######################################################################## 100.0%
+
+  '
+- '#####################################                                     52.0%
+
+  '
+- '######################################################################## 100.0%
+
+  '
+- 'Note: Deploying aunit=25.0.0...
+
+  '
+- "#=#=#                                                                         \
+  \ \n"
+- "##O#-#                                                                        \
+  \ \n"
+- '
+
+  '
+- 'adacl_aunit=7.0.1 successfully retrieved.
+
+  '
+- 'Dependencies were solved as follows:
+
+  '
+- '
+
+  '
+- '   + adacl 7.0.1  (new)
+
+  '
+- '   + aunit 25.0.0 (new)
+
+  '
+- '[alr test] Spawning default test for remote crate: alr -d -n build --release --
+  -cargs:Ada -gnatwn
+
+  '
+- 'Note: Building adacl_aunit=7.0.1/adacl_aunit.gpr...
+
+  '
+- 'Setup
+
+  '
+- '   [mkdir]        object directory for project AdaCL
+
+  '
+- '   [mkdir]        library directory for project AdaCL
+
+  '
+- '   [mkdir]        object directory for project AUnit
+
+  '
+- '   [mkdir]        library directory for project AUnit
+
+  '
+- '   [mkdir]        object directory for project AdaCL_AUnit
+
+  '
+- '   [mkdir]        library directory for project AdaCL_AUnit
+
+  '
+- 'Compile
+
+  '
+- '   [Ada]          aunit-io.ads
+
+  '
+- '   [Ada]          aunit-memory-utils.adb
+
+  '
+- '   [Ada]          aunit-memory.adb
+
+  '
+- '   [Ada]          aunit-time_measure.adb
+
+  '
+- '   [Ada]          aunit-reporter-junit.adb
+
+  '
+- '   [Ada]          aunit-reporter-text.adb
+
+  '
+- '   [Ada]          aunit-reporter-xml.adb
+
+  '
+- '   [Ada]          aunit-reporter-gnattest.adb
+
+  '
+- '   [Ada]          ada_containers.ads
+
+  '
+- '   [Ada]          ada_containers-aunit_lists.adb
+
+  '
+- '   [Ada]          aunit-test_filters.adb
+
+  '
+- '   [Ada]          aunit-test_results.adb
+
+  '
+- '   [Ada]          aunit.adb
+
+  '
+- '   [Ada]          aunit-test_cases.adb
+
+  '
+- '   [Ada]          aunit-test_fixtures.adb
+
+  '
+- '   [Ada]          aunit-reporter.adb
+
+  '
+- '   [Ada]          aunit-tests.ads
+
+  '
+- '   [Ada]          aunit-test_suites.adb
+
+  '
+- '   [Ada]          aunit-options.ads
+
+  '
+- '   [Ada]          aunit-test_caller.adb
+
+  '
+- '   [Ada]          aunit-simple_test_cases.adb
+
+  '
+- '   [Ada]          aunit-assertions.adb
+
+  '
+- '   [Ada]          aunit-run.adb
+
+  '
+- '   [Ada]          adacl_config.ads
+
+  '
+- 'gnat1: invalid switch: -gnat2022
+
+  '
+- '
+
+  '
+- '   compilation of adacl_config.ads failed
+
+  '
+- '
+
+  '
+- 'gprbuild: *** compilation phase failed
+
+  '
+- 'stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/8b8a6fc2-7cd4-41bc-98cc-a159cef208d9/adacl_aunit_7.0.1_ebfefd3e/adacl_aunit.gpr",
+  "-cargs:Ada", "-gnatwn"] exited with code 4
+
+  '
+- 'ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/8b8a6fc2-7cd4-41bc-98cc-a159cef208d9/adacl_aunit_7.0.1_ebfefd3e/adacl_aunit.gpr",
+  "-cargs:Ada", "-gnatwn"] exited with code 4
+
+  '
+- 'stderr: ALIRE.CHECKED_ERROR
+
+  '
+- 'stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/8b8a6fc2-7cd4-41bc-98cc-a159cef208d9/adacl_aunit_7.0.1_ebfefd3e/adacl_aunit.gpr",
+  "-cargs:Ada", "-gnatwn"] exited with code 4
+
+  '
+- 'stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
+
+  '
+- '[/home/runner/work/alire-crates-ci/alire-crates-ci/alire_install/bin/alr]
+
+  '
+- '0xe75bc6 Alire.Raise_Checked_Error at alire.adb:284
+
+  '
+- '0xac1a54 Alire.Os_Lib.Subprocess.Checked_Spawn at alire-os_lib-subprocess.adb:111
+
+  '
+- '0xd40276 Alire.Spawn.Command at alire-spawn.adb:22
+
+  '
+- '0xd412ee Alire.Spawn.Gprbuild at alire-spawn.adb:68
+
+  '
+- '0xc748cb Alire.Roots.Build at alire-roots.adb:189
+
+  '
+- '0xc7301a Alire.Roots.Build at alire-roots.adb:255
+
+  '
+- '0xc9832b Alire.Roots.Traverse at alire-roots.adb:2143
+
+  '
+- '0xcfee85 Alire.Solutions.Traverse.Visit at alire-solutions.adb:1472
+
+  '
+- '0xcfdfcc Alire.Solutions.Traverse at alire-solutions.adb:1555
+
+  '
+- '0xc9841e Alire.Roots.Traverse at alire-roots.adb:2147
+
+  '
+- '0xc984dd Alire.Roots.Traverse at alire-roots.adb:2127
+
+  '
+- '0xc7359b Alire.Roots.Build at alire-roots.adb:286
+
+  '
+- '0xc736d7 Alire.Roots.Build at alire-roots.adb:114
+
+  '
+- '0x49aa0d Alr.Commands.Build.Execute at alr-commands-build.adb:145
+
+  '
+- '0x49a36d Alr.Commands.Build.Execute at alr-commands-build.adb:113
+
+  '
+- '0x49a51f Alr.Commands.Build.Execute at alr-commands-build.adb:54
+
+  '
+- '0x53bbcc Alr.Commands.Sub_Cmd.Execute at clic-subcommand-instance.adb:749
+
+  '
+- '0x5472be Alr.Commands.Execute at alr-commands.adb:632
+
+  '
+- '0x43d48a Alr.Main at alr-main.adb:13
+
+  '
+- '0x4403a3 Main at b__alr-main.adb:2445
+
+  '
+- '[/lib/x86_64-linux-gnu/libc.so.6]
+
+  '
+- '0x7f5dc942a1c8
+
+  '
+- '0x7f5dc942a289
+
+  '
+- '[/home/runner/work/alire-crates-ci/alire-crates-ci/alire_install/bin/alr]
+
+  '
+- '0x43d323 _start at ???
+
+  '
+- '0xfffffffffffffffe
+
+  '
+- '
+
+  '
+- 'stderr: ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED
+
+  '
+- 'stderr: alire-roots.adb:202
+
+  '
+- 'stderr: raised ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED : alire-roots.adb:202
+
+  '
+- '[/home/runner/work/alire-crates-ci/alire-crates-ci/alire_install/bin/alr]
+
+  '
+- '0xc74cc7 Alire.Roots.Build at alire-roots.adb:202
+
+  '
+- '0xc7301a Alire.Roots.Build at alire-roots.adb:255
+
+  '
+- '0xc9832b Alire.Roots.Traverse at alire-roots.adb:2143
+
+  '
+- '0xcfee85 Alire.Solutions.Traverse.Visit at alire-solutions.adb:1472
+
+  '
+- '0xcfdfcc Alire.Solutions.Traverse at alire-solutions.adb:1555
+
+  '
+- '0xc9841e Alire.Roots.Traverse at alire-roots.adb:2147
+
+  '
+- '0xc984dd Alire.Roots.Traverse at alire-roots.adb:2127
+
+  '
+- '0xc7359b Alire.Roots.Build at alire-roots.adb:286
+
+  '
+- '0xc736d7 Alire.Roots.Build at alire-roots.adb:114
+
+  '
+- '0x49aa0d Alr.Commands.Build.Execute at alr-commands-build.adb:145
+
+  '
+- '0x49a36d Alr.Commands.Build.Execute at alr-commands-build.adb:113
+
+  '
+- '0x49a51f Alr.Commands.Build.Execute at alr-commands-build.adb:54
+
+  '
+- '0x53bbcc Alr.Commands.Sub_Cmd.Execute at clic-subcommand-instance.adb:749
+
+  '
+- '0x5472be Alr.Commands.Execute at alr-commands.adb:632
+
+  '
+- '0x43d48a Alr.Main at alr-main.adb:13
+
+  '
+- '0x4403a3 Main at b__alr-main.adb:2445
+
+  '
+- '[/lib/x86_64-linux-gnu/libc.so.6]
+
+  '
+- '0x7f5dc942a1c8
+
+  '
+- '0x7f5dc942a289
+
+  '
+- '[/home/runner/work/alire-crates-ci/alire-crates-ci/alire_install/bin/alr]
+
+  '
+- '0x43d323 _start at ???
+
+  '
+- '0xfffffffffffffffe
+
+  '
+- '
+
+  '
+- 'ERROR: Compilation failed.
+
+  '
+platform: linux
+status: failing
+version: 7.0.1

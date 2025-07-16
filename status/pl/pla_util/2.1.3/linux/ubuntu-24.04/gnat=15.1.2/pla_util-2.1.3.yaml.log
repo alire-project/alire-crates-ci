@@ -1,0 +1,139 @@
+Test ran at 2025-07-25 12:26:20.497825+00:00
+
+SOLUTION:
+pla_util=2.1.3: A power line adapter utility
+Origin: commit f5b3a986fd37f098dbc5660b5f9846e181d982db from https://github.com/serock/pla-util.git
+Available when: (case OS is Linux => True, others => False)
+Properties:
+   Author: John Serock
+   Build Switches: 
+   Configuration: no modifiers
+   Description: A power line adapter utility
+   Executable: pla-util
+   License: GPL-3.0-or-later
+   Maintainer: john.serock@gmail.com
+   Maintainers_Logins: serock
+   Name: pla_util
+   Project_File: pla_util.gpr
+   Tag: powerline
+   Version: 2.1.3
+   Website: https://github.com/serock/pla-util
+Dependencies (direct):
+   libpcap^1.8.1
+Dependencies (solution):
+   libpcap=1.10.4
+Dependencies (graph):
+   pla_util=2.1.3 --> libpcap=1.10.4 (^1.8.1)
+
+
+LOG:
+[alr test] Testing pla_util=2.1.3
+[alr test] Spawning retrieval for remote crate: alr -d -n get pla_util=2.1.3
+Note: Deploying pla_util=2.1.3...
+Note: Deploying libpcap=1.10.4...
+The system package 'libpcap-dev' is about to be installed.
+This action might require admin privileges and impact your system installation.
+Do you want Alire to install this system package?
+Using default: Yes
+Selecting previously unselected package libdbus-1-dev:amd64.
+(Reading database ... 
+(Reading database ... 5%
+(Reading database ... 10%
+(Reading database ... 15%
+(Reading database ... 20%
+(Reading database ... 25%
+(Reading database ... 30%
+(Reading database ... 35%
+(Reading database ... 40%
+(Reading database ... 45%
+(Reading database ... 50%
+(Reading database ... 55%
+(Reading database ... 60%
+(Reading database ... 65%
+(Reading database ... 70%
+(Reading database ... 75%
+(Reading database ... 80%
+(Reading database ... 85%
+(Reading database ... 90%
+(Reading database ... 95%
+(Reading database ... 100%
+(Reading database ... 220108 files and directories currently installed.)
+Preparing to unpack .../0-libdbus-1-dev_1.14.10-4ubuntu4.1_amd64.deb ...
+Unpacking libdbus-1-dev:amd64 (1.14.10-4ubuntu4.1) ...
+Selecting previously unselected package libnl-3-dev:amd64.
+Preparing to unpack .../1-libnl-3-dev_3.7.0-0.3build1.1_amd64.deb ...
+Unpacking libnl-3-dev:amd64 (3.7.0-0.3build1.1) ...
+Selecting previously unselected package libnl-route-3-dev:amd64.
+Preparing to unpack .../2-libnl-route-3-dev_3.7.0-0.3build1.1_amd64.deb ...
+Unpacking libnl-route-3-dev:amd64 (3.7.0-0.3build1.1) ...
+Selecting previously unselected package libibverbs-dev:amd64.
+Preparing to unpack .../3-libibverbs-dev_50.0-2ubuntu0.2_amd64.deb ...
+Unpacking libibverbs-dev:amd64 (50.0-2ubuntu0.2) ...
+Selecting previously unselected package libpcap0.8-dev:amd64.
+Preparing to unpack .../4-libpcap0.8-dev_1.10.4-4.1ubuntu3_amd64.deb ...
+Unpacking libpcap0.8-dev:amd64 (1.10.4-4.1ubuntu3) ...
+Selecting previously unselected package libpcap-dev:amd64.
+Preparing to unpack .../5-libpcap-dev_1.10.4-4.1ubuntu3_amd64.deb ...
+Unpacking libpcap-dev:amd64 (1.10.4-4.1ubuntu3) ...
+Setting up libdbus-1-dev:amd64 (1.14.10-4ubuntu4.1) ...
+Setting up libnl-3-dev:amd64 (3.7.0-0.3build1.1) ...
+Setting up libnl-route-3-dev:amd64 (3.7.0-0.3build1.1) ...
+Setting up libibverbs-dev:amd64 (50.0-2ubuntu0.2) ...
+Processing triggers for man-db (2.12.0-4build2) ...
+Processing triggers for sgml-base (1.31) ...
+Setting up libpcap0.8-dev:amd64 (1.10.4-4.1ubuntu3) ...
+Setting up libpcap-dev:amd64 (1.10.4-4.1ubuntu3) ...
+
+Running kernel seems to be up-to-date.
+
+Restarting services...
+
+Service restarts being deferred:
+ systemctl restart hosted-compute-agent.service
+
+No containers need to be restarted.
+
+No user sessions are running outdated binaries.
+
+No VM guests are running outdated hypervisor (qemu) binaries on this host.
+
+pla_util=2.1.3 successfully retrieved.
+Dependencies were solved as follows:
+
+   +b libpcap 1.10.4 (new,system package)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building pla_util=2.1.3/pla_util.gpr...
+Setup
+   [mkdir]        object directory for project Pla_Util
+   [mkdir]        exec directory for project Pla_Util
+Compile
+   [Ada]          pla_util.adb
+   [Ada]          console.adb
+   [Ada]          config.ads
+   [Ada]          firmware_boot_strings.ads
+   [Ada]          hfid_strings.ads
+   [Ada]          pla_util_config.ads
+   [Ada]          power_line_adapter_sets.ads
+   [Ada]          power_line_adapters.adb
+   [Ada]          commands.adb
+   [Ada]          mac_addresses.adb
+   [Ada]          octets.ads
+   [Ada]          messages.adb
+   [Ada]          messages-constructors.adb
+   [Ada]          power_line_adapters-network.adb
+   [Ada]          to_bounded_string.adb
+   [Ada]          packets.ads
+   [Ada]          packets-network_devices.adb
+   [Ada]          power_line_adapters-constructors.adb
+   [Ada]          packets-device_locators.adb
+   [Ada]          packets-filters.adb
+   [Ada]          packets-pcap.ads
+   [Ada]          packets-pcap-devices.ads
+Bind
+   [gprbind]      pla_util.bexch
+   [Ada]          pla_util.ali
+Link
+   [link]         pla_util.adb
+Success: Build finished successfully in 11.56 seconds.
+Found declared GPR file: pla_util.gpr
+[alr test] Test completed SUCCESSFULLY

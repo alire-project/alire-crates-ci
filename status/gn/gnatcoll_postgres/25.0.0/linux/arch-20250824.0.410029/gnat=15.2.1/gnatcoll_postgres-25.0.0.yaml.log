@@ -1,0 +1,160 @@
+Test ran at 2025-10-16 13:18:59.223258+00:00
+
+SOLUTION:
+gnatcoll_postgres=25.0.0: GNAT Components Collection - postgres
+Origin: source archive gnatcoll-db-25.0.0.zip at https://github.com/adacore/gnatcoll-db/archive/v25.0.0/gnatcoll-db-25.0.0.zip with hash sha512:99777a001ed8ab1cd9318da7b98c629e62cb83e223d5c0140b79c1cc686bf81c6e373e8de2d1d7b4d8b876a56c100c6c1443a8f61d6228ca31f2d033e0606b3d
+Properties:
+   Author: AdaCore
+   Configuration: no modifiers
+   Description: GNAT Components Collection - postgres
+   GPR Scenario: GNATCOLL_BUILD_MODE := DEBUG | PROD
+   GPR Scenario: LIBRARY_TYPE := static | relocatable | static-pic
+   License: GPL-3.0-or-later WITH GCC-exception-3.1
+   Maintainer: chouteau@adacore.com
+   Maintainers_Logins: Fabien-Chouteau
+   Name: gnatcoll_postgres
+   Project_File: postgres/gnatcoll_postgres.gpr
+   Tag: gnatcoll
+   Tag: gnatcoll-db
+   Tag: postgres
+   Tag: postgresql
+   Tag: database
+   Version: 25.0.0
+   Website: https://github.com/adacore/gnatcoll-db
+Dependencies (direct):
+   gnatcoll_sql~25.0.0
+   gnatcoll~25.0.0
+   postgresql*
+Dependencies (solution):
+   gnat=15.2.1 (gnat_native)
+   gnatcoll=25.0.0
+   gnatcoll_sql=25.0.0
+   libgpr=25.0.0
+   postgresql=17.6.0
+   xmlada=25.0.0
+Dependencies (graph):
+   gnatcoll=25.0.0          --> gnat=15.2.1 (gnat_native) (>=13)
+   gnatcoll=25.0.0          --> libgpr=25.0.0 (~25.0.0)
+   gnatcoll_postgres=25.0.0 --> gnatcoll=25.0.0 (~25.0.0)
+   gnatcoll_postgres=25.0.0 --> gnatcoll_sql=25.0.0 (~25.0.0)
+   gnatcoll_postgres=25.0.0 --> postgresql=17.6.0 (*)
+   gnatcoll_sql=25.0.0      --> gnatcoll=25.0.0 (~25.0.0)
+   libgpr=25.0.0            --> gnat=15.2.1 (gnat_native) (/=2020)
+   libgpr=25.0.0            --> xmlada=25.0.0 (~25.0.0)
+   xmlada=25.0.0            --> gnat=15.2.1 (gnat_native) (>=11)
+
+
+LOG:
+[alr test] Testing gnatcoll_postgres=25.0.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get gnatcoll_postgres=25.0.0
+Note: Deploying gnatcoll_postgres=25.0.0...
+
+#=#=#                                                                          
+##O#-#                                                                         
+##=O#- #                                                                       
+# #=O#- #                                                                      
+Note: Deploying postgresql=17.6.0...
+The system package 'postgresql' is about to be installed.
+This action might require admin privileges and impact your system installation.
+Do you want Alire to install this system package?
+Using default: Yes
+resolving dependencies...
+looking for conflicting packages...
+
+Package (5)            New Version     Net Change  Download Size
+
+core/libedit           20250104_3.1-1    0.26 MiB       0.11 MiB
+extra/libxslt          1.1.43-2          0.78 MiB       0.20 MiB
+extra/llvm-libs        20.1.8-1        150.01 MiB      37.76 MiB
+extra/postgresql-libs  17.6-1            8.83 MiB       1.68 MiB
+extra/postgresql       17.6-1           65.13 MiB      18.96 MiB
+
+Total Download Size:    58.71 MiB
+Total Installed Size:  225.01 MiB
+
+:: Proceed with installation? [Y/n] 
+:: Retrieving packages...
+ llvm-libs-20.1.8-1-x86_64 downloading...
+ postgresql-17.6-1-x86_64 downloading...
+ postgresql-libs-17.6-1-x86_64 downloading...
+ libxslt-1.1.43-2-x86_64 downloading...
+ libedit-20250104_3.1-1-x86_64 downloading...
+checking keyring...
+checking package integrity...
+loading package files...
+checking for file conflicts...
+:: Processing package changes...
+installing libxslt...
+Optional dependencies for libxslt
+    python: Python bindings [installed]
+installing libedit...
+installing llvm-libs...
+installing postgresql-libs...
+installing postgresql...
+Optional dependencies for postgresql
+    logrotate: rotates system logs automatically
+    perl: for PL/Perl support [installed]
+    postgresql-old-upgrade: upgrade from previous major version using pg_upgrade
+    python: for PL/Python 3 support [installed]
+    tcl: for PL/Tcl support
+:: Running post-transaction hooks...
+(1/4) Creating system user accounts...
+Creating group 'postgres' with GID 970.
+Creating user 'postgres' (PostgreSQL user) with UID 970 and GID 970.
+(2/4) Reloading system manager configuration...
+  Skipped: Current root is not booted.
+(3/4) Creating temporary files...
+/usr/lib/tmpfiles.d/journal-nocow.conf:26: Failed to resolve specifier: uninitialized /etc/ detected, skipping.
+All rules containing unresolvable specifiers will be skipped.
+(4/4) Arming ConditionNeedsUpdate...
+Note: Deploying gnatcoll_sql=25.0.0...
+
+#=#=#                                                                          
+##O#-#                                                                         
+##=O#- #                                                                       
+# #=O#- #                                                                      
+ # #=O#-  #                                                                    
+  # #=O=#   #                                                                  
+
+gnatcoll_postgres=25.0.0 successfully retrieved.
+Dependencies were solved as follows:
+
+   +b gnat         15.2.1 (new,gnat_native,indirect,binary)
+   +  gnatcoll     25.0.0 (new)
+   +  gnatcoll_sql 25.0.0 (new)
+   +  libgpr       25.0.0 (new,indirect)
+   +b postgresql   17.6.0 (new,system package)
+   +  xmlada       25.0.0 (new,indirect)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building gnatcoll_postgres=25.0.0/postgres/gnatcoll_postgres.gpr...
+Setup
+   [mkdir]        object directory for project GnatColl_SQL
+   [mkdir]        library directory for project GnatColl_SQL
+   [mkdir]        object directory for project GnatColl_Postgres
+   [mkdir]        library directory for project GnatColl_Postgres
+Compile
+   [Ada]          gnatcoll-sql-exec_private.adb
+   [Ada]          gnatcoll-sql.adb
+   [Ada]          gnatcoll-sql-inspect.adb
+   [Ada]          gnatcoll-sql-exec-tasking.adb
+   [Ada]          gnatcoll-sql-orm-impl.adb
+   [Ada]          gnatcoll-sql-orm.adb
+   [Ada]          gnatcoll-sql-exec.adb
+   [Ada]          gnatcoll-sql-sessions.adb
+   [Ada]          gnatcoll-sql_fields.adb
+   [Ada]          gnatcoll-sql_impl.adb
+   [C]            postgres_support.c
+   [Ada]          gnatcoll-sql-postgres-gnade.adb
+   [Ada]          gnatcoll-sql-postgres.adb
+   [Ada]          gnatcoll-sql-ranges.adb
+   [Ada]          gnatcoll-sql-postgres-builder.adb
+Build Libraries
+   [gprlib]       gnatcoll_sql.lexch
+   [gprlib]       gnatcoll_postgres.lexch
+   [archive]      libgnatcoll_sql.a
+   [index]        libgnatcoll_sql.a
+   [archive]      libgnatcoll_postgres.a
+   [index]        libgnatcoll_postgres.a
+Success: Build finished successfully in 40.79 seconds.
+Found declared GPR file: postgres/gnatcoll_postgres.gpr
+[alr test] Test completed SUCCESSFULLY

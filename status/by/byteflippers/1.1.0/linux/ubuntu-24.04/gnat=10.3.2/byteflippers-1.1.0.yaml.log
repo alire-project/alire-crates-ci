@@ -1,0 +1,157 @@
+Test ran at 2025-09-10 00:45:31.537077+00:00
+
+SOLUTION:
+byteflippers=1.1.0: Signed/modular types for system, big and little endian reading/writing.
+Origin: commit 6a0c43ead736c3cece4c176f69fcebe0ca1d4b64 from https://github.com/Bread-Experts-Group/byteflippers.git
+Properties:
+   Author: Miko Elbrecht
+   Description: Signed/modular types for system, big and little endian reading/writing.
+   License: Apache-2.0 WITH LLVM-exception
+   Long_Description: Modular and signed types to convert between big and little endian, such as 50 (0x00000032) to 838860800 (0x32000000). Currently supported are 16/24/[32/64/128]-bit sized signed/modular/fp numeric types for big/little endian respectively, as well as system-endian dependent base types for 8/16/24/[32/64/128]-bit signed/modular/fp numeric types (for both categories: numbers in square brackets indicate the supported sizes of floating-points (fp.)))
+
+All types are compatible with `Interfaces` operators, such as `Shift_Left`, `Shift_Right`, `Rotate_Left`, `Rotate_Right`, as well as (where applicable) `xor`, `and`, `or`.
+
+**NOTE:** This library depends on the GNAT compiler, as it depends on the `Provide_Shift_Operators` pragma. If you need support for another compiler, please let me know, and I'll try to support it.
+
+## Example Use
+
+```ada
+with Byteflippers;
+
+with Ada.Text_IO;
+with Ada.Streams.Stream_IO;
+use  Ada.Streams.Stream_IO;
+
+procedure Scratch is
+    package Endians_u32 renames Byteflippers.Endians_Unsigned_32;
+
+    F : File_Type;
+    S : Stream_Access;
+begin
+   Create (F, Name => "test.bin");
+   S := Stream (F);
+   Byteflippers.Signed_32'Write (S, 1234);
+   Endians_u32.Little_Endian'Write (S, 5678);
+   Endians_u32.Little_Endian'Write (S, 9101);
+   Endians_u32.Big_Endian'Write (S, 1213);
+   Endians_u32.Big_Endian'Write (S, 1415);
+
+   Close (F);   
+   Open (F, In_File, "test.bin");
+   S := Stream (F);
+
+   Ada.Text_IO.Put_Line ("# System Endian Test");
+   Ada.Text_IO.Put_Line (Byteflippers.Signed_32'Input (S)'Image);
+   Ada.Text_IO.Put_Line ("# Little Endian Test (System / Little)");
+   Ada.Text_IO.Put_Line (Byteflippers.Signed_32'Input (S)'Image);
+   Ada.Text_IO.Put_Line (Endians_u32.Little_Endian'Input (S)'Image);
+   Ada.Text_IO.Put_Line ("# Big Endian Test (System / Big)");
+   Ada.Text_IO.Put_Line (Byteflippers.Signed_32'Input (S)'Image);
+   Ada.Text_IO.Put_Line (Endians_u32.Big_Endian'Input (S)'Image);
+end Scratch;
+```
+
+   Maintainer: Miko Elbrecht <pmt.mailservice@gmail.com>
+   Maintainers_Logins: ATPStorages
+   Name: byteflippers
+   Tag: byte
+   Tag: endian
+   Tag: flip
+   Tag: swap
+   Tag: msb
+   Tag: lsb
+   Tag: big-endian
+   Tag: little-endian
+   Version: 1.1.0
+   Website: https://github.com/Bread-Experts-Group/byteflippers
+
+
+LOG:
+[alr test] Testing byteflippers=1.1.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get byteflippers=1.1.0
+Note: Deploying byteflippers=1.1.0...
+
+byteflippers=1.1.0 successfully retrieved.
+There are no dependencies.
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building byteflippers=1.1.0/byteflippers.gpr...
+Setup
+   [mkdir]        object directory for project Byteflippers
+   [mkdir]        library directory for project Byteflippers
+Compile
+   [Ada]          byteflippers_config.ads
+completed 1 out of 3 (33%)...
+   [Ada]          byteflippers.ads
+completed 2 out of 3 (66%)...
+   [Ada]          byteflipper_generics.adb
+gnat1: invalid switch: -gnat2022
+completed 3 out of 3 (100%)...
+gnat1: invalid switch: -gnat2022
+gnat1: invalid switch: -gnat2022
+
+   compilation of byteflipper_generics.adb failed
+   compilation of byteflippers.ads failed
+   compilation of byteflippers_config.ads failed
+
+gprbuild: *** compilation phase failed
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/d11ad1c7-1d3f-49e9-97ba-5cb3680c38f9/byteflippers_1.1.0_6a0c43ea/byteflippers.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/d11ad1c7-1d3f-49e9-97ba-5cb3680c38f9/byteflippers_1.1.0_6a0c43ea/byteflippers.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+stderr: ALIRE.CHECKED_ERROR
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/d11ad1c7-1d3f-49e9-97ba-5cb3680c38f9/byteflippers_1.1.0_6a0c43ea/byteflippers.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
+[/home/runner/work/alire-crates-ci/alire-crates-ci/alire_install/bin/alr]
+0xe75bc6 Alire.Raise_Checked_Error at alire.adb:284
+0xac1a54 Alire.Os_Lib.Subprocess.Checked_Spawn at alire-os_lib-subprocess.adb:111
+0xd40276 Alire.Spawn.Command at alire-spawn.adb:22
+0xd412ee Alire.Spawn.Gprbuild at alire-spawn.adb:68
+0xc748cb Alire.Roots.Build at alire-roots.adb:189
+0xc7301a Alire.Roots.Build at alire-roots.adb:255
+0xc9832b Alire.Roots.Traverse at alire-roots.adb:2143
+0xcfee85 Alire.Solutions.Traverse.Visit at alire-solutions.adb:1472
+0xcfdfcc Alire.Solutions.Traverse at alire-solutions.adb:1555
+0xc9841e Alire.Roots.Traverse at alire-roots.adb:2147
+0xc984dd Alire.Roots.Traverse at alire-roots.adb:2127
+0xc7359b Alire.Roots.Build at alire-roots.adb:286
+0xc736d7 Alire.Roots.Build at alire-roots.adb:114
+0x49aa0d Alr.Commands.Build.Execute at alr-commands-build.adb:145
+0x49a36d Alr.Commands.Build.Execute at alr-commands-build.adb:113
+0x49a51f Alr.Commands.Build.Execute at alr-commands-build.adb:54
+0x53bbcc Alr.Commands.Sub_Cmd.Execute at clic-subcommand-instance.adb:749
+0x5472be Alr.Commands.Execute at alr-commands.adb:632
+0x43d48a Alr.Main at alr-main.adb:13
+0x4403a3 Main at b__alr-main.adb:2445
+[/lib/x86_64-linux-gnu/libc.so.6]
+0x7f977d82a1c8
+0x7f977d82a289
+[/home/runner/work/alire-crates-ci/alire-crates-ci/alire_install/bin/alr]
+0x43d323 _start at ???
+0xfffffffffffffffe
+
+stderr: ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED
+stderr: alire-roots.adb:202
+stderr: raised ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED : alire-roots.adb:202
+[/home/runner/work/alire-crates-ci/alire-crates-ci/alire_install/bin/alr]
+0xc74cc7 Alire.Roots.Build at alire-roots.adb:202
+0xc7301a Alire.Roots.Build at alire-roots.adb:255
+0xc9832b Alire.Roots.Traverse at alire-roots.adb:2143
+0xcfee85 Alire.Solutions.Traverse.Visit at alire-solutions.adb:1472
+0xcfdfcc Alire.Solutions.Traverse at alire-solutions.adb:1555
+0xc9841e Alire.Roots.Traverse at alire-roots.adb:2147
+0xc984dd Alire.Roots.Traverse at alire-roots.adb:2127
+0xc7359b Alire.Roots.Build at alire-roots.adb:286
+0xc736d7 Alire.Roots.Build at alire-roots.adb:114
+0x49aa0d Alr.Commands.Build.Execute at alr-commands-build.adb:145
+0x49a36d Alr.Commands.Build.Execute at alr-commands-build.adb:113
+0x49a51f Alr.Commands.Build.Execute at alr-commands-build.adb:54
+0x53bbcc Alr.Commands.Sub_Cmd.Execute at clic-subcommand-instance.adb:749
+0x5472be Alr.Commands.Execute at alr-commands.adb:632
+0x43d48a Alr.Main at alr-main.adb:13
+0x4403a3 Main at b__alr-main.adb:2445
+[/lib/x86_64-linux-gnu/libc.so.6]
+0x7f977d82a1c8
+0x7f977d82a289
+[/home/runner/work/alire-crates-ci/alire-crates-ci/alire_install/bin/alr]
+0x43d323 _start at ???
+0xfffffffffffffffe
+
+ERROR: Compilation failed.

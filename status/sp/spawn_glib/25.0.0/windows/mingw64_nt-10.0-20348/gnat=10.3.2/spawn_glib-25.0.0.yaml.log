@@ -1,0 +1,83 @@
+Test ran at 2025-09-11 01:02:25.295079+00:00
+
+SOLUTION:
+spawn_glib=25.0.0: A simple library to spawn processes and communicate with them.
+Origin: source archive spawn-25.0.0.zip at https://github.com/adacore/spawn/archive/v25.0.0/spawn-25.0.0.zip with hash sha512:c1135d5db88cf6672a8e784ad5805020e3d6e97b0cd4f25b21f03b1e2c6f1bec9f84cd68a41554b5d5e4c2829712668fafd40de17e7874d3b22dd8cbddb5a615
+Properties:
+   Author: AdaCore
+   Configuration: no modifiers
+   Description: A simple library to spawn processes and communicate with them.
+   GPR Scenario: SPAWN_OS := unix | osx | Windows_NT
+   case OS is
+      when Linux => GPR External: SPAWN_OS := unix
+      when Macos => GPR External: SPAWN_OS := osx
+      when Windows => GPR External: SPAWN_OS := Windows_NT
+   License: Apache-2.0 WITH LLVM-exception
+   Long_Description: This is Glib integrated implementation of a spawn processes interface.
+   Maintainer: Vadim Godunko <vgodunko@gmail.com>
+   Maintainer: Max Reznik <reznikmm@gmail.com>
+   Maintainers_Logins: godunko
+   Maintainers_Logins: reznikmm
+   Name: spawn_glib
+   Project_File: gnat/spawn_glib.gpr
+   Tag: process
+   Tag: launch
+   Tag: pipe
+   Tag: glib
+   Version: 25.0.0
+   Website: https://github.com/AdaCore/spawn
+Dependencies (direct):
+   gtkada>=23
+Dependencies (solution):
+   gtkada=25.0.1
+   libgtk3=3.24.49
+   make=4.4.1
+   pkg_config=0.29.2
+Dependencies (graph):
+   gtkada=25.0.1     --> libgtk3=3.24.49 (>=3.24.24)
+   gtkada=25.0.1     --> make=4.4.1 (*)
+   gtkada=25.0.1     --> pkg_config=0.29.2 (*)
+   spawn_glib=25.0.0 --> gtkada=25.0.1 (>=23)
+
+
+LOG:
+[alr test] Testing spawn_glib=25.0.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get spawn_glib=25.0.0
+Can't find C:\Strawberry\perl\bin\pkg-config on PATH, '.' not in PATH.
+Note: Deploying spawn_glib=25.0.0...
+
+#=#=#                                                                          
+##O#-#                                                                         
+
+spawn_glib=25.0.0 successfully retrieved.
+Dependencies were solved as follows:
+
+   +  gtkada     25.0.1  (new)
+   +b libgtk3    3.24.49 (new,indirect,system package)
+   +b make       4.4.1   (new,indirect,system package)
+   +b pkg_config 0.29.2  (new,indirect,system package)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building spawn_glib=25.0.0/gnat/spawn_glib.gpr...
+Setup
+   [mkdir]        object directory for project Spawn_Glib
+   [mkdir]        library directory for project Spawn_Glib
+Compile
+   [Ada]          spawn.ads
+   [Ada]          spawn-windows_api.adb
+   [Ada]          spawn-string_vectors.ads
+   [Ada]          spawn-process_listeners.ads
+   [Ada]          spawn-processes.adb
+   [Ada]          spawn-posix.ads
+   [Ada]          spawn-polls.ads
+   [Ada]          spawn-internal-windows.adb
+   [Ada]          spawn-environments.adb
+   [Ada]          spawn-common.adb
+   [Ada]          spawn-internal__glib_windows.adb
+   [Ada]          spawn-environments-internal__windows.adb
+Build Libraries
+   [gprlib]       spawn_glib.lexch
+   [archive]      libspawn_glib.a
+   [index]        libspawn_glib.a
+Success: Build finished successfully in 3.96 seconds.
+Found declared GPR file: gnat/spawn_glib.gpr
+[alr test] Test completed SUCCESSFULLY

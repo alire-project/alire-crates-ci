@@ -1,0 +1,116 @@
+Test ran at 2025-09-05 12:29:12.891644+00:00
+
+SOLUTION:
+minisamd51_example=0.1.1: Example project for the MiniSAM D51
+Origin: commit 098d9273990a4447b5a2574c3b4b6c060b8005bf from https://github.com/Fabien-Chouteau/minisamd51_example.git
+Properties:
+   Author: Fabien Chouteau <chouteau@adacore.com>
+   Description: Example project for the MiniSAM D51
+   License: BSD-3-Clause
+   Maintainer: chouteau@adacore.com
+   Maintainers_Logins: Fabien-Chouteau
+   Name: minisamd51_example
+   Tag: embedded
+   Tag: nostd
+   Tag: samd51
+   Tag: minisam
+   Version: 0.1.1
+   Website: https://github.com/Fabien-Chouteau/minisamd51_example
+Dependencies (direct):
+   minisamd51_bsp^0.1.0
+Dependencies (solution):
+   atomic=0.5.0
+   bbqueue=0.3.2
+   cortex_m=0.1.0
+   gnat=11.2.4 (gnat_arm_elf)
+   gnat_arm_elf=11.2.4
+   hal=0.1.0
+   minisamd51_bsp=0.1.0
+   samd51_hal=0.3.0
+   usb_embedded=0.2.0
+Dependencies (graph):
+   bbqueue=0.3.2            --> atomic=0.5.0 (~0.5)
+   bbqueue=0.3.2            --> gnat=11.2.4 (gnat_arm_elf) (>=10)
+   cortex_m=0.1.0           --> hal=0.1.0 (^0.1.0)
+   minisamd51_bsp=0.1.0     --> hal=0.1.0 (^0.1.0)
+   minisamd51_bsp=0.1.0     --> samd51_hal=0.3.0 (^0.2.0)
+   minisamd51_example=0.1.1 --> minisamd51_bsp=0.1.0 (^0.1.0)
+   samd51_hal=0.3.0         --> cortex_m=0.1.0 (~0.1)
+   samd51_hal=0.3.0         --> gnat_arm_elf=11.2.4 (^11.2.2)
+   samd51_hal=0.3.0         --> hal=0.1.0 (~0.1)
+   samd51_hal=0.3.0         --> usb_embedded=0.2.0 (~0.2)
+   usb_embedded=0.2.0       --> bbqueue=0.3.2 (~0.3.0)
+   usb_embedded=0.2.0       --> hal=0.1.0 (~0.1.0)
+
+
+LOG:
+[alr test] Testing minisamd51_example=0.1.1
+[alr test] Spawning retrieval for remote crate: alr -d -n get minisamd51_example=0.1.1
+Note: Deploying minisamd51_example=0.1.1...
+Note: Deploying minisamd51_bsp=0.1.0...
+Warning: Possible tilde intended instead of caret for a 0.x version.
+   Alire does not change the meaning of caret and tilde for pre/post-1.0 versions.
+   The suspicious dependency is: minisamd51_bsp^0.1.0
+   You can disable this warning by setting the option warning.caret to false.
+
+minisamd51_example=0.1.1 successfully retrieved.
+Dependencies were solved as follows:
+
+   +  atomic         0.5.0  (new,indirect)
+   +  bbqueue        0.3.2  (new,indirect)
+   +  cortex_m       0.1.0  (new,indirect)
+   +b gnat           11.2.4 (new,gnat_arm_elf,indirect,binary)
+   +b gnat_arm_elf   11.2.4 (new,indirect,binary)
+   +  hal            0.1.0  (new,indirect)
+   +  minisamd51_bsp 0.1.0  (new)
+   +  samd51_hal     0.3.0  (new,indirect)
+   +  usb_embedded   0.2.0  (new,indirect)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building minisamd51_example=0.1.1/minisamd51_example.gpr...
+Setup
+   [mkdir]        object directory for project Minisamd51_Bsp
+   [mkdir]        library directory for project Minisamd51_Bsp
+   [mkdir]        object directory for project Minisamd51_Example
+Compile
+   [Ada]          main.adb
+   [Ada]          hal-framebuffer.ads
+   [Ada]          hal-time.ads
+   [Ada]          hal.ads
+   [Ada]          hal-spi.ads
+   [Ada]          hal-touch_panel.ads
+   [Ada]          hal-audio.ads
+   [Ada]          hal-filesystem.ads
+   [Ada]          hal-sdmmc.adb
+   [Ada]          hal-bitmap.ads
+   [Ada]          hal-real_time_clock.ads
+   [Ada]          hal-dsi.ads
+   [Ada]          hal-i2c.ads
+   [Ada]          hal-block_drivers.ads
+   [Ada]          hal-gpio.ads
+   [Ada]          hal-uart.ads
+   [Ada]          minisamd51.adb
+   [ASM_CPP]      crt0.S
+Build Libraries
+   [gprlib]       hal.lexch
+   [archive]      libhal.a
+   [index]        libhal.a
+   [gprlib]       Usb_Embedded.lexch
+   [gprlib]       Minisamd51_Bsp.lexch
+   [archive]      libUsb_Embedded.a
+   [index]        libUsb_Embedded.a
+   [archive]      libMinisamd51_Bsp.a
+   [index]        libMinisamd51_Bsp.a
+Bind
+   [gprbind]      main.bexch
+   [Ada]          main.ali
+Link
+   [archive]      libminisamd51_example.a
+   [index]        libminisamd51_example.a
+   [link]         main.adb
+Memory region         Used Size  Region Size  %age Used
+           FLASH:       24544 B       496 KB      4.83%
+           HSRAM:        6080 B       192 KB      3.09%
+         BKUPRAM:          0 GB         8 KB      0.00%
+Success: Build finished successfully in 0.71 seconds.
+Found declared GPR file: minisamd51_example.gpr
+[alr test] Test completed SUCCESSFULLY

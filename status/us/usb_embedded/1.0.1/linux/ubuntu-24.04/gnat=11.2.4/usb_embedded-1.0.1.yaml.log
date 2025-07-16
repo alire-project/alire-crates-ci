@@ -1,0 +1,129 @@
+Test ran at 2025-10-29 00:48:28.601405+00:00
+
+SOLUTION:
+usb_embedded=1.0.1: An Ada USB stack for embedded devices
+Origin: commit dc00efac0269cfc8970abde37b58f0167de6cbe4 from https://github.com/Fabien-Chouteau/usb_embedded.git
+Properties:
+   Author: Fabien Chouteau
+   Config type: Control_Buffer_Size : Integer range 256 .. 9223372036854775807 default: '256'
+   Config type: Event_Log_Buffer_Size : Integer range 0 .. 9223372036854775807 default: '0'
+   Config type: Max_Strings : Integer range 0 .. 9223372036854775807 default: '10'
+   Config type: String_Buffer_Size : Integer range 0 .. 9223372036854775807 default: '256'
+   Configuration: no modifiers
+   Description: An Ada USB stack for embedded devices
+   License: BSD-3-Clause
+   Maintainer: Fabien Chouteau <chouteau@adacore.com>
+   Maintainers_Logins: Fabien-Chouteau
+   Name: usb_embedded
+   Tag: embedded
+   Tag: usb
+   Tag: hid
+   Tag: midi
+   Tag: nostd
+   Version: 1.0.1
+   Website: https://github.com/Fabien-Chouteau/usb_embedded
+Dependencies (direct):
+   bbqueue^1.0.0
+   hal^1.0.0
+Dependencies (solution):
+   atomic=1.0.0
+   bbqueue=1.0.0
+   gnat=11.2.4 (gnat_native)
+   hal=1.0.0
+Dependencies (graph):
+   bbqueue=1.0.0      --> atomic=1.0.0 (^1.0.0)
+   bbqueue=1.0.0      --> gnat=11.2.4 (gnat_native) (>=10)
+   usb_embedded=1.0.1 --> bbqueue=1.0.0 (^1.0.0)
+   usb_embedded=1.0.1 --> hal=1.0.0 (^1.0.0)
+
+
+LOG:
+[alr test] Testing usb_embedded=1.0.1
+[alr test] Spawning retrieval for remote crate: alr -d -n get usb_embedded=1.0.1
+Note: Deploying usb_embedded=1.0.1...
+Note: Deploying atomic=1.0.0...
+Note: Deploying hal=1.0.0...
+Note: Deploying bbqueue=1.0.0...
+
+usb_embedded=1.0.1 successfully retrieved.
+Dependencies were solved as follows:
+
+   +  atomic  1.0.0  (new,indirect)
+   +  bbqueue 1.0.0  (new)
+   +b gnat    11.2.4 (new,gnat_native,indirect,binary)
+   +  hal     1.0.0  (new)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building usb_embedded=1.0.1/usb_embedded.gpr...
+Setup
+   [mkdir]        object directory for project Atomic
+   [mkdir]        library directory for project Atomic
+   [mkdir]        object directory for project Bbqueue
+   [mkdir]        library directory for project Bbqueue
+   [mkdir]        object directory for project HAL
+   [mkdir]        library directory for project HAL
+   [mkdir]        object directory for project Usb_Embedded
+   [mkdir]        library directory for project Usb_Embedded
+Compile
+   [Ada]          hal-uart.ads
+   [Ada]          hal-touch_panel.ads
+   [Ada]          hal-audio.ads
+   [Ada]          hal-flash.ads
+   [Ada]          hal-bitmap.ads
+   [Ada]          hal-gpio.ads
+   [Ada]          hal-framebuffer.ads
+   [Ada]          hal-sdmmc.adb
+   [Ada]          hal-i2c.ads
+   [Ada]          hal-time.ads
+   [Ada]          hal.ads
+   [Ada]          hal-real_time_clock.ads
+   [Ada]          hal-block_drivers.ads
+   [Ada]          hal-filesystem.ads
+   [Ada]          hal-dsi.ads
+   [Ada]          hal-spi.ads
+   [Ada]          atomic.adb
+   [Ada]          atomic-unsigned.adb
+   [Ada]          atomic-signed.adb
+   [Ada]          atomic_config.ads
+   [Ada]          atomic-signed_16.ads
+   [Ada]          atomic-unsigned_8.ads
+   [Ada]          atomic-signed_8.ads
+   [Ada]          atomic-signed_32.ads
+   [Ada]          atomic-unsigned_16.ads
+   [Ada]          atomic-unsigned_32.ads
+   [Ada]          bbqueue_config.ads
+   [Ada]          bbqueue-buffers.adb
+   [Ada]          bbqueue.adb
+   [Ada]          bbqueue-buffers-framed.adb
+   [Ada]          usb_embedded_config.ads
+   [Ada]          usb-lang.ads
+   [Ada]          usb.adb
+   [Ada]          usb-device-hid-joystick.adb
+   [Ada]          usb-device.adb
+   [Ada]          usb-utils.adb
+   [Ada]          usb-logging.ads
+   [Ada]          usb-hal.ads
+   [Ada]          usb-device-hid-gamepad.adb
+   [Ada]          usb-device-midi.adb
+   [Ada]          usb-device-hid.adb
+   [Ada]          usb-device-control.adb
+   [Ada]          usb-device-serial.adb
+   [Ada]          usb-device-hid-keyboard.adb
+   [Ada]          usb-device-hid-mouse.adb
+   [Ada]          usb-hal-device.ads
+   [Ada]          usb-logging-device__null.adb
+Build Libraries
+   [gprlib]       Atomic.lexch
+   [gprlib]       Bbqueue.lexch
+   [archive]      libAtomic.a
+   [index]        libAtomic.a
+   [gprlib]       hal.lexch
+   [gprlib]       Usb_Embedded.lexch
+   [archive]      libBbqueue.a
+   [archive]      libhal.a
+   [index]        libBbqueue.a
+   [index]        libhal.a
+   [archive]      libUsb_Embedded.a
+   [index]        libUsb_Embedded.a
+Success: Build finished successfully in 1.71 seconds.
+Found declared GPR file: usb_embedded.gpr
+[alr test] Test completed SUCCESSFULLY

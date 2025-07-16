@@ -1,0 +1,93 @@
+Test ran at 2022-08-19 09:20:54.468667+00:00
+
+SOLUTION:
+garlic=6.0.1: GNAT Library for Ada Distributed Environment (garlic)
+Origin: commit 90ef4b6f01c95df7e04c8f3e4c41c275f23acea9 from https://github.com/reznikmm/garlic.git
+Properties:
+   Author: AdaCore
+   Configuration: no modifiers
+   Description: GNAT Library for Ada Distributed Environment (garlic)
+   case OS is
+      when Linux => Environment: LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:${CRATE_ROOT}/.libs/relocatable
+      when Macos => Environment: DYLD_LIBRARY_PATH=${DYLD_LIBRARY_PATH}:${CRATE_ROOT}/.libs/relocatable
+      when Windows => Environment: PATH=${PATH}:${CRATE_ROOT}/.libs/relocatable
+   GPR Scenario: GARLIC_BUILD_MODE := dev | prod
+   License: GPL-2.0-or-later WITH GCC-exception-2.0
+   Maintainer: Max Reznik <reznikmm@gmail.com>
+   Maintainers_Logins: reznikmm
+   Name: garlic
+   Project_File: gnat/garlic.gpr
+   Tag: dsa
+   Tag: distributed
+   Tag: annex
+   Tag: network
+   Tag: glade
+   Version: 6.0.1
+   Website: https://github.com/reznikmm/garlic/wiki
+
+
+LOG:
+Note: Deploying garlic=6.0.1...
+Note: Building garlic/gnat/garlic.gpr...
+Setup
+   [mkdir]        object directory for project Garlic
+   [mkdir]        library directory for project Garlic
+Compile
+   [Ada]          s-garrem.adb
+   [Ada]          s-gartyp.adb
+   [Ada]          s-parint.adb
+   [Ada]          s-gprese.ads
+   [Ada]          s-gastha.adb
+   [Ada]          s-ganata.adb
+   [Ada]          s-gargro.adb
+   [Ada]          s-garuti.adb
+   [Ada]          s-garsto.adb
+   [Ada]          s-garhea.adb
+   [Ada]          s-garpar.adb
+   [Ada]          s-ganota.adb
+   [Ada]          s-gaprma.adb
+   [Ada]          s-garlic.ads
+   [Ada]          s-gastds.adb
+   [Ada]          s-garela.adb
+   [Ada]          s-gartas.adb
+   [Ada]          s-garexc.adb
+s-gartas.adb:35:06: warning: unnecessary with of ancestor [-gnatwr]
+
+   compilation of s-gartas.adb failed
+
+gprbuild: *** compilation phase failed
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/5b7a9edc-e223-4213-a0ce-f98971bb948b/garlic_6.0.1_90ef4b6f/gnat/garlic.gpr"] exited with code 4
+ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/5b7a9edc-e223-4213-a0ce-f98971bb948b/garlic_6.0.1_90ef4b6f/gnat/garlic.gpr"] exited with code 4
+stderr: ALIRE.CHECKED_ERROR
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/5b7a9edc-e223-4213-a0ce-f98971bb948b/garlic_6.0.1_90ef4b6f/gnat/garlic.gpr"] exited with code 4
+stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
+[/usr/sbin/alr]
+0xd65c78 Alire.Raise_Checked_Error at alire.adb:251
+0xa2f08f Alire.Os_Lib.Subprocess.Checked_Spawn at alire-os_lib-subprocess.adb:110
+0xc49318 Alire.Spawn.Command at alire-spawn.adb:21
+0xc49a46 Alire.Spawn.Gprbuild at alire-spawn.adb:41
+0xbada9c Alire.Roots.Build.Build_Single_Release.Call_Gprbuild at alire-roots.adb:140
+0xbac0fb Alire.Roots.Build.Build_Single_Release at alire-roots.adb:171
+0xbc7eaa Alire.Roots.Traverse.Traverse_Wrap at alire-roots.adb:1364
+0xc11fbb Alire.Solutions.Traverse.Visit at alire-solutions.adb:1434
+0xc10bd2 Alire.Solutions.Traverse at alire-solutions.adb:1509
+0xbc7ff8 Alire.Roots.Traverse at alire-roots.adb:1368
+0xbac48c Alire.Roots.Build at alire-roots.adb:196
+0x48f1e4 Alr.Commands.Build.Execute at alr-commands-build.adb:58
+0x49f50a Alr.Commands.Get.Retrieve at alr-commands-get.adb:187
+0x4a3d27 Alr.Commands.Get.Execute at alr-commands-get.adb:348
+0x52aa2e Alr.Commands.Sub_Cmd.Execute at clic-subcommand-instance.adb:742
+0x53641f Alr.Commands.Execute at alr-commands.adb:492
+0x42b9ca Alr.Main at alr-main.adb:10
+0x42e297 Main at b__alr-main.adb:2132
+[/usr/bin/..//lib/libc.so.6]
+0x7fddf1c7528e
+0x7fddf1c75348
+[/usr/sbin/alr]
+0x42b8a8 _start at ???
+0xfffffffffffffffe
+
+
+Warning: garlic=6.0.1 successfully retrieved but its build failed.
+There are no dependencies.
+ERROR: Build ended with errors

@@ -1,0 +1,236 @@
+Test ran at 2025-08-20 12:54:01.098773+00:00
+
+SOLUTION:
+spdx_tool=0.4.1: SPDX license detection and management tool
+Origin: commit 0ca2cee437e71cd5f8a32edaa6f3facff8868be3 from https://gitlab.com/stcarrez/spdx-tool.git
+Properties:
+   Post_Fetch run: sh ./alire-setup.sh (from ${CRATE_ROOT}/.)
+   Author: ciceron
+   Description: SPDX license detection and management tool
+   Executable: spdx-tool
+   case OS is
+      when Freebsd => GPR External: USE_MAGICADA := no
+      when Linux => GPR External: USE_MAGICADA := yes
+      when Macos => GPR External: USE_MAGICADA := no
+      when Windows => GPR External: USE_MAGICADA := no
+   License: Apache-2.0
+   Long_Description: spdx-tool scans the source files to identify licenses and allows to update them in order to use the
+SPDX license format.  It can be used to:
+
+* identify the license used in source files of a project,
+* produce a JSON/XML report for the licenses found with the list of files,
+* replace a license header by the [SPDX license](https://spdx.org/licenses/) tag equivalent.
+
+Identify licenses used in a project:
+
+```
+spdx-tool
+```
+
+Identify files matching a given license:
+
+```
+spdx-tool --only-licenses=Apache-2.0 -f
+```
+
+Check the license header before replacing it:
+
+```
+spdx-tool --only-licenses=Apache-2.0 --print-license --line-number src
+```
+
+Replace the license header by the `SPDX-License-Identifier` header:
+
+```
+spdx-tool --only-licenses=Apache-2.0 --update=spdx src
+```
+
+Build an XML or JSON report of files with their licenses:
+
+```
+spdx-tool --output-xml=report.xml
+```
+
+## Documentation
+
+* Man page: [spdx-tool (1)](https://gitlab.com/stcarrez/spdx-tool/-/blob/main/docs/spdx-tool.md?ref_type=heads)
+
+
+   Maintainer: ciceron <Stephane.Carrez@gmail.com>
+   Maintainers_Logins: stcarrez
+   Name: spdx_tool
+   Project_File: spdx_tool.gpr
+   Tag: tools
+   Tag: spdx
+   Tag: license
+   Version: 0.4.1
+   Website: https://github.com/stcarrez/spdx-tool
+Dependencies (direct):
+   case OS is
+      when Linux => magicada^1
+   ada_toml~0.5.0
+   ansiada^1.0.0
+   intl^1.0.1
+   printer_toolkit~0.2.0
+   sciada~0.4.0
+   spdx~0.2.0
+   utilada^2.8.0
+   utilada_xml^2.8.0
+Dependencies (solution):
+   ada_toml=0.5.0
+   ansiada=1.1.0
+   gnat=11.2.4 (gnat_native)
+   intl=1.0.1
+   printer_toolkit=0.2.0
+   sciada=0.4.0
+   spdx=0.2.0
+   utilada=2.8.1
+   utilada_xml=2.8.1
+   xmlada=24.0.0
+Dependencies (graph):
+   printer_toolkit=0.2.0 --> ansiada=1.1.0 (^1.0.0)
+   spdx_tool=0.4.1       --> ada_toml=0.5.0 (~0.5.0)
+   spdx_tool=0.4.1       --> ansiada=1.1.0 (^1.0.0)
+   spdx_tool=0.4.1       --> intl=1.0.1 (^1.0.1)
+   spdx_tool=0.4.1       --> printer_toolkit=0.2.0 (~0.2.0)
+   spdx_tool=0.4.1       --> sciada=0.4.0 (~0.4.0)
+   spdx_tool=0.4.1       --> spdx=0.2.0 (~0.2.0)
+   spdx_tool=0.4.1       --> utilada=2.8.1 (^2.8.0)
+   spdx_tool=0.4.1       --> utilada_xml=2.8.1 (^2.8.0)
+   utilada_xml=2.8.1     --> utilada=2.8.1 (^2.8.1)
+   utilada_xml=2.8.1     --> xmlada=24.0.0 (^24.0)
+   xmlada=24.0.0         --> gnat=11.2.4 (gnat_native) (>=11)
+
+
+LOG:
+[alr test] Testing spdx_tool=0.4.1
+[alr test] Spawning retrieval for remote crate: alr -d -n get spdx_tool=0.4.1
+Note: Deploying spdx_tool=0.4.1...
+Note: Deploying ada_toml=0.5.0...
+
+#=#=#                                                                          
+##O#-#                                                                         
+Note: Deploying ansiada=1.1.0...
+Note: Deploying intl=1.0.1...
+Note: Deploying sciada=0.4.0...
+Note: Deploying spdx=0.2.0...
+Note: Deploying printer_toolkit=0.2.0...
+
+spdx_tool=0.4.1 successfully retrieved.
+Dependencies were solved as follows:
+
+   +  ada_toml        0.5.0  (new)
+   +  ansiada         1.1.0  (new)
+   +b gnat            11.2.4 (new,gnat_native,indirect,binary)
+   +  intl            1.0.1  (new)
+   +  printer_toolkit 0.2.0  (new)
+   +  sciada          0.4.0  (new)
+   +  spdx            0.2.0  (new)
+   +  utilada         2.8.1  (new)
+   +  utilada_xml     2.8.1  (new)
+   +  xmlada          24.0.0 (new,indirect)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Running post-fetch actions for spdx_tool=0.4.1...
+Note: Building spdx_tool=0.4.1/spdx_tool.gpr...
+Setup
+   [mkdir]        object directory for project Ada_TOML
+   [mkdir]        library directory for project Ada_TOML
+   [mkdir]        object directory for project Ansiada
+   [mkdir]        library directory for project Ansiada
+   [mkdir]        object directory for project Intl
+   [mkdir]        library directory for project Intl
+   [mkdir]        object directory for project Printer_Toolkit
+   [mkdir]        library directory for project Printer_Toolkit
+   [mkdir]        object directory for project SciAda
+   [mkdir]        library directory for project SciAda
+   [mkdir]        object directory for project Spdx
+   [mkdir]        library directory for project Spdx
+   [mkdir]        object directory for project Spdx_Tool
+   [mkdir]        exec directory for project Spdx_Tool
+Compile
+   [Ada]          spdx_tool-main.adb
+   [Ada]          spdx.adb
+   [Ada]          spdx-licenses.adb
+   [Ada]          spdx-exceptions.adb
+   [Ada]          sci.ads
+   [Ada]          sci-vectorizers.ads
+   [Ada]          sci-vectorizers-transformers.adb
+   [Ada]          sci-vectorizers-indefinite_counters.adb
+   [Ada]          sci-vectorizers-counters.adb
+   [Ada]          sci-statistics.ads
+   [Ada]          sci-statistics-descriptive.adb
+   [Ada]          sci-sparse.ads
+   [Ada]          sci-sparse-coo_arrays.adb
+   [Ada]          sci-similarities.adb
+   [Ada]          sci-similarities-indefinite_ordered_sets.adb
+   [Ada]          sci-similarities-indefinite_hashed_sets.adb
+   [Ada]          sci-similarities-coo_arrays.adb
+   [Ada]          sci-occurrences.ads
+   [Ada]          sci-occurrences-finites.adb
+   [Ada]          sci-occurrences-arrays.adb
+sci-occurrences-finites.adb:97:17: actual for explicitly aliased formal is too short lived
+
+   compilation of sci-occurrences-finites.adb failed
+
+gprbuild: *** compilation phase failed
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "D:\a\alire-crates-ci\alire-crates-ci\test\b5c060a9-244c-4bc3-b59b-45f389d89e6c\spdx_tool_0.4.1_0ca2cee4\spdx_tool.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "D:\a\alire-crates-ci\alire-crates-ci\test\b5c060a9-244c-4bc3-b59b-45f389d89e6c\spdx_tool_0.4.1_0ca2cee4\spdx_tool.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+stderr: ALIRE.CHECKED_ERROR
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "D:\a\alire-crates-ci\alire-crates-ci\test\b5c060a9-244c-4bc3-b59b-45f389d89e6c\spdx_tool_0.4.1_0ca2cee4\spdx_tool.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
+[D:\a\alire-crates-ci\alire-crates-ci\alire_install\bin\alr.exe]
+0x7ff70ab1da2a Semantic_Versioning.Basic.Restrictions.First_Index at alire.adb:284
+0x7ff70a71595b Semantic_Versioning.Basic.Restrictions.First_Index at alire-os_lib-subprocess.adb:111
+0x7ff70a9ccba1 Semantic_Versioning.Basic.Restrictions.First_Index at alire-spawn.adb:22
+0x7ff70a9cdd5d Semantic_Versioning.Basic.Restrictions.First_Index at alire-spawn.adb:68
+0x7ff70a8f2d64 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:189
+0x7ff70a8f11da Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:255
+0x7ff70a91912d Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2143
+0x7ff70a9882f9 Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1472
+0x7ff70a987424 Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1555
+0x7ff70a91922c Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2147
+0x7ff70a9192fa Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2127
+0x7ff70a8f17a7 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:286
+0x7ff70a8f1912 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:114
+0x7ff70a063baa Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:145
+0x7ff70a06341e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:113
+0x7ff70a0635ba Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:54
+0x7ff70a115dea Semantic_Versioning.Basic.Restrictions.First_Index at clic-subcommand-instance.adb:749
+0x7ff70a122b0e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands.adb:632
+0x7ff709ff16a0 Alr.Main at alr-main.adb:13
+0x7ff709ff5270 Main at b__alr-main.adb:2454
+0x7ff709ff133e __tmainCRTStartup at ???
+0x7ff709ff1144 mainCRTStartup at ???
+[C:\Windows\System32\KERNEL32.DLL]
+0x7ffc1a574cae
+[C:\Windows\SYSTEM32\ntdll.dll]
+0x7ffc1c41edc9
+
+stderr: ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED
+stderr: alire-roots.adb:202
+stderr: raised ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED : alire-roots.adb:202
+[D:\a\alire-crates-ci\alire-crates-ci\alire_install\bin\alr.exe]
+0x7ff70a8f313c Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:202
+0x7ff70a8f11da Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:255
+0x7ff70a91912d Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2143
+0x7ff70a9882f9 Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1472
+0x7ff70a987424 Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1555
+0x7ff70a91922c Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2147
+0x7ff70a9192fa Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2127
+0x7ff70a8f17a7 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:286
+0x7ff70a8f1912 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:114
+0x7ff70a063baa Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:145
+0x7ff70a06341e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:113
+0x7ff70a0635ba Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:54
+0x7ff70a115dea Semantic_Versioning.Basic.Restrictions.First_Index at clic-subcommand-instance.adb:749
+0x7ff70a122b0e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands.adb:632
+0x7ff709ff16a0 Alr.Main at alr-main.adb:13
+0x7ff709ff5270 Main at b__alr-main.adb:2454
+0x7ff709ff133e __tmainCRTStartup at ???
+0x7ff709ff1144 mainCRTStartup at ???
+[C:\Windows\System32\KERNEL32.DLL]
+0x7ffc1a574cae
+[C:\Windows\SYSTEM32\ntdll.dll]
+0x7ffc1c41edc9
+
+ERROR: Compilation failed.

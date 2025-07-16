@@ -1,0 +1,199 @@
+Test ran at 2025-08-23 12:26:12.429956+00:00
+
+SOLUTION:
+mcp2221=2.22792.1: MCP2221 USB Raw HID I/O Expander Library for GNAT Ada
+Origin: source archive mcp2221-2.22792.1.tbz2 at https://raw.githubusercontent.com/pmunts/alire-crates/64af9db57a890c68ed8908cde834357cd498d8fb/mcp2221/mcp2221-2.22792.1.tbz2 with hashes sha256:1310d0ce7d76830cd5b6666f4d29d4414179cace2b68bd366076d2dfb1c90a28, sha512:792c25ac545d191ad2fddae39833441c11f2e0cee01dbb22746d6bf7e87cb72981ee419a2de67e482ba1277e0e224ccd103a36a8d920955dd78916352bfadecb
+Available when: (case OS is Linux => True, Macos => True, Windows => True, others => False)
+Properties:
+   case OS is
+      when Linux => Post_Fetch run: sh -c ./postfetch.linux (from ${CRATE_ROOT}/.)
+      when Macos => Post_Fetch run: sh -c ./postfetch.macos (from ${CRATE_ROOT}/.)
+      when Windows => Post_Fetch run: sh -c ./postfetch.windows (from ${CRATE_ROOT}/.)
+   Author: Philip Munts
+   Description: MCP2221 USB Raw HID I/O Expander Library for GNAT Ada
+   License: BSD-1-Clause
+   Long_Description: This crate contains a subset of the [**Linux Simple I/O
+Library**](https://github.com/pmunts/libsimpleio) Ada packages that are
+relevant for building programs for the MCP2221 USB Raw HID I/O expander.
+
+This crate can be built for Linux, MacOS, or Windows targets.
+
+The [MCP2221A](https://www.microchip.com/en-us/product/MCP2221A) is a
+[PIC16F1455](https://www.microchip.com/en-us/product/PIC16F1455)
+microcontroller that has been preprogrammed with firmware to implement
+*two* USB devices: a USB serial port and a raw HID device that acts as
+an I/O expander providing one [I2C](https://i2c.info/) bus controller
+(master only) and four
+[GPIO](https://en.wikipedia.org/wiki/General-purpose_input/output) pins
+(**`GP0`**, **`GP1`**, **`GP2`**, and **`GP3`**).
+
+The GPIO pins **`GP1`**, **`GP2`**, and **`GP3`** can be configured for
+some alternate functions, including 10-bit A/D inputs or 5-bit D/A
+outputs:
+
+**`GP1`** : **`GPIO ADC1`**  
+**`GP2`** : **`GPIO ADC2 DAC1`**  
+**`GP3`** : **`GPIO ADC3 DAC2`**
+
+The MCP2221A replaces an earlier part, the MCP2221. The only difference
+between the older MCP2221 and the newer MCP2221A is that the latter
+supports some higher baud rates on the USB serial port device. Since
+this crate only deals with the raw HID I/O expander functions, it will
+work fine with either the older MCP2221 or the newer MCP2221A.
+
+   Maintainer: Philip Munts <phil@munts.net>
+   Maintainers_Logins: pmunts
+   Name: mcp2221
+   Project_File: mcp2221.gpr
+   Tag: embedded
+   Tag: linux
+   Tag: mcp2221
+   Tag: adc
+   Tag: dac
+   Tag: gpio
+   Tag: i2c
+   Tag: motor
+   Tag: pwm
+   Tag: sensor
+   Tag: serial
+   Tag: servo
+   Tag: spi
+   Tag: stepper
+   Version: 2.22792.1
+   Website: https://github.com/pmunts/libsimpleio
+Dependencies (direct):
+   case Distribution is
+      when Homebrew => libhidapi*
+      when Macports => libhidapi*
+   case Distribution is
+      when Homebrew => libusb*
+      when Macports => libusb*
+   case OS is
+      when Linux => libhidapi*
+   case OS is
+      when Linux => libusb*
+Dependencies (solution):
+   libhidapi=0.15.0
+   libusb=1.0.29
+Dependencies (graph):
+   mcp2221=2.22792.1 --> libhidapi=0.15.0 (*)
+   mcp2221=2.22792.1 --> libusb=1.0.29 (*)
+
+
+LOG:
+[alr test] Testing mcp2221=2.22792.1
+[alr test] Spawning retrieval for remote crate: alr -d -n get mcp2221=2.22792.1
+Note: Deploying mcp2221=2.22792.1...
+
+###############                                                           20.9%
+######################################################################## 100.0%
+Note: Deploying libhidapi=0.15.0...
+The system package 'hidapi' is about to be installed.
+This action might require admin privileges and impact your system installation.
+Do you want Alire to install this system package?
+Using default: Yes
+[32m==>[0m [1mFetching downloads for: [32mhidapi[39m[0m
+[34m==>[0m [1mDownloading https://ghcr.io/v2/homebrew/core/hidapi/manifests/0.15.0[0m
+[32m==>[0m [1mFetching [32mhidapi[39m[0m
+[34m==>[0m [1mDownloading https://ghcr.io/v2/homebrew/core/hidapi/blobs/sha256:7124104d00b05a26d69388fe5d451b8a9f684b01ed9a6ccea1c8265ba6586bfe[0m
+[34m==>[0m [1mPouring hidapi--0.15.0.arm64_sequoia.bottle.tar.gz[0m
+🍺  /opt/homebrew/Cellar/hidapi/0.15.0: 20 files, 196.6KB
+[34m==>[0m [1mNo outdated dependents to upgrade![0m
+
+mcp2221=2.22792.1 successfully retrieved.
+Dependencies were solved as follows:
+
+   +b libhidapi 0.15.0 (new,system package)
+   +b libusb    1.0.29 (new,system package)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Running post-fetch actions for mcp2221=2.22792.1...
+Note: Building mcp2221=2.22792.1/mcp2221.gpr...
+Setup
+   [mkdir]        object directory for project MCP2221
+Compile
+   [Ada]          gpio-pwm.adb
+   [Ada]          debug.adb
+   [Ada]          motor-servo.adb
+   [Ada]          servo-pwm.ads
+   [Ada]          motor-pwm.adb
+   [Ada]          thermistor.adb
+   [Ada]          hid-libusb.adb
+   [Ada]          hid-hidapi.adb
+   [Ada]          messaging-fixed.ads
+   [Ada]          resistance.ads
+   [Ada]          adc.adb
+   [Ada]          voltage.ads
+   [Ada]          io_interfaces.ads
+   [Ada]          magnetometer.ads
+   [Ada]          watchdog.ads
+   [Ada]          messaging.adb
+   [Ada]          servo.ads
+   [Ada]          servo-pwm_template.adb
+   [Ada]          gpio.ads
+   [Ada]          stepper.ads
+   [Ada]          analog.ads
+   [Ada]          humidity.ads
+   [Ada]          messaging-text.ads
+   [Ada]          pressure.ads
+   [Ada]          truecolor.ads
+   [Ada]          message64.ads
+   [Ada]          angle.ads
+   [Ada]          hid.adb
+   [Ada]          joystick.ads
+   [Ada]          i2c.adb
+   [Ada]          pwm.ads
+   [Ada]          spi.ads
+   [Ada]          accelerometer.ads
+   [Ada]          motor.ads
+   [Ada]          dac.adb
+   [Ada]          gyroscope.ads
+   [Ada]          temperature.ads
+   [Ada]          pca8574-gpio.adb
+   [Ada]          lps25h.adb
+   [Ada]          grove_tb6612-motor.adb
+   [Ada]          pca9534-gpio.adb
+   [Ada]          lsm9ds1.adb
+   [Ada]          htu21d.adb
+   [Ada]          grove_adc.ads
+   [Ada]          th02.adb
+   [Ada]          ads1015.adb
+   [Ada]          mcp2221-i2c.adb
+   [Ada]          adc121c021.adb
+   [Ada]          mcp23x17-word.adb
+   [Ada]          a4988.adb
+   [Ada]          mcp2221.adb
+   [Ada]          tcs3472.adb
+   [Ada]          mcp2221-gpio.adb
+   [Ada]          cytron_md13s.adb
+   [Ada]          mcp23x17-byte.adb
+   [Ada]          mcp23x17.adb
+   [Ada]          pca9685-pwm.adb
+   [Ada]          lcd16397.adb
+   [Ada]          grove_temperature.adb
+   [Ada]          grove_tb6612-stepper.adb
+   [Ada]          mpl3115a2.adb
+   [Ada]          mcp23x17-gpio.adb
+   [Ada]          grove_tb6612.adb
+   [Ada]          bmp280.adb
+   [Ada]          hid-munts.ads
+   [Ada]          pca9685.adb
+   [Ada]          tlc1543.adb
+   [Ada]          hts221.adb
+   [Ada]          pca9534.adb
+   [Ada]          pca8574.adb
+   [Ada]          mcp2221-adc.adb
+   [Ada]          tmp102.adb
+   [Ada]          mcp2221-hidapi.adb
+   [Ada]          pca9685-gpio.adb
+   [Ada]          mcp2221-libusb.adb
+   [Ada]          hdc1080.adb
+   [Ada]          grove_temperature_humidity.ads
+   [Ada]          errno.ads
+   [Ada]          mcp2221_config.ads
+Build Libraries
+   [gprlib]       libsimpleio.lexch
+   [archive]      liblibsimpleio.a
+   [index]        liblibsimpleio.a
+Success: Build finished successfully in 10.13 seconds.
+Found declared GPR file: mcp2221.gpr
+[alr test] Test completed SUCCESSFULLY

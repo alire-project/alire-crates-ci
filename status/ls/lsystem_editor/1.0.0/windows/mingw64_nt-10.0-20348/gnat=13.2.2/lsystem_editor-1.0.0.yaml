@@ -1,0 +1,2703 @@
+badge: false
+crate: lsystem_editor
+creation_timestamp: 1752755384.6496584
+distro: mingw64_nt-10.0-20348
+duration: 253.57799999999997
+gnat: 13.2.2
+last_attempt: 2025-09-12 12:35:25.483762+00:00
+log:
+- 'Test ran at 2025-09-12 12:35:25.483762+00:00
+
+
+  '
+- 'SOLUTION:
+
+  '
+- 'lsystem_editor=1.0.0: L-Systems editor in Ada
+
+  '
+- 'Origin: commit b01f05b870b2eb91e95f4868e259d9208afdbe34 from https://github.com/Heziode/lsystem-editor
+
+  '
+- 'Properties:
+
+  '
+- '   Author: Heziode
+
+  '
+- '   Description: L-Systems editor in Ada
+
+  '
+- '   Executable: lsystem-editor
+
+  '
+- '   License: MIT
+
+  '
+- '   Long_Description: <img src="https://github.com/Heziode/lsystem-editor/blob/master/share/lsystem_editor/ressources/icon.png?raw=true"
+  alt="App Icon">
+
+  '
+- '
+
+  '
+- '# L-System Editor
+
+  '
+- '
+
+  '
+- '<img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License">
+
+  '
+- '
+
+  '
+- 'A comprehensive graphical and command-line editor for creating, manipulating, and
+  visualizing Lindenmayer systems (L-systems).
+
+  '
+- '
+
+  '
+- 'This project was initially developed as part of a university project.
+
+  '
+- '
+
+  '
+- '## What are L-Systems?
+
+  '
+- '
+
+  '
+- 'L-systems (Lindenmayer systems) are a type of formal grammar introduced by biologist
+  Aristid Lindenmayer in 1968. They are particularly useful for modeling plant growth
+  and generating fractals. An L-system consists of:
+
+  '
+- '
+
+  '
+- '- An **alphabet** of symbols that can be used to make strings
+
+  '
+- '- An **axiom** (initial string) to start with
+
+  '
+- '- A set of **production rules** that expand each symbol into a larger string of
+  symbols
+
+  '
+- '
+
+  '
+- 'Through recursive application of these rules, complex structures can be generated
+  from simple initial conditions.
+
+  '
+- '
+
+  '
+- '## Features
+
+  '
+- '
+
+  '
+- '- **Interactive GUI** for creating and editing L-systems
+
+  '
+- '- **Command-line interface** for batch processing and automated workflows
+
+  '
+- '- **Real-time visualization** of the L-system at different development levels
+
+  '
+- '- **Export capabilities** to PS (PostScript) format for now
+
+  '
+- '- **Customizable rendering** with adjustable parameters (colors, margins, dimensions)
+
+  '
+- '- **Save and load** L-system definitions using `.ls` files
+
+  '
+- '
+
+  '
+- '## Installation
+
+  '
+- '
+
+  '
+- '### Using Alire (recommended)
+
+  '
+- '
+
+  '
+- '```
+
+  '
+- 'alr install lsystem_editor
+
+  '
+- '```
+
+  '
+- '
+
+  '
+- '### From Source
+
+  '
+- '
+
+  '
+- '1. Ensure you have Ada and GtkAda installed. This project depends on GNAT Lib.
+
+  '
+- '2. Clone the repository: `git clone https://github.com/Heziode/lsystem-editor.git`
+
+  '
+- '3. Build with Alire: `alr build` or manually with `make`
+
+  '
+- '
+
+  '
+- '## Usage
+
+  '
+- '
+
+  '
+- '### GUI Mode
+
+  '
+- '
+
+  '
+- 'Launch the graphical interface:
+
+  '
+- '
+
+  '
+- '```
+
+  '
+- './bin/lsystem_editor
+
+  '
+- '# Or
+
+  '
+- 'alr run
+
+  '
+- '```
+
+  '
+- '
+
+  '
+- 'The GUI offers:
+
+  '
+- '- A text editor area for defining L-system rules
+
+  '
+- '- Controls to adjust the development level
+
+  '
+- '- Real-time visualization of the L-system
+
+  '
+- '- Export options
+
+  '
+- '- Customization of colors and rendering parameters
+
+  '
+- '
+
+  '
+- '### Command-Line Mode
+
+  '
+- '
+
+  '
+- 'For automated processing or batch operations:
+
+  '
+- '
+
+  '
+- '```
+
+  '
+- 'lsystem_editor --no-gui [OPTIONS]
+
+  '
+- '```
+
+  '
+- '
+
+  '
+- '#### Command-Line Options
+
+  '
+- '
+
+  '
+- '| Option | Long Form | Description |
+
+  '
+- '|--------|-----------|-------------|
+
+  '
+- '| `-i` | `--input=FILE` | Input file containing an L-system definition |
+
+  '
+- '| `-o` | `--output=FILE` | Output file to store an L-system definition |
+
+  '
+- '| `-e` | `--export=FORMAT` | Export format for the L-system representation |
+
+  '
+- '| `-p` | `--export-file=FILE` | Output file for the exported representation |
+
+  '
+- '| `-d` | `--develop=N` | Number of development steps to apply |
+
+  '
+- '| `-w` | `--width=N` | Width of the output representation |
+
+  '
+- '| `-h` | `--height=N` | Height of the output representation |
+
+  '
+- '| `-b` | `--background-color=COLOR` | Background color in hex format (e.g., #AABBCC)
+  |
+
+  '
+- '| `-f` | `--foreground-color=COLOR` | Foreground color in hex format (e.g., #AABBCC)
+  |
+
+  '
+- '| `-mt` | `--margin-top=N` | Top margin for rendering |
+
+  '
+- '| `-mr` | `--margin-right=N` | Right margin for rendering |
+
+  '
+- '| `-mb` | `--margin-bottom=N` | Bottom margin for rendering |
+
+  '
+- '| `-ml` | `--margin-left=N` | Left margin for rendering |
+
+  '
+- '
+
+  '
+- '## L-System File Format
+
+  '
+- '
+
+  '
+- 'L-system definitions are stored in `.ls` files with the following syntax:
+
+  '
+- '
+
+  '
+- '```
+
+  '
+- '<angle> [angle in degrees]
+
+  '
+- '<axiom> [initial string]
+
+  '
+- '<rules>
+
+  '
+- '[symbol] [replacement string]
+
+  '
+- '[symbol] [replacement string]
+
+  '
+- '...
+
+  '
+- '</rules>
+
+  '
+- '```
+
+  '
+- '
+
+  '
+- '### Example L-System: Koch Curve
+
+  '
+- '
+
+  '
+- '```
+
+  '
+- '60.0
+
+  '
+- '-F++F++F
+
+  '
+- 'F F-F++F-F
+
+  '
+- '```
+
+  '
+- '
+
+  '
+- 'Where:
+
+  '
+- '- `F` means "draw forward"
+
+  '
+- '- `+` means "turn left by angle"
+
+  '
+- '- `-` means "turn right by angle"
+
+  '
+- '
+
+  '
+- '## Controls in GUI Mode
+
+  '
+- '
+
+  '
+- '- **Text Editor**: Define and edit your L-system
+
+  '
+- '- **Validate Button**: Check if your L-system definition is valid
+
+  '
+- '- **Level Spinner**: Adjust the development level
+
+  '
+- '- **Color Controls**: Change foreground and background colors
+
+  '
+- '- **Export Options**: Save visualizations
+
+  '
+- '
+
+  '
+- '## License
+
+  '
+- '
+
+  '
+- 'L-System Editor is distributed under the MIT License.
+
+  '
+- '
+
+  '
+- 'Copyright (c) 2018 Quentin Dauprat (Heziode)
+
+  '
+- '
+
+  '
+- 'See the [LICENSE](https://github.com/Heziode/lsystem-editor/blob/master/LICENSE)
+  file for full details.
+
+  '
+- '
+
+  '
+- '   Maintainer: Heziode <heziode@protonmail.com>
+
+  '
+- '   Maintainers_Logins: heziode
+
+  '
+- '   Name: lsystem_editor
+
+  '
+- '   Project_File: LSystem_Editor.gpr
+
+  '
+- '   Tag: gtk
+
+  '
+- '   Tag: gtk3
+
+  '
+- '   Tag: ada
+
+  '
+- '   Tag: l-systems
+
+  '
+- '   Tag: gtkada
+
+  '
+- '   Tag: l-system
+
+  '
+- '   Tag: editor
+
+  '
+- '   Tag: gui
+
+  '
+- '   Version: 1.0.0
+
+  '
+- '   Website: https://github.com/Heziode/lsystem-editor
+
+  '
+- 'Dependencies (direct):
+
+  '
+- '   gtkada^25.0.1
+
+  '
+- '   resources~0.1.0
+
+  '
+- 'Dependencies (solution):
+
+  '
+- '   gtkada=25.0.1
+
+  '
+- '   libgtk3=3.24.49
+
+  '
+- '   make=4.4.1
+
+  '
+- '   pkg_config=0.29.2
+
+  '
+- '   resources=0.1.0
+
+  '
+- 'Dependencies (graph):
+
+  '
+- '   gtkada=25.0.1        --> libgtk3=3.24.49 (>=3.24.24)
+
+  '
+- '   gtkada=25.0.1        --> make=4.4.1 (*)
+
+  '
+- '   gtkada=25.0.1        --> pkg_config=0.29.2 (*)
+
+  '
+- '   lsystem_editor=1.0.0 --> gtkada=25.0.1 (^25.0.1)
+
+  '
+- '   lsystem_editor=1.0.0 --> resources=0.1.0 (~0.1.0)
+
+  '
+- '
+
+  '
+- '
+
+  LOG:
+
+  '
+- '[alr test] Testing lsystem_editor=1.0.0
+
+  '
+- '[alr test] Spawning retrieval for remote crate: alr -d -n get lsystem_editor=1.0.0
+
+  '
+- 'Can''t find C:\Strawberry\perl\bin\pkg-config on PATH, ''.'' not in PATH.
+
+  '
+- 'Note: Deploying lsystem_editor=1.0.0...
+
+  '
+- 'Note: Deploying libgtk3=3.24.49...
+
+  '
+- 'The system package ''mingw-w64-x86_64-gtk3'' is about to be installed.
+
+  '
+- 'This action might require admin privileges and impact your system installation.
+
+  '
+- 'Do you want Alire to install this system package?
+
+  '
+- 'Using default: Yes
+
+  '
+- 'resolving dependencies...
+
+  '
+- 'looking for conflicting packages...
+
+  '
+- 'warning: dependency cycle detected:
+
+  '
+- 'warning: mingw-w64-x86_64-libwebp will be installed before its mingw-w64-x86_64-libtiff
+  dependency
+
+  '
+- 'warning: dependency cycle detected:
+
+  '
+- 'warning: mingw-w64-x86_64-harfbuzz will be installed before its mingw-w64-x86_64-freetype
+  dependency
+
+  '
+- '
+
+  '
+- 'Packages (48) mingw-w64-x86_64-adwaita-icon-theme-48.1-1  mingw-w64-x86_64-adwaita-icon-theme-legacy-46.2-1  mingw-w64-x86_64-atk-2.56.3-1  mingw-w64-x86_64-brotli-1.1.0-5  mingw-w64-x86_64-bzip2-1.0.8-3  mingw-w64-x86_64-cairo-1.18.4-2  mingw-w64-x86_64-egl-headers-1.5.r284.3ae2b7c-1  mingw-w64-x86_64-expat-2.7.1-2  mingw-w64-x86_64-fontconfig-2.17.1-1  mingw-w64-x86_64-freetype-2.13.3-1  mingw-w64-x86_64-fribidi-1.0.16-1  mingw-w64-x86_64-gdk-pixbuf2-2.42.12-4  mingw-w64-x86_64-giflib-5.2.2-1  mingw-w64-x86_64-gles-headers-3.2.r1065.7fc154c-1  mingw-w64-x86_64-glib2-2.84.3-2  mingw-w64-x86_64-graphite2-1.3.14-3  mingw-w64-x86_64-gtk-update-icon-cache-3.24.49-1  mingw-w64-x86_64-harfbuzz-11.2.1-1  mingw-w64-x86_64-hicolor-icon-theme-0.18-1  mingw-w64-x86_64-jbigkit-2.1-5  mingw-w64-x86_64-json-glib-1.10.6-1  mingw-w64-x86_64-lerc-4.0.0-1  mingw-w64-x86_64-libdatrie-0.2.13-3  mingw-w64-x86_64-libdeflate-1.24-1  mingw-w64-x86_64-libepoxy-1.5.10-7  mingw-w64-x86_64-libffi-3.5.1-1  mingw-w64-x86_64-libjpeg-turbo-3.1.1-1  mingw-w64-x86_64-libpng-1.6.50-1  mingw-w64-x86_64-librsvg-2.60.0-1  mingw-w64-x86_64-libsystre-1.0.2-1  mingw-w64-x86_64-libthai-0.1.29-3  mingw-w64-x86_64-libtiff-4.7.0-1  mingw-w64-x86_64-libtre-0.9.0-1  mingw-w64-x86_64-libwebp-1.6.0-1  mingw-w64-x86_64-lzo2-2.10-2  mingw-w64-x86_64-mpdecimal-4.0.1-1  mingw-w64-x86_64-ncurses-6.5.20241228-3  mingw-w64-x86_64-pango-1.56.4-1  mingw-w64-x86_64-pcre2-10.45-1  mingw-w64-x86_64-pixman-0.46.2-1  mingw-w64-x86_64-python-3.12.11-1  mingw-w64-x86_64-python-packaging-25.0-1  mingw-w64-x86_64-shared-mime-info-2.4-1  mingw-w64-x86_64-sqlite3-3.50.2-1  mingw-w64-x86_64-tcl-8.6.16-1  mingw-w64-x86_64-tk-8.6.16-1  mingw-w64-x86_64-wineditline-2.208-1  mingw-w64-x86_64-gtk3-3.24.49-1
+
+  '
+- '
+
+  '
+- 'Total Download Size:    81.88 MiB
+
+  '
+- 'Total Installed Size:  611.79 MiB
+
+  '
+- '
+
+  '
+- ":: Proceed with installation? [Y/n] \n"
+- ':: Retrieving packages...
+
+  '
+- ' mingw-w64-x86_64-python-3.12.11-1-any downloading...
+
+  '
+- ' mingw-w64-x86_64-librsvg-2.60.0-1-any downloading...
+
+  '
+- ' mingw-w64-x86_64-gtk3-3.24.49-1-any downloading...
+
+  '
+- ' mingw-w64-x86_64-glib2-2.84.3-2-any downloading...
+
+  '
+- ' mingw-w64-x86_64-tcl-8.6.16-1-any downloading...
+
+  '
+- ' mingw-w64-x86_64-sqlite3-3.50.2-1-any downloading...
+
+  '
+- ' mingw-w64-x86_64-adwaita-icon-theme-legacy-46.2-1-any downloading...
+
+  '
+- ' mingw-w64-x86_64-tk-8.6.16-1-any downloading...
+
+  '
+- ' mingw-w64-x86_64-adwaita-icon-theme-48.1-1-any downloading...
+
+  '
+- ' mingw-w64-x86_64-harfbuzz-11.2.1-1-any downloading...
+
+  '
+- ' mingw-w64-x86_64-ncurses-6.5.20241228-3-any downloading...
+
+  '
+- ' mingw-w64-x86_64-pcre2-10.45-1-any downloading...
+
+  '
+- ' mingw-w64-x86_64-cairo-1.18.4-2-any downloading...
+
+  '
+- ' mingw-w64-x86_64-libepoxy-1.5.10-7-any downloading...
+
+  '
+- ' mingw-w64-x86_64-gdk-pixbuf2-2.42.12-4-any downloading...
+
+  '
+- ' mingw-w64-x86_64-libtiff-4.7.0-1-any downloading...
+
+  '
+- ' mingw-w64-x86_64-pango-1.56.4-1-any downloading...
+
+  '
+- ' mingw-w64-x86_64-libjpeg-turbo-3.1.1-1-any downloading...
+
+  '
+- ' mingw-w64-x86_64-shared-mime-info-2.4-1-any downloading...
+
+  '
+- ' mingw-w64-x86_64-freetype-2.13.3-1-any downloading...
+
+  '
+- ' mingw-w64-x86_64-libwebp-1.6.0-1-any downloading...
+
+  '
+- ' mingw-w64-x86_64-brotli-1.1.0-5-any downloading...
+
+  '
+- ' mingw-w64-x86_64-atk-2.56.3-1-any downloading...
+
+  '
+- ' mingw-w64-x86_64-libpng-1.6.50-1-any downloading...
+
+  '
+- ' mingw-w64-x86_64-pixman-0.46.2-1-any downloading...
+
+  '
+- ' mingw-w64-x86_64-lerc-4.0.0-1-any downloading...
+
+  '
+- ' mingw-w64-x86_64-fontconfig-2.17.1-1-any downloading...
+
+  '
+- ' mingw-w64-x86_64-libthai-0.1.29-3-any downloading...
+
+  '
+- ' mingw-w64-x86_64-json-glib-1.10.6-1-any downloading...
+
+  '
+- ' mingw-w64-x86_64-expat-2.7.1-2-any downloading...
+
+  '
+- ' mingw-w64-x86_64-mpdecimal-4.0.1-1-any downloading...
+
+  '
+- ' mingw-w64-x86_64-graphite2-1.3.14-3-any downloading...
+
+  '
+- ' mingw-w64-x86_64-python-packaging-25.0-1-any downloading...
+
+  '
+- ' mingw-w64-x86_64-giflib-5.2.2-1-any downloading...
+
+  '
+- ' mingw-w64-x86_64-jbigkit-2.1-5-any downloading...
+
+  '
+- ' mingw-w64-x86_64-lzo2-2.10-2-any downloading...
+
+  '
+- ' mingw-w64-x86_64-libdeflate-1.24-1-any downloading...
+
+  '
+- ' mingw-w64-x86_64-bzip2-1.0.8-3-any downloading...
+
+  '
+- ' mingw-w64-x86_64-fribidi-1.0.16-1-any downloading...
+
+  '
+- ' mingw-w64-x86_64-libtre-0.9.0-1-any downloading...
+
+  '
+- ' mingw-w64-x86_64-libdatrie-0.2.13-3-any downloading...
+
+  '
+- ' mingw-w64-x86_64-wineditline-2.208-1-any downloading...
+
+  '
+- ' mingw-w64-x86_64-gles-headers-3.2.r1065.7fc154c-1-any downloading...
+
+  '
+- ' mingw-w64-x86_64-libffi-3.5.1-1-any downloading...
+
+  '
+- ' mingw-w64-x86_64-gtk-update-icon-cache-3.24.49-1-any downloading...
+
+  '
+- ' mingw-w64-x86_64-hicolor-icon-theme-0.18-1-any downloading...
+
+  '
+- ' mingw-w64-x86_64-egl-headers-1.5.r284.3ae2b7c-1-any downloading...
+
+  '
+- ' mingw-w64-x86_64-libsystre-1.0.2-1-any downloading...
+
+  '
+- 'checking keyring...
+
+  '
+- 'checking package integrity...
+
+  '
+- 'loading package files...
+
+  '
+- 'checking for file conflicts...
+
+  '
+- 'checking available disk space...
+
+  '
+- ':: Processing package changes...
+
+  '
+- 'installing mingw-w64-x86_64-hicolor-icon-theme...
+
+  '
+- 'installing mingw-w64-x86_64-bzip2...
+
+  '
+- 'installing mingw-w64-x86_64-wineditline...
+
+  '
+- 'installing mingw-w64-x86_64-pcre2...
+
+  '
+- 'installing mingw-w64-x86_64-libffi...
+
+  '
+- 'installing mingw-w64-x86_64-expat...
+
+  '
+- 'installing mingw-w64-x86_64-mpdecimal...
+
+  '
+- 'installing mingw-w64-x86_64-libtre...
+
+  '
+- 'installing mingw-w64-x86_64-libsystre...
+
+  '
+- 'installing mingw-w64-x86_64-ncurses...
+
+  '
+- 'installing mingw-w64-x86_64-sqlite3...
+
+  '
+- 'Optional dependencies for mingw-w64-x86_64-sqlite3
+
+  '
+- '    mingw-w64-x86_64-tcl: for sqlite3_analyzer [pending]
+
+  '
+- 'installing mingw-w64-x86_64-tcl...
+
+  '
+- 'installing mingw-w64-x86_64-tk...
+
+  '
+- 'installing mingw-w64-x86_64-python...
+
+  '
+- 'installing mingw-w64-x86_64-python-packaging...
+
+  '
+- 'installing mingw-w64-x86_64-glib2...
+
+  '
+- 'installing mingw-w64-x86_64-libjpeg-turbo...
+
+  '
+- 'installing mingw-w64-x86_64-libpng...
+
+  '
+- 'installing mingw-w64-x86_64-jbigkit...
+
+  '
+- 'installing mingw-w64-x86_64-lerc...
+
+  '
+- 'installing mingw-w64-x86_64-libdeflate...
+
+  '
+- 'installing mingw-w64-x86_64-giflib...
+
+  '
+- 'installing mingw-w64-x86_64-libwebp...
+
+  '
+- 'installing mingw-w64-x86_64-libtiff...
+
+  '
+- 'installing mingw-w64-x86_64-gdk-pixbuf2...
+
+  '
+- 'Optional dependencies for mingw-w64-x86_64-gdk-pixbuf2
+
+  '
+- '    mingw-w64-x86_64-libwmf: Load .wmf and .apm
+
+  '
+- '    mingw-w64-x86_64-libavif: Load .avif
+
+  '
+- '    mingw-w64-x86_64-libheif: Load .heif, .heic, and .avif
+
+  '
+- '    mingw-w64-x86_64-libjxl: Load .jxl
+
+  '
+- '    mingw-w64-x86_64-librsvg: Load .svg, .svgz, and .svg.gz [pending]
+
+  '
+- '    mingw-w64-x86_64-webp-pixbuf-loader: Load .webp
+
+  '
+- 'installing mingw-w64-x86_64-brotli...
+
+  '
+- 'installing mingw-w64-x86_64-graphite2...
+
+  '
+- 'installing mingw-w64-x86_64-harfbuzz...
+
+  '
+- 'installing mingw-w64-x86_64-freetype...
+
+  '
+- 'installing mingw-w64-x86_64-fontconfig...
+
+  '
+- 'updating font cache... done.
+
+  '
+- 'installing mingw-w64-x86_64-lzo2...
+
+  '
+- 'installing mingw-w64-x86_64-pixman...
+
+  '
+- 'installing mingw-w64-x86_64-cairo...
+
+  '
+- 'installing mingw-w64-x86_64-fribidi...
+
+  '
+- 'installing mingw-w64-x86_64-libdatrie...
+
+  '
+- 'Optional dependencies for mingw-w64-x86_64-libdatrie
+
+  '
+- '    mingw-w64-x86_64-libdatrie-docs: Documentation
+
+  '
+- 'installing mingw-w64-x86_64-libthai...
+
+  '
+- 'Optional dependencies for mingw-w64-x86_64-libthai
+
+  '
+- '    mingw-w64-x86_64-libthai-docs: Documentation
+
+  '
+- 'installing mingw-w64-x86_64-pango...
+
+  '
+- 'installing mingw-w64-x86_64-librsvg...
+
+  '
+- 'Optional dependencies for mingw-w64-x86_64-librsvg
+
+  '
+- '    mingw-w64-x86_64-gtk3: for rsvg-view-3 [pending]
+
+  '
+- 'installing mingw-w64-x86_64-gtk-update-icon-cache...
+
+  '
+- 'installing mingw-w64-x86_64-adwaita-icon-theme-legacy...
+
+  '
+- 'installing mingw-w64-x86_64-adwaita-icon-theme...
+
+  '
+- 'installing mingw-w64-x86_64-atk...
+
+  '
+- 'installing mingw-w64-x86_64-json-glib...
+
+  '
+- 'installing mingw-w64-x86_64-egl-headers...
+
+  '
+- 'installing mingw-w64-x86_64-gles-headers...
+
+  '
+- 'installing mingw-w64-x86_64-libepoxy...
+
+  '
+- 'installing mingw-w64-x86_64-shared-mime-info...
+
+  '
+- 'installing mingw-w64-x86_64-gtk3...
+
+  '
+- ':: Running post-transaction hooks...
+
+  '
+- '(1/5) Updating fontconfig cache...
+
+  '
+- '(2/5) Probing GDK-Pixbuf loader modules...
+
+  '
+- '(3/5) Compiling GSettings XML schema files...
+
+  '
+- '(4/5) Updating icon theme caches...
+
+  '
+- '(5/5) Updating the MIME type database...
+
+  '
+- '
+
+  '
+- 'Note that ''C:/Users/runneradmin/AppData/Local/alire/cache/msys64/mingw64/share''
+  is not in the search path
+
+  '
+- 'set by the XDG_DATA_HOME and XDG_DATA_DIRS
+
+  '
+- 'environment variables, so applications may not
+
+  '
+- 'be able to find it until you set them. The
+
+  '
+- 'directories currently searched are:
+
+  '
+- '
+
+  '
+- '- C:\Users\runneradmin\.local\share
+
+  '
+- '- /usr/local/share/
+
+  '
+- '- /usr/share/
+
+  '
+- '
+
+  '
+- 'Note: Deploying make=4.4.1...
+
+  '
+- 'The system package ''make'' is about to be installed.
+
+  '
+- 'This action might require admin privileges and impact your system installation.
+
+  '
+- 'Do you want Alire to install this system package?
+
+  '
+- 'Using default: Yes
+
+  '
+- 'resolving dependencies...
+
+  '
+- 'looking for conflicting packages...
+
+  '
+- '
+
+  '
+- 'Packages (1) make-4.4.1-2
+
+  '
+- '
+
+  '
+- 'Total Download Size:   0.50 MiB
+
+  '
+- 'Total Installed Size:  1.61 MiB
+
+  '
+- '
+
+  '
+- ":: Proceed with installation? [Y/n] \n"
+- ':: Retrieving packages...
+
+  '
+- ' make-4.4.1-2-x86_64 downloading...
+
+  '
+- 'checking keyring...
+
+  '
+- 'checking package integrity...
+
+  '
+- 'loading package files...
+
+  '
+- 'checking for file conflicts...
+
+  '
+- 'checking available disk space...
+
+  '
+- ':: Processing package changes...
+
+  '
+- 'installing make...
+
+  '
+- ':: Running post-transaction hooks...
+
+  '
+- '(1/1) Updating the info directory file...
+
+  '
+- 'Note: Deploying pkg_config=0.29.2...
+
+  '
+- 'The system package ''mingw-w64-x86_64-pkg-config'' is about to be installed.
+
+  '
+- 'This action might require admin privileges and impact your system installation.
+
+  '
+- 'Do you want Alire to install this system package?
+
+  '
+- 'Using default: Yes
+
+  '
+- 'resolving dependencies...
+
+  '
+- 'looking for conflicting packages...
+
+  '
+- '
+
+  '
+- 'Packages (1) mingw-w64-x86_64-pkg-config-0.29.2-6
+
+  '
+- '
+
+  '
+- 'Total Download Size:   0.25 MiB
+
+  '
+- 'Total Installed Size:  0.68 MiB
+
+  '
+- '
+
+  '
+- ":: Proceed with installation? [Y/n] \n"
+- ':: Retrieving packages...
+
+  '
+- ' mingw-w64-x86_64-pkg-config-0.29.2-6-any downloading...
+
+  '
+- 'checking keyring...
+
+  '
+- 'checking package integrity...
+
+  '
+- 'loading package files...
+
+  '
+- 'checking for file conflicts...
+
+  '
+- 'checking available disk space...
+
+  '
+- ':: Processing package changes...
+
+  '
+- 'installing mingw-w64-x86_64-pkg-config...
+
+  '
+- 'Note: Deploying resources=0.1.0...
+
+  '
+- 'Note: Deploying gtkada=25.0.1...
+
+  '
+- '
+
+  '
+- "#=#=#                                                                         \
+  \ \n"
+- "##O#-#                                                                        \
+  \ \n"
+- "##=O#- #                                                                      \
+  \ \n"
+- "# #=O#- #                                                                     \
+  \ \n"
+- " # #=O#-  #                                                                   \
+  \ \n"
+- "  # #=O=#   #                                                                 \
+  \ \n"
+- "   # #=O=#   #                                                                \
+  \ \n"
+- "    # -#O=-#   #                                                              \
+  \ \n"
+- "     # -#O=- #   #                                                            \
+  \ \n"
+- '
+
+  '
+- 'lsystem_editor=1.0.0 successfully retrieved.
+
+  '
+- 'Dependencies were solved as follows:
+
+  '
+- '
+
+  '
+- '   +  gtkada     25.0.1  (new)
+
+  '
+- '   +b libgtk3    3.24.49 (new,indirect,system package)
+
+  '
+- '   +b make       4.4.1   (new,indirect,system package)
+
+  '
+- '   +b pkg_config 0.29.2  (new,indirect,system package)
+
+  '
+- '   +  resources  0.1.0   (new)
+
+  '
+- '[alr test] Spawning default test for remote crate: alr -d -n build --release --
+  -cargs:Ada -gnatwn
+
+  '
+- 'Note: Running post-fetch actions for gtkada=25.0.1...
+
+  '
+- 'configure: loading site script /usr/local/etc/config.site
+
+  '
+- 'checking build system type... x86_64-pc-mingw64
+
+  '
+- 'checking host system type... x86_64-pc-mingw64
+
+  '
+- 'checking target system type... x86_64-pc-mingw64
+
+  '
+- 'checking for pkg-config... /mingw64/bin/pkg-config
+
+  '
+- 'checking pkg-config is at least version 0.9.0... yes
+
+  '
+- 'checking for gcc... gcc
+
+  '
+- 'checking whether the C compiler works... yes
+
+  '
+- 'checking for C compiler default output file name... a.exe
+
+  '
+- 'checking for suffix of executables... .exe
+
+  '
+- 'checking whether we are cross compiling... no
+
+  '
+- 'checking for suffix of object files... o
+
+  '
+- 'checking whether we are using the GNU C compiler... yes
+
+  '
+- 'checking whether gcc accepts -g... yes
+
+  '
+- 'checking for gcc option to accept ISO C89... none needed
+
+  '
+- 'checking for gprbuild... /c/Users/runneradmin/AppData/Local/alire/cache/toolchains/gprbuild_25.0.1_1bcdf5e8/bin/gprbuild
+
+  '
+- 'checking for gprinstall... /c/Users/runneradmin/AppData/Local/alire/cache/toolchains/gprbuild_25.0.1_1bcdf5e8/bin/gprinstall
+
+  '
+- 'checking that your gnat compiler works with a simple example... yes
+
+  '
+- 'checking whether NLS is requested... yes
+
+  '
+- 'checking for gettext in libc... no
+
+  '
+- 'checking for bindtextdomain in -lintl... yes
+
+  '
+- 'checking for gettext in libintl... checking for gettext in -lintl... yes
+
+  '
+- 'yes
+
+  '
+- 'checking for GTK... yes
+
+  '
+- 'checking for pkg-config... (cached) /mingw64/bin/pkg-config
+
+  '
+- 'checking pkg-config is at least version 0.16... yes
+
+  '
+- 'checking for GTK+ - version >= 3.24.24... yes (version 3.24.49)
+
+  '
+- 'checking for GMODULE... yes
+
+  '
+- 'checking for FONTCONFIG... yes
+
+  '
+- 'configure: creating ./config.status
+
+  '
+- 'config.status: creating Makefile
+
+  '
+- 'config.status: creating gtkada_shared.gpr
+
+  '
+- 'config.status: creating po/Makefile
+
+  '
+- 'config.status: creating docs/gtkada_rm/html/static/index.html
+
+  '
+- 'configure: --------- Summary for Gtkada 18.0w -----------------
+
+  '
+- 'configure:   Shared libraries:       yes (default: static)
+
+  '
+- 'configure: --------------------------------------------
+
+  '
+- 'gnatprep -DGETTEXT_INTL=True -DHAVE_GETTEXT=True src/gtkada-intl.gpb src/gtkada-intl.adb
+
+  '
+- 'Note: Building lsystem_editor=1.0.0/LSystem_Editor.gpr...
+
+  '
+- 'Setup
+
+  '
+- '   [mkdir]        object directory for project GtkAda
+
+  '
+- '   [mkdir]        library directory for project GtkAda
+
+  '
+- '   [mkdir]        object directory for project Resources
+
+  '
+- '   [mkdir]        library directory for project Resources
+
+  '
+- '   [mkdir]        object directory for project Lsystem_Editor
+
+  '
+- '   [mkdir]        exec directory for project Lsystem_Editor
+
+  '
+- 'Compile
+
+  '
+- '   [Ada]          main.adb
+
+  '
+- '   [C]            whereami.c
+
+  '
+- '   [Ada]          resources.adb
+
+  '
+- '   [Ada]          pango.ads
+
+  '
+- '   [Ada]          pango-cairo.adb
+
+  '
+- '   [Ada]          gtkada.ads
+
+  '
+- '   [Ada]          gtkada-types.adb
+
+  '
+- '   [Ada]          gtkada-style.adb
+
+  '
+- '   [Ada]          gtkada-stock_labels.ads
+
+  '
+- '   [Ada]          gtkada-stock_icons.ads
+
+  '
+- '   [Ada]          gtkada-printing.adb
+
+  '
+- '   [Ada]          gtkada-pixmaps.ads
+
+  '
+- '   [Ada]          gtkada-multi_paned.adb
+
+  '
+- '   [Ada]          gtkada-multiline_entry.adb
+
+  '
+- '   [Ada]          gtkada-mdi.adb
+
+  '
+- '   [Ada]          gtkada-intl.adb
+
+  '
+- '   [Ada]          gtkada-handlers.ads
+
+  '
+- '   [Ada]          gtkada-file_selection.adb
+
+  '
+- '   [Ada]          gtkada-dialogs.adb
+
+  '
+- '   [Ada]          gtkada-canvas_view.adb
+
+  '
+- '   [Ada]          gtkada-canvas_view-views.adb
+
+  '
+- '   [Ada]          gtkada-canvas_view-rtrees.adb
+
+  '
+- '   [Ada]          gtkada-canvas_view-objects.adb
+
+  '
+- '   [Ada]          gtkada-canvas_view-models.adb
+
+  '
+- '   [Ada]          gtkada-canvas_view-models-layers.adb
+
+  '
+- '   [Ada]          gtkada-canvas_view-links.adb
+
+  '
+- '   [Ada]          gtkada-canvas_view-astar.adb
+
+  '
+- '   [Ada]          gtkada-canvas.adb
+
+  '
+- '   [Ada]          gtkada-c.adb
+
+  '
+- '   [Ada]          gtkada-builder.adb
+
+  '
+- '   [Ada]          gtkada-bindings.adb
+
+  '
+- '   [Ada]          gtkada-application.adb
+
+  '
+- '   [Ada]          gtkada-abstract_tree_model.adb
+
+  '
+- '   [Ada]          gtkada-abstract_list_model.adb
+
+  '
+- '   [Ada]          gtk.ads
+
+  '
+- '   [Ada]          gtk-type_conversion.adb
+
+  '
+- '   [Ada]          gtk-tree_model-utils.adb
+
+  '
+- '   [Ada]          gtk-text_child.adb
+
+  '
+- '   [Ada]          gtk-rc.adb
+
+  '
+- '   [Ada]          gtk-marshallers.adb
+
+  '
+- '   [Ada]          gtk-handlers.adb
+
+  '
+- '   [Ada]          gtk-dnd.adb
+
+  '
+- '   [Ada]          gtk-bindings.adb
+
+  '
+- '   [Ada]          gtk-arguments.adb
+
+  '
+- '   [Ada]          glib.adb
+
+  '
+- '   [Ada]          glib-xml_int.ads
+
+  '
+- '   [Ada]          glib-xml.adb
+
+  '
+- '   [Ada]          glib-values.adb
+
+  '
+- '   [Ada]          glib-unicode.adb
+
+  '
+- '   [Ada]          glib-type_conversion_hooks.adb
+
+  '
+- '   [Ada]          glib-types.adb
+
+  '
+- '   [Ada]          glib-properties.adb
+
+  '
+- '   [Ada]          glib-properties-creation.adb
+
+  '
+- '   [Ada]          glib-object.adb
+
+  '
+- '   [Ada]          glib-module.adb
+
+  '
+- '   [Ada]          glib-messages.adb
+
+  '
+- '   [Ada]          glib-main.adb
+
+  '
+- '   [Ada]          glib-key_file.adb
+
+  '
+- '   [Ada]          glib-gslist.adb
+
+  '
+- '   [Ada]          glib-graphs.adb
+
+  '
+- '   [Ada]          glib-graphs-layouts.adb
+
+  '
+- '   [Ada]          glib-gnodes.adb
+
+  '
+- '   [Ada]          glib-glist.adb
+
+  '
+- '   [Ada]          glib-generic_properties.adb
+
+  '
+- '   [Ada]          glib-error.adb
+
+  '
+- '   [Ada]          glib-enums.ads
+
+  '
+- '   [Ada]          glib-convert.adb
+
+  '
+- '   [Ada]          gdk.ads
+
+  '
+- '   [Ada]          gdk-window_attr.adb
+
+  '
+- '   [Ada]          gdk-visual.adb
+
+  '
+- '   [Ada]          gdk-types.ads
+
+  '
+- '   [Ada]          gdk-types-keysyms.ads
+
+  '
+- '   [Ada]          gdk-threads.ads
+
+  '
+- '   [Ada]          gdk-rectangle.adb
+
+  '
+- '   [Ada]          gdk-property.adb
+
+  '
+- '   [Ada]          gdk-pixbuf.adb
+
+  '
+- '   [Ada]          gdk-main.adb
+
+  '
+- '   [Ada]          gdk-keyval.adb
+
+  '
+- '   [Ada]          gdk-input.ads
+
+  '
+- '   [Ada]          gdk-dnd.adb
+
+  '
+- '   [Ada]          gdk-display_manager.adb
+
+  '
+- '   [Ada]          gdk-color.adb
+
+  '
+- '   [Ada]          gdk-cairo.adb
+
+  '
+- '   [Ada]          fontconfig.adb
+
+  '
+- '   [Ada]          cairo.adb
+
+  '
+- '   [Ada]          cairo-svg.adb
+
+  '
+- '   [Ada]          cairo-surface.adb
+
+  '
+- '   [Ada]          cairo-scaled_font.ads
+
+  '
+- '   [Ada]          cairo-region.adb
+
+  '
+- '   [Ada]          cairo-png.adb
+
+  '
+- '   [Ada]          cairo-pdf.adb
+
+  '
+- '   [Ada]          cairo-pattern.ads
+
+  '
+- '   [Ada]          cairo-matrix.ads
+
+  '
+- '   [Ada]          cairo-image_surface.adb
+
+  '
+- '   [Ada]          cairo-font_options.adb
+
+  '
+- '   [Ada]          cairo-font_face.ads
+
+  '
+- '   [Ada]          pango-tabs.adb
+
+  '
+- '   [Ada]          pango-matrix.adb
+
+  '
+- '   [Ada]          pango-layout.adb
+
+  '
+- '   [Ada]          pango-language.adb
+
+  '
+- '   [Ada]          pango-font_metrics.adb
+
+  '
+- '   [Ada]          pango-font_map.adb
+
+  '
+- '   [Ada]          pango-font_family.adb
+
+  '
+- '   [Ada]          pango-font_face.adb
+
+  '
+- '   [Ada]          pango-fontset.adb
+
+  '
+- '   [Ada]          pango-font.adb
+
+  '
+- '   [Ada]          pango-enums.adb
+
+  '
+- '   [Ada]          pango-coverage.adb
+
+  '
+- '   [Ada]          pango-context.adb
+
+  '
+- '   [Ada]          pango-attributes.adb
+
+  '
+- '   [Ada]          gtk-window.adb
+
+  '
+- '   [Ada]          gtk-widget.adb
+
+  '
+- '   [Ada]          gtk-volume_button.adb
+
+  '
+- '   [Ada]          gtk-viewport.adb
+
+  '
+- '   [Ada]          gtk-vbutton_box.adb
+
+  '
+- '   [Ada]          gtk-ui_manager.adb
+
+  '
+- '   [Ada]          gtk-tree_view_column.adb
+
+  '
+- '   [Ada]          gtk-tree_view.adb
+
+  '
+- '   [Ada]          gtk-tree_store.adb
+
+  '
+- '   [Ada]          gtk-tree_sortable.adb
+
+  '
+- '   [Ada]          gtk-tree_selection.adb
+
+  '
+- '   [Ada]          gtk-tree_row_reference.adb
+
+  '
+- '   [Ada]          gtk-tree_model_sort.adb
+
+  '
+- '   [Ada]          gtk-tree_model_filter.adb
+
+  '
+- '   [Ada]          gtk-tree_model.adb
+
+  '
+- '   [Ada]          gtk-tree_drag_source.adb
+
+  '
+- '   [Ada]          gtk-tree_drag_dest.adb
+
+  '
+- '   [Ada]          gtk-tool_shell.adb
+
+  '
+- '   [Ada]          gtk-tool_palette.adb
+
+  '
+- '   [Ada]          gtk-tool_item_group.adb
+
+  '
+- '   [Ada]          gtk-tool_item.adb
+
+  '
+- '   [Ada]          gtk-tool_button.adb
+
+  '
+- '   [Ada]          gtk-tooltip.adb
+
+  '
+- '   [Ada]          gtk-toolbar.adb
+
+  '
+- '   [Ada]          gtk-toggle_tool_button.adb
+
+  '
+- '   [Ada]          gtk-toggle_button.adb
+
+  '
+- '   [Ada]          gtk-toggle_action.adb
+
+  '
+- '   [Ada]          gtk-theming_engine.adb
+
+  '
+- '   [Ada]          gtk-text_view.adb
+
+  '
+- '   [Ada]          gtk-text_tag_table.adb
+
+  '
+- '   [Ada]          gtk-text_tag.adb
+
+  '
+- '   [Ada]          gtk-text_mark.adb
+
+  '
+- '   [Ada]          gtk-text_iter.adb
+
+  '
+- '   [Ada]          gtk-text_child_anchor.adb
+
+  '
+- '   [Ada]          gtk-text_buffer.adb
+
+  '
+- '   [Ada]          gtk-text_attributes.adb
+
+  '
+- '   [Ada]          gtk-tearoff_menu_item.adb
+
+  '
+- '   [Ada]          gtk-target_list.adb
+
+  '
+- '   [Ada]          gtk-target_entry.adb
+
+  '
+- '   [Ada]          gtk-table.adb
+
+  '
+- '   [Ada]          gtk-symbolic_color.adb
+
+  '
+- '   [Ada]          gtk-switch.adb
+
+  '
+- '   [Ada]          gtk-style_provider.adb
+
+  '
+- '   [Ada]          gtk-style_properties.adb
+
+  '
+- '   [Ada]          gtk-style_context.adb
+
+  '
+- '   [Ada]          gtk-style.adb
+
+  '
+- '   [Ada]          gtk-stock.adb
+
+  '
+- '   [Ada]          gtk-status_icon.adb
+
+  '
+- '   [Ada]          gtk-status_bar.adb
+
+  '
+- '   [Ada]          gtk-stack_switcher.adb
+
+  '
+- '   [Ada]          gtk-stack.adb
+
+  '
+- '   [Ada]          gtk-spin_button.adb
+
+  '
+- '   [Ada]          gtk-spinner.adb
+
+  '
+- '   [Ada]          gtk-size_group.adb
+
+  '
+- '   [Ada]          gtk-shortcuts_window.adb
+
+  '
+- '   [Ada]          gtk-settings.adb
+
+  '
+- '   [Ada]          gtk-separator_tool_item.adb
+
+  '
+- '   [Ada]          gtk-separator_menu_item.adb
+
+  '
+- '   [Ada]          gtk-separator.adb
+
+  '
+- '   [Ada]          gtk-selection_data.adb
+
+  '
+- '   [Ada]          gtk-search_entry.adb
+
+  '
+- '   [Ada]          gtk-search_bar.adb
+
+  '
+- '   [Ada]          gtk-scrolled_window.adb
+
+  '
+- '   [Ada]          gtk-scrollbar.adb
+
+  '
+- '   [Ada]          gtk-scrollable.adb
+
+  '
+- '   [Ada]          gtk-scale_button.adb
+
+  '
+- '   [Ada]          gtk-scale.adb
+
+  '
+- '   [Ada]          gtk-revealer.adb
+
+  '
+- '   [Ada]          gtk-recent_manager.adb
+
+  '
+- '   [Ada]          gtk-recent_info.adb
+
+  '
+- '   [Ada]          gtk-recent_filter.adb
+
+  '
+- '   [Ada]          gtk-recent_chooser_widget.adb
+
+  '
+- '   [Ada]          gtk-recent_chooser_menu.adb
+
+  '
+- '   [Ada]          gtk-recent_chooser_dialog.adb
+
+  '
+- '   [Ada]          gtk-recent_chooser.adb
+
+  '
+- '   [Ada]          gtk-recent_action.adb
+
+  '
+- '   [Ada]          gtk-radio_tool_button.adb
+
+  '
+- '   [Ada]          gtk-radio_menu_item.adb
+
+  '
+- '   [Ada]          gtk-radio_button.adb
+
+  '
+- '   [Ada]          gtk-radio_action.adb
+
+  '
+- '   [Ada]          gtk-progress_bar.adb
+
+  '
+- '   [Ada]          gtk-print_settings.adb
+
+  '
+- '   [Ada]          gtk-print_operation_preview.adb
+
+  '
+- '   [Ada]          gtk-print_operation.adb
+
+  '
+- '   [Ada]          gtk-print_context.adb
+
+  '
+- '   [Ada]          gtk-popover.adb
+
+  '
+- '   [Ada]          gtk-paper_size.adb
+
+  '
+- '   [Ada]          gtk-paned.adb
+
+  '
+- '   [Ada]          gtk-page_setup.adb
+
+  '
+- '   [Ada]          gtk-overlay.adb
+
+  '
+- '   [Ada]          gtk-orientable.adb
+
+  '
+- '   [Ada]          gtk-offscreen_window.adb
+
+  '
+- '   [Ada]          gtk-notebook.adb
+
+  '
+- '   [Ada]          gtk-misc.adb
+
+  '
+- '   [Ada]          gtk-message_dialog.adb
+
+  '
+- '   [Ada]          gtk-menu_tool_button.adb
+
+  '
+- '   [Ada]          gtk-menu_shell.adb
+
+  '
+- '   [Ada]          gtk-menu_item.adb
+
+  '
+- '   [Ada]          gtk-menu_button.adb
+
+  '
+- '   [Ada]          gtk-menu_bar.adb
+
+  '
+- '   [Ada]          gtk-menu.adb
+
+  '
+- '   [Ada]          gtk-main.adb
+
+  '
+- '   [Ada]          gtk-list_store.adb
+
+  '
+- '   [Ada]          gtk-list_box_row.adb
+
+  '
+- '   [Ada]          gtk-list_box.adb
+
+  '
+- '   [Ada]          gtk-link_button.adb
+
+  '
+- '   [Ada]          gtk-level_bar.adb
+
+  '
+- '   [Ada]          gtk-layout.adb
+
+  '
+- '   [Ada]          gtk-label.adb
+
+  '
+- '   [Ada]          gtk-invisible.adb
+
+  '
+- '   [Ada]          gtk-info_bar.adb
+
+  '
+- '   [Ada]          gtk-im_multi_context.adb
+
+  '
+- '   [Ada]          gtk-im_context_simple.adb
+
+  '
+- '   [Ada]          gtk-im_context.adb
+
+  '
+- '   [Ada]          gtk-image_menu_item.adb
+
+  '
+- '   [Ada]          gtk-image.adb
+
+  '
+- '   [Ada]          gtk-icon_view.adb
+
+  '
+- '   [Ada]          gtk-icon_theme.adb
+
+  '
+- '   [Ada]          gtk-icon_source.adb
+
+  '
+- '   [Ada]          gtk-icon_set.adb
+
+  '
+- '   [Ada]          gtk-icon_factory.adb
+
+  '
+- '   [Ada]          gtk-hsv.adb
+
+  '
+- '   [Ada]          gtk-header_bar.adb
+
+  '
+- '   [Ada]          gtk-hbutton_box.adb
+
+  '
+- '   [Ada]          gtk-handle_box.adb
+
+  '
+- '   [Ada]          gtk-grid.adb
+
+  '
+- '   [Ada]          gtk-grange.adb
+
+  '
+- '   [Ada]          gtk-gradient.adb
+
+  '
+- '   [Ada]          gtk-glarea.adb
+
+  '
+- '   [Ada]          gtk-gesture_zoom.adb
+
+  '
+- '   [Ada]          gtk-gesture_swipe.adb
+
+  '
+- '   [Ada]          gtk-gesture_single.adb
+
+  '
+- '   [Ada]          gtk-gesture_rotate.adb
+
+  '
+- '   [Ada]          gtk-gesture_pan.adb
+
+  '
+- '   [Ada]          gtk-gesture_multi_press.adb
+
+  '
+- '   [Ada]          gtk-gesture_long_press.adb
+
+  '
+- '   [Ada]          gtk-gesture_drag.adb
+
+  '
+- '   [Ada]          gtk-gesture.adb
+
+  '
+- '   [Ada]          gtk-gentry.adb
+
+  '
+- '   [Ada]          gtk-frame.adb
+
+  '
+- '   [Ada]          gtk-font_selection_dialog.adb
+
+  '
+- '   [Ada]          gtk-font_selection.adb
+
+  '
+- '   [Ada]          gtk-font_chooser_widget.adb
+
+  '
+- '   [Ada]          gtk-font_chooser_dialog.adb
+
+  '
+- '   [Ada]          gtk-font_chooser.adb
+
+  '
+- '   [Ada]          gtk-font_button.adb
+
+  '
+- '   [Ada]          gtk-flow_box_child.adb
+
+  '
+- '   [Ada]          gtk-flow_box.adb
+
+  '
+- '   [Ada]          gtk-fixed.adb
+
+  '
+- '   [Ada]          gtk-file_filter.adb
+
+  '
+- '   [Ada]          gtk-file_chooser_widget.adb
+
+  '
+- '   [Ada]          gtk-file_chooser_dialog.adb
+
+  '
+- '   [Ada]          gtk-file_chooser_button.adb
+
+  '
+- '   [Ada]          gtk-file_chooser.adb
+
+  '
+- '   [Ada]          gtk-expander.adb
+
+  '
+- '   [Ada]          gtk-event_controller.adb
+
+  '
+- '   [Ada]          gtk-event_box.adb
+
+  '
+- '   [Ada]          gtk-enums.adb
+
+  '
+- '   [Ada]          gtk-entry_completion.adb
+
+  '
+- '   [Ada]          gtk-entry_buffer.adb
+
+  '
+- '   [Ada]          gtk-editable.adb
+
+  '
+- 'gtk-enums.adb:38:04: warning: possible aliasing problem for type "Chars_Ptr" [enabled
+  by default]
+
+  '
+- 'gtk-enums.adb:38:04: warning: use -fno-strict-aliasing switch for references [enabled
+  by default]
+
+  '
+- 'gtk-enums.adb:38:04: warning: or use "pragma No_Strict_Aliasing (Chars_Ptr);" [enabled
+  by default]
+
+  '
+- '   [Ada]          gtk-drawing_area.adb
+
+  '
+- '   [Ada]          gtk-dialog.adb
+
+  '
+- '   [Ada]          gtk-css_section.adb
+
+  '
+- '   [Ada]          gtk-css_provider.adb
+
+  '
+- '   [Ada]          gtk-container.adb
+
+  '
+- '   [Ada]          gtk-combo_box_text.adb
+
+  '
+- '   [Ada]          gtk-combo_box.adb
+
+  '
+- '   [Ada]          gtk-color_selection_dialog.adb
+
+  '
+- '   [Ada]          gtk-color_selection.adb
+
+  '
+- '   [Ada]          gtk-color_chooser_widget.adb
+
+  '
+- '   [Ada]          gtk-color_chooser_dialog.adb
+
+  '
+- '   [Ada]          gtk-color_chooser.adb
+
+  '
+- '   [Ada]          gtk-color_button.adb
+
+  '
+- '   [Ada]          gtk-clipboard.adb
+
+  '
+- '   [Ada]          gtk-check_menu_item.adb
+
+  '
+- '   [Ada]          gtk-check_button.adb
+
+  '
+- '   [Ada]          gtk-cell_view.adb
+
+  '
+- '   [Ada]          gtk-cell_renderer_toggle.adb
+
+  '
+- '   [Ada]          gtk-cell_renderer_text.adb
+
+  '
+- '   [Ada]          gtk-cell_renderer_spinner.adb
+
+  '
+- '   [Ada]          gtk-cell_renderer_spin.adb
+
+  '
+- '   [Ada]          gtk-cell_renderer_progress.adb
+
+  '
+- '   [Ada]          gtk-cell_renderer_pixbuf.adb
+
+  '
+- '   [Ada]          gtk-cell_renderer_combo.adb
+
+  '
+- '   [Ada]          gtk-cell_renderer_accel.adb
+
+  '
+- '   [Ada]          gtk-cell_renderer.adb
+
+  '
+- '   [Ada]          gtk-cell_layout.adb
+
+  '
+- '   [Ada]          gtk-cell_editable.adb
+
+  '
+- '   [Ada]          gtk-cell_area_context.adb
+
+  '
+- '   [Ada]          gtk-cell_area_box.adb
+
+  '
+- '   [Ada]          gtk-cell_area.adb
+
+  '
+- '   [Ada]          gtk-calendar.adb
+
+  '
+- '   [Ada]          gtk-button_box.adb
+
+  '
+- '   [Ada]          gtk-button.adb
+
+  '
+- '   [Ada]          gtk-builder.adb
+
+  '
+- '   [Ada]          gtk-buildable.adb
+
+  '
+- '   [Ada]          gtk-box.adb
+
+  '
+- '   [Ada]          gtk-binding_set.adb
+
+  '
+- '   [Ada]          gtk-bin.adb
+
+  '
+- '   [Ada]          gtk-assistant.adb
+
+  '
+- '   [Ada]          gtk-aspect_frame.adb
+
+  '
+- '   [Ada]          gtk-arrow.adb
+
+  '
+- '   [Ada]          gtk-application_window.adb
+
+  '
+- '   [Ada]          gtk-application.adb
+
+  '
+- '   [Ada]          gtk-alignment.adb
+
+  '
+- '   [Ada]          gtk-adjustment.adb
+
+  '
+- '   [Ada]          gtk-activatable.adb
+
+  '
+- '   [Ada]          gtk-action_group.adb
+
+  '
+- '   [Ada]          gtk-action_bar.adb
+
+  '
+- '   [Ada]          gtk-actionable.adb
+
+  '
+- '   [Ada]          gtk-action.adb
+
+  '
+- '   [Ada]          gtk-accel_map.adb
+
+  '
+- '   [Ada]          gtk-accel_label.adb
+
+  '
+- '   [Ada]          gtk-accel_group.adb
+
+  '
+- '   [Ada]          gtk-about_dialog.adb
+
+  '
+- '   [Ada]          glib-variant.adb
+
+  '
+- '   [Ada]          glib-utils.adb
+
+  '
+- '   [Ada]          glib-string.adb
+
+  '
+- '   [Ada]          glib-spawn.adb
+
+  '
+- '   [Ada]          glib-simple_action_group.adb
+
+  '
+- '   [Ada]          glib-simple_action.adb
+
+  '
+- '   [Ada]          glib-poll.adb
+
+  '
+- '   [Ada]          glib-option.adb
+
+  '
+- '   [Ada]          glib-notification.adb
+
+  '
+- '   [Ada]          glib-menu_model.adb
+
+  '
+- '   [Ada]          glib-menu.adb
+
+  '
+- '   [Ada]          glib-list_model.adb
+
+  '
+- '   [Ada]          glib-iochannel.adb
+
+  '
+- '   [Ada]          glib-g_icon.adb
+
+  '
+- '   [Ada]          glib-cancellable.adb
+
+  '
+- '   [Ada]          glib-application.adb
+
+  '
+- '   [Ada]          glib-action_map.adb
+
+  '
+- '   [Ada]          glib-action_group.adb
+
+  '
+- '   [Ada]          glib-action.adb
+
+  '
+- '   [Ada]          gdk-window.adb
+
+  '
+- '   [Ada]          gdk-seat.adb
+
+  '
+- '   [Ada]          gdk-screen.adb
+
+  '
+- '   [Ada]          gdk-rgba.adb
+
+  '
+- '   [Ada]          gdk-monitor.adb
+
+  '
+- '   [Ada]          gdk-glcontext.adb
+
+  '
+- '   [Ada]          gdk-frame_timings.adb
+
+  '
+- '   [Ada]          gdk-frame_clock.adb
+
+  '
+- '   [Ada]          gdk-event.adb
+
+  '
+- '   [Ada]          gdk-drawing_context.adb
+
+  '
+- '   [Ada]          gdk-drag_contexts.adb
+
+  '
+- '   [Ada]          gdk-display.adb
+
+  '
+- '   [Ada]          gdk-device_tool.adb
+
+  '
+- '   [Ada]          gdk-device_manager.adb
+
+  '
+- '   [Ada]          gdk-device.adb
+
+  '
+- '   [Ada]          gdk-cursor.adb
+
+  '
+- '   [C]            misc_generated.c
+
+  '
+- '   [C]            misc.c
+
+  '
+- '   [Ada]          lse.ads
+
+  '
+- '   [Ada]          lse-model.ads
+
+  '
+- '   [Ada]          lse-model-io.ads
+
+  '
+- '   [Ada]          lse-model-io-drawing_area.ads
+
+  '
+- '   [Ada]          lse-model-io-drawing_area-drawing_area_ptr.ads
+
+  '
+- '   [Ada]          lse-model-io-drawing_area_factory.adb
+
+  '
+- '   [Ada]          lse-model-io-text_file.adb
+
+  '
+- '   [Ada]          lse-model-io-turtle.adb
+
+  '
+- '   [Ada]          lse-model-io-turtle_utils.ads
+
+  '
+- '   [Ada]          lse-model-l_system.ads
+
+  '
+- '   [Ada]          lse-model-l_system-concrete_builder.adb
+
+  '
+- '   [Ada]          lse-model-l_system-l_system.adb
+
+  '
+- 'C:\Users\runneradmin\AppData\Local\alire\cache\builds\gtkada_25.0.1_d3787772\88572e8edbf235324ccc5bca8fd6d3aa9763fc1182f40c0471805ea7d590d3bc\src\misc.c:
+  In function ''ada_gdk_event_get_keyval'':
+
+  '
+- 'C:\Users\runneradmin\AppData\Local\alire\cache\builds\gtkada_25.0.1_d3787772\88572e8edbf235324ccc5bca8fd6d3aa9763fc1182f40c0471805ea7d590d3bc\src\misc.c:765:39:
+  warning: result of ''2 << 31'' requires 34 bits to represent, but ''int'' only has
+  32 bits [-Wshift-overflow=]
+
+  '
+- '  765 | #define ada_gdk_invalid_gint_value ((2<<31) - 1)
+
+  '
+- '      |                                       ^~
+
+  '
+- 'C:\Users\runneradmin\AppData\Local\alire\cache\builds\gtkada_25.0.1_d3787772\88572e8edbf235324ccc5bca8fd6d3aa9763fc1182f40c0471805ea7d590d3bc\src\misc.c:814:12:
+  note: in expansion of macro ''ada_gdk_invalid_gint_value''
+
+  '
+- '  814 |     return ada_gdk_invalid_gint_value;
+
+  '
+- '      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  '
+- 'C:\Users\runneradmin\AppData\Local\alire\cache\builds\gtkada_25.0.1_d3787772\88572e8edbf235324ccc5bca8fd6d3aa9763fc1182f40c0471805ea7d590d3bc\src\misc.c:
+  In function ''ada_gtk_application_startup'':
+
+  '
+- 'C:\Users\runneradmin\AppData\Local\alire\cache\builds\gtkada_25.0.1_d3787772\88572e8edbf235324ccc5bca8fd6d3aa9763fc1182f40c0471805ea7d590d3bc\src\misc.c:2001:5:
+  warning: initialization discards ''const'' qualifier from pointer target type [-Wdiscarded-qualifiers]
+
+  '
+- ' 2001 |     g_application_get_application_id (G_APPLICATION (application));
+
+  '
+- '      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  '
+- '   [Ada]          lse-presenter.ads
+
+  '
+- '   [Ada]          lse-presenter-presenter.adb
+
+  '
+- '   [Ada]          lse-view.ads
+
+  '
+- '   [Ada]          lse-view-view.adb
+
+  '
+- '   [Ada]          lse_resources.ads
+
+  '
+- '   [Ada]          lse-utils.ads
+
+  '
+- '   [Ada]          lse-utils-coordinate_2d.adb
+
+  '
+- '   [Ada]          lse-utils-utils.ads
+
+  '
+- '   [Ada]          lse-model-io-drawing_area-postscript.adb
+
+  '
+- '   [Ada]          lse-utils-coordinate_2d_ptr.ads
+
+  '
+- '   [Ada]          lse-utils-angle.adb
+
+  '
+- '   [Ada]          lse-utils-coordinate_2d_list.ads
+
+  '
+- '   [Ada]          lse-model-grammar.ads
+
+  '
+- '   [Ada]          lse-model-grammar-symbol.adb
+
+  '
+- '   [Ada]          lse-model-grammar-symbol_utils.ads
+
+  '
+- '   [Ada]          lse-model-interpreter.ads
+
+  '
+- '   [Ada]          lse-model-l_system-growth_rule_utils.ads
+
+  '
+- '   [Ada]          lsystem_editor_config.ads
+
+  '
+- '   [Ada]          lse-io.ads
+
+  '
+- '   [Ada]          lse-io-export_factory.adb
+
+  '
+- '   [Ada]          lse-utils-colors.adb
+
+  '
+- '   [Ada]          lse-model-l_system-l_system_ptr.ads
+
+  '
+- '   [Ada]          lse-model-l_system-error.adb
+
+  '
+- '   [Ada]          lse-model-l_system-error-invalid_rule.adb
+
+  '
+- '   [Ada]          lse-model-l_system-error-missing_angle.adb
+
+  '
+- '   [Ada]          lse-model-l_system-error-missing_axiom.adb
+
+  '
+- '   [Ada]          lse-model-l_system-error-missing_restore.adb
+
+  '
+- '   [Ada]          lse-model-l_system-error-missing_rule.adb
+
+  '
+- '   [Ada]          lse-model-l_system-error-missing_save.adb
+
+  '
+- '   [Ada]          lse-model-l_system-error-not_a_angle.adb
+
+  '
+- '   [Ada]          lse-model-l_system-error-unexpected_character.adb
+
+  '
+- '   [Ada]          lse-model-l_system-factory.adb
+
+  '
+- '   [Ada]          lse-io-drawing_area.adb
+
+  '
+- '   [Ada]          lse-view-callbacks.adb
+
+  '
+- '   [Ada]          lse-model-l_system-growth_rule.adb
+
+  '
+- '   [Ada]          lse-model-grammar-symbol-logoangleminus.adb
+
+  '
+- '   [Ada]          lse-model-grammar-symbol-logoangleplus.adb
+
+  '
+- '   [Ada]          lse-model-grammar-symbol-logoforward.adb
+
+  '
+- '   [Ada]          lse-model-grammar-symbol-logoforwardtrace.adb
+
+  '
+- '   [Ada]          lse-model-grammar-symbol-logopositionrestore.adb
+
+  '
+- '   [Ada]          lse-model-grammar-symbol-logopositionsave.adb
+
+  '
+- '   [Ada]          lse-model-grammar-symbol-logouturn.adb
+
+  '
+- '   [Ada]          lse-model-grammar-symbol-othersymbol.adb
+
+  '
+- 'Build Libraries
+
+  '
+- '   [gprlib]       gtkada.lexch
+
+  '
+- '   [gprlib]       Resources.lexch
+
+  '
+- '   [archive]      libResources.a
+
+  '
+- '   [index]        libResources.a
+
+  '
+- '   [archive]      libgtkada.a
+
+  '
+- '   [index]        libgtkada.a
+
+  '
+- 'Bind
+
+  '
+- '   [gprbind]      main.bexch
+
+  '
+- '   [Ada]          main.ali
+
+  '
+- 'Link
+
+  '
+- '   [link]         main.adb
+
+  '
+- 'Success: Build finished successfully in 152.65 seconds.
+
+  '
+- 'Found declared GPR file: LSystem_Editor.gpr
+
+  '
+- '[alr test] Test completed SUCCESSFULLY
+
+  '
+platform: windows
+status: success
+version: 1.0.0

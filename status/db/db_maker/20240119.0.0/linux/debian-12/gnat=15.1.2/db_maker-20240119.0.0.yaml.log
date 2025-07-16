@@ -1,0 +1,618 @@
+Test ran at 2025-08-08 01:21:00.024577+00:00
+
+SOLUTION:
+db_maker=20240119.0.0: A generic for creating simple DBs (one table in an RDBMS)
+Origin: commit 05feea71716e21f6c3b0bf32eef7eb33b22806db from https://github.com/bracke/DB_Maker.git
+Properties:
+   Author: Jeff Carter 
+   Build Switches: 
+   Description: A generic for creating simple DBs (one table in an RDBMS)
+   License: GPL-3.0-or-later
+   Long_Description: # DB_Maker
+A generic for creating simple DBs (one table in an RDBMS) with PragmARC.Persistent_Skip_List_Unbounded and Ada GUI.
+
+Searching does not use the O(log N) search of the underlying skip list, but instead does a linear search for fields that have the corresponding search text as a substring (case insensitive). This is much slower, but is still quite fast. If you have less than 100,000 records it should be fast enough. "Search" starts from the 1st record; "Search More" from the record after the last search. "Clear" clears the edit fields to make entering a new search easier.
+
+Because searching is case insensitive and matches substrings, searching for "son" would match "Orson Welles", "Fowler De Johnsone", and "Son House".
+
+Only about 7 fields will fit vertically in the typical browser window. This could perhaps be increased by making the font smaller. A vertical scroll bar will appear if needed.
+
+Movies is a small demo program that could be used to catalogue a collection of films. DB_Strings is a non-limited replacement for PragmARC.B_Strings, since type B_String is limited in the Ada-12 version of the PragmARCs.
+
+   Maintainer: Bent Bracke <bent@bracke.dk>
+   Maintainers_Logins: bracke
+   Name: db_maker
+   Tag: database
+   Tag: table
+   Version: 20240119
+   Website: https://github.com/bracke/DB_Maker
+Dependencies (direct):
+   ada_gui^20240224.0.0
+   gnat<13.0 | >=13.3
+   pragmarc^20240323.0.0
+Dependencies (solution):
+   ada_gui=20240224.0.1
+   gnat=15.1.2 (gnat_native)
+   libgnutls=3.7.9
+   pragmarc=20240323.0.0
+   simple_components=4.68.0
+   unixodbc=2.3.11
+Dependencies (graph):
+   ada_gui=20240224.0.1     --> gnat=15.1.2 (gnat_native) (<13.0 | >=13.3)
+   ada_gui=20240224.0.1     --> simple_components=4.68.0 (^4.68.0)
+   db_maker=20240119.0.0    --> ada_gui=20240224.0.1 (^20240224.0.0)
+   db_maker=20240119.0.0    --> gnat=15.1.2 (gnat_native) (<13.0 | >=13.3)
+   db_maker=20240119.0.0    --> pragmarc=20240323.0.0 (^20240323.0.0)
+   pragmarc=20240323.0.0    --> gnat=15.1.2 (gnat_native) (<13.0 | >=13.3)
+   simple_components=4.68.0 --> gnat=15.1.2 (gnat_native) (>=2021 | (>=12 & <2000))
+   simple_components=4.68.0 --> libgnutls=3.7.9 (^3.7)
+   simple_components=4.68.0 --> unixodbc=2.3.11 (^2.3)
+
+
+LOG:
+[alr test] Testing db_maker=20240119.0.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get db_maker=20240119.0.0
+Note: Deploying db_maker=20240119.0.0...
+Note: Deploying pragmarc=20240323.0.0...
+Note: Deploying ada_gui=20240224.0.1...
+
+db_maker=20240119.0.0 successfully retrieved.
+Dependencies were solved as follows:
+
+   +  ada_gui           20240224.0.1 (new)
+   +b gnat              15.1.2       (new,gnat_native,binary)
+   +b libgnutls         3.7.9        (new,indirect,system package)
+   +  pragmarc          20240323.0.0 (new)
+   +  simple_components 4.68.0       (new,indirect)
+   +b unixodbc          2.3.11       (new,indirect,system package)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building db_maker=20240119.0.0/db_maker.gpr...
+Setup
+   [mkdir]        object directory for project Ada_Gui
+   [mkdir]        library directory for project Ada_Gui
+   [mkdir]        object directory for project PragmARC
+   [mkdir]        library directory for project PragmARC
+   [mkdir]        object directory for project DB_Maker
+   [mkdir]        library directory for project DB_Maker
+Compile
+   [Ada]          pragmarc_config.ads
+   [Ada]          pragmarc-data_structures-bags-unbounded.ads
+   [Ada]          pragmarc-math.adb
+   [Ada]          pragmarc-data_structures-sets-discrete.adb
+   [Ada]          pragmarc-randomness.ads
+   [Ada]          pragmarc-sorting.ads
+   [Ada]          pragmarc-data_structures-queues-bounded.ads
+   [Ada]          pragmarc-cards-us.adb
+   [Ada]          pragmarc-hash.adb
+   [Ada]          pragmarc-sorting-quick.adb
+   [Ada]          pragmarc-genetic_algorithm.adb
+   [Ada]          pragmarc-data_structures-bags.ads
+   [Ada]          pragmarc-binary_semaphore_handler.adb
+   [Ada]          pragmarc-job_pools.adb
+   [Ada]          pragmarc-data_structures-queues-unbounded.ads
+   [Ada]          pragmarc-safety-pointers.adb
+   [Ada]          pragmarc-images.adb
+   [Ada]          pragmarc-sorting-insertion.adb
+   [Ada]          pragmarc-matching-regular_expression.adb
+   [Ada]          pragmarc-data_structures-queues-bounded-protection-non_blocking.adb
+   [Ada]          pragmarc-data_structures-queues-bounded-protection.ads
+   [Ada]          pragmarc-data_structures-lists-unbounded.ads
+   [Ada]          pragmarc-encryption-threefish.adb
+   [Ada]          pragmarc-data_structures-lists.ads
+   [Ada]          pragmarc-data_structures-skip_lists.ads
+   [Ada]          pragmarc-encryption.ads
+   [Ada]          pragmarc-matching-character_regular_expression.adb
+   [Ada]          pragmarc-menu_handler.adb
+   [Ada]          pragmarc-data_structures-queues.ads
+   [Ada]          pragmarc-sorting-radix.adb
+   [Ada]          pragmarc-postfix_calculator.adb
+   [Ada]          pragmarc-data_structures-queues-bounded-protection-blocking.ads
+   [Ada]          pragmarc-data_structures-bags-unbounded-protection.adb
+   [Ada]          pragmarc-randomness-threefry.adb
+   [Ada]          pragmarc-binary_searcher.adb
+   [Ada]          compile_all.adb
+   [Ada]          pragmarc-data_structures-stacks-unbounded-unprotected.adb
+   [Ada]          pragmarc-min_max.ads
+   [Ada]          pragmarc-task_communication-transporters.adb
+   [Ada]          pragmarc-encryption-threefish-block_512.adb
+   [Ada]          pragmarc-text_io.adb
+   [Ada]          pragmarc-encryption-threefish-block_256.adb
+   [Ada]          pragmarc-data_structures-skip_lists-unbounded.adb
+   [Ada]          pragmarc-rational_postfix_calculator.adb
+   [Ada]          pragmarc-conversions-vectors.adb
+   [Ada]          pragmarc-title_comparisons.adb
+   [Ada]          pragmarc-unbounded_numbers-integers.adb
+   [Ada]          pragmarc-task_communication-monitors.adb
+   [Ada]          pragmarc-images-image.ads
+   [Ada]          pragmarc-data_structures-lists-bounded-protection.adb
+   [Ada]          pragmarc-mixed_case.adb
+   [Ada]          pragmarc-hash_fast_variable_length.adb
+   [Ada]          pragmarc-data_structures.ads
+   [Ada]          pragmarc-sorting-heap.adb
+   [Ada]          pragmarc-safety.ads
+   [Ada]          pragmarc-task_communication-forwarders.adb
+   [Ada]          pragmarc-word_input.adb
+   [Ada]          pragmarc-encryption-simple_xor.adb
+   [Ada]          pragmarc-cards-decks.ads
+   [Ada]          pragmarc-task_communication.ads
+   [Ada]          pragmarc-reflection.ads
+   [Ada]          pragmarc-encryption-bifid.adb
+   [Ada]          pragmarc-data_structures-bags-unbounded-unprotected.adb
+   [Ada]          pragmarc-cards-decks-us.adb
+   [Ada]          pragmarc-permutations.adb
+   [Ada]          pragmarc-data_structures-lists-unbounded-protection.adb
+   [Ada]          pragmarc.ads
+   [Ada]          pragmarc-three_way.adb
+   [Ada]          pragmarc-randomness-u32_ranges.adb
+   [Ada]          pragmarc-randomness-universal.adb
+   [Ada]          pragmarc-matching.ads
+   [Ada]          pragmarc-randomness-kiss.adb
+pragmarc-matching-character_regular_expression.ads:31:04: warning: in instantiation at pragmarc-matching-regular_expression.adb:30 [-gnatwv]
+pragmarc-matching-character_regular_expression.ads:31:04: warning: aggregate not fully initialized [-gnatwv]
+   [Ada]          pragmarc-unbounded_numbers.ads
+   [Ada]          pragmarc-data_structures-stacks.ads
+   [Ada]          pragmarc-conversions-unbounded_strings.ads
+   [Ada]          pragmarc-matching-quick_string.adb
+   [Ada]          pragmarc-conversions.ads
+   [Ada]          pragmarc-data_structures-queues-unbounded-unprotected.adb
+   [Ada]          pragmarc-line_fields.adb
+   [Ada]          pragmarc-wrapping.ads
+   [Ada]          pragmarc-data_structures-stacks-unbounded.ads
+   [Ada]          pragmarc-randomness-real_ranges.adb
+   [Ada]          pragmarc-safety-suspension_objects.adb
+   [Ada]          pragmarc-safety-semaphores.adb
+   [Ada]          pragmarc-randomness-real_values.ads
+   [Ada]          pragmarc-data_structures-lists-bounded.ads
+   [Ada]          pragmarc-cards-decks-general.adb
+   [Ada]          pragmarc-luhn_generation.adb
+   [Ada]          pragmarc-data_structures-stacks-unbounded-protection.adb
+   [Ada]          pragmarc-data_structures-sets.ads
+   [Ada]          pragmarc-randomness-isaac.adb
+   [Ada]          pragmarc-ansi_tty_control.adb
+   [Ada]          pragmarc-date_handler.adb
+   [Ada]          pragmarc-data_structures-queues-unbounded-protection-blocking.ads
+   [Ada]          pragmarc-encryption-threefish-block_1024.adb
+   [Ada]          pragmarc-concurrent_pipeline.adb
+   [Ada]          pragmarc-comparisons.ads
+   [Ada]          pragmarc-unbounded_numbers-rationals.adb
+   [Ada]          pragmarc-persistent_skip_list_unbounded.adb
+   [Ada]          pragmarc-least_squares_fitting.adb
+   [Ada]          pragmarc-data_structures-queues-unbounded-protection.ads
+   [Ada]          pragmarc-rem_nn_wrapper.adb
+   [Ada]          pragmarc-protected_option.adb
+   [Ada]          pragmarc-data_structures-queues-bounded-unprotected.adb
+   [Ada]          pragmarc-data_structures-queues-unbounded-protection-non_blocking.adb
+   [Ada]          pragmarc-b_strings.adb
+   [Ada]          pragmarc-randomness-combined.adb
+   [Ada]          pragmarc-cards.ads
+   [C]            py_conversions.c
+   [Ada]          py-load_python_library.adb
+   [Ada]          py.adb
+   [Ada]          odbc-architecture_dependent.ads
+odbc-architecture_dependent.ads:30:16: warning: unit "Interfaces.C" is not referenced [-gnatwu]
+   [Ada]          odbc-driver_dependent.ads
+   [Ada]          persistent-native_odbc-text_io.adb
+py-load_python_library.adb:39:04: warning: named number "RTLD_LAZY" is not referenced [-gnatwu]
+py-load_python_library.adb:43:04: warning: named number "RTLD_BINDING_MASK" is not referenced [-gnatwu]
+py-load_python_library.adb:45:04: warning: named number "TLD_NOLOAD" is not referenced [-gnatwu]
+py-load_python_library.adb:47:04: warning: named number "RTLD_DEEPBIND" is not referenced [-gnatwu]
+py-load_python_library.adb:55:04: warning: named number "RTLD_LOCAL" is not referenced [-gnatwu]
+py-load_python_library.adb:57:04: warning: named number "RTLD_NODELETE" is not referenced [-gnatwu]
+py-load_python_library.adb:818:30: warning: formal parameter "Major" is not referenced [-gnatwf]
+   [Ada]          odbc-api-keys-edit.ads
+   [Ada]          odbc-sqltypes.adb
+odbc-sqltypes.ads:206:04: warning: pragma Pack affects convention "C" component at line 203 [enabled by default]
+odbc-sqltypes.ads:206:04: warning: component "Data4" may not have "C" compatible representation [enabled by default]
+   [Ada]          odbc.ads
+   [Ada]          odbc-api-keys-arrays.ads
+   [Ada]          odbc-api-links.adb
+   [Ada]          odbc-api-keys-sets.ads
+   [Ada]          odbc-api.adb
+   [Ada]          persistent-native_odbc.adb
+py.adb:50:04: warning: variable "TypeError" is assigned but never read [-gnatwm]
+py.adb:51:04: warning: variable "SystemError" is assigned but never read [-gnatwm]
+py.adb:888:04: warning: named number "Single_Input" is not referenced [-gnatwu]
+py.adb:890:04: warning: named number "Eval_Input" is not referenced [-gnatwu]
+py.adb:891:04: warning: named number "Func_Type_Input" is not referenced [-gnatwu]
+py.adb:2454:24: warning: can never be greater than, could replace by "=" [-gnatwc]
+py.adb:2464:19: warning: formal parameter "Data" is not referenced [-gnatwf]
+py.adb:2694:07: warning: variable "Result" is assigned but never read [-gnatwm]
+py.adb:2698:07: warning: possibly useless assignment to "Result", value might not be referenced [-gnatwm]
+py.adb:2703:07: warning: variable "Result" is assigned but never read [-gnatwm]
+py.adb:2706:07: warning: possibly useless assignment to "Result", value might not be referenced [-gnatwm]
+   [Ada]          odbc-api-keys.adb
+   [Ada]          odbc-thin.adb
+   [Ada]          odbc-bound_parameters.adb
+   [Ada]          gnat-sockets-ntp.adb
+   [Ada]          julia-load_julia_library.adb
+   [Ada]          julia-generic_1d_array.adb
+   [Ada]          julia.adb
+julia-load_julia_library.adb:30:18: warning: no entities of "Strings_Edit.Integers" are referenced [-gnatwu]
+julia-load_julia_library.adb:32:23: warning: no entities of "Strings_Edit.UTF8.Handling" are referenced [-gnatwu]
+julia-load_julia_library.adb:34:17: warning: unit "Ada.Streams.Stream_IO" is not referenced [-gnatwu]
+julia-load_julia_library.adb:35:06: warning: unit "Interfaces" is not referenced [-gnatwu]
+julia-load_julia_library.adb:40:04: warning: named number "RTLD_LAZY" is not referenced [-gnatwu]
+julia-load_julia_library.adb:44:04: warning: named number "RTLD_BINDING_MASK" is not referenced [-gnatwu]
+julia-load_julia_library.adb:46:04: warning: named number "TLD_NOLOAD" is not referenced [-gnatwu]
+julia-load_julia_library.adb:48:04: warning: named number "RTLD_DEEPBIND" is not referenced [-gnatwu]
+julia-load_julia_library.adb:56:04: warning: named number "RTLD_LOCAL" is not referenced [-gnatwu]
+julia-load_julia_library.adb:58:04: warning: named number "RTLD_NODELETE" is not referenced [-gnatwu]
+julia-load_julia_library.adb:359:13: warning: function "dlsym" is not referenced [-gnatwu]
+   [Ada]          julia-generic_2d_array.adb
+julia-generic_2d_array.adb:52:07: warning: constant "Len" is not referenced [-gnatwu]
+   [Ada]          julia-generic_3d_array.adb
+julia-generic_3d_array.adb:52:07: warning: constant "Len" is not referenced [-gnatwu]
+   [Ada]          parsers-json-string_source.ads
+odbc-api.adb:33:23: warning: no entities of "Strings_Edit.UTF8.Handling" are referenced [-gnatwu]
+odbc-api.adb:64:13: warning: function "Dump" is not referenced [-gnatwu]
+odbc-api.adb:85:13: warning: function "Dump" is not referenced [-gnatwu]
+odbc-api.adb:780:07: warning: variable "Result" is assigned but never read [-gnatwm]
+odbc-api.adb:782:07: warning: possibly useless assignment to "Result", value might not be referenced [-gnatwm]
+odbc-api.adb:1121:25: warning: formal parameter "State" is not referenced [-gnatwf]
+odbc-api.adb:1210:07: warning: variable "Result" is assigned but never read [-gnatwm]
+odbc-api.adb:5951:24: warning: formal parameter "State" is not referenced [-gnatwf]
+odbc-api.adb:6058:14: warning: procedure "Set" is not referenced [-gnatwu]
+odbc-api.adb:6078:14: warning: procedure "Set" is not referenced [-gnatwu]
+odbc-api.adb:6775:12: warning: variable "Error" is not referenced [-gnatwu]
+odbc-api.ads:30:16: warning: no entities of "Interfaces.C" are referenced in spec [-gnatwu]
+odbc-api.ads:30:16: warning: with clause might be moved to body [-gnatwu]
+odbc-api.ads:5327:04: warning: pragma "INLINE" for "Execute" duplicates pragma at line 5326 [-gnatwr]
+   [Ada]          parsers-json-generic_parser.adb
+   [Ada]          parsers-json-multiline_source.ads
+julia.adb:34:09: warning: unit "Ada.Unchecked_Conversion" is not referenced [-gnatwu]
+julia.adb:50:13: warning: function "+" is not referenced [-gnatwu]
+julia.adb:55:13: warning: function "+" is not referenced [-gnatwu]
+julia.adb:477:07: warning: constant "Result" is not referenced [-gnatwu]
+julia.adb:483:07: warning: constant "Result" is not referenced [-gnatwu]
+julia.adb:776:14: warning: procedure "Init_With_Image" is not referenced [-gnatwu]
+   [Ada]          parsers-json.adb
+parsers-json.adb:67:29: warning: formal parameter "Left" is not referenced [-gnatwf]
+parsers-json.adb:67:35: warning: formal parameter "Right" is not referenced [-gnatwf]
+parsers-json.adb:72:25: warning: formal parameter "Operation" is not referenced [-gnatwf]
+parsers-json.adb:77:28: warning: formal parameter "Operation" is not referenced [-gnatwf]
+   [Ada]          gnat-sockets-smtp.adb
+   [Ada]          gnat-sockets-smtp-client.adb
+   [Ada]          gnat-sockets-smtp-client-synchronous.adb
+   [Ada]          gnutls.adb
+gnat-sockets-smtp-client-synchronous.adb:39:17: warning: formal parameter "Accepted" is not referenced [-gnatwf]
+   [Ada]          gnat-sockets-server-secure-anonymous.adb
+persistent-native_odbc.adb:28:20: warning: no entities of "Ada.Characters.Handling" are referenced [-gnatwu]
+persistent-native_odbc.adb:287:21: warning: variable "Error" is not referenced [-gnatwu]
+persistent-native_odbc.ads:63:09: warning: unit "Ada.Finalization" is not referenced [-gnatwu]
+   [Ada]          gnat-sockets-server-secure-x509.adb
+   [Ada]          gnat-sockets-server-secure.adb
+   [Ada]          openssl.adb
+   [Ada]          gnat-sockets-server-openssl.adb
+   [Ada]          gnat-sockets-mqtt-server.adb
+gnat-sockets-server-openssl.adb:846:07: warning: variable "Buffer" is read but never assigned [-gnatwv]
+   [Ada]          gnat-sockets-mqtt-streams.adb
+   [Ada]          gnat-sockets-mqtt.adb
+   [Ada]          gnat-sockets-connection_state_machine-modbus_client-synchronous.adb
+gnat-sockets-smtp-client.adb:1302:17: warning: formal parameter "Code" is not referenced [-gnatwf]
+gnat-sockets-smtp-client.ads:733:50: warning: applying 'Class to an untagged incomplete type is an obsolescent feature (RM J.11) [-gnatwr]
+gnat-sockets-smtp-client.ads:739:58: warning: applying 'Class to an untagged incomplete type is an obsolescent feature (RM J.11) [-gnatwr]
+   [Ada]          gnat-sockets-connection_state_machine-modbus_client.adb
+gnat-sockets-connection_state_machine-modbus_client-synchronous.adb:82:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-modbus_client-synchronous.adb:149:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-modbus_client-synchronous.adb:168:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-modbus_client-synchronous.adb:187:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-modbus_client-synchronous.adb:206:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-modbus_client-synchronous.adb:225:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-modbus_client-synchronous.adb:241:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-modbus_client-synchronous.adb:255:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-modbus_client-synchronous.adb:271:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-modbus_client-synchronous.adb:286:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-modbus_client-synchronous.adb:303:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-modbus_client-synchronous.adb:320:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-modbus_client-synchronous.adb:338:07: warning: variable "Lock" is not referenced [-gnatwu]
+   [Ada]          gnat-sockets-connection_state_machine-ldap.adb
+gnat-sockets-mqtt.adb:356:13: warning: function "Get_Topic" is not referenced [-gnatwu]
+gnat-sockets-mqtt.adb:470:07: warning: variable "Level" is not referenced [-gnatwu]
+   [Ada]          gnat-sockets-connection_state_machine-ldap-client.adb
+gnat-sockets-connection_state_machine-modbus_client.adb:251:17: warning: formal parameter "Client" is not referenced [-gnatwf]
+gnat-sockets-connection_state_machine-modbus_client.adb:293:17: warning: formal parameter "Machine" is not referenced [-gnatwf]
+gnat-sockets-connection_state_machine-modbus_client.adb:381:17: warning: formal parameter "Pointer" is not referenced [-gnatwf]
+gnat-sockets-connection_state_machine-modbus_client.adb:382:17: warning: formal parameter "Machine" is not referenced [-gnatwf]
+gnat-sockets-connection_state_machine-modbus_client.adb:383:17: warning: formal parameter "State" is not referenced [-gnatwf]
+gnat-sockets-connection_state_machine-modbus_client.ads:662:52: warning: applying 'Class to an untagged incomplete type is an obsolescent feature (RM J.11) [-gnatwr]
+   [Ada]          gnat-sockets-connection_state_machine-ldap-server.adb
+gnat-sockets-mqtt-server.adb:133:19: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-mqtt-server.adb:148:19: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-mqtt-server.adb:212:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-mqtt-server.adb:228:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-mqtt-server.adb:285:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-mqtt-server.adb:313:13: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-mqtt-server.adb:342:13: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-mqtt-server.adb:361:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-mqtt-server.adb:377:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-mqtt-server.adb:386:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-mqtt-server.adb:405:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-mqtt-server.adb:422:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-mqtt-server.adb:440:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-mqtt-server.adb:456:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-mqtt-server.adb:473:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-mqtt-server.adb:512:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-mqtt-server.adb:787:10: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-mqtt-server.adb:966:13: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-mqtt-server.adb:998:13: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-mqtt-server.adb:1043:13: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-mqtt-server.adb:1132:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-mqtt-server.adb:1245:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-mqtt-server.adb:1328:10: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-mqtt-server.adb:1352:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-mqtt-server.adb:1363:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-mqtt-server.adb:1730:16: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-mqtt-server.adb:1736:16: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-mqtt-server.adb:1757:16: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-mqtt-server.adb:1773:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-mqtt-server.adb:1782:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-mqtt-server.adb:1809:07: warning: variable "Lock" is not referenced [-gnatwu]
+   [C]            sqlite3.c
+gnat-sockets-connection_state_machine-ldap-server.adb:28:09: warning: no entities of "Ada.Exceptions" are referenced [-gnatwu]
+gnat-sockets-connection_state_machine-ldap-server.adb:29:09: warning: no entities of "Ada.IO_Exceptions" are referenced [-gnatwu]
+gnat-sockets-connection_state_machine-ldap-server.ads:28:09: warning: no entities of "Ada.Task_Identification" are referenced [-gnatwu]
+   [Ada]          persistent-sqlite-text_io.adb
+   [Ada]          persistent-sqlite_keys-arrays.ads
+   [Ada]          persistent-sqlite.adb
+gnat-sockets-connection_state_machine-ldap-client.adb:35:09: warning: unit "ada.Text_IO" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-ldap-client.adb:561:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-ldap-client.adb:576:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-ldap-client.adb:631:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-ldap-client.adb:662:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-ldap-client.adb:676:13: warning: constant "Deadline" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-ldap-client.adb:693:25: warning: constant "Password" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-ldap-client.adb:721:14: warning: procedure "Receive_Challenge" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-ldap-client.adb:737:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-ldap-client.adb:759:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-ldap-client.adb:799:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-ldap-client.adb:835:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-ldap-client.adb:865:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-ldap-client.adb:893:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-ldap-client.adb:926:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-ldap-client.adb:963:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-ldap-client.adb:1035:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-ldap-client.adb:1135:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-ldap-client.adb:1207:32: warning: formal parameter "ID" is not referenced [-gnatwf]
+gnat-sockets-connection_state_machine-ldap-client.adb:1207:49: warning: formal parameter "Choice" is not referenced [-gnatwf]
+   [Ada]          persistent-sqlite_keys-sets.ads
+persistent-sqlite_keys-sets.ads:28:06: warning: no entities of "Interfaces" are referenced [-gnatwu]
+   [Ada]          persistent-sqlite_links.adb
+gnat-sockets-connection_state_machine-ldap.adb:33:48: warning: no entities of "GNAT.Sockets.Connection_State_Machine.ASN1.Tagged_Values" are referenced [-gnatwu]
+gnat-sockets-connection_state_machine-ldap.adb:35:09: warning: unit "ada.Text_IO" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-ldap.adb:37:04: warning: use clause for package "Booleans" has no effect [-gnatwu]
+gnat-sockets-connection_state_machine-ldap.adb:38:04: warning: use clause for package "Choices" has no effect [-gnatwu]
+gnat-sockets-connection_state_machine-ldap.adb:39:04: warning: use clause for package "Distinguished_Names" has no effect [-gnatwu]
+gnat-sockets-connection_state_machine-ldap.adb:40:04: warning: use clause for package "Integers_8" has no effect [-gnatwu]
+gnat-sockets-connection_state_machine-ldap.adb:41:04: warning: use clause for package "Integers_32" has no effect [-gnatwu]
+gnat-sockets-connection_state_machine-ldap.adb:42:04: warning: use clause for package "Nulls" has no effect [-gnatwu]
+gnat-sockets-connection_state_machine-ldap.adb:43:04: warning: use clause for package "Sequences" has no effect [-gnatwu]
+gnat-sockets-connection_state_machine-ldap.adb:44:04: warning: use clause for package "Sets" has no effect [-gnatwu]
+gnat-sockets-connection_state_machine-ldap.adb:45:04: warning: use clause for package "Strings" has no effect [-gnatwu]
+gnat-sockets-connection_state_machine-ldap.ads:39:53: warning: unit "GNAT.Sockets.Connection_State_Machine.ASN1.Sets.Generic_Reference" is not referenced [-gnatwu]
+   [Ada]          persistent-sqlite_keys.adb
+persistent-sqlite_links.adb:120:19: warning: variable "Command" is not modified in loop body [enabled by default]
+persistent-sqlite_links.adb:120:19: warning: possible infinite loop [enabled by default]
+persistent-sqlite_links.adb:185:19: warning: variable "Command" is not modified in loop body [enabled by default]
+persistent-sqlite_links.adb:185:19: warning: possible infinite loop [enabled by default]
+persistent-sqlite_links.adb:215:19: warning: variable "Command" is not modified in loop body [enabled by default]
+persistent-sqlite_links.adb:215:19: warning: possible infinite loop [enabled by default]
+   [Ada]          sqlite.adb
+   [Ada]          gnat-sockets-connection_state_machine-http_server-sqlite_browser.adb
+sqlite.adb:69:04: warning: named number "SQLITE_NOTICE" is not referenced [-gnatwu]
+sqlite.adb:70:04: warning: named number "SQLITE_WARNING" is not referenced [-gnatwu]
+sqlite.adb:74:04: warning: named number "SQLITE_IOERR_READ" is not referenced [-gnatwu]
+sqlite.adb:75:04: warning: named number "SQLITE_IOERR_SHORT_READ" is not referenced [-gnatwu]
+sqlite.adb:76:04: warning: named number "SQLITE_IOERR_WRITE" is not referenced [-gnatwu]
+sqlite.adb:77:04: warning: named number "SQLITE_IOERR_FSYNC" is not referenced [-gnatwu]
+sqlite.adb:78:04: warning: named number "SQLITE_IOERR_DIR_FSYNC" is not referenced [-gnatwu]
+sqlite.adb:79:04: warning: named number "SQLITE_IOERR_TRUNCATE" is not referenced [-gnatwu]
+sqlite.adb:80:04: warning: named number "SQLITE_IOERR_FSTAT" is not referenced [-gnatwu]
+sqlite.adb:81:04: warning: named number "SQLITE_IOERR_UNLOCK" is not referenced [-gnatwu]
+sqlite.adb:82:04: warning: named number "SQLITE_IOERR_RDLOCK" is not referenced [-gnatwu]
+sqlite.adb:83:04: warning: named number "SQLITE_IOERR_DELETE" is not referenced [-gnatwu]
+sqlite.adb:84:04: warning: named number "SQLITE_IOERR_BLOCKED" is not referenced [-gnatwu]
+sqlite.adb:85:04: warning: named number "SQLITE_IOERR_NOMEM" is not referenced [-gnatwu]
+sqlite.adb:86:04: warning: named number "SQLITE_IOERR_ACCESS" is not referenced [-gnatwu]
+sqlite.adb:87:04: warning: named number "SQLITE_IOERR_CHECKRESERVEDLOCK" is not referenced [-gnatwu]
+sqlite.adb:88:04: warning: named number "SQLITE_IOERR_LOCK" is not referenced [-gnatwu]
+sqlite.adb:89:04: warning: named number "SQLITE_IOERR_CLOSE" is not referenced [-gnatwu]
+sqlite.adb:90:04: warning: named number "SQLITE_IOERR_DIR_CLOSE" is not referenced [-gnatwu]
+sqlite.adb:91:04: warning: named number "SQLITE_IOERR_SHMOPEN" is not referenced [-gnatwu]
+sqlite.adb:92:04: warning: named number "SQLITE_IOERR_SHMSIZE" is not referenced [-gnatwu]
+sqlite.adb:93:04: warning: named number "SQLITE_IOERR_SHMLOCK" is not referenced [-gnatwu]
+sqlite.adb:94:04: warning: named number "SQLITE_IOERR_SHMMAP" is not referenced [-gnatwu]
+sqlite.adb:95:04: warning: named number "SQLITE_IOERR_SEEK" is not referenced [-gnatwu]
+sqlite.adb:96:04: warning: named number "SQLITE_IOERR_DELETE_NOENT" is not referenced [-gnatwu]
+sqlite.adb:97:04: warning: named number "SQLITE_IOERR_MMAP" is not referenced [-gnatwu]
+sqlite.adb:99:04: warning: named number "SQLITE_IOERR_CONVPATH" is not referenced [-gnatwu]
+sqlite.adb:100:04: warning: named number "SQLITE_IOERR_VNODE" is not referenced [-gnatwu]
+sqlite.adb:101:04: warning: named number "SQLITE_IOERR_AUTH" is not referenced [-gnatwu]
+sqlite.adb:102:04: warning: named number "SQLITE_IOERR_BEGIN_ATOMIC" is not referenced [-gnatwu]
+sqlite.adb:103:04: warning: named number "SQLITE_IOERR_COMMIT_ATOMIC" is not referenced [-gnatwu]
+sqlite.adb:104:04: warning: named number "SQLITE_IOERR_ROLLBACK_ATOMIC" is not referenced [-gnatwu]
+sqlite.adb:105:04: warning: named number "SQLITE_LOCKED_SHAREDCACHE" is not referenced [-gnatwu]
+sqlite.adb:615:07: warning: variable "Result" is assigned but never read [-gnatwm]
+sqlite.adb:833:07: warning: variable "Result" is assigned but never read [-gnatwm]
+sqlite.adb:835:07: warning: possibly useless assignment to "Result", value might not be referenced [-gnatwm]
+sqlite.adb:1037:07: warning: "Result" is not modified, could be declared constant [-gnatwk]
+sqlite.adb:1059:10: warning: "Result" is not modified, could be declared constant [-gnatwk]
+sqlite.adb:1099:07: warning: variable "Result" is assigned but never read [-gnatwm]
+sqlite.adb:1101:07: warning: possibly useless assignment to "Result", value might not be referenced [-gnatwm]
+   [Ada]          gnat-sockets-connection_state_machine-elv_max_cube_client.adb
+   [Ada]          gnat-sockets-connection_state_machine-elv_max_cube_client-topology.adb
+persistent-sqlite.adb:28:20: warning: no entities of "Ada.Characters.Handling" are referenced [-gnatwu]
+persistent-sqlite.adb:35:09: warning: unit "Ada.Unchecked_Deallocation" is not referenced [-gnatwu]
+persistent-sqlite.adb:92:13: warning: function "Image" is not referenced [-gnatwu]
+persistent-sqlite.adb:1126:13: warning: function "Unicode" is not referenced [-gnatwu]
+persistent-sqlite.adb:1126:22: warning: formal parameter "Storage" is not referenced [-gnatwf]
+persistent-sqlite.ads:63:09: warning: unit "Ada.Finalization" is not referenced [-gnatwu]
+   [Ada]          gnat-sockets-connection_state_machine-elv_max_cube_client-stream_io.adb
+   [Ada]          gnat-sockets-connection_state_machine-elv_max_cube_client-time_zones.ads
+   [Ada]          ada_gui_config.ads
+   [Ada]          ada_gui-gnoga-application.adb
+   [Ada]          ada_gui-gnoga-gui-element-form.adb
+/root/.local/share/alire/builds/simple_components_4.68.0_da9b0f3a/8bcfe5058aa7e81ae0ab4b6337487705bee37844ec6dad50473c2f253144abd1/sqlite-sources/sqlite3.c: In function 'sqlite3DefaultRowEst':
+/root/.local/share/alire/builds/simple_components_4.68.0_da9b0f3a/8bcfe5058aa7e81ae0ab4b6337487705bee37844ec6dad50473c2f253144abd1/sqlite-sources/sqlite3.c:109169:3: warning: this 'if' clause does not guard... [-Wmisleading-indentation]
+109169 |   if( pIdx->pPartIdxWhere!=0 ) a[0] -= 10;  assert( 10==sqlite3LogEst(2) );
+       |   ^~
+In file included from /root/.local/share/alire/builds/simple_components_4.68.0_da9b0f3a/8bcfe5058aa7e81ae0ab4b6337487705bee37844ec6dad50473c2f253144abd1/sqlite-sources/sqlite3.c:13475:
+/root/.local/share/alire/builds/simple_components_4.68.0_da9b0f3a/8bcfe5058aa7e81ae0ab4b6337487705bee37844ec6dad50473c2f253144abd1/sqlite-sources/sqlite3.c:109169:45: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'if'
+109169 |   if( pIdx->pPartIdxWhere!=0 ) a[0] -= 10;  assert( 10==sqlite3LogEst(2) );
+       |                                             ^~~~~~
+/root/.local/share/alire/builds/simple_components_4.68.0_da9b0f3a/8bcfe5058aa7e81ae0ab4b6337487705bee37844ec6dad50473c2f253144abd1/sqlite-sources/sqlite3.c:109170:3: warning: this 'if' clause does not guard... [-Wmisleading-indentation]
+109170 |   if( a[0]<33 ) a[0] = 33;                  assert( 33==sqlite3LogEst(10) );
+       |   ^~
+/root/.local/share/alire/builds/simple_components_4.68.0_da9b0f3a/8bcfe5058aa7e81ae0ab4b6337487705bee37844ec6dad50473c2f253144abd1/sqlite-sources/sqlite3.c:109170:45: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'if'
+109170 |   if( a[0]<33 ) a[0] = 33;                  assert( 33==sqlite3LogEst(10) );
+       |                                             ^~~~~~
+   [Ada]          ada_gui-gnoga-gui-element-canvas.adb
+   [Ada]          ada_gui-gnoga-gui.adb
+   [Ada]          ada_gui-gnoga-server-connection-common.ads
+   [Ada]          ada_gui-gnoga-gui-document.adb
+   [Ada]          ada_gui-gnoga-colors.adb
+   [Ada]          ada_gui-gnoga-server-connection.adb
+gnat-sockets-connection_state_machine-elv_max_cube_client.adb:36:18: warning: no entities of "Ada.Calendar.Time_Zones" are referenced [-gnatwu]
+gnat-sockets-connection_state_machine-elv_max_cube_client.adb:41:04: warning: use clause for package "Stream_Element_Offset_Edit" has no effect [-gnatwu]
+gnat-sockets-connection_state_machine-elv_max_cube_client.adb:222:13: warning: function "Encode" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-elv_max_cube_client.adb:252:13: warning: function "&" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-elv_max_cube_client.adb:408:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-elv_max_cube_client.adb:435:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-elv_max_cube_client.adb:458:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-elv_max_cube_client.adb:479:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-elv_max_cube_client.adb:501:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-elv_max_cube_client.adb:529:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-elv_max_cube_client.adb:556:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-elv_max_cube_client.adb:588:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-elv_max_cube_client.adb:826:17: warning: formal parameter "S_Commands" is not referenced [-gnatwf]
+gnat-sockets-connection_state_machine-elv_max_cube_client.adb:883:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-elv_max_cube_client.adb:902:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-elv_max_cube_client.adb:920:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-elv_max_cube_client.adb:939:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-elv_max_cube_client.adb:968:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-elv_max_cube_client.adb:1120:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-elv_max_cube_client.adb:1222:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-elv_max_cube_client.adb:1227:07: warning: renamed variable "RF" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-elv_max_cube_client.adb:1286:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-elv_max_cube_client.adb:1287:07: warning: constant "Index" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-elv_max_cube_client.adb:1299:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-elv_max_cube_client.adb:1300:07: warning: constant "Index" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-elv_max_cube_client.adb:1312:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-elv_max_cube_client.adb:1342:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-elv_max_cube_client.adb:1357:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-elv_max_cube_client.adb:1368:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-elv_max_cube_client.adb:1582:07: warning: useless assignment to "Action", value overwritten at line 1588 [-gnatwm]
+gnat-sockets-connection_state_machine-elv_max_cube_client.adb:1588:07: warning: useless assignment to "Action", value overwritten at line 1594 [-gnatwm]
+gnat-sockets-connection_state_machine-elv_max_cube_client.adb:1679:13: warning: function "Dump" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-elv_max_cube_client.adb:1861:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-elv_max_cube_client.adb:1884:17: warning: formal parameter "Line" is not referenced [-gnatwf]
+gnat-sockets-connection_state_machine-elv_max_cube_client.adb:2058:10: warning: variable "ID" is assigned but never read [-gnatwm]
+gnat-sockets-connection_state_machine-elv_max_cube_client.adb:2090:13: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-elv_max_cube_client.adb:2195:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-elv_max_cube_client.adb:2205:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-elv_max_cube_client.adb:2218:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-elv_max_cube_client.adb:2227:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-elv_max_cube_client.adb:2247:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-elv_max_cube_client.adb:2271:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-elv_max_cube_client.adb:2280:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-elv_max_cube_client.adb:2293:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-elv_max_cube_client.adb:2302:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-elv_max_cube_client.adb:2315:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-elv_max_cube_client.adb:2324:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-elv_max_cube_client.adb:2337:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-elv_max_cube_client.adb:2346:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-elv_max_cube_client.adb:2355:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-elv_max_cube_client.adb:2367:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-elv_max_cube_client.adb:2376:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-elv_max_cube_client.adb:2627:07: warning: variable "Answer" is assigned but never read [-gnatwm]
+gnat-sockets-connection_state_machine-elv_max_cube_client.adb:2629:07: warning: variable "Uptodate" is assigned but never read [-gnatwm]
+gnat-sockets-connection_state_machine-elv_max_cube_client.adb:3102:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-elv_max_cube_client.adb:3175:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-elv_max_cube_client.adb:3184:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-elv_max_cube_client.adb:3193:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-elv_max_cube_client.adb:3205:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-elv_max_cube_client.adb:3229:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-elv_max_cube_client.adb:3238:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-elv_max_cube_client.adb:3247:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-elv_max_cube_client.adb:3260:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-elv_max_cube_client.adb:3269:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-elv_max_cube_client.adb:3409:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-elv_max_cube_client.adb:3420:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-elv_max_cube_client.adb:3440:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-elv_max_cube_client.adb:3451:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-elv_max_cube_client.adb:3688:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-elv_max_cube_client.adb:3725:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-elv_max_cube_client.adb:3735:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-elv_max_cube_client.adb:3754:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-elv_max_cube_client.adb:3979:13: warning: "Data" is not modified, could be declared constant [-gnatwk]
+gnat-sockets-connection_state_machine-elv_max_cube_client.adb:3994:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-elv_max_cube_client.adb:4172:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-elv_max_cube_client.adb:4228:12: warning: variable "Error" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-elv_max_cube_client.adb:4285:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-elv_max_cube_client.adb:4337:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-elv_max_cube_client.adb:4381:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-elv_max_cube_client.adb:4391:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-elv_max_cube_client.adb:4410:07: warning: variable "Pointer" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-elv_max_cube_client.adb:4421:10: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-elv_max_cube_client.adb:4710:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-elv_max_cube_client.adb:4833:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-elv_max_cube_client.adb:4847:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-elv_max_cube_client.adb:4890:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-elv_max_cube_client.adb:4902:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-elv_max_cube_client.adb:4961:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-elv_max_cube_client.adb:4975:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-elv_max_cube_client.adb:5064:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-elv_max_cube_client.adb:5092:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-elv_max_cube_client.adb:5177:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-elv_max_cube_client.adb:5203:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-elv_max_cube_client.adb:5331:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-elv_max_cube_client.adb:5349:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-elv_max_cube_client.adb:5413:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-elv_max_cube_client.adb:5429:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-elv_max_cube_client.adb:5479:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-elv_max_cube_client.adb:5495:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-elv_max_cube_client.adb:5573:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-elv_max_cube_client.adb:5598:07: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-elv_max_cube_client.adb:5621:07: warning: use clause for package "Time_Zones" has no effect [-gnatwu]
+gnat-sockets-connection_state_machine-elv_max_cube_client.adb:5769:48: warning: "Result" may be referenced before it has a value [enabled by default]
+gnat-sockets-connection_state_machine-elv_max_cube_client.adb:5923:10: warning: variable "Lock" is not referenced [-gnatwu]
+gnat-sockets-connection_state_machine-elv_max_cube_client.ads:29:09: warning: no entities of "Ada.Exceptions" are referenced in spec [-gnatwu]
+gnat-sockets-connection_state_machine-elv_max_cube_client.ads:29:09: warning: with clause might be moved to body [-gnatwu]
+gnat-sockets-connection_state_machine-elv_max_cube_client.ads:173:50: warning: static fixed-point value is not a multiple of Small [-gnatwb]
+   [Ada]          ada_gui-gnoga-server-template_parser.adb
+   [Ada]          ada_gui-gnoga-gui-element-list.adb
+   [Ada]          ada_gui-gnoga-server.adb
+   [Ada]          ada_gui-gnoga-gui-window.adb
+   [Ada]          ada_gui-gnoga-gui-location.adb
+   [Ada]          ada_gui-gnoga-server-template_parser-simple.adb
+   [Ada]          ada_gui-gnoga-gui-element-multimedia.adb
+   [Ada]          ada_gui-gnoga.adb
+   [Ada]          parsers-generic_source-xpm.adb
+   [Ada]          ada_gui-gnoga-gui-element.adb
+   [Ada]          ada_gui-gnoga-gui-element-common.adb
+   [Ada]          ada_gui-gnoga-gui-view-grid.adb
+   [Ada]          ada_gui-gnoga-server-model.adb
+   [Ada]          ada_gui-gnoga-gui-element-canvas-context_2d.adb
+   [Ada]          ada_gui-gnoga-server-database.adb
+   [Ada]          ada_gui.adb
+   [Ada]          parsers-multiline_source-xpm.ads
+   [Ada]          ada_gui-gnoga-client_storage.adb
+   [Ada]          ada_gui-gnoga-server-model-queries.adb
+   [Ada]          ada_gui-gnoga-gui-view-console.adb
+   [Ada]          ada_gui-gnoga-gui-view.adb
+   [Ada]          ada_gui-gnoga-server-mime.adb
+   [Ada]          db_maker_config.ads
+   [Ada]          db_maker.adb
+   [Ada]          db_strings.ads
+Build Libraries
+   [gprlib]       Ada_GUI.lexch
+   [gprlib]       PragmARC.lexch
+   [gprlib]       DB_Maker.lexch
+   [archive]      libAda_GUI.a
+   [archive]      libPragmARC.a
+   [index]        libPragmARC.a
+   [index]        libAda_GUI.a
+   [archive]      libDB_Maker.a
+   [index]        libDB_Maker.a
+Success: Build finished successfully in 55.07 seconds.
+Found declared GPR file: db_maker.gpr
+[alr test] Test completed SUCCESSFULLY

@@ -1,0 +1,194 @@
+Test ran at 2025-08-27 01:25:22.600378+00:00
+
+SOLUTION:
+mold=1.1.0: Meta-variable Operations for Lean Development (cli)
+Origin: commit ad52e65be4efb83753f6ad64e22fe332e5ed1eb2 from https://github.com/rocher/mold.git
+Properties:
+   Author: Francesc Rocher
+   Build Profile: 
+   Build Switches: 
+   Description: Meta-variable Operations for Lean Development (cli)
+   Executable: mold
+   License: MIT
+   Long_Description: [![Alire](https://img.shields.io/endpoint?url=https://alire.ada.dev/badges/mold.json)](https://alire.ada.dev/crates/mold.html)
+[![Alire CI/CD](https://img.shields.io/endpoint?url=https://alire-crate-ci.ada.dev/badges/mold.json)](https://alire-crate-ci.ada.dev/crates/mold.html)
+![unit-test](https://github.com/rocher/mold/actions/workflows/unit-test.yml/badge.svg)
+[![codecov](https://codecov.io/gh/rocher/mold/graph/badge.svg?token=LB83SI4I0Y)](https://codecov.io/gh/rocher/mold)
+[![GitHub release](https://img.shields.io/github/release/rocher/mold.svg)](https://github.com/rocher/mold/releases/latest)
+[![License](https://img.shields.io/github/license/rocher/mold.svg?color=blue)](https://github.com/rocher/mold/blob/master/LICENSE)
+
+## Welcome to **Mold (cli)**
+
+> **MOLD**: *Meta-variable Operations for Lean Development*
+
+Mold is a Template Processor, or Template Engine, to work with repository
+templates. The main motivation of Mold is to have repositories in GitHub used
+as template repositories to create new, customized repositories for other
+users.
+
+Main features supported in Mold include
+
+  * variable replacement in mold files (*.mold)
+
+  * for a given directory, variable replacement recursively for all mold files
+    in all subdirectories
+
+  * variable replacement in file names
+
+  * inclusion of other templates
+
+  * definition of variables with a simple TOML file
+
+  * predefined and custom text filters to easy text transformations
+
+  * predefined variables to use in templates
+
+  * support for optional and mandatory variables
+
+  * support for custom filter and variables
+
+Variable replacement can be specified as *normal*, *optional* or *mandatory*.
+For example, the variable `foo = "bar"` can be specified with `{{foo}}`,
+`{{?foo}}` (optional) or `{{#foo}}` (mandatory). The difference is the handling
+of errors when an undefined variable is encountered.
+
+All mold files must end with the extension `.mold`, for example
+`README.md.mold`. Destination files (with variables replaced) have the same
+name without the mold extension: `README.md`. This simplifies the work done in
+large subdirectories with few templates.
+
+This crate contains the Ada library and unit tests. For a CLI tool, please
+take a look at the crate `mold`.
+
+## Reference Guide
+
+Please visit [Mold documentation](https://rocher.github.io/mold) for more
+information.
+
+---
+## License
+MIT (c) 2023-2025 Francesc Rocher
+
+   Maintainer: Francesc Rocher <francesc.rocher@gmail.com>
+   Maintainers_Logins: rocher
+   Name: mold
+   Tag: template
+   Tag: template-engine
+   Tag: template-repo
+   Version: 1.1.0
+   Website: https://rocher.github.io/mold
+Dependencies (direct):
+   clic~0.3.0
+   gnat>=2021 | (>=12 & <2000)
+   mold_lib^2.3.0
+   simple_logging^1.2.0
+Dependencies (solution):
+   aaa=0.2.6
+   ada_toml=0.3.0
+   ansiada=1.1.0
+   clic=0.3.0
+   gnat=15.1.2 (gnat_native)
+   mold_lib=2.3.1
+   simple_logging=1.2.0
+Dependencies (graph):
+   clic=0.3.0     --> aaa=0.2.6 (~0.2.4)
+   clic=0.3.0     --> ada_toml=0.3.0 (~0.2|~0.3)
+   clic=0.3.0     --> ansiada=1.1.0 (^1.0)
+   clic=0.3.0     --> simple_logging=1.2.0 (^1.2.0)
+   mold=1.1.0     --> clic=0.3.0 (~0.3.0)
+   mold=1.1.0     --> gnat=15.1.2 (gnat_native) (>=2021 | (>=12 & <2000))
+   mold=1.1.0     --> mold_lib=2.3.1 (^2.3.0)
+   mold=1.1.0     --> simple_logging=1.2.0 (^1.2.0)
+   mold_lib=2.3.1 --> ada_toml=0.3.0 (~0.3.0)
+   mold_lib=2.3.1 --> gnat=15.1.2 (gnat_native) (>=2021 | (>=12 & <2000))
+   mold_lib=2.3.1 --> simple_logging=1.2.0 (^1.2.0)
+
+
+LOG:
+[alr test] Testing mold=1.1.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get mold=1.1.0
+Note: Deploying mold=1.1.0...
+Note: Deploying aaa=0.2.6...
+Note: Deploying ada_toml=0.3.0...
+#=#=#                                                                         
+##O#-#                                                                        
+##O=#  #                                                                      
+Note: Deploying ansiada=1.1.0...
+Note: Deploying simple_logging=1.2.0...
+Note: Deploying clic=0.3.0...
+Note: Deploying mold_lib=2.3.1...
+
+mold=1.1.0 successfully retrieved.
+Dependencies were solved as follows:
+
+   +  aaa            0.2.6  (new,indirect)
+   +  ada_toml       0.3.0  (new,indirect)
+   +  ansiada        1.1.0  (new,indirect)
+   +  clic           0.3.0  (new)
+   +b gnat           15.1.2 (new,gnat_native,binary)
+   +  mold_lib       2.3.1  (new)
+   +  simple_logging 1.2.0  (new)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building mold=1.1.0/mold.gpr...
+/root/.local/share/alire/toolchains/gprbuild_25.0.1_9a2e6cfb/bin/gprbuild: /lib64/libc.so.6: version `GLIBC_2.35' not found (required by /root/.local/share/alire/toolchains/gprbuild_25.0.1_9a2e6cfb/bin/gprbuild)
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/98ec3d7d-597a-45c1-bfb4-039bbe11f096/mold_1.1.0_ad52e65b/mold.gpr", "-cargs:Ada", "-gnatwn"] exited with code 1
+ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/98ec3d7d-597a-45c1-bfb4-039bbe11f096/mold_1.1.0_ad52e65b/mold.gpr", "-cargs:Ada", "-gnatwn"] exited with code 1
+stderr: ALIRE.CHECKED_ERROR
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/98ec3d7d-597a-45c1-bfb4-039bbe11f096/mold_1.1.0_ad52e65b/mold.gpr", "-cargs:Ada", "-gnatwn"] exited with code 1
+stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
+[/usr/bin/alr]
+0xe75bc6 Alire.Raise_Checked_Error at alire.adb:284
+0xac1a54 Alire.Os_Lib.Subprocess.Checked_Spawn at alire-os_lib-subprocess.adb:111
+0xd40276 Alire.Spawn.Command at alire-spawn.adb:22
+0xd412ee Alire.Spawn.Gprbuild at alire-spawn.adb:68
+0xc748cb Alire.Roots.Build at alire-roots.adb:189
+0xc7301a Alire.Roots.Build at alire-roots.adb:255
+0xc9832b Alire.Roots.Traverse at alire-roots.adb:2143
+0xcfee85 Alire.Solutions.Traverse.Visit at alire-solutions.adb:1472
+0xcfdfcc Alire.Solutions.Traverse at alire-solutions.adb:1555
+0xc9841e Alire.Roots.Traverse at alire-roots.adb:2147
+0xc984dd Alire.Roots.Traverse at alire-roots.adb:2127
+0xc7359b Alire.Roots.Build at alire-roots.adb:286
+0xc736d7 Alire.Roots.Build at alire-roots.adb:114
+0x49aa0d Alr.Commands.Build.Execute at alr-commands-build.adb:145
+0x49a36d Alr.Commands.Build.Execute at alr-commands-build.adb:113
+0x49a51f Alr.Commands.Build.Execute at alr-commands-build.adb:54
+0x53bbcc Alr.Commands.Sub_Cmd.Execute at clic-subcommand-instance.adb:749
+0x5472be Alr.Commands.Execute at alr-commands.adb:632
+0x43d48a Alr.Main at alr-main.adb:13
+0x4403a3 Main at b__alr-main.adb:2445
+[/lib64/libc.so.6]
+0x7f96449705ce
+0x7f964497067e
+[/usr/bin/alr]
+0x43d323 _start at ???
+0xfffffffffffffffe
+
+stderr: ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED
+stderr: alire-roots.adb:202
+stderr: raised ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED : alire-roots.adb:202
+[/usr/bin/alr]
+0xc74cc7 Alire.Roots.Build at alire-roots.adb:202
+0xc7301a Alire.Roots.Build at alire-roots.adb:255
+0xc9832b Alire.Roots.Traverse at alire-roots.adb:2143
+0xcfee85 Alire.Solutions.Traverse.Visit at alire-solutions.adb:1472
+0xcfdfcc Alire.Solutions.Traverse at alire-solutions.adb:1555
+0xc9841e Alire.Roots.Traverse at alire-roots.adb:2147
+0xc984dd Alire.Roots.Traverse at alire-roots.adb:2127
+0xc7359b Alire.Roots.Build at alire-roots.adb:286
+0xc736d7 Alire.Roots.Build at alire-roots.adb:114
+0x49aa0d Alr.Commands.Build.Execute at alr-commands-build.adb:145
+0x49a36d Alr.Commands.Build.Execute at alr-commands-build.adb:113
+0x49a51f Alr.Commands.Build.Execute at alr-commands-build.adb:54
+0x53bbcc Alr.Commands.Sub_Cmd.Execute at clic-subcommand-instance.adb:749
+0x5472be Alr.Commands.Execute at alr-commands.adb:632
+0x43d48a Alr.Main at alr-main.adb:13
+0x4403a3 Main at b__alr-main.adb:2445
+[/lib64/libc.so.6]
+0x7f96449705ce
+0x7f964497067e
+[/usr/bin/alr]
+0x43d323 _start at ???
+0xfffffffffffffffe
+
+ERROR: Compilation failed.

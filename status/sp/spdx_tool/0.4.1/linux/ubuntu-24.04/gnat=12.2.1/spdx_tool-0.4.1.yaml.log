@@ -1,0 +1,311 @@
+Test ran at 2025-10-25 12:28:09.116619+00:00
+
+SOLUTION:
+spdx_tool=0.4.1: SPDX license detection and management tool
+Origin: commit 0ca2cee437e71cd5f8a32edaa6f3facff8868be3 from https://gitlab.com/stcarrez/spdx-tool.git
+Properties:
+   Post_Fetch run: sh ./alire-setup.sh (from ${CRATE_ROOT}/.)
+   Author: ciceron
+   Description: SPDX license detection and management tool
+   Executable: spdx-tool
+   case OS is
+      when Freebsd => GPR External: USE_MAGICADA := no
+      when Linux => GPR External: USE_MAGICADA := yes
+      when Macos => GPR External: USE_MAGICADA := no
+      when Windows => GPR External: USE_MAGICADA := no
+   License: Apache-2.0
+   Long_Description: spdx-tool scans the source files to identify licenses and allows to update them in order to use the
+SPDX license format.  It can be used to:
+
+* identify the license used in source files of a project,
+* produce a JSON/XML report for the licenses found with the list of files,
+* replace a license header by the [SPDX license](https://spdx.org/licenses/) tag equivalent.
+
+Identify licenses used in a project:
+
+```
+spdx-tool
+```
+
+Identify files matching a given license:
+
+```
+spdx-tool --only-licenses=Apache-2.0 -f
+```
+
+Check the license header before replacing it:
+
+```
+spdx-tool --only-licenses=Apache-2.0 --print-license --line-number src
+```
+
+Replace the license header by the `SPDX-License-Identifier` header:
+
+```
+spdx-tool --only-licenses=Apache-2.0 --update=spdx src
+```
+
+Build an XML or JSON report of files with their licenses:
+
+```
+spdx-tool --output-xml=report.xml
+```
+
+## Documentation
+
+* Man page: [spdx-tool (1)](https://gitlab.com/stcarrez/spdx-tool/-/blob/main/docs/spdx-tool.md?ref_type=heads)
+
+
+   Maintainer: ciceron <Stephane.Carrez@gmail.com>
+   Maintainers_Logins: stcarrez
+   Name: spdx_tool
+   Project_File: spdx_tool.gpr
+   Tag: tools
+   Tag: spdx
+   Tag: license
+   Version: 0.4.1
+   Website: https://github.com/stcarrez/spdx-tool
+Dependencies (direct):
+   case OS is
+      when Linux => magicada^1
+   ada_toml~0.5.0
+   ansiada^1.0.0
+   intl^1.0.1
+   printer_toolkit~0.2.0
+   sciada~0.4.0
+   spdx~0.2.0
+   utilada^2.8.0
+   utilada_xml^2.8.0
+Dependencies (solution):
+   ada_toml=0.5.0
+   ansiada=1.1.0
+   gnat=12.2.1 (gnat_native)
+   intl=1.0.1
+   libmagic=5.45.0
+   magicada=1.0.1
+   printer_toolkit=0.2.0
+   sciada=0.4.0
+   spdx=0.2.0
+   utilada=2.8.1
+   utilada_xml=2.8.1
+   xmlada=24.0.0
+Dependencies (graph):
+   magicada=1.0.1        --> libmagic=5.45.0 (*)
+   printer_toolkit=0.2.0 --> ansiada=1.1.0 (^1.0.0)
+   spdx_tool=0.4.1       --> ada_toml=0.5.0 (~0.5.0)
+   spdx_tool=0.4.1       --> ansiada=1.1.0 (^1.0.0)
+   spdx_tool=0.4.1       --> intl=1.0.1 (^1.0.1)
+   spdx_tool=0.4.1       --> magicada=1.0.1 (^1)
+   spdx_tool=0.4.1       --> printer_toolkit=0.2.0 (~0.2.0)
+   spdx_tool=0.4.1       --> sciada=0.4.0 (~0.4.0)
+   spdx_tool=0.4.1       --> spdx=0.2.0 (~0.2.0)
+   spdx_tool=0.4.1       --> utilada=2.8.1 (^2.8.0)
+   spdx_tool=0.4.1       --> utilada_xml=2.8.1 (^2.8.0)
+   utilada_xml=2.8.1     --> utilada=2.8.1 (^2.8.1)
+   utilada_xml=2.8.1     --> xmlada=24.0.0 (^24.0)
+   xmlada=24.0.0         --> gnat=12.2.1 (gnat_native) (>=11)
+
+
+LOG:
+[alr test] Testing spdx_tool=0.4.1
+[alr test] Spawning retrieval for remote crate: alr -d -n get spdx_tool=0.4.1
+Note: Deploying spdx_tool=0.4.1...
+Note: Deploying ada_toml=0.5.0...
+#=#=#                                                                          
+##O#-#                                                                         
+Note: Deploying ansiada=1.1.0...
+Note: Deploying intl=1.0.1...
+Note: Deploying libmagic=5.45.0...
+The system package 'libmagic-dev' is about to be installed.
+This action might require admin privileges and impact your system installation.
+Do you want Alire to install this system package?
+Using default: Yes
+Selecting previously unselected package libmagic-dev:amd64.
+(Reading database ... 
+(Reading database ... 5%
+(Reading database ... 10%
+(Reading database ... 15%
+(Reading database ... 20%
+(Reading database ... 25%
+(Reading database ... 30%
+(Reading database ... 35%
+(Reading database ... 40%
+(Reading database ... 45%
+(Reading database ... 50%
+(Reading database ... 55%
+(Reading database ... 60%
+(Reading database ... 65%
+(Reading database ... 70%
+(Reading database ... 75%
+(Reading database ... 80%
+(Reading database ... 85%
+(Reading database ... 90%
+(Reading database ... 95%
+(Reading database ... 100%
+(Reading database ... 217682 files and directories currently installed.)
+Preparing to unpack .../libmagic-dev_1%3a5.45-3build1_amd64.deb ...
+Unpacking libmagic-dev:amd64 (1:5.45-3build1) ...
+Setting up libmagic-dev:amd64 (1:5.45-3build1) ...
+Processing triggers for man-db (2.12.0-4build2) ...
+
+Running kernel seems to be up-to-date.
+
+Restarting services...
+
+Service restarts being deferred:
+ systemctl restart hosted-compute-agent.service
+
+No containers need to be restarted.
+
+No user sessions are running outdated binaries.
+
+No VM guests are running outdated hypervisor (qemu) binaries on this host.
+Note: Deploying sciada=0.4.0...
+Note: Deploying spdx=0.2.0...
+Note: Deploying magicada=1.0.1...
+Note: Deploying printer_toolkit=0.2.0...
+
+spdx_tool=0.4.1 successfully retrieved.
+Dependencies were solved as follows:
+
+   +  ada_toml        0.5.0  (new)
+   +  ansiada         1.1.0  (new)
+   +b gnat            12.2.1 (new,gnat_native,indirect,binary)
+   +  intl            1.0.1  (new)
+   +b libmagic        5.45.0 (new,indirect,system package)
+   +  magicada        1.0.1  (new)
+   +  printer_toolkit 0.2.0  (new)
+   +  sciada          0.4.0  (new)
+   +  spdx            0.2.0  (new)
+   +  utilada         2.8.1  (new)
+   +  utilada_xml     2.8.1  (new)
+   +  xmlada          24.0.0 (new,indirect)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Running post-fetch actions for spdx_tool=0.4.1...
+Note: Building spdx_tool=0.4.1/spdx_tool.gpr...
+Setup
+   [mkdir]        object directory for project Ada_TOML
+   [mkdir]        library directory for project Ada_TOML
+   [mkdir]        object directory for project Ansiada
+   [mkdir]        library directory for project Ansiada
+   [mkdir]        object directory for project Intl
+   [mkdir]        library directory for project Intl
+   [mkdir]        object directory for project MagicAda
+   [mkdir]        library directory for project MagicAda
+   [mkdir]        object directory for project Printer_Toolkit
+   [mkdir]        library directory for project Printer_Toolkit
+   [mkdir]        object directory for project SciAda
+   [mkdir]        library directory for project SciAda
+   [mkdir]        object directory for project Spdx
+   [mkdir]        library directory for project Spdx
+   [mkdir]        object directory for project Spdx_Tool
+   [mkdir]        exec directory for project Spdx_Tool
+Compile
+   [Ada]          spdx_tool-main.adb
+   [Ada]          spdx.adb
+   [Ada]          spdx-licenses.adb
+   [Ada]          spdx-exceptions.adb
+   [Ada]          sci-correlations.ads
+   [Ada]          sci-occurrences-finites.adb
+   [Ada]          sci-statistics.ads
+   [Ada]          sci-similarities-indefinite_hashed_sets.adb
+   [Ada]          sci-vectorizers-transformers.adb
+   [Ada]          sci-occurrences.ads
+   [Ada]          sci-statistics-descriptive.adb
+   [Ada]          sci-similarities-coo_arrays.adb
+   [Ada]          sci-sparse.ads
+   [Ada]          sci-similarities.adb
+   [Ada]          sci-sparse-coo_arrays.adb
+   [Ada]          sci-correlations-pearson.adb
+   [Ada]          sci-similarities-indefinite_ordered_sets.adb
+   [Ada]          sci-numbers.ads
+   [Ada]          sci-vectorizers-indefinite_counters.adb
+   [Ada]          sci-vectorizers.ads
+   [Ada]          sci.ads
+   [Ada]          sci-occurrences-arrays.adb
+   [Ada]          sci-vectorizers-counters.adb
+   [C]            terminal.c
+   [Ada]          pt-texts.adb
+   [Ada]          pt.adb
+   [Ada]          pt-charts.adb
+   [Ada]          pt-drivers.ads
+   [Ada]          pt-charts-barcharts.adb
+   [Ada]          pt-drivers-texts.adb
+   [Ada]          pt-drivers-texts-gnat_io.adb
+   [Ada]          pt-colors.adb
+   [Ada]          magic.ads
+   [Ada]          magic-manager.adb
+   [Ada]          intl__nls.adb
+   [Ada]          ansiada_config.ads
+   [Ada]          ansiada.ads
+   [Ada]          toml.adb
+   [Ada]          toml-generic_parse.adb
+   [Ada]          toml-generic_dump.adb
+   [Ada]          toml-file_io.adb
+   [Ada]          spdx_tool.adb
+   [Ada]          spdx_tool-configs.adb
+   [Ada]          spdx_tool-configs-defaults.ads
+   [Ada]          spdx_tool-infos.adb
+   [Ada]          spdx_tool-licenses.adb
+   [Ada]          spdx_tool-licenses-manager.adb
+   [Ada]          spdx_tool-licenses-repository.adb
+   [Ada]          spdx_tool-licenses-templates.ads
+   [Ada]          spdx_tool-magic_manager.adb
+   [Ada]          spdx_tool-reports.adb
+   [Ada]          spdx_tool-configs-default.ads
+   [Ada]          util-algorithms-arrays.adb
+util-algorithms-arrays.ads:16:04: (style) missing "overriding" indicator in declaration of "&"
+   [Ada]          spdx_tool-counter_arrays.ads
+   [Ada]          spdx_tool-files.ads
+   [Ada]          spdx_tool-languages.adb
+   [Ada]          spdx_tool-files-manager.adb
+   [Ada]          spdx_tool-languages-manager.adb
+   [Ada]          spdx_tool-token_counters.ads
+   [Ada]          util-strings-split.adb
+   [Ada]          spdx_tool-languages-commentsmap.adb
+   [Ada]          spdx_tool-languages-rules.adb
+   [Ada]          spdx_tool-languages-rules-disambiguations.ads
+   [Ada]          spdx_tool-languages-rules-generated.ads
+   [Ada]          spdx_tool-languages-extensions.adb
+   [Ada]          spdx_tool-languages-filenames.adb
+   [Ada]          spdx_tool-languages-generated.adb
+   [Ada]          spdx_tool-languages-mimes.adb
+   [Ada]          spdx_tool-languages-modelines.adb
+   [Ada]          spdx_tool-languages-shell.adb
+   [Ada]          spdx_tool-licenses-files.adb
+   [Ada]          spdx_tool-licenses-reader.adb
+   [Ada]          spdx_tool-arrays.adb
+   [Ada]          spdx_tool-languages-filenamemap.adb
+   [Ada]          spdx_tool-languages-extensionmap.adb
+   [Ada]          spdx_tool-languages-aliasmap.adb
+   [Ada]          spdx_tool-languages-interpretermap.adb
+Build Libraries
+   [gprlib]       ada_toml.lexch
+   [gprlib]       Ansiada.lexch
+   [gprlib]       Intl.lexch
+   [gprlib]       magicada.lexch
+   [gprlib]       printer_toolkit.lexch
+   [archive]      libAnsiada.a
+   [archive]      libada_toml.a
+   [archive]      libIntl.a
+   [archive]      libmagicada.a
+   [index]        libAnsiada.a
+   [index]        libIntl.a
+   [index]        libmagicada.a
+   [index]        libada_toml.a
+   [gprlib]       sciada.lexch
+   [gprlib]       Spdx.lexch
+   [archive]      libprinter_toolkit.a
+   [archive]      libSpdx.a
+   [archive]      libsciada.a
+   [index]        libprinter_toolkit.a
+   [index]        libsciada.a
+   [index]        libSpdx.a
+Bind
+   [gprbind]      spdx_tool-main.bexch
+   [Ada]          spdx_tool-main.ali
+Link
+   [link]         spdx_tool-main.adb
+Success: Build finished successfully in 14.19 seconds.
+Found declared GPR file: spdx_tool.gpr
+[alr test] Test completed SUCCESSFULLY

@@ -1,0 +1,94 @@
+Test ran at 2025-11-03 13:15:24.427589+00:00
+
+SOLUTION:
+encryption_utilities=20220701.0.0: Utility programs for the encryption algorithms included in the PragmARC
+Origin: commit 1b883b9449a588f164e060cbc9ccd09c9595fa1c from https://github.com/bracke/Encryption-utilities.git
+Properties:
+   Author: Jeff Carter
+   Build Switches: 
+   Description: Utility programs for the encryption algorithms included in the PragmARC
+   Executable: tf_crypt
+   Executable: tf_test
+   Executable: tf_test_512
+   Executable: tf_test_1024
+   Executable: xcrypt
+   License: GPL-3.0-or-later
+   Long_Description: # Encryption utilities
+
+The PragmAda Reusable Components (https://github.com/jrcarter/PragmARC) contain implementations of the Threefish-256 (implemented directly from the specification in Section 3.3 of the Skein paper V1.3 [https://www.schneier.com/skein.pdf]), Threefish-512, Threefish-1024, and XOR encryption algorithms. Threefish-512 and Threefish-1024 are provided by Daniel Norte de Moraes (https://github.com/danieagle).
+
+Test cases specifically for Threefish are at https://sites.google.com/site/bartoszmalkowski/threefish and https://github.com/bmalkow/java-bc-threefish.
+
+Tf_Test runs the test cases for Threefish-256 successfully (on a little-endian machine). It also encrypts certain blocks and presents the encrypted blocks, and shows that they decrypt correctly. Tf_Test uses PragmARC.Images from https://github.com/jrcarter/PragmARC. Tf_Test_512 and Tf_Test_1024, provided by Daniel Norte de Moraes (https://github.com/danieagle), do the same for Threefish-512 and Threefish-1024.
+
+TF_Crypt is a command-line program for encrypting and decrypting files with Threefish-256. TF_Crypt uses Password_Line. Files encrypted with TF_Crypt built with GNAT and running on Linux are correctly decrypted by TF_Crypt build with ObjectAda and running on Windows, and vice versa.
+
+Xcrypt is a command-line program for encrypting and decrypting files with XOR. It uses Password_Line. Since XOR is symmetrical, the same algorithm is used for encrypting and decrypting. One can encrypt twice with multiple keys, and decrypt with the keys in any order. This gives results equivalent to encrypting with a key length of the least common multiple of the lengths of the keys.
+
+Password_Line is a function for obtaining secret input from a user without echoing it to the screen. It has been tested and works with GNAT on Linux and Windows and ObjectAda 10.3 on Windows.
+
+Tf_Test*, TF_Crypt, and Xcrypt are GPL-3; Password_Line is GMGPL.
+
+   Maintainer: Bent Bracke <bent@bracke.dk>
+   Maintainers_Logins: bracke
+   Name: encryption_utilities
+   Tag: threefish256
+   Tag: threefish512
+   Tag: threefish1024
+   Tag: xor
+   Version: 20220701
+   Website: https://github.com/bracke/Encryption-utilities
+Dependencies (direct):
+   gnat<13.0 | >=13.3
+   pragmarc^20240323.0.0
+Dependencies (solution):
+   gnat=15.2.1 (gnat_native)
+   pragmarc=20240323.0.0
+Dependencies (graph):
+   encryption_utilities=20220701.0.0 --> gnat=15.2.1 (gnat_native) (<13.0 | >=13.3)
+   encryption_utilities=20220701.0.0 --> pragmarc=20240323.0.0 (^20240323.0.0)
+   pragmarc=20240323.0.0             --> gnat=15.2.1 (gnat_native) (<13.0 | >=13.3)
+
+
+LOG:
+[alr test] Testing encryption_utilities=20220701.0.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get encryption_utilities=20220701.0.0
+Note: Deploying encryption_utilities=20220701.0.0...
+
+encryption_utilities=20220701.0.0 successfully retrieved.
+Dependencies were solved as follows:
+
+   +b gnat     15.2.1       (new,gnat_native,binary)
+   +  pragmarc 20240323.0.0 (new)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building encryption_utilities=20220701.0.0/encryption_utilities.gpr...
+Setup
+   [mkdir]        object directory for project Encryption_Utilities
+   [mkdir]        exec directory for project Encryption_Utilities
+Compile
+   [Ada]          xcrypt.adb
+   [Ada]          tf_test.adb
+   [Ada]          tf_crypt.adb
+   [Ada]          tf_test_512.adb
+   [Ada]          tf_test_1024.adb
+   [Ada]          password_line.adb
+Bind
+   [gprbind]      xcrypt.bexch
+   [gprbind]      tf_test.bexch
+   [Ada]          xcrypt.ali
+   [gprbind]      tf_crypt.bexch
+   [Ada]          tf_test.ali
+   [gprbind]      tf_test_512.bexch
+   [Ada]          tf_crypt.ali
+   [Ada]          tf_test_512.ali
+   [gprbind]      tf_test_1024.bexch
+   [Ada]          tf_test_1024.ali
+Link
+   [link]         xcrypt.adb
+   [link]         tf_test.adb
+   [link]         tf_crypt.adb
+   [link]         tf_test_512.adb
+   [link]         tf_test_1024.adb
+Success: Build finished successfully in 1.46 seconds.
+Found declared GPR file: encryption_utilities.gpr
+[alr test] Test completed SUCCESSFULLY

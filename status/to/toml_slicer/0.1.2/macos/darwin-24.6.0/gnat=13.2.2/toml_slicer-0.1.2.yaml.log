@@ -1,0 +1,82 @@
+Test ran at 2025-09-15 12:32:28.185107+00:00
+
+SOLUTION:
+toml_slicer=0.1.2: Edit TOML files directly without parsing
+Origin: commit 98d3306d8416328eadb3b4a652d34cf10eb17f00 from https://github.com/mosteo/toml_slicer
+Properties:
+   Author: Alejandro R. Mosteo
+   Description: Edit TOML files directly without parsing
+   License: MIT
+   Maintainer: Alejandro R. Mosteo <alejandro@mosteo.com>
+   Maintainers_Logins: mosteo
+   Name: toml_slicer
+   Tag: toml
+   Tag: edition
+   Version: 0.1.2
+   Website: https://github.com/mosteo/toml_slicer
+Dependencies (direct):
+   aaa~0.2.4|~0.3
+Dependencies (solution):
+   aaa=0.3.0
+Dependencies (graph):
+   toml_slicer=0.1.2 --> aaa=0.3.0 (~0.2.4|~0.3)
+
+
+LOG:
+[alr test] Testing toml_slicer=0.1.2
+[alr test] Spawning retrieval for remote crate: alr -d -n get toml_slicer=0.1.2
+Note: Deploying toml_slicer=0.1.2...
+Note: Deploying aaa=0.3.0...
+
+toml_slicer=0.1.2 successfully retrieved.
+Dependencies were solved as follows:
+
+   + aaa 0.3.0 (new)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building toml_slicer=0.1.2/toml_slicer.gpr...
+Setup
+   [mkdir]        object directory for project Aaa
+   [mkdir]        library directory for project Aaa
+   [mkdir]        object directory for project Toml_Slicer
+   [mkdir]        library directory for project Toml_Slicer
+Compile
+   [Ada]          aaa_config.ads
+   [Ada]          aaa-filesystem.adb
+   [Ada]          aaa-traits.ads
+   [Ada]          aaa-traits-types.ads
+   [Ada]          aaa.ads
+   [Ada]          aaa-containers-indefinite_holders.adb
+   [Ada]          aaa-enum_tools.adb
+   [Ada]          aaa-containers-suite.ads
+   [Ada]          aaa-containers.ads
+   [Ada]          aaa-traits-containers.ads
+   [Ada]          aaa-caches-files.adb
+   [Ada]          aaa-debug.adb
+   [Ada]          aaa-processes.adb
+   [Ada]          aaa-strings.adb
+   [Ada]          aaa-directories.ads
+   [Ada]          aaa-caches.ads
+   [Ada]          toml_slicer_config.ads
+   [Ada]          toml_slicer.adb
+toml_slicer.adb:3:06: error: file "aaa-text_io.ads" not found
+
+   compilation of toml_slicer.adb failed
+
+gprbuild: *** compilation phase failed
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/Users/runner/work/alire-crates-ci/alire-crates-ci/test/d64919c4-1666-46df-9fa2-824a7c7df631/toml_slicer_0.1.2_98d3306d/toml_slicer.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/Users/runner/work/alire-crates-ci/alire-crates-ci/test/d64919c4-1666-46df-9fa2-824a7c7df631/toml_slicer_0.1.2_98d3306d/toml_slicer.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+stderr: ALIRE.CHECKED_ERROR
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/Users/runner/work/alire-crates-ci/alire-crates-ci/test/d64919c4-1666-46df-9fa2-824a7c7df631/toml_slicer_0.1.2_98d3306d/toml_slicer.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
+Load address: 0x102388000
+Call stack traceback locations:
+0x1030940cc 0x10309412c 0x102de866c 0x102a2d568 0x102cb2594 0x102cb34f4 0x102bf133c 0x102befb08 0x102c1378c 0x102c7356c 0x102c7299c 0x102c13868 0x102c13950 0x102bf000c 0x102bf0174 0x1023f9730 0x1023f9070 0x1023f91e4 0x102496b38 0x1024a1c78 0x10238a9f8 0x10238fa2c
+
+stderr: ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED
+stderr: alire-roots.adb:202
+stderr: raised ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED : alire-roots.adb:202
+Load address: 0x102388000
+Call stack traceback locations:
+0x1030940cc 0x10309412c 0x102bf1640 0x102befb08 0x102c1378c 0x102c7356c 0x102c7299c 0x102c13868 0x102c13950 0x102bf000c 0x102bf0174 0x1023f9730 0x1023f9070 0x1023f91e4 0x102496b38 0x1024a1c78 0x10238a9f8 0x10238fa2c
+
+ERROR: Compilation failed.

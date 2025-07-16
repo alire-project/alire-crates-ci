@@ -1,0 +1,62 @@
+Test ran at 2025-11-02 01:23:31.895138+00:00
+
+SOLUTION:
+image_random=20200720.0.0: True random numbers from a digital camera 
+Origin: commit 594a238aeb5b9da8a25b14c077584d6e2431f93b from https://github.com/bracke/Image_Random.git
+Properties:
+   Author: Jeff Carter
+   Build Switches: 
+   Description: True random numbers from a digital camera 
+   License: BSD-3-Clause
+   Long_Description: # Image_Random
+True random numbers from a digital camera
+
+This works under Linux with the GNAT compiler; modification for other platforms or compilers is left as an exercise for the desperate
+
+Ideally, the camera should have its lens cap on, or have a similar dark covering, so the image is of the camera sensor noise
+
+However, another randomly changing scene, such as a lava lamp or aquarium, may also work
+
+This is slow and only produces 64 random bytes; if you need more, it is probably best to use these bytes to seed a high-quality
+pseudo-random number generator, such as the Threefry generator
+
+   Maintainer: Bent Bracke <bent@bracke.dk>
+   Maintainers_Logins: bracke
+   Name: image_random
+   Tag: random
+   Tag: numbers
+   Tag: camera
+   Version: 20200720
+   Website: https://github.com/bracke/Image_Random
+Dependencies (direct):
+   gnat<13.0 | >=13.3
+Dependencies (solution):
+   gnat=15.2.1 (gnat_native)
+Dependencies (graph):
+   image_random=20200720.0.0 --> gnat=15.2.1 (gnat_native) (<13.0 | >=13.3)
+
+
+LOG:
+[alr test] Testing image_random=20200720.0.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get image_random=20200720.0.0
+Note: Deploying image_random=20200720.0.0...
+
+image_random=20200720.0.0 successfully retrieved.
+Dependencies were solved as follows:
+
+   +b gnat 15.2.1 (new,gnat_native,binary)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building image_random=20200720.0.0/image_random.gpr...
+Setup
+   [mkdir]        object directory for project Image_Random
+   [mkdir]        library directory for project Image_Random
+Compile
+   [Ada]          image_random_config.ads
+   [Ada]          image_random.adb
+Build Libraries
+   [gprlib]       Image_Random.lexch
+   [archive]      libImage_Random.a
+   [index]        libImage_Random.a
+Success: Build finished successfully in 0.50 seconds.
+Found declared GPR file: image_random.gpr
+[alr test] Test completed SUCCESSFULLY

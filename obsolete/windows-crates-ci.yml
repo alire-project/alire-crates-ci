@@ -1,0 +1,40 @@
+name: CI Windows
+
+on:
+  pull_request:
+
+env:
+  alire_index: ""
+  # Empty index: test with master of community index
+  # Otherwise: test with particular commit/branch
+  # e.g.: index: "git+https://github.com/alire-project/alire-index@deadbeef"
+
+jobs:
+
+  build:
+    name: CI on ${{ matrix.setup }}
+
+    runs-on: ${{ matrix.setup }}
+
+    strategy:
+      matrix:
+        setup:
+            - windows-latest
+
+    steps:
+    - name: Check out repository
+      uses: actions/checkout@v1
+
+    - name: Check out submodules
+      run: git submodule update --init --recursive
+
+    - uses: ada-actions/toolchain@dev
+      with:
+         distrib: community
+
+    - name: Run test script
+      run: ./test-script.sh
+      shell: bash
+      env:
+        SETUP_NAME: ${{ matrix.setup }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

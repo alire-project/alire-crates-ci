@@ -1,0 +1,139 @@
+Test ran at 2025-07-06 01:06:04.084947+00:00
+
+SOLUTION:
+bb_pico_bsp=0.1.0: Ada BSP for the Keyboard Featherwing + RPI PICO
+Origin: commit 76f9999eba98bf8b1088fc18b6e23325fd8adc75 from https://github.com/Fabien-Chouteau/bb_pico_bsp.git
+Properties:
+   Author: Fabien Chouteau
+   Config set: lvgl_ada {Color_16_SWAP := true, Density_Per_Inch := 50, Double_Buffering := true, Horizontal_Resolution := 320, Pixel_Bit_Depth := Pix_16bit, Theme_Live_Update := true, Vertical_Resolution := 240, Virtual_Display_Buffer_Size := 30720}
+   Configuration: no modifiers
+   Description: Ada BSP for the Keyboard Featherwing + RPI PICO
+   GPR External: EMBEDDED_COMPONENTS_COMPILE_CHECKS := disabled
+   License: MIT
+   Maintainer: Fabien Chouteau <fabien.chouteau@gmail.com>
+   Maintainers_Logins: Fabien-Chouteau
+   Name: bb_pico_bsp
+   Tag: embedded
+   Tag: pico
+   Tag: handheld
+   Tag: featherwing
+   Version: 0.1.0
+   Website: https://github.com/Fabien-Chouteau/bb_pico_bsp
+Dependencies (direct):
+   embedded_components~0.1.0
+   lvgl_ada~0.2.0
+   pico_bsp^1.0.0
+Dependencies (solution):
+   adl_middleware=0.1.1
+   atomic=0.5.0
+   bbqueue=0.3.2
+   cortex_m=0.3.0
+   embedded_components=0.1.0
+   gnat=11.2.4 (gnat_arm_elf)
+   gnat_arm_elf=11.2.4
+   hal=0.1.0
+   lvgl_ada=0.2.0
+   pico_bsp=1.6.0
+   rp2040_hal=1.6.0
+   usb_embedded=0.2.0
+Dependencies (graph):
+   adl_middleware=0.1.1      --> hal=0.1.0 (^0.1.0)
+   bb_pico_bsp=0.1.0         --> embedded_components=0.1.0 (~0.1.0)
+   bb_pico_bsp=0.1.0         --> lvgl_ada=0.2.0 (~0.2.0)
+   bb_pico_bsp=0.1.0         --> pico_bsp=1.6.0 (^1.0.0)
+   bbqueue=0.3.2             --> atomic=0.5.0 (~0.5)
+   bbqueue=0.3.2             --> gnat=11.2.4 (gnat_arm_elf) (>=10)
+   cortex_m=0.3.0            --> hal=0.1.0 (^0.1.0)
+   embedded_components=0.1.0 --> adl_middleware=0.1.1 (^0.1.0)
+   embedded_components=0.1.0 --> hal=0.1.0 (^0.1.0)
+   pico_bsp=1.6.0            --> hal=0.1.0 (~0.1)
+   pico_bsp=1.6.0            --> rp2040_hal=1.6.0 (^1.6)
+   rp2040_hal=1.6.0          --> cortex_m=0.3.0 (~0.3)
+   rp2040_hal=1.6.0          --> gnat_arm_elf=11.2.4 (^11.2)
+   rp2040_hal=1.6.0          --> hal=0.1.0 (~0.1)
+   rp2040_hal=1.6.0          --> usb_embedded=0.2.0 (~0.2)
+   usb_embedded=0.2.0        --> bbqueue=0.3.2 (~0.3.0)
+   usb_embedded=0.2.0        --> hal=0.1.0 (~0.1.0)
+
+
+LOG:
+Spawning: alr -d -n get --build bb_pico_bsp=0.1.0
+Note: Deploying bb_pico_bsp=0.1.0...
+Note: Deploying lvgl_ada=0.2.0...
+Note: Deploying pico_bsp=1.6.0...
+Note: Building bb_pico_bsp=0.1.0/bb_pico_bsp.gpr...
+Setup
+   [mkdir]        object directory for project LVGL
+   [mkdir]        object directory for project LVGL_Ada
+   [mkdir]        library directory for project LVGL_Ada
+   [mkdir]        object directory for project Pico_BSP
+   [mkdir]        library directory for project Pico_BSP
+   [mkdir]        object directory for project BB_Pico_Bsp
+   [mkdir]        library directory for project BB_Pico_Bsp
+Compile
+   [Ada]          pico.ads
+   [Ada]          pico-pimoroni-rgb_keypad.adb
+   [Ada]          pico-pimoroni-audio_pack.ads
+   [Ada]          pico-pimoroni.ads
+   [Ada]          pico-audio_i2s.ads
+   [C]            lv_theme_templ.c
+In file included from /home/runner/.local/share/alire/builds/lvgl_ada_0.2.0_ccf8da85/f8535339200a7ffe8a63d5f4cfd859d8b94ca5f4138515158659d002618091f7/lvgl/lv_themes/../lv_core/lv_style.h:17,
+                 from /home/runner/.local/share/alire/builds/lvgl_ada_0.2.0_ccf8da85/f8535339200a7ffe8a63d5f4cfd859d8b94ca5f4138515158659d002618091f7/lvgl/lv_themes/lv_theme.h:22,
+                 from /home/runner/.local/share/alire/builds/lvgl_ada_0.2.0_ccf8da85/f8535339200a7ffe8a63d5f4cfd859d8b94ca5f4138515158659d002618091f7/lvgl/lv_themes/lv_theme_templ.c:9:
+/home/runner/.local/share/alire/builds/lvgl_ada_0.2.0_ccf8da85/f8535339200a7ffe8a63d5f4cfd859d8b94ca5f4138515158659d002618091f7/lvgl/lv_themes/../lv_core/../lv_misc/lv_color.h:32:2: error: #error "LV_COLOR_16_SWAP requires LV_COLOR_DEPTH == 16. Set it in lv_conf.h"
+   32 | #error "LV_COLOR_16_SWAP requires LV_COLOR_DEPTH == 16. Set it in lv_conf.h"
+      |  ^~~~~
+
+   compilation of lv_theme_templ.c failed
+
+gprbuild: *** compilation phase failed
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/64c77b2d-7c8a-44e3-9a8c-48c151365f4b/bb_pico_bsp_0.1.0_76f9999e/bb_pico_bsp.gpr"] exited with code 4
+ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/64c77b2d-7c8a-44e3-9a8c-48c151365f4b/bb_pico_bsp_0.1.0_76f9999e/bb_pico_bsp.gpr"] exited with code 4
+stderr: ALIRE.CHECKED_ERROR
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/64c77b2d-7c8a-44e3-9a8c-48c151365f4b/bb_pico_bsp_0.1.0_76f9999e/bb_pico_bsp.gpr"] exited with code 4
+stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
+[/home/runner/work/alire-crates-ci/alire-crates-ci/alire_install/bin/alr]
+0xe16f5e Alire.Raise_Checked_Error at alire.adb:284
+0xa845be Alire.Os_Lib.Subprocess.Checked_Spawn at alire-os_lib-subprocess.adb:111
+0xcef7be Alire.Spawn.Command at alire-spawn.adb:21
+0xcefdde Alire.Spawn.Gprbuild at alire-spawn.adb:41
+0xc31d1f Alire.Roots.Build at alire-roots.adb:186
+0xc304da Alire.Roots.Build at alire-roots.adb:252
+0xc53d6f Alire.Roots.Traverse at alire-roots.adb:2075
+0xcba1fd Alire.Solutions.Traverse.Visit at alire-solutions.adb:1480
+0xcb9344 Alire.Solutions.Traverse at alire-solutions.adb:1563
+0xc53e62 Alire.Roots.Traverse at alire-roots.adb:2079
+0xc53f21 Alire.Roots.Traverse at alire-roots.adb:2059
+0xc30a46 Alire.Roots.Build at alire-roots.adb:283
+0xc30b2b Alire.Roots.Build at alire-roots.adb:111
+0x4a5e38 Alr.Commands.Get.Retrieve at alr-commands-get.adb:205
+0x4a94f3 Alr.Commands.Get.Execute at alr-commands-get.adb:378
+0x4a96a1 Alr.Commands.Get.Execute at alr-commands-get.adb:256
+0x533c96 Alr.Commands.Sub_Cmd.Execute at clic-subcommand-instance.adb:749
+0x53eff7 Alr.Commands.Execute at alr-commands.adb:561
+0x43953a Alr.Main at alr-main.adb:13
+0x43c1d3 Main at b__alr-main.adb:2299
+[/lib/x86_64-linux-gnu/libc.so.6]
+0x7f9db542a1c8
+0x7f9db542a289
+[/home/runner/work/alire-crates-ci/alire-crates-ci/alire_install/bin/alr]
+0x4393dc _start at ???
+0xfffffffffffffffe
+
+
+Warning: bb_pico_bsp=0.1.0 successfully retrieved but its build failed.
+Dependencies were solved as follows:
+
+   +  adl_middleware      0.1.1  (new,indirect)
+   +  atomic              0.5.0  (new,indirect)
+   +  bbqueue             0.3.2  (new,indirect)
+   +  cortex_m            0.3.0  (new,indirect)
+   +  embedded_components 0.1.0  (new)
+   +b gnat                11.2.4 (new,gnat_arm_elf,indirect,binary)
+   +b gnat_arm_elf        11.2.4 (new,indirect,binary)
+   +  hal                 0.1.0  (new,indirect)
+   +  lvgl_ada            0.2.0  (new)
+   +  pico_bsp            1.6.0  (new)
+   +  rp2040_hal          1.6.0  (new,indirect)
+   +  usb_embedded        0.2.0  (new,indirect)
+ERROR: Build ended with errors

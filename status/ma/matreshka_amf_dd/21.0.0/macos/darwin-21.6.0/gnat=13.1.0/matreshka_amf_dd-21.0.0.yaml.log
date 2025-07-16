@@ -1,0 +1,114 @@
+Test ran at 2024-10-05 00:42:24.594636+00:00
+
+SOLUTION:
+matreshka_amf_dd=21.0.0: Diagram Definition (DD) specification support for AMF
+Origin: commit d9f26bf491a2bfd76c4396fd8f49459bc230423a from https://github.com/reznikmm/matreshka-alire
+Properties:
+   Author: Vadim Godunko
+   Description: Diagram Definition (DD) specification support for AMF
+   License: BSD-3-Clause
+   Maintainer: Vadim Godunko <vgodunko@gmail.com>
+   Maintainer: Maxim Reznik <reznikmm@gmail.com>
+   Maintainers_Logins: godunko
+   Maintainers_Logins: reznikmm
+   Name: matreshka_amf_dd
+   Project_File: build_matreshka_amf_dd.gpr
+   Tag: uml
+   Tag: meta
+   Tag: diagram
+   Version: 21.0.0
+   Website: https://github.com/godunko/matreshka
+Dependencies (direct):
+   matreshka_amf21.0.0
+   matreshka_league21.0.0
+Dependencies (solution):
+   gnat=13.1.0 (gnat_native) (installed)
+   make=3.81.0
+   matreshka_amf=21.0.0
+   matreshka_league=21.0.0
+   matreshka_xml=21.0.0
+Dependencies (graph):
+   matreshka_amf=21.0.0    --> matreshka_league=21.0.0 (21.0.0) 
+   matreshka_amf=21.0.0    --> matreshka_xml=21.0.0 (21.0.0)    
+   matreshka_amf_dd=21.0.0 --> matreshka_amf=21.0.0 (21.0.0)    
+   matreshka_amf_dd=21.0.0 --> matreshka_league=21.0.0 (21.0.0) 
+   matreshka_league=21.0.0 --> gnat=13.1.0 (gnat_native) (<2000)
+   matreshka_league=21.0.0 --> make=3.81.0 (*)                  
+   matreshka_xml=21.0.0    --> matreshka_league=21.0.0 (21.0.0) 
+
+
+LOG:
+Note: Deploying matreshka_amf_dd=21.0.0...
+Note: Deploying make=3.81.0...
+Note: Deploying matreshka_league=21.0.0...
+#=#=#                                                                          
+##O#-#                                                                         
+
+#                                                                          1.8%
+#################                                                         24.4%
+#######################################                                   54.6%
+#######################################################################   98.7%
+######################################################################## 100.0%
+Note: Running post_fetch actions for matreshka_league=21.0.0...
+gnatmake -p -j0  -Pgnat/tools_configure.gpr
+Setup
+   [mkdir]        object directory for project Tools_Configure
+Compile
+   [Ada]          configure-driver.adb
+   [Ada]          configure.adb
+   [Ada]          configure-architecture.adb
+   [Ada]          configure-instantiate.adb
+   [Ada]          configure-internals.adb
+   [Ada]          configure-rtl_version.adb
+   [Ada]          configure-tests.ads
+   [Ada]          configure-tests-asis.adb
+   [Ada]          configure-tests-aws.adb
+   [Ada]          configure-tests-firebird.adb
+   [Ada]          configure-tests-gprbuild.adb
+   [Ada]          configure-tests-install.adb
+   [Ada]          configure-tests-installation_directories.adb
+   [Ada]          configure-tests-modules.ads
+   [Ada]          configure-tests-modules-amf.adb
+   [Ada]          configure-tests-mysql.adb
+   [Ada]          configure-tests-oci.adb
+   [Ada]          configure-tests-operating_system.adb
+   [Ada]          configure-tests-postgresql.adb
+   [Ada]          configure-tests-sqlite3.adb
+   [Ada]          configure-tests-valgrind.adb
+   [Ada]          configure-version.adb
+   [Ada]          configure-builder.adb
+   [Ada]          configure-abstract_tests.adb
+   [Ada]          configure-pkg_config.adb
+   [Ada]          configure-component_switches.adb
+Bind
+   [gprbind]      configure-driver.bexch
+   [Ada]          configure-driver.ali
+Link
+   [link]         configure-driver.adb
+-macosx_version_min has been renamed to -macos_version_min
+./configure
+[os        ] detecting target operating system...: MacOS
+[gprbuild  ] looking for GPRbuild...: /Users/runner/.config/alire/cache/dependencies/gprbuild_22.0.1_b1220e2b/bin/gprbuild
+[gprbuild  ] checking GPRbuild version...: ok
+[gprbuild  ] looking for GPRinstall...: /Users/runner/.config/alire/cache/dependencies/gprbuild_22.0.1_b1220e2b/bin/gprinstall
+[asis      ] checking whether ASIS library is available...: no
+[aws       ] checking whether AWS library is available...: no
+[modules   ] checking whether to build AMF module...: yes
+[mysql     ] checking whether to build MySQL module...: no (mysql_config not found)
+configure: (info) MySQL driver module is disabled
+[oci       ] checking whether to build Oracle module...: no (not found)
+configure: (info) Oracle driver module is disabled
+[postgresql] checking whether to build PostgreSQL module...
+
+raised GNAT.EXPECT.INVALID_PROCESS : g-expect.adb:1129
+make: *** [reconfig] Error 1
+stderr: Command ["make", "reconfig"] exited with code 2
+stderr: ALIRE.CHECKED_ERROR
+stderr: Command ["make", "reconfig"] exited with code 2
+stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
+Load address: 0x100b60000
+Call stack traceback locations:
+0x101468415 0x10113be83 0x101141729 0x101142909 0x101141d1b 0x1012b3299 0x1012b3fd4 0x1012ca873 0x101316dc1 0x1013153c2 0x1012ca9b8 0x1012b4346 0x100bd01cf 0x100bd501c 0x100c5b05c 0x100c663b8 0x100b61605 0x100b64914
+
+stderr: A post-fetch action failed, re-run with -vv -d for details
+ERROR: A post-fetch action failed, re-run with -vv -d for details

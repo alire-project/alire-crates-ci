@@ -1,0 +1,121 @@
+Test ran at 2025-10-22 12:51:04.507629+00:00
+
+SOLUTION:
+cashe=1.0.0: A fixed-point decimal money library written in Ada.
+Origin: commit d142893b6036e384daa3e8a9172f133c204ee5a7 from https://github.com/AJ-Ianozi/Cashe.git
+Properties:
+   Author: AJ Ianozi
+   Description: A fixed-point decimal money library written in Ada.
+   License: MIT
+   Maintainer: AJ Ianozi <aj@ianozi.com>
+   Maintainers_Logins: AJ-Ianozi
+   Name: cashe
+   Tag: currency
+   Tag: money
+   Tag: decimal
+   Tag: finance
+   Version: 1.0.0
+   Website: https://github.com/AJ-Ianozi/Cashe/
+Dependencies (direct):
+   gnat>=12 & <2000
+   iso^2.0.0
+Dependencies (solution):
+   gnat=15.1.2 (gnat_native)
+   iso=2.0.0
+Dependencies (graph):
+   cashe=1.0.0 --> gnat=15.1.2 (gnat_native) (>=12 & <2000)
+   cashe=1.0.0 --> iso=2.0.0 (^2.0.0)
+
+
+LOG:
+[alr test] Testing cashe=1.0.0
+[alr test] Spawning retrieval for remote crate: alr -d -n get cashe=1.0.0
+Note: Deploying cashe=1.0.0...
+Note: Deploying iso=2.0.0...
+
+cashe=1.0.0 successfully retrieved.
+Dependencies were solved as follows:
+
+   +b gnat 15.1.2 (new,gnat_native,binary)
+   +  iso  2.0.0  (new)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Building cashe=1.0.0/cashe.gpr...
+Setup
+   [mkdir]        object directory for project ISO
+   [mkdir]        library directory for project ISO
+   [mkdir]        object directory for project Cashe
+   [mkdir]        library directory for project Cashe
+Compile
+   [Ada]          iso_config.ads
+   [Ada]          iso.ads
+   [Ada]          iso-currencies.adb
+   [Ada]          iso-countries.adb
+   [Ada]          cashe_config.ads
+   [Ada]          cashe.adb
+   [Ada]          cashe-money_handling.adb
+iso-currencies.adb:244:34: error: literal out of range of type Standard.Character
+
+   compilation of iso-currencies.adb failed
+
+gprbuild: *** compilation phase failed
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "D:\a\alire-crates-ci\alire-crates-ci\test\690d69a0-66b5-4944-b6ca-c97c9acce651\cashe_1.0.0_d142893b\cashe.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "D:\a\alire-crates-ci\alire-crates-ci\test\690d69a0-66b5-4944-b6ca-c97c9acce651\cashe_1.0.0_d142893b\cashe.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+stderr: ALIRE.CHECKED_ERROR
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "D:\a\alire-crates-ci\alire-crates-ci\test\690d69a0-66b5-4944-b6ca-c97c9acce651\cashe_1.0.0_d142893b\cashe.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
+[D:\a\alire-crates-ci\alire-crates-ci\alire_install\bin\alr.exe]
+0x7ff7e2adda2a Semantic_Versioning.Basic.Restrictions.First_Index at alire.adb:284
+0x7ff7e26d595b Semantic_Versioning.Basic.Restrictions.First_Index at alire-os_lib-subprocess.adb:111
+0x7ff7e298cba1 Semantic_Versioning.Basic.Restrictions.First_Index at alire-spawn.adb:22
+0x7ff7e298dd5d Semantic_Versioning.Basic.Restrictions.First_Index at alire-spawn.adb:68
+0x7ff7e28b2d64 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:189
+0x7ff7e28b11da Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:255
+0x7ff7e28d912d Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2143
+0x7ff7e29482f9 Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1472
+0x7ff7e2947424 Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1555
+0x7ff7e28d922c Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2147
+0x7ff7e28d92fa Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2127
+0x7ff7e28b17a7 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:286
+0x7ff7e28b1912 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:114
+0x7ff7e2023baa Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:145
+0x7ff7e202341e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:113
+0x7ff7e20235ba Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:54
+0x7ff7e20d5dea Semantic_Versioning.Basic.Restrictions.First_Index at clic-subcommand-instance.adb:749
+0x7ff7e20e2b0e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands.adb:632
+0x7ff7e1fb16a0 Alr.Main at alr-main.adb:13
+0x7ff7e1fb5270 Main at b__alr-main.adb:2454
+0x7ff7e1fb133e __tmainCRTStartup at ???
+0x7ff7e1fb1144 mainCRTStartup at ???
+[C:\Windows\System32\KERNEL32.DLL]
+0x7ff91667e8d5
+[C:\Windows\SYSTEM32\ntdll.dll]
+0x7ff9179cc53a
+
+stderr: ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED
+stderr: alire-roots.adb:202
+stderr: raised ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED : alire-roots.adb:202
+[D:\a\alire-crates-ci\alire-crates-ci\alire_install\bin\alr.exe]
+0x7ff7e28b313c Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:202
+0x7ff7e28b11da Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:255
+0x7ff7e28d912d Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2143
+0x7ff7e29482f9 Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1472
+0x7ff7e2947424 Semantic_Versioning.Basic.Restrictions.First_Index at alire-solutions.adb:1555
+0x7ff7e28d922c Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2147
+0x7ff7e28d92fa Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:2127
+0x7ff7e28b17a7 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:286
+0x7ff7e28b1912 Semantic_Versioning.Basic.Restrictions.First_Index at alire-roots.adb:114
+0x7ff7e2023baa Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:145
+0x7ff7e202341e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:113
+0x7ff7e20235ba Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands-build.adb:54
+0x7ff7e20d5dea Semantic_Versioning.Basic.Restrictions.First_Index at clic-subcommand-instance.adb:749
+0x7ff7e20e2b0e Semantic_Versioning.Basic.Restrictions.First_Index at alr-commands.adb:632
+0x7ff7e1fb16a0 Alr.Main at alr-main.adb:13
+0x7ff7e1fb5270 Main at b__alr-main.adb:2454
+0x7ff7e1fb133e __tmainCRTStartup at ???
+0x7ff7e1fb1144 mainCRTStartup at ???
+[C:\Windows\System32\KERNEL32.DLL]
+0x7ff91667e8d5
+[C:\Windows\SYSTEM32\ntdll.dll]
+0x7ff9179cc53a
+
+ERROR: Compilation failed.

@@ -1,0 +1,2158 @@
+Test ran at 2025-07-21 13:29:09.548397+00:00
+
+SOLUTION:
+aicwl=3.24.1: Ada Industrial Control Widgets Library
+Origin: commit 73939c9ed0be13a994728d1c362b945e5d131f19 from https://github.com/HeisenbugLtd/aicwl.git
+Properties:
+   Author: Dmitry A. Kazakov <mailbox@dmitry-kazakov.de>
+   Description: Ada Industrial Control Widgets Library
+   GPR Scenario: Development := Debug | Release | Profile
+   GPR Scenario: Legacy := Ada95 | Ada2005 | Ada2012
+   License: GPL-2.0-or-later WITH GCC-exception-2.0
+   Long_Description: This crate provides a library for designing high-quality industrial control
+widgets for Ada applications. The software is based on
+[GtkAda](https://docs.adacore.com/live/wave/gtkada/html/gtkada_rm/index.html),
+Ada bindings to [Gtk+](https://www.gtk.org/), and
+[cairo](https://www.cairographics.org/manual/index.html).
+
+The key features of the library are:
+
+* Widgets composed of transparent layers drawn by cairo
+* Fully scalable graphics
+* Support of time controlled refresh policy for real-time and heavy-duty applications
+* Caching graphical operations
+* Stream I/O support for serialization and deserialization
+* Ready-to-use gauge, meter, oscilloscope widgets
+* Editor widget for WYSIWYG design of complex dashboards
+
+For further information, visit the
+[AICWL website](http://www.dmitry-kazakov.de/ada/aicwl.htm).
+
+Maintainer's note:
+
+This Alire crate is packaged in a rather minimalistic way to keep dependencies
+on external libraries at a minimum. The crate's definition covers the core
+functionality of AICWL, though, so it should be sufficient for most needs.
+
+For example, the original distribution has references to
+[Simple Components](http://www.dmitry-kazakov.de/ada/components.htm) which are
+not strictly necessary for the core functionality of the library.
+
+   Maintainer: Vinzent "Jellix" Saranen <vinzent@heisenbug.eu>
+   Maintainers_Logins: Jellix
+   Name: aicwl
+   Project_File: sources/aicwl.gpr
+   Project_File: sources/aicwl-editor.gpr
+   Tag: widgets
+   Tag: gauge
+   Tag: graphics
+   Tag: ui
+   Tag: gtk
+   Version: 3.24.1
+   Website: http://www.dmitry-kazakov.de/ada/aicwl.htm
+Dependencies (direct):
+   gtkada>=17
+Dependencies (solution):
+   gtkada=25.0.1
+   libgtk3=3.24.43
+   make=4.4.1
+   pkg_config=2.1.1
+Dependencies (graph):
+   aicwl=3.24.1  --> gtkada=25.0.1 (>=17)
+   gtkada=25.0.1 --> libgtk3=3.24.43 (>=3.24.24)
+   gtkada=25.0.1 --> make=4.4.1 (*)
+   gtkada=25.0.1 --> pkg_config=2.1.1 (*)
+
+
+LOG:
+[alr test] Testing aicwl=3.24.1
+[alr test] Spawning retrieval for remote crate: alr -d -n get aicwl=3.24.1
+Note: Deploying aicwl=3.24.1...
+Note: Migrating lockfile from /home/runner/work/alire-crates-ci/alire-crates-ci/test/c18269ca-4b4b-4af1-bcdf-4520373d208d/aicwl_3.24.1_73939c9e/alire.lock to /home/runner/work/alire-crates-ci/alire-crates-ci/test/c18269ca-4b4b-4af1-bcdf-4520373d208d/aicwl_3.24.1_73939c9e/alire/alire.lock
+Note: Deploying libgtk3=3.24.43...
+The system package 'gtk3-devel' is about to be installed.
+This action might require admin privileges and impact your system installation.
+Do you want Alire to install this system package?
+Using default: Yes
+Last metadata expiration check: 0:23:32 ago on Mon Jul 21 13:03:01 2025.
+Dependencies resolved.
+=================================================================================================
+ Package                                   Arch    Version                         Repo      Size
+=================================================================================================
+Installing:
+ gtk3-devel                                x86_64  3.24.43-1.fc40                  updates  4.3 M
+Installing dependencies:
+ ModemManager-glib                         x86_64  1.22.0-3.fc40                   fedora   322 k
+ NetworkManager-libnm                      x86_64  1:1.46.6-1.fc40                 updates  1.8 M
+ abattis-cantarell-vf-fonts                noarch  0.301-12.fc40                   fedora   120 k
+ adwaita-cursor-theme                      noarch  46.2-2.fc40                     updates  516 k
+ adwaita-icon-theme                        noarch  46.2-2.fc40                     updates  407 k
+ adwaita-icon-theme-legacy                 noarch  46.2-1.fc40                     updates  2.5 M
+ alsa-lib                                  x86_64  1.2.13-3.fc40                   updates  517 k
+ at-spi2-atk                               x86_64  2.52.0-1.fc40                   fedora    86 k
+ at-spi2-atk-devel                         x86_64  2.52.0-1.fc40                   fedora    11 k
+ at-spi2-core                              x86_64  2.52.0-1.fc40                   fedora   373 k
+ at-spi2-core-devel                        x86_64  2.52.0-1.fc40                   fedora   323 k
+ atk                                       x86_64  2.52.0-1.fc40                   fedora    80 k
+ atk-devel                                 x86_64  2.52.0-1.fc40                   fedora   445 k
+ avahi-glib                                x86_64  0.8-26.fc40                     fedora    15 k
+ avahi-libs                                x86_64  0.8-26.fc40                     fedora    67 k
+ bluez-libs                                x86_64  5.81-2.fc40                     updates   83 k
+ brotli                                    x86_64  1.1.0-3.fc40                    fedora    20 k
+ brotli-devel                              x86_64  1.1.0-3.fc40                    fedora    34 k
+ bzip2-devel                               x86_64  1.0.8-18.fc40                   fedora   214 k
+ cairo                                     x86_64  1.18.0-3.fc40                   fedora   709 k
+ cairo-devel                               x86_64  1.18.0-3.fc40                   fedora   193 k
+ cairo-gobject                             x86_64  1.18.0-3.fc40                   fedora    17 k
+ cairo-gobject-devel                       x86_64  1.18.0-3.fc40                   fedora    11 k
+ cdparanoia-libs                           x86_64  10.2-44.fc40                    fedora    54 k
+ cmake-filesystem                          x86_64  3.30.8-1.fc40                   updates   17 k
+ colord-libs                               x86_64  1.4.7-3.fc40                    fedora   234 k
+ cpio                                      x86_64  2.15-1.fc40                     fedora   292 k
+ cpuinfo                                   x86_64  23.2.14-3.giteb4a667.fc40.2     fedora    42 k
+ crypto-policies-scripts                   noarch  20240201-2.git9f501f3.fc40      fedora   117 k
+ cups-filesystem                           noarch  1:2.4.12-2.fc40                 updates   13 k
+ cups-libs                                 x86_64  1:2.4.12-2.fc40                 updates  262 k
+ dbus-devel                                x86_64  1:1.14.10-3.fc40                fedora    40 k
+ dbus-libs                                 x86_64  1:1.14.10-3.fc40                fedora   156 k
+ default-fonts-core-sans                   noarch  4.0-13.fc40                     updates   31 k
+ dracut                                    x86_64  102-2.fc40                      updates  466 k
+ duktape                                   x86_64  2.7.0-7.fc40                    fedora   170 k
+ exempi                                    x86_64  2.6.4-5.fc40                    fedora   581 k
+ exiv2-libs                                x86_64  0.27.6-7.fc40                   fedora   755 k
+ fdk-aac-free                              x86_64  2.0.0-13.fc40                   fedora   337 k
+ file                                      x86_64  5.45-4.fc40                     fedora    49 k
+ flac-libs                                 x86_64  1.4.3-4.fc40                    fedora   262 k
+ fontconfig                                x86_64  2.15.0-6.fc40                   updates  270 k
+ fontconfig-devel                          x86_64  2.15.0-6.fc40                   updates  165 k
+ fonts-filesystem                          noarch  1:2.0.5-14.fc40                 fedora   8.2 k
+ freetype                                  x86_64  2.13.2-5.fc40                   fedora   410 k
+ freetype-devel                            x86_64  2.13.2-5.fc40                   fedora   951 k
+ fribidi                                   x86_64  1.0.14-2.fc40                   updates   92 k
+ fribidi-devel                             x86_64  1.0.14-2.fc40                   updates   29 k
+ fuse-common                               x86_64  3.16.2-3.fc40                   fedora   8.7 k
+ fuse3                                     x86_64  3.16.2-3.fc40                   fedora    58 k
+ fuse3-libs                                x86_64  3.16.2-3.fc40                   fedora    93 k
+ gdk-pixbuf2                               x86_64  2.42.10-8.fc40                  fedora   485 k
+ gdk-pixbuf2-devel                         x86_64  2.42.10-8.fc40                  fedora   369 k
+ gdk-pixbuf2-modules                       x86_64  2.42.10-8.fc40                  fedora    86 k
+ geoclue2                                  x86_64  2.7.2-2.fc40                    updates  164 k
+ gettext                                   x86_64  0.22.5-4.fc40                   updates  1.1 M
+ gettext-envsubst                          x86_64  0.22.5-4.fc40                   updates   38 k
+ gettext-libs                              x86_64  0.22.5-4.fc40                   updates  666 k
+ gettext-runtime                           x86_64  0.22.5-4.fc40                   updates  121 k
+ giflib                                    x86_64  5.2.2-6.fc40                    updates   52 k
+ glib2-devel                               x86_64  2.80.0-1.fc40                   fedora   1.5 M
+ gobject-introspection                     x86_64  1.80.1-1.fc40                   updates  111 k
+ google-noto-fonts-common                  noarch  20240301-2.fc40                 fedora    17 k
+ google-noto-sans-vf-fonts                 noarch  20240301-2.fc40                 fedora   593 k
+ gpgmepp                                   x86_64  1.23.2-3.fc40                   fedora   139 k
+ graphene                                  x86_64  1.10.6-8.fc40                   fedora    61 k
+ graphite2                                 x86_64  1.3.14-15.fc40                  fedora    95 k
+ graphite2-devel                           x86_64  1.3.14-15.fc40                  fedora    21 k
+ grub2-common                              noarch  1:2.12-16.fc40                  updates  1.0 M
+ grub2-tools                               x86_64  1:2.12-16.fc40                  updates  1.8 M
+ grub2-tools-minimal                       x86_64  1:2.12-16.fc40                  updates  613 k
+ gsettings-desktop-schemas                 x86_64  46.1-1.fc40                     updates  755 k
+ gsm                                       x86_64  1.0.22-6.fc40                   fedora    36 k
+ gstreamer1                                x86_64  1.24.11-1.fc40                  updates  1.6 M
+ gstreamer1-plugins-base                   x86_64  1.24.11-1.fc40                  updates  2.2 M
+ gtk-update-icon-cache                     x86_64  3.24.43-1.fc40                  updates   34 k
+ gtk3                                      x86_64  3.24.43-1.fc40                  updates  5.6 M
+ harfbuzz                                  x86_64  8.5.0-1.fc40                    updates  1.0 M
+ harfbuzz-devel                            x86_64  8.5.0-1.fc40                    updates  446 k
+ harfbuzz-icu                              x86_64  8.5.0-1.fc40                    updates   16 k
+ hicolor-icon-theme                        noarch  0.17-18.fc40                    fedora    66 k
+ highway                                   x86_64  1.2.0-2.fc40                    updates  652 k
+ hwdata                                    noarch  0.394-1.fc40                    updates  1.6 M
+ iso-codes                                 noarch  4.16.0-3.fc40                   fedora   3.5 M
+ jbigkit-libs                              x86_64  2.1-29.fc40                     fedora    53 k
+ json-glib                                 x86_64  1.8.0-3.fc40                    fedora   167 k
+ lame-libs                                 x86_64  3.100-17.fc40                   fedora   336 k
+ lcms2                                     x86_64  2.16-3.fc40                     fedora   180 k
+ libX11                                    x86_64  1.8.10-2.fc40                   updates  650 k
+ libX11-common                             noarch  1.8.10-2.fc40                   updates  176 k
+ libX11-devel                              x86_64  1.8.10-2.fc40                   updates  1.0 M
+ libX11-xcb                                x86_64  1.8.10-2.fc40                   updates   12 k
+ libXau                                    x86_64  1.0.11-6.fc40                   fedora    32 k
+ libXau-devel                              x86_64  1.0.11-6.fc40                   fedora    14 k
+ libXcomposite                             x86_64  0.4.6-3.fc40                    fedora    24 k
+ libXcomposite-devel                       x86_64  0.4.6-3.fc40                    fedora    16 k
+ libXcursor                                x86_64  1.2.1-7.fc40                    fedora    30 k
+ libXcursor-devel                          x86_64  1.2.1-7.fc40                    fedora    40 k
+ libXdamage                                x86_64  1.1.6-3.fc40                    fedora    23 k
+ libXdamage-devel                          x86_64  1.1.6-3.fc40                    fedora   9.5 k
+ libXext                                   x86_64  1.3.6-1.fc40                    fedora    39 k
+ libXext-devel                             x86_64  1.3.6-1.fc40                    fedora    86 k
+ libXfixes                                 x86_64  6.0.1-3.fc40                    fedora    19 k
+ libXfixes-devel                           x86_64  6.0.1-3.fc40                    fedora    13 k
+ libXft                                    x86_64  2.3.8-6.fc40                    fedora    72 k
+ libXft-devel                              x86_64  2.3.8-6.fc40                    fedora    50 k
+ libXi                                     x86_64  1.8.2-1.fc40                    updates   40 k
+ libXi-devel                               x86_64  1.8.2-1.fc40                    updates  116 k
+ libXinerama                               x86_64  1.1.5-6.fc40                    fedora    14 k
+ libXinerama-devel                         x86_64  1.1.5-6.fc40                    fedora    13 k
+ libXrandr                                 x86_64  1.5.4-3.fc40                    fedora    28 k
+ libXrandr-devel                           x86_64  1.5.4-3.fc40                    fedora    19 k
+ libXrender                                x86_64  0.9.11-6.fc40                   fedora    27 k
+ libXrender-devel                          x86_64  0.9.11-6.fc40                   fedora    19 k
+ libXtst                                   x86_64  1.2.5-1.fc40                    updates   20 k
+ libXtst-devel                             x86_64  1.2.5-1.fc40                    updates   16 k
+ libXv                                     x86_64  1.0.12-3.fc40                   fedora    18 k
+ libXxf86vm                                x86_64  1.1.5-6.fc40                    fedora    18 k
+ libaom                                    x86_64  3.12.0-1.fc40                   updates  1.8 M
+ libasyncns                                x86_64  0.8-28.fc40                     fedora    30 k
+ libavif                                   x86_64  1.0.4-3.fc40                    updates   91 k
+ libblkid-devel                            x86_64  2.40-0.9.rc1.fc40               fedora    18 k
+ libcanberra                               x86_64  0.30-35.fc40                    fedora    85 k
+ libcloudproviders                         x86_64  0.3.5-3.fc40                    fedora    46 k
+ libcloudproviders-devel                   x86_64  0.3.5-3.fc40                    fedora    49 k
+ libcue                                    x86_64  2.3.0-3.fc40                    fedora    35 k
+ libdatrie                                 x86_64  0.2.13-9.fc40                   fedora    32 k
+ libdatrie-devel                           x86_64  0.2.13-9.fc40                   fedora   153 k
+ libdav1d                                  x86_64  1.5.1-1.fc40                    updates  635 k
+ libdrm                                    x86_64  2.4.123-1.fc40                  updates  159 k
+ libepoxy                                  x86_64  1.5.10-6.fc40                   fedora   222 k
+ libepoxy-devel                            x86_64  1.5.10-6.fc40                   fedora   133 k
+ libexif                                   x86_64  0.6.24-7.fc40                   fedora   456 k
+ libffi-devel                              x86_64  3.4.4-7.fc40                    fedora    28 k
+ libgexiv2                                 x86_64  0.14.3-1.fc40                   updates  103 k
+ libglvnd                                  x86_64  1:1.7.0-4.fc40                  fedora   115 k
+ libglvnd-core-devel                       x86_64  1:1.7.0-4.fc40                  fedora    17 k
+ libglvnd-devel                            x86_64  1:1.7.0-4.fc40                  fedora   163 k
+ libglvnd-egl                              x86_64  1:1.7.0-4.fc40                  fedora    35 k
+ libglvnd-gles                             x86_64  1:1.7.0-4.fc40                  fedora    29 k
+ libglvnd-glx                              x86_64  1:1.7.0-4.fc40                  fedora   132 k
+ libglvnd-opengl                           x86_64  1:1.7.0-4.fc40                  fedora    38 k
+ libgrss                                   x86_64  0.7.0-19.fc40                   fedora    62 k
+ libgsf                                    x86_64  1.14.53-2.fc40                  updates  261 k
+ libgudev                                  x86_64  238-5.fc40                      fedora    35 k
+ libgusb                                   x86_64  0.4.9-1.fc40                    updates   65 k
+ libgxps                                   x86_64  0.3.2-8.fc40                    fedora    76 k
+ libicu                                    x86_64  74.2-1.fc40                     fedora    10 M
+ libicu-devel                              x86_64  74.2-1.fc40                     fedora   930 k
+ libimobiledevice                          x86_64  1.3.0^20230705git6fc41f5-4.fc40 fedora   138 k
+ libimobiledevice-glue                     x86_64  1.0.0-3.fc40                    fedora    36 k
+ libiptcdata                               x86_64  1.0.5-17.fc40                   fedora    60 k
+ libjpeg-turbo                             x86_64  3.0.2-1.fc40                    fedora   227 k
+ libjpeg-turbo-devel                       x86_64  3.0.2-1.fc40                    fedora    97 k
+ libjxl                                    x86_64  1:0.8.4-1.fc40                  updates  1.2 M
+ libkcapi                                  x86_64  1.5.0-4.fc40                    updates   46 k
+ libkcapi-hasher                           x86_64  1.5.0-4.fc40                    updates   26 k
+ libkcapi-hmaccalc                         x86_64  1.5.0-4.fc40                    updates  9.1 k
+ liblc3                                    x86_64  1.1.3-1.fc40                    updates  103 k
+ libldac                                   x86_64  2.0.2.3-15.fc40                 fedora    41 k
+ liblerc                                   x86_64  4.0.0-6.fc40                    fedora   210 k
+ libmount-devel                            x86_64  2.40-0.9.rc1.fc40               fedora    19 k
+ libnotify                                 x86_64  0.8.6-1.fc40                    updates   52 k
+ libogg                                    x86_64  2:1.3.5-8.fc40                  fedora    33 k
+ libosinfo                                 x86_64  1.11.0-5.fc40                   fedora   316 k
+ libpciaccess                              x86_64  0.16-12.fc40                    fedora    26 k
+ libplist                                  x86_64  2.3.0-4.fc40                    fedora    93 k
+ libpng                                    x86_64  2:1.6.40-3.fc40                 fedora   120 k
+ libpng-devel                              x86_64  2:1.6.40-3.fc40                 fedora   291 k
+ libproxy                                  x86_64  0.5.5-1.fc40                    updates   48 k
+ librsvg2                                  x86_64  2.57.1-7.fc40                   updates  1.5 M
+ libsbc                                    x86_64  2.0-4.fc40                      fedora    48 k
+ libselinux-devel                          x86_64  3.6-4.fc40                      fedora   151 k
+ libsepol-devel                            x86_64  3.6-3.fc40                      fedora    49 k
+ libsndfile                                x86_64  1.2.2-4.fc40                    updates  213 k
+ libsoup                                   x86_64  2.74.3-6.fc40                   fedora   397 k
+ libsoup3                                  x86_64  3.4.5-1.fc40                    updates  385 k
+ libstemmer                                x86_64  2.2.0-10.fc40                   fedora   139 k
+ libtdb                                    x86_64  1.4.10-1.fc40                   fedora    51 k
+ libtextstyle                              x86_64  0.22.5-4.fc40                   updates   88 k
+ libthai                                   x86_64  0.1.29-8.fc40                   fedora   214 k
+ libthai-devel                             x86_64  0.1.29-8.fc40                   fedora   144 k
+ libtheora                                 x86_64  1:1.1.1-36.fc40                 fedora   166 k
+ libtiff                                   x86_64  4.6.0-5.fc40.1                  updates  339 k
+ libtiff-devel                             x86_64  4.6.0-5.fc40.1                  updates  258 k
+ libtracker-sparql                         x86_64  3.7.3-1.fc40                    updates  371 k
+ libunwind                                 x86_64  1.8.0-3.fc40                    fedora    73 k
+ libusb1                                   x86_64  1.0.28-2.fc40                   updates   78 k
+ libusbmuxd                                x86_64  2.0.2^20230620git8d30a55-5.fc40 fedora    36 k
+ libvisual                                 x86_64  1:0.4.1-4.fc40                  fedora   151 k
+ libvmaf                                   x86_64  2.3.0-7.fc40                    fedora   180 k
+ libvorbis                                 x86_64  1:1.3.7-10.fc40                 fedora   187 k
+ libwayland-client                         x86_64  1.23.0-2.fc40                   updates   33 k
+ libwayland-cursor                         x86_64  1.23.0-2.fc40                   updates   19 k
+ libwayland-egl                            x86_64  1.23.0-2.fc40                   updates   13 k
+ libwayland-server                         x86_64  1.23.0-2.fc40                   updates   41 k
+ libwebp                                   x86_64  1.5.0-1.fc40                    updates  297 k
+ libwebp-devel                             x86_64  1.5.0-1.fc40                    updates   40 k
+ libxcb                                    x86_64  1.17.0-2.fc40                   updates  240 k
+ libxcb-devel                              x86_64  1.17.0-2.fc40                   updates  1.4 M
+ libxkbcommon-devel                        x86_64  1.6.0-2.fc40                    fedora    66 k
+ libxml2-devel                             x86_64  2.12.5-1.fc40                   fedora   525 k
+ libxshmfence                              x86_64  1.3.2-5.fc40                    updates   13 k
+ libxslt                                   x86_64  1.1.43-1.fc40                   updates  183 k
+ libzstd-devel                             x86_64  1.5.5-5.fc40                    fedora    51 k
+ llvm-libs                                 x86_64  18.1.8-4.fc40                   updates   28 M
+ lm_sensors-libs                           x86_64  3.6.0-18.fc40                   fedora    40 k
+ mesa-filesystem                           x86_64  24.1.7-1.fc40                   updates   21 k
+ mesa-libEGL                               x86_64  24.1.7-1.fc40                   updates  140 k
+ mesa-libGL                                x86_64  24.1.7-1.fc40                   updates  176 k
+ mesa-libgbm                               x86_64  24.1.7-1.fc40                   updates   48 k
+ mesa-libglapi                             x86_64  24.1.7-1.fc40                   updates   51 k
+ mpg123-libs                               x86_64  1.32.9-1.fc40                   updates  345 k
+ nspr                                      x86_64  4.36.0-6.fc40                   updates  137 k
+ nss                                       x86_64  3.110.0-2.fc40                  updates  711 k
+ nss-softokn                               x86_64  3.110.0-2.fc40                  updates  414 k
+ nss-softokn-freebl                        x86_64  3.110.0-2.fc40                  updates  333 k
+ nss-sysinit                               x86_64  3.110.0-2.fc40                  updates   19 k
+ nss-util                                  x86_64  3.110.0-2.fc40                  updates   89 k
+ openjpeg2                                 x86_64  2.5.3-1.fc40                    updates  189 k
+ opus                                      x86_64  1.5.1-1.fc40                    fedora   230 k
+ orc                                       x86_64  0.4.39-1.fc40                   updates  223 k
+ os-prober                                 x86_64  1.81-6.fc40                     fedora    51 k
+ osinfo-db                                 noarch  20250124-1.fc40                 updates  476 k
+ osinfo-db-tools                           x86_64  1.11.0-5.fc40                   fedora    74 k
+ pango                                     x86_64  1.54.0-1.fc40                   updates  347 k
+ pango-devel                               x86_64  1.54.0-1.fc40                   updates  160 k
+ pcre2-devel                               x86_64  10.42-2.fc40.2                  fedora   505 k
+ pcre2-utf16                               x86_64  10.42-2.fc40.2                  fedora   216 k
+ pcre2-utf32                               x86_64  10.42-2.fc40.2                  fedora   203 k
+ pipewire-jack-audio-connection-kit-libs   x86_64  1.0.9-2.fc40                    updates  132 k
+ pipewire-libs                             x86_64  1.0.9-2.fc40                    updates  1.8 M
+ pixman                                    x86_64  0.43.4-1.fc40                   updates  293 k
+ pixman-devel                              x86_64  0.43.4-1.fc40                   updates   17 k
+ polkit                                    x86_64  124-2.fc40                      fedora   157 k
+ polkit-libs                               x86_64  124-2.fc40                      fedora    67 k
+ polkit-pkla-compat                        x86_64  0.1-28.fc40                     fedora    44 k
+ poppler                                   x86_64  24.02.0-2.fc40                  fedora   1.2 M
+ poppler-data                              noarch  0.4.11-7.fc40                   fedora   2.0 M
+ poppler-glib                              x86_64  24.02.0-2.fc40                  fedora   190 k
+ procps-ng                                 x86_64  4.0.4-3.fc40                    fedora   367 k
+ pulseaudio-libs                           x86_64  16.1-8.fc40                     updates  693 k
+ python3-packaging                         noarch  23.2-4.fc40                     fedora   125 k
+ rav1e-libs                                x86_64  0.7.1-4.fc40                    updates  1.0 M
+ rtkit                                     x86_64  0.11-63.fc40                    fedora    55 k
+ shared-mime-info                          x86_64  2.3-5.fc40                      updates  390 k
+ sound-theme-freedesktop                   noarch  0.8-21.fc40                     fedora   383 k
+ svt-av1-libs                              x86_64  2.3.0-1.fc40                    updates  2.0 M
+ sysprof-capture-devel                     x86_64  46.0-1.fc40                     fedora    54 k
+ totem-pl-parser                           x86_64  3.26.6-9.fc40                   fedora   144 k
+ tpm2-tss-fapi                             x86_64  4.0.1-7.fc40                    fedora   317 k
+ tracker                                   x86_64  3.7.3-1.fc40                    updates  635 k
+ uchardet                                  x86_64  0.0.8-5.fc40                    fedora   106 k
+ upower-libs                               x86_64  1.90.9-1.fc40                   updates   57 k
+ wayland-devel                             x86_64  1.23.0-2.fc40                   updates  153 k
+ webrtc-audio-processing                   x86_64  1.3-1.fc40                      fedora   518 k
+ wireplumber                               x86_64  0.5.7-1.fc40                    updates  110 k
+ wireplumber-libs                          x86_64  0.5.7-1.fc40                    updates  386 k
+ xdg-desktop-portal                        x86_64  1.18.4-1.fc40                   updates  474 k
+ xml-common                                noarch  0.6.3-63.fc40                   fedora    31 k
+ xorg-x11-proto-devel                      noarch  2024.1-2.fc40                   updates  300 k
+ xprop                                     x86_64  1.2.7-1.fc40                    fedora    35 k
+ xz-devel                                  x86_64  1:5.4.6-3.fc40                  fedora    67 k
+ zlib-ng-compat-devel                      x86_64  2.1.6-2.fc40                    fedora    36 k
+Installing weak dependencies:
+ adobe-source-code-pro-fonts               noarch  2.042.1.062.1.026-4.fc40        fedora   806 k
+ avif-pixbuf-loader                        x86_64  1.0.4-3.fc40                    updates   17 k
+ dconf                                     x86_64  0.40.0-12.fc40                  fedora   109 k
+ exiv2                                     x86_64  0.27.6-7.fc40                   fedora   979 k
+ glib-networking                           x86_64  2.80.1-1.fc40                   updates  201 k
+ grubby                                    x86_64  8.40-75.fc40                    fedora    26 k
+ jxl-pixbuf-loader                         x86_64  1:0.8.4-1.fc40                  updates   60 k
+ kpartx                                    x86_64  0.9.7-7.fc40                    fedora    49 k
+ libcanberra-gtk3                          x86_64  0.30-35.fc40                    fedora    31 k
+ low-memory-monitor                        x86_64  2.1-10.fc40                     fedora    34 k
+ memstrack                                 x86_64  0.2.5-4.fc40                    fedora    49 k
+ mesa-dri-drivers                          x86_64  24.1.7-1.fc40                   updates   26 M
+ mesa-va-drivers                           x86_64  24.1.7-1.fc40                   updates  4.0 M
+ pigz                                      x86_64  2.8-4.fc40                      fedora    95 k
+ pipewire                                  x86_64  1.0.9-2.fc40                    updates  120 k
+ pipewire-alsa                             x86_64  1.0.9-2.fc40                    updates   54 k
+ pipewire-jack-audio-connection-kit        x86_64  1.0.9-2.fc40                    updates   13 k
+ pipewire-pulseaudio                       x86_64  1.0.9-2.fc40                    updates  195 k
+ rsvg-pixbuf-loader                        x86_64  2.57.1-7.fc40                   updates   16 k
+ tpm2-tools                                x86_64  5.7-1.fc40                      updates  810 k
+ tracker-miners                            x86_64  3.7.4-2.fc40                    updates  997 k
+ upower                                    x86_64  1.90.9-1.fc40                   updates  143 k
+ usbmuxd                                   x86_64  1.1.1^20230720git61b99ab-2.fc40 fedora    66 k
+ webp-pixbuf-loader                        x86_64  0.2.7-1.fc40                    fedora    20 k
+ xdg-desktop-portal-gtk                    x86_64  1.15.1-5.fc40                   fedora   143 k
+
+Transaction Summary
+=================================================================================================
+Install  290 Packages
+
+Total download size: 159 M
+Installed size: 672 M
+Downloading Packages:
+(1/290): abattis-cantarell-vf-fonts-0.301-12.fc 488 kB/s | 120 kB     00:00    
+(2/290): at-spi2-atk-2.52.0-1.fc40.x86_64.rpm   3.8 MB/s |  86 kB     00:00    
+(3/290): ModemManager-glib-1.22.0-3.fc40.x86_64 1.1 MB/s | 322 kB     00:00    
+(4/290): at-spi2-atk-devel-2.52.0-1.fc40.x86_64 482 kB/s |  11 kB     00:00    
+(5/290): adobe-source-code-pro-fonts-2.042.1.06 2.6 MB/s | 806 kB     00:00    
+(6/290): atk-2.52.0-1.fc40.x86_64.rpm           3.4 MB/s |  80 kB     00:00    
+(7/290): at-spi2-core-devel-2.52.0-1.fc40.x86_6 7.1 MB/s | 323 kB     00:00    
+(8/290): at-spi2-core-2.52.0-1.fc40.x86_64.rpm  5.2 MB/s | 373 kB     00:00    
+(9/290): avahi-glib-0.8-26.fc40.x86_64.rpm      722 kB/s |  15 kB     00:00    
+(10/290): avahi-libs-0.8-26.fc40.x86_64.rpm     2.4 MB/s |  67 kB     00:00    
+(11/290): brotli-1.1.0-3.fc40.x86_64.rpm        877 kB/s |  20 kB     00:00    
+(12/290): brotli-devel-1.1.0-3.fc40.x86_64.rpm  1.3 MB/s |  34 kB     00:00    
+(13/290): atk-devel-2.52.0-1.fc40.x86_64.rpm    5.0 MB/s | 445 kB     00:00    
+(14/290): bzip2-devel-1.0.8-18.fc40.x86_64.rpm  4.6 MB/s | 214 kB     00:00    
+(15/290): cairo-gobject-1.18.0-3.fc40.x86_64.rp 831 kB/s |  17 kB     00:00    
+(16/290): cairo-devel-1.18.0-3.fc40.x86_64.rpm  4.0 MB/s | 193 kB     00:00    
+(17/290): cairo-gobject-devel-1.18.0-3.fc40.x86 508 kB/s |  11 kB     00:00    
+(18/290): cairo-1.18.0-3.fc40.x86_64.rpm        9.6 MB/s | 709 kB     00:00    
+(19/290): cdparanoia-libs-10.2-44.fc40.x86_64.r 2.3 MB/s |  54 kB     00:00    
+(20/290): cpuinfo-23.2.14-3.giteb4a667.fc40.2.x 1.8 MB/s |  42 kB     00:00    
+(21/290): cpio-2.15-1.fc40.x86_64.rpm           9.7 MB/s | 292 kB     00:00    
+(22/290): colord-libs-1.4.7-3.fc40.x86_64.rpm   3.8 MB/s | 234 kB     00:00    
+(23/290): dbus-devel-1.14.10-3.fc40.x86_64.rpm  1.6 MB/s |  40 kB     00:00    
+(24/290): dbus-libs-1.14.10-3.fc40.x86_64.rpm   6.5 MB/s | 156 kB     00:00    
+(25/290): dconf-0.40.0-12.fc40.x86_64.rpm       4.3 MB/s | 109 kB     00:00    
+(26/290): duktape-2.7.0-7.fc40.x86_64.rpm       6.6 MB/s | 170 kB     00:00    
+(27/290): exiv2-0.27.6-7.fc40.x86_64.rpm         12 MB/s | 979 kB     00:00    
+(28/290): exempi-2.6.4-5.fc40.x86_64.rpm        5.0 MB/s | 581 kB     00:00    
+(29/290): fdk-aac-free-2.0.0-13.fc40.x86_64.rpm 6.8 MB/s | 337 kB     00:00    
+(30/290): file-5.45-4.fc40.x86_64.rpm           1.7 MB/s |  49 kB     00:00    
+(31/290): crypto-policies-scripts-20240201-2.gi 457 kB/s | 117 kB     00:00    
+(32/290): exiv2-libs-0.27.6-7.fc40.x86_64.rpm   7.2 MB/s | 755 kB     00:00    
+(33/290): fonts-filesystem-2.0.5-14.fc40.noarch 372 kB/s | 8.2 kB     00:00    
+(34/290): flac-libs-1.4.3-4.fc40.x86_64.rpm     5.5 MB/s | 262 kB     00:00    
+(35/290): fuse-common-3.16.2-3.fc40.x86_64.rpm  366 kB/s | 8.7 kB     00:00    
+(36/290): fuse3-3.16.2-3.fc40.x86_64.rpm        2.3 MB/s |  58 kB     00:00    
+(37/290): freetype-2.13.2-5.fc40.x86_64.rpm     5.0 MB/s | 410 kB     00:00    
+(38/290): freetype-devel-2.13.2-5.fc40.x86_64.r  11 MB/s | 951 kB     00:00    
+(39/290): fuse3-libs-3.16.2-3.fc40.x86_64.rpm   3.4 MB/s |  93 kB     00:00    
+(40/290): gdk-pixbuf2-modules-2.42.10-8.fc40.x8 3.6 MB/s |  86 kB     00:00    
+(41/290): gdk-pixbuf2-devel-2.42.10-8.fc40.x86_ 7.2 MB/s | 369 kB     00:00    
+(42/290): gdk-pixbuf2-2.42.10-8.fc40.x86_64.rpm 5.8 MB/s | 485 kB     00:00    
+(43/290): google-noto-fonts-common-20240301-2.f 641 kB/s |  17 kB     00:00    
+(44/290): gpgmepp-1.23.2-3.fc40.x86_64.rpm      5.2 MB/s | 139 kB     00:00    
+(45/290): graphene-1.10.6-8.fc40.x86_64.rpm     2.4 MB/s |  61 kB     00:00    
+(46/290): graphite2-1.3.14-15.fc40.x86_64.rpm   3.5 MB/s |  95 kB     00:00    
+(47/290): google-noto-sans-vf-fonts-20240301-2. 5.8 MB/s | 593 kB     00:00    
+(48/290): grubby-8.40-75.fc40.x86_64.rpm        1.1 MB/s |  26 kB     00:00    
+(49/290): graphite2-devel-1.3.14-15.fc40.x86_64 799 kB/s |  21 kB     00:00    
+(50/290): hicolor-icon-theme-0.17-18.fc40.noarc 2.9 MB/s |  66 kB     00:00    
+(51/290): gsm-1.0.22-6.fc40.x86_64.rpm          1.4 MB/s |  36 kB     00:00    
+(52/290): glib2-devel-2.80.0-1.fc40.x86_64.rpm  7.8 MB/s | 1.5 MB     00:00    
+(53/290): jbigkit-libs-2.1-29.fc40.x86_64.rpm   2.1 MB/s |  53 kB     00:00    
+(54/290): json-glib-1.8.0-3.fc40.x86_64.rpm     6.7 MB/s | 167 kB     00:00    
+(55/290): kpartx-0.9.7-7.fc40.x86_64.rpm        1.9 MB/s |  49 kB     00:00    
+(56/290): lame-libs-3.100-17.fc40.x86_64.rpm    7.4 MB/s | 336 kB     00:00    
+(57/290): lcms2-2.16-3.fc40.x86_64.rpm          6.7 MB/s | 180 kB     00:00    
+(58/290): libXau-devel-1.0.11-6.fc40.x86_64.rpm 575 kB/s |  14 kB     00:00    
+(59/290): libXau-1.0.11-6.fc40.x86_64.rpm       1.2 MB/s |  32 kB     00:00    
+(60/290): libXcomposite-0.4.6-3.fc40.x86_64.rpm 1.1 MB/s |  24 kB     00:00    
+(61/290): libXcomposite-devel-0.4.6-3.fc40.x86_ 645 kB/s |  16 kB     00:00    
+(62/290): libXcursor-1.2.1-7.fc40.x86_64.rpm    1.3 MB/s |  30 kB     00:00    
+(63/290): libXcursor-devel-1.2.1-7.fc40.x86_64. 1.5 MB/s |  40 kB     00:00    
+(64/290): libXdamage-1.1.6-3.fc40.x86_64.rpm    1.0 MB/s |  23 kB     00:00    
+(65/290): libXdamage-devel-1.1.6-3.fc40.x86_64. 385 kB/s | 9.5 kB     00:00    
+(66/290): libXext-1.3.6-1.fc40.x86_64.rpm       1.6 MB/s |  39 kB     00:00    
+(67/290): libXext-devel-1.3.6-1.fc40.x86_64.rpm 3.2 MB/s |  86 kB     00:00    
+(68/290): libXfixes-6.0.1-3.fc40.x86_64.rpm     830 kB/s |  19 kB     00:00    
+(69/290): libXfixes-devel-6.0.1-3.fc40.x86_64.r 506 kB/s |  13 kB     00:00    
+(70/290): libXft-2.3.8-6.fc40.x86_64.rpm        3.0 MB/s |  72 kB     00:00    
+(71/290): libXft-devel-2.3.8-6.fc40.x86_64.rpm  1.9 MB/s |  50 kB     00:00    
+(72/290): libXinerama-1.1.5-6.fc40.x86_64.rpm   633 kB/s |  14 kB     00:00    
+(73/290): libXinerama-devel-1.1.5-6.fc40.x86_64 522 kB/s |  13 kB     00:00    
+(74/290): libXrandr-1.5.4-3.fc40.x86_64.rpm     1.2 MB/s |  28 kB     00:00    
+(75/290): libXrandr-devel-1.5.4-3.fc40.x86_64.r 767 kB/s |  19 kB     00:00    
+(76/290): libXrender-0.9.11-6.fc40.x86_64.rpm   1.2 MB/s |  27 kB     00:00    
+(77/290): libXrender-devel-0.9.11-6.fc40.x86_64 767 kB/s |  19 kB     00:00    
+(78/290): libXv-1.0.12-3.fc40.x86_64.rpm        804 kB/s |  18 kB     00:00    
+(79/290): libasyncns-0.8-28.fc40.x86_64.rpm     1.3 MB/s |  30 kB     00:00    
+(80/290): libXxf86vm-1.1.5-6.fc40.x86_64.rpm    745 kB/s |  18 kB     00:00    
+(81/290): libblkid-devel-2.40-0.9.rc1.fc40.x86_ 755 kB/s |  18 kB     00:00    
+(82/290): libcanberra-0.30-35.fc40.x86_64.rpm   3.4 MB/s |  85 kB     00:00    
+(83/290): libcanberra-gtk3-0.30-35.fc40.x86_64. 1.3 MB/s |  31 kB     00:00    
+(84/290): libcloudproviders-0.3.5-3.fc40.x86_64 1.9 MB/s |  46 kB     00:00    
+(85/290): libcloudproviders-devel-0.3.5-3.fc40. 1.9 MB/s |  49 kB     00:00    
+(86/290): libcue-2.3.0-3.fc40.x86_64.rpm        1.4 MB/s |  35 kB     00:00    
+(87/290): libdatrie-0.2.13-9.fc40.x86_64.rpm    1.4 MB/s |  32 kB     00:00    
+(88/290): libdatrie-devel-0.2.13-9.fc40.x86_64. 5.4 MB/s | 153 kB     00:00    
+(89/290): libepoxy-1.5.10-6.fc40.x86_64.rpm     8.6 MB/s | 222 kB     00:00    
+(90/290): libepoxy-devel-1.5.10-6.fc40.x86_64.r 4.8 MB/s | 133 kB     00:00    
+(91/290): iso-codes-4.16.0-3.fc40.noarch.rpm    7.0 MB/s | 3.5 MB     00:00    
+(92/290): libffi-devel-3.4.4-7.fc40.x86_64.rpm  1.1 MB/s |  28 kB     00:00    
+(93/290): libglvnd-1.7.0-4.fc40.x86_64.rpm      5.0 MB/s | 115 kB     00:00    
+(94/290): libglvnd-core-devel-1.7.0-4.fc40.x86_ 698 kB/s |  17 kB     00:00    
+(95/290): libexif-0.6.24-7.fc40.x86_64.rpm      7.1 MB/s | 456 kB     00:00    
+(96/290): libglvnd-egl-1.7.0-4.fc40.x86_64.rpm  1.3 MB/s |  35 kB     00:00    
+(97/290): libglvnd-gles-1.7.0-4.fc40.x86_64.rpm 1.2 MB/s |  29 kB     00:00    
+(98/290): libglvnd-devel-1.7.0-4.fc40.x86_64.rp 3.8 MB/s | 163 kB     00:00    
+(99/290): libglvnd-opengl-1.7.0-4.fc40.x86_64.r 1.6 MB/s |  38 kB     00:00    
+(100/290): libglvnd-glx-1.7.0-4.fc40.x86_64.rpm 5.0 MB/s | 132 kB     00:00    
+(101/290): libgrss-0.7.0-19.fc40.x86_64.rpm     2.8 MB/s |  62 kB     00:00    
+(102/290): libgudev-238-5.fc40.x86_64.rpm       1.4 MB/s |  35 kB     00:00    
+(103/290): libgxps-0.3.2-8.fc40.x86_64.rpm      3.0 MB/s |  76 kB     00:00    
+(104/290): libimobiledevice-1.3.0^20230705git6f 5.0 MB/s | 138 kB     00:00    
+(105/290): libimobiledevice-glue-1.0.0-3.fc40.x 1.4 MB/s |  36 kB     00:00    
+(106/290): libiptcdata-1.0.5-17.fc40.x86_64.rpm 2.4 MB/s |  60 kB     00:00    
+(107/290): libicu-devel-74.2-1.fc40.x86_64.rpm  8.5 MB/s | 930 kB     00:00    
+(108/290): libjpeg-turbo-3.0.2-1.fc40.x86_64.rp 4.8 MB/s | 227 kB     00:00    
+(109/290): libjpeg-turbo-devel-3.0.2-1.fc40.x86 3.8 MB/s |  97 kB     00:00    
+(110/290): libldac-2.0.2.3-15.fc40.x86_64.rpm   1.7 MB/s |  41 kB     00:00    
+(111/290): liblerc-4.0.0-6.fc40.x86_64.rpm      4.8 MB/s | 210 kB     00:00    
+(112/290): libmount-devel-2.40-0.9.rc1.fc40.x86 733 kB/s |  19 kB     00:00    
+(113/290): libogg-1.3.5-8.fc40.x86_64.rpm       1.3 MB/s |  33 kB     00:00    
+(114/290): libosinfo-1.11.0-5.fc40.x86_64.rpm   6.8 MB/s | 316 kB     00:00    
+(115/290): libpciaccess-0.16-12.fc40.x86_64.rpm 1.0 MB/s |  26 kB     00:00    
+(116/290): libplist-2.3.0-4.fc40.x86_64.rpm     3.8 MB/s |  93 kB     00:00    
+(117/290): libpng-1.6.40-3.fc40.x86_64.rpm      4.6 MB/s | 120 kB     00:00    
+(118/290): libsbc-2.0-4.fc40.x86_64.rpm         1.9 MB/s |  48 kB     00:00    
+(119/290): libpng-devel-1.6.40-3.fc40.x86_64.rp 6.2 MB/s | 291 kB     00:00    
+(120/290): libselinux-devel-3.6-4.fc40.x86_64.r 5.4 MB/s | 151 kB     00:00    
+(121/290): libsepol-devel-3.6-3.fc40.x86_64.rpm 2.0 MB/s |  49 kB     00:00    
+(122/290): libstemmer-2.2.0-10.fc40.x86_64.rpm  5.7 MB/s | 139 kB     00:00    
+(123/290): libsoup-2.74.3-6.fc40.x86_64.rpm     7.9 MB/s | 397 kB     00:00    
+(124/290): libtdb-1.4.10-1.fc40.x86_64.rpm      2.1 MB/s |  51 kB     00:00    
+(125/290): libthai-0.1.29-8.fc40.x86_64.rpm     7.7 MB/s | 214 kB     00:00    
+(126/290): libthai-devel-0.1.29-8.fc40.x86_64.r 5.5 MB/s | 144 kB     00:00    
+(127/290): libtheora-1.1.1-36.fc40.x86_64.rpm   6.2 MB/s | 166 kB     00:00    
+(128/290): libunwind-1.8.0-3.fc40.x86_64.rpm    3.1 MB/s |  73 kB     00:00    
+(129/290): libusbmuxd-2.0.2^20230620git8d30a55- 1.5 MB/s |  36 kB     00:00    
+(130/290): libvisual-0.4.1-4.fc40.x86_64.rpm    6.1 MB/s | 151 kB     00:00    
+(131/290): libvmaf-2.3.0-7.fc40.x86_64.rpm      6.7 MB/s | 180 kB     00:00    
+(132/290): libvorbis-1.3.7-10.fc40.x86_64.rpm   4.3 MB/s | 187 kB     00:00    
+(133/290): libxkbcommon-devel-1.6.0-2.fc40.x86_ 2.5 MB/s |  66 kB     00:00    
+(134/290): libzstd-devel-1.5.5-5.fc40.x86_64.rp 1.9 MB/s |  51 kB     00:00    
+(135/290): lm_sensors-libs-3.6.0-18.fc40.x86_64 1.6 MB/s |  40 kB     00:00    
+(136/290): low-memory-monitor-2.1-10.fc40.x86_6 1.4 MB/s |  34 kB     00:00    
+(137/290): libxml2-devel-2.12.5-1.fc40.x86_64.r 6.1 MB/s | 525 kB     00:00    
+(138/290): memstrack-0.2.5-4.fc40.x86_64.rpm    1.8 MB/s |  49 kB     00:00    
+(139/290): opus-1.5.1-1.fc40.x86_64.rpm         5.2 MB/s | 230 kB     00:00    
+(140/290): os-prober-1.81-6.fc40.x86_64.rpm     2.0 MB/s |  51 kB     00:00    
+(141/290): osinfo-db-tools-1.11.0-5.fc40.x86_64 3.1 MB/s |  74 kB     00:00    
+(142/290): pcre2-utf16-10.42-2.fc40.2.x86_64.rp 4.8 MB/s | 216 kB     00:00    
+(143/290): pcre2-devel-10.42-2.fc40.2.x86_64.rp 7.1 MB/s | 505 kB     00:00    
+(144/290): pigz-2.8-4.fc40.x86_64.rpm           3.8 MB/s |  95 kB     00:00    
+(145/290): pcre2-utf32-10.42-2.fc40.2.x86_64.rp 4.5 MB/s | 203 kB     00:00    
+(146/290): polkit-124-2.fc40.x86_64.rpm         5.5 MB/s | 157 kB     00:00    
+(147/290): polkit-libs-124-2.fc40.x86_64.rpm    2.7 MB/s |  67 kB     00:00    
+(148/290): polkit-pkla-compat-0.1-28.fc40.x86_6 1.7 MB/s |  44 kB     00:00    
+(149/290): poppler-24.02.0-2.fc40.x86_64.rpm    7.3 MB/s | 1.2 MB     00:00    
+(150/290): poppler-glib-24.02.0-2.fc40.x86_64.r 4.4 MB/s | 190 kB     00:00    
+(151/290): poppler-data-0.4.11-7.fc40.noarch.rp 9.1 MB/s | 2.0 MB     00:00    
+(152/290): python3-packaging-23.2-4.fc40.noarch 4.5 MB/s | 125 kB     00:00    
+(153/290): procps-ng-4.0.4-3.fc40.x86_64.rpm    5.6 MB/s | 367 kB     00:00    
+(154/290): rtkit-0.11-63.fc40.x86_64.rpm        2.1 MB/s |  55 kB     00:00    
+(155/290): sysprof-capture-devel-46.0-1.fc40.x8 2.0 MB/s |  54 kB     00:00    
+(156/290): sound-theme-freedesktop-0.8-21.fc40. 6.0 MB/s | 383 kB     00:00    
+(157/290): totem-pl-parser-3.26.6-9.fc40.x86_64 5.4 MB/s | 144 kB     00:00    
+(158/290): uchardet-0.0.8-5.fc40.x86_64.rpm     4.2 MB/s | 106 kB     00:00    
+(159/290): usbmuxd-1.1.1^20230720git61b99ab-2.f 2.5 MB/s |  66 kB     00:00    
+(160/290): tpm2-tss-fapi-4.0.1-7.fc40.x86_64.rp 4.8 MB/s | 317 kB     00:00    
+(161/290): webp-pixbuf-loader-0.2.7-1.fc40.x86_ 849 kB/s |  20 kB     00:00    
+(162/290): libicu-74.2-1.fc40.x86_64.rpm        8.7 MB/s |  10 MB     00:01    
+(163/290): xdg-desktop-portal-gtk-1.15.1-5.fc40 5.0 MB/s | 143 kB     00:00    
+(164/290): xml-common-0.6.3-63.fc40.noarch.rpm  1.2 MB/s |  31 kB     00:00    
+(165/290): xprop-1.2.7-1.fc40.x86_64.rpm        1.3 MB/s |  35 kB     00:00    
+(166/290): zlib-ng-compat-devel-2.1.6-2.fc40.x8 1.5 MB/s |  36 kB     00:00    
+(167/290): xz-devel-5.4.6-3.fc40.x86_64.rpm     2.4 MB/s |  67 kB     00:00    
+(168/290): webrtc-audio-processing-1.3-1.fc40.x 4.8 MB/s | 518 kB     00:00    
+[MIRROR] NetworkManager-libnm-1.46.6-1.fc40.x86_64.rpm: Status code: 404 for https://d2lzkl7pfhq30w.cloudfront.net/pub/fedora/linux/updates/40/Everything/x86_64/Packages/n/NetworkManager-libnm-1.46.6-1.fc40.x86_64.rpm (IP: 18.160.0.87)
+[MIRROR] adwaita-cursor-theme-46.2-2.fc40.noarch.rpm: Status code: 404 for https://d2lzkl7pfhq30w.cloudfront.net/pub/fedora/linux/updates/40/Everything/x86_64/Packages/a/adwaita-cursor-theme-46.2-2.fc40.noarch.rpm (IP: 18.160.0.87)
+[MIRROR] adwaita-icon-theme-46.2-2.fc40.noarch.rpm: Status code: 404 for https://d2lzkl7pfhq30w.cloudfront.net/pub/fedora/linux/updates/40/Everything/x86_64/Packages/a/adwaita-icon-theme-46.2-2.fc40.noarch.rpm (IP: 18.160.0.87)
+(169/290): adwaita-icon-theme-46.2-2.fc40.noarc 867 kB/s | 407 kB     00:00    
+(170/290): adwaita-cursor-theme-46.2-2.fc40.noa 1.1 MB/s | 516 kB     00:00    
+[MIRROR] adwaita-icon-theme-legacy-46.2-1.fc40.noarch.rpm: Status code: 404 for https://d2lzkl7pfhq30w.cloudfront.net/pub/fedora/linux/updates/40/Everything/x86_64/Packages/a/adwaita-icon-theme-legacy-46.2-1.fc40.noarch.rpm (IP: 18.160.0.87)
+[MIRROR] alsa-lib-1.2.13-3.fc40.x86_64.rpm: Status code: 404 for https://d2lzkl7pfhq30w.cloudfront.net/pub/fedora/linux/updates/40/Everything/x86_64/Packages/a/alsa-lib-1.2.13-3.fc40.x86_64.rpm (IP: 18.160.0.87)
+(171/290): alsa-lib-1.2.13-3.fc40.x86_64.rpm    2.9 MB/s | 517 kB     00:00    
+(172/290): NetworkManager-libnm-1.46.6-1.fc40.x 2.7 MB/s | 1.8 MB     00:00    
+(173/290): avif-pixbuf-loader-1.0.4-3.fc40.x86_ 413 kB/s |  17 kB     00:00    
+(174/290): bluez-libs-5.81-2.fc40.x86_64.rpm    1.8 MB/s |  83 kB     00:00    
+(175/290): cmake-filesystem-3.30.8-1.fc40.x86_6 434 kB/s |  17 kB     00:00    
+(176/290): cups-filesystem-2.4.12-2.fc40.noarch 355 kB/s |  13 kB     00:00    
+(177/290): adwaita-icon-theme-legacy-46.2-1.fc4 8.3 MB/s | 2.5 MB     00:00    
+(178/290): default-fonts-core-sans-4.0-13.fc40. 773 kB/s |  31 kB     00:00    
+(179/290): cups-libs-2.4.12-2.fc40.x86_64.rpm   3.5 MB/s | 262 kB     00:00    
+(180/290): dracut-102-2.fc40.x86_64.rpm         7.9 MB/s | 466 kB     00:00    
+(181/290): fontconfig-2.15.0-6.fc40.x86_64.rpm  6.4 MB/s | 270 kB     00:00    
+(182/290): fontconfig-devel-2.15.0-6.fc40.x86_6 2.8 MB/s | 165 kB     00:00    
+(183/290): fribidi-devel-1.0.14-2.fc40.x86_64.r 729 kB/s |  29 kB     00:00    
+(184/290): fribidi-1.0.14-2.fc40.x86_64.rpm     2.1 MB/s |  92 kB     00:00    
+(185/290): gettext-envsubst-0.22.5-4.fc40.x86_6 768 kB/s |  38 kB     00:00    
+(186/290): geoclue2-2.7.2-2.fc40.x86_64.rpm     2.0 MB/s | 164 kB     00:00    
+(187/290): gettext-libs-0.22.5-4.fc40.x86_64.rp  11 MB/s | 666 kB     00:00    
+(188/290): gettext-runtime-0.22.5-4.fc40.x86_64 2.4 MB/s | 121 kB     00:00    
+(189/290): gettext-0.22.5-4.fc40.x86_64.rpm     7.4 MB/s | 1.1 MB     00:00    
+(190/290): giflib-5.2.2-6.fc40.x86_64.rpm       666 kB/s |  52 kB     00:00    
+(191/290): glib-networking-2.80.1-1.fc40.x86_64 2.3 MB/s | 201 kB     00:00    
+(192/290): gobject-introspection-1.80.1-1.fc40. 1.3 MB/s | 111 kB     00:00    
+(193/290): grub2-common-2.12-16.fc40.noarch.rpm  11 MB/s | 1.0 MB     00:00    
+(194/290): grub2-tools-minimal-2.12-16.fc40.x86 7.3 MB/s | 613 kB     00:00    
+(195/290): gsettings-desktop-schemas-46.1-1.fc4 9.7 MB/s | 755 kB     00:00    
+(196/290): gstreamer1-1.24.11-1.fc40.x86_64.rpm  12 MB/s | 1.6 MB     00:00    
+(197/290): gstreamer1-plugins-base-1.24.11-1.fc  15 MB/s | 2.2 MB     00:00    
+(198/290): gtk-update-icon-cache-3.24.43-1.fc40 785 kB/s |  34 kB     00:00    
+(199/290): grub2-tools-2.12-16.fc40.x86_64.rpm  4.6 MB/s | 1.8 MB     00:00    
+(200/290): harfbuzz-8.5.0-1.fc40.x86_64.rpm     9.1 MB/s | 1.0 MB     00:00    
+(201/290): gtk3-3.24.43-1.fc40.x86_64.rpm        19 MB/s | 5.6 MB     00:00    
+(202/290): harfbuzz-devel-8.5.0-1.fc40.x86_64.r 5.7 MB/s | 446 kB     00:00    
+(203/290): harfbuzz-icu-8.5.0-1.fc40.x86_64.rpm 342 kB/s |  16 kB     00:00    
+(204/290): highway-1.2.0-2.fc40.x86_64.rpm      7.7 MB/s | 652 kB     00:00    
+(205/290): hwdata-0.394-1.fc40.noarch.rpm        20 MB/s | 1.6 MB     00:00    
+(206/290): jxl-pixbuf-loader-0.8.4-1.fc40.x86_6 712 kB/s |  60 kB     00:00    
+(207/290): libX11-1.8.10-2.fc40.x86_64.rpm       10 MB/s | 650 kB     00:00    
+(208/290): libX11-common-1.8.10-2.fc40.noarch.r 3.6 MB/s | 176 kB     00:00    
+(209/290): libX11-xcb-1.8.10-2.fc40.x86_64.rpm  310 kB/s |  12 kB     00:00    
+(210/290): libX11-devel-1.8.10-2.fc40.x86_64.rp  15 MB/s | 1.0 MB     00:00    
+(211/290): libXi-1.8.2-1.fc40.x86_64.rpm        977 kB/s |  40 kB     00:00    
+(212/290): libXi-devel-1.8.2-1.fc40.x86_64.rpm  2.0 MB/s | 116 kB     00:00    
+(213/290): libXtst-1.2.5-1.fc40.x86_64.rpm      526 kB/s |  20 kB     00:00    
+(214/290): libXtst-devel-1.2.5-1.fc40.x86_64.rp 414 kB/s |  16 kB     00:00    
+(215/290): libavif-1.0.4-3.fc40.x86_64.rpm      2.3 MB/s |  91 kB     00:00    
+(216/290): libaom-3.12.0-1.fc40.x86_64.rpm       18 MB/s | 1.8 MB     00:00    
+(217/290): libdav1d-1.5.1-1.fc40.x86_64.rpm      10 MB/s | 635 kB     00:00    
+(218/290): libdrm-2.4.123-1.fc40.x86_64.rpm     2.2 MB/s | 159 kB     00:00    
+(219/290): libgexiv2-0.14.3-1.fc40.x86_64.rpm   1.4 MB/s | 103 kB     00:00    
+(220/290): libgusb-0.4.9-1.fc40.x86_64.rpm      1.6 MB/s |  65 kB     00:00    
+(221/290): libgsf-1.14.53-2.fc40.x86_64.rpm     3.5 MB/s | 261 kB     00:00    
+(222/290): libkcapi-1.5.0-4.fc40.x86_64.rpm     1.1 MB/s |  46 kB     00:00    
+(223/290): libjxl-0.8.4-1.fc40.x86_64.rpm        17 MB/s | 1.2 MB     00:00    
+(224/290): libkcapi-hasher-1.5.0-4.fc40.x86_64. 650 kB/s |  26 kB     00:00    
+(225/290): libkcapi-hmaccalc-1.5.0-4.fc40.x86_6 235 kB/s | 9.1 kB     00:00    
+(226/290): liblc3-1.1.3-1.fc40.x86_64.rpm       1.4 MB/s | 103 kB     00:00    
+(227/290): libnotify-0.8.6-1.fc40.x86_64.rpm    727 kB/s |  52 kB     00:00    
+(228/290): libproxy-0.5.5-1.fc40.x86_64.rpm     1.1 MB/s |  48 kB     00:00    
+(229/290): librsvg2-2.57.1-7.fc40.x86_64.rpm     20 MB/s | 1.5 MB     00:00    
+(230/290): libsndfile-1.2.2-4.fc40.x86_64.rpm   2.9 MB/s | 213 kB     00:00    
+(231/290): libsoup3-3.4.5-1.fc40.x86_64.rpm     6.6 MB/s | 385 kB     00:00    
+(232/290): libtextstyle-0.22.5-4.fc40.x86_64.rp 1.8 MB/s |  88 kB     00:00    
+(233/290): gtk3-devel-3.24.43-1.fc40.x86_64.rpm 3.5 MB/s | 4.3 MB     00:01    
+(234/290): libtiff-4.6.0-5.fc40.1.x86_64.rpm    5.9 MB/s | 339 kB     00:00    
+(235/290): libtiff-devel-4.6.0-5.fc40.1.x86_64. 3.5 MB/s | 258 kB     00:00    
+(236/290): libtracker-sparql-3.7.3-1.fc40.x86_6 6.8 MB/s | 371 kB     00:00    
+(237/290): libusb1-1.0.28-2.fc40.x86_64.rpm     1.7 MB/s |  78 kB     00:00    
+(238/290): libwayland-client-1.23.0-2.fc40.x86_ 903 kB/s |  33 kB     00:00    
+(239/290): libwayland-cursor-1.23.0-2.fc40.x86_ 492 kB/s |  19 kB     00:00    
+(240/290): libwayland-egl-1.23.0-2.fc40.x86_64. 331 kB/s |  13 kB     00:00    
+(241/290): libwayland-server-1.23.0-2.fc40.x86_ 1.1 MB/s |  41 kB     00:00    
+(242/290): libwebp-devel-1.5.0-1.fc40.x86_64.rp 971 kB/s |  40 kB     00:00    
+(243/290): libxcb-1.17.0-2.fc40.x86_64.rpm      5.4 MB/s | 240 kB     00:00    
+(244/290): libwebp-1.5.0-1.fc40.x86_64.rpm      3.6 MB/s | 297 kB     00:00    
+(245/290): libxcb-devel-1.17.0-2.fc40.x86_64.rp  23 MB/s | 1.4 MB     00:00    
+(246/290): libxshmfence-1.3.2-5.fc40.x86_64.rpm 382 kB/s |  13 kB     00:00    
+(247/290): libxslt-1.1.43-1.fc40.x86_64.rpm     3.4 MB/s | 183 kB     00:00    
+(248/290): mesa-filesystem-24.1.7-1.fc40.x86_64 407 kB/s |  21 kB     00:00    
+(249/290): mesa-libEGL-24.1.7-1.fc40.x86_64.rpm 2.4 MB/s | 140 kB     00:00    
+(250/290): mesa-libGL-24.1.7-1.fc40.x86_64.rpm  3.2 MB/s | 176 kB     00:00    
+(251/290): mesa-libgbm-24.1.7-1.fc40.x86_64.rpm 1.1 MB/s |  48 kB     00:00    
+(252/290): mesa-libglapi-24.1.7-1.fc40.x86_64.r 697 kB/s |  51 kB     00:00    
+(253/290): mesa-va-drivers-24.1.7-1.fc40.x86_64  20 MB/s | 4.0 MB     00:00    
+(254/290): mpg123-libs-1.32.9-1.fc40.x86_64.rpm 5.0 MB/s | 345 kB     00:00    
+(255/290): nspr-4.36.0-6.fc40.x86_64.rpm        2.4 MB/s | 137 kB     00:00    
+(256/290): nss-3.110.0-2.fc40.x86_64.rpm        9.4 MB/s | 711 kB     00:00    
+(257/290): nss-softokn-3.110.0-2.fc40.x86_64.rp 8.1 MB/s | 414 kB     00:00    
+(258/290): nss-softokn-freebl-3.110.0-2.fc40.x8 8.2 MB/s | 333 kB     00:00    
+(259/290): nss-sysinit-3.110.0-2.fc40.x86_64.rp 530 kB/s |  19 kB     00:00    
+(260/290): mesa-dri-drivers-24.1.7-1.fc40.x86_6  29 MB/s |  26 MB     00:00    
+(261/290): nss-util-3.110.0-2.fc40.x86_64.rpm   1.2 MB/s |  89 kB     00:00    
+(262/290): openjpeg2-2.5.3-1.fc40.x86_64.rpm    5.5 MB/s | 189 kB     00:00    
+(263/290): orc-0.4.39-1.fc40.x86_64.rpm         4.2 MB/s | 223 kB     00:00    
+(264/290): osinfo-db-20250124-1.fc40.noarch.rpm  13 MB/s | 476 kB     00:00    
+(265/290): pango-1.54.0-1.fc40.x86_64.rpm       8.2 MB/s | 347 kB     00:00    
+(266/290): llvm-libs-18.1.8-4.fc40.x86_64.rpm    26 MB/s |  28 MB     00:01    
+(267/290): pango-devel-1.54.0-1.fc40.x86_64.rpm 1.6 MB/s | 160 kB     00:00    
+(268/290): pipewire-1.0.9-2.fc40.x86_64.rpm     1.6 MB/s | 120 kB     00:00    
+(269/290): pipewire-jack-audio-connection-kit-1 401 kB/s |  13 kB     00:00    
+(270/290): pipewire-jack-audio-connection-kit-l 3.5 MB/s | 132 kB     00:00    
+(271/290): pipewire-alsa-1.0.9-2.fc40.x86_64.rp 663 kB/s |  54 kB     00:00    
+(272/290): pipewire-pulseaudio-1.0.9-2.fc40.x86 4.3 MB/s | 195 kB     00:00    
+(273/290): pipewire-libs-1.0.9-2.fc40.x86_64.rp  25 MB/s | 1.8 MB     00:00    
+(274/290): pixman-devel-0.43.4-1.fc40.x86_64.rp 459 kB/s |  17 kB     00:00    
+(275/290): pixman-0.43.4-1.fc40.x86_64.rpm      5.8 MB/s | 293 kB     00:00    
+(276/290): pulseaudio-libs-16.1-8.fc40.x86_64.r  18 MB/s | 693 kB     00:00    
+(277/290): rsvg-pixbuf-loader-2.57.1-7.fc40.x86 403 kB/s |  16 kB     00:00    
+(278/290): shared-mime-info-2.3-5.fc40.x86_64.r  11 MB/s | 390 kB     00:00    
+(279/290): rav1e-libs-0.7.1-4.fc40.x86_64.rpm    13 MB/s | 1.0 MB     00:00    
+(280/290): tpm2-tools-5.7-1.fc40.x86_64.rpm      11 MB/s | 810 kB     00:00    
+(281/290): svt-av1-libs-2.3.0-1.fc40.x86_64.rpm  19 MB/s | 2.0 MB     00:00    
+(282/290): tracker-miners-3.7.4-2.fc40.x86_64.r  23 MB/s | 997 kB     00:00    
+(283/290): upower-1.90.9-1.fc40.x86_64.rpm      2.6 MB/s | 143 kB     00:00    
+(284/290): upower-libs-1.90.9-1.fc40.x86_64.rpm 929 kB/s |  57 kB     00:00    
+(285/290): wayland-devel-1.23.0-2.fc40.x86_64.r 2.1 MB/s | 153 kB     00:00    
+(286/290): wireplumber-0.5.7-1.fc40.x86_64.rpm  1.7 MB/s | 110 kB     00:00    
+(287/290): xdg-desktop-portal-1.18.4-1.fc40.x86  13 MB/s | 474 kB     00:00    
+(288/290): wireplumber-libs-0.5.7-1.fc40.x86_64 6.2 MB/s | 386 kB     00:00    
+(289/290): xorg-x11-proto-devel-2024.1-2.fc40.n 4.1 MB/s | 300 kB     00:00    
+(290/290): tracker-3.7.3-1.fc40.x86_64.rpm      1.6 MB/s | 635 kB     00:00    
+--------------------------------------------------------------------------------
+Total                                            20 MB/s | 159 MB     00:08     
+Running transaction check
+Transaction check succeeded.
+Running transaction test
+Transaction test succeeded.
+Running transaction
+  Preparing        :                                                        1/1 
+  Installing       : xorg-x11-proto-devel-2024.1-2.fc40.noarch            1/290 
+  Installing       : libpng-2:1.6.40-3.fc40.x86_64                        2/290 
+  Installing       : dbus-libs-1:1.14.10-3.fc40.x86_64                    3/290 
+  Installing       : avahi-libs-0.8-26.fc40.x86_64                        4/290 
+  Installing       : zlib-ng-compat-devel-2.1.6-2.fc40.x86_64             5/290 
+  Installing       : libjpeg-turbo-3.0.2-1.fc40.x86_64                    6/290 
+  Installing       : nspr-4.36.0-6.fc40.x86_64                            7/290 
+  Installing       : json-glib-1.8.0-3.fc40.x86_64                        8/290 
+  Installing       : libwayland-client-1.23.0-2.fc40.x86_64               9/290 
+  Installing       : libX11-xcb-1.8.10-2.fc40.x86_64                     10/290 
+  Installing       : libplist-2.3.0-4.fc40.x86_64                        11/290 
+  Installing       : libogg-2:1.3.5-8.fc40.x86_64                        12/290 
+  Installing       : libglvnd-1:1.7.0-4.fc40.x86_64                      13/290 
+  Installing       : libvorbis-1:1.3.7-10.fc40.x86_64                    14/290 
+  Installing       : nss-util-3.110.0-2.fc40.x86_64                      15/290 
+  Installing       : libpng-devel-2:1.6.40-3.fc40.x86_64                 16/290 
+  Installing       : libwebp-1.5.0-1.fc40.x86_64                         17/290 
+  Installing       : cmake-filesystem-3.30.8-1.fc40.x86_64               18/290 
+  Installing       : alsa-lib-1.2.13-3.fc40.x86_64                       19/290 
+  Installing       : libicu-74.2-1.fc40.x86_64                           20/290 
+  Installing       : fonts-filesystem-1:2.0.5-14.fc40.noarch             21/290 
+  Installing       : libimobiledevice-glue-1.0.0-3.fc40.x86_64           22/290 
+  Installing       : libwayland-cursor-1.23.0-2.fc40.x86_64              23/290 
+  Installing       : avahi-glib-0.8-26.fc40.x86_64                       24/290 
+  Installing       : shared-mime-info-2.3-5.fc40.x86_64                  25/290 
+  Running scriptlet: shared-mime-info-2.3-5.fc40.x86_64                  25/290 
+  Installing       : gdk-pixbuf2-2.42.10-8.fc40.x86_64                   26/290 
+  Installing       : libxshmfence-1.3.2-5.fc40.x86_64                    27/290 
+  Installing       : libwayland-server-1.23.0-2.fc40.x86_64              28/290 
+  Installing       : libwayland-egl-1.23.0-2.fc40.x86_64                 29/290 
+  Installing       : libusb1-1.0.28-2.fc40.x86_64                        30/290 
+  Installing       : hwdata-0.394-1.fc40.noarch                          31/290 
+  Installing       : fribidi-1.0.14-2.fc40.x86_64                        32/290 
+  Running scriptlet: xml-common-0.6.3-63.fc40.noarch                     33/290 
+  Installing       : xml-common-0.6.3-63.fc40.noarch                     33/290 
+  Installing       : polkit-libs-124-2.fc40.x86_64                       34/290 
+  Installing       : opus-1.5.1-1.fc40.x86_64                            35/290 
+  Installing       : libepoxy-1.5.10-6.fc40.x86_64                       36/290 
+  Installing       : lcms2-2.16-3.fc40.x86_64                            37/290 
+  Installing       : fuse3-libs-3.16.2-3.fc40.x86_64                     38/290 
+  Installing       : dbus-devel-1:1.14.10-3.fc40.x86_64                  39/290 
+  Installing       : fribidi-devel-1.0.14-2.fc40.x86_64                  40/290 
+  Installing       : abattis-cantarell-vf-fonts-0.301-12.fc40.noarch     41/290 
+  Installing       : libjpeg-turbo-devel-3.0.2-1.fc40.x86_64             42/290 
+  Installing       : pixman-0.43.4-1.fc40.x86_64                         43/290 
+  Installing       : pixman-devel-0.43.4-1.fc40.x86_64                   44/290 
+  Installing       : mesa-filesystem-24.1.7-1.fc40.x86_64                45/290 
+  Installing       : llvm-libs-18.1.8-4.fc40.x86_64                      46/290 
+  Installing       : libtextstyle-0.22.5-4.fc40.x86_64                   47/290 
+  Installing       : gettext-libs-0.22.5-4.fc40.x86_64                   48/290 
+  Installing       : grub2-common-1:2.12-16.fc40.noarch                  49/290 
+  Installing       : libtdb-1.4.10-1.fc40.x86_64                         50/290 
+  Installing       : libgudev-238-5.fc40.x86_64                          51/290 
+  Installing       : libffi-devel-3.4.4-7.fc40.x86_64                    52/290 
+  Installing       : libdatrie-0.2.13-9.fc40.x86_64                      53/290 
+  Installing       : libthai-0.1.29-8.fc40.x86_64                        54/290 
+  Installing       : libcloudproviders-0.3.5-3.fc40.x86_64               55/290 
+  Installing       : libXau-1.0.11-6.fc40.x86_64                         56/290 
+  Installing       : libxcb-1.17.0-2.fc40.x86_64                         57/290 
+  Installing       : graphite2-1.3.14-15.fc40.x86_64                     58/290 
+  Installing       : duktape-2.7.0-7.fc40.x86_64                         59/290 
+  Running scriptlet: polkit-124-2.fc40.x86_64                            60/290 
+  Installing       : polkit-124-2.fc40.x86_64                            60/290 
+  Running scriptlet: polkit-124-2.fc40.x86_64                            60/290 
+  Installing       : polkit-pkla-compat-0.1-28.fc40.x86_64               61/290 
+  Running scriptlet: rtkit-0.11-63.fc40.x86_64                           62/290 
+  Installing       : rtkit-0.11-63.fc40.x86_64                           62/290 
+  Running scriptlet: rtkit-0.11-63.fc40.x86_64                           62/290 
+Created symlink /etc/systemd/system/graphical.target.wants/rtkit-daemon.service → /usr/lib/systemd/system/rtkit-daemon.service.
+
+  Installing       : libproxy-0.5.5-1.fc40.x86_64                        63/290 
+  Installing       : graphite2-devel-1.3.14-15.fc40.x86_64               64/290 
+  Installing       : libXau-devel-1.0.11-6.fc40.x86_64                   65/290 
+  Installing       : libxcb-devel-1.17.0-2.fc40.x86_64                   66/290 
+  Installing       : libcloudproviders-devel-0.3.5-3.fc40.x86_64         67/290 
+  Installing       : libdatrie-devel-0.2.13-9.fc40.x86_64                68/290 
+  Installing       : libthai-devel-0.1.29-8.fc40.x86_64                  69/290 
+  Installing       : wayland-devel-1.23.0-2.fc40.x86_64                  70/290 
+  Installing       : iso-codes-4.16.0-3.fc40.noarch                      71/290 
+  Installing       : libpciaccess-0.16-12.fc40.x86_64                    72/290 
+  Installing       : libdrm-2.4.123-1.fc40.x86_64                        73/290 
+  Installing       : mesa-va-drivers-24.1.7-1.fc40.x86_64                74/290 
+  Installing       : osinfo-db-20250124-1.fc40.noarch                    75/290 
+  Installing       : libgusb-0.4.9-1.fc40.x86_64                         76/290 
+  Installing       : colord-libs-1.4.7-3.fc40.x86_64                     77/290 
+  Installing       : webp-pixbuf-loader-0.2.7-1.fc40.x86_64              78/290 
+  Installing       : gtk-update-icon-cache-3.24.43-1.fc40.x86_64         79/290 
+  Installing       : libgsf-1.14.53-2.fc40.x86_64                        80/290 
+  Installing       : libnotify-0.8.6-1.fc40.x86_64                       81/290 
+  Installing       : libusbmuxd-2.0.2^20230620git8d30a55-5.fc40.x86_6    82/290 
+  Running scriptlet: usbmuxd-1.1.1^20230720git61b99ab-2.fc40.x86_64      83/290 
+  Installing       : usbmuxd-1.1.1^20230720git61b99ab-2.fc40.x86_64      83/290 
+  Running scriptlet: usbmuxd-1.1.1^20230720git61b99ab-2.fc40.x86_64      83/290 
+  Installing       : libimobiledevice-1.3.0^20230705git6fc41f5-4.fc40    84/290 
+  Installing       : adobe-source-code-pro-fonts-2.042.1.062.1.026-4.    85/290 
+  Installing       : gsettings-desktop-schemas-46.1-1.fc40.x86_64        86/290 
+  Installing       : glib-networking-2.80.1-1.fc40.x86_64                87/290 
+  Installing       : libsoup3-3.4.5-1.fc40.x86_64                        88/290 
+  Installing       : osinfo-db-tools-1.11.0-5.fc40.x86_64                89/290 
+  Installing       : libsoup-2.74.3-6.fc40.x86_64                        90/290 
+  Installing       : libgrss-0.7.0-19.fc40.x86_64                        91/290 
+  Installing       : libicu-devel-74.2-1.fc40.x86_64                     92/290 
+  Installing       : libwebp-devel-1.5.0-1.fc40.x86_64                   93/290 
+  Installing       : nss-softokn-freebl-3.110.0-2.fc40.x86_64            94/290 
+  Installing       : nss-softokn-3.110.0-2.fc40.x86_64                   95/290 
+  Installing       : libglvnd-opengl-1:1.7.0-4.fc40.x86_64               96/290 
+  Installing       : flac-libs-1.4.3-4.fc40.x86_64                       97/290 
+  Installing       : libtheora-1:1.1.1-36.fc40.x86_64                    98/290 
+  Installing       : exiv2-libs-0.27.6-7.fc40.x86_64                     99/290 
+  Installing       : exiv2-0.27.6-7.fc40.x86_64                         100/290 
+  Installing       : libgexiv2-0.14.3-1.fc40.x86_64                     101/290 
+  Installing       : rav1e-libs-0.7.1-4.fc40.x86_64                     102/290 
+  Installing       : orc-0.4.39-1.fc40.x86_64                           103/290 
+  Installing       : openjpeg2-2.5.3-1.fc40.x86_64                      104/290 
+  Installing       : mpg123-libs-1.32.9-1.fc40.x86_64                   105/290 
+  Installing       : libxslt-1.1.43-1.fc40.x86_64                       106/290 
+  Installing       : libosinfo-1.11.0-5.fc40.x86_64                     107/290 
+  Installing       : liblc3-1.1.3-1.fc40.x86_64                         108/290 
+  Installing       : libkcapi-1.5.0-4.fc40.x86_64                       109/290 
+  Installing       : libkcapi-hasher-1.5.0-4.fc40.x86_64                110/290 
+  Installing       : libkcapi-hmaccalc-1.5.0-4.fc40.x86_64              111/290 
+  Installing       : libdav1d-1.5.1-1.fc40.x86_64                       112/290 
+  Installing       : libX11-common-1.8.10-2.fc40.noarch                 113/290 
+  Installing       : libX11-1.8.10-2.fc40.x86_64                        114/290 
+  Installing       : libX11-devel-1.8.10-2.fc40.x86_64                  115/290 
+  Installing       : libXext-1.3.6-1.fc40.x86_64                        116/290 
+  Installing       : libXext-devel-1.3.6-1.fc40.x86_64                  117/290 
+  Installing       : libXrender-0.9.11-6.fc40.x86_64                    118/290 
+  Installing       : libXrender-devel-0.9.11-6.fc40.x86_64              119/290 
+  Installing       : libXi-1.8.2-1.fc40.x86_64                          120/290 
+  Installing       : libXfixes-6.0.1-3.fc40.x86_64                      121/290 
+  Installing       : libXfixes-devel-6.0.1-3.fc40.x86_64                122/290 
+  Installing       : libXi-devel-1.8.2-1.fc40.x86_64                    123/290 
+  Installing       : libXcursor-1.2.1-7.fc40.x86_64                     124/290 
+  Installing       : libXdamage-1.1.6-3.fc40.x86_64                     125/290 
+  Installing       : libXtst-1.2.5-1.fc40.x86_64                        126/290 
+  Installing       : libXrandr-1.5.4-3.fc40.x86_64                      127/290 
+  Installing       : libXinerama-1.1.5-6.fc40.x86_64                    128/290 
+  Installing       : libXcomposite-0.4.6-3.fc40.x86_64                  129/290 
+  Installing       : libXcomposite-devel-0.4.6-3.fc40.x86_64            130/290 
+  Installing       : libXinerama-devel-1.1.5-6.fc40.x86_64              131/290 
+  Installing       : libXrandr-devel-1.5.4-3.fc40.x86_64                132/290 
+  Installing       : libXtst-devel-1.2.5-1.fc40.x86_64                  133/290 
+  Installing       : libXdamage-devel-1.1.6-3.fc40.x86_64               134/290 
+  Installing       : libXcursor-devel-1.2.1-7.fc40.x86_64               135/290 
+  Installing       : libXv-1.0.12-3.fc40.x86_64                         136/290 
+  Installing       : libXxf86vm-1.1.5-6.fc40.x86_64                     137/290 
+  Installing       : xprop-1.2.7-1.fc40.x86_64                          138/290 
+  Installing       : at-spi2-core-2.52.0-1.fc40.x86_64                  139/290 
+  Installing       : atk-2.52.0-1.fc40.x86_64                           140/290 
+  Installing       : at-spi2-atk-2.52.0-1.fc40.x86_64                   141/290 
+  Installing       : highway-1.2.0-2.fc40.x86_64                        142/290 
+  Installing       : libjxl-1:0.8.4-1.fc40.x86_64                       143/290 
+  Installing       : jxl-pixbuf-loader-1:0.8.4-1.fc40.x86_64            144/290 
+  Installing       : gobject-introspection-1.80.1-1.fc40.x86_64         145/290 
+  Installing       : upower-libs-1.90.9-1.fc40.x86_64                   146/290 
+  Installing       : upower-1.90.9-1.fc40.x86_64                        147/290 
+  Running scriptlet: upower-1.90.9-1.fc40.x86_64                        147/290 
+Created symlink /etc/systemd/system/graphical.target.wants/upower.service → /usr/lib/systemd/system/upower.service.
+
+  Installing       : giflib-5.2.2-6.fc40.x86_64                         148/290 
+  Installing       : gettext-envsubst-0.22.5-4.fc40.x86_64              149/290 
+  Installing       : gettext-runtime-0.22.5-4.fc40.x86_64               150/290 
+  Installing       : grub2-tools-minimal-1:2.12-16.fc40.x86_64          151/290 
+  Installing       : os-prober-1.81-6.fc40.x86_64                       152/290 
+  Installing       : gettext-0.22.5-4.fc40.x86_64                       153/290 
+  Installing       : cups-filesystem-1:2.4.12-2.fc40.noarch             154/290 
+  Installing       : cups-libs-1:2.4.12-2.fc40.x86_64                   155/290 
+  Installing       : bluez-libs-5.81-2.fc40.x86_64                      156/290 
+  Installing       : adwaita-icon-theme-legacy-46.2-1.fc40.noarch       157/290 
+  Installing       : adwaita-cursor-theme-46.2-2.fc40.noarch            158/290 
+  Installing       : adwaita-icon-theme-46.2-2.fc40.noarch              159/290 
+  Installing       : NetworkManager-libnm-1:1.46.6-1.fc40.x86_64        160/290 
+  Installing       : xz-devel-1:5.4.6-3.fc40.x86_64                     161/290 
+  Installing       : libxml2-devel-2.12.5-1.fc40.x86_64                 162/290 
+  Installing       : libxkbcommon-devel-1.6.0-2.fc40.x86_64             163/290 
+  Installing       : webrtc-audio-processing-1.3-1.fc40.x86_64          164/290 
+  Installing       : uchardet-0.0.8-5.fc40.x86_64                       165/290 
+  Installing       : totem-pl-parser-3.26.6-9.fc40.x86_64               166/290 
+  Installing       : tpm2-tss-fapi-4.0.1-7.fc40.x86_64                  167/290 
+  Installing       : tpm2-tools-5.7-1.fc40.x86_64                       168/290 
+  Installing       : sysprof-capture-devel-46.0-1.fc40.x86_64           169/290 
+  Installing       : sound-theme-freedesktop-0.8-21.fc40.noarch         170/290 
+  Running scriptlet: sound-theme-freedesktop-0.8-21.fc40.noarch         170/290 
+  Installing       : python3-packaging-23.2-4.fc40.noarch               171/290 
+  Installing       : procps-ng-4.0.4-3.fc40.x86_64                      172/290 
+  Installing       : poppler-data-0.4.11-7.fc40.noarch                  173/290 
+  Installing       : pigz-2.8-4.fc40.x86_64                             174/290 
+  Installing       : pcre2-utf32-10.42-2.fc40.2.x86_64                  175/290 
+  Installing       : pcre2-utf16-10.42-2.fc40.2.x86_64                  176/290 
+  Installing       : pcre2-devel-10.42-2.fc40.2.x86_64                  177/290 
+  Installing       : memstrack-0.2.5-4.fc40.x86_64                      178/290 
+  Installing       : low-memory-monitor-2.1-10.fc40.x86_64              179/290 
+  Running scriptlet: low-memory-monitor-2.1-10.fc40.x86_64              179/290 
+  Installing       : lm_sensors-libs-3.6.0-18.fc40.x86_64               180/290 
+  Installing       : mesa-libglapi-24.1.7-1.fc40.x86_64                 181/290 
+  Installing       : mesa-dri-drivers-24.1.7-1.fc40.x86_64              182/290 
+  Installing       : mesa-libgbm-24.1.7-1.fc40.x86_64                   183/290 
+  Installing       : libglvnd-egl-1:1.7.0-4.fc40.x86_64                 184/290 
+  Installing       : mesa-libEGL-24.1.7-1.fc40.x86_64                   185/290 
+  Installing       : libglvnd-gles-1:1.7.0-4.fc40.x86_64                186/290 
+  Installing       : libglvnd-glx-1:1.7.0-4.fc40.x86_64                 187/290 
+  Installing       : mesa-libGL-24.1.7-1.fc40.x86_64                    188/290 
+  Installing       : libzstd-devel-1.5.5-5.fc40.x86_64                  189/290 
+  Installing       : libvmaf-2.3.0-7.fc40.x86_64                        190/290 
+  Installing       : libaom-3.12.0-1.fc40.x86_64                        191/290 
+  Installing       : libvisual-1:0.4.1-4.fc40.x86_64                    192/290 
+  Installing       : libunwind-1.8.0-3.fc40.x86_64                      193/290 
+  Installing       : gstreamer1-1.24.11-1.fc40.x86_64                   194/290 
+  Installing       : libstemmer-2.2.0-10.fc40.x86_64                    195/290 
+  Installing       : libsepol-devel-3.6-3.fc40.x86_64                   196/290 
+  Installing       : libselinux-devel-3.6-4.fc40.x86_64                 197/290 
+  Installing       : libsbc-2.0-4.fc40.x86_64                           198/290 
+  Installing       : liblerc-4.0.0-6.fc40.x86_64                        199/290 
+  Installing       : libldac-2.0.2.3-15.fc40.x86_64                     200/290 
+  Installing       : libiptcdata-1.0.5-17.fc40.x86_64                   201/290 
+  Installing       : libglvnd-core-devel-1:1.7.0-4.fc40.x86_64          202/290 
+  Installing       : libglvnd-devel-1:1.7.0-4.fc40.x86_64               203/290 
+  Installing       : libepoxy-devel-1.5.10-6.fc40.x86_64                204/290 
+  Installing       : libexif-0.6.24-7.fc40.x86_64                       205/290 
+  Installing       : libcue-2.3.0-3.fc40.x86_64                         206/290 
+  Installing       : libblkid-devel-2.40-0.9.rc1.fc40.x86_64            207/290 
+  Installing       : libmount-devel-2.40-0.9.rc1.fc40.x86_64            208/290 
+  Installing       : glib2-devel-2.80.0-1.fc40.x86_64                   209/290 
+  Installing       : atk-devel-2.52.0-1.fc40.x86_64                     210/290 
+  Installing       : at-spi2-core-devel-2.52.0-1.fc40.x86_64            211/290 
+  Installing       : at-spi2-atk-devel-2.52.0-1.fc40.x86_64             212/290 
+  Installing       : libasyncns-0.8-28.fc40.x86_64                      213/290 
+  Installing       : lame-libs-3.100-17.fc40.x86_64                     214/290 
+  Installing       : kpartx-0.9.7-7.fc40.x86_64                         215/290 
+  Installing       : jbigkit-libs-2.1-29.fc40.x86_64                    216/290 
+  Installing       : libtiff-4.6.0-5.fc40.1.x86_64                      217/290 
+  Installing       : libtiff-devel-4.6.0-5.fc40.1.x86_64                218/290 
+  Installing       : gdk-pixbuf2-devel-2.42.10-8.fc40.x86_64            219/290 
+  Installing       : hicolor-icon-theme-0.17-18.fc40.noarch             220/290 
+  Installing       : gsm-1.0.22-6.fc40.x86_64                           221/290 
+  Installing       : libsndfile-1.2.2-4.fc40.x86_64                     222/290 
+  Installing       : pulseaudio-libs-16.1-8.fc40.x86_64                 223/290 
+  Installing       : libcanberra-0.30-35.fc40.x86_64                    224/290 
+  Running scriptlet: libcanberra-0.30-35.fc40.x86_64                    224/290 
+  Installing       : graphene-1.10.6-8.fc40.x86_64                      225/290 
+  Installing       : gpgmepp-1.23.2-3.fc40.x86_64                       226/290 
+  Installing       : google-noto-fonts-common-20240301-2.fc40.noarch    227/290 
+  Installing       : google-noto-sans-vf-fonts-20240301-2.fc40.noarch   228/290 
+  Installing       : default-fonts-core-sans-4.0-13.fc40.noarch         229/290 
+  Installing       : cairo-1.18.0-3.fc40.x86_64                         230/290 
+  Installing       : harfbuzz-8.5.0-1.fc40.x86_64                       231/290 
+  Installing       : freetype-2.13.2-5.fc40.x86_64                      232/290 
+  Installing       : fontconfig-2.15.0-6.fc40.x86_64                    233/290 
+  Running scriptlet: fontconfig-2.15.0-6.fc40.x86_64                    233/290 
+  Installing       : cairo-gobject-1.18.0-3.fc40.x86_64                 234/290 
+  Installing       : libXft-2.3.8-6.fc40.x86_64                         235/290 
+  Installing       : pango-1.54.0-1.fc40.x86_64                         236/290 
+  Installing       : librsvg2-2.57.1-7.fc40.x86_64                      237/290 
+  Installing       : rsvg-pixbuf-loader-2.57.1-7.fc40.x86_64            238/290 
+  Installing       : libgxps-0.3.2-8.fc40.x86_64                        239/290 
+  Installing       : harfbuzz-icu-8.5.0-1.fc40.x86_64                   240/290 
+  Installing       : fuse-common-3.16.2-3.fc40.x86_64                   241/290 
+  Installing       : fuse3-3.16.2-3.fc40.x86_64                         242/290 
+  Installing       : file-5.45-4.fc40.x86_64                            243/290 
+  Installing       : fdk-aac-free-2.0.0-13.fc40.x86_64                  244/290 
+  Running scriptlet: pipewire-1.0.9-2.fc40.x86_64                       245/290 
+  Installing       : pipewire-1.0.9-2.fc40.x86_64                       245/290 
+  Running scriptlet: pipewire-1.0.9-2.fc40.x86_64                       245/290 
+Created symlink /etc/systemd/user/sockets.target.wants/pipewire.socket → /usr/lib/systemd/user/pipewire.socket.
+
+  Installing       : pipewire-libs-1.0.9-2.fc40.x86_64                  246/290 
+  Installing       : wireplumber-0.5.7-1.fc40.x86_64                    247/290 
+  Installing       : wireplumber-libs-0.5.7-1.fc40.x86_64               248/290 
+  Installing       : pipewire-jack-audio-connection-kit-libs-1.0.9-2.   249/290 
+  Installing       : exempi-2.6.4-5.fc40.x86_64                         250/290 
+  Installing       : dconf-0.40.0-12.fc40.x86_64                        251/290 
+  Running scriptlet: dconf-0.40.0-12.fc40.x86_64                        251/290 
+  Installing       : cpuinfo-23.2.14-3.giteb4a667.fc40.2.x86_64         252/290 
+  Installing       : svt-av1-libs-2.3.0-1.fc40.x86_64                   253/290 
+  Installing       : libavif-1.0.4-3.fc40.x86_64                        254/290 
+  Installing       : avif-pixbuf-loader-1.0.4-3.fc40.x86_64             255/290 
+  Installing       : gdk-pixbuf2-modules-2.42.10-8.fc40.x86_64          256/290 
+  Installing       : cpio-2.15-1.fc40.x86_64                            257/290 
+  Installing       : dracut-102-2.fc40.x86_64                           258/290 
+  Running scriptlet: grub2-tools-1:2.12-16.fc40.x86_64                  259/290 
+  Installing       : grub2-tools-1:2.12-16.fc40.x86_64                  259/290 
+  Running scriptlet: grub2-tools-1:2.12-16.fc40.x86_64                  259/290 
+Created symlink /etc/systemd/user/timers.target.wants/grub-boot-success.timer → /usr/lib/systemd/user/grub-boot-success.timer.
+
+  Installing       : grubby-8.40-75.fc40.x86_64                         260/290 
+  Running scriptlet: grubby-8.40-75.fc40.x86_64                         260/290 
+  Installing       : crypto-policies-scripts-20240201-2.git9f501f3.fc   261/290 
+  Installing       : nss-sysinit-3.110.0-2.fc40.x86_64                  262/290 
+  Installing       : nss-3.110.0-2.fc40.x86_64                          263/290 
+  Running scriptlet: nss-3.110.0-2.fc40.x86_64                          263/290 
+  Installing       : poppler-24.02.0-2.fc40.x86_64                      264/290 
+  Installing       : poppler-glib-24.02.0-2.fc40.x86_64                 265/290 
+  Installing       : cdparanoia-libs-10.2-44.fc40.x86_64                266/290 
+  Installing       : gstreamer1-plugins-base-1.24.11-1.fc40.x86_64      267/290 
+  Installing       : tracker-3.7.3-1.fc40.x86_64                        268/290 
+  Running scriptlet: tracker-3.7.3-1.fc40.x86_64                        268/290 
+  Installing       : libtracker-sparql-3.7.3-1.fc40.x86_64              269/290 
+  Installing       : tracker-miners-3.7.4-2.fc40.x86_64                 270/290 
+  Running scriptlet: tracker-miners-3.7.4-2.fc40.x86_64                 270/290 
+  Installing       : bzip2-devel-1.0.8-18.fc40.x86_64                   271/290 
+  Installing       : brotli-1.1.0-3.fc40.x86_64                         272/290 
+  Installing       : brotli-devel-1.1.0-3.fc40.x86_64                   273/290 
+  Installing       : freetype-devel-2.13.2-5.fc40.x86_64                274/290 
+  Installing       : fontconfig-devel-2.15.0-6.fc40.x86_64              275/290 
+  Installing       : cairo-devel-1.18.0-3.fc40.x86_64                   276/290 
+  Installing       : harfbuzz-devel-8.5.0-1.fc40.x86_64                 277/290 
+  Installing       : cairo-gobject-devel-1.18.0-3.fc40.x86_64           278/290 
+  Installing       : libXft-devel-2.3.8-6.fc40.x86_64                   279/290 
+  Installing       : pango-devel-1.54.0-1.fc40.x86_64                   280/290 
+  Installing       : ModemManager-glib-1.22.0-3.fc40.x86_64             281/290 
+  Running scriptlet: geoclue2-2.7.2-2.fc40.x86_64                       282/290 
+  Installing       : geoclue2-2.7.2-2.fc40.x86_64                       282/290 
+  Running scriptlet: geoclue2-2.7.2-2.fc40.x86_64                       282/290 
+  Installing       : xdg-desktop-portal-1.18.4-1.fc40.x86_64            283/290 
+  Running scriptlet: xdg-desktop-portal-1.18.4-1.fc40.x86_64            283/290 
+  Installing       : libcanberra-gtk3-0.30-35.fc40.x86_64               284/290 
+  Installing       : gtk3-3.24.43-1.fc40.x86_64                         285/290 
+  Installing       : xdg-desktop-portal-gtk-1.15.1-5.fc40.x86_64        286/290 
+  Running scriptlet: xdg-desktop-portal-gtk-1.15.1-5.fc40.x86_64        286/290 
+  Installing       : gtk3-devel-3.24.43-1.fc40.x86_64                   287/290 
+  Installing       : pipewire-jack-audio-connection-kit-1.0.9-2.fc40.   288/290 
+  Installing       : pipewire-alsa-1.0.9-2.fc40.x86_64                  289/290 
+  Installing       : pipewire-pulseaudio-1.0.9-2.fc40.x86_64            290/290 
+  Running scriptlet: pipewire-pulseaudio-1.0.9-2.fc40.x86_64            290/290 
+Created symlink /etc/systemd/user/sockets.target.wants/pipewire-pulse.socket → /usr/lib/systemd/user/pipewire-pulse.socket.
+
+  Running scriptlet: grub2-common-1:2.12-16.fc40.noarch                 290/290 
+  Running scriptlet: fontconfig-2.15.0-6.fc40.x86_64                    290/290 
+  Running scriptlet: wireplumber-0.5.7-1.fc40.x86_64                    290/290 
+Created symlink /etc/systemd/user/pipewire-session-manager.service → /usr/lib/systemd/user/wireplumber.service.
+Created symlink /etc/systemd/user/pipewire.service.wants/wireplumber.service → /usr/lib/systemd/user/wireplumber.service.
+
+  Running scriptlet: dconf-0.40.0-12.fc40.x86_64                        290/290 
+  Running scriptlet: crypto-policies-scripts-20240201-2.git9f501f3.fc   290/290 
+  Running scriptlet: nss-3.110.0-2.fc40.x86_64                          290/290 
+  Running scriptlet: pipewire-pulseaudio-1.0.9-2.fc40.x86_64            290/290 
+
+Installed:
+  ModemManager-glib-1.22.0-3.fc40.x86_64                                        
+  NetworkManager-libnm-1:1.46.6-1.fc40.x86_64                                   
+  abattis-cantarell-vf-fonts-0.301-12.fc40.noarch                               
+  adobe-source-code-pro-fonts-2.042.1.062.1.026-4.fc40.noarch                   
+  adwaita-cursor-theme-46.2-2.fc40.noarch                                       
+  adwaita-icon-theme-46.2-2.fc40.noarch                                         
+  adwaita-icon-theme-legacy-46.2-1.fc40.noarch                                  
+  alsa-lib-1.2.13-3.fc40.x86_64                                                 
+  at-spi2-atk-2.52.0-1.fc40.x86_64                                              
+  at-spi2-atk-devel-2.52.0-1.fc40.x86_64                                        
+  at-spi2-core-2.52.0-1.fc40.x86_64                                             
+  at-spi2-core-devel-2.52.0-1.fc40.x86_64                                       
+  atk-2.52.0-1.fc40.x86_64                                                      
+  atk-devel-2.52.0-1.fc40.x86_64                                                
+  avahi-glib-0.8-26.fc40.x86_64                                                 
+  avahi-libs-0.8-26.fc40.x86_64                                                 
+  avif-pixbuf-loader-1.0.4-3.fc40.x86_64                                        
+  bluez-libs-5.81-2.fc40.x86_64                                                 
+  brotli-1.1.0-3.fc40.x86_64                                                    
+  brotli-devel-1.1.0-3.fc40.x86_64                                              
+  bzip2-devel-1.0.8-18.fc40.x86_64                                              
+  cairo-1.18.0-3.fc40.x86_64                                                    
+  cairo-devel-1.18.0-3.fc40.x86_64                                              
+  cairo-gobject-1.18.0-3.fc40.x86_64                                            
+  cairo-gobject-devel-1.18.0-3.fc40.x86_64                                      
+  cdparanoia-libs-10.2-44.fc40.x86_64                                           
+  cmake-filesystem-3.30.8-1.fc40.x86_64                                         
+  colord-libs-1.4.7-3.fc40.x86_64                                               
+  cpio-2.15-1.fc40.x86_64                                                       
+  cpuinfo-23.2.14-3.giteb4a667.fc40.2.x86_64                                    
+  crypto-policies-scripts-20240201-2.git9f501f3.fc40.noarch                     
+  cups-filesystem-1:2.4.12-2.fc40.noarch                                        
+  cups-libs-1:2.4.12-2.fc40.x86_64                                              
+  dbus-devel-1:1.14.10-3.fc40.x86_64                                            
+  dbus-libs-1:1.14.10-3.fc40.x86_64                                             
+  dconf-0.40.0-12.fc40.x86_64                                                   
+  default-fonts-core-sans-4.0-13.fc40.noarch                                    
+  dracut-102-2.fc40.x86_64                                                      
+  duktape-2.7.0-7.fc40.x86_64                                                   
+  exempi-2.6.4-5.fc40.x86_64                                                    
+  exiv2-0.27.6-7.fc40.x86_64                                                    
+  exiv2-libs-0.27.6-7.fc40.x86_64                                               
+  fdk-aac-free-2.0.0-13.fc40.x86_64                                             
+  file-5.45-4.fc40.x86_64                                                       
+  flac-libs-1.4.3-4.fc40.x86_64                                                 
+  fontconfig-2.15.0-6.fc40.x86_64                                               
+  fontconfig-devel-2.15.0-6.fc40.x86_64                                         
+  fonts-filesystem-1:2.0.5-14.fc40.noarch                                       
+  freetype-2.13.2-5.fc40.x86_64                                                 
+  freetype-devel-2.13.2-5.fc40.x86_64                                           
+  fribidi-1.0.14-2.fc40.x86_64                                                  
+  fribidi-devel-1.0.14-2.fc40.x86_64                                            
+  fuse-common-3.16.2-3.fc40.x86_64                                              
+  fuse3-3.16.2-3.fc40.x86_64                                                    
+  fuse3-libs-3.16.2-3.fc40.x86_64                                               
+  gdk-pixbuf2-2.42.10-8.fc40.x86_64                                             
+  gdk-pixbuf2-devel-2.42.10-8.fc40.x86_64                                       
+  gdk-pixbuf2-modules-2.42.10-8.fc40.x86_64                                     
+  geoclue2-2.7.2-2.fc40.x86_64                                                  
+  gettext-0.22.5-4.fc40.x86_64                                                  
+  gettext-envsubst-0.22.5-4.fc40.x86_64                                         
+  gettext-libs-0.22.5-4.fc40.x86_64                                             
+  gettext-runtime-0.22.5-4.fc40.x86_64                                          
+  giflib-5.2.2-6.fc40.x86_64                                                    
+  glib-networking-2.80.1-1.fc40.x86_64                                          
+  glib2-devel-2.80.0-1.fc40.x86_64                                              
+  gobject-introspection-1.80.1-1.fc40.x86_64                                    
+  google-noto-fonts-common-20240301-2.fc40.noarch                               
+  google-noto-sans-vf-fonts-20240301-2.fc40.noarch                              
+  gpgmepp-1.23.2-3.fc40.x86_64                                                  
+  graphene-1.10.6-8.fc40.x86_64                                                 
+  graphite2-1.3.14-15.fc40.x86_64                                               
+  graphite2-devel-1.3.14-15.fc40.x86_64                                         
+  grub2-common-1:2.12-16.fc40.noarch                                            
+  grub2-tools-1:2.12-16.fc40.x86_64                                             
+  grub2-tools-minimal-1:2.12-16.fc40.x86_64                                     
+  grubby-8.40-75.fc40.x86_64                                                    
+  gsettings-desktop-schemas-46.1-1.fc40.x86_64                                  
+  gsm-1.0.22-6.fc40.x86_64                                                      
+  gstreamer1-1.24.11-1.fc40.x86_64                                              
+  gstreamer1-plugins-base-1.24.11-1.fc40.x86_64                                 
+  gtk-update-icon-cache-3.24.43-1.fc40.x86_64                                   
+  gtk3-3.24.43-1.fc40.x86_64                                                    
+  gtk3-devel-3.24.43-1.fc40.x86_64                                              
+  harfbuzz-8.5.0-1.fc40.x86_64                                                  
+  harfbuzz-devel-8.5.0-1.fc40.x86_64                                            
+  harfbuzz-icu-8.5.0-1.fc40.x86_64                                              
+  hicolor-icon-theme-0.17-18.fc40.noarch                                        
+  highway-1.2.0-2.fc40.x86_64                                                   
+  hwdata-0.394-1.fc40.noarch                                                    
+  iso-codes-4.16.0-3.fc40.noarch                                                
+  jbigkit-libs-2.1-29.fc40.x86_64                                               
+  json-glib-1.8.0-3.fc40.x86_64                                                 
+  jxl-pixbuf-loader-1:0.8.4-1.fc40.x86_64                                       
+  kpartx-0.9.7-7.fc40.x86_64                                                    
+  lame-libs-3.100-17.fc40.x86_64                                                
+  lcms2-2.16-3.fc40.x86_64                                                      
+  libX11-1.8.10-2.fc40.x86_64                                                   
+  libX11-common-1.8.10-2.fc40.noarch                                            
+  libX11-devel-1.8.10-2.fc40.x86_64                                             
+  libX11-xcb-1.8.10-2.fc40.x86_64                                               
+  libXau-1.0.11-6.fc40.x86_64                                                   
+  libXau-devel-1.0.11-6.fc40.x86_64                                             
+  libXcomposite-0.4.6-3.fc40.x86_64                                             
+  libXcomposite-devel-0.4.6-3.fc40.x86_64                                       
+  libXcursor-1.2.1-7.fc40.x86_64                                                
+  libXcursor-devel-1.2.1-7.fc40.x86_64                                          
+  libXdamage-1.1.6-3.fc40.x86_64                                                
+  libXdamage-devel-1.1.6-3.fc40.x86_64                                          
+  libXext-1.3.6-1.fc40.x86_64                                                   
+  libXext-devel-1.3.6-1.fc40.x86_64                                             
+  libXfixes-6.0.1-3.fc40.x86_64                                                 
+  libXfixes-devel-6.0.1-3.fc40.x86_64                                           
+  libXft-2.3.8-6.fc40.x86_64                                                    
+  libXft-devel-2.3.8-6.fc40.x86_64                                              
+  libXi-1.8.2-1.fc40.x86_64                                                     
+  libXi-devel-1.8.2-1.fc40.x86_64                                               
+  libXinerama-1.1.5-6.fc40.x86_64                                               
+  libXinerama-devel-1.1.5-6.fc40.x86_64                                         
+  libXrandr-1.5.4-3.fc40.x86_64                                                 
+  libXrandr-devel-1.5.4-3.fc40.x86_64                                           
+  libXrender-0.9.11-6.fc40.x86_64                                               
+  libXrender-devel-0.9.11-6.fc40.x86_64                                         
+  libXtst-1.2.5-1.fc40.x86_64                                                   
+  libXtst-devel-1.2.5-1.fc40.x86_64                                             
+  libXv-1.0.12-3.fc40.x86_64                                                    
+  libXxf86vm-1.1.5-6.fc40.x86_64                                                
+  libaom-3.12.0-1.fc40.x86_64                                                   
+  libasyncns-0.8-28.fc40.x86_64                                                 
+  libavif-1.0.4-3.fc40.x86_64                                                   
+  libblkid-devel-2.40-0.9.rc1.fc40.x86_64                                       
+  libcanberra-0.30-35.fc40.x86_64                                               
+  libcanberra-gtk3-0.30-35.fc40.x86_64                                          
+  libcloudproviders-0.3.5-3.fc40.x86_64                                         
+  libcloudproviders-devel-0.3.5-3.fc40.x86_64                                   
+  libcue-2.3.0-3.fc40.x86_64                                                    
+  libdatrie-0.2.13-9.fc40.x86_64                                                
+  libdatrie-devel-0.2.13-9.fc40.x86_64                                          
+  libdav1d-1.5.1-1.fc40.x86_64                                                  
+  libdrm-2.4.123-1.fc40.x86_64                                                  
+  libepoxy-1.5.10-6.fc40.x86_64                                                 
+  libepoxy-devel-1.5.10-6.fc40.x86_64                                           
+  libexif-0.6.24-7.fc40.x86_64                                                  
+  libffi-devel-3.4.4-7.fc40.x86_64                                              
+  libgexiv2-0.14.3-1.fc40.x86_64                                                
+  libglvnd-1:1.7.0-4.fc40.x86_64                                                
+  libglvnd-core-devel-1:1.7.0-4.fc40.x86_64                                     
+  libglvnd-devel-1:1.7.0-4.fc40.x86_64                                          
+  libglvnd-egl-1:1.7.0-4.fc40.x86_64                                            
+  libglvnd-gles-1:1.7.0-4.fc40.x86_64                                           
+  libglvnd-glx-1:1.7.0-4.fc40.x86_64                                            
+  libglvnd-opengl-1:1.7.0-4.fc40.x86_64                                         
+  libgrss-0.7.0-19.fc40.x86_64                                                  
+  libgsf-1.14.53-2.fc40.x86_64                                                  
+  libgudev-238-5.fc40.x86_64                                                    
+  libgusb-0.4.9-1.fc40.x86_64                                                   
+  libgxps-0.3.2-8.fc40.x86_64                                                   
+  libicu-74.2-1.fc40.x86_64                                                     
+  libicu-devel-74.2-1.fc40.x86_64                                               
+  libimobiledevice-1.3.0^20230705git6fc41f5-4.fc40.x86_64                       
+  libimobiledevice-glue-1.0.0-3.fc40.x86_64                                     
+  libiptcdata-1.0.5-17.fc40.x86_64                                              
+  libjpeg-turbo-3.0.2-1.fc40.x86_64                                             
+  libjpeg-turbo-devel-3.0.2-1.fc40.x86_64                                       
+  libjxl-1:0.8.4-1.fc40.x86_64                                                  
+  libkcapi-1.5.0-4.fc40.x86_64                                                  
+  libkcapi-hasher-1.5.0-4.fc40.x86_64                                           
+  libkcapi-hmaccalc-1.5.0-4.fc40.x86_64                                         
+  liblc3-1.1.3-1.fc40.x86_64                                                    
+  libldac-2.0.2.3-15.fc40.x86_64                                                
+  liblerc-4.0.0-6.fc40.x86_64                                                   
+  libmount-devel-2.40-0.9.rc1.fc40.x86_64                                       
+  libnotify-0.8.6-1.fc40.x86_64                                                 
+  libogg-2:1.3.5-8.fc40.x86_64                                                  
+  libosinfo-1.11.0-5.fc40.x86_64                                                
+  libpciaccess-0.16-12.fc40.x86_64                                              
+  libplist-2.3.0-4.fc40.x86_64                                                  
+  libpng-2:1.6.40-3.fc40.x86_64                                                 
+  libpng-devel-2:1.6.40-3.fc40.x86_64                                           
+  libproxy-0.5.5-1.fc40.x86_64                                                  
+  librsvg2-2.57.1-7.fc40.x86_64                                                 
+  libsbc-2.0-4.fc40.x86_64                                                      
+  libselinux-devel-3.6-4.fc40.x86_64                                            
+  libsepol-devel-3.6-3.fc40.x86_64                                              
+  libsndfile-1.2.2-4.fc40.x86_64                                                
+  libsoup-2.74.3-6.fc40.x86_64                                                  
+  libsoup3-3.4.5-1.fc40.x86_64                                                  
+  libstemmer-2.2.0-10.fc40.x86_64                                               
+  libtdb-1.4.10-1.fc40.x86_64                                                   
+  libtextstyle-0.22.5-4.fc40.x86_64                                             
+  libthai-0.1.29-8.fc40.x86_64                                                  
+  libthai-devel-0.1.29-8.fc40.x86_64                                            
+  libtheora-1:1.1.1-36.fc40.x86_64                                              
+  libtiff-4.6.0-5.fc40.1.x86_64                                                 
+  libtiff-devel-4.6.0-5.fc40.1.x86_64                                           
+  libtracker-sparql-3.7.3-1.fc40.x86_64                                         
+  libunwind-1.8.0-3.fc40.x86_64                                                 
+  libusb1-1.0.28-2.fc40.x86_64                                                  
+  libusbmuxd-2.0.2^20230620git8d30a55-5.fc40.x86_64                             
+  libvisual-1:0.4.1-4.fc40.x86_64                                               
+  libvmaf-2.3.0-7.fc40.x86_64                                                   
+  libvorbis-1:1.3.7-10.fc40.x86_64                                              
+  libwayland-client-1.23.0-2.fc40.x86_64                                        
+  libwayland-cursor-1.23.0-2.fc40.x86_64                                        
+  libwayland-egl-1.23.0-2.fc40.x86_64                                           
+  libwayland-server-1.23.0-2.fc40.x86_64                                        
+  libwebp-1.5.0-1.fc40.x86_64                                                   
+  libwebp-devel-1.5.0-1.fc40.x86_64                                             
+  libxcb-1.17.0-2.fc40.x86_64                                                   
+  libxcb-devel-1.17.0-2.fc40.x86_64                                             
+  libxkbcommon-devel-1.6.0-2.fc40.x86_64                                        
+  libxml2-devel-2.12.5-1.fc40.x86_64                                            
+  libxshmfence-1.3.2-5.fc40.x86_64                                              
+  libxslt-1.1.43-1.fc40.x86_64                                                  
+  libzstd-devel-1.5.5-5.fc40.x86_64                                             
+  llvm-libs-18.1.8-4.fc40.x86_64                                                
+  lm_sensors-libs-3.6.0-18.fc40.x86_64                                          
+  low-memory-monitor-2.1-10.fc40.x86_64                                         
+  memstrack-0.2.5-4.fc40.x86_64                                                 
+  mesa-dri-drivers-24.1.7-1.fc40.x86_64                                         
+  mesa-filesystem-24.1.7-1.fc40.x86_64                                          
+  mesa-libEGL-24.1.7-1.fc40.x86_64                                              
+  mesa-libGL-24.1.7-1.fc40.x86_64                                               
+  mesa-libgbm-24.1.7-1.fc40.x86_64                                              
+  mesa-libglapi-24.1.7-1.fc40.x86_64                                            
+  mesa-va-drivers-24.1.7-1.fc40.x86_64                                          
+  mpg123-libs-1.32.9-1.fc40.x86_64                                              
+  nspr-4.36.0-6.fc40.x86_64                                                     
+  nss-3.110.0-2.fc40.x86_64                                                     
+  nss-softokn-3.110.0-2.fc40.x86_64                                             
+  nss-softokn-freebl-3.110.0-2.fc40.x86_64                                      
+  nss-sysinit-3.110.0-2.fc40.x86_64                                             
+  nss-util-3.110.0-2.fc40.x86_64                                                
+  openjpeg2-2.5.3-1.fc40.x86_64                                                 
+  opus-1.5.1-1.fc40.x86_64                                                      
+  orc-0.4.39-1.fc40.x86_64                                                      
+  os-prober-1.81-6.fc40.x86_64                                                  
+  osinfo-db-20250124-1.fc40.noarch                                              
+  osinfo-db-tools-1.11.0-5.fc40.x86_64                                          
+  pango-1.54.0-1.fc40.x86_64                                                    
+  pango-devel-1.54.0-1.fc40.x86_64                                              
+  pcre2-devel-10.42-2.fc40.2.x86_64                                             
+  pcre2-utf16-10.42-2.fc40.2.x86_64                                             
+  pcre2-utf32-10.42-2.fc40.2.x86_64                                             
+  pigz-2.8-4.fc40.x86_64                                                        
+  pipewire-1.0.9-2.fc40.x86_64                                                  
+  pipewire-alsa-1.0.9-2.fc40.x86_64                                             
+  pipewire-jack-audio-connection-kit-1.0.9-2.fc40.x86_64                        
+  pipewire-jack-audio-connection-kit-libs-1.0.9-2.fc40.x86_64                   
+  pipewire-libs-1.0.9-2.fc40.x86_64                                             
+  pipewire-pulseaudio-1.0.9-2.fc40.x86_64                                       
+  pixman-0.43.4-1.fc40.x86_64                                                   
+  pixman-devel-0.43.4-1.fc40.x86_64                                             
+  polkit-124-2.fc40.x86_64                                                      
+  polkit-libs-124-2.fc40.x86_64                                                 
+  polkit-pkla-compat-0.1-28.fc40.x86_64                                         
+  poppler-24.02.0-2.fc40.x86_64                                                 
+  poppler-data-0.4.11-7.fc40.noarch                                             
+  poppler-glib-24.02.0-2.fc40.x86_64                                            
+  procps-ng-4.0.4-3.fc40.x86_64                                                 
+  pulseaudio-libs-16.1-8.fc40.x86_64                                            
+  python3-packaging-23.2-4.fc40.noarch                                          
+  rav1e-libs-0.7.1-4.fc40.x86_64                                                
+  rsvg-pixbuf-loader-2.57.1-7.fc40.x86_64                                       
+  rtkit-0.11-63.fc40.x86_64                                                     
+  shared-mime-info-2.3-5.fc40.x86_64                                            
+  sound-theme-freedesktop-0.8-21.fc40.noarch                                    
+  svt-av1-libs-2.3.0-1.fc40.x86_64                                              
+  sysprof-capture-devel-46.0-1.fc40.x86_64                                      
+  totem-pl-parser-3.26.6-9.fc40.x86_64                                          
+  tpm2-tools-5.7-1.fc40.x86_64                                                  
+  tpm2-tss-fapi-4.0.1-7.fc40.x86_64                                             
+  tracker-3.7.3-1.fc40.x86_64                                                   
+  tracker-miners-3.7.4-2.fc40.x86_64                                            
+  uchardet-0.0.8-5.fc40.x86_64                                                  
+  upower-1.90.9-1.fc40.x86_64                                                   
+  upower-libs-1.90.9-1.fc40.x86_64                                              
+  usbmuxd-1.1.1^20230720git61b99ab-2.fc40.x86_64                                
+  wayland-devel-1.23.0-2.fc40.x86_64                                            
+  webp-pixbuf-loader-0.2.7-1.fc40.x86_64                                        
+  webrtc-audio-processing-1.3-1.fc40.x86_64                                     
+  wireplumber-0.5.7-1.fc40.x86_64                                               
+  wireplumber-libs-0.5.7-1.fc40.x86_64                                          
+  xdg-desktop-portal-1.18.4-1.fc40.x86_64                                       
+  xdg-desktop-portal-gtk-1.15.1-5.fc40.x86_64                                   
+  xml-common-0.6.3-63.fc40.noarch                                               
+  xorg-x11-proto-devel-2024.1-2.fc40.noarch                                     
+  xprop-1.2.7-1.fc40.x86_64                                                     
+  xz-devel-1:5.4.6-3.fc40.x86_64                                                
+  zlib-ng-compat-devel-2.1.6-2.fc40.x86_64                                      
+
+Complete!
+Note: Deploying gtkada=25.0.1...
+#=#=#                                                                          
+##O#-#                                                                         
+##=O#- #                                                                       
+# #=O#- #                                                                      
+ # #=O#-  #                                                                    
+  # #=O=#   #                                                                  
+   # #=O=#   #                                                                 
+    # -#O=-#   #                                                               
+     # -#O=- #   #                                                             
+
+aicwl=3.24.1 successfully retrieved.
+Dependencies were solved as follows:
+
+   +  gtkada     25.0.1  (new)
+   +b libgtk3    3.24.43 (new,indirect,system package)
+   +b make       4.4.1   (new,indirect,system package)
+   +b pkg_config 2.1.1   (new,indirect,executable in path)
+[alr test] Spawning default test for remote crate: alr -d -n build --release -- -cargs:Ada -gnatwn
+Note: Running post-fetch actions for gtkada=25.0.1...
+checking build system type... x86_64-pc-linux-gnu
+checking host system type... x86_64-pc-linux-gnu
+checking target system type... x86_64-pc-linux-gnu
+checking for pkg-config... /usr/bin/pkg-config
+checking pkg-config is at least version 0.9.0... yes
+checking for gcc... gcc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ISO C89... none needed
+checking for gprbuild... /root/.local/share/alire/toolchains/gprbuild_25.0.1_9a2e6cfb/bin/gprbuild
+checking for gprinstall... /root/.local/share/alire/toolchains/gprbuild_25.0.1_9a2e6cfb/bin/gprinstall
+checking that your gnat compiler works with a simple example... yes
+checking whether NLS is requested... yes
+checking for gettext in libc... yes
+checking for GTK... yes
+checking for pkg-config... (cached) /usr/bin/pkg-config
+checking pkg-config is at least version 0.16... yes
+checking for GTK+ - version >= 3.24.24... yes (version 3.24.43)
+checking for GMODULE... yes
+checking for FONTCONFIG... yes
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating gtkada_shared.gpr
+config.status: creating po/Makefile
+config.status: creating docs/gtkada_rm/html/static/index.html
+configure: --------- Summary for Gtkada 18.0w -----------------
+configure:   Shared libraries:       yes (default: static)
+configure: --------------------------------------------
+gnatprep -DGETTEXT_INTL=False -DHAVE_GETTEXT=True src/gtkada-intl.gpb src/gtkada-intl.adb
+Note: Building aicwl=3.24.1/sources/aicwl.gpr (1/2)...
+Setup
+   [mkdir]        object directory for project GtkAda
+   [mkdir]        library directory for project GtkAda
+Compile
+   [Ada]          strings_edit-utf8-iso_8859_8.adb
+   [Ada]          strings_edit-chacha20-poly1305.adb
+   [Ada]          strings_edit-utf8-windows_1252.adb
+   [Ada]          strings_edit-utf8-windows_1255.adb
+   [Ada]          strings_edit-streams-generic_integer.adb
+   [Ada]          strings_edit-utf8-macos_roman.adb
+   [Ada]          strings_edit-float_edit.adb
+strings_edit-chacha20-poly1305.adb:278:07: warning: variable "Carry" is not referenced [-gnatwu]
+   [Ada]          strings_edit-utf8-wildcards-case_insensitive.adb
+strings_edit-streams-generic_integer.adb:109:07: warning: variable "Old" is not referenced [-gnatwu]
+   [Ada]          strings_edit-utf8-categorization.adb
+strings_edit-float_edit.adb:264:18: warning: Numeric_Error is an obsolescent feature (RM J.6(1)) [-gnatwj]
+strings_edit-float_edit.adb:264:18: warning: use Constraint_Error instead [-gnatwj]
+   [Ada]          strings_edit-integers-superscript.ads
+   [Ada]          strings_edit-streams-integers_32.ads
+   [Ada]          strings_edit-utf8-handling.adb
+   [Ada]          strings_edit-chacha20.adb
+   [Ada]          strings_edit-integer_edit.adb
+   [Ada]          strings_edit-base64.adb
+   [Ada]          strings_edit-utf8-iso_8859_5.adb
+   [Ada]          strings_edit-utf8-windows_1253.adb
+   [Ada]          strings_edit-utf8-itu_t61.adb
+   [Ada]          strings_edit-streams-integers_64.ads
+strings_edit-chacha20.adb:281:07: warning: renamed variable "Count" is not referenced [-gnatwu]
+strings_edit-chacha20.adb:305:07: warning: renamed variable "Count" is not referenced [-gnatwu]
+strings_edit-chacha20.adb:333:07: warning: renamed variable "Count" is not referenced [-gnatwu]
+strings_edit-chacha20.adb:361:07: warning: renamed variable "Count" is not referenced [-gnatwu]
+strings_edit-chacha20.adb:389:07: warning: renamed variable "Count" is not referenced [-gnatwu]
+strings_edit-chacha20.adb:405:07: warning: renamed variable "Count" is not referenced [-gnatwu]
+   [Ada]          strings_edit-utf8-koi8.adb
+   [Ada]          strings_edit-object_identifiers.adb
+   [Ada]          strings_edit-utf8-windows_1257.adb
+   [Ada]          strings_edit-streams-unsigneds_64.ads
+   [Ada]          strings_edit-utf8-recoding_streams.adb
+   [Ada]          strings_edit-utf8-windows_1256.adb
+strings_edit-object_identifiers.adb:29:06: warning: unnecessary with of ancestor [-gnatwr]
+   [Ada]          strings_edit-fields.adb
+   [Ada]          strings_edit-utf8-iso_8859_10.adb
+   [Ada]          strings_edit-utf8-integer_edit.adb
+   [Ada]          strings_edit-generic_scale.adb
+   [Ada]          strings_edit-utf8-iso_8859_2.adb
+   [Ada]          strings_edit-integers.ads
+   [Ada]          strings_edit-distinguished_names.adb
+   [Ada]          strings_edit-utf8-maps.adb
+   [Ada]          strings_edit-utf8-radix50.adb
+   [Ada]          strings_edit-chacha20-aead.adb
+   [Ada]          strings_edit-utf8-windows_1254.adb
+   [Ada]          strings_edit-lexicographical_order.adb
+   [Ada]          strings_edit-utf8-windows_1251.adb
+   [Ada]          strings_edit-utf8-blocks.ads
+   [Ada]          strings_edit-long_floats.ads
+   [Ada]          strings_edit-integers-subscript.ads
+   [Ada]          strings_edit-streams-integers.ads
+   [Ada]          strings_edit-utf8-superscript-integer_edit.ads
+   [Ada]          strings_edit-utf8-windows_1258.adb
+strings_edit-distinguished_names.adb:31:06: warning: unnecessary with of ancestor [-gnatwr]
+   [Ada]          strings_edit-roman_edit.adb
+   [Ada]          strings_edit-quoted.adb
+   [Ada]          strings_edit-utf8-iso_8859_7.adb
+   [Ada]          strings_edit-utf8-superscript.adb
+   [Ada]          strings_edit-utf8-iso_8859_3.adb
+   [Ada]          strings_edit-utf8.adb
+   [Ada]          strings_edit-utf8-maps-constants.ads
+   [Ada]          strings_edit-streams.adb
+   [Ada]          strings_edit-utf8-subscript-integer_edit.ads
+   [Ada]          strings_edit-utf8-iso_8859_6.adb
+   [Ada]          strings_edit-streams-naturals.ads
+   [Ada]          strings_edit-floats.ads
+   [Ada]          strings_edit-streams-generic_modular.adb
+   [Ada]          strings_edit.adb
+   [Ada]          strings_edit-streams-unsigneds_32.ads
+   [Ada]          strings_edit-utf8-subscript.adb
+   [Ada]          strings_edit-utf8-iso_8859_4.adb
+   [Ada]          strings_edit-utf8-windows_1250.adb
+   [Ada]          strings_edit-utf8-iso_8859_9.adb
+   [Ada]          strings_edit-utf8-wildcards.adb
+   [Ada]          strings_edit-utf8-mapping.adb
+   [Ada]          strings_edit-iso_8601.adb
+   [Ada]          strings_edit-streams-generic_unsigned.adb
+   [Ada]          rsvg-handle.adb
+   [Ada]          rsvg.ads
+   [Ada]          glib-messages.adb
+   [Ada]          gtkada-intl.adb
+   [Ada]          gtkada-canvas.adb
+   [Ada]          glib-unicode.adb
+   [Ada]          cairo.adb
+   [Ada]          gdk-pixbuf.adb
+   [Ada]          gtk.ads
+   [Ada]          gdk-rectangle.adb
+   [Ada]          gtkada-file_selection.adb
+   [Ada]          gtkada-stock_labels.ads
+   [Ada]          gtkada.ads
+   [Ada]          gtkada-style.adb
+   [Ada]          glib-key_file.adb
+   [Ada]          gdk-threads.ads
+   [Ada]          gtkada-canvas_view-views.adb
+   [Ada]          glib-xml.adb
+   [Ada]          glib-xml_int.ads
+   [Ada]          gtkada-bindings.adb
+   [Ada]          gtkada-canvas_view-models.adb
+   [Ada]          cairo-font_options.adb
+   [Ada]          gdk-display_manager.adb
+   [Ada]          gtkada-canvas_view-models-layers.adb
+   [Ada]          glib-gnodes.adb
+   [Ada]          cairo-svg.adb
+   [Ada]          gtkada-types.adb
+   [Ada]          cairo-font_face.ads
+   [Ada]          gtk-text_child.adb
+   [Ada]          glib-graphs.adb
+   [Ada]          glib-values.adb
+   [Ada]          fontconfig.adb
+   [Ada]          pango.ads
+   [Ada]          gtkada-abstract_tree_model.adb
+   [Ada]          gtkada-application.adb
+   [Ada]          gtk-marshallers.adb
+   [Ada]          gtkada-abstract_list_model.adb
+   [Ada]          gtk-tree_model-utils.adb
+   [Ada]          gdk-input.ads
+   [Ada]          gtkada-multi_paned.adb
+   [Ada]          glib-gslist.adb
+   [Ada]          gtk-rc.adb
+   [Ada]          pango-cairo.adb
+   [Ada]          glib-main.adb
+   [Ada]          gdk-types.ads
+   [Ada]          gdk-keyval.adb
+   [Ada]          glib-types.adb
+   [Ada]          gdk-property.adb
+   [Ada]          gtkada-printing.adb
+   [Ada]          glib-type_conversion_hooks.adb
+   [Ada]          cairo-scaled_font.ads
+   [Ada]          gtk-bindings.adb
+   [Ada]          gtkada-multiline_entry.adb
+   [Ada]          cairo-png.adb
+   [Ada]          gtkada-handlers.ads
+   [Ada]          glib-glist.adb
+   [Ada]          cairo-region.adb
+   [Ada]          glib-convert.adb
+   [Ada]          cairo-image_surface.adb
+   [Ada]          gtk-handlers.adb
+   [Ada]          gtkada-canvas_view-rtrees.adb
+   [Ada]          glib-generic_properties.adb
+   [Ada]          glib-properties.adb
+   [Ada]          gtkada-c.adb
+   [Ada]          gdk.ads
+   [Ada]          gtkada-canvas_view-links.adb
+   [Ada]          gtkada-canvas_view-objects.adb
+   [Ada]          gtk-type_conversion.adb
+   [Ada]          gtkada-canvas_view.adb
+   [Ada]          gdk-dnd.adb
+   [Ada]          gtkada-canvas_view-astar.adb
+   [Ada]          glib-graphs-layouts.adb
+   [Ada]          glib-module.adb
+   [Ada]          gtk-arguments.adb
+   [Ada]          gdk-window_attr.adb
+   [Ada]          gdk-cairo.adb
+   [Ada]          gdk-main.adb
+   [Ada]          glib.adb
+   [Ada]          cairo-pattern.ads
+   [Ada]          gdk-visual.adb
+   [Ada]          cairo-surface.adb
+   [Ada]          gtkada-builder.adb
+   [Ada]          gtk-dnd.adb
+   [Ada]          gtkada-mdi.adb
+   [Ada]          gtkada-pixmaps.ads
+   [Ada]          glib-object.adb
+   [Ada]          cairo-matrix.ads
+   [Ada]          glib-error.adb
+   [Ada]          gdk-color.adb
+   [Ada]          glib-properties-creation.adb
+   [Ada]          gdk-types-keysyms.ads
+   [Ada]          cairo-pdf.adb
+   [Ada]          glib-enums.ads
+   [Ada]          gtkada-stock_icons.ads
+   [Ada]          gtkada-dialogs.adb
+   [Ada]          gtk-tree_view.adb
+   [Ada]          gtk-editable.adb
+   [Ada]          gtk-im_multi_context.adb
+   [Ada]          pango-matrix.adb
+   [Ada]          gtk-cell_renderer_pixbuf.adb
+   [Ada]          gtk-text_child_anchor.adb
+   [Ada]          gtk-font_selection_dialog.adb
+   [Ada]          gdk-glcontext.adb
+   [Ada]          glib-list_model.adb
+   [Ada]          gtk-cell_renderer_text.adb
+   [Ada]          gtk-recent_manager.adb
+   [Ada]          glib-cancellable.adb
+   [Ada]          gtk-offscreen_window.adb
+   [Ada]          gtk-glarea.adb
+   [Ada]          gtk-print_operation.adb
+   [Ada]          gtk-button.adb
+   [Ada]          glib-menu.adb
+   [Ada]          pango-font_face.adb
+   [Ada]          gtk-text_view.adb
+   [Ada]          gtk-recent_chooser_dialog.adb
+   [Ada]          gtk-gesture_zoom.adb
+   [Ada]          gdk-screen.adb
+   [Ada]          gtk-radio_menu_item.adb
+   [Ada]          gtk-list_box_row.adb
+   [Ada]          gtk-gesture_long_press.adb
+   [Ada]          gtk-label.adb
+   [Ada]          gtk-action.adb
+   [Ada]          gtk-entry_completion.adb
+   [Ada]          gtk-scrollable.adb
+   [Ada]          gtk-menu_bar.adb
+   [Ada]          gdk-device_manager.adb
+   [Ada]          gtk-accel_group.adb
+   [Ada]          pango-attributes.adb
+   [Ada]          gtk-style.adb
+   [Ada]          gtk-tree_model_sort.adb
+   [Ada]          gtk-gesture_pan.adb
+   [Ada]          gtk-paned.adb
+   [Ada]          gtk-recent_chooser_menu.adb
+   [Ada]          gtk-box.adb
+   [Ada]          gtk-overlay.adb
+   [Ada]          gtk-frame.adb
+   [Ada]          gtk-style_context.adb
+   [Ada]          gtk-cell_renderer_toggle.adb
+   [Ada]          gtk-color_chooser_dialog.adb
+   [Ada]          gtk-level_bar.adb
+   [Ada]          gtk-tooltip.adb
+   [Ada]          gtk-hbutton_box.adb
+   [Ada]          gdk-frame_timings.adb
+   [Ada]          gtk-scrollbar.adb
+   [Ada]          gtk-paper_size.adb
+   [Ada]          gtk-container.adb
+   [Ada]          gtk-hsv.adb
+   [Ada]          gtk-widget.adb
+   [Ada]          pango-font_family.adb
+   [Ada]          gtk-action_group.adb
+   [Ada]          gtk-text_iter.adb
+   [Ada]          gtk-tool_button.adb
+   [Ada]          gtk-menu_button.adb
+   [Ada]          gtk-tool_palette.adb
+   [Ada]          gdk-event.adb
+   [Ada]          gtk-layout.adb
+   [Ada]          gtk-revealer.adb
+   [Ada]          gtk-stack.adb
+   [Ada]          gtk-dialog.adb
+   [Ada]          gtk-vbutton_box.adb
+   [Ada]          gtk-table.adb
+   [Ada]          gtk-arrow.adb
+   [Ada]          gtk-accel_label.adb
+   [Ada]          gdk-window.adb
+   [Ada]          gtk-status_icon.adb
+   [Ada]          gtk-tool_shell.adb
+   [Ada]          glib-iochannel.adb
+   [Ada]          gtk-color_button.adb
+   [Ada]          gtk-info_bar.adb
+   [Ada]          glib-variant.adb
+   [Ada]          glib-application.adb
+   [Ada]          pango-enums.adb
+   [Ada]          gtk-activatable.adb
+   [Ada]          gtk-popover.adb
+   [Ada]          gtk-recent_chooser.adb
+   [Ada]          gtk-tree_model_filter.adb
+   [Ada]          gtk-cell_view.adb
+   [Ada]          gtk-event_box.adb
+   [Ada]          gtk-style_properties.adb
+   [Ada]          gtk-font_chooser_dialog.adb
+   [Ada]          gtk-window.adb
+   [Ada]          gtk-settings.adb
+   [Ada]          gtk-toolbar.adb
+   [Ada]          gtk-spinner.adb
+   [Ada]          gtk-style_provider.adb
+   [Ada]          gtk-grid.adb
+   [Ada]          gtk-css_section.adb
+   [Ada]          gtk-radio_action.adb
+   [Ada]          gtk-size_group.adb
+   [Ada]          gtk-assistant.adb
+   [Ada]          gtk-stack_switcher.adb
+   [Ada]          pango-font.adb
+   [Ada]          gtk-cell_renderer_spinner.adb
+   [Ada]          gtk-color_chooser.adb
+   [Ada]          gtk-recent_info.adb
+   [Ada]          gtk-main.adb
+   [Ada]          gtk-toggle_button.adb
+   [Ada]          gtk-handle_box.adb
+   [Ada]          gtk-icon_view.adb
+   [Ada]          gtk-clipboard.adb
+   [Ada]          gtk-aspect_frame.adb
+   [Ada]          glib-option.adb
+   [Ada]          glib-string.adb
+   [Ada]          gtk-cell_renderer_combo.adb
+   [Ada]          gtk-tree_row_reference.adb
+   [Ada]          gtk-print_context.adb
+   [Ada]          gtk-page_setup.adb
+   [Ada]          gtk-combo_box.adb
+   [Ada]          gtk-menu_item.adb
+   [Ada]          gtk-tool_item.adb
+   [Ada]          gtk-flow_box.adb
+   [Ada]          gtk-orientable.adb
+   [Ada]          gtk-image_menu_item.adb
+   [Ada]          gtk-print_settings.adb
+   [Ada]          gtk-volume_button.adb
+   [Ada]          gtk-header_bar.adb
+   [Ada]          gtk-tree_selection.adb
+   [Ada]          gtk-grange.adb
+   [Ada]          gtk-radio_tool_button.adb
+   [Ada]          gtk-cell_layout.adb
+   [Ada]          gtk-font_chooser_widget.adb
+   [Ada]          gtk-text_mark.adb
+   [Ada]          gtk-icon_theme.adb
+   [Ada]          gtk-toggle_action.adb
+   [Ada]          gtk-scale.adb
+   [Ada]          glib-action_map.adb
+   [Ada]          gtk-bin.adb
+   [Ada]          glib-simple_action.adb
+   [Ada]          gtk-buildable.adb
+   [Ada]          gtk-tree_model.adb
+   [Ada]          gtk-font_selection.adb
+   [Ada]          gtk-calendar.adb
+   [Ada]          gdk-seat.adb
+   [Ada]          pango-font_metrics.adb
+   [Ada]          gtk-tree_view_column.adb
+   [Ada]          gtk-adjustment.adb
+   [Ada]          gtk-file_chooser_widget.adb
+   [Ada]          gtk-tool_item_group.adb
+   [Ada]          gtk-gesture_rotate.adb
+   [Ada]          gtk-toggle_tool_button.adb
+   [Ada]          gdk-drawing_context.adb
+   [Ada]          gtk-file_chooser_button.adb
+   [Ada]          gtk-text_attributes.adb
+   [Ada]          gtk-expander.adb
+   [Ada]          gtk-switch.adb
+   [Ada]          gtk-gesture_drag.adb
+   [Ada]          gtk-menu_tool_button.adb
+   [Ada]          glib-action.adb
+   [Ada]          gtk-action_bar.adb
+   [Ada]          gtk-stock.adb
+   [Ada]          gtk-icon_set.adb
+   [Ada]          gtk-list_store.adb
+   [Ada]          gtk-cell_area_context.adb
+   [Ada]          gdk-display.adb
+   [Ada]          gtk-theming_engine.adb
+   [Ada]          gtk-selection_data.adb
+   [Ada]          gtk-file_chooser_dialog.adb
+   [Ada]          gtk-gesture_single.adb
+   [Ada]          gtk-gesture_swipe.adb
+   [Ada]          glib-action_group.adb
+   [Ada]          gtk-menu_shell.adb
+   [Ada]          gtk-cell_renderer_progress.adb
+   [Ada]          gtk-icon_factory.adb
+   [Ada]          gtk-recent_action.adb
+   [Ada]          gtk-scale_button.adb
+   [Ada]          gtk-text_tag.adb
+   [Ada]          gtk-drawing_area.adb
+   [Ada]          pango-layout.adb
+   [Ada]          gtk-target_list.adb
+   [Ada]          gtk-builder.adb
+   [Ada]          gtk-alignment.adb
+   [Ada]          glib-notification.adb
+   [Ada]          gtk-binding_set.adb
+   [Ada]          gtk-gesture.adb
+   [Ada]          glib-menu_model.adb
+   [Ada]          glib-utils.adb
+   [Ada]          gtk-viewport.adb
+   [Ada]          gtk-recent_filter.adb
+   [Ada]          gtk-list_box.adb
+   [Ada]          gtk-enums.adb
+   [Ada]          gtk-gradient.adb
+   [Ada]          gtk-cell_renderer_spin.adb
+   [Ada]          gtk-file_chooser.adb
+gtk-enums.adb:38:04: warning: possible aliasing problem for type "Chars_Ptr" [enabled by default]
+gtk-enums.adb:38:04: warning: use -fno-strict-aliasing switch for references [enabled by default]
+gtk-enums.adb:38:04: warning: or use "pragma No_Strict_Aliasing (Chars_Ptr);" [enabled by default]
+   [Ada]          gtk-tree_store.adb
+   [Ada]          pango-fontset.adb
+   [Ada]          gtk-ui_manager.adb
+   [Ada]          gtk-tree_sortable.adb
+   [Ada]          gtk-menu.adb
+   [Ada]          gtk-combo_box_text.adb
+   [Ada]          pango-font_map.adb
+   [Ada]          gtk-invisible.adb
+   [Ada]          gtk-application_window.adb
+   [Ada]          gtk-link_button.adb
+   [Ada]          gtk-im_context_simple.adb
+   [Ada]          gdk-device.adb
+   [Ada]          gtk-radio_button.adb
+   [Ada]          gtk-status_bar.adb
+   [Ada]          gtk-check_menu_item.adb
+   [Ada]          gtk-cell_area_box.adb
+   [Ada]          gtk-message_dialog.adb
+   [Ada]          gtk-shortcuts_window.adb
+   [Ada]          gdk-drag_contexts.adb
+   [Ada]          gtk-im_context.adb
+   [Ada]          gtk-font_button.adb
+   [Ada]          gtk-fixed.adb
+   [Ada]          glib-simple_action_group.adb
+   [Ada]          gdk-frame_clock.adb
+   [Ada]          pango-context.adb
+   [Ada]          gtk-file_filter.adb
+   [Ada]          pango-coverage.adb
+   [Ada]          gtk-separator_tool_item.adb
+   [Ada]          gtk-notebook.adb
+   [Ada]          gtk-tree_drag_dest.adb
+   [Ada]          gtk-print_operation_preview.adb
+   [Ada]          gtk-target_entry.adb
+   [Ada]          gtk-cell_area.adb
+   [Ada]          gtk-cell_editable.adb
+   [Ada]          gtk-check_button.adb
+   [Ada]          gtk-search_entry.adb
+   [Ada]          glib-spawn.adb
+   [Ada]          gtk-symbolic_color.adb
+   [Ada]          gtk-css_provider.adb
+   [Ada]          glib-poll.adb
+   [Ada]          gtk-text_buffer.adb
+   [Ada]          gtk-cell_renderer_accel.adb
+   [Ada]          gtk-about_dialog.adb
+   [Ada]          gdk-device_tool.adb
+   [Ada]          pango-language.adb
+   [Ada]          gtk-image.adb
+   [Ada]          gtk-color_selection_dialog.adb
+   [Ada]          gtk-separator.adb
+   [Ada]          gtk-scrolled_window.adb
+   [Ada]          gtk-spin_button.adb
+   [Ada]          gtk-misc.adb
+   [Ada]          gtk-flow_box_child.adb
+   [Ada]          gtk-separator_menu_item.adb
+   [Ada]          gtk-tearoff_menu_item.adb
+   [Ada]          glib-g_icon.adb
+   [Ada]          gtk-tree_drag_source.adb
+   [Ada]          pango-tabs.adb
+   [Ada]          gtk-search_bar.adb
+   [Ada]          gtk-button_box.adb
+   [Ada]          gtk-entry_buffer.adb
+   [Ada]          gdk-cursor.adb
+   [Ada]          gtk-application.adb
+   [Ada]          gtk-event_controller.adb
+   [Ada]          gtk-font_chooser.adb
+   [Ada]          gtk-gesture_multi_press.adb
+   [Ada]          gtk-progress_bar.adb
+   [Ada]          gtk-gentry.adb
+   [Ada]          gtk-color_chooser_widget.adb
+   [Ada]          gtk-icon_source.adb
+   [Ada]          gdk-monitor.adb
+   [Ada]          gtk-cell_renderer.adb
+   [Ada]          gtk-recent_chooser_widget.adb
+   [Ada]          gtk-color_selection.adb
+   [Ada]          gtk-actionable.adb
+   [Ada]          gtk-text_tag_table.adb
+   [Ada]          gdk-rgba.adb
+   [Ada]          gtk-accel_map.adb
+   [C]            misc_generated.c
+   [C]            misc.c
+   [Ada]          glib-time_zone.adb
+glib-time_zone.adb:243:07: warning: variable "Result" is assigned but never read [-gnatwm]
+glib-time_zone.adb:245:07: warning: possibly useless assignment to "Result", value might not be referenced [-gnatwm]
+glib-time_zone.ads:27:06: warning: unnecessary with of ancestor [-gnatwr]
+   [Ada]          gtk-widget-styles.adb
+/root/.local/share/alire/builds/gtkada_25.0.1_d3787772/8ba8e2781413e8a4400b4f378cd30565016a7b5929b7a80eece549321cc58bbe/src/misc.c: In function 'ada_g_module_build_path':
+/root/.local/share/alire/builds/gtkada_25.0.1_d3787772/8ba8e2781413e8a4400b4f378cd30565016a7b5929b7a80eece549321cc58bbe/src/misc.c:161:3: warning: 'g_module_build_path' is deprecated [-Wdeprecated-declarations]
+  161 |   return g_module_build_path (directory, module_name);
+      |   ^~~~~~
+In file included from /usr/include/glib-2.0/gio/giomodule.h:31,
+                 from /usr/include/glib-2.0/gio/gio.h:102,
+                 from /usr/include/gtk-3.0/gdk/gdkapplaunchcontext.h:28,
+                 from /usr/include/gtk-3.0/gdk/gdk.h:32,
+                 from /root/.local/share/alire/builds/gtkada_25.0.1_d3787772/8ba8e2781413e8a4400b4f378cd30565016a7b5929b7a80eece549321cc58bbe/src/misc.c:38:
+/usr/include/glib-2.0/gmodule.h:142:23: note: declared here
+  142 | gchar*                g_module_build_path    (const gchar  *directory,
+      |                       ^~~~~~~~~~~~~~~~~~~
+   [Ada]          gtk-widget-styles-store.adb
+   [Ada]          gdk-pixbuf-conversions.ads
+   [Ada]          glib-spawn_alt-text_bufferred.adb
+gdk-pixbuf-conversions.ads:33:06: warning: unnecessary with of ancestor [-gnatwr]
+   [Ada]          gio-drive.adb
+   [Ada]          gtk-enums-string_lists.adb
+   [Ada]          glib-object-strong_references.adb
+   [Ada]          gio-content_type.adb
+   [Ada]          glib-object-weak_references.adb
+glib-object-weak_references.adb:88:17: warning: formal parameter "Where_The_Object_Was" is not referenced [-gnatwf]
+   [Ada]          gtk-main-router-gnat_stack.adb
+gtk-widget-styles.ads:111:06: warning: unnecessary with of ancestor [-gnatwr]
+   [Ada]          gtk-tree_model-columned_store.adb
+glib-spawn_alt-text_bufferred.adb:121:17: warning: formal parameter "Process" is not referenced [-gnatwf]
+glib-spawn_alt-text_bufferred.ads:28:06: warning: unnecessary with of ancestor [-gnatwr]
+glib-spawn_alt-text_bufferred.ads:33:09: warning: no entities of "Gtk.Text_Iter" are referenced in spec [-gnatwu]
+glib-spawn_alt-text_bufferred.ads:33:09: warning: with clause might be moved to body [-gnatwu]
+glib-spawn_alt-text_bufferred.ads:34:16: warning: no entities of "Interfaces.C" are referenced [-gnatwu]
+   [Ada]          glib-spawn_alt.adb
+gtk-widget-styles-store.adb:35:09: warning: unit "Gtk.RC" is not referenced [-gnatwu]
+   [Ada]          gtk-generic_style_button.adb
+glib-spawn_alt.adb:28:10: warning: unit "GLib.Wrappers" is not referenced [-gnatwu]
+glib-spawn_alt.adb:29:12: warning: unit "System.Address_To_Access_Conversions" is not referenced [-gnatwu]
+glib-spawn_alt.adb:274:07: warning: variable "Result" is assigned but never read [-gnatwm]
+   [Ada]          gtk-handlers-references.adb
+gtk-main-router-gnat_stack.adb:113:48: warning: reference to obsolescent constant "Stock_Dialog_Info" declared at gtk-stock.ads:82 [-gnatwj]
+gtk-main-router-gnat_stack.adb:113:48: warning: Deprecated since 3.10 [-gnatwj]
+gtk-main-router-gnat_stack.adb:214:07: warning: variable "ID" is assigned but never read [-gnatwm]
+gtk-main-router-gnat_stack.adb:216:07: warning: possibly useless assignment to "ID", value might not be referenced [-gnatwm]
+gtk-main-router-gnat_stack.adb:257:07: warning: variable "ID" is assigned but never read [-gnatwm]
+gtk-main-router-gnat_stack.adb:259:07: warning: possibly useless assignment to "ID", value might not be referenced [-gnatwm]
+gtk-main-router-gnat_stack.ads:78:48: warning: reference to obsolescent constant "Stock_Dialog_Info" declared at gtk-stock.ads:82 [-gnatwj]
+gtk-main-router-gnat_stack.ads:78:48: warning: Deprecated since 3.10 [-gnatwj]
+   [Ada]          gdk-color-ihls.adb
+gtk-handlers-references.adb:63:43: warning: formal parameter "Closure" is not referenced [-gnatwf]
+   [Ada]          gtk-abstract_browser.adb
+gdk-color-ihls.adb:232:32: warning: condition can only be True if invalid values present [-gnatwc]
+gdk-color-ihls.adb:232:32: warning: condition is always False [-gnatwc]
+   [Ada]          gio-volume.adb
+   [Ada]          gtk-recent_manager_keys.adb
+   [Ada]          gtk-widget-styles-css_store.adb
+gtk-tree_model-columned_store.adb:48:04: warning: types for unchecked conversion have different sizes [-gnatwz]
+gtk-tree_model-columned_store.adb:48:04: warning: size of "Address" is 64, size of "Gint" is 32 [-gnatwz]
+gtk-tree_model-columned_store.adb:48:04: warning: 32 high order bits of source will be ignored [-gnatwz]
+gtk-tree_model-columned_store.adb:51:04: warning: types for unchecked conversion have different sizes [-gnatwz]
+gtk-tree_model-columned_store.adb:51:04: warning: size of "Gint" is 32, size of "Address" is 64 [-gnatwz]
+gtk-tree_model-columned_store.adb:51:04: warning: source will be extended with 32 high order sign bits [-gnatwz]
+gtk-tree_model-columned_store.adb:754:17: warning: formal parameter "Reference" is not referenced [-gnatwf]
+gtk-tree_model-columned_store.adb:871:17: warning: formal parameter "Reference" is not referenced [-gnatwf]
+gtk-tree_model-columned_store.adb:979:17: warning: formal parameter "Reference" is not referenced [-gnatwf]
+   [Ada]          gtk-widget-styles-icon_size.ads
+   [Ada]          gtk-tree_model-extension_store.adb
+gtk-recent_manager_keys.adb:216:07: warning: variable "Result" is assigned but never read [-gnatwm]
+gtk-recent_manager_keys.adb:218:07: warning: possibly useless assignment to "Result", value might not be referenced [-gnatwm]
+   [Ada]          gtk-tree_model-abstract_store.adb
+   [Ada]          glib-properties-relief_style.ads
+glib-properties-relief_style.ads:36:04: warning: in instantiation at glib-generic_properties.adb:60 [-gnatwz]
+glib-properties-relief_style.ads:36:04: warning: types for unchecked conversion have different sizes [-gnatwz]
+glib-properties-relief_style.ads:36:04: warning: size of "Enumeration" is 2, size of "Gint" is 32 [-gnatwz]
+glib-properties-relief_style.ads:36:04: warning: source will be extended with 30 high order zero bits [-gnatwz]
+   [Ada]          glib-object-checked_destroy.adb
+   [Ada]          gtk-cell_renderer_fixed.adb
+gtk-tree_model-extension_store.adb:34:09: warning: unit "Ada.Unchecked_Conversion" is never instantiated [-gnatwu]
+gtk-tree_model-extension_store.adb:466:17: warning: formal parameter "Reference" is not referenced [-gnatwf]
+gtk-tree_model-extension_store.adb:499:17: warning: formal parameter "Reference" is not referenced [-gnatwf]
+gtk-tree_model-extension_store.adb:528:17: warning: formal parameter "Reference" is not referenced [-gnatwf]
+gtk-tree_model-extension_store.adb:572:17: warning: formal parameter "Reference" is not referenced [-gnatwf]
+   [Ada]          glib-wrappers.adb
+glib-wrappers.adb:49:13: warning: function "G_Find_Program_In_Path" is not referenced [-gnatwu]
+glib-wrappers.adb:267:27: warning: formal parameter "Mode" is not referenced [-gnatwf]
+   [Ada]          gtk-generic_enum_combo_box.adb
+gtk-tree_model-abstract_store.adb:129:09: warning: type "Proc_Table" is not referenced [-gnatwu]
+gtk-tree_model-abstract_store.adb:663:17: warning: formal parameter "Iface_Data" is not referenced [-gnatwf]
+gtk-tree_model-abstract_store.adb:1041:07: warning: variable "ID" is assigned but never read [-gnatwm]
+gtk-tree_model-abstract_store.adb:1071:16: warning: use of an anonymous access type allocator [-gnatw_a]
+gtk-tree_model-abstract_store.adb:1092:13: warning: use of an anonymous access type allocator [-gnatw_a]
+   [Ada]          gtk-tree_model-generic_sort.adb
+gtk-generic_enum_combo_box.adb:128:07: warning: use clause for type "Gint" defined at glib.ads:49 has no effect [-gnatwu]
+   [Ada]          glib-object-ref_count.adb
+gtk-tree_model-generic_sort.adb:32:14: warning: procedure "Ref" is not referenced [-gnatwu]
+gtk-tree_model-generic_sort.adb:34:14: warning: procedure "Unref" is not referenced [-gnatwu]
+gtk-tree_model-generic_sort.adb:216:16: warning: formal parameter "Model" is not referenced [-gnatwf]
+gtk-tree_model-generic_sort.adb:250:07: warning: variable "Result" is assigned but never read [-gnatwm]
+gtk-tree_model-generic_sort.adb:254:07: warning: possibly useless assignment to "Result", value might not be referenced [-gnatwm]
+   [Ada]          gtk-main-router.adb
+   [Ada]          gtk-handlers-generic_callback.adb
+gtk-cell_renderer_fixed.adb:119:16: warning: formal parameter "Event" is not referenced [-gnatwf]
+   [Ada]          gdk-pixbuf-image.adb
+gtk-handlers-generic_callback.adb:125:17: warning: formal parameter "Closure" is not referenced [-gnatwf]
+gtk-handlers-generic_callback.adb:129:17: warning: formal parameter "Invocation_Hint" is not referenced [-gnatwf]
+gtk-handlers-generic_callback.adb:175:17: warning: formal parameter "Closure" is not referenced [-gnatwf]
+gtk-handlers-generic_callback.adb:194:07: warning: variable "ID" is assigned but never read [-gnatwm]
+gtk-handlers-generic_callback.adb:196:07: warning: possibly useless assignment to "ID", value might not be referenced [-gnatwm]
+   [Ada]          gtk-widget-styles-relief_style.ads
+gdk-pixbuf-image.adb:56:07: warning: types for unchecked conversion have different sizes [-gnatwz]
+gdk-pixbuf-image.adb:56:07: warning: size of "Rgb_Pixel_Ptr" is 64, size of "Guchar_Array_Access" is 128 [-gnatwz]
+gdk-pixbuf-image.adb:56:07: warning: 64 trailing bits of target value will be undefined [-gnatwz]
+gdk-pixbuf-image.adb:91:07: warning: call to obsolescent procedure "Draw_Pixbuf" declared at gtkada-style.ads:215 [-gnatwj]
+gdk-pixbuf-image.adb:91:07: warning: Use Draw_Pixbuf_With_Scale instead [-gnatwj]
+gdk-pixbuf-image.adb:254:13: warning: function "not" is not referenced [-gnatwu]
+   [Ada]          gtk-widget-styles-generic_enumeration.adb
+gtk-abstract_browser.adb:739:07: warning: variable "Recurse" is not referenced [-gnatwu]
+gtk-abstract_browser.adb:805:14: warning: procedure "Changed" is not referenced [-gnatwu]
+gtk-abstract_browser.adb:974:27: warning: writable actual for "Row" overlaps with actual for "Result" [-gnatw.i]
+gtk-abstract_browser.adb:1049:17: warning: formal parameter "Object" is not referenced [-gnatwf]
+gtk-abstract_browser.adb:1057:17: warning: formal parameter "Object" is not referenced [-gnatwf]
+gtk-abstract_browser.adb:1083:17: warning: formal parameter "Object" is not referenced [-gnatwf]
+gtk-abstract_browser.adb:1101:17: warning: formal parameter "Object" is not referenced [-gnatwf]
+gtk-abstract_browser.adb:1145:17: warning: formal parameter "Object" is not referenced [-gnatwf]
+gtk-abstract_browser.adb:1149:07: warning: variable "Wait" is not referenced [-gnatwu]
+gtk-abstract_browser.adb:1194:17: warning: formal parameter "Object" is not referenced [-gnatwf]
+gtk-abstract_browser.adb:1198:07: warning: variable "Wait" is not referenced [-gnatwu]
+gtk-abstract_browser.adb:1214:17: warning: formal parameter "Object" is not referenced [-gnatwf]
+gtk-abstract_browser.adb:1239:17: warning: formal parameter "Object" is not referenced [-gnatwf]
+gtk-abstract_browser.adb:1453:12: warning: variable "Error" is not referenced [-gnatwu]
+gtk-abstract_browser.adb:1716:16: warning: formal parameter "Store" is not referenced [-gnatwf]
+gtk-abstract_browser.adb:1774:07: warning: use clause for package "Strings" has no effect [-gnatwu]
+gtk-abstract_browser.adb:1996:28: warning: reference to obsolescent constant "Stock_Stop" declared at gtk-stock.ads:313 [-gnatwj]
+gtk-abstract_browser.adb:1996:28: warning: Deprecated since 3.10 [-gnatwj]
+gtk-abstract_browser.adb:1996:47: warning: reference to obsolescent constant "Stock_Stop" declared at gtk-stock.ads:313 [-gnatwj]
+gtk-abstract_browser.adb:1996:47: warning: Deprecated since 3.10 [-gnatwj]
+gtk-abstract_browser.adb:1997:38: warning: reference to obsolescent constant "Stock_Directory" declared at gtk-stock.ads:91 [-gnatwj]
+gtk-abstract_browser.adb:1997:38: warning: Deprecated since 3.10 [-gnatwj]
+gtk-abstract_browser.adb:1998:28: warning: reference to obsolescent constant "Stock_Open" declared at gtk-stock.ads:229 [-gnatwj]
+gtk-abstract_browser.adb:1998:28: warning: Deprecated since 3.10 [-gnatwj]
+gtk-abstract_browser.adb:1998:47: warning: reference to obsolescent constant "Stock_Open" declared at gtk-stock.ads:229 [-gnatwj]
+gtk-abstract_browser.adb:1998:47: warning: Deprecated since 3.10 [-gnatwj]
+gtk-abstract_browser.adb:2013:13: warning: reference to obsolescent constant "Stock_Dialog_Error" declared at gtk-stock.ads:79 [-gnatwj]
+gtk-abstract_browser.adb:2013:13: warning: Deprecated since 3.10 [-gnatwj]
+gtk-abstract_browser.adb:2014:13: warning: reference to obsolescent constant "Stock_Dialog_Error" declared at gtk-stock.ads:79 [-gnatwj]
+gtk-abstract_browser.adb:2014:13: warning: Deprecated since 3.10 [-gnatwj]
+gtk-abstract_browser.adb:2030:28: warning: reference to obsolescent constant "Stock_Cancel" declared at gtk-stock.ads:43 [-gnatwj]
+gtk-abstract_browser.adb:2030:28: warning: Deprecated since 3.10 [-gnatwj]
+gtk-abstract_browser.adb:2030:49: warning: reference to obsolescent constant "Stock_Cancel" declared at gtk-stock.ads:43 [-gnatwj]
+gtk-abstract_browser.adb:2030:49: warning: Deprecated since 3.10 [-gnatwj]
+gtk-abstract_browser.adb:2041:28: warning: reference to obsolescent constant "Stock_Cancel" declared at gtk-stock.ads:43 [-gnatwj]
+gtk-abstract_browser.adb:2041:28: warning: Deprecated since 3.10 [-gnatwj]
+gtk-abstract_browser.adb:2041:49: warning: reference to obsolescent constant "Stock_Cancel" declared at gtk-stock.ads:43 [-gnatwj]
+gtk-abstract_browser.adb:2041:49: warning: Deprecated since 3.10 [-gnatwj]
+gtk-abstract_browser.adb:2130:07: warning: use clause for package "Strings" has no effect [-gnatwu]
+gtk-abstract_browser.adb:2703:13: warning: function "Get_Visible_Width" is not referenced [-gnatwu]
+gtk-abstract_browser.adb:2873:10: warning: variable "Column_No" is assigned but never read [-gnatwm]
+gtk-abstract_browser.adb:2965:10: warning: variable "Column_No" is assigned but never read [-gnatwm]
+gtk-abstract_browser.adb:3185:17: warning: formal parameter "Object" is not referenced [-gnatwf]
+gtk-abstract_browser.adb:3209:17: warning: formal parameter "Object" is not referenced [-gnatwf]
+gtk-abstract_browser.adb:3210:17: warning: formal parameter "Params" is not referenced [-gnatwf]
+gtk-abstract_browser.adb:3240:17: warning: formal parameter "Object" is not referenced [-gnatwf]
+gtk-abstract_browser.adb:3263:17: warning: formal parameter "Object" is not referenced [-gnatwf]
+gtk-abstract_browser.adb:3296:17: warning: formal parameter "Object" is not referenced [-gnatwf]
+gtk-abstract_browser.adb:3374:16: warning: formal parameter "Object" is not referenced [-gnatwf]
+gtk-abstract_browser.adb:3593:22: warning: variable "Wait" is not referenced [-gnatwu]
+gtk-abstract_browser.adb:4615:07: warning: variable "Wait" is not referenced [-gnatwu]
+gtk-abstract_browser.adb:4726:17: warning: formal parameter "Column" is not referenced [-gnatwf]
+gtk-abstract_browser.adb:4728:17: warning: formal parameter "Cell" is not referenced [-gnatwf]
+gtk-abstract_browser.adb:4749:16: warning: call to obsolescent procedure "Get_Background_Color" declared at gtk-style_context.ads:229 [-gnatwj]
+gtk-abstract_browser.adb:4756:16: warning: call to obsolescent procedure "Get_Background_Color" declared at gtk-style_context.ads:229 [-gnatwj]
+gtk-abstract_browser.adb:4769:10: warning: variable "Path" is not referenced [-gnatwu]
+gtk-abstract_browser.adb:4925:07: warning: variable "Wait" is not referenced [-gnatwu]
+gtk-abstract_browser.adb:5294:17: warning: formal parameter "Column" is not referenced [-gnatwf]
+gtk-abstract_browser.adb:5297:17: warning: formal parameter "Model" is not referenced [-gnatwf]
+gtk-abstract_browser.adb:5359:17: warning: formal parameter "Column" is not referenced [-gnatwf]
+gtk-abstract_browser.adb:5362:17: warning: formal parameter "Model" is not referenced [-gnatwf]
+gtk-abstract_browser.adb:5586:16: warning: formal parameter "Store" is not referenced [-gnatwf]
+gtk-abstract_browser.ads:83:09: warning: unit "Ada.Unchecked_Conversion" is never instantiated [-gnatwu]
+   [Ada]          glib-spawn_alt-asynchronous.adb
+   [Ada]          gtk-cell_renderer-abstract_renderer.adb
+gtk-widget-styles-generic_enumeration.adb:45:16: warning: formal parameter "PSpec" is not referenced [-gnatwf]
+   [Ada]          glib-chars_ptr_vectors.adb
+   [Ada]          gtk-missed.adb
+gtk-main-router.adb:63:09: warning: unit "Ada.Unchecked_Conversion" is not referenced [-gnatwu]
+gtk-main-router.adb:367:16: warning: formal parameter "Item" is not modified [-gnatwk]
+gtk-main-router.adb:367:16: warning: mode could be "in" instead of "in out" [-gnatwk]
+gtk-main-router.adb:431:16: warning: variable "ID" is assigned but never read [-gnatwm]
+gtk-main-router.adb:570:34: warning: reference to obsolescent constant "Stock_Close" declared at gtk-stock.ads:55 [-gnatwj]
+gtk-main-router.adb:570:34: warning: Deprecated since 3.10 [-gnatwj]
+gtk-main-router.adb:650:13: warning: variable "ID" is assigned but never read [-gnatwm]
+gtk-main-router.adb:787:48: warning: reference to obsolescent constant "Stock_Dialog_Info" declared at gtk-stock.ads:82 [-gnatwj]
+gtk-main-router.adb:787:48: warning: Deprecated since 3.10 [-gnatwj]
+gtk-main-router.adb:933:10: warning: variable "Location" is assigned but never read [-gnatwm]
+gtk-main-router.adb:982:13: warning: reference to obsolescent entity "Get_Font" declared at gtk-style_context.ads:301 [-gnatwj]
+gtk-main-router.adb:982:13: warning: call to obsolescent function "Get_Font" declared at gtk-style_context.ads:301 [-gnatwj]
+gtk-main-router.adb:988:28: warning: call to obsolescent procedure "Stock_Find" declared at gtk-stock.ads:115 [-gnatwj]
+gtk-main-router.adb:988:28: warning: Deprecated since 3.10 [-gnatwj]
+gtk-main-router.adb:989:18: warning: call to obsolescent procedure "Set_Image" declared at gtk-image_menu_item.ads:236 [-gnatwj]
+gtk-main-router.adb:1012:22: error: no selector "Get_Iter_At_Location" for type "Gtk_Text_View_Record'Class" defined at gtk-text_view.ads:73
+gtk-main-router.adb:1077:28: warning: call to obsolescent procedure "Stock_Jump_To" declared at gtk-stock.ads:172 [-gnatwj]
+gtk-main-router.adb:1077:28: warning: Deprecated since 3.10 [-gnatwj]
+gtk-main-router.adb:1078:18: warning: call to obsolescent procedure "Set_Image" declared at gtk-image_menu_item.ads:236 [-gnatwj]
+gtk-main-router.adb:1185:26: warning: call to obsolescent function "Get_Action_Area" declared at gtk-dialog.ads:273 [-gnatwj]
+gtk-main-router.adb:1195:31: warning: reference to obsolescent constant "Stock_Media_Next" declared at gtk-stock.ads:193 [-gnatwj]
+gtk-main-router.adb:1195:31: warning: Deprecated since 3.10 [-gnatwj]
+gtk-main-router.adb:1204:31: warning: reference to obsolescent constant "Stock_Media_Record" declared at gtk-stock.ads:205 [-gnatwj]
+gtk-main-router.adb:1204:31: warning: Deprecated since 3.10 [-gnatwj]
+gtk-main-router.adb:1212:31: warning: reference to obsolescent constant "Stock_Quit" declared at gtk-stock.ads:274 [-gnatwj]
+gtk-main-router.adb:1212:31: warning: Deprecated since 3.10 [-gnatwj]
+gtk-main-router.ads:295:48: warning: reference to obsolescent constant "Stock_Dialog_Info" declared at gtk-stock.ads:82 [-gnatwj]
+gtk-main-router.ads:295:48: warning: Deprecated since 3.10 [-gnatwj]
+gtk-cell_renderer-abstract_renderer.adb:637:17: warning: formal parameter "Return_Value" is not referenced [-gnatwf]
+gtk-cell_renderer-abstract_renderer.adb:638:17: warning: formal parameter "N_Params" is not referenced [-gnatwf]
+gtk-cell_renderer-abstract_renderer.adb:640:17: warning: formal parameter "Invocation_Hint" is not referenced [-gnatwf]
+gtk-cell_renderer-abstract_renderer.adb:641:17: warning: formal parameter "User_Data" is not referenced [-gnatwf]
+gtk-cell_renderer-abstract_renderer.adb:1014:07: warning: variable "Commit_ID" is assigned but never read [-gnatwm]
+gtk-cell_renderer-abstract_renderer.adb:1015:07: warning: variable "Parent" is not referenced [-gnatwu]
+gtk-cell_renderer-abstract_renderer.adb:1036:16: warning: use of an anonymous access type allocator [-gnatw_a]
+glib-spawn_alt-asynchronous.adb:212:17: warning: formal parameter "Process" is not referenced [-gnatwf]
+glib-spawn_alt-asynchronous.adb:213:17: warning: formal parameter "Data" is not referenced [-gnatwf]
+glib-spawn_alt-asynchronous.adb:221:17: warning: formal parameter "PID" is not referenced [-gnatwf]
+glib-spawn_alt-asynchronous.ads:43:16: warning: no entities of "Interfaces.C" are referenced in spec [-gnatwu]
+glib-spawn_alt-asynchronous.ads:43:16: warning: with clause might be moved to body [-gnatwu]
+gtk-main-router.adb:1012:22: error: no selector "Get_Iter_At_Location" for type "Gtk_Text_View_Record'Class" defined at gtk-text_view.ads:73
+gtk-missed.adb:51:10: warning: unit "Glib.Wrappers" is not referenced [-gnatwu]
+gtk-missed.adb:141:07: warning: variable "Button" is assigned but never read [-gnatwm]
+gtk-missed.adb:143:07: warning: possibly useless assignment to "Button", value might not be referenced [-gnatwm]
+gtk-missed.adb:210:07: warning: variable "Result" is assigned but never read [-gnatwm]
+gtk-missed.adb:235:10: warning: call to obsolescent procedure "Set_Pixbuf" declared at gtk-icon_source.ads:221 [-gnatwj]
+gtk-missed.adb:236:17: warning: call to obsolescent procedure "Set_Size" declared at gtk-icon_source.ads:236 [-gnatwj]
+gtk-missed.adb:237:17: warning: call to obsolescent procedure "Set_Size_Wildcarded" declared at gtk-icon_source.ads:253 [-gnatwj]
+gtk-missed.adb:238:14: warning: call to obsolescent procedure "Add_Source" declared at gtk-icon_set.ads:110 [-gnatwj]
+gtk-missed.adb:239:10: warning: call to obsolescent procedure "Free" declared at gtk-icon_source.ads:136 [-gnatwj]
+gtk-missed.adb:349:16: warning: formal parameter "Model" is not referenced [-gnatwf]
+gtk-missed.adb:458:16: warning: formal parameter "Widget" is not referenced [-gnatwf]
+gtk-missed.adb:459:16: warning: formal parameter "Event" is not referenced [-gnatwf]
+gtk-missed.adb:466:17: warning: formal parameter "Widget" is not referenced [-gnatwf]
+gtk-missed.adb:912:16: warning: formal parameter "Model" is not referenced [-gnatwf]
+gtk-missed.adb:976:07: warning: variable "Result" is assigned but never read [-gnatwm]
+gtk-missed.adb:978:07: warning: possibly useless assignment to "Result", value might not be referenced [-gnatwm]
+gtk-missed.adb:985:07: warning: variable "Active" is assigned but never read [-gnatwm]
+gtk-missed.adb:1060:16: warning: formal parameter "Model" is not referenced [-gnatwf]
+gtk-missed.adb:1148:16: warning: formal parameter "Model" is not referenced [-gnatwf]
+gtk-missed.adb:1229:16: warning: formal parameter "Model" is not referenced [-gnatwf]
+gtk-missed.adb:1329:54: warning: reference to obsolescent constant "Stock_Dialog_Error" declared at gtk-stock.ads:79 [-gnatwj]
+gtk-missed.adb:1329:54: warning: Deprecated since 3.10 [-gnatwj]
+gtk-missed.adb:1333:16: warning: function "Get_Title" is not referenced [-gnatwu]
+gtk-missed.adb:1337:23: warning: reference to obsolescent constant "Stock_Dialog_Error" declared at gtk-stock.ads:79 [-gnatwj]
+gtk-missed.adb:1337:23: warning: Deprecated since 3.10 [-gnatwj]
+gtk-missed.adb:1339:23: warning: reference to obsolescent constant "Stock_Dialog_Info" declared at gtk-stock.ads:82 [-gnatwj]
+gtk-missed.adb:1339:23: warning: Deprecated since 3.10 [-gnatwj]
+gtk-missed.adb:1341:23: warning: reference to obsolescent constant "Stock_Dialog_Question" declared at gtk-stock.ads:85 [-gnatwj]
+gtk-missed.adb:1341:23: warning: Deprecated since 3.10 [-gnatwj]
+gtk-missed.adb:1343:23: warning: reference to obsolescent constant "Stock_Dialog_Warning" declared at gtk-stock.ads:88 [-gnatwj]
+gtk-missed.adb:1343:23: warning: Deprecated since 3.10 [-gnatwj]
+gtk-missed.adb:1374:17: warning: reference to obsolescent constant "Stock_Dialog_Question" declared at gtk-stock.ads:85 [-gnatwj]
+gtk-missed.adb:1374:17: warning: Deprecated since 3.10 [-gnatwj]
+gtk-missed.adb:1378:25: warning: reference to obsolescent constant "Stock_Yes" declared at gtk-stock.ads:331 [-gnatwj]
+gtk-missed.adb:1378:25: warning: Deprecated since 3.10 [-gnatwj]
+gtk-missed.adb:1384:25: warning: reference to obsolescent constant "Stock_Cancel" declared at gtk-stock.ads:43 [-gnatwj]
+gtk-missed.adb:1384:25: warning: Deprecated since 3.10 [-gnatwj]
+gtk-missed.adb:1391:25: warning: reference to obsolescent constant "Stock_Ok" declared at gtk-stock.ads:226 [-gnatwj]
+gtk-missed.adb:1391:25: warning: Deprecated since 3.10 [-gnatwj]
+gtk-missed.adb:1524:14: warning: procedure "Set_Property" is not referenced [-gnatwu]
+gtk-missed.adb:1761:26: warning: call to obsolescent function "Render_Icon_Pixbuf" declared at gtk-icon_set.ads:182 [-gnatwj]
+gtk-missed.adb:1854:07: warning: named number "SEM_NOALIGNMENTFAULTEXCEPT" is not referenced [-gnatwu]
+gtk-missed.adb:1865:07: warning: variable "Result" is assigned but never read [-gnatwm]
+gtk-missed.adb:1867:07: warning: possibly useless assignment to "Result", value might not be referenced [-gnatwm]
+gtk-missed.ads:816:54: warning: reference to obsolescent constant "Stock_Dialog_Error" declared at gtk-stock.ads:79 [-gnatwj]
+gtk-missed.ads:816:54: warning: Deprecated since 3.10 [-gnatwj]
+
+   compilation of glib-spawn_alt-asynchronous.adb failed
+   compilation of gtk-main-router.adb failed
+
+gprbuild: *** compilation phase failed
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/c18269ca-4b4b-4af1-bcdf-4520373d208d/aicwl_3.24.1_73939c9e/sources/aicwl.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+ERROR: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/c18269ca-4b4b-4af1-bcdf-4520373d208d/aicwl_3.24.1_73939c9e/sources/aicwl.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+stderr: ALIRE.CHECKED_ERROR
+stderr: Command ["gprbuild", "-s", "-j0", "-p", "-P", "/home/runner/work/alire-crates-ci/alire-crates-ci/test/c18269ca-4b4b-4af1-bcdf-4520373d208d/aicwl_3.24.1_73939c9e/sources/aicwl.gpr", "-cargs:Ada", "-gnatwn"] exited with code 4
+stderr: raised ALIRE.CHECKED_ERROR : alire-stored-error:1
+[/usr/bin/alr]
+0xe75bc6 Alire.Raise_Checked_Error at alire.adb:284
+0xac1a54 Alire.Os_Lib.Subprocess.Checked_Spawn at alire-os_lib-subprocess.adb:111
+0xd40276 Alire.Spawn.Command at alire-spawn.adb:22
+0xd412ee Alire.Spawn.Gprbuild at alire-spawn.adb:68
+0xc748cb Alire.Roots.Build at alire-roots.adb:189
+0xc7301a Alire.Roots.Build at alire-roots.adb:255
+0xc9832b Alire.Roots.Traverse at alire-roots.adb:2143
+0xcfee85 Alire.Solutions.Traverse.Visit at alire-solutions.adb:1472
+0xcfdfcc Alire.Solutions.Traverse at alire-solutions.adb:1555
+0xc9841e Alire.Roots.Traverse at alire-roots.adb:2147
+0xc984dd Alire.Roots.Traverse at alire-roots.adb:2127
+0xc7359b Alire.Roots.Build at alire-roots.adb:286
+0xc736d7 Alire.Roots.Build at alire-roots.adb:114
+0x49aa0d Alr.Commands.Build.Execute at alr-commands-build.adb:145
+0x49a36d Alr.Commands.Build.Execute at alr-commands-build.adb:113
+0x49a51f Alr.Commands.Build.Execute at alr-commands-build.adb:54
+0x53bbcc Alr.Commands.Sub_Cmd.Execute at clic-subcommand-instance.adb:749
+0x5472be Alr.Commands.Execute at alr-commands.adb:632
+0x43d48a Alr.Main at alr-main.adb:13
+0x4403a3 Main at b__alr-main.adb:2445
+[/lib64/libc.so.6]
+0x7f600baa8086
+0x7f600baa8149
+[/usr/bin/alr]
+0x43d323 _start at ???
+0xfffffffffffffffe
+
+stderr: ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED
+stderr: alire-roots.adb:202
+stderr: raised ALIRE.ROOTS.BUILD._WRAPPED_STATEMENTS.BUILD_FAILED : alire-roots.adb:202
+[/usr/bin/alr]
+0xc74cc7 Alire.Roots.Build at alire-roots.adb:202
+0xc7301a Alire.Roots.Build at alire-roots.adb:255
+0xc9832b Alire.Roots.Traverse at alire-roots.adb:2143
+0xcfee85 Alire.Solutions.Traverse.Visit at alire-solutions.adb:1472
+0xcfdfcc Alire.Solutions.Traverse at alire-solutions.adb:1555
+0xc9841e Alire.Roots.Traverse at alire-roots.adb:2147
+0xc984dd Alire.Roots.Traverse at alire-roots.adb:2127
+0xc7359b Alire.Roots.Build at alire-roots.adb:286
+0xc736d7 Alire.Roots.Build at alire-roots.adb:114
+0x49aa0d Alr.Commands.Build.Execute at alr-commands-build.adb:145
+0x49a36d Alr.Commands.Build.Execute at alr-commands-build.adb:113
+0x49a51f Alr.Commands.Build.Execute at alr-commands-build.adb:54
+0x53bbcc Alr.Commands.Sub_Cmd.Execute at clic-subcommand-instance.adb:749
+0x5472be Alr.Commands.Execute at alr-commands.adb:632
+0x43d48a Alr.Main at alr-main.adb:13
+0x4403a3 Main at b__alr-main.adb:2445
+[/lib64/libc.so.6]
+0x7f600baa8086
+0x7f600baa8149
+[/usr/bin/alr]
+0x43d323 _start at ???
+0xfffffffffffffffe
+
+ERROR: Compilation failed.
