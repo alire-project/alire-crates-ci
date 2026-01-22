@@ -82,6 +82,9 @@ def test_one(crate):
                        capture_output=True,
                        text=True
                       ).stdout
+        # TODO: Check for GLIBC/gprbuild issues with the toolchain used in this crate's solution
+        # Similar to run-tests.sh check but using: alr exec -- gprbuild --version
+        # If check fails (GLIBC not found), mark as SKIP and skip the alr test command
         run(["alr", "--non-interactive", "--no-tty", "test", "--redo", f"{crate.crate}={crate.version}"])
         duration = time.monotonic() - start
 
